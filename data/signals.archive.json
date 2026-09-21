@@ -1,0 +1,3238 @@
+{
+  "generated_at": "2026-09-21T02:48:30Z",
+  "lookback_days": 365,
+  "source_mode": "seed_plus_capture",
+  "competitors": [
+    "Jeppesen",
+    "Lufthansa Systems",
+    "Aviobook",
+    "Bytron Skybook",
+    "Navblue",
+    "IFS",
+    "Others"
+  ],
+  "signals": [
+    {
+      "id": "cap-71365b84a950",
+      "competitor": "Bytron Skybook",
+      "date": "2026-09-18",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Instant messaging connects dispatchers and pilots directly through the EFB, with notifications for important\u2026",
+      "summary": "Instant messaging connects dispatchers and pilots directly through the EFB, with notifications for important updates like ATC changes, critical NOTAMs, loadsheets or NOTOCs. #EFB #aviation #avgeek #aviationindustry linkedin.com",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQRXVpRjgtdm1GUFR2dkRnbVJvMmcxME9WdlRMWi1CNDg5LUxHYmphU1hjQ1RObmdILWEzdVBfOUVkcFJKT0N1UW50YzlwR1ZvbERtUkxYT0ZYa25aaV93a0JRR2xURW9lRURzbTctYV9HdlI0OUo0S3FZZ0NpR1J2a1piTHJqdUo5bFRnTTJFM3B3NGdoejhRNVQwLTFPQQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-0384fbd2ed67",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-10",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "\"\ud835\udddc\ud835\ude01 \ud835\uddf3\ud835\uddf2\ud835\uddf2\ud835\uddf9\ud835\ude00 \ud835\uddf9\ud835\uddf6\ud835\uddf8\ud835\uddf2 \ud835\uddee \ud835\uddfd\ud835\uddee\ud835\uddff\ud835\ude01\ud835\uddfb\ud835\uddf2\ud835\uddff\ud835\ude00\ud835\uddf5\ud835\uddf6\ud835\uddfd.\"That's how KLM Royal Dutch Airlines project manager and flight\u2026",
+      "summary": "\"\ud835\udddc\ud835\ude01 \ud835\uddf3\ud835\uddf2\ud835\uddf2\ud835\uddf9\ud835\ude00 \ud835\uddf9\ud835\uddf6\ud835\uddf8\ud835\uddf2 \ud835\uddee \ud835\uddfd\ud835\uddee\ud835\uddff\ud835\ude01\ud835\uddfb\ud835\uddf2\ud835\uddff\ud835\ude00\ud835\uddf5\ud835\uddf6\ud835\uddfd.\"That's how KLM Royal Dutch Airlines project manager and flight dispatch instructor Hans Dijkman describes working with Lufthansa Systems.In this customer testimonial, learn how Lido Flight 4D IFS supports dispatch teams with integrated workflows, a modern user experience, and operational efficiencies that matter.\u25b6\ufe0f Watch the full video on YouTube\u2026",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7503425432659169280"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-cb2fca77cee3",
+      "competitor": "IFS",
+      "date": "2026-09-10",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Excited to welcome MY FREIGHTER (Centrum Air), Central Asia's largest air cargo operator, to\u2026",
+      "summary": "Excited to welcome MY FREIGHTER (Centrum Air), Central Asia's largest air cargo operator, to the EFBOne platform.A big thank you to their operational and flight technical teams for the outstanding collaboration on this project.https://lnkd.in/eZ4A7TdR \u2026more",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "IFS EFBOne",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7503397509013180416"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-4c94bfb370a8",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-10",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "40 Lido Talks. 40 Opportunities to Learn, Be Inspired and Gain New Perspectives. Four\u2026",
+      "summary": "40 Opportunities to Learn, Be Inspired and Gain New Perspectives. Four years ago, we launched the Lido Talks at Lufthansa Systems in Zurich with a simple idea: creating informal opportunities for our team to learn from people with different exp <",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOR1QyWVBmLWRnMlNPYk1Ea29qZ1BrSmN3NlU5UlZfU19HT2pFdzhXeEs0TUVWOXU1OHBrSERvd3dhcVRUWXMxUDcxRDFpX2FHT1BEREl1WFp0RnFoWXk1d3hhWTctUjZzQXh1aTgwX183dTVwTzRCMldRZkdlMnRiRDBGV05kZWpzakJHZENtRVl6d2hDRFZMbnY2SFc3SGI3Mk5RNXlhTG1RYmdqdXlJeDc4ZUx6N293Qmc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-cad0ad912b4e",
+      "competitor": "Bytron Skybook",
+      "date": "2026-09-10",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "On the skybook EFB application, pilots can: \ud83d\udcc4 R",
+      "summary": "\u2708\ufe0f Receiving them. On the skybook EFB application, pilots can: \ud83d\udcc4 R linkedin.com</fon",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMEdWX2g1V0dQTlozOER0YWtJeHV4Sl9Fa2ZlanZmVkRqM2sySWZFOXZGSXZzXzRraUNLSy15ckhKclRQOWw3VDYyS1F3QkVRSU9nS0FlYTBtYmpWRF9lVVM5ZHBMeWlnbFlOZExmaU9GQ0FLTUhITzlIVDBqa21xTUdYX1F0T2JDcnBtNUd3V3lZeG9sTEw3b0VRb2N0dw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-16f3824401f5",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-09",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "\ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\uddff\ud835\uddf6\ud835\uddf4\ud835\uddf5\ud835\ude01 \ud835\uddf6\ud835\uddfb\ud835\uddf3\ud835\uddfc\ud835\uddff\ud835\uddfa\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb \ud835\uddee\ud835\ude01 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddff\ud835\uddf6\ud835\uddf4\ud835\uddf5\ud835\ude01 \ud835\uddfa\ud835\uddfc\ud835\uddfa\ud835\uddf2\ud835\uddfb\ud835\ude01 \ud835\uddf0\ud835\uddee\ud835\uddfb \ud835\uddfa\ud835\uddee\ud835\uddf8\ud835\uddf2 \ud835\uddee\ud835\uddf9\ud835\uddf9 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddf1\ud835\uddf6\ud835\uddf3\ud835\uddf3\ud835\uddf2\ud835\uddff\ud835\uddf2\ud835\uddfb\ud835\uddf0\ud835\uddf2.The latest release of Lido mPilot 7.3 enhances the A",
+      "summary": "\ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\uddff\ud835\uddf6\ud835\uddf4\ud835\uddf5\ud835\ude01 \ud835\uddf6\ud835\uddfb\ud835\uddf3\ud835\uddfc\ud835\uddff\ud835\uddfa\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb \ud835\uddee\ud835\ude01 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddff\ud835\uddf6\ud835\uddf4\ud835\uddf5\ud835\ude01 \ud835\uddfa\ud835\uddfc\ud835\uddfa\ud835\uddf2\ud835\uddfb\ud835\ude01 \ud835\uddf0\ud835\uddee\ud835\uddfb \ud835\uddfa\ud835\uddee\ud835\uddf8\ud835\uddf2 \ud835\uddee\ud835\uddf9\ud835\uddf9 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddf1\ud835\uddf6\ud835\uddf3\ud835\uddf3\ud835\uddf2\ud835\uddff\ud835\uddf2\ud835\uddfb\ud835\uddf0\ud835\uddf2.The latest release of Lido mPilot 7.3 enhances the Airport Moving Map by displaying aircraft-specific taxiway restrictions directly on the chart.With critical information presented in context, pilots can quickly identify relevant ground movement limitations and maintain situational awareness in complex airport environments.By simplifying access\u2026",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7492887793430409217"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-9a9036fcf9da",
+      "competitor": "IFS",
+      "date": "2026-09-09",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "We are pleased to announce that fastjet has selected EFBOne as its Electronic Flight\u2026",
+      "summary": "We are pleased to announce that fastjet has selected EFBOne as its Electronic Flight Bag platform, replacing its legacy system across its Embraer 145 fleet with a custom-configured solution tailored to its SOPs as it moves towards a fully paperless flight deck.Thank you to Donald K. and the Fastjet Zimbabwe team for a great collaboration.https://lnkd.in/eqBaf4A5 \u2026more",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "IFS EFBOne",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7492533087377989632"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-631773759920",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-08",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "\u2754 How quickly can your airline respond to a market shift?In today's environment, network\u2026",
+      "summary": "\u2754 How quickly can your airline respond to a market shift?In today's environment, network profitability depends on making the right decisions before competitors do.Whether evaluating new routes, schedule changes, fleet adjustments, or partnership scenarios, airlines need reliable answers fast. NetLine Plan enables full O&D-based profitability evaluations in under 30 seconds, helping planners assess complex scenarios\u2026",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7503097312810803200"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-541011120c72",
+      "competitor": "IFS",
+      "date": "2026-09-08",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "MY FREIGHTER LLC (Centrum Air) Selects EFBOne as Its Electronic Flight Bag Platform",
+      "summary": "IFS reported a customer win update: MY FREIGHTER LLC (Centrum Air) Selects EFBOne as Its Electronic Flight Bag Platform. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "IFS EFBOne",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcmVSYmNwaFNaNTktbXZOWU9KLVZTLWRiY1dmeEMtUnlxMW5VSzdUV05UcHMxU2ZvejVYYWNlenZUSUpyYzNNWDBSemdoRFpTdkpBQW9ORldVM3IzaDFaNmJPN2dRMDZTMVAtMGloeTFDWGRBYVR3Z3R4SmZqUEozMDZRSXVycHVBU05jemZBVDZIb2RjWktwUllZbDZ4XzZSSDBweWtvdFVjYUpkOGJwRTh6YVlrVlpKUUZSMg?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-cc8507541cc6",
+      "competitor": "Jeppesen",
+      "date": "2026-09-04",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "\u2708\ufe0f From managing EFBs to talking about EFBs!",
+      "summary": "\u2708\ufe0f From managing EFBs to talking about EFBs! Had a fantastic time at Jeppesen CONNECT 2026, sharing our EFB journey, experiences and a few lessons learned along the way.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOUUhKTi1MbndOYVgwcUMwVTBNZXI2cGhaSGlYbldJUzBOblMxS2RxQzBsT3hyTldlQTFWbFgtZ2FhSndlQ3hPZkxvUTVieWxjdU90MzFBbW96TjlKamlOX2J4LU1QSWltV0tCTEZ4VkxnaUVpUVIza0NPNHpBUUpjYWNfQ3NEMkxoRzFBNjJkLVFzcjQ3eTA5T0RCWG5HTE5FYUVCVEhqcEZHOGNDY05nNXZoN21zQkdCdmc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-88d9d3627aee",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-04",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "\ud835\udde9\ud835\uddf6\ud835\ude03\ud835\uddee \ud835\ude01\ud835\uddee\ud835\uddf8\ud835\uddf2\ud835\ude00 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddfb\ud835\uddf2\ud835\ude05\ud835\ude01 \ud835\ude00\ud835\ude01\ud835\uddf2\ud835\uddfd \ud835\uddf6\ud835\uddfb \ud835\uddf1\ud835\uddf6\ud835\uddf4\ud835\uddf6\ud835\ude01\ud835\uddee\ud835\uddf9 \ud835\uddf0\ud835\uddfc\ud835\uddf0\ud835\uddf8\ud835\uddfd\ud835\uddf6\ud835\ude01 \ud835\uddfc\ud835\uddfd\ud835\uddf2\ud835\uddff\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb\ud835\ude00 \ud835\ude04\ud835\uddf6\ud835\ude01\ud835\uddf5 \ud835\udddf\ud835\uddf6\ud835\uddf1\ud835\uddfc \ud835\uddfa\ud835\udde3\ud835\uddf6\ud835\uddf9\ud835\uddfc\ud835\ude01 Lido mPilot is now supporting pilots from Viva w",
+      "summary": "\ud835\udde9\ud835\uddf6\ud835\ude03\ud835\uddee \ud835\ude01\ud835\uddee\ud835\uddf8\ud835\uddf2\ud835\ude00 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddfb\ud835\uddf2\ud835\ude05\ud835\ude01 \ud835\ude00\ud835\ude01\ud835\uddf2\ud835\uddfd \ud835\uddf6\ud835\uddfb \ud835\uddf1\ud835\uddf6\ud835\uddf4\ud835\uddf6\ud835\ude01\ud835\uddee\ud835\uddf9 \ud835\uddf0\ud835\uddfc\ud835\uddf0\ud835\uddf8\ud835\uddfd\ud835\uddf6\ud835\ude01 \ud835\uddfc\ud835\uddfd\ud835\uddf2\ud835\uddff\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb\ud835\ude00 \ud835\ude04\ud835\uddf6\ud835\ude01\ud835\uddf5 \ud835\udddf\ud835\uddf6\ud835\uddf1\ud835\uddfc \ud835\uddfa\ud835\udde3\ud835\uddf6\ud835\uddf9\ud835\uddfc\ud835\ude01 Lido mPilot is now supporting pilots from Viva with intuitive access to dynamically updated aeronautical charts, geo-referenced airport maps, weather overlays, enroute navigation data and operational documents \u2013 all within an iOS-based Electronic Flight Bag solution.The implementation was completed within just two weeks, demonstrating the close\u2026",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7501319200758714368"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-edc21be15f43",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-01",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Interview experience: Senior Software Engineer @ Lufthansa Systems (Netline) Had a great technical round\u2026",
+      "summary": "Interview experience: Senior Software Engineer @ Lufthansa Systems (Netline) Had a great technical round this week for a Senior Full Stack Developer role in the airline scheduling space, and wanted to share the experience for anyone prepping for similar int &nbs",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOSGRWc2ZMdUNFS0x4UTQwMkotTUg1anROT2lZVVRSV3JyNC16VF9GbEdWOG9kRHdPRTZWdmFzaXZWR2l0UFIzTHBveExZNzBGZmdwZXFIY1N5VjFNUm9mYjJqVF9zZzFVTC1ZeGpHdC1RN3Y3NkVwUkxzVFljNWV1WDFjOUppaVdUNjJUYURkWWh0VzdoRzNPTHBtcHJ6dC1DaWJ1R21kTzc1S3BRQUoyeGZVakxXajJSUXdhTm5R?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-d0ca361f6e7a",
+      "competitor": "Bytron Skybook",
+      "date": "2026-09-01",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Send instant messages directly to the skybook EFB during flight briefings.",
+      "summary": "Send instant messages directly to the skybook EFB during flight briefings. \ud83d\udcac \ud83d\udeeb Dispatchers can quickly share important operational updates with pilots, ensuring the latest information reaches the cockpit when it matters.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNUVVNVE1hckRnbzRudDRCZExRRFdLZEpPazZTcnVuWEFzQy0yWHNTVmZ3SGtTMnJ0UVplVTQxcHRDN3RGZnRTT3BpZUF4UzJZTzYycUMzVDRFUk0tSHRlcDYtbmlDX0VESElGMU9pMTdpbTNNdl9YWFJsQ0ZERFN1SUJCR1pmUW9HdWlCa01Da2VEVkpaNmxIWTZ6SlgxQQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-ab53f449704f",
+      "competitor": "IFS",
+      "date": "2026-08-27",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "We are pleased to announce that TUS Airways has selected EFBOne as its new Electronic Flight Bag platform.",
+      "summary": "We are pleased to announce that TUS Airways has selected EFBOne as its new Electronic Flight Bag platform. Currently in the final stages of Cyprus CAA evaluation, TUS Airways is integrating EFBOne across its Airbus A320 fleet to centralize flight-reporting workflows and optimize cockpit operations.",
+      "source_channel": "linkedin",
+      "source_origin": "official_site",
+      "product_focus": "eff",
+      "product": "IFS EFBOne",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn direct post",
+          "url": "https://lnkd.in/p/ehqp6ZbU"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-2d207adfbd7d",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-08-19",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Let's plan smarter.In airline operations, every minute counts.",
+      "summary": "Let's plan smarter.In airline operations, every minute counts. Giving crews instant access to their duty information helps airlines stay agile, improve communication, and respond quickly when plans change.That's exactly what NetLine Crew Interaction Apps are designed to do.Learn more: https://lnkd.in/e7DkUNEehashtag#CrewManagement hashtag#AviationTechnology hashtag#AirlineOperations hashtag#NetLine\u2026",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7495472172635820033"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-4581508f82ef",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-08-10",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Excited to be featured in Airports International!",
+      "summary": "Excited to be featured in Airports International! In the latest issue of Airports International, we share how NetLine HubControl helps airlines navigate these challenges, with insights from Dirk Bracklow, Head of Product Management at NetLine.By unifying legacy data, video feeds, and real-time inputs into a single platform, NetLine HubControl provides:\ud83d\udd39 Predictive Visibility: Spotting bottlenecks before they cause\u2026",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7491138941018951680"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-2ab7397b4a82",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-08-10",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Every airline faces pressure from rising costs, operational complexity, and constant disruption.That's why strong\u2026",
+      "summary": "Every airline faces pressure from rising costs, operational complexity, and constant disruption.That's why strong partnerships matter.Working closely with our Lido team, Azul leveraged Lido Flight 4D Integrated Flight Support (IFS) to enhance flight planning, support faster operational decisions, and improve day-to-day operational control.\ud83c\udfa5 Watch the video to hear Caio Garcia from Azul share how this partnership is\u2026",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7488598650550370304"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-63b784ca0cea",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-08-10",
+      "date_is_estimated": false,
+      "type": "implementation",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "\ud835\udde2\ud835\uddfb\ud835\uddf2 \ud835\uddfd\ud835\uddf9\ud835\uddee\ud835\uddfb\ud835\uddfb\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddfd\ud835\uddf9\ud835\uddee\ud835\ude01\ud835\uddf3\ud835\uddfc\ud835\uddff\ud835\uddfa.At Lufthansa Group, network planning decisions are made throughout the entire season planning process\u2014",
+      "summary": "\ud835\udde2\ud835\uddfb\ud835\uddf2 \ud835\uddfd\ud835\uddf9\ud835\uddee\ud835\uddfb\ud835\uddfb\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddfd\ud835\uddf9\ud835\uddee\ud835\ude01\ud835\uddf3\ud835\uddfc\ud835\uddff\ud835\uddfa.At Lufthansa Group, network planning decisions are made throughout the entire season planning process\u2014from shaping the network structure and evaluating bank concepts to optimizing connectivity and identifying future growth opportunities.As highlighted by the customer, NetLine/HubDesigner supports these decisions with powerful scenario simulations. Different schedule options can be tested based\u2026",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7484975834026450945"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-6fa1922473d2",
+      "competitor": "IFS",
+      "date": "2026-08-10",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "We are pleased to announce that Precision Air Tanzania has selected EFBOne as its\u2026",
+      "summary": "We are pleased to announce that Precision Air Tanzania has selected EFBOne as its Electronic Flight Bag platform, becoming Tanzania\u2019s first TCAA-approved Electronic Flight Folder.Thank you to Lucas Mathew and the Flight Operations team for their close collaboration and successful implementation process.https://lnkd.in/eDwv6EJp \u2026more",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "IFS EFBOne",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7488558701595975681"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "avio-2026-08-06-connect-3",
+      "competitor": "Aviobook",
+      "date": "2026-08-06",
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.7,
+      "headline": "Aviobook teases Connect 3.0 preview for 17 Sep 2026",
+      "summary": "LinkedIn campaign announced webinars previewing a major AvioBook Connect 3.0 release focused on unified real-time flight-ops information.",
+      "why_it_matters": "Upcoming major version may shift messaging and feature claims\u2014watch post-event release notes.",
+      "geography": "Global",
+      "segment": "Ops communications",
+      "implications": [
+        "Schedule capture of Connect 3.0 release content after 17 Sep.",
+        "Potential feature leap in AI/noise-reduction claims."
+      ],
+      "next_actions": [
+        "Diary follow-up capture for Connect 3.0.",
+        "Product to review release against Cathay Tech adjacency."
+      ],
+      "sources": [
+        {
+          "title": "AvioBook Connect 3.0 preview announcement",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobook-futureofflying-efb-activity-7491127199069130752-OTDI"
+        }
+      ],
+      "tags": [
+        "connect",
+        "roadmap",
+        "release"
+      ],
+      "source_channel": "curated",
+      "source_origin": "linkedin",
+      "product": "AvioBook Connect",
+      "product_focus": "adjacent"
+    },
+    {
+      "id": "cap-00ca3f8a3c2e",
+      "competitor": "Jeppesen",
+      "date": "2026-08-06",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Jeppesen Dispatch v2026-3 is now available. This release helps flight operations teams respond faster\u2026",
+      "summary": "Jeppesen Dispatch v2026-3 is now available. This release helps flight operations teams respond faster when plans change in flight, plan more safely around aircraft equipment issues, and manage workload across busy operations centers.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPX1JpR096X005TzAyMmtWSHZXOHlDcm43dUdDTWNPMVdibnF1WHBueUxTWmpCSjJNS29wbDRWSktOQW5oN0o3Z0hqVEhuRWpSbERLLTNYOVpKVW1YZkVsSlZiNy1EQlZoSEl3ZHNzc2Y5X2V6YnZ4aVF4YnlWS1VxRXVjYVFrWUFnV01kblNRRGVjdWZFeGktRHVlb0JSTXJpM2hiMEt6SzdtbWNYUVJwVllxSHphV3p3eXk5Skh4dzZjMmxO?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-da9edaf974cf",
+      "competitor": "Jeppesen",
+      "date": "2026-08-06",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight Achieves Department Of Defense Impact Level 5 Authorization",
+      "summary": "AUSTIN, TEXAS \u2014 JUNE 16, 2026 \u2014 Jeppesen ForeFlight today announced it has received a Department of Defense Impact Level 5 (IL5) Authority to Operate. The Authority to Operate enables military and defense organizations to deploy ForeFlight for sensitive, mission-critical operations with full regulatory confidence, and applies across the Department of Defense, with reciprocity available to all military branches\u2026",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-achieves-department-of-defense-impact-level-5-authorization"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-34f7cb947b3c",
+      "competitor": "Bytron Skybook",
+      "date": "2026-08-04",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "skybook 1.51.0 Release Notes | Bytron Aviation Systems",
+      "summary": "Explore the latest skybook updates, including NOTAM filtering, digital loadsheet management for upload, comparing and signing, and an upgraded interactive globe.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Bytron Release Notes",
+          "url": "https://www.bytron.aero/release-notes/skybook-1510-release-notes"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-f37bb149ce93",
+      "competitor": "Jeppesen",
+      "date": "2026-07-28",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight And Urbanlink Air Mobility Sign Mou To Advance Electronic Flight Bag And\u2026",
+      "summary": "MIAMI, FL and AUSTIN, TX \u2013 July 28, 2026 \u2013 Jeppesen ForeFlight and UrbanLink Air Mobility today announced they have signed a Memorandum of Understanding (MOU) to collaborate on electronic flight bag (EFB) requirements and dispatch procedures supporting electric vertical takeoff and landing (e-VTOL) and other all-electric aircraft operations in the South Florida airspace.",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "efb",
+      "product": "ForeFlight",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-and-urbanlink-air-mobility-sign-mou-to-advance-electronic-flight-bag-and-dispatch-standards-for-advanced-air-mobility-in-south-florida"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-8c30ce296ce8",
+      "competitor": "Jeppesen",
+      "date": "2026-07-27",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "How Jeppesen ForeFlight creates a single connected EFB ecosystem for airlines",
+      "summary": "Jeppesen reported a messaging shift update: How Jeppesen ForeFlight creates a single connected EFB ecosystem for airlines. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "efb",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPdXJQRDBVNHEyOWJHVW9rakwtVXpsTU1ibG4zWUN0WXF6MHJUV3h2ZUtIZC0ydFdnZTBNeDhBWF9tdWdKcjBBbV9ubE84dGJSNTJJY0lsSWhGeThaSFdGTDNkZG9zQVJzeWhvLVlEY2pwUjQ3Q0ZmaXc1ckdYWHRSUmtkckQwcC0yRDY1UWRELWNZTlJpeVk3Y3dqeXZCWnJlTkFnOHk3dVBlSEtZdGIwcEx1THk4eUltT1V0MjRUYTdJYU1sZVJv?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "avio-2026-07-23-escape-routes",
+      "competitor": "Aviobook",
+      "date": "2026-07-23",
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "AvioBook previews Escape Routes flight-operations feature",
+      "summary": "AvioBook announced an upcoming Escape Routes feature that brings valid diversion paths into the pilot workflow, highlights routes near high-terrain areas, and updates the navlog when a diversion is selected.",
+      "why_it_matters": "Direct competitor product update expanding AvioBook's electronic flight folder and flight-deck workflow with safety-critical diversion guidance.",
+      "geography": "Global",
+      "segment": "Airline flight operations",
+      "implications": [
+        "Adds safety and route-context functionality to AvioBook's EFF proposition.",
+        "Monitor the release and assess overlap with Cathay Technologies' briefing and flight-document workflows."
+      ],
+      "next_actions": [
+        "Add Escape Routes to the Aviobook competitor battlecard.",
+        "Review the feature after general availability and compare pilot workflow depth."
+      ],
+      "sources": [
+        {
+          "title": "Meet Escape Routes by AvioBook",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_meet-escape-routes-by-aviobook-activity-7486046249113067523--OG0"
+        }
+      ],
+      "tags": [
+        "product-launch",
+        "escape-routes",
+        "eff",
+        "linkedin"
+      ],
+      "source_channel": "curated",
+      "source_origin": "linkedin",
+      "product": "AvioBook",
+      "product_focus": "eff"
+    },
+    {
+      "id": "avio-2026-07-16-braathens-story",
+      "competitor": "Aviobook",
+      "date": "2026-07-16",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.72,
+      "headline": "Braathens customer story highlights smooth AvioBook EFB rollout",
+      "summary": "AvioBook published a customer interview with Braathens\u2019 EFB Administrator & Fleet Manager on implementation reliability and ongoing collaboration.",
+      "why_it_matters": "Soft signal of European regional/leisure EFB satisfaction used in social proof campaigns.",
+      "geography": "Europe",
+      "segment": "Regional / leisure",
+      "implications": [
+        "Expect more customer-video content in Aviobook demand gen.",
+        "Regional carriers remain an Aviobook hunting ground."
+      ],
+      "next_actions": [
+        "Log Braathens as reference account on battlecard.",
+        "Filter similar LinkedIn customer stories via AI noise rules."
+      ],
+      "sources": [
+        {
+          "title": "Braathens EFB rollout customer story (LinkedIn)",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobook-futureofflying-customerstory-activity-7483514181175070720-Nblg"
+        }
+      ],
+      "tags": [
+        "efb",
+        "customer-story",
+        "braathens"
+      ],
+      "source_channel": "curated",
+      "source_origin": "linkedin",
+      "product": "AvioBook",
+      "product_focus": "eff"
+    },
+    {
+      "id": "cap-5c33d1838bcc",
+      "competitor": "Jeppesen",
+      "date": "2026-07-16",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight Brings Largest Product Line Up New Promotions To Eaa Airventure 2026",
+      "summary": "AUSTIN, Texas - July 16, 2026 - Jeppesen ForeFlight is bringing a sweeping wave of new products, upgraded features, special pricing, promotions and more at EAA AirVenture Oshkosh 2026. The offerings span artificial intelligence, panel-connected cockpit hardware, aviation insurance, and flight school scheduling and operations.",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-brings-largest-product-line-up-new-promotions-to-eaa-airventure-2026"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "jep-2026-07-06-avia-solutions",
+      "competitor": "Jeppesen",
+      "date": "2026-07-06",
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.9,
+      "headline": "Jeppesen expands Avia Solutions Group deal across 10 ACMI airlines",
+      "summary": "Jeppesen ForeFlight will deploy FliteDeck Pro (incl. Smart Airports), NavData and Airport Data across Avia Solutions Group\u2019s global ACMI airline portfolio.",
+      "why_it_matters": "Group-level standardization wins create multi-airline footprint from a single commercial motion.",
+      "geography": "Global",
+      "segment": "ACMI / group portfolio",
+      "implications": [
+        "Ownership-group deals can lock out competitors across multiple AOCs quickly.",
+        "Surface ops / Smart Airports messaging is part of the pitch."
+      ],
+      "next_actions": [
+        "Map other ACMI/group owners for similar multi-airline plays.",
+        "Sales: prepare group-deal counter narrative."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen expands relationship with Avia Solutions Group",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-expands-relationship-with-avia-solutions-group"
+        }
+      ],
+      "tags": [
+        "group-deal",
+        "efb",
+        "acmi"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": "ForeFlight FliteDeck Pro",
+      "product_focus": "efb"
+    },
+    {
+      "id": "cap-9bbac78f0c3d",
+      "competitor": "Jeppesen",
+      "date": "2026-07-06",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight Unveils Airflow",
+      "summary": "AUSTIN, Texas \u2014 July 1, 2026 \u2014 Jeppesen ForeFlight today unveiled its aviation-centric AI engine, the foundation of its strategy to bring responsible artificial intelligence to all sectors of aviation. Jeppesen ForeFlight Airflow\u2122 has been developed over the last several years, backed by decades of deep domain experience, industry-leading data, and capabilities spanning crew and fleet planning, day-of-flight\u2026",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-unveils-airflow"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-18e5fa49bac3",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-06-25",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "We are looking for an experienced Scheduler, ideally familiar with our #NetLine tools to\u2026",
+      "summary": "We are looking for an experienced Scheduler, ideally familiar with our #NetLine tools to join our Lufthansa Systems Product Consultants\u2019 team, based in Singapore! Apply directly via the link.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdFhmVnFyZmZmSEdXUWFJRlBDV1c4aktHMUhab1hkaGxMSm5BLXFLZ0M3c0xZa3NQb01hTjhXUmdnN21EV1VweFV6YjlKLUhPenowQjRqSXpFZVFJUXNPUWlfTWZDWjNORjRpUjM3eXI2X3ZfN2dIYTlFb0gyeThraE9WclgyV2dpS25hSXkxbnQ4YVk?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-3da496f57068",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-06-16",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Press Release: SriLankan strengthens flight planning with Lido Flight 4D",
+      "summary": "Lufthansa Systems reported a product launch update: Press Release: SriLankan strengthens flight planning with Lido Flight 4D. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPWDQ0MWd1OFNiZDh0NDFOV2gzRDdqOEs2Vzd1NzVXZWdRUzV1aWZoWEJCNEdIRjJQSjlMTU9qSl9kSjJ4YWdwS0Y1OHM0cTdCeC10TC0yOEJNUTBXUGtieVEySXZHRGppamhSNVlhT2pEczBlZ1g0bW5SQXl6WDVIZEtSV2wxaGZNMUxaOXVmMmZDVFV4NWpOSkEwX29zUkhyQXpDSy1BblBYU2ptTDZR?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "jep-2026-06-09-manage-my-efb",
+      "competitor": "Jeppesen",
+      "date": "2026-06-09",
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.88,
+      "headline": "Jeppesen + Stratix launch Manage My EFB Device-as-a-Service",
+      "summary": "Subscription model bundles Apple iPad hardware, Jeppesen ForeFlight EFB software, Stratix lifecycle services and connectivity into a per-device monthly cost.",
+      "why_it_matters": "Shifts competition from pure software features to total cost of ownership and managed EFB programs.",
+      "geography": "Global",
+      "segment": "Commercial + business aviation",
+      "implications": [
+        "Procurement conversations may expand to device lifecycle and OpEx models.",
+        "Partners that bundle hardware can change RFP scoring criteria."
+      ],
+      "next_actions": [
+        "Note DaaS packaging on battlecard.",
+        "Ask product whether Cathay Tech needs a managed-device story."
+      ],
+      "sources": [
+        {
+          "title": "Stratix and Jeppesen ForeFlight launch Manage My EFB",
+          "url": "https://www.stratixcorp.com/resources/press-release/stratix-and-jeppesen-foreflight-launch-manage-my-efb/"
+        }
+      ],
+      "tags": [
+        "efb",
+        "daas",
+        "partnership"
+      ],
+      "source_channel": "curated",
+      "source_origin": "press_release",
+      "product": "ForeFlight",
+      "product_focus": "efb"
+    },
+    {
+      "id": "cap-da8fe9ae1ad2",
+      "competitor": "Jeppesen",
+      "date": "2026-06-09",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Stratix and Jeppesen ForeFlight Launch Manage My EFB",
+      "summary": "Jeppesen reported a product launch update: Stratix and Jeppesen ForeFlight Launch Manage My EFB. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "efb",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPTXJmY01zUEQyQTZWMTB6OVhVWUMwS01FMmNxOTdYQnJTakZ4NUNGVzQzR2dNVmZGX0Q0VV93MFY5bDBma2RfREQ3cnVBbEQ3a2RqbzJLQ2gyaGhNYmVjS3RzNTcySFd6c3RfelBjZVVzREJqQ1ZETlB4RWZaLTZhVWVZUFl3RHBybkE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "nav-2026-06-04-corsair-mission",
+      "competitor": "Navblue",
+      "date": "2026-06-04",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.91,
+      "headline": "Corsair first French airline on Skywise Mission+ FLIGHT EFB configuration",
+      "summary": "Corsair adopted Mission+ FLIGHT connected to FOMAX AID, extending a relationship that began with N-Flight Planning; joins TAP and KM Malta on Mission+ FLIGHT.",
+      "why_it_matters": "Concrete post-merger EFB win with AID connectivity story\u2014relevant to digital flight-deck displacement deals.",
+      "geography": "Europe",
+      "segment": "Full-service / leisure long-haul",
+      "implications": [
+        "Mission+ FLIGHT + AID is a packaged differentiator for Airbus operators.",
+        "European reference set for Mission+ is growing."
+      ],
+      "next_actions": [
+        "Add Mission+ FLIGHT / FOMAX pattern to battlecard.",
+        "Prioritise Airbus fleets evaluating EFB refreshes in Europe."
+      ],
+      "sources": [
+        {
+          "title": "Corsair adopts Skywise Mission+ FLIGHT",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-06-corsair-becomes-the-first-airline-in-france-to-adopt-skywise-mission-flight"
+        }
+      ],
+      "tags": [
+        "mission-plus",
+        "efb",
+        "corsair"
+      ],
+      "source_channel": "curated",
+      "source_origin": "press_release",
+      "product": "Mission+ FLIGHT",
+      "product_focus": "efb"
+    },
+    {
+      "id": "cap-b53d181ce811",
+      "competitor": "Navblue",
+      "date": "2026-06-04",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "Corsair adopts Skywise Mission+ FLIGHT, a first in France",
+      "summary": "Navblue reported a customer win update: Corsair adopts Skywise Mission+ FLIGHT, a first in France. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "efb",
+      "product": "Mission+ FLIGHT",
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQUc4aEtGYm1Ec0dHazRxcmNUWjVpeDI0SERubU1oMkRNQV9hTkVJZFgzdlZvWEQ2bUJ1RGVVZ19mRk90ZFhGQlVaaG1EUWRMTTgyV3FxUllod2FzSGJENlZNUHIwV2dET2FmMVE1TjV0cEtHM0xHclJNSG82cUhYTmdvSkpjVmZrT1g0?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "jep-2026-06-01-panam-efb",
+      "competitor": "Jeppesen",
+      "date": "2026-06-01",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.92,
+      "headline": "Pan Am selects Jeppesen ForeFlight FliteDeck Pro for EFB operations",
+      "summary": "Pan American World Airways chose Jeppesen ForeFlight\u2019s FliteDeck Pro as its Electronic Flight Bag platform, combining charting, operational flight plans, interactive navigation logging, and flight efficiency advisories.",
+      "why_it_matters": "High-visibility brand relaunch win reinforces Jeppesen\u2019s integrated flight-deck narrative and AI-assisted ops positioning.",
+      "geography": "North America",
+      "segment": "Full-service / network restart",
+      "implications": [
+        "Expect stronger Jeppesen messaging around AI-driven EFB + dispatch continuity for new and relaunching carriers.",
+        "Watch for similar brand/heritage storytelling in competitive pitches."
+      ],
+      "next_actions": [
+        "Update Jeppesen battlecard with FliteDeck Pro + AI narrative.",
+        "Flag to sales any Cathay Tech prospects evaluating greenfield EFB stacks."
+      ],
+      "sources": [
+        {
+          "title": "Pan Am adopts Jeppesen ForeFlight EFB",
+          "url": "https://www.jeppesenforeflight.com/news/pan-am-adopts-jeppesen-foreflights-electronic-flight-bag-solution-for-its-flight-operations"
+        }
+      ],
+      "tags": [
+        "efb",
+        "flitedeck-pro",
+        "customer-win"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": "ForeFlight FliteDeck Pro",
+      "product_focus": "efb"
+    },
+    {
+      "id": "jep-2026-06-01-korean-dispatch",
+      "competitor": "Jeppesen",
+      "date": "2026-06-01",
+      "type": "customer_win",
+      "priority": "critical",
+      "severity": 5,
+      "confidence": 0.95,
+      "headline": "Korean Air selects Jeppesen Dispatch for combined 230+ aircraft fleet",
+      "summary": "After a 24-month evaluation, Korean Air selected Jeppesen Dispatch as its future flight planning system for the integrated Korean Air\u2013Asiana fleet, including renewal of existing Jeppesen flight planning solutions.",
+      "why_it_matters": "Landmark network-carrier win in Asia; signals Jeppesen strength in post-merger fleet consolidation and agentic/AI-ready OCC workflows.",
+      "geography": "Asia-Pacific",
+      "segment": "Large network carrier",
+      "implications": [
+        "Raises competitive bar for flight planning / OCC deals with major Asian carriers.",
+        "Merger-driven tech consolidation is an active buying trigger\u2014map similar ownership events."
+      ],
+      "next_actions": [
+        "Prepare counter-positioning for large-fleet dispatch RFPs.",
+        "Review APAC account list for merger/integration timing windows."
+      ],
+      "sources": [
+        {
+          "title": "Korean Air selects Jeppesen Dispatch",
+          "url": "https://www.jeppesenforeflight.com/news/korean-air-selects-jeppesen-dispatch"
+        }
+      ],
+      "tags": [
+        "dispatch",
+        "flight-planning",
+        "asia",
+        "fleet-consolidation"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": null,
+      "product_focus": "adjacent"
+    },
+    {
+      "id": "cap-f7123f18f474",
+      "competitor": "Jeppesen",
+      "date": "2026-06-01",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight Announces Three Executive Appointments To Drive Growth And Innovation",
+      "summary": "DENVER, December 16, 2025 \u2013 Jeppesen ForeFlight, a leading aviation software company dedicated to advancing the future of flight through innovative technology, today announced the appointment of three senior executives to its leadership team. Joe Ayers joins as chief financial officer (CFO), Toya Del Valle has joined as chief customer officer (CCO), and Richa Gupta will assume the role of chief people officer as of\u2026",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-announces-three-executive-appointments-to-drive-growth-and-innovation"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-c783586c0440",
+      "competitor": "Navblue",
+      "date": "2026-05-26",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Press Release: Pan Am taps Skywise digital suite to power historic EIS",
+      "summary": "Navblue reported a product launch update: Press Release: Pan Am taps Skywise digital suite to power historic EIS. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPVlY3MzlSaU5YT3NJVFVlUGhXcWswNkFnVVk1ZW9PeXJDUGVUX1hOOXI5alZEZUNzWm84UWhoNDc5QXFKNThvY3ZUQkoyc2xiS2JZS3huNThvV3hWbWQzdE1Wamdrc2FMVExMbFZ0WG13QVJQUmNVdHQ1SzR4Rm1TbnFqQUxKMjNBbjJDV25OVGhpOC1sWURaVzNudw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-4f107cda915f",
+      "competitor": "Navblue",
+      "date": "2026-05-26",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "Pan American World Airways\u00ae selects Skywise Digital Suite to power historic re-entry into service",
+      "summary": "Pan American World Airways (Pan Am) adopts the Skywise Digital Suite to provide the technological backbone for its historic return to flight operations.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-05-pan-american-world-airwaysr-selects-skywise-digital-suite-to-power-historic-re-entry-into-service"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-5ee144b48db6",
+      "competitor": "Bytron Skybook",
+      "date": "2026-05-26",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "skybook 1.50.0 Release Notes | Bytron Aviation Systems",
+      "summary": "Discover the latest skybook updates, including enhanced Flight Tracking map, configurable Dispatch visibility, OTP filtering, FRV edit tracking, Nav Log reclearance routes, and new RVSM engine oil recording fields.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Bytron Release Notes",
+          "url": "https://www.bytron.aero/release-notes/skybook-1500-release-notes"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "avio-2026-05-21-connect-webinar",
+      "competitor": "Aviobook",
+      "date": "2026-05-21",
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.78,
+      "headline": "Aviobook Connect demo emphasises flight-room ops comms for IROPs",
+      "summary": "Aircraft IT webinar showcased AvioBook Connect as a per-flight secure ops chat with API-driven alerts, role mentions, and integrations used by carriers such as Southwest, Finnair, KLM and United.",
+      "why_it_matters": "Aviobook is expanding beyond classic EFB into real-time stakeholder communications\u2014adjacent competitive surface for digital ops.",
+      "geography": "Global",
+      "segment": "Airline ops communications",
+      "implications": [
+        "Connect may appear in RFPs as ops collaboration, not only EFB.",
+        "Named major-airline logos strengthen credibility."
+      ],
+      "next_actions": [
+        "Add Connect to Aviobook product map.",
+        "Clarify whether Cathay Tech roadmap overlaps ops-comms."
+      ],
+      "sources": [
+        {
+          "title": "AvioBook Connect demo webinar (Aircraft IT)",
+          "url": "https://www.aircraftit.com/webinars/new-airline-communications-app-for-each-flight-for-pilots-crew-gate-agent-dispatch-occ-m-efb-airline-system/"
+        }
+      ],
+      "tags": [
+        "connect",
+        "comms",
+        "irop"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": "AvioBook Connect",
+      "product_focus": "adjacent"
+    },
+    {
+      "id": "cap-9e329b513740",
+      "competitor": "Jeppesen",
+      "date": "2026-05-14",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight And Ge Aerospace Collaborate To Deliver End To End Airline Fuel Savings Solution",
+      "summary": "EVENDALE, Ohio & DENVER \u2013 April 30, 2026 \u2013 Jeppesen ForeFlight and GE Aerospace (NYSE: GE) today announced a collaboration that brings together GE Aerospace\u2019s flight data analytics platform with Jeppesen ForeFlight\u2019s Cost Index Optimization solution. Combined, these solutions offer airlines a continuous fuel efficiency workflow that spans pre-flight planning, in-flight optimization, and post-flight analysis to\u2026",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "adjacent",
+      "product": "ForeFlight",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-and-ge-aerospace-collaborate-to-deliver-end-to-end-airline-fuel-savings-solution"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "jep-2026-04-29-dispatch-2026-2",
+      "competitor": "Jeppesen",
+      "date": "2026-04-29",
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "Jeppesen ForeFlight launches Dispatch v2026-2; Corendon as launch customer",
+      "summary": "Dispatch v2026-2 expands automation for complex planning workflows. Corendon Airlines (31\u00d7 737) is a launch customer, integrating with EFFCore and Jeppesen EFB, reporting fuel and planning-time gains.",
+      "why_it_matters": "Shows product velocity plus mid-size carrier proof points that can be reused in competitive deals.",
+      "geography": "Europe",
+      "segment": "Leisure / mid-size",
+      "implications": [
+        "Competitor release cadence around dispatch automation is accelerating.",
+        "EFF + EFB + dispatch bundling remains a key packaging theme."
+      ],
+      "next_actions": [
+        "Capture feature deltas from v2026-2 into battlecard.",
+        "Product: compare automation claims vs Cathay Tech roadmap."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight launches Dispatch v2026-2",
+          "url": "https://news.jeppesen.com/aviator-articles/jeppesen-foreflight-launches-dispatch-v2026-2/"
+        }
+      ],
+      "tags": [
+        "dispatch",
+        "release",
+        "corendon"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": "ForeFlight EFFCore",
+      "product_focus": "eff"
+    },
+    {
+      "id": "cap-e8710302bd5c",
+      "competitor": "Jeppesen",
+      "date": "2026-04-27",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Just back from Gothenburg, where we hosted the 2026 Jeppesen ForeFlight Crew & Ops Development Partners Forum.",
+      "summary": "Just back from Gothenburg, where we hosted the 2026 Jeppesen ForeFlight Crew & Ops Development Partners Forum. Airline professionals came together for three days of collaboration, knowledge sharing, and candid conversation about what's ahead for the <font color=\"#6f6f6f",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNUEVnbnhqV2N5bFR1U1BkS1Znb3R2NVBrTnNXY3dJNkpRT1pMWm5DVDM0UldjaHBMNVphTldjdFZKWVgtUkJjQVVQTG8wd2duVmU1R3VSd3VGeVc2eFNWdndtYnJ4bGlscUt0dEZONjM2Y1QyQVBBZTAyZWNHQVZJekRKcU1sejV3RFRXc1lmUlpVZ1ktUjBaT3hDdXdoREFUVGtBX2FJTXVtb3FvNFk5WVBIWQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "nav-2026-04-21-jetblue-sfp",
+      "competitor": "Navblue",
+      "date": "2026-04-21",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "JetBlue signs Skywise Fleet Performance+ across A320/A220 fleets",
+      "summary": "One of the first major customer agreements after the Skywise subsidiary launch; deploys predictive maintenance / fleet performance analytics for JetBlue.",
+      "why_it_matters": "Validates post-merger Skywise commercial motion in North America beyond classic Navblue flight-ops SKUs.",
+      "geography": "North America",
+      "segment": "Low-cost / hybrid",
+      "implications": [
+        "Skywise is selling end-to-end (ops + technical) into existing Airbus operators.",
+        "JetBlue now appears in both Lufthansa Systems and Skywise recent wins\u2014account tech stacks are multi-vendor."
+      ],
+      "next_actions": [
+        "Update competitor presence map for JetBlue.",
+        "Watch for Mission+/flight-ops follow-ons at same accounts."
+      ],
+      "sources": [
+        {
+          "title": "JetBlue adopts Skywise Fleet Performance+",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-04-jetblue-signs-for-skywise-fleet-performance-solution"
+        }
+      ],
+      "tags": [
+        "skywise",
+        "maintenance",
+        "jetblue"
+      ],
+      "source_channel": "curated",
+      "source_origin": "press_release",
+      "product": null,
+      "product_focus": "adjacent"
+    },
+    {
+      "id": "cap-eddee0a3d110",
+      "competitor": "Navblue",
+      "date": "2026-04-21",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "Press Release: JetBlue signs for Skywise Fleet Performance+ solution",
+      "summary": "Navblue reported a customer win update: Press Release: JetBlue signs for Skywise Fleet Performance+ solution. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNT1lYTThIb2dWSE5ib1I5T3MxaHRUNlV5UkNLdVZxenRxLXJvMEZFSXlEYmZvaDdOeUhrQzd1ajJLRzM4OHRNTVBmdzVYc3BadXduN1NxZ2F1aHQ3TkpCWjNHenpUNVVjSFRsNDg0c184UUY3ZTZqaEkzSFZqUGx4WGYtNkE1UUZ1?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-37ecd9326b06",
+      "competitor": "Navblue",
+      "date": "2026-04-21",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Airbus accelerates digital strategy via Skywise\u2019s digital excellence centre in Gdansk",
+      "summary": "Airbus expands its Skywise Digital Centre of Excellence in Gda\u0144sk, uniting flight ops and data to drive aviation efficiency and sustainability",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-04-airbus-accelerates-digital-strategy-via-skywises-digital-excellence-centre-in-gdansk"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-43e54536863b",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-04-14",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "My colleagues Adrian de Canha and William Hu as well as our partner Marc Mapleston from LIFT",
+      "summary": "Day 2 of Routes Asia in Xi\u2019an for Lufthansa Systems. My colleagues Adrian de Canha and William Hu as well as our partner Marc Mapleston from LIFT - Airline Planning Solutions l",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQZWNlRWVUVlZxakFxZDgxUU9FbE5hXzB1VGxGVjdBVFpPLVZsQ2VyQ2hwM2dQYlVTbHZoWWRxejNVWE50RkNySWowTktiTG5kTFdhbF9vamdHSG9TU0lHV1V3cl96aFNkSHRjMW83YjIwNVBycmZjeXRITmJ2OHpiZTFaUDFVVmp0TTN6VlN4WGZra196LXgzNEJpM2dmVF9SVU03RElSWUt5b2VrMXc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-104a70dfc459",
+      "competitor": "Jeppesen",
+      "date": "2026-04-13",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight Releases Graphical Notams in FliteDeck Pro",
+      "summary": "Jeppesen reported a product launch update: Jeppesen ForeFlight Releases Graphical Notams in FliteDeck Pro. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight FliteDeck Pro",
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOdDdmVVBoZDdVYzZzbFVxR1c4cjU1eVNLaEkyRGcwNzNvSVd6aGlVS0pBTkR5endZcGM0ZzktWWVOXzBDc0RJYkplSWNTanJ6cHpZNW9rTDZCcXFsY0l3SmY1UVEzU1FIaW0wZ1hyNTcyQ0c1SEZBaF9vNExucl9Da0Q1akVyVE5ocmMySENKYllNWWF5enFJeTlFcEtGSEkxdjNDVWdKYnc0SWU0QmdPMXBRZ1VOYU80SnhpUg?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-dd22235f8f28",
+      "competitor": "Navblue",
+      "date": "2026-04-08",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Airbus launches new digital company Skywise",
+      "summary": "Navblue reported a product launch update: Airbus launches new digital company Skywise. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE50Q1M3a0Joc09CVGllcy1mR0tFUzF3bEFQTTZ3WW1nSmU2cWFyN3NmNnU1SV9Sc0U3VTQ0WWNlNlRqSkc1UTN3N054SUhwclM2Zi1pRlNfanNTQUw3TS1wOUl6TmlJQXVOWDZvNElpZFF2UEVTd3h5Ng?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-fbb1e335d660",
+      "competitor": "Bytron Skybook",
+      "date": "2026-04-07",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Ensure safe load limits with Weight & Balance on the skybook EFB \u2708\ufe0f With\u2026",
+      "summary": "Ensure safe load limits with Weight & Balance on the skybook EFB \u2708\ufe0f With easy profile configuration, your aircrafts W&B envelope are automatically applied when selecting a sector, saving time and reducing manual input. Integrated directly into the EFB workf linkedin.com",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZzNydHVHWEIzQ1UxX1Z6a2NKNnFUSERLM3Y3TXR5VnNHM0ZrTnZYeTdqOWk0RkhWekZ2YVVuYUlwVTBnMnU2aEstMHljamNxMlZSdEExbXZCaG5hUENMUUhsZjd0YnJfUEctY3hUVDVBbmduRjFiakRTd0ladElLWVpiSWEwbUk4YS1ZLWR1NHkyVF9ZR19XaURTOWx0LU55VFg0?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-0f66921a6c90",
+      "competitor": "Navblue",
+      "date": "2026-04-06",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Airbus Launches Skywise Subsidiary Integrating Navblue and Digital Services",
+      "summary": "Navblue reported a partnership update: Airbus Launches Skywise Subsidiary Integrating Navblue and Digital Services. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9Jd2NLaHZMcUZPazVtc3NsM19PRllfejNiNlQtM3FYYmEwaVRabGM2Z3NjV1FsUjNlNDZsNXFZOGFxVlBaUmtVZC1sWEdvZTNQdG95V0hYdkVFQ1FlM05MOXBrWW01dWZ4MnEw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-e2948c209ae0",
+      "competitor": "Navblue",
+      "date": "2026-04-02",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Palantir is proud to partner with Airbus and power the evolution of Skywise across the aviation ecosystem.",
+      "summary": "Palantir is proud to partner with Airbus and power the evolution of Skywise across the aviation ecosystem. From our initial collaboration on the A350 production ramp-up to the creation of the Skywise Platform, we are excited to see it grow and expand its impac",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOWDhZZkpxU19UcjZoTzBoVzhBdERvYjI5OVItUnpfcmxlQ2x2UFRSU3JPaldjS3VSRmpQRmxGOEJKOG5wQ1h2STF6X2FibU5KSkxSZDdjWWZ6OU1pQ0RxZzFWLTgydHVYUEt2cDdiMUZxbXVoS0hBVUlHX2xyQVE4SmxHeWlaMWRDY2hvLTAxbmdGMG5aV2djUlJMckZPS2NVQVlMeEZQRDFFalZMbnZWbHFkVVJJM1RLeVlWNjVIYlBnVUxLOWc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "nav-2026-04-01-skywise-merger",
+      "competitor": "Navblue",
+      "date": "2026-04-01",
+      "type": "ma_pe",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.96,
+      "headline": "Airbus merges Navblue into new Skywise digital services company",
+      "summary": "On 1 April 2026 Airbus merged Navblue with Skywise digital solutions into a single subsidiary (~750 people) positioned as an end-to-end digital provider for Airbus and non-Airbus fleets.",
+      "why_it_matters": "Structural repositioning of a core competitor\u2014brand, packaging, and sales motion will shift from \u2018Navblue\u2019 to \u2018Skywise\u2019 suite selling.",
+      "geography": "Global",
+      "segment": "OEM digital services",
+      "implications": [
+        "Expect unified Skywise + flight ops pitches and stronger OEM bundling.",
+        "Customer sentiment may shift during brand/contract transitions\u2014outreach timing opportunity."
+      ],
+      "next_actions": [
+        "Rewrite Navblue battlecard under Skywise umbrella.",
+        "Sales: identify Navblue accounts mid-renewal for uncertainty windows."
+      ],
+      "sources": [
+        {
+          "title": "Skywise re-imagining the digital sky (Airbus)",
+          "url": "https://www.airbus.com/en/newsroom/stories/2026-04-with-skywise-airbus-is-re-imagining-the-digital-sky"
+        }
+      ],
+      "tags": [
+        "skywise",
+        "merger",
+        "positioning"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": null,
+      "product_focus": "other"
+    },
+    {
+      "id": "cap-90b97df0826d",
+      "competitor": "Navblue",
+      "date": "2026-04-01",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Today marks a milestone as we\u2019ve officially launched Skywise as a subsidiary, merging Skywise\u2026",
+      "summary": "Today marks a milestone as we\u2019ve officially launched Skywise as a subsidiary, merging Skywise digital solutions and NAVBLUE, an Airbus Company solutions into a single entity. This integration intends to move the industry beyond fragmented data by connec",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNRnBTaFJjVDZQTWRueFZ6U3dwNWFfUk5UMUZLNFJqZWVVOUFmLUNXS0tjUi1RbXhEVDhpVlBMYjFFNlJrQmsyNnJJaVpFNmJyR2hHbndrRHlhMmg4SmtjU296Q0ZxQmhnRFNVOWVjNjdlbHFkNFZ1Y04xS2tzRHBCOW1Md0YzSFQ1ZUpzTEFLcjRRVTQwU0ZrOVZTTVFrM1BlLXFaalpLb0QyYncySWRFenJRT2FsWWstcS1qZGdpcw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-2d792d8129d0",
+      "competitor": "Navblue",
+      "date": "2026-04-01",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Today marks a milestone as we\u2019ve officially launched Skywise as an Airbus subsidiary, merging\u2026",
+      "summary": "Today marks a milestone as we\u2019ve officially launched Skywise as an Airbus subsidiary, merging Skywise digital solutions and Navblue solutions into a single entity. This integration intends to move the industry beyond fragmented data by connecting pl",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQUzBzTGM2THVaR2o5YjRmeXBWMm8yWFk5emVMNVlQOUN0eXluMk10aEhrTkFNUlk5bWl3UUxvTWREYW8xQm04MkozRnV1emhGdGhWUm5PVXZyQ2FmeHo3bGN5aUxDV2lJcHgzVFdLWjFfVjhZTV80QzFvM0VXaEdEc0ZGclBKY3EwYUxaLVZJYnN5blpPbmc4ZTBmckttckhnYUthbDJOcWFRdXBYbHhjYkJCamo5d0pxcGMyT0dzZzlybGVQcnhHdHliUlBPZw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-4eb41841fcf3",
+      "competitor": "Navblue",
+      "date": "2026-04-01",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Airbus unveils Skywise subsidiary, integrating Navblue and Skywise Digital solutions",
+      "summary": "Airbus launches the Skywise subsidiary, merging Navblue and digital tools to streamline flight, technical, and ground operations for Airbus and non-Airbus.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-04-airbus-unveils-skywise-subsidiary-integrating-navblue-and-skywise-digital-solutions"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-1e780ab6b942",
+      "competitor": "Navblue",
+      "date": "2026-04-01",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "For Palantir Technologies, it's a privilege to continue reshaping the future of aviation through our strategic partnership with Airbus.",
+      "summary": "Skywise is evolving and becomes the Airbus digital services company. For Palantir Technologies, it's a privilege to continue reshaping the future of aviation through our strategic partnership with Airbus.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNc0FsWmFORzhfeWxHRnJUSmxTbGlHZWJwTlNtbmx6cFFQektHVnNmc2pyN1JKbUxFNEtvMUp5OUxQY2lLMjBFa1hJNkJ3N3cyQlowcFhWZDNFT3ppUXM0bm9ocC1BeUNySC1TSkpUR1VvdGpFR2RzWDZxM091QmgwcWREVlNtcEtUTXBsLXJjTFY0YTdtNEtOcTNUVDZJdExEZ3B0WnhSZm5WVGdUbkRBNmlkdDZkLWdQc3RGb3JQckFZdw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-20a5ac2a38e5",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-03-18",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "As of 2026, the best software for comprehensive airline network planning and operational analysis\u2026",
+      "summary": "As of 2026, the best software for comprehensive airline network planning and operational analysis depends on airline's scale, with Lufthansa Systems (NetLine), Sabre (AirCentre), and Amadeus (SkySuite) leading the enterprise market.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNTmlQcXp1RTZuQlpuNVItQW1yOFhEYmZPbGIxZXFwRDZLa0phLUM0SDRkVG1zWkRtdTlsRVJkSW5NYXBPRG9RWS16akNFYTlQTjFWWENZZUJVUkp2TFlfRVdvT1FHeDFJejNHV0NNMW1zX2VkVUp0RVhTN0hsNHNnWnlYWkZLNXcyakhQOVNGSGk0YjVKY1ZJXzJlcFNPNkNfY3lBNGN0RG9BbEF1ZzhMdmRwWXlYNTl2YVZvZ1ZoODk3TTltZ2tOODJqckNZZ25MM2RueUJlNS10Tjg?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-b3988b5b495f",
+      "competitor": "Bytron Skybook",
+      "date": "2026-03-17",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "skybook 1.49.0 Release Notes | Bytron Aviation Systems",
+      "summary": "skybook updates introduce a new ATIS/ATC keyboard, Delay Code search, quicklink modules, offline voyage sync, and enhanced Record Vault editing and filtering.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Bytron Release Notes",
+          "url": "https://www.bytron.aero/release-notes/skybook-1490-release-notes"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-41bf2a75a720",
+      "competitor": "Jeppesen",
+      "date": "2026-03-03",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "This is a remote opportunity for someone with strong experience in Jeppesen RAVE and airline crew systems.",
+      "summary": "We are partnering with a direct client seeking a Jeppesen RAVE Programmer to support crew rostering optimization efforts. This is a remote opportunity for someone with strong experience in Jeppesen RAVE and airline crew systems.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPckZhVjNzTjZocTZqVWU3OVpmcDU1RnhVelhMcXgtVFNkN2x1QTJ5amctRDF1ZVduRDFQejlOWDBOcWtJOFlMQWFIVVF0VFZkSlJ2OUVLUVhrWGs4dkpXMGY5dEQ4bHFTalBOUXdCM01WYXhRS1pQbTIyR1E3UTI5UDZEcC1BcTg2YUlKVnRIczd5bW96ZnZueWhobXA1T0s4NlhJa2Q3M3hRQ29z?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-f8934a64df13",
+      "competitor": "Jeppesen",
+      "date": "2026-02-27",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Jeppesen #FliteDeckPro 5.2 has begun rolling out to the market! Explore the latest features\u2026",
+      "summary": "Jeppesen #FliteDeckPro 5.2 has begun rolling out to the market! Explore the latest features coming with this release that are elevating efficiency and streamlining operations on the flight deck: https://bit.ly/3N8VTmO LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWTl3aVFtdE1ERG92MTZOQThLd0toT2dJcTJ2RXJ0S2liMUZYU1hSMnIzSmxycVN2a2FteVNpbTlIcmxScUVQRGZvb3A4OUc1RTF0Z1ZfRUhjTERmRndmNlZiMGJFdXc1cW5rc20weDdWVE1YXzJSSFpOczFHSHphYnRFYnNWVHdILTVmZmJBVk5RT3BlZUtNWWZ4QUh6QQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-fdbde5a591f1",
+      "competitor": "Jeppesen",
+      "date": "2026-01-15",
+      "date_is_estimated": false,
+      "type": "ma_pe",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Layoffs Hit Jeppesen ForeFlight Following PE Acquisition",
+      "summary": "Jeppesen reported a ma pe update: Layoffs Hit Jeppesen ForeFlight Following PE Acquisition. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9MSHBGWUV3SU1xODFtQVM4bkNTMFExcW9LcWFxSGoyRE9tM1VleUtZYmlndFAwSlRBMzdwdm9TNzZ2Y1VmUzlxUFhqWFVqdVBkN3RicGlSejkxZjNXb0h0ZnNjRld5RWI2bERLTFp4b3JRVGlfXzhtQ2IzUXRYZw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-8bc0c4761c68",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-01-07",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Infosys and Lufthansa Systems (LSY) celebrated a major milestone of scaling the dedicated LSY\u2026",
+      "summary": "Infosys and Lufthansa Systems (LSY) celebrated a major milestone of scaling the dedicated LSY Global Capability Center (GCC) in Bengaluru to 100+ FTEs as a part of our strategic partnership. Our collaboration and shared vision will enable co-creation of ne L",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOYjlNRDRUVzVUS05oMzhwcDNjNVZRdU1CbVBOQjZqN01GWmUzdGJxUXhvZE50YmR6VFVmWlRsRjdRQ0ZyTDl2NGNJSDBKYW14cDIzYUxuN1ZWMW15TzJsNUZLeXlNMHRFbExvZ3dWSWtHbnBVMmljSVd5aktDYnJ5bzdzZVVocVVVXzBCTm55UldLcW1jZjNrRWRndVpucTZwQlZWN1cxQlltSzND?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "byt-2025-12-23-integrations-story",
+      "competitor": "Bytron Skybook",
+      "date": "2025-12-23",
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.75,
+      "headline": "Bytron pushes system-integrations narrative across flight ops stack",
+      "summary": "Bytron published an integrations overview highlighting EFB links to Lido mPilot, NavBlue Charts+, Jeppesen FliteDeck Pro/Aviator, and Navblue RAIM+ reporting.",
+      "why_it_matters": "Positions skybook as orchestration layer rather than closed suite\u2014useful for open-architecture buyer conversations.",
+      "geography": "Global",
+      "segment": "Flight ops",
+      "implications": [
+        "Bytron may win where airlines refuse rip-and-replace of charts/EFB incumbents.",
+        "Interoperability messaging can undercut suite lock-in pitches."
+      ],
+      "next_actions": [
+        "Note \u2018integration hub\u2019 positioning on battlecard.",
+        "Marketing: prepare counter on depth vs breadth."
+      ],
+      "sources": [
+        {
+          "title": "System integrations for airline operations",
+          "url": "https://www.bytron.aero/aviation-news/system-integrations-for-your-airline-operations"
+        }
+      ],
+      "tags": [
+        "messaging",
+        "integrations"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": "Bytron Skybook",
+      "product_focus": "eff"
+    },
+    {
+      "id": "cap-6c44340efff4",
+      "competitor": "Navblue",
+      "date": "2025-12-10",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Tata Consultancy Services joins Airbus\u2019s Skywise Certified Partner Programme",
+      "summary": "Navblue reported a partnership update: Tata Consultancy Services joins Airbus\u2019s Skywise Certified Partner Programme. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVlI3MUlFZHk4Y1o4RVNtLXFoSU4yZUxzX1NhX0dxUm1KVTBjeENtUVdGMU5KeHlCN0U4QXc1YlVjLTVnc3NBaHRnWGptYTdHUm9NNXgzQ3BMYnB6M1dFODF6V2hfQ25mMHpEd2trWXlHT3ZRYktRZ3VoU2tMenVEQVB1RFRLWlRnQ2RxNHpCbnQwaHEtT1ZRc2tlbS0tV3JZNHlwT1FWRXh2SFk?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-6411bd71d271",
+      "competitor": "Navblue",
+      "date": "2025-12-10",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "This is the opportunity to drive innovation and create more efficient operations for airlines using the Airbus platform.",
+      "summary": "TCS has joined the Skywise Partner Programme. This is the opportunity to drive innovation and create more efficient operations for airlines using the Airbus platform.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQdVhoZFJOYXFrbE5nWnZOR1pTUHI3d0hpTHVMQmZlWnlmSUoxcmNQVWVYSjJ3NFBidHBnTUdqY1Z3NWYyWVZzYXlxeXczbHlfNWsyLVVpQ2lTNXdHSWw5cm81UkhrV1lSczBYa0RtWEp6WG5meWNwU3h3anhmT2lka0tMWEJQczRDNlRxcVctY3BUS28xeXJKdVFxZldYZnRFUHBwNlRYNEwtT1ZkSldwRnQ4S0c2a2RzMUc4aGhRQTlPRGpz?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "byt-2025-12-01-skybook-148",
+      "competitor": "Bytron Skybook",
+      "date": "2025-12-01",
+      "type": "feature_change",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.88,
+      "headline": "skybook 1.48.0 adds Leon integration, NOTAM UX, ETOPS/EDTO and Met Office SADIS",
+      "summary": "December 2025 release brings Ground Portal integration with Leon for crew/schedule data, redesigned NOTAM filtering on EFB, Fuel Order fields, PPS ETOPS/EDTO ingest, and Met Office SADIS OPMET feeds.",
+      "why_it_matters": "Steady product depth in briefing/EFB workflows and third-party integrations\u2014Bytron competing on operational completeness.",
+      "geography": "Global",
+      "segment": "Flight ops / EFB",
+      "implications": [
+        "Integration breadth (Leon, PPS, charts, Navblue RAIM+) is a selling point.",
+        "Release notes remain a reliable signal source for Bytron."
+      ],
+      "next_actions": [
+        "Diff 1.48 features vs Cathay Tech briefing/EFB capabilities.",
+        "Keep release-notes crawler on bytron.aero."
+      ],
+      "sources": [
+        {
+          "title": "skybook 1.48.0 release notes",
+          "url": "https://www.bytron.aero/release-notes/skybook-1480-release-notes"
+        }
+      ],
+      "tags": [
+        "release",
+        "efb",
+        "integrations"
+      ],
+      "source_channel": "curated",
+      "source_origin": "press_release",
+      "product": "Bytron Skybook",
+      "product_focus": "eff"
+    },
+    {
+      "id": "cap-82855ce4b561",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-27",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Press Release: Lufthansa Systems launches new subsidiary in India",
+      "summary": "Lufthansa Systems reported a product launch update: Press Release: Lufthansa Systems launches new subsidiary in India. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxONzZVZnhxT3R2NWhseDVmN0JaQ3ZNSV82MkdPU0kxdktCQnNIM1lQNU5uU1QwSTVNUnVLY3hneWNqMW1hUjdETEkxNU1YQkltSlF6dVd1NjdtbzlQNDhwazZabnRDZjZpZHRlNC1YNHhGMnk4YUtyLUFjbW9TaEJiMU4wcnJSU0NvSWZnb3FhanpRRmc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "lhs-2025-11-25-eurowings-crew",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-25",
+      "type": "implementation",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.86,
+      "headline": "Eurowings first to deploy cloud-native NetLine/Crew Pairing Application",
+      "summary": "Eurowings implemented Lufthansa Systems\u2019 optimiser-based cloud-native crew pairing application for faster parallel evaluations and KPI-driven planning.",
+      "why_it_matters": "Demonstrates group-airline reference for next-gen crew planning inside the Lufthansa ecosystem.",
+      "geography": "Europe",
+      "segment": "Low-cost carrier",
+      "implications": [
+        "Cloud-native crew optimisation is a live competitive theme.",
+        "Group references may accelerate sister-airline adoption."
+      ],
+      "next_actions": [
+        "Add crew-pairing cloud story to Lufthansa Systems battlecard.",
+        "Watch for other LH Group airline rollouts."
+      ],
+      "sources": [
+        {
+          "title": "Eurowings deploys next-generation crew planning tool",
+          "url": "https://www.aviationnews-online.com/public/index.php/article/eurowings-becomes-first-airline-to-deploy-next-generation-crew-planning-tool"
+        }
+      ],
+      "tags": [
+        "crew",
+        "netline",
+        "cloud"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": null,
+      "product_focus": "adjacent"
+    },
+    {
+      "id": "cap-b19ccde5f64e",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-25",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "\u2708\ufe0f We\u2019re proud to announce that Eurowings is the first airline to implement our newly released NetLine/Crew Pairing Application.",
+      "summary": "\u2708\ufe0f We\u2019re proud to announce that Eurowings is the first airline to implement our newly released NetLine/Crew Pairing Application. As the launching customer, Eurowings is pioneering th &nbsp",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPcVhLOTFfV01hcFktTHRWa3c4cHZ2dVhvMTNhZnpaSGFmQnJnVF9qbENFOFlPZ1VrTDJNMTE1NFR5SmNkdV92YkVpTXI3eHFqdHY3N0U2X3RaTGNjZ2RfeGxIWkFIUnlqSEdmWHJfYnpNeUJrSUV3dEY4RGhXX1g3WmU2S3c1SU5IZjZzOFpvT0RkX0k5a19sT2tVT3VzZlVmNVlpdkNDMXVnVDdPRzNLZEZqOG9LdHZBTEJQWDZRS3VLRVF4?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-190aa6c23838",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-13",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "New Tech: Vietnam Airlines Adopts Lido Flight 4D Flight Planning System",
+      "summary": "Lufthansa Systems reported a customer win update: New Tech: Vietnam Airlines Adopts Lido Flight 4D Flight Planning System. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPTURkNU9LbVhLU0l6bm1RYmVqQ0tpNUF2cFFoVjU3aEFtT2tpWFRhT1hieVJuWjB4ZXVIZDN1ZDNyU3B1VlJKV1FiX2N2MjdsWGYtUWNtMWZCMEF0dVhwTUNyLWdUcHMyaDQwSERLM0E0VEhiVWl5ajRsWWlhWVAxaGN3?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-9803fdfe8afa",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-13",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Press Release: Vietnam Airlines uses Lido Flight 4D to optimize planning",
+      "summary": "Lufthansa Systems reported a product launch update: Press Release: Vietnam Airlines uses Lido Flight 4D to optimize planning. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1XcnBfSW5RbTR3Y3pqM2JnZjZhRFB6NFYyTjZNeEtNcWZudnUycjF6MGxGMXJWcV9hdmxwSTFuWnBqNTYyWmlhOFFhR09QRENtTGc2U2VjenBMYmRWSm5nU1c4SGU0NnZkMXBvYzNHdGNwRTFXV01FdDl3?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-66d6154f3d3c",
+      "competitor": "Jeppesen",
+      "date": "2025-11-12",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Stay Connected with Jeppesen ForeFlight! Stay informed on what\u2019s happening across Jeppesen ForeFlight \u2014\u2026",
+      "summary": "Stay Connected with Jeppesen ForeFlight! Stay informed on what\u2019s happening across Jeppesen ForeFlight \u2014 from aviation insights and team highlights to industry partnerships and events.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdmRkYTR2aU4wY0pWOGpnQ1ltZDVpNzlNR3cxWll1UWJkUmZnQlJXdzlzeks1ZTN3RFMxYWV0cDNReVN5NktyWkZmTjhzeXRvN1hGSFZGTjQzZjR0R2JLNkdzd2djcjZQTU52aEJQZi1SSm12Tjd3bGthZ2ZIY2ViaVFlSmN1RVE2bEkzSDRxMjhXaTluNFJmci1LU0lSbGtJaW1teHRTajJBU2UwODNNTVRR?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-f1f1934225cd",
+      "competitor": "Jeppesen",
+      "date": "2025-11-03",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight Launches as a Standalone Company to Redefine the Future of Aviation Software",
+      "summary": "Jeppesen reported a product launch update: Jeppesen ForeFlight Launches as a Standalone Company to Redefine the Future of Aviation Software. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPWDg0MWZhMjJ2YklQVi1pV18ySHl6UlpUdEhyNEQwMVA3ZHkxaVR1ekpTbWJBc29PTnFxcXZCRzdrWW1wWVRocElqX25iQW8yUjhWaW1CbXRLMU5OdFVxcnhDZGZzcGY3NlgxRFdiOU5uODN2X2pLaWxSbW9IZmxYSFFmVE5xcXlRdzN4RjBIaklJUU1zUWN6VjZsbjRCeER1cXJmRUtINVdVQ2RmamZ5ZjN4MC1NMWd5SjNyZ21qWlY1azhsQVVVWWl0RWxyek1SVmN1UA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-e114eab253eb",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-03",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Press Release: Lufthansa Systems revolutionizes crew pairings",
+      "summary": "Lufthansa Systems reported a product launch update: Press Release: Lufthansa Systems revolutionizes crew pairings. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdFc3Vzdab01fMk5jUlluZVg4VnM0TjV6OU5tNHdUM3NiNnhBcnVpTHNCanlKX1lPaDZzeGVlTmtXNjlmWjRzU3c2dWQ2a2NFLTZhSGNZVkZqT1F2Z3pNR1BXWm55Mnk2WVlBMzZmdURpM3lzY0Q2SjdHb0U5TE9wRzhOb1hMSHBiZzRjMUVITDF6Zw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-194649be9898",
+      "competitor": "Jeppesen",
+      "date": "2025-11-03",
+      "date_is_estimated": false,
+      "type": "ma_pe",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Today, Jeppesen ForeFlight officially announced its launch as a new digital aviation ent",
+      "summary": "We\u2019re excited to share that we have completed our acquisition of portions of Boeing\u2019s Digital Aviation Solutions business in an all-cash transaction valued at $10.55 billion. Today, Jeppesen ForeFlight officially announced its launch as a new digital aviation ent &nbs",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNdS1tQ1lzQ19mcFMwZlhRSTVXMV9nWEI0WDJJelVaM1NjQ3F5c0tJRGtCakhOTnBVZkg5SmxCQmEySXRoTHJIQkwtenVrY0FFRU8xenh1ejQ4Rnl2bHYtMjIzWmtqYWN1MjBEVW4yM25kajRxY0N6cE56RjRNOTJ0VEVxd092WXFZWHRXNVR5YjV4dlRKRjdSdzUzV0JONVNHUHd1Nmt3Y1I3TDI3SU1qRjVFZU1kTzNfQmxwMUVR?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-a6d01f6c420a",
+      "competitor": "Jeppesen",
+      "date": "2025-11-03",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Today we launched Jeppesen ForeFlight as a standalone company, backed by Thoma Bravo.",
+      "summary": "Today we launched Jeppesen ForeFlight as a standalone company, backed by Thoma Bravo. Powered by the combination of Jeppesen\u2019s 90-year legacy of aeronautical precision and ForeFlight\u2019s digital-first innovation, we\u2019re positioned to redefine aviation.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOVWNfRUVvVUNsSm9JRjhuZ2U0cDZsbmE2T01ERVV0Ulo1S1lWYnBha29aanVJeVVyZTFRQnlCcXBJTklkWjNPaElYZ3F1UjRSeXdOaFlWN3FpRHBvRVh2Q2JiMWV5T2FQMjVoNDNBdEJoLWlJcFdjeDdacTVnMlBKQzNSQUlxZUVfbUYwUzgyVjUyZ1A2V29rRU1pT2ZrLUU?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-3df2ca80bf42",
+      "competitor": "Aviobook",
+      "date": "2025-10-24",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "We\u2019re proud to have been represented by our valued customer, Virgin Australia, at Aircraft\u2026",
+      "summary": "We\u2019re proud to have been represented by our valued customer, Virgin Australia, at Aircraft IT APAC! \ud83c\udde6\ud83c\uddfa A big thank you to Robyn Logan, Manager Flight Operations Services, for sharing how the AVIOBOOK EFB is transforming pilot workflows, driving on-time <font co",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOemZVc0I1dy1NQi1PUDc0Mk5RMWxWbTY0MV9xTm1QWlFINlI1azJJeW0wSnN5RF9Lb01PYVZhc2RqbHVXY2NVUUN5UUVJUGE0RUl6ZVRzRG56WW0tUk43N1Zxd3I2eVE2WXQxM0dmUzZYNlJYUDBPMVd0cEFEbU5kMmpWcUVwNEJjZW4ybWRiV3JSU0N2eHg0UkZ6YUt5Zmo1UkVWOC1TY0JweUktRDdVVnNiT05HdlgwRnc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-170077544c91",
+      "competitor": "Jeppesen",
+      "date": "2025-10-22",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Boeing Jeppesen, Bytron strengthen partnership with 5-year deal",
+      "summary": "Jeppesen reported a partnership update: Boeing Jeppesen, Bytron strengthen partnership with 5-year deal. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOMFNkRGZTNEs0T3ptYkg3QnQyOG9IN2ZsSENmbEZaVWg2SlZ4SzBxWlk1c3ZEMnNHenY3NW9YdlFKb05uSzRxbkpVdGxhV21Pa3JYOHdIOTVoYWVLR21mdEs1anEzT2JiSDdFS005akttMGlMX1laYzktOERranFGRE1lWWloZS1PdDhVRWNnbFo4Z0dfMkI0dTA0Z0tXZFowXzRKeTZmUHhURkpwNTFtajA3VG02aXBYcmlzSkV6VlZnTGs?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-bab00bf9c288",
+      "competitor": "Bytron Skybook",
+      "date": "2025-10-14",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "skybook 1.47.0 Release Notes | Bytron Aviation Systems",
+      "summary": "Users can now download a sector summary PDF and edit data for signed-off sectors stored in the Record Vault, while enhancements have been made to the Dispatch module performance and more...",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Bytron Release Notes",
+          "url": "https://www.bytron.aero/release-notes/skybook-1470-release-notes"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-a0be2a33700a",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-10-01",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Press Release: Wizz Air uses Lido feature to detect GPS interference",
+      "summary": "Lufthansa Systems reported a product launch update: Press Release: Wizz Air uses Lido feature to detect GPS interference. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBxZHRvX3BtZUNIQXRTcVlyTUFhamFvMlpsNjdJeS04WUZiaGFjbUJTa0pER0liR0xkOGRCWHZTQlQtTzdLYUktcGJIUldWdDNYUEI2T2hTcVl4R3p6VFZCb1RfTXRZX1dzX19LdVRKLXk?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-7145d11bd4f2",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-09-17",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Philippine Airlines enters digital transformation partnership with Lufthansa Systems",
+      "summary": "Lufthansa Systems reported a partnership update: Philippine Airlines enters digital transformation partnership with Lufthansa Systems. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPRmdOaTlFRzlfdHZYUUhqcE8xcTFrQ0lfS1YxV1R0bGxzRlFaWXVuM3ZJbGotUWtaTU1RTXM0ZWcxUDhJMTJpVjhZa2ozX3p4WnRPSjV0cWpPczU5dHZLbTJBdHUyMDBVWU1QVEVPTUEzZFg0eEQ3VVJmZ0tTT1VzaG9uQWd0N3ZsSEJzLWFqRXNPNlJjV0l4S2dUZUhLRnRWRnEyd0FJcURnelNPLVl2TFdXeXRxdng2Y0ZTSDhpWEtNcVBIR05iV3E3bmQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-3f2068051b99",
+      "competitor": "Aviobook",
+      "date": "2025-09-17",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "#thales #indigo #aviobook #aviation #mro #india #efb #airlines #aerospacetech | Thales | 12 comments",
+      "summary": "Aviobook reported a messaging shift update: #thales #indigo #aviobook #aviation #mro #india #efb #airlines #aerospacetech | Thales | 12 comments. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZUEtVm1DRGZZSlhBUnNpZzJDYTZnWDhGb2JoUWF1NDZLTmJCdUxhbDVjdVdmTDFMal9FNzA1YmhZUEdyZ293YUx2ZVN4b2Rnd2o5bFdRVFIyc19HNGM4RDRVTV81ZjBNN0ptMjFHbVJzV09iaHp3R3lqZlRwbmY4NWlRdjd3QnVVcndPdGloU05GS256S3BKZmswUDVuRkdTSWdUdUd6RHY4UGQ3TElNWmJ2dC1UdXVpWlE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "lhs-2025-tpconnects-sirax",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-09-15",
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Lufthansa Systems partners with TPConnects on SIRAX/ONE Order retailing finance",
+      "summary": "Integration of SIRAX/ONE Order into Astra Nova combines offer/order management with accounting, settlement and reporting for IATA-aligned retailing transitions.",
+      "why_it_matters": "Shows Lufthansa Systems pushing beyond classic ops into modern airline retailing finance stacks.",
+      "geography": "Global",
+      "segment": "Airline retailing",
+      "implications": [
+        "Competitive perimeter may widen into offer/order and settlement.",
+        "Less direct EFB overlap, but relevant for account tech-stack mapping."
+      ],
+      "next_actions": [
+        "Tag as adjacent competitive move; keep on radar for full-suite deals.",
+        "Do not over-weight vs flight-ops displacement unless account is shopping suite-wide."
+      ],
+      "sources": [
+        {
+          "title": "TPConnects and Lufthansa Systems integrate airline retailing finance",
+          "url": "https://www.traveldailynews.com/aviation/tpconnects-and-lufthansa-systems-integrate-airline-retailing-finance/"
+        }
+      ],
+      "tags": [
+        "retailing",
+        "one-order",
+        "partnership"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": null,
+      "product_focus": "adjacent"
+    },
+    {
+      "id": "cap-eb2f3fbc1fd1",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-09-15",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "\ud835\udc0f\ud835\udc21\ud835\udc22\ud835\udc25\ud835\udc22\ud835\udc29\ud835\udc29\ud835\udc22\ud835\udc27\ud835\udc1e \ud835\udc00\ud835\udc22\ud835\udc2b\ud835\udc25\ud835\udc22\ud835\udc27\ud835\udc1e\ud835\udc2c \ud835\udc26\ud835\udc28\ud835\udc1d\ud835\udc1e\ud835\udc2b\ud835\udc27\ud835\udc22\ud835\udc33\ud835\udc1e\ud835\udc2c \ud835\udc22\ud835\udc2d\ud835\udc2c \ud835\udc28\ud835\udc29\ud835\udc1e\ud835\udc2b\ud835\udc1a\ud835\udc2d\ud835\udc22\ud835\udc28\ud835\udc27\ud835\udc2c \ud835\udc30\ud835\udc22\ud835\udc2d\ud835\udc21 \ud835\udc0b\ud835\udc2e\ud835\udc1f\ud835\udc2d\ud835\udc21\ud835\udc1a\ud835\udc27\ud835\udc2c\ud835\udc1a \ud835\udc12\ud835\udc32\ud835\udc2c\ud835\udc2d\ud835\udc1e\ud835\udc26\ud835\udc2c Philippine Airlines signed an agreement with\u2026",
+      "summary": "Lufthansa Systems reported a customer win update: \ud835\udc0f\ud835\udc21\ud835\udc22\ud835\udc25\ud835\udc22\ud835\udc29\ud835\udc29\ud835\udc22\ud835\udc27\ud835\udc1e \ud835\udc00\ud835\udc22\ud835\udc2b\ud835\udc25\ud835\udc22\ud835\udc27\ud835\udc1e\ud835\udc2c \ud835\udc26\ud835\udc28\ud835\udc1d\ud835\udc1e\ud835\udc2b\ud835\udc27\ud835\udc22\ud835\udc33\ud835\udc1e\ud835\udc2c \ud835\udc22\ud835\udc2d\ud835\udc2c \ud835\udc28\ud835\udc29\ud835\udc1e\ud835\udc2b\ud835\udc1a\ud835\udc2d\ud835\udc22\ud835\udc28\ud835\udc27\ud835\udc2c \ud835\udc30\ud835\udc22\ud835\udc2d\ud835\udc21 \ud835\udc0b\ud835\udc2e\ud835\udc1f\ud835\udc2d\ud835\udc21\ud835\udc1a\ud835\udc27\ud835\udc2c\ud835\udc1a \ud835\udc12\ud835\udc32\ud835\udc2c\ud835\udc2d\ud835\udc1e\ud835\udc26\ud835\udc2c Philippine Airlines signed an agreement with\u2026. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi0ARBVV95cUxPZkY2RG8yVHU0NzVPbzN2bVZHUGtScTFYdUpEbHhESWJOcENrLXBoaHVDVHlqTzE1UVNQS0ZNOXRyVF9EcGc0VEhoS21xWVh2MFFLcmxMcXllbUpQMmxCc3lyWjg3UFRCcGtlSUl5YzZQckU2djJ0RmttdjVlT0dMZ1V6T0tIS2ZSQmtIb0lhMVdvM3RtRjdueUN2bVcwMkRnZFZjMWI3V3R5WlFEdlE1R0M2WHJxNE9VVVF4LWFSQzlwUUJ2TDFveEgydGY4bS1OYmhOUjZTbHJCdjBjbzJTNW9nMURCVlZQRTdRa2xwd01SVWZ0QlNBRFN6ZFJJanlYM2tUeXBrdzlrT0pEYUVPaGFReEM2d2VVLW5VeEswbVN2b0Z0TjJJcnVWODZDNVZUVS1GaEJsTTBzaTR6R1VVX0cwX25oWjVjQnUtR2xqSUdPSzBkMEUzYm9BbWNvVUdCUG5iSXQxWHJBUGxDeThkaGtncExIWmxmdmxQQ0FHUDV2bnpjczZLQ2s5ZkJaemszZ05NSThtV2xpRDhlTC1IN0VweHBETVprZjFsb2ZPekNWNTRMRjBzNjBWZWpRWjNpRTRacFU3TWR3cFFybWhCS2dHV21Halcwb2N2b3ZzUWpOWEE1Qnk2Nm1Ka3dYYURUS0NaLVQtS2NpdUdQZFR1T0J5bGprNWFIUVROMUJFRkhaY055endrd3ZmLXNLOGNSM3JGV3pwZUVidUFKS3pzbWpybVZQanNiSENuRDFGV19oNGlnZHJZXzEyNXhRRnlE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "lhs-2025-06-26-jetblue-netline-plan",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-06-26",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "JetBlue becomes first U.S. carrier on NetLine/Plan",
+      "summary": "JetBlue selected Lufthansa Systems\u2019 NetLine/Plan cloud SaaS network planning tool, expanding an existing relationship that already includes Lido SkyData.",
+      "why_it_matters": "U.S. foothold for NetLine planning; shows land-and-expand from data/ops into network planning.",
+      "geography": "North America",
+      "segment": "Low-cost / hybrid",
+      "implications": [
+        "Lufthansa Systems is deepening U.S. commercial aviation software presence.",
+        "Existing Lido relationships can seed adjacent module wins."
+      ],
+      "next_actions": [
+        "Track NetLine footprint growth in North America.",
+        "Monitor accounts already on Lido for upsell vulnerability/opportunity."
+      ],
+      "sources": [
+        {
+          "title": "JetBlue enhances network planning with NetLine/Plan",
+          "url": "https://www.aircraftit.com/2025/06/?post_type=news"
+        }
+      ],
+      "tags": [
+        "netline",
+        "network-planning",
+        "jetblue"
+      ],
+      "source_channel": "curated",
+      "source_origin": "official_site",
+      "product": null,
+      "product_focus": "adjacent"
+    }
+  ]
+}

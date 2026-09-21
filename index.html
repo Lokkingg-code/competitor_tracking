@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Competitor Tracking Engine · Cathay Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-utility">
+        <span class="system-name">Cathay Technologies</span>
+        <span class="system-divider" aria-hidden="true"></span>
+        <span class="system-context">Operations intelligence</span>
+        <a class="utility-link" href="references.html">Reference library</a>
+      </div>
+      <div class="brand-block">
+        <p class="eyebrow"><span class="live-dot"></span>Live monitoring · External sources</p>
+        <h1>Competitor Tracking Engine</h1>
+      </div>
+      <div class="controls">
+        <label class="control search-control">
+          <span>Search signals</span>
+          <input id="searchInput" type="search" placeholder="Search title, product, or source" autocomplete="off" />
+        </label>
+        <button id="clearSearch" class="clear-search" type="button" hidden>Clear</button>
+        <label class="control">
+          <span>Window</span>
+          <select id="windowFilter">
+            <option value="7">Last 7 days</option>
+            <option value="14">Last 14 days</option>
+            <option value="365" selected>Last 12 months</option>
+            <option value="180">Last 6 months</option>
+            <option value="90">Last 90 days</option>
+            <option value="30">Last 30 days</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>Competitor</span>
+          <select id="competitorFilter">
+            <option value="all">All competitors</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>Signal type</span>
+          <select id="typeFilter">
+            <option value="all">All types</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>Product focus</span>
+          <select id="focusFilter">
+            <option value="all">All (EFF first)</option>
+            <option value="eff">EFF only</option>
+            <option value="efb">EFB only</option>
+            <option value="adjacent">Adjacent operations only</option>
+            <option value="other">Outside current focus only</option>
+          </select>
+        </label>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+          <span class="theme-icon" aria-hidden="true">☼</span>
+          <span class="theme-label">Light mode</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="metrics" id="metrics" aria-label="Summary metrics"></section>
+
+    <main class="workspace">
+      <section class="panel feed-panel" aria-label="Signal feed">
+        <div class="panel-head">
+          <h2>Signal feed</h2>
+          <p id="feedCount" class="muted">—</p>
+        </div>
+        <div class="feed" id="signalFeed" role="listbox" aria-label="Competitor signals"></div>
+      </section>
+
+      <section class="panel detail-panel" aria-label="Signal detail">
+        <div class="panel-head">
+          <h2>Briefing</h2>
+          <p class="muted">Source-linked battlecard</p>
+        </div>
+        <article class="briefing" id="briefing">
+          <p class="empty-state">Select a signal to open the briefing.</p>
+        </article>
+      </section>
+    </main>
+
+    <section class="panel heat-panel" aria-label="Activity heatmap">
+      <div class="panel-head">
+        <h2>12-month activity</h2>
+        <p class="muted">Signal volume by competitor × month</p>
+      </div>
+      <div class="heatmap-wrap">
+        <div id="heatmap" class="heatmap"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Desktop briefing view · External sources only · Data refreshed from <code>data/signals.json</code></p>
+      <p id="dataMeta" class="muted">—</p>
+    </footer>
+  </div>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

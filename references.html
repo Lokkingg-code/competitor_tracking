@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <title>Reference Library · Cathay Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
+</head>
+<body class="reference-page">
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-utility">
+        <span class="system-name">Cathay Technologies</span>
+        <span class="system-divider" aria-hidden="true"></span>
+        <span class="system-context">Operations intelligence</span>
+        <a class="utility-link" href="index.html">Back to signal feed</a>
+      </div>
+      <div class="brand-block">
+        <p class="eyebrow"><span class="live-dot"></span>Source register · Date assurance</p>
+        <h1>Reference library</h1>
+        <p class="reference-intro">The stable public reference points used for competitor monitoring, with scope, observed volume, and current confidence-level policy. Search results and social discovery are intentionally left out of this register.</p>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+        <span class="theme-icon" aria-hidden="true">☼</span>
+        <span class="theme-label">Light mode</span>
+      </button>
+    </header>
+
+    <section class="reference-toolbar" aria-label="Reference controls">
+      <label class="control">
+        <span>Find a reference</span>
+        <input id="referenceSearch" type="search" placeholder="Search competitor, source, or URL" autocomplete="off" />
+      </label>
+      <div class="reference-legend" aria-label="Confidence level legend">
+        <span class="confidence-chip confidence-high">High · first-party source</span>
+        <span class="confidence-chip confidence-medium">Medium · discovery source</span>
+        <span class="confidence-chip confidence-low">Low · incomplete evidence</span>
+      </div>
+    </section>
+
+    <section class="metrics" id="referenceMetrics" aria-label="Reference summary"></section>
+    <main id="referenceGroups" class="reference-groups" aria-live="polite"></main>
+
+    <footer class="footer">
+      <p>Reference register · Configuration from <code>scripts/capture/sources.json</code></p>
+      <p id="referenceMeta" class="muted">Loading…</p>
+    </footer>
+  </div>
+  <script src="js/references.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+{
+  "generated_at": "2026-09-01T03:30:00Z",
+  "lookback_days": 365,
+  "source_mode": "seed_plus_capture",
+  "competitors": [
+    "Jeppesen",
+    "Lufthansa Systems",
+    "Aviobook",
+    "Bytron Skybook",
+    "Navblue",
+    "IFS",
+    "Others"
+  ],
+  "signals": [
+    {
+      "id": "jep-2026-06-01-panam-efb",
+      "competitor": "Jeppesen",
+      "date": "2026-06-01",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.92,
+      "headline": "Pan Am selects Jeppesen ForeFlight FliteDeck Pro for EFB operations",
+      "summary": "Pan American World Airways chose Jeppesen ForeFlight’s FliteDeck Pro as its Electronic Flight Bag platform, combining charting, operational flight plans, interactive navigation logging, and flight efficiency advisories.",
+      "why_it_matters": "High-visibility brand relaunch win reinforces Jeppesen’s integrated flight-deck narrative and AI-assisted ops positioning.",
+      "geography": "North America",
+      "segment": "Full-service / network restart",
+      "implications": [
+        "Expect stronger Jeppesen messaging around AI-driven EFB + dispatch continuity for new and relaunching carriers.",
+        "Watch for similar brand/heritage storytelling in competitive pitches."
+      ],
+      "next_actions": [
+        "Update Jeppesen battlecard with FliteDeck Pro + AI narrative.",
+        "Flag to sales any Cathay Tech prospects evaluating greenfield EFB stacks."
+      ],
+      "sources": [
+        {
+          "title": "Pan Am adopts Jeppesen ForeFlight EFB",
+          "url": "https://www.jeppesenforeflight.com/news/pan-am-adopts-jeppesen-foreflights-electronic-flight-bag-solution-for-its-flight-operations"
+        }
+      ],
+      "tags": ["efb", "flitedeck-pro", "customer-win"]
+    },
+    {
+      "id": "jep-2026-06-01-korean-dispatch",
+      "competitor": "Jeppesen",
+      "date": "2026-06-01",
+      "type": "customer_win",
+      "priority": "critical",
+      "severity": 5,
+      "confidence": 0.95,
+      "headline": "Korean Air selects Jeppesen Dispatch for combined 230+ aircraft fleet",
+      "summary": "After a 24-month evaluation, Korean Air selected Jeppesen Dispatch as its future flight planning system for the integrated Korean Air–Asiana fleet, including renewal of existing Jeppesen flight planning solutions.",
+      "why_it_matters": "Landmark network-carrier win in Asia; signals Jeppesen strength in post-merger fleet consolidation and agentic/AI-ready OCC workflows.",
+      "geography": "Asia-Pacific",
+      "segment": "Large network carrier",
+      "implications": [
+        "Raises competitive bar for flight planning / OCC deals with major Asian carriers.",
+        "Merger-driven tech consolidation is an active buying trigger—map similar ownership events."
+      ],
+      "next_actions": [
+        "Prepare counter-positioning for large-fleet dispatch RFPs.",
+        "Review APAC account list for merger/integration timing windows."
+      ],
+      "sources": [
+        {
+          "title": "Korean Air selects Jeppesen Dispatch",
+          "url": "https://www.jeppesenforeflight.com/news/korean-air-selects-jeppesen-dispatch"
+        }
+      ],
+      "tags": ["dispatch", "flight-planning", "asia", "fleet-consolidation"]
+    },
+    {
+      "id": "jep-2026-04-29-dispatch-2026-2",
+      "competitor": "Jeppesen",
+      "date": "2026-04-29",
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "Jeppesen ForeFlight launches Dispatch v2026-2; Corendon as launch customer",
+      "summary": "Dispatch v2026-2 expands automation for complex planning workflows. Corendon Airlines (31× 737) is a launch customer, integrating with EFFCore and Jeppesen EFB, reporting fuel and planning-time gains.",
+      "why_it_matters": "Shows product velocity plus mid-size carrier proof points that can be reused in competitive deals.",
+      "geography": "Europe",
+      "segment": "Leisure / mid-size",
+      "implications": [
+        "Competitor release cadence around dispatch automation is accelerating.",
+        "EFF + EFB + dispatch bundling remains a key packaging theme."
+      ],
+      "next_actions": [
+        "Capture feature deltas from v2026-2 into battlecard.",
+        "Product: compare automation claims vs Cathay Tech roadmap."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight launches Dispatch v2026-2",
+          "url": "https://news.jeppesen.com/aviator-articles/jeppesen-foreflight-launches-dispatch-v2026-2/"
+        }
+      ],
+      "tags": ["dispatch", "release", "corendon"]
+    },
+    {
+      "id": "jep-2026-07-06-avia-solutions",
+      "competitor": "Jeppesen",
+      "date": "2026-07-06",
+      "type": "partnership",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "Jeppesen expands Avia Solutions Group deal across 10 ACMI airlines",
+      "summary": "Jeppesen ForeFlight will deploy FliteDeck Pro (incl. Smart Airports), NavData and Airport Data across Avia Solutions Group’s global ACMI airline portfolio.",
+      "why_it_matters": "Group-level standardization wins create multi-airline footprint from a single commercial motion.",
+      "geography": "Global",
+      "segment": "ACMI / group portfolio",
+      "implications": [
+        "Ownership-group deals can lock out competitors across multiple AOCs quickly.",
+        "Surface ops / Smart Airports messaging is part of the pitch."
+      ],
+      "next_actions": [
+        "Map other ACMI/group owners for similar multi-airline plays.",
+        "Sales: prepare group-deal counter narrative."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen expands relationship with Avia Solutions Group",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-expands-relationship-with-avia-solutions-group"
+        }
+      ],
+      "tags": ["group-deal", "efb", "acmi"]
+    },
+    {
+      "id": "jep-2026-06-09-manage-my-efb",
+      "competitor": "Jeppesen",
+      "date": "2026-06-09",
+      "type": "product_launch",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.88,
+      "headline": "Jeppesen + Stratix launch Manage My EFB Device-as-a-Service",
+      "summary": "Subscription model bundles Apple iPad hardware, Jeppesen ForeFlight EFB software, Stratix lifecycle services and connectivity into a per-device monthly cost.",
+      "why_it_matters": "Shifts competition from pure software features to total cost of ownership and managed EFB programs.",
+      "geography": "Global",
+      "segment": "Commercial + business aviation",
+      "implications": [
+        "Procurement conversations may expand to device lifecycle and OpEx models.",
+        "Partners that bundle hardware can change RFP scoring criteria."
+      ],
+      "next_actions": [
+        "Note DaaS packaging on battlecard.",
+        "Ask product whether Cathay Tech needs a managed-device story."
+      ],
+      "sources": [
+        {
+          "title": "Stratix and Jeppesen ForeFlight launch Manage My EFB",
+          "url": "https://www.stratixcorp.com/resources/press-release/stratix-and-jeppesen-foreflight-launch-manage-my-efb/"
+        }
+      ],
+      "tags": ["efb", "daas", "partnership"]
+    },
+    {
+      "id": "lhs-2025-06-26-jetblue-netline-plan",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-06-26",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "JetBlue becomes first U.S. carrier on NetLine/Plan",
+      "summary": "JetBlue selected Lufthansa Systems’ NetLine/Plan cloud SaaS network planning tool, expanding an existing relationship that already includes Lido SkyData.",
+      "why_it_matters": "U.S. foothold for NetLine planning; shows land-and-expand from data/ops into network planning.",
+      "geography": "North America",
+      "segment": "Low-cost / hybrid",
+      "implications": [
+        "Lufthansa Systems is deepening U.S. commercial aviation software presence.",
+        "Existing Lido relationships can seed adjacent module wins."
+      ],
+      "next_actions": [
+        "Track NetLine footprint growth in North America.",
+        "Monitor accounts already on Lido for upsell vulnerability/opportunity."
+      ],
+      "sources": [
+        {
+          "title": "JetBlue enhances network planning with NetLine/Plan",
+          "url": "https://www.aircraftit.com/2025/06/?post_type=news"
+        }
+      ],
+      "tags": ["netline", "network-planning", "jetblue"]
+    },
+    {
+      "id": "lhs-2025-11-25-eurowings-crew",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-25",
+      "type": "implementation",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.86,
+      "headline": "Eurowings first to deploy cloud-native NetLine/Crew Pairing Application",
+      "summary": "Eurowings implemented Lufthansa Systems’ optimiser-based cloud-native crew pairing application for faster parallel evaluations and KPI-driven planning.",
+      "why_it_matters": "Demonstrates group-airline reference for next-gen crew planning inside the Lufthansa ecosystem.",
+      "geography": "Europe",
+      "segment": "Low-cost carrier",
+      "implications": [
+        "Cloud-native crew optimisation is a live competitive theme.",
+        "Group references may accelerate sister-airline adoption."
+      ],
+      "next_actions": [
+        "Add crew-pairing cloud story to Lufthansa Systems battlecard.",
+        "Watch for other LH Group airline rollouts."
+      ],
+      "sources": [
+        {
+          "title": "Eurowings deploys next-generation crew planning tool",
+          "url": "https://www.aviationnews-online.com/public/index.php/article/eurowings-becomes-first-airline-to-deploy-next-generation-crew-planning-tool"
+        }
+      ],
+      "tags": ["crew", "netline", "cloud"]
+    },
+    {
+      "id": "lhs-2025-tpconnects-sirax",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-09-15",
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.8,
+      "headline": "Lufthansa Systems partners with TPConnects on SIRAX/ONE Order retailing finance",
+      "summary": "Integration of SIRAX/ONE Order into Astra Nova combines offer/order management with accounting, settlement and reporting for IATA-aligned retailing transitions.",
+      "why_it_matters": "Shows Lufthansa Systems pushing beyond classic ops into modern airline retailing finance stacks.",
+      "geography": "Global",
+      "segment": "Airline retailing",
+      "implications": [
+        "Competitive perimeter may widen into offer/order and settlement.",
+        "Less direct EFB overlap, but relevant for account tech-stack mapping."
+      ],
+      "next_actions": [
+        "Tag as adjacent competitive move; keep on radar for full-suite deals.",
+        "Do not over-weight vs flight-ops displacement unless account is shopping suite-wide."
+      ],
+      "sources": [
+        {
+          "title": "TPConnects and Lufthansa Systems integrate airline retailing finance",
+          "url": "https://www.traveldailynews.com/aviation/tpconnects-and-lufthansa-systems-integrate-airline-retailing-finance/"
+        }
+      ],
+      "tags": ["retailing", "one-order", "partnership"]
+    },
+    {
+      "id": "nav-2026-04-01-skywise-merger",
+      "competitor": "Navblue",
+      "date": "2026-04-01",
+      "type": "ma_pe",
+      "priority": "critical",
+      "severity": 5,
+      "confidence": 0.96,
+      "headline": "Airbus merges Navblue into new Skywise digital services company",
+      "summary": "On 1 April 2026 Airbus merged Navblue with Skywise digital solutions into a single subsidiary (~750 people) positioned as an end-to-end digital provider for Airbus and non-Airbus fleets.",
+      "why_it_matters": "Structural repositioning of a core competitor—brand, packaging, and sales motion will shift from ‘Navblue’ to ‘Skywise’ suite selling.",
+      "geography": "Global",
+      "segment": "OEM digital services",
+      "implications": [
+        "Expect unified Skywise + flight ops pitches and stronger OEM bundling.",
+        "Customer sentiment may shift during brand/contract transitions—outreach timing opportunity."
+      ],
+      "next_actions": [
+        "Rewrite Navblue battlecard under Skywise umbrella.",
+        "Sales: identify Navblue accounts mid-renewal for uncertainty windows."
+      ],
+      "sources": [
+        {
+          "title": "Skywise re-imagining the digital sky (Airbus)",
+          "url": "https://www.airbus.com/en/newsroom/stories/2026-04-with-skywise-airbus-is-re-imagining-the-digital-sky"
+        }
+      ],
+      "tags": ["skywise", "merger", "positioning"]
+    },
+    {
+      "id": "nav-2026-04-21-jetblue-sfp",
+      "competitor": "Navblue",
+      "date": "2026-04-21",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "JetBlue signs Skywise Fleet Performance+ across A320/A220 fleets",
+      "summary": "One of the first major customer agreements after the Skywise subsidiary launch; deploys predictive maintenance / fleet performance analytics for JetBlue.",
+      "why_it_matters": "Validates post-merger Skywise commercial motion in North America beyond classic Navblue flight-ops SKUs.",
+      "geography": "North America",
+      "segment": "Low-cost / hybrid",
+      "implications": [
+        "Skywise is selling end-to-end (ops + technical) into existing Airbus operators.",
+        "JetBlue now appears in both Lufthansa Systems and Skywise recent wins—account tech stacks are multi-vendor."
+      ],
+      "next_actions": [
+        "Update competitor presence map for JetBlue.",
+        "Watch for Mission+/flight-ops follow-ons at same accounts."
+      ],
+      "sources": [
+        {
+          "title": "JetBlue adopts Skywise Fleet Performance+",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-04-jetblue-signs-for-skywise-fleet-performance-solution"
+        }
+      ],
+      "tags": ["skywise", "maintenance", "jetblue"]
+    },
+    {
+      "id": "nav-2026-06-04-corsair-mission",
+      "competitor": "Navblue",
+      "date": "2026-06-04",
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.91,
+      "headline": "Corsair first French airline on Skywise Mission+ FLIGHT EFB configuration",
+      "summary": "Corsair adopted Mission+ FLIGHT connected to FOMAX AID, extending a relationship that began with N-Flight Planning; joins TAP and KM Malta on Mission+ FLIGHT.",
+      "why_it_matters": "Concrete post-merger EFB win with AID connectivity story—relevant to digital flight-deck displacement deals.",
+      "geography": "Europe",
+      "segment": "Full-service / leisure long-haul",
+      "implications": [
+        "Mission+ FLIGHT + AID is a packaged differentiator for Airbus operators.",
+        "European reference set for Mission+ is growing."
+      ],
+      "next_actions": [
+        "Add Mission+ FLIGHT / FOMAX pattern to battlecard.",
+        "Prioritise Airbus fleets evaluating EFB refreshes in Europe."
+      ],
+      "sources": [
+        {
+          "title": "Corsair adopts Skywise Mission+ FLIGHT",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-06-corsair-becomes-the-first-airline-in-france-to-adopt-skywise-mission-flight"
+        }
+      ],
+      "tags": ["mission-plus", "efb", "corsair"]
+    },
+    {
+      "id": "byt-2025-12-01-skybook-148",
+      "competitor": "Bytron Skybook",
+      "date": "2025-12-01",
+      "type": "feature_change",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.88,
+      "headline": "skybook 1.48.0 adds Leon integration, NOTAM UX, ETOPS/EDTO and Met Office SADIS",
+      "summary": "December 2025 release brings Ground Portal integration with Leon for crew/schedule data, redesigned NOTAM filtering on EFB, Fuel Order fields, PPS ETOPS/EDTO ingest, and Met Office SADIS OPMET feeds.",
+      "why_it_matters": "Steady product depth in briefing/EFB workflows and third-party integrations—Bytron competing on operational completeness.",
+      "geography": "Global",
+      "segment": "Flight ops / EFB",
+      "implications": [
+        "Integration breadth (Leon, PPS, charts, Navblue RAIM+) is a selling point.",
+        "Release notes remain a reliable signal source for Bytron."
+      ],
+      "next_actions": [
+        "Diff 1.48 features vs Cathay Tech briefing/EFB capabilities.",
+        "Keep release-notes crawler on bytron.aero."
+      ],
+      "sources": [
+        {
+          "title": "skybook 1.48.0 release notes",
+          "url": "https://www.bytron.aero/release-notes/skybook-1480-release-notes"
+        }
+      ],
+      "tags": ["release", "efb", "integrations"]
+    },
+    {
+      "id": "byt-2025-12-23-integrations-story",
+      "competitor": "Bytron Skybook",
+      "date": "2025-12-23",
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.75,
+      "headline": "Bytron pushes system-integrations narrative across flight ops stack",
+      "summary": "Bytron published an integrations overview highlighting EFB links to Lido mPilot, NavBlue Charts+, Jeppesen FliteDeck Pro/Aviator, and Navblue RAIM+ reporting.",
+      "why_it_matters": "Positions skybook as orchestration layer rather than closed suite—useful for open-architecture buyer conversations.",
+      "geography": "Global",
+      "segment": "Flight ops",
+      "implications": [
+        "Bytron may win where airlines refuse rip-and-replace of charts/EFB incumbents.",
+        "Interoperability messaging can undercut suite lock-in pitches."
+      ],
+      "next_actions": [
+        "Note ‘integration hub’ positioning on battlecard.",
+        "Marketing: prepare counter on depth vs breadth."
+      ],
+      "sources": [
+        {
+          "title": "System integrations for airline operations",
+          "url": "https://www.bytron.aero/aviation-news/system-integrations-for-your-airline-operations"
+        }
+      ],
+      "tags": ["messaging", "integrations"]
+    },
+    {
+      "id": "avio-2026-05-21-connect-webinar",
+      "competitor": "Aviobook",
+      "date": "2026-05-21",
+      "type": "product_launch",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.78,
+      "headline": "Aviobook Connect demo emphasises flight-room ops comms for IROPs",
+      "summary": "Aircraft IT webinar showcased AvioBook Connect as a per-flight secure ops chat with API-driven alerts, role mentions, and integrations used by carriers such as Southwest, Finnair, KLM and United.",
+      "why_it_matters": "Aviobook is expanding beyond classic EFB into real-time stakeholder communications—adjacent competitive surface for digital ops.",
+      "geography": "Global",
+      "segment": "Airline ops communications",
+      "implications": [
+        "Connect may appear in RFPs as ops collaboration, not only EFB.",
+        "Named major-airline logos strengthen credibility."
+      ],
+      "next_actions": [
+        "Add Connect to Aviobook product map.",
+        "Clarify whether Cathay Tech roadmap overlaps ops-comms."
+      ],
+      "sources": [
+        {
+          "title": "AvioBook Connect demo webinar (Aircraft IT)",
+          "url": "https://www.aircraftit.com/webinars/new-airline-communications-app-for-each-flight-for-pilots-crew-gate-agent-dispatch-occ-m-efb-airline-system/"
+        }
+      ],
+      "tags": ["connect", "comms", "irop"]
+    },
+    {
+      "id": "avio-2026-07-16-braathens-story",
+      "competitor": "Aviobook",
+      "date": "2026-07-16",
+      "type": "customer_win",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.72,
+      "headline": "Braathens customer story highlights smooth AvioBook EFB rollout",
+      "summary": "AvioBook published a customer interview with Braathens’ EFB Administrator & Fleet Manager on implementation reliability and ongoing collaboration.",
+      "why_it_matters": "Soft signal of European regional/leisure EFB satisfaction used in social proof campaigns.",
+      "geography": "Europe",
+      "segment": "Regional / leisure",
+      "implications": [
+        "Expect more customer-video content in Aviobook demand gen.",
+        "Regional carriers remain an Aviobook hunting ground."
+      ],
+      "next_actions": [
+        "Log Braathens as reference account on battlecard.",
+        "Filter similar LinkedIn customer stories via AI noise rules."
+      ],
+      "sources": [
+        {
+          "title": "Braathens EFB rollout customer story (LinkedIn)",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobook-futureofflying-customerstory-activity-7483514181175070720-Nblg"
+        }
+      ],
+      "tags": ["efb", "customer-story", "braathens"]
+    },
+    {
+      "id": "avio-2026-08-06-connect-3",
+      "competitor": "Aviobook",
+      "date": "2026-08-06",
+      "type": "product_launch",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.7,
+      "headline": "Aviobook teases Connect 3.0 preview for 17 Sep 2026",
+      "summary": "LinkedIn campaign announced webinars previewing a major AvioBook Connect 3.0 release focused on unified real-time flight-ops information.",
+      "why_it_matters": "Upcoming major version may shift messaging and feature claims—watch post-event release notes.",
+      "geography": "Global",
+      "segment": "Ops communications",
+      "implications": [
+        "Schedule capture of Connect 3.0 release content after 17 Sep.",
+        "Potential feature leap in AI/noise-reduction claims."
+      ],
+      "next_actions": [
+        "Diary follow-up capture for Connect 3.0.",
+        "Product to review release against Cathay Tech adjacency."
+      ],
+      "sources": [
+        {
+          "title": "AvioBook Connect 3.0 preview announcement",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobook-futureofflying-efb-activity-7491127199069130752-OTDI"
+        }
+      ],
+      "tags": ["connect", "roadmap", "release"]
+    },
+    {
+      "id": "avio-2026-07-23-escape-routes",
+      "competitor": "Aviobook",
+      "date": "2026-07-23",
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.9,
+      "headline": "AvioBook previews Escape Routes flight-operations feature",
+      "summary": "AvioBook announced an upcoming Escape Routes feature that brings valid diversion paths into the pilot workflow, highlights routes near high-terrain areas, and updates the navlog when a diversion is selected.",
+      "why_it_matters": "Direct competitor product update expanding AvioBook's electronic flight folder and flight-deck workflow with safety-critical diversion guidance.",
+      "geography": "Global",
+      "segment": "Airline flight operations",
+      "implications": [
+        "Adds safety and route-context functionality to AvioBook's EFF proposition.",
+        "Monitor the release and assess overlap with Cathay Technologies' briefing and flight-document workflows."
+      ],
+      "next_actions": [
+        "Add Escape Routes to the Aviobook competitor battlecard.",
+        "Review the feature after general availability and compare pilot workflow depth."
+      ],
+      "sources": [
+        {
+          "title": "Meet Escape Routes by AvioBook",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_meet-escape-routes-by-aviobook-activity-7486046249113067523--OG0"
+        }
+      ],
+      "tags": ["product-launch", "escape-routes", "eff", "linkedin"]
+    }
+  ]
+}

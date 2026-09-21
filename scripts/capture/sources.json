@@ -1,0 +1,189 @@
+{
+  "rss_feeds": [
+    {
+      "name": "Jeppesen News RSS",
+      "competitor": "Jeppesen",
+      "url": "https://news.jeppesen.com/feed/"
+    },
+    {
+      "name": "Bytron Aviation News",
+      "competitor": "Bytron Skybook",
+      "url": "https://www.bytron.aero/feed/"
+    },
+    {
+      "name": "Skywise Press Releases RSS",
+      "competitor": "Navblue",
+      "url": "https://www.skywise.com/en/newsroom/press-releases/rss"
+    }
+  ],
+  "news_queries": [
+    {
+      "competitor": "Jeppesen",
+      "query": "Jeppesen ForeFlight (Aviator OR EFF OR \"flight folder\" OR EFFCore OR EFB OR FliteDeck OR Dispatch OR briefing) when:365d"
+    },
+    {
+      "competitor": "Lufthansa Systems",
+      "query": "\"Lufthansa Systems\" (NetLine OR Lido OR airline) when:365d"
+    },
+    {
+      "competitor": "Aviobook",
+      "query": "(Aviobook OR AvioBook OR Aviovision) (EFF OR \"flight folder\" OR Escape Routes OR EFB OR airline OR Connect) when:365d"
+    },
+    {
+      "competitor": "Bytron Skybook",
+      "query": "(Bytron OR skybook) (EFF OR \"flight folder\" OR EFB OR briefing OR airline) when:365d"
+    },
+    {
+      "competitor": "Navblue",
+      "query": "(Navblue OR NAVBLUE OR Skywise Airbus) (airline OR EFB OR Mission) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "(\"Boeing Flight Folder\" OR \"Boeing FlightFolder\" OR FlightFolder) (airline OR EFB OR flight operations OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "(eFlightManager OR \"CAE eFlightManager\") (airline OR EFB OR flight operations OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "Flightman (airline OR EFB OR flight operations OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "(\"Lido mBriefing\" OR mBriefing) (airline OR EFB OR flight operations OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "Logipad (airline OR EFB OR flight operations OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "(\"Mission+ DOC\" OR \"Mission+ FLIGHT\") (airline OR EFB OR flight operations OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "(Topwing OR TopWings) (airline OR EFB OR flight operations OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "(EFBOne OR \"EFB One\") (airline OR EFB OR flight operations OR aviation) when:365d"
+    }
+  ],
+  "linkedin_queries": [
+    {
+      "competitor": "Jeppesen",
+      "query": "site:linkedin.com/posts (Jeppesen OR ForeFlight) (airline OR EFB OR dispatch OR aviation) when:365d"
+    },
+    {
+      "competitor": "Lufthansa Systems",
+      "query": "site:linkedin.com/posts \"Lufthansa Systems\" (airline OR NetLine OR Lido OR aviation) when:365d"
+    },
+    {
+      "competitor": "Aviobook",
+      "query": "site:linkedin.com/posts (Aviobook OR aviovision) (EFB OR airline OR Connect OR flight) when:365d"
+    },
+    {
+      "competitor": "Bytron Skybook",
+      "query": "site:linkedin.com/posts (Bytron OR skybook) (EFB OR airline OR aviation) when:365d"
+    },
+    {
+      "competitor": "Navblue",
+      "query": "site:linkedin.com/posts (Navblue OR Skywise Airbus) (airline OR EFB OR flight ops) when:365d"
+    },
+    {
+      "competitor": "IFS",
+      "query": "site:linkedin.com/posts (\"IFS - International Flight Support\" OR EFBOne) (airline OR EFB OR flight OR Fastjet OR fastjet) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts (\"Boeing Flight Folder\" OR \"Boeing FlightFolder\" OR FlightFolder) (airline OR EFB OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts (eFlightManager OR \"CAE eFlightManager\") (airline OR EFB OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts Flightman (airline OR EFB OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts (\"Lido mBriefing\" OR mBriefing) (airline OR EFB OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts Logipad (airline OR EFB OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts (\"Mission+ DOC\" OR \"Mission+ FLIGHT\") (airline OR EFB OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts (Topwing OR TopWings) (airline OR EFB OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts (EFBOne OR \"EFB One\") (airline OR EFB OR aviation) when:365d"
+    },
+    {
+      "competitor": "Others",
+      "query": "site:linkedin.com/posts (Talora OR \"Talora EFB\" OR Logipad) (airline OR EFB OR aviation) when:365d"
+    }
+  ],
+  "direct_linkedin_posts": [
+    {
+      "competitor": "Aviobook",
+      "url": "https://www.linkedin.com/posts/aviovision-nv_meet-escape-routes-by-aviobook-activity-7486046249113067523--OG0"
+    },
+    {
+      "competitor": "IFS",
+      "url": "https://lnkd.in/p/ehqp6ZbU"
+    },
+    {
+      "competitor": "IFS",
+      "url": "https://www.linkedin.com/posts/david-crumpton-97461955_the-introduction-of-the-efbone-efb-platform-share-7492917516462088194-pELP"
+    }
+  ],
+  "linkedin_organizations": [
+    {"competitor": "Jeppesen", "vanity_name": "jeppesen"},
+    {"competitor": "Lufthansa Systems", "vanity_name": "lufthansa-systems"},
+    {"competitor": "Aviobook", "vanity_name": "aviovision"},
+    {"competitor": "Bytron Skybook", "vanity_name": "bytron-aviation-systems"},
+    {"competitor": "Navblue", "vanity_name": "navblue"},
+    {"competitor": "IFS", "vanity_name": "ifs-international-flight-support"},
+    {"competitor": "Others", "vanity_name": "talora-efb"},
+    {"competitor": "Others", "vanity_name": "flightman"}
+  ],
+  "newsrooms": [
+    {
+      "competitor": "Jeppesen",
+      "name": "Jeppesen ForeFlight Newsroom",
+      "index_url": "https://www.jeppesenforeflight.com/news",
+      "link_pattern": "jeppesenforeflight\\.com/news/[a-z0-9-]+/?(?:\\?.*)?$",
+      "max_articles": 12
+    },
+    {
+      "competitor": "Navblue",
+      "name": "Skywise Press Releases",
+      "index_url": "https://www.skywise.com/en/newsroom/press-releases",
+      "link_pattern": "skywise\\.com/en/newsroom/press-releases/",
+      "max_articles": 12
+    },
+    {
+      "competitor": "Lufthansa Systems",
+      "name": "Lufthansa Systems Newsroom",
+      "index_url": "https://www.lhsystems.com/newsroom",
+      "link_pattern": "lhsystems\\.com/.+",
+      "max_articles": 8
+    },
+    {
+      "competitor": "Bytron Skybook",
+      "name": "Bytron Release Notes",
+      "index_url": "https://www.bytron.aero/release-notes/",
+      "link_pattern": "bytron\\.aero/release-notes/[a-z0-9-]+/?(?:\\?.*)?$",
+      "max_articles": 8
+    }
+  ]
+}
