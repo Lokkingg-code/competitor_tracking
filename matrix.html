@@ -21,7 +21,7 @@
       <div class="brand-block">
         <p class="eyebrow"><span class="live-dot"></span>12-month landscape · Public signals</p>
         <h1>Market matrix</h1>
-        <p class="matrix-page-intro">Competitor, product, and airline relationships. Products are shown only for high-confidence records.</p>
+        <p class="matrix-page-intro">Airline and operator relationships grouped by competitor.</p>
         <nav class="primary-nav" aria-label="Dashboard views">
           <a class="primary-nav-link" href="index.html">Signal feed</a>
           <a class="primary-nav-link is-active" href="matrix.html" aria-current="page">Market matrix</a>
@@ -37,7 +37,7 @@
     <section class="matrix-toolbar" aria-label="Matrix controls">
       <label class="control search-control">
         <span>Search matrix</span>
-        <input id="matrixSearch" type="search" placeholder="Search competitor, product, or airline" autocomplete="off" />
+        <input id="matrixSearch" type="search" placeholder="Search competitor or airline" autocomplete="off" />
       </label>
       <label class="control">
         <span>Competitor</span>
@@ -48,17 +48,17 @@
 
     <main class="panel matrix-feed-panel" aria-label="Market matrix">
       <div class="panel-head">
-        <h2>Competitor × product × airline</h2>
+        <h2>Competitor × airline</h2>
         <p class="muted">Select an airline tag to open related signals</p>
       </div>
       <div id="matrixFeed" class="matrix-feed" role="table" aria-label="Market matrix rows"></div>
     </main>
 
     <footer class="footer">
-      <p>Market matrix · High-confidence product attribution only</p>
+      <p>Market matrix · Competitor and airline relationships</p>
       <p id="matrixMeta" class="muted">Loading…</p>
     </footer>
   </div>
-  <script src="js/matrix.js?v=1" type="module"></script>
+  <script src="js/matrix.js?v=4" type="module"></script>
 </body>
 </html>

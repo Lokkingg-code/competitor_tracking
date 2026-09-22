@@ -385,6 +385,7 @@ function extractOperator(signal) {
 
 function canonicalOperator(name) {
   if (/^(?:Pan American World Airways|Pan Am)$/i.test(name)) return "Pan Am";
+  if (/^UrbanLink Air Mobility$/i.test(name)) return "UrbanLink Air Mobility";
   return name;
 }
 

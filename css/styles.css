@@ -438,11 +438,10 @@ code {
 .matrix-feed { padding: 8px; overflow-x: auto; }
 .matrix-feed-table { min-width: 840px; }
 .matrix-feed-header,
-.matrix-signal-row { grid-template-columns: minmax(130px, 1.1fr) minmax(150px, 1.2fr) minmax(280px, 2.5fr) 72px 104px; }
+.matrix-signal-row { grid-template-columns: minmax(150px, 1fr) minmax(360px, 3.2fr) 72px 104px; }
 .matrix-signal-row { cursor: default; }
 .matrix-signal-row:hover { background: var(--bg-row); }
 .matrix-airlines { display: flex; flex-wrap: wrap; gap: 5px; min-width: 0; }
-.matrix-product { font-size: 13px; }
 .matrix-volume { display: flex; align-items: baseline; gap: 4px; color: var(--teal-bright); }
 .matrix-volume small { color: var(--text-muted); font-size: 10px; text-transform: uppercase; }
 

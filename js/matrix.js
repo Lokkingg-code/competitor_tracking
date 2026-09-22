@@ -7,23 +7,9 @@ const els = {
   themeToggle: document.getElementById("themeToggle"),
 };
 
-const PRODUCT_PATTERNS = [
-  ["AvioBook Connect", /(?:AvioBook|Aviobook)\s+Connect/i],
-  ["AvioBook", /(?:AvioBook|Aviobook)\b/i],
-  ["Boeing FlightFolder", /Boeing\s+Flight\s*Folder|FlightFolder/i],
-  ["Bytron Skybook", /(?:Bytron\s+)?Skybook/i],
-  ["ForeFlight EFFCore", /(?:ForeFlight\s+)?EFF\s*Core|EFFCore/i],
-  ["ForeFlight FliteDeck Pro", /(?:Jeppesen\s+)?ForeFlight.*FliteDeck\s+Pro|FliteDeck\s+Pro/i],
-  ["ForeFlight", /\bForeFlight\b/i],
-  ["Lido mBriefing", /(?:Lido\s+)?mBriefing/i],
-  ["Mission+ DOC", /Mission\+\s+DOC/i],
-  ["Mission+ FLIGHT", /Mission\+\s+FLIGHT/i],
-  ["IFS EFBOne", /(?:IFS\s+)?EFBOne/i],
-];
-
 let signals = [];
 let airlinePattern;
-const PREFERRED_OPERATOR_NAMES = ["Pan American World Airways", "Pan Am"];
+const PREFERRED_OPERATOR_NAMES = ["Pan American World Airways", "Pan Am", "UrbanLink Air Mobility"];
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -69,23 +55,15 @@ function extractOperator(signal) {
 
 function canonicalOperator(name) {
   if (/^(?:Pan American World Airways|Pan Am)$/i.test(name)) return "Pan Am";
+  if (/^UrbanLink Air Mobility$/i.test(name)) return "UrbanLink Air Mobility";
   return name;
-}
-
-function detectProduct(signal) {
-  if (Number(signal.confidence || 0) < 0.8) return "";
-  if (signal.product && signal.product !== "Unspecified product") return signal.product;
-  const text = `${signal.headline || ""} ${signal.summary || ""} ${signal.why_it_matters || ""}`;
-  return PRODUCT_PATTERNS.find(([, pattern]) => pattern.test(text))?.[0] || "";
 }
 
 function groupedRows() {
   const groups = new Map();
   for (const signal of signals) {
-    const product = detectProduct(signal);
-    const key = `${signal.competitor}|${product}`;
-    if (!groups.has(key)) groups.set(key, { competitor: signal.competitor, product, airlines: new Map(), ids: new Set(), latest: signal.date });
-    const group = groups.get(key);
+    if (!groups.has(signal.competitor)) groups.set(signal.competitor, { competitor: signal.competitor, airlines: new Map(), ids: new Set(), latest: signal.date });
+    const group = groups.get(signal.competitor);
     const airline = extractOperator(signal);
     if (airline !== "N/A") {
       if (!group.airlines.has(airline)) group.airlines.set(airline, new Set());
@@ -112,15 +90,14 @@ function render() {
   const query = els.search.value.trim().toLowerCase();
   const competitor = els.competitor.value;
   const rows = groupedRows().filter((row) => {
-    const text = `${row.competitor} ${row.product} ${[...row.airlines.keys()].join(" ")}`.toLowerCase();
+    const text = `${row.competitor} ${[...row.airlines.keys()].join(" ")}`.toLowerCase();
     return (competitor === "all" || row.competitor === competitor) && (!query || text.includes(query));
   });
 
-  els.count.textContent = `${rows.length} relationships`;
+  els.count.textContent = `${rows.length} competitors`;
   const body = rows.map((row) => `
     <div class="signal-row matrix-signal-row" role="row">
       <span class="col col-competitor"><span class="competitor-tag ${competitorClass(row.competitor)}">${escapeHtml(row.competitor)}</span></span>
-      <span class="col matrix-product">${row.product ? `<strong>${escapeHtml(row.product)}</strong>` : '<span class="muted">Not asserted</span>'}</span>
       <span class="col matrix-airlines">${[...row.airlines.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([name, ids]) => {
         const relatedIds = deduplicateRelatedIds(ids);
         return `<button class="chip focus-other airline-chip" type="button" data-signal-ids="${relatedIds.join(",")}" title="Open ${relatedIds.length} related signal${relatedIds.length === 1 ? "" : "s"}">${escapeHtml(name)}</button>`;
@@ -132,7 +109,7 @@ function render() {
   els.feed.innerHTML = rows.length ? `
     <div class="feed-table matrix-feed-table">
       <div class="feed-header matrix-feed-header" aria-hidden="true">
-        <span>Competitor</span><span>Product</span><span>Airline / operator</span><span>Volume</span><span>Latest</span>
+        <span>Competitor</span><span>Airline / operator</span><span>Volume</span><span>Latest</span>
       </div>
       <div class="feed-body">${body}</div>
     </div>` : '<p class="empty-state">No relationships match the current filters.</p>';
