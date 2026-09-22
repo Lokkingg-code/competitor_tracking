@@ -377,10 +377,15 @@ function extractOperator(signal) {
       const candidate = (match[1] || match[0]).replace(/\s+/g, " ").trim();
       if (/^(?:Digital|Commercial|Business|General|Civil) Aviation$/i.test(candidate)) continue;
       if (/\bBytron Aviation(?: Systems)?\b/i.test(candidate)) continue;
-      return candidate;
+      return canonicalOperator(candidate);
     }
   }
   return "N/A";
+}
+
+function canonicalOperator(name) {
+  if (/^(?:Pan American World Airways|Pan Am)$/i.test(name)) return "Pan Am";
+  return name;
 }
 
 async function loadAirlineDictionary() {

@@ -23,6 +23,7 @@ const PRODUCT_PATTERNS = [
 
 let signals = [];
 let airlinePattern;
+const PREFERRED_OPERATOR_NAMES = ["Pan American World Airways", "Pan Am"];
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -60,10 +61,15 @@ function buildAirlinePattern(names) {
 function extractOperator(signal) {
   const text = cleanText(`${signal.headline || ""} ${signal.summary || ""}`);
   const dictionaryMatch = airlinePattern ? text.match(airlinePattern) : null;
-  if (dictionaryMatch && !/\bBytron Aviation(?: Systems)?\b/i.test(dictionaryMatch[0])) return dictionaryMatch[0];
+  if (dictionaryMatch && !/\bBytron Aviation(?: Systems)?\b/i.test(dictionaryMatch[0])) return canonicalOperator(dictionaryMatch[0]);
   const fallback = text.match(/\b[A-Z][A-Za-z&.'-]+(?:\s+[A-Z][A-Za-z&.'-]+){0,3}\s+(?:Airways|Airlines|Air|Aviation)\b/)?.[0];
   const isGenericIndustryTerm = /^(?:Digital|Commercial|Business|General|Civil) Aviation$/i.test(fallback || "");
   return fallback && !isGenericIndustryTerm && !/\bBytron Aviation(?: Systems)?\b/i.test(fallback) ? fallback : "N/A";
+}
+
+function canonicalOperator(name) {
+  if (/^(?:Pan American World Airways|Pan Am)$/i.test(name)) return "Pan Am";
+  return name;
 }
 
 function detectProduct(signal) {
@@ -91,6 +97,17 @@ function groupedRows() {
   return [...groups.values()].sort((a, b) => b.latest.localeCompare(a.latest) || a.competitor.localeCompare(b.competitor));
 }
 
+function deduplicateRelatedIds(ids) {
+  const bestByDate = new Map();
+  for (const id of ids) {
+    const signal = signals.find((item) => item.id === id);
+    if (!signal) continue;
+    const current = bestByDate.get(signal.date);
+    if (!current || Number(signal.confidence || 0) > Number(current.confidence || 0)) bestByDate.set(signal.date, signal);
+  }
+  return [...bestByDate.values()].map((signal) => signal.id);
+}
+
 function render() {
   const query = els.search.value.trim().toLowerCase();
   const competitor = els.competitor.value;
@@ -104,7 +121,10 @@ function render() {
     <div class="signal-row matrix-signal-row" role="row">
       <span class="col col-competitor"><span class="competitor-tag ${competitorClass(row.competitor)}">${escapeHtml(row.competitor)}</span></span>
       <span class="col matrix-product">${row.product ? `<strong>${escapeHtml(row.product)}</strong>` : '<span class="muted">Not asserted</span>'}</span>
-      <span class="col matrix-airlines">${[...row.airlines.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([name, ids]) => `<button class="chip focus-other airline-chip" type="button" data-signal-ids="${[...ids].join(",")}" title="Open ${ids.size} related signal${ids.size === 1 ? "" : "s"}">${escapeHtml(name)}</button>`).join("") || '<span class="muted">N/A</span>'}</span>
+      <span class="col matrix-airlines">${[...row.airlines.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([name, ids]) => {
+        const relatedIds = deduplicateRelatedIds(ids);
+        return `<button class="chip focus-other airline-chip" type="button" data-signal-ids="${relatedIds.join(",")}" title="Open ${relatedIds.length} related signal${relatedIds.length === 1 ? "" : "s"}">${escapeHtml(name)}</button>`;
+      }).join("") || '<span class="muted">N/A</span>'}</span>
       <span class="col matrix-volume"><strong>${row.ids.size}</strong><small>signals</small></span>
       <span class="col col-date">${formatDate(row.latest)}</span>
     </div>`).join("");
@@ -134,7 +154,7 @@ async function boot() {
   const payload = await signalsRes.json();
   const airlines = await airlinesRes.json();
   signals = payload.signals || [];
-  airlinePattern = buildAirlinePattern((airlines.airlines || []).flatMap((airline) => [airline.name, airline.alias]));
+  airlinePattern = buildAirlinePattern([...PREFERRED_OPERATOR_NAMES, ...(airlines.airlines || []).flatMap((airline) => [airline.name, airline.alias])]);
   for (const name of [...new Set(signals.map((signal) => signal.competitor))].sort()) {
     els.competitor.add(new Option(name, name));
   }

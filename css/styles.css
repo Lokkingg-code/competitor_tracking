@@ -17,6 +17,9 @@
   --amber: #e0a83f;
   --risk: #c45c4a;
   --ok: #3d8f6e;
+  --airline-chip-bg: #17231f;
+  --airline-chip-border: #344a43;
+  --airline-chip-text: #c4d2cd;
   --shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
   --font-sans: "IBM Plex Sans", system-ui, sans-serif;
   --font-serif: "Source Serif 4", Georgia, serif;
@@ -43,6 +46,9 @@
   --amber: #9a6710;
   --risk: #ae4436;
   --ok: #287c61;
+  --airline-chip-bg: #eef4f2;
+  --airline-chip-border: #b9ccc6;
+  --airline-chip-text: #304b44;
   --shadow: 0 3px 12px rgba(31, 57, 51, 0.08);
 }
 
@@ -436,8 +442,6 @@ code {
 .matrix-signal-row { cursor: default; }
 .matrix-signal-row:hover { background: var(--bg-row); }
 .matrix-airlines { display: flex; flex-wrap: wrap; gap: 5px; min-width: 0; }
-.airline-chip { border: 1px solid transparent; font: inherit; cursor: pointer; }
-.airline-chip:hover, .airline-chip:focus-visible { border-color: var(--teal-bright); color: var(--text); outline: none; }
 .matrix-product { font-size: 13px; }
 .matrix-volume { display: flex; align-items: baseline; gap: 4px; color: var(--teal-bright); }
 .matrix-volume small { color: var(--text-muted); font-size: 10px; text-transform: uppercase; }
@@ -576,6 +580,28 @@ code {
 .chip.focus-other {
   color: #6f7f79;
   border-color: var(--border);
+}
+
+.chip.airline-chip {
+  padding: 3px 8px;
+  border-color: var(--airline-chip-border);
+  background: var(--airline-chip-bg);
+  color: var(--airline-chip-text);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 1px 2px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chip.airline-chip:hover,
+.chip.airline-chip:focus-visible {
+  border-color: var(--teal-bright);
+  background: var(--bg-row-active);
+  color: var(--text);
+  box-shadow: 0 0 0 1px rgba(42, 143, 132, 0.2);
+  outline: none;
 }
 
 .signal-row .severity {
