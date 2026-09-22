@@ -237,7 +237,7 @@ function filteredSignals({ ignoreFocus = false, windowDays = Number(els.windowFi
   const search = (els.searchInput?.value || "").trim().toLowerCase();
 
   return allSignals
-    .filter((s) => parseDate(s.date) >= cutoff)
+    .filter((s) => selectedMatrixIds?.has(s.id) || parseDate(s.date) >= cutoff)
     .filter((s) => matchesCompetitor(s, competitor))
     .filter((s) => (type === "all" ? true : s.type === type))
     .filter((s) => ignoreFocus || focus === "all" || classifyProductFocus(s) === focus)
