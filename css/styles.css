@@ -374,13 +374,13 @@ code {
 }
 
 .feed-table {
-  min-width: 760px;
+  width: 100%;
 }
 
 .feed-header,
 .signal-row {
   display: grid;
-  grid-template-columns: minmax(86px, 0.8fr) minmax(112px, 1.05fr) minmax(104px, 0.95fr) minmax(68px, 0.65fr) minmax(0, 3fr);
+  grid-template-columns: minmax(86px, 0.8fr) minmax(112px, 1.05fr) minmax(104px, 0.95fr) minmax(68px, 0.65fr) minmax(160px, 3fr);
   gap: 10px;
   align-items: center;
 }
