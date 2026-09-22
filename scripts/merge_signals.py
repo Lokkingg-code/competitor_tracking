@@ -284,11 +284,17 @@ def detect_product(text: str) -> str | None:
 
 
 def classify_product_focus(text: str, competitor: str = "") -> str:
-    """Classify the product domain; competitor identity alone is not product evidence."""
-    if competitor == "Aviobook" and re.search(r"\b(?:AvioBook|Aviobook)\s+Connect\b", text, re.I):
+    """Classify product focus using explicit product precedence."""
+    if re.search(r"\b(?:AvioBook|Aviobook)\s+Connect\b", text, re.I):
         return "adjacent"
 
-    strong_eff = [
+    efb_product_patterns = [
+        r"Mission\+ FLIGHT",
+        r"FliteDeck(?:\s+Pro)?",
+        r"Manage My EFB",
+        r"(?:AvioBook|Aviobook)\s+EFB",
+    ]
+    eff_product_patterns = [
         r"\bEFF\b",
         r"\bEFFCore\b",
         r"electronic flight folder",
@@ -297,31 +303,22 @@ def classify_product_focus(text: str, competitor: str = "") -> str:
         r"briefing pack",
         r"DOC Manager",
         r"\bskybook\b",
-        r"Mission\+ FLIGHT",
-        r"FliteDeck Pro",
-        r"(?:AvioBook|Aviobook)\s+EFB",
         r"Escape Routes",
+        r"Mission\+ DOC",
     ]
-    strong_efb = [
+    efb_domain_patterns = [
         r"\bEFB\b",
         r"electronic flight bag",
-        r"FliteDeck",
-        r"flitedeck",
-        r"Manage My EFB",
-        r"Mission\+ FLIGHT",
     ]
-    has_strong_eff = _matches_any(text, strong_eff)
-    has_strong_efb = _matches_any(text, strong_efb)
-    in_eff_domain = _matches_any(text, EFF_PATTERNS)
 
-    if has_strong_eff and not has_strong_efb:
-        return "eff"
-    if has_strong_efb and not in_eff_domain:
+    if _matches_any(text, efb_product_patterns):
         return "efb"
-    if in_eff_domain:
+    if _matches_any(text, eff_product_patterns):
         return "eff"
-    if has_strong_efb or _matches_any(text, EFB_PATTERNS):
+    if _matches_any(text, efb_domain_patterns):
         return "efb"
+    if _matches_any(text, EFF_PATTERNS):
+        return "eff"
     if _matches_any(text, ADJACENT_PATTERNS):
         return "adjacent"
     return "other"

@@ -402,7 +402,7 @@ code {
 
 .feed-body {
   display: flex;
-  flex-direction: column;
+  grid-template-columns: minmax(180px, 1.2fr) minmax(120px, 0.8fr) minmax(220px, 1.5fr) minmax(120px, 0.75fr);
   gap: 3px;
 }
 
@@ -890,7 +890,7 @@ code {
 
 .reference-row {
   display: grid;
-  grid-template-columns: minmax(170px, 1.25fr) minmax(130px, 0.8fr) minmax(180px, 1.2fr) minmax(130px, 0.8fr) minmax(210px, 2fr);
+  grid-template-columns: minmax(170px, 1.25fr) minmax(130px, 0.8fr) minmax(180px, 1.2fr) minmax(130px, 0.8fr);
   gap: 14px;
   align-items: center;
   padding: 12px 16px;
@@ -911,8 +911,6 @@ code {
 .reference-name a { color: var(--teal-bright); text-decoration: none; }
 .reference-name a:hover { text-decoration: underline; }
 .reference-scope, .reference-policy { color: var(--text-muted); font-size: 12px; }
-.reference-count { font-variant-numeric: tabular-nums; color: var(--text); }
-.reference-count small { color: var(--text-muted); }
 
 .reference-empty {
   padding: 18px 16px;

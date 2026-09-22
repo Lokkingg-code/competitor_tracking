@@ -1,21 +1,5 @@
 {
-  "rss_feeds": [
-    {
-      "name": "Jeppesen News RSS",
-      "competitor": "Jeppesen",
-      "url": "https://news.jeppesen.com/feed/"
-    },
-    {
-      "name": "Bytron Aviation News",
-      "competitor": "Bytron Skybook",
-      "url": "https://www.bytron.aero/feed/"
-    },
-    {
-      "name": "Skywise Press Releases RSS",
-      "competitor": "Navblue",
-      "url": "https://www.skywise.com/en/newsroom/press-releases/rss"
-    }
-  ],
+  "rss_feeds": [],
   "news_queries": [
     {
       "competitor": "Jeppesen",
@@ -175,13 +159,6 @@
       "index_url": "https://www.skywise.com/en/newsroom/press-releases",
       "link_pattern": "skywise\\.com/en/newsroom/press-releases/",
       "max_articles": 12
-    },
-    {
-      "competitor": "Lufthansa Systems",
-      "name": "Lufthansa Systems Newsroom",
-      "index_url": "https://www.lhsystems.com/newsroom",
-      "link_pattern": "lhsystems\\.com/.+",
-      "max_articles": 8
     },
     {
       "competitor": "Bytron Skybook",

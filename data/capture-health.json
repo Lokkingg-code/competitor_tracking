@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-09-22T08:24:03Z",
+  "raw_capture_at": "2026-09-22T02:38:36.146674+00:00",
+  "status": "healthy",
+  "required_public_sources": [
+    {
+      "name": "Jeppesen ForeFlight Newsroom",
+      "competitor": "Jeppesen",
+      "kind": "newsroom",
+      "url": "https://www.jeppesenforeflight.com/news",
+      "status": "healthy",
+      "captured_items": 10,
+      "errors": []
+    },
+    {
+      "name": "Skywise Press Releases",
+      "competitor": "Navblue",
+      "kind": "newsroom",
+      "url": "https://www.skywise.com/en/newsroom/press-releases",
+      "status": "healthy",
+      "captured_items": 5,
+      "errors": []
+    },
+    {
+      "name": "Bytron Release Notes",
+      "competitor": "Bytron Skybook",
+      "kind": "newsroom",
+      "url": "https://www.bytron.aero/release-notes/",
+      "status": "healthy",
+      "captured_items": 5,
+      "errors": []
+    }
+  ],
+  "manual_linkedin": {
+    "mode": "manual",
+    "captured_at": "2026-09-22T02:43:32.735Z",
+    "captured_items": 0,
+    "status": "attention_needed"
+  },
+  "failures": []
+}

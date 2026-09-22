@@ -206,20 +206,6 @@ function competitorClass(name) {
 
 function classifyProductFocus(signal) {
   if (["eff", "efb", "adjacent", "other"].includes(signal.product_focus)) return signal.product_focus;
-  const blob = `${signal.headline || ""} ${signal.summary || ""} ${signal.why_it_matters || ""}`;
-  if (signal.competitor === "Aviobook" && /\b(?:AvioBook|Aviobook)\s+Connect\b/i.test(blob)) return "adjacent";
-
-  const strongEff = [/\bEFF\b/i, /\bEFFCore\b/i, /electronic flight folder/i, /flight folder/i, /briefing pack/i, /DOC Manager/i, /\bskybook\b/i];
-  const strongEfb = [/\bEFB\b/i, /electronic flight bag/i, /FliteDeck/i, /Manage My EFB/i, /Mission\+ FLIGHT/i];
-  const hasStrongEff = strongEff.some((p) => p.test(blob));
-  const hasStrongEfb = strongEfb.some((p) => p.test(blob));
-  const inEffDomain = EFF_PATTERNS.some((p) => p.test(blob));
-
-  if (hasStrongEff && !hasStrongEfb) return "eff";
-  if (hasStrongEfb && !inEffDomain) return "efb";
-  if (inEffDomain) return "eff";
-  if (hasStrongEfb || EFB_PATTERNS.some((p) => p.test(blob))) return "efb";
-  if (ADJACENT_PATTERNS.some((p) => p.test(blob))) return "adjacent";
   return "other";
 }
 
