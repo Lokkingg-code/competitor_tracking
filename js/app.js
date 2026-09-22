@@ -317,6 +317,43 @@ function cleanHeadline(value) {
   return text;
 }
 
+function truncateTitleAtBoundary(text, maxLength = 150) {
+  if (text.length <= maxLength) return text;
+  const candidate = text.slice(0, maxLength + 1);
+  const boundary = Math.max(
+    candidate.lastIndexOf(". "),
+    candidate.lastIndexOf("; "),
+    candidate.lastIndexOf(": "),
+    candidate.lastIndexOf(", "),
+    candidate.lastIndexOf(" ")
+  );
+  return `${candidate.slice(0, Math.max(boundary, 1)).replace(/[\s,;:.]+$/, "")}...`;
+}
+
+function displaySignalTitle(signal) {
+  const headline = cleanHeadline(signal.headline);
+  const withoutTrailingMarker = headline.replace(/(?:\s*(?:…|\.\.\.)\s*)+$/, "").trim();
+  const hasTruncationMarker = withoutTrailingMarker !== headline;
+  const colonFragment = headline.match(/:\s*(.*?)$/)?.[1] || "";
+  const danglingAfterColon =
+    Boolean(colonFragment) &&
+    (/[\p{Extended_Pictographic}]/u.test(colonFragment) || colonFragment.replace(/[^\p{L}\p{N}]/gu, "").length <= 3);
+
+  if (headline && !danglingAfterColon) {
+    return hasTruncationMarker ? `${withoutTrailingMarker}...` : headline;
+  }
+
+  if (headline && danglingAfterColon) {
+    return `${headline.replace(/:\s*.*$/, ":").trim()} ...`;
+  }
+
+  const summary = cleanText(signal.summary)
+    .replace(/\s+(?:linkedin\.com|…more)\b.*$/i, "")
+    .trim();
+  const firstSentence = summary.match(/^.+?[.!?](?=\s|$)/)?.[0] || summary;
+  return truncateTitleAtBoundary(firstSentence) || "Untitled signal";
+}
+
 // Public airline and operator names used to resolve customer references in source text.
 const AIRLINE_DICTIONARY = [
   "Virgin Australia",
@@ -400,7 +437,7 @@ async function loadAirlineDictionary() {
 }
 
 function titleHighlight(signal) {
-  const headline = cleanHeadline(signal.headline);
+  const headline = displaySignalTitle(signal);
   const operator = extractOperator(signal);
   return { headline, operator };
 }
@@ -415,7 +452,7 @@ function competitorTitleTerms(name) {
 }
 
 function highlightTitle(signal) {
-  const title = escapeHtml(cleanHeadline(signal.headline));
+  const title = escapeHtml(displaySignalTitle(signal));
   const competitor = displayCompetitor(signal.competitor);
   const operator = extractOperator(signal);
   const terms = [
@@ -435,7 +472,7 @@ function highlightTitle(signal) {
 }
 
 function buildBriefingSummary(signal) {
-  const headline = cleanHeadline(signal.headline);
+  const headline = displaySignalTitle(signal);
   const summary = cleanText(signal.summary);
   const why = cleanText(signal.why_it_matters);
   const typeLabel = TYPE_LABELS[signal.type] || signal.type;
@@ -527,7 +564,7 @@ function renderBriefing(signals) {
 
   els.briefing.innerHTML = `
     <p class="kicker">${escapeHtml(signal.competitor)} · ${escapeHtml(operatorLabel)} · ${escapeHtml(sourceLabel)}</p>
-    <h3>${escapeHtml(cleanHeadline(signal.headline))}</h3>
+    <h3>${escapeHtml(displaySignalTitle(signal))}</h3>
     <div class="briefing-summary">
       <p class="briefing-summary-label">Evidence preview</p>
       <p class="briefing-summary-text">${escapeHtml(evidenceSummary)}</p>
