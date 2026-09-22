@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <link rel="stylesheet" href="css/styles.css?v=10" />
 </head>
 <body>
   <div class="app">
@@ -19,11 +19,15 @@
         <span class="system-name">Cathay Technologies</span>
         <span class="system-divider" aria-hidden="true"></span>
         <span class="system-context">Operations intelligence</span>
-        <a class="utility-link" href="references.html">Reference library</a>
       </div>
       <div class="brand-block">
         <p class="eyebrow"><span class="live-dot"></span>Live monitoring · External sources</p>
         <h1>Competitor Tracking Engine</h1>
+        <nav class="primary-nav" aria-label="Dashboard views">
+          <a class="primary-nav-link is-active" href="index.html" aria-current="page">Signal feed</a>
+          <a class="primary-nav-link" href="matrix.html">Market matrix</a>
+          <a class="primary-nav-link" href="references.html">Reference library</a>
+        </nav>
       </div>
       <div class="controls">
         <label class="control search-control">
@@ -109,6 +113,6 @@
     </footer>
   </div>
 
-  <script src="js/app.js" type="module"></script>
+  <script src="js/app.js?v=matrix3" type="module"></script>
 </body>
 </html>

@@ -124,6 +124,7 @@ const ADJACENT_PATTERNS = [
 
 let allSignals = [];
 let selectedId = null;
+let selectedMatrixIds = null;
 
 const els = {
   windowFilter: document.getElementById("windowFilter"),
@@ -374,6 +375,7 @@ function extractOperator(signal) {
     const match = text.match(pattern);
     if (match) {
       const candidate = (match[1] || match[0]).replace(/\s+/g, " ").trim();
+      if (/^(?:Digital|Commercial|Business|General|Civil) Aviation$/i.test(candidate)) continue;
       if (/\bBytron Aviation(?: Systems)?\b/i.test(candidate)) continue;
       return candidate;
     }
@@ -599,7 +601,8 @@ function renderHeatmap(signals) {
 }
 
 function render() {
-  const signals = filteredSignals();
+  const baseSignals = filteredSignals();
+  const signals = selectedMatrixIds ? baseSignals.filter((signal) => selectedMatrixIds.has(signal.id)) : baseSignals;
   renderMetrics(filteredSignals({ ignoreFocus: true, windowDays: 365 }));
   renderFeed(signals);
   renderBriefing(signals);
@@ -634,6 +637,11 @@ async function boot() {
   if (!res.ok) throw new Error(`Failed to load signals.json (${res.status})`);
   const payload = await res.json();
   allSignals = payload.signals || [];
+  const matrixSelection = sessionStorage.getItem("ct-matrix-signal-ids");
+  if (matrixSelection) {
+    selectedMatrixIds = new Set(JSON.parse(matrixSelection));
+    sessionStorage.removeItem("ct-matrix-signal-ids");
+  }
   els.dataMeta.textContent = `Generated ${payload.generated_at || "—"} · ${payload.lookback_days || 365}-day lookback · ${allSignals.length} raw signals`;
   populateFilters(allSignals);
   render();

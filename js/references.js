@@ -127,15 +127,15 @@ function render(config, signals) {
 async function boot() {
   const [configRes, rawRes] = await Promise.all([
     fetch("scripts/capture/sources.json", { cache: "no-store" }),
-    fetch("data/raw/latest.json", { cache: "no-store" }),
+    fetch("data/signals.json", { cache: "no-store" }),
   ]);
   if (!configRes.ok || !rawRes.ok) throw new Error("Could not load the source registry or latest capture.");
   const config = await configRes.json();
-  const raw = await rawRes.json();
-  const signals = raw.items || [];
+  const payload = await rawRes.json();
+  const signals = payload.signals || [];
   renderMetrics(config, signals);
   render(config, signals);
-  els.meta.textContent = `Capture ${raw.captured_at || "—"} · ${signals.length} raw records · ${GROUPS.length} reference sections`;
+  els.meta.textContent = `Payload ${payload.generated_at || "—"} · ${signals.length} public records · ${GROUPS.length} reference sections`;
   els.search.addEventListener("input", () => render(config, signals));
 }
 

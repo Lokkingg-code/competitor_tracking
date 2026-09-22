@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <link rel="stylesheet" href="css/styles.css?v=10" />
 </head>
 <body class="reference-page">
   <div class="app">
@@ -17,12 +17,16 @@
         <span class="system-name">Cathay Technologies</span>
         <span class="system-divider" aria-hidden="true"></span>
         <span class="system-context">Operations intelligence</span>
-        <a class="utility-link" href="index.html">Back to signal feed</a>
       </div>
       <div class="brand-block">
         <p class="eyebrow"><span class="live-dot"></span>Source register · Date assurance</p>
         <h1>Reference library</h1>
         <p class="reference-intro">The stable public reference points used for competitor monitoring, with scope, observed volume, and current confidence-level policy. Search results and social discovery are intentionally left out of this register.</p>
+        <nav class="primary-nav" aria-label="Dashboard views">
+          <a class="primary-nav-link" href="index.html">Signal feed</a>
+          <a class="primary-nav-link" href="matrix.html">Market matrix</a>
+          <a class="primary-nav-link is-active" href="references.html" aria-current="page">Reference library</a>
+        </nav>
       </div>
       <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
         <span class="theme-icon" aria-hidden="true">☼</span>
@@ -46,10 +50,10 @@
     <main id="referenceGroups" class="reference-groups" aria-live="polite"></main>
 
     <footer class="footer">
-      <p>Reference register · Configuration from <code>scripts/capture/sources.json</code></p>
+      <p>Reference register · Public source configuration</p>
       <p id="referenceMeta" class="muted">Loading…</p>
     </footer>
   </div>
-  <script src="js/references.js" type="module"></script>
+  <script src="js/references.js?v=2" type="module"></script>
 </body>
 </html>
