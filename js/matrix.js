@@ -97,7 +97,7 @@ function render() {
   els.count.textContent = `${rows.length} competitors`;
   const body = rows.map((row) => `
     <div class="signal-row matrix-signal-row" role="row">
-      <span class="col col-competitor"><span class="competitor-tag ${competitorClass(row.competitor)}">${escapeHtml(row.competitor)}</span></span>
+      <span class="col col-competitor"><button class="competitor-tag competitor-filter-button ${competitorClass(row.competitor)}" type="button" data-competitor="${escapeHtml(row.competitor)}" title="Show ${escapeHtml(row.competitor)} signals">${escapeHtml(row.competitor)}</button></span>
       <span class="col matrix-airlines">${[...row.airlines.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([name, ids]) => {
         const relatedIds = deduplicateRelatedIds(ids);
         return `<button class="chip focus-other airline-chip" type="button" data-signal-ids="${relatedIds.join(",")}" title="Open ${relatedIds.length} related signal${relatedIds.length === 1 ? "" : "s"}">${escapeHtml(name)}</button>`;
@@ -117,6 +117,13 @@ function render() {
   for (const chip of els.feed.querySelectorAll(".airline-chip")) {
     chip.addEventListener("click", () => {
       sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify([...new Set(chip.dataset.signalIds.split(","))]));
+      location.href = "index.html#signalFeed";
+    });
+  }
+
+  for (const button of els.feed.querySelectorAll(".competitor-filter-button")) {
+    button.addEventListener("click", () => {
+      sessionStorage.setItem("ct-matrix-competitor", button.dataset.competitor);
       location.href = "index.html#signalFeed";
     });
   }

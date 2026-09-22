@@ -469,6 +469,18 @@ code {
   background: rgba(42, 143, 132, 0.08);
 }
 
+.competitor-filter-button {
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.competitor-filter-button:hover,
+.competitor-filter-button:focus-visible {
+  outline: 2px solid var(--teal-bright);
+  outline-offset: 2px;
+}
+
 .competitor-jeppesen {
   color: #d4a85b;
   background: rgba(212, 168, 91, 0.1);

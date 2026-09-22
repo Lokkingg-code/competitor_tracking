@@ -644,12 +644,17 @@ async function boot() {
   const payload = await res.json();
   allSignals = payload.signals || [];
   const matrixSelection = sessionStorage.getItem("ct-matrix-signal-ids");
+  const matrixCompetitor = sessionStorage.getItem("ct-matrix-competitor");
   if (matrixSelection) {
     selectedMatrixIds = new Set(JSON.parse(matrixSelection));
     sessionStorage.removeItem("ct-matrix-signal-ids");
   }
   els.dataMeta.textContent = `Generated ${payload.generated_at || "—"} · ${payload.lookback_days || 365}-day lookback · ${allSignals.length} raw signals`;
   populateFilters(allSignals);
+  if (matrixCompetitor && [...els.competitorFilter.options].some((option) => option.value === matrixCompetitor)) {
+    els.competitorFilter.value = matrixCompetitor;
+    sessionStorage.removeItem("ct-matrix-competitor");
+  }
   render();
 }
 
