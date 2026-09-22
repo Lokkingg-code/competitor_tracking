@@ -148,6 +148,7 @@
   ],
   "linkedin_organizations": [
     {"competitor": "Jeppesen", "vanity_name": "jeppesen"},
+    {"competitor": "Jeppesen", "vanity_name": "foreflight"},
     {"competitor": "Lufthansa Systems", "vanity_name": "lufthansa-systems"},
     {"competitor": "Aviobook", "vanity_name": "aviovision"},
     {"competitor": "Bytron Skybook", "vanity_name": "bytron-aviation-systems"},
