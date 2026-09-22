@@ -53,16 +53,37 @@ async function collectOrganization(page, organization) {
   console.log(`[linkedin-browser] ${organization.competitor}: ${url}`);
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
 
+  const check = {
+    competitor: organization.competitor,
+    vanity_name: organization.vanity_name,
+    requested_url: url,
+    final_url: page.url(),
+    page_title: await page.title(),
+    login_required: false,
+    selector_matches: 0,
+    article_nodes: 0,
+    posts_seen: 0,
+    posts_captured: 0,
+    status: "ok",
+  };
+
   if (page.url().includes("/login") || page.url().includes("/checkpoint")) {
+    check.login_required = true;
+    check.status = "login_required";
     console.log("LinkedIn login or verification is required. Complete it in the browser, then press Enter here.");
     process.stdin.setEncoding("utf8");
     await new Promise((resolve) => process.stdin.once("data", resolve));
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+    check.final_url = page.url();
+    check.page_title = await page.title();
   }
 
   const records = new Map();
   for (let scroll = 0; scroll < maxScrolls; scroll += 1) {
-    const posts = await page.locator("[role='article'][data-urn]").evaluateAll((articles) => articles.map((article) => {
+    check.article_nodes = Math.max(check.article_nodes, await page.locator("[role='article']").count());
+    const postLocator = page.locator("[role='article'][data-urn]");
+    check.selector_matches = Math.max(check.selector_matches, await postLocator.count());
+    const posts = await postLocator.evaluateAll((articles) => articles.map((article) => {
       const postUrl = `https://www.linkedin.com/feed/update/${article.dataset.urn}`;
       const time = article.querySelector("time");
       const relativeDate = article.innerText.match(/\b\d+\s*(?:minute|hour|day|week|month|year)s?\s+ago\b/i)?.[0] || null;
@@ -77,6 +98,7 @@ async function collectOrganization(page, organization) {
     }));
 
     for (const post of posts) {
+      check.posts_seen += 1;
       const url = post.url?.split("?")[0];
       const date = isoDate(post.published_at) || relativeDate(post.published_at);
       if (!url || !date || date < cutoffDate(lookbackDays) || records.has(url)) continue;
@@ -96,7 +118,16 @@ async function collectOrganization(page, organization) {
     await page.mouse.wheel(0, 2500);
     await page.waitForTimeout(1200);
   }
-  return [...records.values()];
+  check.posts_captured = records.size;
+  if (check.login_required && !page.url().includes("/login") && !page.url().includes("/checkpoint")) {
+    check.status = "ok_after_login";
+  } else if (!check.login_required && check.article_nodes === 0) {
+    check.status = "no_article_nodes";
+  } else if (check.selector_matches === 0) {
+    check.status = "selector_no_matches";
+  }
+  console.log(`[linkedin-browser] check ${organization.vanity_name}: ${check.status}; articles=${check.article_nodes}; selector_matches=${check.selector_matches}; captured=${check.posts_captured}`);
+  return { items: [...records.values()], check };
 }
 
 const config = await readConfig();
@@ -106,9 +137,12 @@ const browser = await chromium.launchPersistentContext(profileDir, {
 });
 const page = await browser.newPage();
 const items = [];
+const checks = [];
 try {
   for (const organization of config.linkedin_organizations || []) {
-    items.push(...await collectOrganization(page, organization));
+    const result = await collectOrganization(page, organization);
+    items.push(...result.items);
+    checks.push(result.check);
   }
 } finally {
   await browser.close();
@@ -120,6 +154,7 @@ const payload = {
   lookback_days: lookbackDays,
   cutoff: cutoffDate(lookbackDays),
   count: unique.length,
+  checks,
   items: unique,
 };
 await fs.mkdir(outputDir, { recursive: true });
@@ -128,3 +163,7 @@ await fs.writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "linkedin_latest.json"), `${JSON.stringify(payload, null, 2)}\n`);
 console.log(`[linkedin-browser] captured ${unique.length} posts`);
 console.log(`[linkedin-browser] wrote ${path.relative(root, outputPath)}`);
+if (checks.length > 0 && checks.every((check) => check.article_nodes === 0)) {
+  console.error("[linkedin-browser] no article nodes found on any page; review checks before treating this run as successful");
+  process.exitCode = 1;
+}
