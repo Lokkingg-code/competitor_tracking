@@ -368,13 +368,13 @@ code {
 
 .feed {
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
   max-height: 620px;
   padding: 4px 6px 8px;
 }
 
 .feed-table {
-  width: 100%;
+  min-width: 760px;
 }
 
 .feed-header,
@@ -402,7 +402,7 @@ code {
 
 .feed-body {
   display: flex;
-  grid-template-columns: minmax(180px, 1.2fr) minmax(120px, 0.8fr) minmax(220px, 1.5fr) minmax(120px, 0.75fr);
+  flex-direction: column;
   gap: 3px;
 }
 
