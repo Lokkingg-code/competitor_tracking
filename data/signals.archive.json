@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T02:48:30Z",
+  "generated_at": "2026-09-22T02:39:07Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -40,6 +40,42 @@
         {
           "title": "Google News \u00b7 LinkedIn",
           "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQRXVpRjgtdm1GUFR2dkRnbVJvMmcxME9WdlRMWi1CNDg5LUxHYmphU1hjQ1RObmdILWEzdVBfOUVkcFJKT0N1UW50YzlwR1ZvbERtUkxYT0ZYa25aaV93a0JRR2xURW9lRURzbTctYV9HdlI0OUo0S3FZZ0NpR1J2a1piTHJqdUo5bFRnTTJFM3B3NGdoejhRNVQwLTFPQQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-eede314fcaab",
+      "competitor": "Jeppesen",
+      "date": "2026-09-11",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Saxon Air Expands Partnership with Jeppesen ForeFlight | Jeppesen ForeFlight posted on the topic | LinkedIn",
+      "summary": "We\u2019re excited to share that Saxon Air is expanding its partnership with Jeppesen ForeFlight, moving to the full operational suite to support greater visibility, efficiency, and smarter decision-making across its operations. Read more: https://lnkd.in/dfigY5Kd",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn direct post",
+          "url": "https://lnkd.in/p/e3T55rka"
         }
       ],
       "tags": [
@@ -492,7 +528,7 @@
       "headline": "We are pleased to announce that TUS Airways has selected EFBOne as its new Electronic Flight Bag platform.",
       "summary": "We are pleased to announce that TUS Airways has selected EFBOne as its new Electronic Flight Bag platform. Currently in the final stages of Cyprus CAA evaluation, TUS Airways is integrating EFBOne across its Airbus A320 fleet to centralize flight-reporting workflows and optimize cockpit operations.",
       "source_channel": "linkedin",
-      "source_origin": "official_site",
+      "source_origin": "linkedin",
       "product_focus": "eff",
       "product": "IFS EFBOne",
       "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",

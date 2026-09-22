@@ -257,7 +257,7 @@ def detect_source_origin(item: dict) -> str:
     if item.get("url"):
         urls.append(item["url"])
     combined = " ".join(urls).lower()
-    if "linkedin.com" in combined:
+    if "linkedin.com" in combined or "lnkd.in" in combined:
         return "linkedin"
     if "news.google.com" in combined:
         return "google_news"
