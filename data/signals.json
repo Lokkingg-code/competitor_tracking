@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T10:21:17Z",
+  "generated_at": "2026-09-24T10:35:48Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,150 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-0bc972148ae5",
+      "competitor": "Navblue",
+      "date": "2026-09-24",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "TransNusa Collaborates with Skywise to Launch Indonesia\u2019s First Integrated Digital Aviation Ecosystem",
+      "summary": "Navblue reported a partnership update: TransNusa Collaborates with Skywise to Launch Indonesia\u2019s First Integrated Digital Aviation Ecosystem. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYjRmLWk4Nzdtb2Qydjk1ZXFJZXJXdnRqT1RibWtzYkJKdHp5ME8ySkJQWlR5alp3bFFJSHZlRW5WSzkyMlVBUWkwY04tME1BcTM1eWhKNXF1WVpRanI5UDZTQUFRZndxeExPRnNMSGNZNVhSQ282SnliNFU0S0FPSWloTjd0UlEwMmxnMGhfenVVdExhYVBxUkprU1JmbVMxQUJZR2xBYW5ELW5wdi1BM3hxMWtHaFA1YTFVcVRvRk56ck1tWWxnWDIzbC1mWHNna1pqYkt30gHWAUFVX3lxTE5iNGYtaTg3N21vZDJ2OTVlcUllcld2dGpPVGJta3NiQkp0enkwTzJKQlBaVHlqWndsUUlIdmVFblZLOTIyVUFRaTBjTi0wTUFxMzV5aEo1cXVZWlFqcjlQNlNBQVFmd3F4TE9Gc0xIY1k1WFJDbzZKeWI0VTRLQU9JaWhON3RSUTAybGcwaF96dVV0TGFhUHFSSmtTUmZtUzFBQllHbEFhbkQtbnB2LUEzeHExa0doUDVhMVVxVG9GTnpyTW1ZbGdYMjNsLWZYc2drWmpiS3c?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-5c0bfdebae79",
+      "competitor": "Navblue",
+      "date": "2026-09-24",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "TransNusa expands Skywise collaboration to launch Indonesia\u2019s first integrated Flight and Technical Operations",
+      "summary": "TransNusa adopts Skywise Core X2 and S.FP+ to unite flight and technical operations, driving real-time fleet health monitoring and operational efficiency",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Direct press release \u2014 higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-09-transnusa-expands-skywise-collaboration-to-launch-indonesias-first-integrated-flight-and-technical"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ]
+    },
+    {
+      "id": "cap-0b560dfe1b37",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-23",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Airline Forum 2026 is packed with NetLine and SIRAX product sessions, but what makes\u2026",
+      "summary": "Airline Forum 2026 is packed with NetLine and SIRAX product sessions, but what makes this event truly successful is the fantastic people, collaborative airlines, smiles, and all the positive energy around \u2708\ufe0f No surprise, all the Lufthansa Systems conferences linkedin.com",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQb3NXSURuc2tLcS1BRWw3MS1LVVE1S0NMaThYY2dNRDJZTGhjRGI2ZVZnZmtTNUhsbTBzNEpNMGxaeHhNTVZyTFZORnFLelJBRi1sRzhyeEY0aURZZHlhUXViUE5LRTZfMzV6RkFBdWRmcUhfLVp2STlia0VtNnh4VG40a2RPVGFnV2UxZ0k2M05oNEVqRzlTYzFacw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-c21b793773b8",
+      "competitor": "Bytron Skybook",
+      "date": "2026-09-23",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Meet James Murray our Product Analyst, bringing 22 years of RAF aviation experience to Bytron.",
+      "summary": "Meet James Murray our Product Analyst, bringing 22 years of RAF aviation experience to Bytron. James works closely with our teams to turn operational needs into practical improvements for skybook.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQOUpZVE5QZGdsZUpvUmxLT2VFOTlxTzg4MUs4TlA0VmhGRGJ1OXVrMUVEbTNyY1pkVGVfT3BwRm1IVTRGRTVyUlJRc3p3TnFQZmhZa1daRl9uX3k3M3ROM01qZ3ZNd2hETXp6RkxwOENadUt6TG9od0JValpfRHYxNnZWS204Mk9GM09LMUZtRG5wSGJ2X0NpV2lJaUlVTUw1VG5jUkpuaWFUTzJfd2lQUEl3?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
     {
       "id": "cap-71365b84a950",
       "competitor": "Bytron Skybook",
@@ -1343,6 +1487,42 @@
         {
           "title": "Google News RSS",
           "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQUc4aEtGYm1Ec0dHazRxcmNUWjVpeDI0SERubU1oMkRNQV9hTkVJZFgzdlZvWEQ2bUJ1RGVVZ19mRk90ZFhGQlVaaG1EUWRMTTgyV3FxUllod2FzSGJENlZNUHIwV2dET2FmMVE1TjV0cEtHM0xHclJNSG82cUhYTmdvSkpjVmZrT1g0?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ]
+    },
+    {
+      "id": "cap-cabcb68b3a03",
+      "competitor": "Navblue",
+      "date": "2026-06-04",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "Corsair becomes the first airline in France to adopt Skywise Mission+ FLIGHT",
+      "summary": "Navblue reported a customer win update: Corsair becomes the first airline in France to adopt Skywise Mission+ FLIGHT. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "efb",
+      "product": "Mission+ FLIGHT",
+      "why_it_matters": "Auto-captured signal \u2014 verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNTTVtZUJEWXBsNFEwTWNucGVXWFNTYWpRRnBLR0UtN1gxMldvbkkzNVFISWlPVk1MWnRiREdFMExyMXhMSUp0OWJhWjdka3p5OV9IYnVDdUdCMFJyTG5yUUc4WUF0N1FLZ2xLV2QtZlQyZmpYRFhQVlpGcE9XQjBnWms4VzZUVUZLdTQzUTJpeDdURDU5aDFVdFZaUkZvc2s5MllCcy1LYUl1VDAwTEJjOTJn?oc=5"
         }
       ],
       "tags": [
@@ -2936,6 +3116,42 @@
         {
           "title": "Google News \u00b7 LinkedIn",
           "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOVWNfRUVvVUNsSm9JRjhuZ2U0cDZsbmE2T01ERVV0Ulo1S1lWYnBha29aanVJeVVyZTFRQnlCcXBJTklkWjNPaElYZ3F1UjRSeXdOaFlWN3FpRHBvRVh2Q2JiMWV5T2FQMjVoNDNBdEJoLWlJcFdjeDdacTVnMlBKQzNSQUlxZUVfbUYwUzgyVjUyZ1A2V29rRU1pT2ZrLUU?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-907445d49b78",
+      "competitor": "Jeppesen",
+      "date": "2025-10-29",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Boeing Jeppesen and Bytron Strengthen Partnership with Five-Year Deal",
+      "summary": "Jeppesen reported a partnership update: Boeing Jeppesen and Bytron Strengthen Partnership with Five-Year Deal. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPQXVaMU9UZGdjbm5oSVJNTUJQcnRIMEFQMTFpR1lWbXFkOUI0eXpWRkg3SDB0Y1EteEs1amZicjFiZmtCeTQ4SWZzYWlSMy1aRGFMSlJ6ZWhtRGwzbDNRWXZTN1hvbU1RVTA2U0hydTNNVlVveU5UcWFtc0p0Ynh6Rk9iVldWaHY4ZEJGalRFa3dqSm41WWthNk13REppUGdWSEttSDBrblFPeVI5ME9wNGVyb0dBOWlibnZSb2JYbjd5dXRM?oc=5"
         }
       ],
       "tags": [
