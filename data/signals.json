@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T10:35:48Z",
+  "generated_at": "2026-09-25T10:39:07Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -13,16 +13,16 @@
   ],
   "signals": [
     {
-      "id": "cap-0bc972148ae5",
+      "id": "cap-e755cdc41945",
       "competitor": "Navblue",
-      "date": "2026-09-24",
+      "date": "2026-09-25",
       "date_is_estimated": false,
       "type": "partnership",
       "priority": "low",
       "severity": 2,
       "confidence": 0.6000000000000001,
-      "headline": "TransNusa Collaborates with Skywise to Launch Indonesia\u2019s First Integrated Digital Aviation Ecosystem",
-      "summary": "Navblue reported a partnership update: TransNusa Collaborates with Skywise to Launch Indonesia\u2019s First Integrated Digital Aviation Ecosystem. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "headline": "TransNusa Collaborates with Skywise to Launch Indonesias First Integrated Digital Aviation Ecosystem",
+      "summary": "Navblue reported a partnership update: TransNusa Collaborates with Skywise to Launch Indonesias First Integrated Digital Aviation Ecosystem. Open the linked source to verify details and assess impact for Cathay Technologies.",
       "source_channel": "rss",
       "source_origin": "google_news",
       "product_focus": "other",
@@ -39,13 +39,85 @@
       "sources": [
         {
           "title": "Google News RSS",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYjRmLWk4Nzdtb2Qydjk1ZXFJZXJXdnRqT1RibWtzYkJKdHp5ME8ySkJQWlR5alp3bFFJSHZlRW5WSzkyMlVBUWkwY04tME1BcTM1eWhKNXF1WVpRanI5UDZTQUFRZndxeExPRnNMSGNZNVhSQ282SnliNFU0S0FPSWloTjd0UlEwMmxnMGhfenVVdExhYVBxUkprU1JmbVMxQUJZR2xBYW5ELW5wdi1BM3hxMWtHaFA1YTFVcVRvRk56ck1tWWxnWDIzbC1mWHNna1pqYkt30gHWAUFVX3lxTE5iNGYtaTg3N21vZDJ2OTVlcUllcld2dGpPVGJta3NiQkp0enkwTzJKQlBaVHlqWndsUUlIdmVFblZLOTIyVUFRaTBjTi0wTUFxMzV5aEo1cXVZWlFqcjlQNlNBQVFmd3F4TE9Gc0xIY1k1WFJDbzZKeWI0VTRLQU9JaWhON3RSUTAybGcwaF96dVV0TGFhUHFSSmtTUmZtUzFBQllHbEFhbkQtbnB2LUEzeHExa0doUDVhMVVxVG9GTnpyTW1ZbGdYMjNsLWZYc2drWmpiS3c?oc=5"
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNUGxHNWpFOEh5SFRjZGhGU041di1qQWhOdE5VLWpDeHRQbElSX2F3TGRFaVJqc1ZhTTVGVWVnNGFySWZjLTFneEFtTTB3ZFRMZGU4N1lWejNEdUx2S2hJMDd3S0VLVkQxT0ViMTY0cFV6TUwtMFFURWREMTlZR1FwUHh1eGxXZzBCSzVsaDZrSG1jUnNZOGgzR2pUNXNndXhpZG81LXF6OGpjWFk4M092eFF3UmJndklCMU12R3oxWGJqWnJrMGlkSVlSYVRwVFFZWWk2ZzNEUDlOUdIB2gFBVV95cUxNUGxHNWpFOEh5SFRjZGhGU041di1qQWhOdE5VLWpDeHRQbElSX2F3TGRFaVJqc1ZhTTVGVWVnNGFySWZjLTFneEFtTTB3ZFRMZGU4N1lWejNEdUx2S2hJMDd3S0VLVkQxT0ViMTY0cFV6TUwtMFFURWREMTlZR1FwUHh1eGxXZzBCSzVsaDZrSG1jUnNZOGgzR2pUNXNndXhpZG81LXF6OGpjWFk4M092eFF3UmJndklCMU12R3oxWGJqWnJrMGlkSVlSYVRwVFFZWWk2ZzNEUDlOUQ?oc=5"
         }
       ],
       "tags": [
         "auto-capture",
         "google_news",
         "rss"
+      ]
+    },
+    {
+      "id": "cap-15b0210793f1",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-24",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "The Lufthansa Systems 2026 #AirlineForum has come to a close and now it's time to go home.",
+      "summary": "The Lufthansa Systems 2026 #AirlineForum has come to a close and now it's time to go home. A huge highlight for me was attending the NetLine Slot sessions conducted by Yvonne Dimt.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZV9OVWNXaFB2RVhvV1NDdHhid1NaeVVrWndFeUN6ZUFOSG5BNXZKNF8zMURJS1ZsZE9XWGM2YmpCNGxOX1BPUWthdWQySjdGT3pmRGZTNzVGSUh0U0VfNklTUVVEUUFxT3lOaE1pMmxwQmFsTGFVMnlZS1Y0eU1vSWJtMFYzYjJlSHVMUHlrWm5OWWc5S0E?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "cap-54803a059c10",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-24",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Another successful edition of Lufthansa Systems annual #airlineforum conference is over.",
+      "summary": "Another successful edition of Lufthansa Systems annual #airlineforum conference is over. With a record breaking attendance, we all were able to engage with our current Customers and Prospects!",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQX1ZlaXVHanpsUEkxOG9keTNLTFRaODhwd0RjWE5ncTBpSkczUGx1T2tvOHIwLThYdkxCNG0yQTNhM0s3TnBDUmNsMmZhRjlkSm1TblZFZWY5WnVsUFBfSmpySWNSMUQzMGEzUVVGdFhHRVVYTjM5TlFXT1hhRnBydnRDQVNEcUFGdDEwVTVjNmxLUmZ3NGNRcFVfS2RUSGQ0SVRpMWpFaUdKc3REZU1zTDZn?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
       ]
     },
     {
@@ -94,7 +166,7 @@
       "severity": 2,
       "confidence": 0.65,
       "headline": "Airline Forum 2026 is packed with NetLine and SIRAX product sessions, but what makes\u2026",
-      "summary": "Airline Forum 2026 is packed with NetLine and SIRAX product sessions, but what makes this event truly successful is the fantastic people, collaborative airlines, smiles, and all the positive energy around \u2708\ufe0f No surprise, all the Lufthansa Systems conferences linkedin.com",
+      "summary": "Airline Forum 2026 is packed with NetLine and SIRAX product sessions, but what makes this event truly successful is the fantastic people, collaborative airlines, smiles, and all the positive energy around \u2708\ufe0f No surprise, all the Lufthansa Systems conferences LinkedIn",
       "source_channel": "linkedin",
       "source_origin": "google_news",
       "product_focus": "adjacent",
@@ -2653,6 +2725,42 @@
       "source_origin": "official_site",
       "product": "Bytron Skybook",
       "product_focus": "eff"
+    },
+    {
+      "id": "cap-cfe97dfde70e",
+      "competitor": "Jeppesen",
+      "date": "2025-12-17",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "We\u2019re happy to announce a major enhancement to Navigraph Charts, delivered in partnership with\u2026",
+      "summary": "We\u2019re happy to announce a major enhancement to Navigraph Charts, delivered in partnership with Jeppesen: VFR charts for Europe are now available! This update adds nearly 5,000 official Jeppesen charts for visual flight rules, covering 2,000 European airp <font col",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcm1yVzlVbF9LSU4yR1Y3blpJUzV4bDFBREQwbUJhLU1jV2t4eU51MVM2SlZmekl5aE45elM1dmZrSUJ1c080SzhIdXd2aERFYllDbFREazRnc2hxRWplMUI5cVJZay16Y3pGOEtHaUQxQ2M3SlFxV2ZFRWJhZmVUX2pVNlNkdnB5SlJnM1BhdUc0V3JtMHU2WWc2X1FNUFE3YnhuY3NHdkw2ODA4cXNOUXlGN3VfYmJw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ]
     },
     {
       "id": "cap-6c44340efff4",
