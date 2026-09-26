@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T10:39:07Z",
+  "generated_at": "2026-09-26T10:22:58Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -13,7 +13,7 @@
   ],
   "signals": [
     {
-      "id": "cap-e755cdc41945",
+      "id": "cap-69df31ca3f38",
       "competitor": "Navblue",
       "date": "2026-09-25",
       "date_is_estimated": false,
@@ -39,13 +39,49 @@
       "sources": [
         {
           "title": "Google News RSS",
-          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNUGxHNWpFOEh5SFRjZGhGU041di1qQWhOdE5VLWpDeHRQbElSX2F3TGRFaVJqc1ZhTTVGVWVnNGFySWZjLTFneEFtTTB3ZFRMZGU4N1lWejNEdUx2S2hJMDd3S0VLVkQxT0ViMTY0cFV6TUwtMFFURWREMTlZR1FwUHh1eGxXZzBCSzVsaDZrSG1jUnNZOGgzR2pUNXNndXhpZG81LXF6OGpjWFk4M092eFF3UmJndklCMU12R3oxWGJqWnJrMGlkSVlSYVRwVFFZWWk2ZzNEUDlOUdIB2gFBVV95cUxNUGxHNWpFOEh5SFRjZGhGU041di1qQWhOdE5VLWpDeHRQbElSX2F3TGRFaVJqc1ZhTTVGVWVnNGFySWZjLTFneEFtTTB3ZFRMZGU4N1lWejNEdUx2S2hJMDd3S0VLVkQxT0ViMTY0cFV6TUwtMFFURWREMTlZR1FwUHh1eGxXZzBCSzVsaDZrSG1jUnNZOGgzR2pUNXNndXhpZG81LXF6OGpjWFk4M092eFF3UmJndklCMU12R3oxWGJqWnJrMGlkSVlSYVRwVFFZWWk2ZzNEUDlOUQ?oc=5"
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTjZuaURmbFZZS3YwYUc2b0g3VzFmbzY5dzl0Vkh2VU1oWWpVbEVHOHJMOURKQkN0MEVCY2xLNG5VUTNEVEJKTlhXb01XRm5WUzZSbG9rSXFaeGtacmZLNFFQa2NjNUhlTFFzX2RvRkRlLUNEOVBzNWVPWjBSajRCSTdfeUttTkh6VFMtN3BTNHNrZWFqc1phNGlFNDBhbnd6MnlHX3RScGRLZnZ1amR3S3VKYkFYRG1Ea0VhdWFIbTVOOGxFd1EtYXJlOVE4ZGRyQklLeNIB2gFBVV95cUxNUGxHNWpFOEh5SFRjZGhGU041di1qQWhOdE5VLWpDeHRQbElSX2F3TGRFaVJqc1ZhTTVGVWVnNGFySWZjLTFneEFtTTB3ZFRMZGU4N1lWejNEdUx2S2hJMDd3S0VLVkQxT0ViMTY0cFV6TUwtMFFURWREMTlZR1FwUHh1eGxXZzBCSzVsaDZrSG1jUnNZOGgzR2pUNXNndXhpZG81LXF6OGpjWFk4M092eFF3UmJndklCMU12R3oxWGJqWnJrMGlkSVlSYVRwVFFZWWk2ZzNEUDlOUQ?oc=5"
         }
       ],
       "tags": [
         "auto-capture",
         "google_news",
         "rss"
+      ]
+    },
+    {
+      "id": "cap-04ef1a8c8c7e",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-24",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Airline Forum 2026: Together as One \u2708\ufe0f What happens when airline experts from planning, operations and finance come together?",
+      "summary": "Airline Forum 2026: Together as One \u2708\ufe0f What happens when airline experts from planning, operations and finance come together? \ud83d\udd39 NetLine One: We unveiled our vision fo <font color=\"#6f6f6f",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdTQzZHpJaHBlV29nZ1JmYTQwSUlqOFZ4bVNobDMtWlN6RElzZWNKc1Z6SUZkTXZBWVJtd2RwTzViNzE0SUxMU3FNRGhZTDdCNDRfbHYwc0I3VWVLNjh4SG53SWZYX3dCYmFONGs4LTd3NHY1NHVlQ3BWR1dIQkxoQWlFTWotYS14eTlHMVhWRGxtNE00dlRaaDZ4WXdCTzBOSnU1RGpGWkp6b0xYdTl1SlR3?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
       ]
     },
     {
@@ -2075,6 +2111,42 @@
         "auto-capture",
         "press_release",
         "press_release"
+      ]
+    },
+    {
+      "id": "cap-c9b0ff7f8b95",
+      "competitor": "Jeppesen",
+      "date": "2026-04-21",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "With the launch of Navi Mumbai International Airport, India\u2019s aviation network is expanding",
+      "summary": "With the launch of Navi Mumbai International Airport, India\u2019s aviation network is expanding - but airspace remains limited. Jeppesen ForeFlight had the opportunity to support the Airports Authority of India (AAI) in reimagining terminal airspace in both Del",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOV3BEZkNUZ1cxRlRueTlkMjAzdVFyeHhjVV9SV2lBOGhaYzdEdTNxdDlhY3ppS2xtYWF5c0l1MXpEME9ldjdnalN4clh2cEktY21GcmdUTDZvRzkyUHRvUGYzY3FWZ3NoVHNpZ3hMNV85a3ZjS1ZyLVpsMkM0VEFWVVhMaUFmR2N0QWdhclV5cUVMNGpuNXlPbE5MNVhWWThFNmQ2ZmpBak0tekxqdnVGY3NNeFhqQ28yUm9DVDQwT2J5UzloUTlBdA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
       ]
     },
     {
