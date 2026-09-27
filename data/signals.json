@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T10:22:58Z",
+  "generated_at": "2026-09-27T10:54:37Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -76,42 +76,6 @@
         {
           "title": "Google News \u00b7 LinkedIn",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdTQzZHpJaHBlV29nZ1JmYTQwSUlqOFZ4bVNobDMtWlN6RElzZWNKc1Z6SUZkTXZBWVJtd2RwTzViNzE0SUxMU3FNRGhZTDdCNDRfbHYwc0I3VWVLNjh4SG53SWZYX3dCYmFONGs4LTd3NHY1NHVlQ3BWR1dIQkxoQWlFTWotYS14eTlHMVhWRGxtNE00dlRaaDZ4WXdCTzBOSnU1RGpGWkp6b0xYdTl1SlR3?oc=5"
-        }
-      ],
-      "tags": [
-        "auto-capture",
-        "linkedin",
-        "linkedin"
-      ]
-    },
-    {
-      "id": "cap-15b0210793f1",
-      "competitor": "Lufthansa Systems",
-      "date": "2026-09-24",
-      "date_is_estimated": false,
-      "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
-      "confidence": 0.65,
-      "headline": "The Lufthansa Systems 2026 #AirlineForum has come to a close and now it's time to go home.",
-      "summary": "The Lufthansa Systems 2026 #AirlineForum has come to a close and now it's time to go home. A huge highlight for me was attending the NetLine Slot sessions conducted by Yvonne Dimt.",
-      "source_channel": "linkedin",
-      "source_origin": "google_news",
-      "product_focus": "adjacent",
-      "product": null,
-      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
-      "segment": "Unknown",
-      "implications": [
-        "Needs analyst confirmation before executive distribution."
-      ],
-      "next_actions": [
-        "Open source link, validate claim, upgrade confidence.",
-        "If confirmed, add implications for Cathay Technologies."
-      ],
-      "sources": [
-        {
-          "title": "Google News \u00b7 LinkedIn",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZV9OVWNXaFB2RVhvV1NDdHhid1NaeVVrWndFeUN6ZUFOSG5BNXZKNF8zMURJS1ZsZE9XWGM2YmpCNGxOX1BPUWthdWQySjdGT3pmRGZTNzVGSUh0U0VfNklTUVVEUUFxT3lOaE1pMmxwQmFsTGFVMnlZS1Y0eU1vSWJtMFYzYjJlSHVMUHlrWm5OWWc5S0E?oc=5"
         }
       ],
       "tags": [
@@ -1383,6 +1347,42 @@
         "auto-capture",
         "press_release",
         "press_release"
+      ]
+    },
+    {
+      "id": "cap-9ab015534872",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-06-29",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "\u2708\ufe0f Finding the right balance between operational robustness and commercial performance is one of\u2026",
+      "summary": "\u2708\ufe0f Finding the right balance between operational robustness and commercial performance is one of the biggest challenges in airline schedule planning. That's why we're proud to support the Lufthansa Group with our NetLine solutions.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News \u00b7 LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNVEd4UkNaRzNFcjIxOXN3N2w3WG9sZ0w2T1FYdlBfa3FfMGFhSUY3a3R4bENWZVhfY0lGaW5DUWljS1FlZ3lKTjhuaXRtWXF4U1JCSkNFRGlfMXRDdkNLUmVhRXhyOEpIbDdQQmp5SUNFbnQzZXZ0NTQ5SkdXcXZhTW9odlhCSWtmb0ttdExJYllGaVNycXJfOUJDcFhYUnRCekphOTZLMXprWDZaWlBPbVpURGhjRnFLS0N6OGlqRU51a3FSaUlrQ2U5S2E3ZW8?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
       ]
     },
     {
