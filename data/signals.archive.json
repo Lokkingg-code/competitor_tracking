@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T08:32:01Z",
+  "generated_at": "2026-09-28T03:46:52Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,78 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "browser-cc81837bbf5f",
+      "competitor": "Navblue",
+      "date": "2026-09-25",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Live from MRO APAC in Singapore! \u270d\ufe0f",
+      "summary": "Today, TransNusa officially expanded its collaboration with Skywise by signing for Skywise Core X2 and Skywise Fleet Performance+ (S.FP+). This milestone marks the very first S.FP+ and Skywise Core X2 agreements in Indonesia, setting a new benchmark for unified, data-driven airline operations across the region.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": "Mission+",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gXSc65Nx"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-c2a986e9925f",
+      "competitor": "Aviobook",
+      "date": "2026-09-21",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Weather shifts, a GNSS interference warning pops up, turnaround times change, and the cockpit\u2026",
+      "summary": "AvioBook's solution package Enhanced Awareness closes that gap. \u23f0 CDM (Collaborative Decision Making):",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gBht9pWj"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
     {
       "id": "cap-71365b84a950",
       "competitor": "Bytron Skybook",
@@ -45,6 +117,78 @@
       "tags": [
         "auto-capture",
         "linkedin",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-03fd811a120c",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-14",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "\u2754 How quickly can your airline respond to a market shift?",
+      "summary": "Whether evaluating new routes, schedule changes, fleet adjustments, or partnership scenarios, airlines need reliable answers fast. Trusted by airlines responsible for approximately 20% of global ASKs, NetLine Plan transforms network planning from reactive analysis into proactive dec",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gaH-x3VU"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ]
+    },
+    {
+      "id": "browser-b8f49628138c",
+      "competitor": "Aviobook",
+      "date": "2026-09-14",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "We want to be a partner that's genuinely close to their day-to-day operations, so we understand what they need",
+      "summary": "We want to be a partner that's genuinely close to their day-to-day operations, so we understand what they need before it becomes a problem. In this video, Vincent Carpentier, Director of Flight Operations at ASL Airlines Belgium, talks about what that closeness looks like in practice, from daily EFB use to how quickly his team gets help when something comes up.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "efb",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post \u2014 useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gxe8NjQn"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
         "linkedin"
       ]
     },

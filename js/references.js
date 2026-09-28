@@ -39,11 +39,11 @@ function sourceLabel(source) {
 }
 
 function sourceUrl(source) {
-  return source.url || source.index_url || (source.vanity_name ? `https://www.linkedin.com/company/${source.vanity_name}/` : "");
+  return source.url || source.index_url || (source.vanity_name ? `https://www.linkedin.com/company/${source.vanity_name}/posts/` : "");
 }
 
 function sourceScope(source) {
-  return source.competitor || "All configured scope";
+  return source.scope || source.competitor || "All configured scope";
 }
 
 function confidenceLabel(level) {

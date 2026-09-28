@@ -31,7 +31,7 @@ function cutoffDate(days) {
 }
 
 function relativeDate(value) {
-  const match = value?.match(/(\d+)\s*(minute|hour|day|week|month|year)s?\s+ago/i);
+  const match = value?.trim().match(/^(\d+)\s*(minute|hour|day|week|month|year)s?\s+ago$|^(\d+)\s*(m|h|d|w|mo|y)$/i);
   if (!match) return null;
   const units = {
     minute: 60 * 1000,
@@ -40,8 +40,14 @@ function relativeDate(value) {
     week: 7 * 24 * 60 * 60 * 1000,
     month: 30 * 24 * 60 * 60 * 1000,
     year: 365 * 24 * 60 * 60 * 1000,
+    m: 60 * 1000,
+    h: 60 * 60 * 1000,
+    d: 24 * 60 * 60 * 1000,
+    w: 7 * 24 * 60 * 60 * 1000,
+    mo: 30 * 24 * 60 * 60 * 1000,
+    y: 365 * 24 * 60 * 60 * 1000,
   };
-  return new Date(Date.now() - Number(match[1]) * units[match[2].toLowerCase()]).toISOString().slice(0, 10);
+  return new Date(Date.now() - Number(match[1] || match[3]) * units[(match[2] || match[4]).toLowerCase()]).toISOString().slice(0, 10);
 }
 
 async function readConfig() {
@@ -79,6 +85,7 @@ async function collectOrganization(page, organization) {
   }
 
   const records = new Map();
+  const seenPosts = new Set();
   for (let scroll = 0; scroll < maxScrolls; scroll += 1) {
     check.article_nodes = Math.max(check.article_nodes, await page.locator("[role='article']").count());
     const postLocator = page.locator("[role='article'][data-urn]");
@@ -115,6 +122,44 @@ async function collectOrganization(page, organization) {
       });
     }
 
+    if (!posts.length) {
+      const feedPosts = page.locator('[role="listitem"]:has(button[aria-label^="Open control menu for post"])');
+      const count = await feedPosts.count();
+      check.article_nodes = Math.max(check.article_nodes, count);
+      check.selector_matches = Math.max(check.selector_matches, count);
+      for (let index = 0; index < count; index += 1) {
+        const post = feedPosts.nth(index);
+        const lines = (await post.innerText()).split("\n").map((line) => line.trim()).filter(Boolean);
+        const dateIndex = lines.findIndex((line, position) => position > 0 && /^(?:\d+\s*(?:m|h|d|w|mo|y|minutes?|hours?|days?|weeks?|months?|years?)(?:\s+ago)?)$/i.test(line));
+        if (dateIndex < 0) continue;
+        const content = lines.slice(dateIndex + 1);
+        if (/^Follow(?:ing)?$/i.test(content[0])) content.shift();
+        const summary = content.join(" ").slice(0, 600);
+        const date = relativeDate(lines[dateIndex]);
+        if (!summary || !date || date < cutoffDate(lookbackDays)) continue;
+        const signature = `${date}|${summary}`;
+        if (seenPosts.has(signature)) continue;
+        seenPosts.add(signature);
+        check.posts_seen += 1;
+        await post.locator('button[aria-label^="Open control menu for post"]').click();
+        await page.evaluate(() => navigator.clipboard.writeText(""));
+        await page.getByRole("menuitem", { name: "Copy link to post" }).click();
+        const url = await page.evaluate(() => navigator.clipboard.readText());
+        if (!/^https:\/\/(?:lnkd\.in\/p\/|www\.linkedin\.com\/(?:feed\/update\/|posts\/))/.test(url) || records.has(url)) continue;
+        records.set(url, {
+          id: stableId(organization.competitor, url),
+          competitor: organization.competitor,
+          source_name: "LinkedIn browser collector",
+          captured_via: "linkedin_browser",
+          source_channel: "linkedin",
+          title: content[0]?.slice(0, 180) || summary.slice(0, 180),
+          url,
+          summary,
+          published_at: date,
+        });
+      }
+    }
+
     await page.mouse.wheel(0, 2500);
     await page.waitForTimeout(1200);
   }
@@ -134,6 +179,7 @@ const config = await readConfig();
 const browser = await chromium.launchPersistentContext(profileDir, {
   headless: false,
   viewport: { width: 1440, height: 1000 },
+  permissions: ["clipboard-read", "clipboard-write"],
 });
 const page = await browser.newPage();
 const items = [];
