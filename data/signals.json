@@ -269,7 +269,7 @@
       "competitor": "IFS",
       "date": "2026-09-10",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "customer_win",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,

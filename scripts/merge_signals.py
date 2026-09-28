@@ -464,6 +464,8 @@ def infer_type(text: str) -> str:
     t = text.lower()
     if any(k in t for k in ("acqui", "merger", "merges", "private equity")):
         return "ma_pe"
+    if re.search(r"\bwelcom(?:e|ing)\b\s+[^.]{3,150}?\s+to (?:the |our )?(?:[\w-]+ ){0,3}(?:platform|suite)\b", t):
+        return "customer_win"
     if any(k in t for k in ("select", "adopt", "signs", "signed", "chooses", "awarded", "renew", "renews", "confidence in", "signing for", "customer testimonial", "customer testimony", "customer story", "customer interview", "customer experience", "customer success")):
         return "customer_win"
     if any(k in t for k in ("partner", "integrat", "collaborat", "joint solution", "strategic alliance", "united to improve", "working with")):

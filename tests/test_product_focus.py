@@ -10,6 +10,22 @@ SPEC.loader.exec_module(MERGE_SIGNALS)
 
 
 class ProductFocusTests(unittest.TestCase):
+    def test_welcome_to_platform_is_customer_win(self):
+        announcement = (
+            "Excited to welcome MY FREIGHTER (Centrum Air), Central Asia's largest "
+            "air cargo operator, to the EFBOne platform. A big thank you to their "
+            "teams for the outstanding collaboration on this project."
+        )
+        self.assertEqual(MERGE_SIGNALS.infer_type(announcement), "customer_win")
+        self.assertEqual(
+            MERGE_SIGNALS.infer_type("We welcome researchers to our strategic research partnership"),
+            "partnership",
+        )
+        self.assertEqual(
+            MERGE_SIGNALS.infer_type("Welcome to our product launch webinar and new platform release"),
+            "product_launch",
+        )
+
     def test_reviewed_product_focus_examples(self):
         cases = [
             ("Corsair adopts Mission+ FLIGHT EFB configuration", "efb"),
