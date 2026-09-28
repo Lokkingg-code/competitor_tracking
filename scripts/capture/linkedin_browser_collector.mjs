@@ -144,8 +144,18 @@ async function collectOrganization(page, organization) {
         await post.locator('button[aria-label^="Open control menu for post"]').click();
         await page.evaluate(() => navigator.clipboard.writeText(""));
         await page.getByRole("menuitem", { name: "Copy link to post" }).click();
+        await page.waitForTimeout(600);
         const url = await page.evaluate(() => navigator.clipboard.readText());
         if (!/^https:\/\/(?:lnkd\.in\/p\/|www\.linkedin\.com\/(?:feed\/update\/|posts\/))/.test(url) || records.has(url)) continue;
+        try {
+          const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
+          const html = await response.text();
+          const description = await page.evaluate((markup) => new DOMParser().parseFromString(markup, "text/html").querySelector('meta[property="og:description"]')?.content || "", html);
+          const normalize = (text) => text.toLowerCase().replace(/\s+/g, " ").trim();
+          if (description && !normalize(description).includes(normalize(content[0]).slice(0, 32))) continue;
+        } catch {
+          continue;
+        }
         records.set(url, {
           id: stableId(organization.competitor, url),
           competitor: organization.competitor,
