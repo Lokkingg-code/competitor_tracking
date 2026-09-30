@@ -20,6 +20,14 @@ Use the navigation tabs to switch views:
 
 Select **Light mode** or **Dark mode** to change appearance. Your choice is remembered across views.
 
+## At a Glance
+
+The overview is below **12-month activity**, at the bottom of the dashboard. Its own **Summary window** defaults to **Last 30 days** and offers the same periods as the feed's Window selector. It uses all competitors and ignores the feed's search, filters, and matrix selection. Each competitor tag sits beside its main movement and supporting-signal count.
+
+Expand a competitor row to see full-width supporting signals with dates, types, focus labels, and headlines. Select a signal to open its briefing in a quick-look window. Use the back arrow to return to the list; Close or Escape returns to the same dashboard position without changing feed filters. Obvious hiring noise is excluded from the movement labels, and identical normalized headlines appear once in the evidence list. Related stories with different headlines can still appear separately: counts are captures, not unique announcements or verified customer wins.
+
+![At a Glance competitor overview](screenshots/06-activity-summary.png)
+
 ## 2. Find an update in the Signal feed
 
 [![Signal feed with navigation, filters, summary cards, results, and a selected briefing](screenshots/01-signal-feed.png)](screenshots/01-signal-feed.png)
@@ -69,7 +77,7 @@ The default **All (EFF first)** view groups EFF first, followed by EFB, adjacent
 
 *Figure 3. Scroll below the feed to see **12-month activity**.*
 
-Each cell shows signal volume for one competitor and month. Stronger shading indicates more activity. Hover over a cell for its count. The chart reflects the filtered feed; cells are not clickable drill-down links.
+Each cell shows signal volume for one competitor and calendar month across the full saved feed, independently of feed filters. Stronger shading indicates more activity. Select a nonempty cell to open a quick-look list scoped to that competitor and month. Select a signal for its briefing, then use the back arrow to return to the list. Close or Escape returns to the grid without changing the feed filters or jumping to the feed. Empty cells are disabled.
 
 ## 4. Explore the Market matrix
 

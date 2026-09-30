@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -19,11 +20,19 @@ SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
 RAW_LATEST = ROOT / "data" / "raw" / "latest.json"
 
-NOISE_PATTERNS = [
+RECRUITMENT_PATTERNS = [
+    r"\bopen roles?\b",
+    r"\bopen positions?\b",
+    r"\bjob (?:vacanc(?:y|ies)|ad(?:vert)?s?|opportunities)\b",
+    r"\binterview experience\b",
+    r"#(?:wearehiring|nowhiring|aviationjobs)\b",
     r"\bhiring\b",
     r"\bwe'?re hiring\b",
     r"\bjoin our team\b",
     r"\bjob opening\b",
+]
+
+NOISE_PATTERNS = RECRUITMENT_PATTERNS + [
     r"\bculture\b",
     r"\bemployee spotlight\b",
     r"\bcongratulations to\b",
@@ -227,7 +236,19 @@ PRODUCT_PATTERNS = [
 
 
 def is_noise(text: str) -> bool:
+    text = unicodedata.normalize("NFKC", text)
     return any(re.search(p, text, re.I) for p in NOISE_PATTERNS)
+
+
+def is_recruitment(text: str) -> bool:
+    text = unicodedata.normalize("NFKC", text)
+    return any(re.search(pattern, text, re.I) for pattern in RECRUITMENT_PATTERNS)
+
+
+def omit_archived_signal(signal: dict) -> bool:
+    return "auto-capture" in signal.get("tags", []) and is_recruitment(
+        f"{signal.get('headline', '')} {signal.get('summary', '')}"
+    )
 
 
 def is_linkedin_noise(text: str) -> bool:
@@ -285,6 +306,7 @@ def detect_product(text: str) -> str | None:
 
 def classify_product_focus(text: str, competitor: str = "") -> str:
     """Classify product focus using explicit product precedence."""
+    text = unicodedata.normalize("NFKC", text)
     if re.search(r"\b(?:AvioBook|Aviobook)\s+Connect\b", text, re.I):
         return "adjacent"
 
@@ -321,6 +343,10 @@ def classify_product_focus(text: str, competitor: str = "") -> str:
         return "eff"
     if _matches_any(text, ADJACENT_PATTERNS):
         return "adjacent"
+    if re.search(r"\bForeFlight\b|\bMission\+", text, re.I):
+        if re.search(r"\b(?:executive appointments?|standalone company|private equity|acquisition|layoffs|insurance|leadership|department of defense)\b", text, re.I):
+            return "other"
+        return "eff"
     return "other"
 
 
@@ -460,13 +486,19 @@ def duplicate_content_key(text: str) -> str:
     return normalized[:140]
 
 
-def infer_type(text: str) -> str:
+def is_release_notes(headline: str) -> bool:
+    return bool(re.search(r"\brelease\s+notes\b", headline, re.I))
+
+
+def infer_type(text: str, headline: str | None = None) -> str:
+    if is_release_notes(headline if headline is not None else text):
+        return "feature_change"
     t = text.lower()
     if any(k in t for k in ("acqui", "merger", "merges", "private equity")):
         return "ma_pe"
     if re.search(r"\bwelcom(?:e|ing)\b\s+[^.]{3,150}?\s+to (?:the |our )?(?:[\w-]+ ){0,3}(?:platform|suite)\b", t):
         return "customer_win"
-    if any(k in t for k in ("select", "adopt", "signs", "signed", "chooses", "awarded", "renew", "renews", "confidence in", "signing for", "customer testimonial", "customer testimony", "customer story", "customer interview", "customer experience", "customer success")):
+    if re.search(r"\bsign(?:s|ed)\b(?![-\s]+off\b)", t) or any(k in t for k in ("select", "adopt", "chooses", "awarded", "renew", "renews", "confidence in", "signing for", "customer testimonial", "customer testimony", "customer story", "customer interview", "customer experience", "customer success")):
         return "customer_win"
     if any(k in t for k in ("partner", "integrat", "collaborat", "joint solution", "strategic alliance", "united to improve", "working with")):
         return "partnership"
@@ -526,7 +558,7 @@ def raw_to_signal(item: dict) -> dict | None:
     elif not looks_valuable(blob) and not item.get("published_at"):
         return None
 
-    signal_type = infer_type(blob)
+    signal_type = infer_type(blob, headline=item.get("title", ""))
     product_focus = classify_product_focus(blob, item["competitor"])
     product = detect_product(blob)
     priority = adjust_priority_for_focus(priority_for(blob, signal_type), product_focus, signal_type)
@@ -590,6 +622,8 @@ def sanitize_signal(signal: dict) -> dict:
         cleaned["headline"] = derive_auto_headline(cleaned["headline"], cleaned.get("summary", ""))
     summary = strip_html(cleaned.get("summary", ""))
     is_auto = "auto-capture" in cleaned.get("tags", [])
+    if is_auto and is_release_notes(cleaned["headline"]):
+        cleaned["type"] = "feature_change"
 
     if is_auto or not summary_is_useful(cleaned["headline"], summary):
         cleaned["summary"] = build_summary(
@@ -639,6 +673,10 @@ def main() -> None:
     archive = load_archive(seed)
     merged = dict(seed_signals)
     merged.update({s["id"]: s for s in archive.get("signals", [])})
+    omitted_ids = [signal_id for signal_id, signal in merged.items() if omit_archived_signal(signal)]
+    for signal_id in omitted_ids:
+        del merged[signal_id]
+    print(f"Omitted {len(omitted_ids)} archived recruitment signals")
 
     for raw_path in raw_paths:
         if not raw_path.exists():

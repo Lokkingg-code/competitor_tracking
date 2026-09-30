@@ -3165,7 +3165,7 @@
       "competitor": "Bytron Skybook",
       "date": "2025-10-14",
       "date_is_estimated": false,
-      "type": "customer_win",
+      "type": "feature_change",
       "priority": "high",
       "severity": 4,
       "confidence": 0.8,

@@ -1,3 +1,5 @@
+import { summarizeActivity } from "./activity-summary.js";
+
 const COMPETITORS = [
   "Jeppesen",
   "Lufthansa Systems",
@@ -533,10 +535,10 @@ function renderFeed(signals) {
   }
 }
 
-function renderBriefing(signals) {
-  const signal = signals.find((s) => s.id === selectedId) || signals[0];
+function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
+  const signal = signals.find((s) => s.id === activeId) || signals[0];
   if (!signal) {
-    els.briefing.innerHTML = `<p class="empty-state">Select a signal to open the briefing.</p>`;
+    target.innerHTML = `<p class="empty-state">Select a signal to open the briefing.</p>`;
     return;
   }
 
@@ -548,7 +550,7 @@ function renderBriefing(signals) {
   const sourceLabel = SOURCE_LABELS[signal.source_origin] || SOURCE_LABELS[signal.source_channel] || signal.source_origin || signal.source_channel || "Source";
   const operatorLabel = extractOperator(signal);
 
-  els.briefing.innerHTML = `
+  target.innerHTML = `
     <p class="kicker">${escapeHtml(signal.competitor)} · ${escapeHtml(operatorLabel)} · ${escapeHtml(sourceLabel)}</p>
     <h3>${escapeHtml(displaySignalTitle(signal))}</h3>
     <div class="briefing-summary">
@@ -621,13 +623,93 @@ function renderHeatmap(signals) {
         const n = counts[c][m];
         const intensity = n === 0 ? 0 : 0.18 + (n / max) * 0.82;
         const bg = `rgba(42, 143, 132, ${intensity.toFixed(2)})`;
-        return `<div class="heat-cell" style="background:${bg}" title="${c} ${m}: ${n}">${n || ""}</div>`;
+        return `<button type="button" class="heat-cell" style="background:${bg}" data-competitor="${escapeAttr(c)}" data-month="${m}" aria-label="${escapeAttr(c)} ${m}: ${n} signals" title="${escapeAttr(c)} ${m}: ${n}" ${n ? "" : "disabled"}>${n || ""}</button>`;
       })
       .join("");
     return `<div class="heatmap-row"><div class="heatmap-label">${c}</div>${cells}</div>`;
   }).join("");
 
   els.heatmap.innerHTML = header + rows;
+  els.heatmap.querySelectorAll("button:not(:disabled)").forEach((button) => {
+    button.addEventListener("click", () => {
+      const { competitor, month } = button.dataset;
+      const matches = signals.filter((signal) => displayCompetitor(signal.competitor) === competitor && monthKey(signal.date) === month);
+      openQuickLook(matches, `${competitor} · ${month}`);
+    });
+  });
+}
+
+function compactSignalRows(signals) {
+  return signals.map((signal) => `<button type="button" class="signal-row compact-signal" data-quick-signal="${escapeAttr(signal.id)}">
+    <span class="col-date">${formatDate(signal.date)}</span>
+    <span class="competitor-tag ${competitorClass(displayCompetitor(signal.competitor))}">${escapeHtml(displayCompetitor(signal.competitor))}</span>
+    <span class="col-type">${escapeHtml(TYPE_LABELS[signal.type] || signal.type)}</span>
+    <span class="chip">${escapeHtml(FOCUS_LABELS[classifyProductFocus(signal)])}</span>
+    <strong class="title-headline">${escapeHtml(displaySignalTitle(signal))}</strong>
+  </button>`).join("");
+}
+
+function openQuickLook(signals, title, initialId = null) {
+  const dialog = document.getElementById("quickLook");
+  const list = document.getElementById("quickLookList");
+  const briefing = document.getElementById("quickLookBriefing");
+  const back = document.getElementById("quickLookBack");
+  const ordered = [...signals].sort((first, second) => second.date.localeCompare(first.date));
+  document.getElementById("quickLookTitle").textContent = `${title} · ${ordered.length} signals`;
+  list.innerHTML = compactSignalRows(ordered);
+  let activeButton = null;
+  const showSignal = (signalId) => {
+    activeButton = [...list.querySelectorAll("[data-quick-signal]")].find((button) => button.dataset.quickSignal === signalId);
+    list.hidden = true;
+    briefing.hidden = false;
+    back.hidden = false;
+    renderBriefing(ordered, briefing, signalId);
+    briefing.scrollTop = 0;
+    briefing.focus({ preventScroll: true });
+  };
+  back.onclick = () => {
+    briefing.hidden = true;
+    list.hidden = false;
+    back.hidden = true;
+    activeButton?.focus({ preventScroll: true });
+  };
+  briefing.hidden = true;
+  list.hidden = false;
+  back.hidden = true;
+  list.querySelectorAll("[data-quick-signal]").forEach((button) => {
+    button.addEventListener("click", () => showSignal(button.dataset.quickSignal));
+  });
+  dialog.showModal();
+  if (initialId) showSignal(initialId);
+}
+
+document.getElementById("quickLookClose").addEventListener("click", () => document.getElementById("quickLook").close());
+
+function renderActivitySummary() {
+  const container = document.getElementById("activitySummary");
+  const period = document.getElementById("activityPeriod");
+  if (!container || !period) return;
+  const windowSelect = document.getElementById("activityWindow");
+  const cutoff = daysAgo(Number(windowSelect.value));
+  const now = new Date();
+  const signals = allSignals.filter((signal) => parseDate(signal.date) >= cutoff && parseDate(signal.date) <= now);
+  period.textContent = `${windowSelect.selectedOptions[0].textContent} · ${signals.length} captured signals`;
+  const rows = summarizeActivity(signals, (signal) => displayCompetitor(signal.competitor));
+  if (!rows.length) {
+    container.innerHTML = '<p class="muted">No activity in this period.</p>';
+    return;
+  }
+  container.innerHTML = `<div class="activity-columns" aria-hidden="true"><span>Competitor</span><span>Main movement</span><span>Evidence</span></div>${rows.map((row) => `<details class="activity-group">
+    <summary class="activity-columns"><span><span class="competitor-tag ${competitorClass(row.competitor)}">${escapeHtml(row.competitor)}</span></span>
+      <strong class="activity-movement">${escapeHtml(row.themes.join(" / ") || "General updates")}</strong>
+      <span class="activity-evidence">${row.evidence.length} supporting signals <span class="muted">(${row.capturedCount} captured)</span></span>
+    </summary>
+    <div class="compact-signals">${compactSignalRows(row.evidence) || '<p class="muted">No substantive evidence in these captures.</p>'}</div>
+  </details>`).join("")}`;
+  container.querySelectorAll("[data-quick-signal]").forEach((button) => {
+    const row = rows.find((entry) => entry.evidence.some((signal) => signal.id === button.dataset.quickSignal));
+    button.addEventListener("click", () => openQuickLook(row.evidence, row.competitor, button.dataset.quickSignal));
+  });
 }
 
 function render() {
@@ -636,7 +718,6 @@ function render() {
   renderMetrics(filteredSignals({ ignoreFocus: true, windowDays: 365 }));
   renderFeed(signals);
   renderBriefing(signals);
-  renderHeatmap(signals);
 }
 
 els.metrics?.addEventListener("click", (event) => {
@@ -680,6 +761,12 @@ async function boot() {
     sessionStorage.removeItem("ct-matrix-competitor");
   }
   render();
+  const activityWindow = document.getElementById("activityWindow");
+  activityWindow.innerHTML = els.windowFilter.innerHTML;
+  activityWindow.value = "30";
+  activityWindow.addEventListener("change", renderActivitySummary);
+  renderActivitySummary();
+  renderHeatmap(allSignals);
 }
 
 for (const el of [els.windowFilter, els.competitorFilter, els.typeFilter, els.focusFilter].filter(Boolean)) {
