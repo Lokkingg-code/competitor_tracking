@@ -69,9 +69,9 @@ export default {
       const inputPrice = parsePrice(model.pricing?.prompt);
       const outputPrice = parsePrice(model.pricing?.completion);
       if (!Number.isFinite(inputPrice) || !Number.isFinite(outputPrice)
-        || inputPrice !== 0 || outputPrice !== 0) {
+        || inputPrice < 0 || outputPrice < 0) {
         return json({
-          error: "Nemotron 3.5 Lightning is not verified as free; no model request was sent.",
+          error: "Nemotron 3.5 Lightning pricing could not be verified; no model request was sent.",
         }, 402);
       }
 
@@ -94,7 +94,12 @@ export default {
         return json({ error: "The model did not return the expected test response." }, 502);
       }
 
-      return json({ ok: true, model: MODEL_ID, response: text });
+      return json({
+        ok: true,
+        model: MODEL_ID,
+        response: text,
+        catalogPricing: { prompt: inputPrice, completion: outputPrice },
+      });
     } catch {
       return json({ error: "Could not reach OpenRouter from the Vercel function." }, 502);
     }

@@ -111,7 +111,7 @@ export default {
 
     const cached = summaryCache.get(signalId);
     if (cached && Date.now() - cached.createdAt < SUMMARY_CACHE_TTL_MS) {
-      return json({ ok: true, model: MODEL_ID, summary: cached.summary, cached: true });
+      return json({ ok: true, model: MODEL_ID, summary: cached.summary, catalogPricing: cached.catalogPricing, cached: true });
     }
     if (cached) summaryCache.delete(signalId);
 
@@ -128,9 +128,9 @@ export default {
       const inputPrice = parsePrice(model.pricing?.prompt);
       const outputPrice = parsePrice(model.pricing?.completion);
       if (!Number.isFinite(inputPrice) || !Number.isFinite(outputPrice)
-        || inputPrice !== 0 || outputPrice !== 0) {
+        || inputPrice < 0 || outputPrice < 0) {
         return json({
-          error: "Nemotron 3.5 Lightning is not verified as free; no summary request was sent.",
+          error: "Nemotron 3.5 Lightning pricing could not be verified; no summary request was sent.",
           catalogPricing: {
             prompt: displayPrice(model.pricing?.prompt),
             completion: displayPrice(model.pricing?.completion),
@@ -198,12 +198,13 @@ export default {
         return json({ error: "The model returned an invalid summary." }, 502);
       }
 
-      summaryCache.set(signalId, { summary, createdAt: Date.now() });
+      const catalogPricing = { prompt: inputPrice, completion: outputPrice };
+      summaryCache.set(signalId, { summary, catalogPricing, createdAt: Date.now() });
       if (summaryCache.size > 500) {
         const oldestKey = summaryCache.keys().next().value;
         if (oldestKey) summaryCache.delete(oldestKey);
       }
-      return json({ ok: true, model: MODEL_ID, summary, cached: false }, 200, {
+      return json({ ok: true, model: MODEL_ID, summary, catalogPricing, cached: false }, 200, {
         "Cache-Control": `public, s-maxage=${SUMMARY_CACHE_TTL_MS / 1000}, stale-while-revalidate=86400`,
       });
     } catch {

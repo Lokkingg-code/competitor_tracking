@@ -18,7 +18,7 @@ function request(id, ip, method = "POST") {
   return new Request(url, options);
 }
 
-test("summarizes only a known signal after confirming zero catalog prices", async () => {
+test("summarizes a known signal at the valid catalog price", async () => {
   process.env.OPENROUTER_API_KEY = "test-key";
   let completionCalls = 0;
   globalThis.fetch = async (url, options = {}) => {
@@ -26,7 +26,7 @@ test("summarizes only a known signal after confirming zero catalog prices", asyn
     if (target.endsWith("/models")) {
       return Response.json({ data: [{
         id: "nvidia/nemotron-3.5-lightning",
-        pricing: { prompt: "0", completion: "0" },
+        pricing: { prompt: "0.000000049", completion: "0.00000014" },
       }] });
     }
     if (target.endsWith("/chat/completions") && options.method === "POST") {
@@ -39,7 +39,9 @@ test("summarizes only a known signal after confirming zero catalog prices", asyn
   try {
     const response = await handler.fetch(request(knownSignalId, "203.0.113.10", "GET"));
     assert.equal(response.status, 200);
-    assert.equal((await response.json()).summary, "Summary: Test.");
+    const result = await response.json();
+    assert.equal(result.summary, "Summary: Test.");
+    assert.deepEqual(result.catalogPricing, { prompt: 0.000000049, completion: 0.00000014 });
     assert.equal(completionCalls, 1);
   } finally {
     globalThis.fetch = originalFetch;

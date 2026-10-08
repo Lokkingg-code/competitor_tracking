@@ -600,7 +600,13 @@ function paintAISummary(target, signalId, state) {
   if (!panel || panel.dataset.signalId !== signalId) return;
   const result = panel.querySelector(".ai-summary-result");
   result.classList.toggle("is-error", Boolean(state.error));
-  result.textContent = state.error || state.summary;
+  const pricing = state.catalogPricing;
+  const priceNote = pricing
+    && Number.isFinite(pricing.prompt)
+    && Number.isFinite(pricing.completion)
+    ? `\n\nCurrent model rates per 1M tokens (USD): input $${(pricing.prompt * 1_000_000).toFixed(3)}; output $${(pricing.completion * 1_000_000).toFixed(3)}.`
+    : "";
+  result.textContent = state.error || `${state.summary}${priceNote}`;
 }
 
 function requestAISummary(signal, target) {
@@ -628,7 +634,7 @@ function requestAISummary(signal, target) {
           throw new Error(`${result.error || `Summary request failed (${response.status}).`}${priceDetail}`);
         }
         if (typeof result.summary !== "string" || !result.summary) throw new Error("The summary service returned an empty result.");
-        return { summary: result.summary };
+        return { summary: result.summary, catalogPricing: result.catalogPricing };
       })
       .catch((error) => ({
         error: error instanceof Error ? error.message : "AI summary is unavailable.",

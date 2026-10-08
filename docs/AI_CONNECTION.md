@@ -109,8 +109,8 @@ news. The check never reads dashboard files.
 ## Vercel server-side smoke test
 
 The root `api/ai-test.js` function provides a protected, synthetic-only test for
-Vercel. It checks the live OpenRouter catalog and does not send a completion
-unless Nemotron 3.5 Lightning has valid zero input and output prices. It does not accept
+Vercel. It checks the live OpenRouter catalog and sends a completion only when
+Nemotron 3.5 Lightning has valid, nonnegative input and output prices. It does not accept
 prompt text from the caller.
 
 In Vercel Project Settings, add these as **Secret** environment variables for a
@@ -123,7 +123,7 @@ Create a new Preview deployment after saving the variables. From a terminal,
 call `https://<your-preview-domain>/api/ai-test` using `POST` with
 `Authorization: Bearer <AI_TEST_TOKEN>`. Enter the test token only in your
 terminal; do not put either secret in browser code. A `402` response means Nemotron
-is not confirmed free and no model prompt was sent. A `502` response means the
+pricing is missing or invalid and no model prompt was sent. A `502` response means the
 Vercel function could not reach or use OpenRouter. Vercel functions have their
 own usage limits and billing; this is separate from OpenRouter model charges.
 
@@ -137,6 +137,12 @@ announcement tone, competitive relevance, and caveat. It does not accept
 free-form prompts or persist generated summaries. Successful GET responses are
 cached at Vercel's edge for six hours. The function needs only
 `OPENROUTER_API_KEY`; it does not use `AI_TEST_TOKEN`.
+
+The summary shows the model's current catalog rates per one million tokens. A
+provider page marked “free” does not guarantee that every route in the API
+catalog has zero-priced input and output. Without a payment method, requests
+may still consume existing account credits or fail for insufficient balance;
+check your OpenRouter usage and balance rather than assuming no charge.
 
 The endpoint is intentionally public, as is this dashboard. It has an
 in-memory limit of three requests per IP per minute and a six-hour summary
