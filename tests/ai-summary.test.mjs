@@ -103,7 +103,10 @@ test("reports upstream free-model rate limits without exposing raw errors", asyn
       }] });
     }
     if (String(url).endsWith("/chat/completions") && options.method === "POST") {
-      return Response.json({ error: { message: "provider internal detail" } }, { status: 429 });
+      return Response.json({ error: { message: "provider internal detail" } }, {
+        status: 429,
+        headers: { "x-openrouter-request-id": "request-test-id", "retry-after": "30" },
+      });
     }
     throw new Error("Unexpected request");
   };
@@ -112,7 +115,8 @@ test("reports upstream free-model rate limits without exposing raw errors", asyn
     const response = await handler.fetch(request(thirdSignalId, "203.0.113.13", "GET"));
     const result = await response.json();
     assert.equal(response.status, 502);
-    assert.match(result.error, /rate limit or free-model capacity/);
+    assert.match(result.error, /temporary provider throttling or an account-level limit/);
+    assert.match(result.error, /does not confirm a Ling-specific cap/);
     assert.doesNotMatch(JSON.stringify(result), /provider internal detail|test-key/);
   } finally {
     globalThis.fetch = originalFetch;

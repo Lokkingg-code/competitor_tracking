@@ -146,7 +146,11 @@ export default {
         }),
       });
       if (!completionResponse.ok) {
-        console.error(`OpenRouter summary request failed with HTTP ${completionResponse.status}.`);
+        const requestId = completionResponse.headers.get("x-openrouter-request-id")
+          || completionResponse.headers.get("x-request-id")
+          || "unavailable";
+        const retryAfter = completionResponse.headers.get("retry-after") || "unavailable";
+        console.error(`OpenRouter summary request failed with HTTP ${completionResponse.status}; requestId=${requestId}; retryAfter=${retryAfter}.`);
         const message = completionResponse.status === 401 || completionResponse.status === 403
           ? "OpenRouter denied model or API-key access."
           : completionResponse.status === 402
@@ -154,7 +158,7 @@ export default {
             : completionResponse.status === 404
               ? "The selected model or endpoint is unavailable."
               : completionResponse.status === 429
-                ? "OpenRouter rate limit or free-model capacity was reached."
+                ? "OpenRouter returned HTTP 429. This may be temporary provider throttling or an account-level limit; it does not confirm a Ling-specific cap. Please retry later."
                 : `OpenRouter returned HTTP ${completionResponse.status}.`;
         return json({ error: message }, 502);
       }
