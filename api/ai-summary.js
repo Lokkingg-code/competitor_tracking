@@ -26,6 +26,12 @@ function parsePrice(value) {
   return Number(value);
 }
 
+function displayPrice(value) {
+  if (typeof value !== "string" && typeof value !== "number") return "missing";
+  const text = String(value).slice(0, 40);
+  return Number.isFinite(Number(text)) ? text : "invalid";
+}
+
 function requestIp(request) {
   const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
   return request.headers.get("x-real-ip")?.trim() || forwarded || "unknown";
@@ -123,7 +129,13 @@ export default {
       const outputPrice = parsePrice(model.pricing?.completion);
       if (!Number.isFinite(inputPrice) || !Number.isFinite(outputPrice)
         || inputPrice !== 0 || outputPrice !== 0) {
-        return json({ error: "Nemotron 3.5 Lightning is not verified as free; no summary request was sent." }, 402);
+        return json({
+          error: "Nemotron 3.5 Lightning is not verified as free; no summary request was sent.",
+          catalogPricing: {
+            prompt: displayPrice(model.pricing?.prompt),
+            completion: displayPrice(model.pricing?.completion),
+          },
+        }, 402);
       }
 
       const evidence = signalContext(signal);

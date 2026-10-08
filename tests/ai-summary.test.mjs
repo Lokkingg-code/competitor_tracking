@@ -61,7 +61,9 @@ test("does not call the model when catalog prices are missing", async () => {
 
   try {
     const response = await handler.fetch(request(secondSignalId, "203.0.113.11"));
+    const result = await response.json();
     assert.equal(response.status, 402);
+    assert.deepEqual(result.catalogPricing, { prompt: "missing", completion: "missing" });
     assert.equal(completionCalls, 0);
   } finally {
     globalThis.fetch = originalFetch;
