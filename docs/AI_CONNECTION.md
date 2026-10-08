@@ -97,7 +97,7 @@ export OPENROUTER_MODEL="replace-with-listed-free-model-id"
 read -s "OPENROUTER_API_KEY?OpenRouter API key: "; export OPENROUTER_API_KEY; npm run ai:openrouter-check; unset OPENROUTER_API_KEY; echo
 ```
 
-To safely check a specific model first, such as `inclusionai/ling-3.1-flash`,
+To safely check a specific model first, such as `nvidia/nemotron-3.5-lightning`,
 set its exact ID as `OPENROUTER_MODEL`. If the catalog reports a nonzero price or
 cannot verify zero pricing, the script refuses to send a model request.
 
@@ -110,7 +110,7 @@ news. The check never reads dashboard files.
 
 The root `api/ai-test.js` function provides a protected, synthetic-only test for
 Vercel. It checks the live OpenRouter catalog and does not send a completion
-unless Ling 3.1 Flash has valid zero input and output prices. It does not accept
+unless Nemotron 3.5 Lightning has valid zero input and output prices. It does not accept
 prompt text from the caller.
 
 In Vercel Project Settings, add these as **Secret** environment variables for a
@@ -122,7 +122,7 @@ Preview deployment:
 Create a new Preview deployment after saving the variables. From a terminal,
 call `https://<your-preview-domain>/api/ai-test` using `POST` with
 `Authorization: Bearer <AI_TEST_TOKEN>`. Enter the test token only in your
-terminal; do not put either secret in browser code. A `402` response means Ling
+terminal; do not put either secret in browser code. A `402` response means Nemotron
 is not confirmed free and no model prompt was sent. A `502` response means the
 Vercel function could not reach or use OpenRouter. Vercel functions have their
 own usage limits and billing; this is separate from OpenRouter model charges.
@@ -132,7 +132,7 @@ own usage limits and billing; this is separate from OpenRouter model charges.
 The `api/ai-summary.js` function automatically generates a summary when a
 signal is selected in its briefing. The browser sends only a signal ID; the
 function looks up matching evidence from the bundled public `data/signals.json`,
-checks Ling's live input and output prices, then asks for a concise summary,
+checks Nemotron's live input and output prices, then asks for a concise summary,
 announcement tone, competitive relevance, and caveat. It does not accept
 free-form prompts or persist generated summaries. Successful GET responses are
 cached at Vercel's edge for six hours. The function needs only

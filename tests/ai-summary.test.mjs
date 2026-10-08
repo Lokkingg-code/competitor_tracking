@@ -25,7 +25,7 @@ test("summarizes only a known signal after confirming zero catalog prices", asyn
     const target = String(url);
     if (target.endsWith("/models")) {
       return Response.json({ data: [{
-        id: "inclusionai/ling-3.1-flash",
+        id: "nvidia/nemotron-3.5-lightning",
         pricing: { prompt: "0", completion: "0" },
       }] });
     }
@@ -53,7 +53,7 @@ test("does not call the model when catalog prices are missing", async () => {
   let completionCalls = 0;
   globalThis.fetch = async (url, options = {}) => {
     if (String(url).endsWith("/models")) {
-      return Response.json({ data: [{ id: "inclusionai/ling-3.1-flash", pricing: {} }] });
+      return Response.json({ data: [{ id: "nvidia/nemotron-3.5-lightning", pricing: {} }] });
     }
     if (options.method === "POST") completionCalls += 1;
     throw new Error("Unexpected model request");
@@ -98,7 +98,7 @@ test("reports upstream free-model rate limits without exposing raw errors", asyn
   globalThis.fetch = async (url, options = {}) => {
     if (String(url).endsWith("/models")) {
       return Response.json({ data: [{
-        id: "inclusionai/ling-3.1-flash",
+        id: "nvidia/nemotron-3.5-lightning",
         pricing: { prompt: "0", completion: "0" },
       }] });
     }
@@ -107,7 +107,7 @@ test("reports upstream free-model rate limits without exposing raw errors", asyn
         code: 429,
         message: "Provider returned error",
         metadata: {
-          provider_name: "Ling Test Provider",
+          provider_name: "NVIDIA Test Provider",
           raw: "upstream detail with sk-or-v1-sensitivevalue",
         },
       } }, {
@@ -122,8 +122,8 @@ test("reports upstream free-model rate limits without exposing raw errors", asyn
     const response = await handler.fetch(request(thirdSignalId, "203.0.113.13", "GET"));
     const result = await response.json();
     assert.equal(response.status, 502);
-    assert.match(result.error, /Provider: Ling Test Provider/);
-    assert.match(result.error, /does not by itself confirm a Ling-specific cap/);
+    assert.match(result.error, /Provider: NVIDIA Test Provider/);
+    assert.match(result.error, /does not by itself confirm a Nemotron-specific cap/);
     assert.doesNotMatch(JSON.stringify(result), /test-key/);
     assert.doesNotMatch(JSON.stringify(result), /upstream detail|sensitivevalue/);
   } finally {

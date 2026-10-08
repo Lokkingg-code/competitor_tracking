@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 
-const MODEL_ID = "inclusionai/ling-3.1-flash";
+const MODEL_ID = "nvidia/nemotron-3.5-lightning";
 const OPENROUTER_API = "https://openrouter.ai/api/v1";
 const TEST_PROMPT = "Reply with exactly VERCEL_OPENROUTER_OK and nothing else.";
 
@@ -63,7 +63,7 @@ export default {
       const catalog = await catalogResponse.json();
       const model = catalog.data?.find((entry) => entry.id === MODEL_ID);
       if (!model) {
-        return json({ error: "Ling 3.1 Flash is not in the current OpenRouter catalog." }, 404);
+        return json({ error: "Nemotron 3.5 Lightning is not in the current OpenRouter catalog." }, 404);
       }
 
       const inputPrice = parsePrice(model.pricing?.prompt);
@@ -71,7 +71,7 @@ export default {
       if (!Number.isFinite(inputPrice) || !Number.isFinite(outputPrice)
         || inputPrice !== 0 || outputPrice !== 0) {
         return json({
-          error: "Ling 3.1 Flash is not verified as free; no model request was sent.",
+          error: "Nemotron 3.5 Lightning is not verified as free; no model request was sent.",
         }, 402);
       }
 

@@ -1,6 +1,6 @@
 import signalsPayload from "../data/signals.json" with { type: "json" };
 
-const MODEL_ID = "inclusionai/ling-3.1-flash";
+const MODEL_ID = "nvidia/nemotron-3.5-lightning";
 const OPENROUTER_API = "https://openrouter.ai/api/v1";
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_REQUESTS = 3;
@@ -117,13 +117,13 @@ export default {
       if (!catalogResponse.ok) return json({ error: "Could not verify current model pricing." }, 502);
       const catalog = await catalogResponse.json();
       const model = catalog.data?.find((entry) => entry.id === MODEL_ID);
-      if (!model) return json({ error: "Ling 3.1 Flash is not currently available." }, 503);
+      if (!model) return json({ error: "Nemotron 3.5 Lightning is not currently available." }, 503);
 
       const inputPrice = parsePrice(model.pricing?.prompt);
       const outputPrice = parsePrice(model.pricing?.completion);
       if (!Number.isFinite(inputPrice) || !Number.isFinite(outputPrice)
         || inputPrice !== 0 || outputPrice !== 0) {
-        return json({ error: "Ling 3.1 Flash is not verified as free; no summary request was sent." }, 402);
+        return json({ error: "Nemotron 3.5 Lightning is not verified as free; no summary request was sent." }, 402);
       }
 
       const evidence = signalContext(signal);
@@ -175,7 +175,7 @@ export default {
             : completionResponse.status === 404
               ? "The selected model or endpoint is unavailable."
               : completionResponse.status === 429
-                ? `OpenRouter returned HTTP 429. ${providerMessage}${providerName !== "unavailable" ? ` Provider: ${providerName}.` : ""} This does not by itself confirm a Ling-specific cap.`
+                ? `OpenRouter returned HTTP 429. ${providerMessage}${providerName !== "unavailable" ? ` Provider: ${providerName}.` : ""} This does not by itself confirm a Nemotron-specific cap.`
                 : `OpenRouter returned HTTP ${completionResponse.status}.`;
         return json({ error: message }, 502);
       }
