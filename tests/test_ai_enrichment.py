@@ -70,6 +70,24 @@ class AIEnrichmentTests(unittest.TestCase):
         with self.assertRaises(ENRICH.EnrichmentError):
             ENRICH.parse_enrichment(json.dumps(invalid), {"id": "test"})
 
+    def test_parses_explanatory_fenced_json_and_normalizes_labels(self):
+        output = {
+            "summary": "A flight-folder feature was announced.",
+            "announcement_tone": "Positive (promotional)",
+            "competitive_insight": "It may improve disruption coordination.",
+            "caveat": "Impact is not quantified.",
+            "suggested_type": "Feature change",
+            "type_confidence": "91%",
+            "suggested_product_focus": "Electronic Flight Folder (EFF)",
+            "focus_confidence": "high",
+        }
+        content = f"Here is the requested analysis:\n```json\n{json.dumps(output)}\n```\nEnd of result."
+        result = ENRICH.parse_enrichment(content, {"id": "variant", "type": "customer_win", "product_focus": "other"})
+        self.assertEqual(result["suggested_type"], "feature_change")
+        self.assertEqual(result["suggested_product_focus"], "eff")
+        self.assertEqual(result["type_confidence"], 0.91)
+        self.assertEqual(result["focus_confidence"], 0.85)
+
     def test_persistence_keeps_enriched_signals_and_prior_archive_entries(self):
         original_signals_path = ENRICH.SIGNALS_PATH
         original_archive_path = ENRICH.ARCHIVE_PATH

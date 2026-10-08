@@ -78,37 +78,130 @@ def extract_text(content: object) -> str:
     return ""
 
 
-def parse_enrichment(content: object, signal: dict) -> dict:
-    text = extract_text(content)
-    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text, flags=re.IGNORECASE)
+def extract_json_result(text: str) -> dict:
     try:
         result = json.loads(text)
-    except json.JSONDecodeError as error:
-        raise EnrichmentError("Model response was not valid JSON") from error
-    if not isinstance(result, dict):
-        raise EnrichmentError("Model response was not a JSON object")
+    except json.JSONDecodeError:
+        result = None
+    if isinstance(result, dict):
+        return result
 
-    suggested_type = result.get("suggested_type")
-    suggested_focus = result.get("suggested_product_focus")
-    tone = result.get("announcement_tone")
-    if not isinstance(suggested_type, str) or suggested_type not in VALID_TYPES:
+    decoder = json.JSONDecoder()
+    required = {"summary", "suggested_type", "suggested_product_focus"}
+    candidates = []
+    for index, character in enumerate(text):
+        if character != "{":
+            continue
+        try:
+            value, _ = decoder.raw_decode(text, index)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(value, dict) and required.issubset(value):
+            candidates.append(value)
+    if candidates:
+        return candidates[-1]
+    raise EnrichmentError("Model response did not contain the required JSON fields")
+
+
+def normalize_signal_type(value: object) -> str:
+    if not isinstance(value, str):
         raise EnrichmentError("Model returned an unsupported signal type")
-    if not isinstance(suggested_focus, str) or suggested_focus not in VALID_FOCUSES:
+    normalized = re.sub(r"[^a-z0-9]+", "_", value.casefold()).strip("_")
+    aliases = {
+        "product_launch": "product_launch",
+        "launch": "product_launch",
+        "feature_change": "feature_change",
+        "feature_update": "feature_change",
+        "product_update": "feature_change",
+        "customer_win": "customer_win",
+        "customer_adoption": "customer_win",
+        "customer_success": "customer_win",
+        "partnership": "partnership",
+        "implementation": "implementation",
+        "deployment": "implementation",
+        "messaging_shift": "messaging_shift",
+        "marketing_update": "messaging_shift",
+        "ma_pe": "ma_pe",
+        "m_a": "ma_pe",
+        "merger_acquisition": "ma_pe",
+        "regulatory": "regulatory",
+        "regulation": "regulatory",
+        "unknown": "unknown",
+        "unclear": "unknown",
+    }
+    for alias, canonical in aliases.items():
+        if normalized == alias or normalized.startswith(f"{alias}_"):
+            return canonical
+    raise EnrichmentError("Model returned an unsupported signal type")
+
+
+def normalize_product_focus(value: object) -> str:
+    if not isinstance(value, str):
         raise EnrichmentError("Model returned an unsupported product focus")
-    if not isinstance(tone, str) or tone not in VALID_TONES:
+    normalized = re.sub(r"[^a-z0-9]+", "_", value.casefold()).strip("_")
+    aliases = {
+        "eff": "eff",
+        "electronic_flight_folder": "eff",
+        "flight_folder": "eff",
+        "efb": "efb",
+        "electronic_flight_bag": "efb",
+        "adjacent": "adjacent",
+        "adjacent_operations": "adjacent",
+        "other": "other",
+        "outside_scope": "other",
+        "outside_current_focus": "other",
+    }
+    for alias, canonical in aliases.items():
+        if normalized == alias or normalized.startswith(f"{alias}_"):
+            return canonical
+    raise EnrichmentError("Model returned an unsupported product focus")
+
+
+def normalize_tone(value: object) -> str:
+    if not isinstance(value, str):
         raise EnrichmentError("Model returned an unsupported announcement tone")
+    normalized = value.strip().casefold().split()[0] if value.strip() else ""
+    tones = {tone.casefold(): tone for tone in VALID_TONES}
+    if normalized not in tones:
+        raise EnrichmentError("Model returned an unsupported announcement tone")
+    return tones[normalized]
+
+
+def normalize_confidence(value: object, field: str) -> float:
+    if isinstance(value, bool):
+        raise EnrichmentError(f"Model returned invalid {field}")
+    if isinstance(value, str):
+        text = value.strip().casefold()
+        levels = {"high": 0.85, "medium": 0.65, "low": 0.4}
+        if text in levels:
+            return levels[text]
+        match = re.match(r"^(\d+(?:\.\d+)?)\s*(%)?", text)
+        if not match:
+            raise EnrichmentError(f"Model returned invalid {field}")
+        value = float(match.group(1))
+        if match.group(2):
+            value /= 100
+    if not isinstance(value, (int, float)):
+        raise EnrichmentError(f"Model returned invalid {field}")
+    if 1 < value <= 100:
+        value /= 100
+    if not 0 <= value <= 1:
+        raise EnrichmentError(f"Model returned invalid {field}")
+    return round(float(value), 3)
+
+
+def parse_enrichment(content: object, signal: dict) -> dict:
+    text = extract_text(content)
+    result = extract_json_result(text)
+    suggested_type = normalize_signal_type(result.get("suggested_type"))
+    suggested_focus = normalize_product_focus(result.get("suggested_product_focus"))
+    tone = normalize_tone(result.get("announcement_tone"))
 
     def text_field(key: str, limit: int, required: bool = True) -> str:
         value = result.get(key)
         if not isinstance(value, str) or (required and not value.strip()):
             raise EnrichmentError(f"Model omitted {key}")
         return value.strip()[:limit]
-
-    def confidence_field(key: str) -> float:
-        value = result.get(key)
-        if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 <= value <= 1:
-            raise EnrichmentError(f"Model returned invalid {key}")
-        return round(float(value), 3)
 
     return {
         "model": MODEL_ID,
@@ -119,10 +212,10 @@ def parse_enrichment(content: object, signal: dict) -> dict:
         "competitive_insight": text_field("competitive_insight", 700),
         "caveat": text_field("caveat", 500, required=False),
         "suggested_type": suggested_type,
-        "type_confidence": confidence_field("type_confidence"),
+        "type_confidence": normalize_confidence(result.get("type_confidence"), "type_confidence"),
         "type_matches_existing": suggested_type == signal.get("type"),
         "suggested_product_focus": suggested_focus,
-        "focus_confidence": confidence_field("focus_confidence"),
+        "focus_confidence": normalize_confidence(result.get("focus_confidence"), "focus_confidence"),
         "focus_matches_existing": suggested_focus == signal.get("product_focus"),
     }
 
