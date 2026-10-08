@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T09:15:05Z",
+  "generated_at": "2026-10-08T12:19:31Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -1679,6 +1679,43 @@
       "ai_enrichment_status": "pending"
     },
     {
+      "id": "cap-635beb962343",
+      "competitor": "Jeppesen",
+      "date": "2026-08-02",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "A Closer Look at ForeFlight’s Panel Interface",
+      "summary": "Jeppesen reported a messaging shift update: A Closer Look at ForeFlight’s Panel Interface. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9MMTEtMTdlal9Penk4N2ZrbEUyaFlBVlFWdWwxU3g1aTJUTTFfdllBSjMtakdVQ3FwR0xHUGxYWVQtemduOGJueVNsTXZfRW9wOTY4eFE2bXFOOVJvODNYQzdfazZYUWNzZERDdVEtSjBOa0E?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
       "id": "cap-f37bb149ce93",
       "competitor": "Jeppesen",
       "date": "2026-07-28",
@@ -1968,6 +2005,43 @@
         {
           "title": "Google News RSS",
           "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8wOEVveVV3S0s1RzZab2RjSVFOLUZGYnNzWk9KeWlCTUc3V2FDV3BiSjU1a2RLQnU0ZFFmWVRNdkViaTY0Zk5PREdXblZVUVM5WFlwNnB6SjA5bi1VcThFSVlORmxzcXBsbVNDcnN1eGFLRFZvYk9XSUxNbHA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-ee883a79a5d4",
+      "competitor": "Jeppesen",
+      "date": "2026-07-14",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "uAvionix and Jeppesen’s SkyPlay Brings ForeFlight to Cockpit",
+      "summary": "Jeppesen reported a messaging shift update: uAvionix and Jeppesen’s SkyPlay Brings ForeFlight to Cockpit. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPdEdrbHV5eHR6Z2tZYm80NEdEUUVKYnRHT3had25uZ05QQjFSNXc1b3NmZ0FoRmhiSHRTejg5a1BRc3ItRjliZXhreDN4UzkyQVd1V2tuaGxXWEJGYzM1NG5BWWRkQXlMMUpJaGNQb3AxdzNvZ0R4M29wcm5VSmhBQw?oc=5"
         }
       ],
       "tags": [
