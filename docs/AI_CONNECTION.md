@@ -126,3 +126,22 @@ terminal; do not put either secret in browser code. A `402` response means Ling
 is not confirmed free and no model prompt was sent. A `502` response means the
 Vercel function could not reach or use OpenRouter. Vercel functions have their
 own usage limits and billing; this is separate from OpenRouter model charges.
+
+## Public on-demand summaries
+
+The `api/ai-summary.js` function automatically generates a summary when a
+signal is selected in its briefing. The browser sends only a signal ID; the
+function loads matching public evidence from the deployed `data/signals.json`,
+checks Ling's live input and output prices, then asks for a concise summary,
+announcement tone, competitive relevance, and caveat. It does not accept
+free-form prompts or persist generated summaries. Successful GET responses are
+cached at Vercel's edge for six hours. The function needs `OPENROUTER_API_KEY`
+and Vercel's built-in `VERCEL_URL`; it does not use `AI_TEST_TOKEN`.
+
+The endpoint is intentionally public, as is this dashboard. It has an
+in-memory limit of three requests per IP per minute and a six-hour summary
+cache per warm function instance. This is best-effort only: Vercel can create
+multiple instances or reset their memory. Free model quotas can still be
+exhausted, and Vercel function usage has separate limits and billing. Use a
+durable rate-limit store or Vercel Firewall rules before treating this as a
+hard public quota.

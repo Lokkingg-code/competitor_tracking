@@ -127,6 +127,8 @@ const ADJACENT_PATTERNS = [
 let allSignals = [];
 let selectedId = null;
 let selectedMatrixIds = null;
+const aiSummaryResults = new Map();
+const aiSummaryRequests = new Map();
 
 const els = {
   windowFilter: document.getElementById("windowFilter"),
@@ -557,6 +559,15 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
       <p class="briefing-summary-label">Evidence preview</p>
       <p class="briefing-summary-text">${escapeHtml(evidenceSummary)}</p>
     </div>
+    <section class="ai-summary" aria-label="AI-generated signal summary">
+      <div class="ai-summary-head">
+        <div>
+          <p class="ai-summary-label">AI summary</p>
+          <p class="ai-summary-note">Automatically generated from captured evidence · verify against the original source</p>
+        </div>
+      </div>
+      <p class="ai-summary-result" role="status">Generating summary…</p>
+    </section>
     <div class="brief-grid">
       <div class="brief-card">
         <h4>Competitor</h4>
@@ -580,6 +591,48 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
       <ul>${sources || "<li>No source link available.</li>"}</ul>
     </div>
   `;
+
+  requestAISummary(signal, target);
+}
+
+function paintAISummary(target, signalId, state) {
+  const panel = target.querySelector(".ai-summary");
+  if (!panel || panel.dataset.signalId !== signalId) return;
+  const result = panel.querySelector(".ai-summary-result");
+  result.classList.toggle("is-error", Boolean(state.error));
+  result.textContent = state.error || state.summary;
+}
+
+function requestAISummary(signal, target) {
+  const panel = target.querySelector(".ai-summary");
+  panel.dataset.signalId = signal.id;
+
+  const cached = aiSummaryResults.get(signal.id);
+  if (cached) {
+    paintAISummary(target, signal.id, cached);
+    return;
+  }
+
+  let request = aiSummaryRequests.get(signal.id);
+  if (!request) {
+    request = fetch(`/api/ai-summary?id=${encodeURIComponent(signal.id)}`)
+      .then(async (response) => {
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || `Summary request failed (${response.status}).`);
+        if (typeof result.summary !== "string" || !result.summary) throw new Error("The summary service returned an empty result.");
+        return { summary: result.summary };
+      })
+      .catch((error) => ({
+        error: error instanceof Error ? error.message : "AI summary is unavailable.",
+      }));
+    aiSummaryRequests.set(signal.id, request);
+    request.then((state) => {
+      aiSummaryResults.set(signal.id, state);
+      aiSummaryRequests.delete(signal.id);
+    });
+  }
+
+  request.then((state) => paintAISummary(target, signal.id, state));
 }
 
 function monthKey(date) {
