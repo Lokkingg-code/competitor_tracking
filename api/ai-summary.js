@@ -32,6 +32,19 @@ function displayPrice(value) {
   return Number.isFinite(Number(text)) ? text : "invalid";
 }
 
+function extractSummaryText(content) {
+  if (typeof content === "string") return content.trim();
+  if (!Array.isArray(content)) return "";
+  return content
+    .map((part) => {
+      if (typeof part === "string") return part;
+      return part?.type === "text" && typeof part.text === "string" ? part.text : "";
+    })
+    .filter(Boolean)
+    .join("\n")
+    .trim();
+}
+
 function requestIp(request) {
   const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
   return request.headers.get("x-real-ip")?.trim() || forwarded || "unknown";
@@ -193,9 +206,25 @@ export default {
       }
 
       const completion = await completionResponse.json();
-      const summary = completion.choices?.[0]?.message?.content?.trim();
-      if (typeof summary !== "string" || !summary || summary.length > MAX_SUMMARY_LENGTH) {
-        return json({ error: "The model returned an invalid summary." }, 502);
+      const choice = completion.choices?.[0];
+      const message = choice?.message;
+      const content = message?.content;
+      const summary = extractSummaryText(content);
+      if (!summary) {
+        const contentType = Array.isArray(content) ? "array" : content === null ? "null" : typeof content;
+        const finishReason = typeof choice?.finish_reason === "string"
+          ? choice.finish_reason.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 40)
+          : "unavailable";
+        const messageKeys = message && typeof message === "object"
+          ? Object.keys(message).join(",").replace(/[^a-zA-Z0-9_,.-]/g, "").slice(0, 120)
+          : "unavailable";
+        console.error(`Nemotron returned no text; contentType=${contentType}; finishReason=${finishReason}; messageKeys=${messageKeys}.`);
+        return json({
+          error: `The model returned no usable summary text (content type: ${contentType}; finish reason: ${finishReason}; message fields: ${messageKeys}).`,
+        }, 502);
+      }
+      if (summary.length > MAX_SUMMARY_LENGTH) {
+        return json({ error: `The model summary exceeded the ${MAX_SUMMARY_LENGTH}-character limit.` }, 502);
       }
 
       const catalogPricing = { prompt: inputPrice, completion: outputPrice };

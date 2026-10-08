@@ -8,6 +8,7 @@ const originalApiKey = process.env.OPENROUTER_API_KEY;
 const knownSignalId = signalsPayload.signals[0].id;
 const secondSignalId = signalsPayload.signals[1].id;
 const thirdSignalId = signalsPayload.signals[2].id;
+const fourthSignalId = signalsPayload.signals[3].id;
 
 function request(id, ip, method = "POST") {
   const url = new URL("https://dashboard.example/api/ai-summary");
@@ -31,7 +32,7 @@ test("summarizes a known signal at the valid catalog price", async () => {
     }
     if (target.endsWith("/chat/completions") && options.method === "POST") {
       completionCalls += 1;
-      return Response.json({ choices: [{ message: { content: "Summary: Test." } }] });
+      return Response.json({ choices: [{ message: { content: [{ type: "text", text: "Summary: Test." }] } }] });
     }
     throw new Error(`Unexpected request: ${target}`);
   };
@@ -67,6 +68,39 @@ test("does not call the model when catalog prices are missing", async () => {
     assert.equal(response.status, 402);
     assert.deepEqual(result.catalogPricing, { prompt: "missing", completion: "missing" });
     assert.equal(completionCalls, 0);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (originalApiKey === undefined) delete process.env.OPENROUTER_API_KEY;
+    else process.env.OPENROUTER_API_KEY = originalApiKey;
+  }
+});
+
+test("reports response shape safely when the model returns no text", async () => {
+  process.env.OPENROUTER_API_KEY = "test-key";
+  globalThis.fetch = async (url, options = {}) => {
+    if (String(url).endsWith("/models")) {
+      return Response.json({ data: [{
+        id: "nvidia/nemotron-3.5-lightning",
+        pricing: { prompt: "0.000000049", completion: "0.00000014" },
+      }] });
+    }
+    if (String(url).endsWith("/chat/completions") && options.method === "POST") {
+      return Response.json({ choices: [{
+        finish_reason: "length",
+        message: { reasoning: "Do not expose this private reasoning." },
+      }] });
+    }
+    throw new Error("Unexpected request");
+  };
+
+  try {
+    const response = await handler.fetch(request(fourthSignalId, "203.0.113.14", "GET"));
+    const result = await response.json();
+    assert.equal(response.status, 502);
+    assert.match(result.error, /content type: undefined/);
+    assert.match(result.error, /finish reason: length/);
+    assert.match(result.error, /message fields: reasoning/);
+    assert.doesNotMatch(JSON.stringify(result), /private reasoning/);
   } finally {
     globalThis.fetch = originalFetch;
     if (originalApiKey === undefined) delete process.env.OPENROUTER_API_KEY;
