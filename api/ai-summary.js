@@ -146,11 +146,18 @@ export default {
         }),
       });
       if (!completionResponse.ok) {
+        const upstreamError = await completionResponse.json().catch(() => ({}));
+        const providerMessage = typeof upstreamError.error?.message === "string"
+          ? upstreamError.error.message.replace(/\s+/g, " ").slice(0, 240)
+          : "No provider error message was included.";
+        const providerCode = typeof upstreamError.error?.code === "number"
+          ? upstreamError.error.code
+          : "unavailable";
         const requestId = completionResponse.headers.get("x-openrouter-request-id")
           || completionResponse.headers.get("x-request-id")
           || "unavailable";
         const retryAfter = completionResponse.headers.get("retry-after") || "unavailable";
-        console.error(`OpenRouter summary request failed with HTTP ${completionResponse.status}; requestId=${requestId}; retryAfter=${retryAfter}.`);
+        console.error(`OpenRouter summary request failed with HTTP ${completionResponse.status}; providerCode=${providerCode}; requestId=${requestId}; retryAfter=${retryAfter}; providerMessage=${JSON.stringify(providerMessage)}.`);
         const message = completionResponse.status === 401 || completionResponse.status === 403
           ? "OpenRouter denied model or API-key access."
           : completionResponse.status === 402
@@ -158,7 +165,7 @@ export default {
             : completionResponse.status === 404
               ? "The selected model or endpoint is unavailable."
               : completionResponse.status === 429
-                ? "OpenRouter returned HTTP 429. This may be temporary provider throttling or an account-level limit; it does not confirm a Ling-specific cap. Please retry later."
+                ? `OpenRouter returned HTTP 429. ${providerMessage} This does not by itself confirm a Ling-specific cap.`
                 : `OpenRouter returned HTTP ${completionResponse.status}.`;
         return json({ error: message }, 502);
       }
