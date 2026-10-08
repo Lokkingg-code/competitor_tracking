@@ -7,6 +7,7 @@ const originalFetch = globalThis.fetch;
 const originalApiKey = process.env.OPENROUTER_API_KEY;
 const knownSignalId = signalsPayload.signals[0].id;
 const secondSignalId = signalsPayload.signals[1].id;
+const thirdSignalId = signalsPayload.signals[2].id;
 
 function request(id, ip, method = "POST") {
   const url = new URL("https://dashboard.example/api/ai-summary");
@@ -85,6 +86,34 @@ test("throttles repeated requests from one client IP", async () => {
     const limited = await handler.fetch(request("unknown-signal", "203.0.113.12"));
     assert.equal(limited.status, 429);
     assert.equal(dataCalls, 0);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (originalApiKey === undefined) delete process.env.OPENROUTER_API_KEY;
+    else process.env.OPENROUTER_API_KEY = originalApiKey;
+  }
+});
+
+test("reports upstream free-model rate limits without exposing raw errors", async () => {
+  process.env.OPENROUTER_API_KEY = "test-key";
+  globalThis.fetch = async (url, options = {}) => {
+    if (String(url).endsWith("/models")) {
+      return Response.json({ data: [{
+        id: "inclusionai/ling-3.1-flash",
+        pricing: { prompt: "0", completion: "0" },
+      }] });
+    }
+    if (String(url).endsWith("/chat/completions") && options.method === "POST") {
+      return Response.json({ error: { message: "provider internal detail" } }, { status: 429 });
+    }
+    throw new Error("Unexpected request");
+  };
+
+  try {
+    const response = await handler.fetch(request(thirdSignalId, "203.0.113.13", "GET"));
+    const result = await response.json();
+    assert.equal(response.status, 502);
+    assert.match(result.error, /rate limit or free-model capacity/);
+    assert.doesNotMatch(JSON.stringify(result), /provider internal detail|test-key/);
   } finally {
     globalThis.fetch = originalFetch;
     if (originalApiKey === undefined) delete process.env.OPENROUTER_API_KEY;

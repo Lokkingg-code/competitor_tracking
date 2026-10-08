@@ -145,7 +145,19 @@ export default {
           max_tokens: 320,
         }),
       });
-      if (!completionResponse.ok) return json({ error: "OpenRouter could not generate the summary." }, 502);
+      if (!completionResponse.ok) {
+        console.error(`OpenRouter summary request failed with HTTP ${completionResponse.status}.`);
+        const message = completionResponse.status === 401 || completionResponse.status === 403
+          ? "OpenRouter denied model or API-key access."
+          : completionResponse.status === 402
+            ? "OpenRouter reports insufficient credits or billing access."
+            : completionResponse.status === 404
+              ? "The selected model or endpoint is unavailable."
+              : completionResponse.status === 429
+                ? "OpenRouter rate limit or free-model capacity was reached."
+                : `OpenRouter returned HTTP ${completionResponse.status}.`;
+        return json({ error: message }, 502);
+      }
 
       const completion = await completionResponse.json();
       const summary = completion.choices?.[0]?.message?.content?.trim();
