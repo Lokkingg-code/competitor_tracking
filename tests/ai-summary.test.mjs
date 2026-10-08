@@ -103,7 +103,14 @@ test("reports upstream free-model rate limits without exposing raw errors", asyn
       }] });
     }
     if (String(url).endsWith("/chat/completions") && options.method === "POST") {
-      return Response.json({ error: { code: 429, message: "upstream provider is temporarily overloaded" } }, {
+      return Response.json({ error: {
+        code: 429,
+        message: "Provider returned error",
+        metadata: {
+          provider_name: "Ling Test Provider",
+          raw: "upstream detail with sk-or-v1-sensitivevalue",
+        },
+      } }, {
         status: 429,
         headers: { "x-openrouter-request-id": "request-test-id", "retry-after": "30" },
       });
@@ -115,9 +122,10 @@ test("reports upstream free-model rate limits without exposing raw errors", asyn
     const response = await handler.fetch(request(thirdSignalId, "203.0.113.13", "GET"));
     const result = await response.json();
     assert.equal(response.status, 502);
-    assert.match(result.error, /upstream provider is temporarily overloaded/);
+    assert.match(result.error, /Provider: Ling Test Provider/);
     assert.match(result.error, /does not by itself confirm a Ling-specific cap/);
     assert.doesNotMatch(JSON.stringify(result), /test-key/);
+    assert.doesNotMatch(JSON.stringify(result), /upstream detail|sensitivevalue/);
   } finally {
     globalThis.fetch = originalFetch;
     if (originalApiKey === undefined) delete process.env.OPENROUTER_API_KEY;

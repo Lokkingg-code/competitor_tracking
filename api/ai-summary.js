@@ -153,11 +153,21 @@ export default {
         const providerCode = typeof upstreamError.error?.code === "number"
           ? upstreamError.error.code
           : "unavailable";
+        const providerName = typeof upstreamError.error?.metadata?.provider_name === "string"
+          ? upstreamError.error.metadata.provider_name.replace(/[^a-zA-Z0-9 ._-]/g, "").slice(0, 100)
+          : "unavailable";
+        const providerRaw = typeof upstreamError.error?.metadata?.raw === "string"
+          ? upstreamError.error.metadata.raw
+            .replace(/\s+/g, " ")
+            .replace(/Bearer\s+[A-Za-z0-9._~-]+/gi, "Bearer [redacted]")
+            .replace(/sk-or-v1-[A-Za-z0-9]+/gi, "[redacted]")
+            .slice(0, 400)
+          : "unavailable";
         const requestId = completionResponse.headers.get("x-openrouter-request-id")
           || completionResponse.headers.get("x-request-id")
           || "unavailable";
         const retryAfter = completionResponse.headers.get("retry-after") || "unavailable";
-        console.error(`OpenRouter summary request failed with HTTP ${completionResponse.status}; providerCode=${providerCode}; requestId=${requestId}; retryAfter=${retryAfter}; providerMessage=${JSON.stringify(providerMessage)}.`);
+        console.error(`OpenRouter summary request failed with HTTP ${completionResponse.status}; providerCode=${providerCode}; provider=${providerName}; requestId=${requestId}; retryAfter=${retryAfter}; providerMessage=${JSON.stringify(providerMessage)}; providerRaw=${JSON.stringify(providerRaw)}.`);
         const message = completionResponse.status === 401 || completionResponse.status === 403
           ? "OpenRouter denied model or API-key access."
           : completionResponse.status === 402
@@ -165,7 +175,7 @@ export default {
             : completionResponse.status === 404
               ? "The selected model or endpoint is unavailable."
               : completionResponse.status === 429
-                ? `OpenRouter returned HTTP 429. ${providerMessage} This does not by itself confirm a Ling-specific cap.`
+                ? `OpenRouter returned HTTP 429. ${providerMessage}${providerName !== "unavailable" ? ` Provider: ${providerName}.` : ""} This does not by itself confirm a Ling-specific cap.`
                 : `OpenRouter returned HTTP ${completionResponse.status}.`;
         return json({ error: message }, 502);
       }
