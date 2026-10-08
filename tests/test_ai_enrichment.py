@@ -88,6 +88,11 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(result["type_confidence"], 0.91)
         self.assertEqual(result["focus_confidence"], 0.85)
 
+    def test_summary_prompt_targets_existing_evidence_preview(self):
+        self.assertIn("exactly 2 or 3 short sentences", ENRICH.SUMMARY_INSTRUCTIONS)
+        self.assertIn("replaces the dashboard Evidence Preview", ENRICH.SUMMARY_INSTRUCTIONS)
+        self.assertIn("do not add competitive implications", ENRICH.SUMMARY_INSTRUCTIONS)
+
     def test_persistence_keeps_enriched_signals_and_prior_archive_entries(self):
         original_signals_path = ENRICH.SIGNALS_PATH
         original_archive_path = ENRICH.ARCHIVE_PATH

@@ -514,8 +514,6 @@ function renderSavedAIAnalysis(signal) {
     : "";
 
   return `
-    <p class="ai-summary-label">Saved AI analysis</p>
-    <p class="ai-summary-result">${escapeHtml(analysis.summary)}</p>
     <div class="ai-analysis-details">
       <p><strong>Announcement tone:</strong> ${escapeHtml(analysis.announcement_tone)}</p>
       <p><strong>Signal type:</strong> ${escapeHtml(suggestedType)} · ${Math.round(analysis.type_confidence * 100)}% confidence · ${escapeHtml(typeStatus)}</p>
@@ -586,7 +584,8 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
     .map((src) => `<li><a href="${escapeAttr(src.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(src.title || src.url)}</a></li>`)
     .join("");
 
-  const evidenceSummary = cleanText(signal.summary) || "No summary available. Open the source for the original update.";
+  const evidenceSummary = cleanText(signal.ai_enrichment?.summary || signal.summary) || "No summary available. Open the source for the original update.";
+  const evidenceLabel = signal.ai_enrichment?.summary ? "AI evidence summary" : "Evidence preview";
   const sourceLabel = SOURCE_LABELS[signal.source_origin] || SOURCE_LABELS[signal.source_channel] || signal.source_origin || signal.source_channel || "Source";
   const operatorLabel = extractOperator(signal);
   const aiAnalysis = renderSavedAIAnalysis(signal);
@@ -595,7 +594,7 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
     <p class="kicker">${escapeHtml(signal.competitor)} · ${escapeHtml(operatorLabel)} · ${escapeHtml(sourceLabel)}</p>
     <h3>${escapeHtml(displaySignalTitle(signal))}</h3>
     <div class="briefing-summary">
-      <p class="briefing-summary-label">Evidence preview</p>
+      <p class="briefing-summary-label">${escapeHtml(evidenceLabel)}</p>
       <p class="briefing-summary-text">${escapeHtml(evidenceSummary)}</p>
     </div>
     <section class="ai-summary" aria-label="AI-generated signal summary">

@@ -119,6 +119,9 @@ test("renders saved AI enrichment without calling the summary API again", async 
 
     await page.goto(baseUrl);
     await page.getByText("Saved model summary for this signal.").waitFor({ state: "visible" });
+    assert.equal(await page.locator(".briefing-summary-text").textContent(), "Saved model summary for this signal.");
+    assert.equal(await page.locator(".briefing-summary-label").textContent(), "AI evidence summary");
+    assert.equal(await page.locator(".ai-summary-result").count(), 0);
     assert.ok(await page.getByText(/Signal type: Feature change.*Review suggestion/).count());
     assert.ok(await page.getByText(/Product focus: EFF.*Review suggestion/).count());
     assert.ok(await page.getByText(/rates per 1M tokens USD: input \$0.049, output \$0.140/).count());

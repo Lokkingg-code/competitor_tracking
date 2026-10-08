@@ -145,6 +145,10 @@ review. Signals with saved enrichment are skipped on future runs. Up to 20
 signals are processed per workflow run; rate-limited or failed signals remain
 pending for a later run.
 
+The AI summary is tuned to exactly two or three short, evidence-only sentences
+and replaces the existing Evidence Preview in the briefing. Competitive insight
+remains separate so analysis is not mixed into the source-grounded summary.
+
 The dashboard reads saved analysis locally from `data/signals.json`; viewing or
 selecting an enriched signal makes no model request. GitHub Actions commits the
 enriched feed and archive, after which Vercel redeploys the saved results. This
