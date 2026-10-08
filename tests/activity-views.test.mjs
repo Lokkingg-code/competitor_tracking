@@ -80,3 +80,50 @@ test("overview and activity quick look remain independent of feed filters", asyn
     await browser.close();
   }
 });
+
+test("renders saved AI enrichment without calling the summary API again", async () => {
+  const signal = payload.signals[0];
+  const enrichedPayload = {
+    ...payload,
+    signals: payload.signals.map((item) => item.id === signal.id ? {
+      ...item,
+      ai_enrichment: {
+        model: "nvidia/nemotron-3.5-lightning",
+        enriched_at: "2026-10-08T00:00:00+00:00",
+        summary: "Saved model summary for this signal.",
+        announcement_tone: "Positive",
+        competitive_insight: "This could improve operations visibility.",
+        caveat: "Customer impact remains unverified.",
+        suggested_type: "feature_change",
+        type_confidence: 0.91,
+        type_matches_existing: false,
+        suggested_product_focus: "eff",
+        focus_confidence: 0.88,
+        focus_matches_existing: false,
+        catalog_pricing: { prompt: 0.000000049, completion: 0.00000014 },
+      },
+    } : item),
+  };
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    let summaryRequests = 0;
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: enrichedPayload }));
+    await page.route("**/api/ai-summary**", (route) => {
+      summaryRequests += 1;
+      return route.fulfill({ status: 500, body: "Should not be called for saved analyses." });
+    });
+    await page.addInitScript((signalId) => {
+      sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify([signalId]));
+    }, signal.id);
+
+    await page.goto(baseUrl);
+    await page.getByText("Saved model summary for this signal.").waitFor({ state: "visible" });
+    assert.ok(await page.getByText(/Signal type: Feature change.*Review suggestion/).count());
+    assert.ok(await page.getByText(/Product focus: EFF.*Review suggestion/).count());
+    assert.ok(await page.getByText(/rates per 1M tokens USD: input \$0.049, output \$0.140/).count());
+    assert.equal(summaryRequests, 0);
+  } finally {
+    await browser.close();
+  }
+});

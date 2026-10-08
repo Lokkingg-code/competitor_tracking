@@ -755,6 +755,24 @@ code {
   overflow-wrap: anywhere;
 }
 
+.ai-analysis-details {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ai-analysis-details p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.ai-analysis-details strong {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 .ai-summary-result.is-error {
   color: var(--risk);
 }

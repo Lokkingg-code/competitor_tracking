@@ -610,6 +610,7 @@ def raw_to_signal(item: dict) -> dict | None:
             }
         ],
         "tags": ["auto-capture", item.get("captured_via", "unknown"), source_channel],
+        "ai_enrichment_status": "pending",
     }
 
 

@@ -26,6 +26,7 @@ class ProductFocusTests(unittest.TestCase):
         self.assertIsNotNone(captured)
         self.assertEqual(captured["type"], "feature_change")
         self.assertEqual(captured["product_focus"], "eff")
+        self.assertEqual(captured["ai_enrichment_status"], "pending")
         self.assertEqual(MERGE_SIGNALS.sanitize_signal({**signal, "type": "customer_win"})["type"], "feature_change")
         self.assertEqual(MERGE_SIGNALS.sanitize_signal({**signal, "tags": ["curated"], "type": "customer_win"})["type"], "customer_win")
 
@@ -62,6 +63,25 @@ class ProductFocusTests(unittest.TestCase):
         self.assertTrue(MERGE_SIGNALS.omit_archived_signal(signal))
         self.assertFalse(MERGE_SIGNALS.omit_archived_signal({**signal, "tags": ["curated"]}))
         self.assertFalse(MERGE_SIGNALS.omit_archived_signal({**signal, "headline": "AvioBook product release", "summary": "New flight folder capabilities"}))
+
+    def test_merge_sanitization_preserves_saved_ai_enrichment(self):
+        saved = {
+            "summary": "Saved once",
+            "suggested_type": "feature_change",
+            "suggested_product_focus": "eff",
+        }
+        signal = {
+            "id": "enriched",
+            "competitor": "Aviobook",
+            "date": "2026-10-08",
+            "type": "feature_change",
+            "priority": "medium",
+            "headline": "Aviobook releases a flight-folder update",
+            "summary": "Aviobook releases new flight-folder features.",
+            "tags": ["auto-capture"],
+            "ai_enrichment": saved,
+        }
+        self.assertEqual(MERGE_SIGNALS.sanitize_signal(signal)["ai_enrichment"], saved)
 
     def test_explicit_context_overrides_generic_foreflight_indicator(self):
         self.assertEqual(MERGE_SIGNALS.classify_product_focus("ForeFlight crew pairing automation"), "adjacent")

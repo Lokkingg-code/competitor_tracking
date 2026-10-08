@@ -1,6 +1,10 @@
 name: Refresh competitor signals
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "data/signals.json"
   schedule:
     - cron: "0 6 * * *"
   workflow_dispatch:
@@ -10,11 +14,14 @@ permissions:
 
 jobs:
   refresh:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -22,7 +29,7 @@ jobs:
           python-version: "3.12"
 
       - name: Test product classification
-        run: python3 -m unittest tests/test_product_focus.py
+        run: python3 -m unittest tests/test_product_focus.py tests/test_ai_enrichment.py
 
       - name: Capture public sources
         run: python3 scripts/capture/capture_sources.py --days 365
@@ -40,10 +47,24 @@ jobs:
             --raw data/raw/latest.json \
             --raw data/raw/linkedin_latest.json
 
+      - name: Enrich new signals once
+        continue-on-error: true
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          BASE_REF: ${{ github.event.before }}
+          AI_ENRICH_MAX_SIGNALS_PER_RUN: "20"
+        run: |
+          if [ -z "$BASE_REF" ]; then
+            BASE_REF="$(git rev-parse HEAD)"
+          elif [[ "$BASE_REF" =~ ^0+$ ]]; then
+            BASE_REF="$(git rev-parse HEAD^)"
+          fi
+          python3 scripts/enrich_signals.py --base-ref "$BASE_REF"
+
       - name: Commit refreshed dashboard data
         run: |
           git config user.name "competitor-tracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/signals.json data/capture-health.json
+          git add data/signals.json data/signals.archive.json data/capture-health.json
           git commit -m "Refresh competitor signals" || exit 0
           git push

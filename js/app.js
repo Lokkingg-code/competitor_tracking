@@ -127,8 +127,6 @@ const ADJACENT_PATTERNS = [
 let allSignals = [];
 let selectedId = null;
 let selectedMatrixIds = null;
-const aiSummaryResults = new Map();
-const aiSummaryRequests = new Map();
 
 const els = {
   windowFilter: document.getElementById("windowFilter"),
@@ -489,6 +487,46 @@ function buildBriefingSummary(signal) {
   return `${signal.competitor} · ${typeLabel}: ${headline}. This item was auto-captured from public sources — open the source link below to confirm the update and assess relevance for Cathay Technologies.`;
 }
 
+function renderSavedAIAnalysis(signal) {
+  const analysis = signal.ai_enrichment;
+  if (!analysis) {
+    const status = signal.ai_enrichment_status === "pending"
+      ? "AI analysis is queued for the next background enrichment run."
+      : "No saved AI analysis for this signal.";
+    return `<p class="ai-summary-result">${escapeHtml(status)}</p>`;
+  }
+
+  const currentType = TYPE_LABELS[signal.type] || signal.type || "Unknown";
+  const suggestedType = TYPE_LABELS[analysis.suggested_type] || analysis.suggested_type;
+  const currentFocus = FOCUS_LABELS[signal.product_focus] || signal.product_focus || "Unknown";
+  const suggestedFocus = FOCUS_LABELS[analysis.suggested_product_focus] || analysis.suggested_product_focus;
+  const typeStatus = analysis.type_matches_existing
+    ? "Matches current label"
+    : `Review suggestion · current: ${currentType}`;
+  const focusStatus = analysis.focus_matches_existing
+    ? "Matches current label"
+    : `Review suggestion · current: ${currentFocus}`;
+  const rates = analysis.catalog_pricing;
+  const rateNote = rates
+    && Number.isFinite(rates.prompt)
+    && Number.isFinite(rates.completion)
+    ? ` · rates per 1M tokens USD: input $${(rates.prompt * 1_000_000).toFixed(3)}, output $${(rates.completion * 1_000_000).toFixed(3)}`
+    : "";
+
+  return `
+    <p class="ai-summary-label">Saved AI analysis</p>
+    <p class="ai-summary-result">${escapeHtml(analysis.summary)}</p>
+    <div class="ai-analysis-details">
+      <p><strong>Announcement tone:</strong> ${escapeHtml(analysis.announcement_tone)}</p>
+      <p><strong>Signal type:</strong> ${escapeHtml(suggestedType)} · ${Math.round(analysis.type_confidence * 100)}% confidence · ${escapeHtml(typeStatus)}</p>
+      <p><strong>Product focus:</strong> ${escapeHtml(suggestedFocus)} · ${Math.round(analysis.focus_confidence * 100)}% confidence · ${escapeHtml(focusStatus)}</p>
+      <p><strong>Competitive insight:</strong> ${escapeHtml(analysis.competitive_insight)}</p>
+      <p><strong>Caveat:</strong> ${escapeHtml(analysis.caveat || "No additional caveat provided.")}</p>
+    </div>
+    <p class="ai-summary-note">${escapeHtml(analysis.model)} · saved ${escapeHtml(analysis.enriched_at)}${escapeHtml(rateNote)}</p>
+  `;
+}
+
 function renderFeed(signals) {
   els.feedCount.textContent = `${signals.length} signals`;
 
@@ -551,6 +589,7 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
   const evidenceSummary = cleanText(signal.summary) || "No summary available. Open the source for the original update.";
   const sourceLabel = SOURCE_LABELS[signal.source_origin] || SOURCE_LABELS[signal.source_channel] || signal.source_origin || signal.source_channel || "Source";
   const operatorLabel = extractOperator(signal);
+  const aiAnalysis = renderSavedAIAnalysis(signal);
 
   target.innerHTML = `
     <p class="kicker">${escapeHtml(signal.competitor)} · ${escapeHtml(operatorLabel)} · ${escapeHtml(sourceLabel)}</p>
@@ -562,11 +601,10 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
     <section class="ai-summary" aria-label="AI-generated signal summary">
       <div class="ai-summary-head">
         <div>
-          <p class="ai-summary-label">AI summary</p>
-          <p class="ai-summary-note">Automatically generated from captured evidence · verify against the original source</p>
+          <p class="ai-summary-note">AI analysis from captured evidence · verify against the original source</p>
         </div>
       </div>
-      <p class="ai-summary-result" role="status">Generating summary…</p>
+      <div role="status">${aiAnalysis}</div>
     </section>
     <div class="brief-grid">
       <div class="brief-card">
@@ -592,61 +630,6 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
     </div>
   `;
 
-  requestAISummary(signal, target);
-}
-
-function paintAISummary(target, signalId, state) {
-  const panel = target.querySelector(".ai-summary");
-  if (!panel || panel.dataset.signalId !== signalId) return;
-  const result = panel.querySelector(".ai-summary-result");
-  result.classList.toggle("is-error", Boolean(state.error));
-  const pricing = state.catalogPricing;
-  const priceNote = pricing
-    && Number.isFinite(pricing.prompt)
-    && Number.isFinite(pricing.completion)
-    ? `\n\nCurrent model rates per 1M tokens (USD): input $${(pricing.prompt * 1_000_000).toFixed(3)}; output $${(pricing.completion * 1_000_000).toFixed(3)}.`
-    : "";
-  result.textContent = state.error || `${state.summary}${priceNote}`;
-}
-
-function requestAISummary(signal, target) {
-  const panel = target.querySelector(".ai-summary");
-  panel.dataset.signalId = signal.id;
-
-  const cached = aiSummaryResults.get(signal.id);
-  if (cached) {
-    paintAISummary(target, signal.id, cached);
-    return;
-  }
-
-  let request = aiSummaryRequests.get(signal.id);
-  if (!request) {
-    request = fetch(`/api/ai-summary?id=${encodeURIComponent(signal.id)}`)
-      .then(async (response) => {
-        const result = await response.json();
-        if (!response.ok) {
-          const pricing = result.catalogPricing;
-          const priceDetail = pricing
-            && typeof pricing.prompt === "string"
-            && typeof pricing.completion === "string"
-            ? ` Catalog prices per token: prompt ${pricing.prompt}; completion ${pricing.completion}.`
-            : "";
-          throw new Error(`${result.error || `Summary request failed (${response.status}).`}${priceDetail}`);
-        }
-        if (typeof result.summary !== "string" || !result.summary) throw new Error("The summary service returned an empty result.");
-        return { summary: result.summary, catalogPricing: result.catalogPricing };
-      })
-      .catch((error) => ({
-        error: error instanceof Error ? error.message : "AI summary is unavailable.",
-      }));
-    aiSummaryRequests.set(signal.id, request);
-    request.then((state) => {
-      aiSummaryResults.set(signal.id, state);
-      aiSummaryRequests.delete(signal.id);
-    });
-  }
-
-  request.then((state) => paintAISummary(target, signal.id, state));
 }
 
 function monthKey(date) {

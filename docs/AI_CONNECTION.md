@@ -127,27 +127,31 @@ pricing is missing or invalid and no model prompt was sent. A `502` response mea
 Vercel function could not reach or use OpenRouter. Vercel functions have their
 own usage limits and billing; this is separate from OpenRouter model charges.
 
-## Public on-demand summaries
+## Automatic signal enrichment
 
-The `api/ai-summary.js` function automatically generates a summary when a
-signal is selected in its briefing. The browser sends only a signal ID; the
-function looks up matching evidence from the bundled public `data/signals.json`,
-checks Nemotron's live input and output prices, then asks for a concise summary,
-announcement tone, competitive relevance, and caveat. It does not accept
-free-form prompts or persist generated summaries. Successful GET responses are
-cached at Vercel's edge for six hours. The function needs only
-`OPENROUTER_API_KEY`; it does not use `AI_TEST_TOKEN`.
+The `refresh-signals` GitHub Actions workflow runs after a change to
+`data/signals.json` and on its daily schedule. It merges captures, then runs
+`scripts/enrich_signals.py` before committing the updated dashboard data. Add
+`OPENROUTER_API_KEY` as a GitHub Actions repository secret; Vercel environment
+variables are not automatically available to GitHub Actions.
 
-The summary shows the model's current catalog rates per one million tokens. A
-provider page marked “free” does not guarantee that every route in the API
-catalog has zero-priced input and output. Without a payment method, requests
-may still consume existing account credits or fail for insufficient balance;
-check your OpenRouter usage and balance rather than assuming no charge.
+Only new or explicitly pending signal IDs are sent to Nemotron. Each successful
+result is saved as `ai_enrichment` in the signal and archive, including summary,
+announcement tone, competitive insight, caveat, suggested signal type and
+product focus, confidence, whether each suggestion matches the existing label,
+model, timestamp, and source-content hash. The existing canonical `type` and
+`product_focus` fields are not overwritten; disagreements are flagged for
+review. Signals with saved enrichment are skipped on future runs. Up to 20
+signals are processed per workflow run; rate-limited or failed signals remain
+pending for a later run.
 
-The endpoint is intentionally public, as is this dashboard. It has an
-in-memory limit of three requests per IP per minute and a six-hour summary
-cache per warm function instance. This is best-effort only: Vercel can create
-multiple instances or reset their memory. Free model quotas can still be
-exhausted, and Vercel function usage has separate limits and billing. Use a
-durable rate-limit store or Vercel Firewall rules before treating this as a
-hard public quota.
+The dashboard reads saved analysis locally from `data/signals.json`; viewing or
+selecting an enriched signal makes no model request. GitHub Actions commits the
+enriched feed and archive, after which Vercel redeploys the saved results. This
+does not backfill older signals automatically.
+
+OpenRouter's current catalog rates are used and displayed with each summary.
+They can change. A missing payment method does not guarantee zero usage charges
+if the account has credits or another balance; check the OpenRouter usage and
+balance. The separate Vercel smoke-test endpoint uses `AI_TEST_TOKEN` and does
+not power dashboard summaries.
