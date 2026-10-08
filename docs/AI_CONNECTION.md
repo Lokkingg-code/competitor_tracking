@@ -150,6 +150,14 @@ selecting an enriched signal makes no model request. GitHub Actions commits the
 enriched feed and archive, after which Vercel redeploys the saved results. This
 does not backfill older signals automatically.
 
+To backfill historical signals, open **Actions → Refresh competitor signals →
+Run workflow** and enable **Queue all historical signals without saved AI
+analysis**. It enriches at most 20 signals per run; run it again to process the
+next pending batch. Signals already carrying `ai_enrichment` are always skipped.
+Backfill makes model requests and can consume OpenRouter credits; review the
+catalog rates and account balance first. A missing card does not guarantee zero
+usage if credits are already available.
+
 OpenRouter's current catalog rates are used and displayed with each summary.
 They can change. A missing payment method does not guarantee zero usage charges
 if the account has credits or another balance; check the OpenRouter usage and

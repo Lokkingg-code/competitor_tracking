@@ -39,14 +39,18 @@ class EnrichmentError(RuntimeError):
     pass
 
 
-def newly_added_signals(signals: list[dict], base_ids: set[str]) -> list[dict]:
+def newly_added_signals(
+    signals: list[dict],
+    base_ids: set[str],
+    backfill_missing: bool = False,
+) -> list[dict]:
     pending = []
     for signal in signals:
         if signal.get("ai_enrichment"):
             signal.pop("ai_enrichment_status", None)
             continue
         is_new = signal.get("id") not in base_ids
-        if is_new or signal.get("ai_enrichment_status") == "pending":
+        if is_new or signal.get("ai_enrichment_status") == "pending" or backfill_missing:
             signal["ai_enrichment_status"] = "pending"
             pending.append(signal)
     return pending
@@ -245,13 +249,22 @@ def main() -> int:
         type=int,
         default=int(os.environ.get("AI_ENRICH_MAX_SIGNALS_PER_RUN", "20")),
     )
+    parser.add_argument(
+        "--backfill-missing",
+        action="store_true",
+        help="Queue every signal without saved AI enrichment, including historical signals.",
+    )
     args = parser.parse_args()
     if args.max_signals < 1:
         raise EnrichmentError("--max-signals must be at least 1")
 
     payload = json.loads(SIGNALS_PATH.read_text(encoding="utf-8"))
     baseline_ids = base_signal_ids(args.base_ref)
-    queued = newly_added_signals(payload.get("signals", []), baseline_ids)
+    queued = newly_added_signals(
+        payload.get("signals", []),
+        baseline_ids,
+        backfill_missing=args.backfill_missing,
+    )
     if not queued:
         print("No newly added signals need AI enrichment.")
         return 0

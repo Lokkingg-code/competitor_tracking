@@ -24,6 +24,15 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(signals[1]["ai_enrichment_status"], "pending")
         self.assertNotIn("ai_enrichment_status", signals[3])
 
+    def test_backfill_selects_historical_signals_once(self):
+        signals = [
+            {"id": "historical"},
+            {"id": "already-done", "ai_enrichment": {"summary": "saved"}},
+        ]
+        selected = ENRICH.newly_added_signals(signals, {"historical", "already-done"}, backfill_missing=True)
+        self.assertEqual([signal["id"] for signal in selected], ["historical"])
+        self.assertEqual(signals[0]["ai_enrichment_status"], "pending")
+
     def test_parses_structured_review_without_overwriting_existing_labels(self):
         signal = {"id": "new", "type": "customer_win", "product_focus": "other"}
         output = {
