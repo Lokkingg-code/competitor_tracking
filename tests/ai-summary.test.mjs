@@ -1,10 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import handler from "../api/ai-summary.js";
+import signalsPayload from "../data/signals.json" with { type: "json" };
 
 const originalFetch = globalThis.fetch;
 const originalApiKey = process.env.OPENROUTER_API_KEY;
-const originalVercelUrl = process.env.VERCEL_URL;
+const knownSignalId = signalsPayload.signals[0].id;
+const secondSignalId = signalsPayload.signals[1].id;
 
 function request(id, ip, method = "POST") {
   const url = new URL("https://dashboard.example/api/ai-summary");
@@ -17,20 +19,9 @@ function request(id, ip, method = "POST") {
 
 test("summarizes only a known signal after confirming zero catalog prices", async () => {
   process.env.OPENROUTER_API_KEY = "test-key";
-  process.env.VERCEL_URL = "test-deployment.vercel.app";
   let completionCalls = 0;
   globalThis.fetch = async (url, options = {}) => {
     const target = String(url);
-    if (target.endsWith("/data/signals.json")) {
-      return Response.json({ signals: [{
-        id: "signal-known",
-        competitor: "Bytron Skybook",
-        date: "2026-10-01",
-        headline: "Skybook update",
-        summary: "A verified test summary",
-        sources: [{ title: "Official source", url: "https://example.com/source" }],
-      }] });
-    }
     if (target.endsWith("/models")) {
       return Response.json({ data: [{
         id: "inclusionai/ling-3.1-flash",
@@ -45,7 +36,7 @@ test("summarizes only a known signal after confirming zero catalog prices", asyn
   };
 
   try {
-    const response = await handler.fetch(request("signal-known", "203.0.113.10", "GET"));
+    const response = await handler.fetch(request(knownSignalId, "203.0.113.10", "GET"));
     assert.equal(response.status, 200);
     assert.equal((await response.json()).summary, "Summary: Test.");
     assert.equal(completionCalls, 1);
@@ -53,19 +44,13 @@ test("summarizes only a known signal after confirming zero catalog prices", asyn
     globalThis.fetch = originalFetch;
     if (originalApiKey === undefined) delete process.env.OPENROUTER_API_KEY;
     else process.env.OPENROUTER_API_KEY = originalApiKey;
-    if (originalVercelUrl === undefined) delete process.env.VERCEL_URL;
-    else process.env.VERCEL_URL = originalVercelUrl;
   }
 });
 
 test("does not call the model when catalog prices are missing", async () => {
   process.env.OPENROUTER_API_KEY = "test-key";
-  process.env.VERCEL_URL = "test-deployment.vercel.app";
   let completionCalls = 0;
   globalThis.fetch = async (url, options = {}) => {
-    if (String(url).endsWith("/data/signals.json")) {
-      return Response.json({ signals: [{ id: "signal-no-price", headline: "Test" }] });
-    }
     if (String(url).endsWith("/models")) {
       return Response.json({ data: [{ id: "inclusionai/ling-3.1-flash", pricing: {} }] });
     }
@@ -74,25 +59,22 @@ test("does not call the model when catalog prices are missing", async () => {
   };
 
   try {
-    const response = await handler.fetch(request("signal-no-price", "203.0.113.11"));
+    const response = await handler.fetch(request(secondSignalId, "203.0.113.11"));
     assert.equal(response.status, 402);
     assert.equal(completionCalls, 0);
   } finally {
     globalThis.fetch = originalFetch;
     if (originalApiKey === undefined) delete process.env.OPENROUTER_API_KEY;
     else process.env.OPENROUTER_API_KEY = originalApiKey;
-    if (originalVercelUrl === undefined) delete process.env.VERCEL_URL;
-    else process.env.VERCEL_URL = originalVercelUrl;
   }
 });
 
 test("throttles repeated requests from one client IP", async () => {
   process.env.OPENROUTER_API_KEY = "test-key";
-  process.env.VERCEL_URL = "test-deployment.vercel.app";
   let dataCalls = 0;
   globalThis.fetch = async () => {
     dataCalls += 1;
-    return Response.json({ signals: [] });
+    return Response.json({ data: [] });
   };
 
   try {
@@ -102,12 +84,10 @@ test("throttles repeated requests from one client IP", async () => {
     }
     const limited = await handler.fetch(request("unknown-signal", "203.0.113.12"));
     assert.equal(limited.status, 429);
-    assert.equal(dataCalls, 3);
+    assert.equal(dataCalls, 0);
   } finally {
     globalThis.fetch = originalFetch;
     if (originalApiKey === undefined) delete process.env.OPENROUTER_API_KEY;
     else process.env.OPENROUTER_API_KEY = originalApiKey;
-    if (originalVercelUrl === undefined) delete process.env.VERCEL_URL;
-    else process.env.VERCEL_URL = originalVercelUrl;
   }
 });

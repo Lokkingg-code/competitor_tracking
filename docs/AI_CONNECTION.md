@@ -131,12 +131,12 @@ own usage limits and billing; this is separate from OpenRouter model charges.
 
 The `api/ai-summary.js` function automatically generates a summary when a
 signal is selected in its briefing. The browser sends only a signal ID; the
-function loads matching public evidence from the deployed `data/signals.json`,
+function looks up matching evidence from the bundled public `data/signals.json`,
 checks Ling's live input and output prices, then asks for a concise summary,
 announcement tone, competitive relevance, and caveat. It does not accept
 free-form prompts or persist generated summaries. Successful GET responses are
-cached at Vercel's edge for six hours. The function needs `OPENROUTER_API_KEY`
-and Vercel's built-in `VERCEL_URL`; it does not use `AI_TEST_TOKEN`.
+cached at Vercel's edge for six hours. The function needs only
+`OPENROUTER_API_KEY`; it does not use `AI_TEST_TOKEN`.
 
 The endpoint is intentionally public, as is this dashboard. It has an
 in-memory limit of three requests per IP per minute and a six-hour summary

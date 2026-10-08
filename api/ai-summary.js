@@ -1,3 +1,5 @@
+import signalsPayload from "../data/signals.json" with { type: "json" };
+
 const MODEL_ID = "inclusionai/ling-3.1-flash";
 const OPENROUTER_API = "https://openrouter.ai/api/v1";
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -80,8 +82,7 @@ export default {
     }
 
     const apiKey = process.env.OPENROUTER_API_KEY;
-    const deploymentHost = process.env.VERCEL_URL;
-    if (!apiKey || !deploymentHost) {
+    if (!apiKey) {
       return json({ error: "AI summaries are not configured for this deployment." }, 503);
     }
 
@@ -109,12 +110,7 @@ export default {
     if (cached) summaryCache.delete(signalId);
 
     try {
-      const host = deploymentHost.replace(/^https?:\/\//, "");
-      const dataUrl = new URL("/data/signals.json", `https://${host}`);
-      const dataResponse = await fetch(dataUrl, { signal: AbortSignal.timeout(10_000) });
-      if (!dataResponse.ok) return json({ error: "Could not load public signal data." }, 502);
-      const payload = await dataResponse.json();
-      const signal = payload.signals?.find((entry) => entry.id === signalId);
+      const signal = signalsPayload.signals?.find((entry) => entry.id === signalId);
       if (!signal) return json({ error: "Signal not found." }, 404);
 
       const catalogResponse = await fetchOpenRouter("models", apiKey);
@@ -166,7 +162,7 @@ export default {
         "Cache-Control": `public, s-maxage=${SUMMARY_CACHE_TTL_MS / 1000}, stale-while-revalidate=86400`,
       });
     } catch {
-      return json({ error: "Could not reach the signal data or OpenRouter service." }, 502);
+      return json({ error: "Could not reach or parse the OpenRouter response." }, 502);
     }
   },
 };
