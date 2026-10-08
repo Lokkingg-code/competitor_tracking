@@ -3,10 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "ai:check": "node scripts/ai/check_copilot.mjs",
+    "ai:gemini-check": "node scripts/ai/check_gemini.mjs",
+    "ai:openrouter-check": "node scripts/ai/check_openrouter.mjs",
     "capture:linkedin": "node scripts/capture/linkedin_browser_collector.mjs",
     "capture:weekly": "bash scripts/capture/weekly_capture.sh"
   },
   "dependencies": {
+    "@github/copilot-sdk": "^1.0.16",
     "playwright": "^1.55.0"
   }
 }
