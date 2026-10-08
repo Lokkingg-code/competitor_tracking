@@ -618,7 +618,15 @@ function requestAISummary(signal, target) {
     request = fetch(`/api/ai-summary?id=${encodeURIComponent(signal.id)}`)
       .then(async (response) => {
         const result = await response.json();
-        if (!response.ok) throw new Error(result.error || `Summary request failed (${response.status}).`);
+        if (!response.ok) {
+          const pricing = result.catalogPricing;
+          const priceDetail = pricing
+            && typeof pricing.prompt === "string"
+            && typeof pricing.completion === "string"
+            ? ` Catalog prices per token: prompt ${pricing.prompt}; completion ${pricing.completion}.`
+            : "";
+          throw new Error(`${result.error || `Summary request failed (${response.status}).`}${priceDetail}`);
+        }
         if (typeof result.summary !== "string" || !result.summary) throw new Error("The summary service returned an empty result.");
         return { summary: result.summary };
       })
