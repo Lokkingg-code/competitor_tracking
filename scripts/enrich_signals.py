@@ -20,6 +20,15 @@ SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
 MODEL_ID = "nvidia/nemotron-3.5-lightning"
 OPENROUTER_API = "https://openrouter.ai/api/v1"
+ENRICHMENT_SCHEMA_VERSION = 2
+CURRENT_ENRICHMENT_FIELDS = {
+    "headline_summary",
+    "summary",
+    "customer_airline",
+    "customer_relationship",
+    "customer_segment",
+    "customer_segment_confidence",
+}
 SUMMARY_INSTRUCTIONS = (
     "Write summary as 2 short sentences, using a third only when essential, and never exceed 60 words. "
     "This text replaces the dashboard Evidence Preview: state the important announcement and concrete details only. "
@@ -45,6 +54,15 @@ VALID_CUSTOMER_SEGMENTS = {"lcc", "full_service", "regional", "cargo", "charter"
 
 class EnrichmentError(RuntimeError):
     pass
+
+
+def has_current_enrichment(signal: dict) -> bool:
+    analysis = signal.get("ai_enrichment")
+    if not isinstance(analysis, dict):
+        return False
+    if analysis.get("schema_version") == ENRICHMENT_SCHEMA_VERSION:
+        return True
+    return CURRENT_ENRICHMENT_FIELDS.issubset(analysis)
 
 
 def concise_summary(value: str, max_sentences: int = 3, max_words: int = 60) -> str:
@@ -81,7 +99,8 @@ def newly_added_signals(
 ) -> list[dict]:
     pending = []
     for signal in signals:
-        if signal.get("ai_enrichment"):
+        current = has_current_enrichment(signal)
+        if current:
             signal.pop("ai_enrichment_status", None)
             continue
         is_new = signal.get("id") not in base_ids
@@ -306,6 +325,7 @@ def parse_enrichment(content: object, signal: dict) -> dict:
 
     return {
         "model": MODEL_ID,
+        "schema_version": ENRICHMENT_SCHEMA_VERSION,
         "enriched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source_sha256": source_fingerprint(signal),
         "headline_summary": headline_summary,

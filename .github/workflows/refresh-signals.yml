@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       backfill_missing_ai:
-        description: "Queue all historical signals without saved AI analysis"
+        description: "Re-enrich historical signals missing the current AI schema"
         type: boolean
         required: false
         default: false

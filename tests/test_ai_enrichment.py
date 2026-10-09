@@ -17,7 +17,7 @@ class AIEnrichmentTests(unittest.TestCase):
             {"id": "old"},
             {"id": "new"},
             {"id": "retry", "ai_enrichment_status": "pending"},
-            {"id": "done", "ai_enrichment": {"summary": "saved"}, "ai_enrichment_status": "pending"},
+            {"id": "done", "ai_enrichment": {"schema_version": ENRICH.ENRICHMENT_SCHEMA_VERSION}, "ai_enrichment_status": "pending"},
         ]
         selected = ENRICH.newly_added_signals(signals, {"old", "retry", "done"})
         self.assertEqual([signal["id"] for signal in selected], ["new", "retry"])
@@ -27,10 +27,12 @@ class AIEnrichmentTests(unittest.TestCase):
     def test_backfill_selects_historical_signals_once(self):
         signals = [
             {"id": "historical"},
-            {"id": "already-done", "ai_enrichment": {"summary": "saved"}},
+            {"id": "legacy", "ai_enrichment": {"summary": "old prompt result"}},
+            {"id": "already-done", "ai_enrichment": {"schema_version": ENRICH.ENRICHMENT_SCHEMA_VERSION}},
+            {"id": "current-fields", "ai_enrichment": {key: "present" for key in ENRICH.CURRENT_ENRICHMENT_FIELDS}},
         ]
-        selected = ENRICH.newly_added_signals(signals, {"historical", "already-done"}, backfill_missing=True)
-        self.assertEqual([signal["id"] for signal in selected], ["historical"])
+        selected = ENRICH.newly_added_signals(signals, {signal["id"] for signal in signals}, backfill_missing=True)
+        self.assertEqual([signal["id"] for signal in selected], ["historical", "legacy"])
         self.assertEqual(signals[0]["ai_enrichment_status"], "pending")
 
     def test_parses_structured_review_without_overwriting_existing_labels(self):
@@ -52,6 +54,7 @@ class AIEnrichmentTests(unittest.TestCase):
             "focus_confidence": 0.88,
         }
         result = ENRICH.parse_enrichment(json.dumps(output), signal)
+        self.assertEqual(result["schema_version"], ENRICH.ENRICHMENT_SCHEMA_VERSION)
         self.assertEqual(result["headline_summary"], "A flight-folder feature adds airline operational tooling.")
         self.assertEqual(result["suggested_type"], "feature_change")
         self.assertFalse(result["type_matches_existing"])
