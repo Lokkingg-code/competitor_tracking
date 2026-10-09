@@ -487,6 +487,24 @@ function buildBriefingSummary(signal) {
   return `${signal.competitor} · ${typeLabel}: ${headline}. This item was auto-captured from public sources — open the source link below to confirm the update and assess relevance for Cathay Technologies.`;
 }
 
+function conciseEvidenceSummary(value) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text) return "No summary available. Open the source for the original update.";
+  const sentences = typeof Intl.Segmenter === "function"
+    ? [...new Intl.Segmenter("en", { granularity: "sentence" }).segment(text)].map((part) => part.segment.trim())
+    : (text.match(/[^.!?]+(?:[.!?]+|$)/g) || [text]).map((sentence) => sentence.trim());
+  const selected = [];
+  let wordCount = 0;
+  for (const sentence of sentences) {
+    const words = sentence.split(/\s+/);
+    if (selected.length >= 3 || wordCount + words.length > 60) break;
+    selected.push(sentence);
+    wordCount += words.length;
+  }
+  if (!selected.length) return `${text.split(/\s+/).slice(0, 60).join(" ").replace(/[.!?]+$/, "").trim()}.`;
+  return selected.join(" ");
+}
+
 function renderSavedAIAnalysis(signal) {
   const analysis = signal.ai_enrichment;
   if (!analysis) {
@@ -588,7 +606,7 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
     .map((src) => `<li><a href="${escapeAttr(src.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(src.title || src.url)}</a></li>`)
     .join("");
 
-  const evidenceSummary = cleanText(signal.ai_enrichment?.summary || signal.summary) || "No summary available. Open the source for the original update.";
+  const evidenceSummary = conciseEvidenceSummary(cleanText(signal.ai_enrichment?.summary || signal.summary));
   const evidenceLabel = signal.ai_enrichment?.summary ? "AI evidence summary" : "Evidence preview";
   const sourceLabel = SOURCE_LABELS[signal.source_origin] || SOURCE_LABELS[signal.source_channel] || signal.source_origin || signal.source_channel || "Source";
   const operatorLabel = extractOperator(signal);

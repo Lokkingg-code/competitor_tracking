@@ -112,9 +112,19 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(result["focus_confidence"], 0.85)
 
     def test_summary_prompt_targets_existing_evidence_preview(self):
-        self.assertIn("exactly 2 or 3 short sentences", ENRICH.SUMMARY_INSTRUCTIONS)
+        self.assertIn("2 short sentences", ENRICH.SUMMARY_INSTRUCTIONS)
+        self.assertIn("never exceed 60 words", ENRICH.SUMMARY_INSTRUCTIONS)
         self.assertIn("replaces the dashboard Evidence Preview", ENRICH.SUMMARY_INSTRUCTIONS)
         self.assertIn("do not add competitive implications", ENRICH.SUMMARY_INSTRUCTIONS)
+
+    def test_summary_is_clamped_to_three_sentences_and_sixty_words(self):
+        text = "First concise sentence. Second concise sentence. Third concise sentence. Fourth sentence should not appear."
+        self.assertEqual(
+            ENRICH.concise_summary(text),
+            "First concise sentence. Second concise sentence. Third concise sentence.",
+        )
+        long_text = " ".join(["Evidence"] * 70) + "."
+        self.assertLessEqual(len(ENRICH.concise_summary(long_text).split()), 60)
 
     def test_persistence_keeps_enriched_signals_and_prior_archive_entries(self):
         original_signals_path = ENRICH.SIGNALS_PATH

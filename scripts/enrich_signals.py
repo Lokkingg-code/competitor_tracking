@@ -21,7 +21,7 @@ ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
 MODEL_ID = "nvidia/nemotron-3.5-lightning"
 OPENROUTER_API = "https://openrouter.ai/api/v1"
 SUMMARY_INSTRUCTIONS = (
-    "Write summary as exactly 2 or 3 short sentences, about 35-60 words total. "
+    "Write summary as 2 short sentences, using a third only when essential, and never exceed 60 words. "
     "This text replaces the dashboard Evidence Preview: state the important announcement and concrete details only. "
     "Use only the supplied evidence; do not add competitive implications, recommendations, or facts not in the source."
 )
@@ -43,6 +43,33 @@ VALID_TONES = {"Positive", "Neutral", "Negative", "Mixed", "Unclear"}
 
 class EnrichmentError(RuntimeError):
     pass
+
+
+def concise_summary(value: str, max_sentences: int = 3, max_words: int = 60) -> str:
+    text = re.sub(r"\s+", " ", value).strip()
+    protected = re.sub(
+        r"\b(?:e\.g|i\.e|u\.s|u\.k|e\.u)\.",
+        lambda match: match.group(0).replace(".", "\u0000"),
+        text,
+        flags=re.IGNORECASE,
+    )
+    sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z0-9\"'])", protected)
+    sentences = [sentence.replace("\u0000", ".").strip() for sentence in sentences if sentence.strip()]
+    selected = []
+    word_count = 0
+    for sentence in sentences:
+        words = sentence.split()
+        if len(selected) >= max_sentences:
+            break
+        if word_count + len(words) <= max_words:
+            selected.append(sentence)
+            word_count += len(words)
+            continue
+        if not selected:
+            shortened = " ".join(words[:max_words]).rstrip(" ,;:")
+            selected.append(shortened.rstrip(".!?") + ".")
+        break
+    return " ".join(selected)
 
 
 def newly_added_signals(
@@ -213,7 +240,7 @@ def parse_enrichment(content: object, signal: dict) -> dict:
         "model": MODEL_ID,
         "enriched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source_sha256": source_fingerprint(signal),
-        "summary": text_field("summary", 700),
+        "summary": concise_summary(text_field("summary", 1400)),
         "announcement_tone": tone,
         "competitive_insight": text_field("competitive_insight", 700),
         "caveat": text_field("caveat", 500, required=False),
@@ -418,8 +445,7 @@ def main() -> int:
 
     persist_payloads(payload)
     if failures:
-        print(f"{len(failures)} signal(s) remain pending for the next refresh.", file=sys.stderr)
-        return 1
+        print(f"::warning::{len(failures)} signal(s) remain pending for the next refresh; see per-signal messages above.", file=sys.stderr)
     return 0
 
 

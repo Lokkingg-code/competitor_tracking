@@ -90,7 +90,7 @@ test("renders saved AI enrichment without calling the summary API again", async 
       ai_enrichment: {
         model: "nvidia/nemotron-3.5-lightning",
         enriched_at: "2026-10-08T00:00:00+00:00",
-        summary: "Saved model summary for this signal.",
+        summary: "First concise sentence. Second concise sentence. Third concise sentence. Fourth sentence should be hidden.",
         announcement_tone: "Positive",
         competitive_insight: "This could improve operations visibility.",
         caveat: "Customer impact remains unverified.",
@@ -122,8 +122,9 @@ test("renders saved AI enrichment without calling the summary API again", async 
     }, signal.id);
 
     await page.goto(baseUrl);
-    await page.getByText("Saved model summary for this signal.").waitFor({ state: "visible" });
-    assert.equal(await page.locator(".briefing-summary-text").textContent(), "Saved model summary for this signal.");
+    await page.getByText("First concise sentence.").waitFor({ state: "visible" });
+    assert.equal(await page.locator(".briefing-summary-text").textContent(), "First concise sentence. Second concise sentence. Third concise sentence.");
+    assert.equal(await page.getByText("Fourth sentence should be hidden.").count(), 0);
     assert.equal(await page.locator(".briefing-summary-label").textContent(), "AI evidence summary");
     assert.equal(await page.locator(".ai-summary-result").count(), 0);
     assert.ok(await page.getByText(/Signal type: Feature change.*AI updated from Customer win/).count());
