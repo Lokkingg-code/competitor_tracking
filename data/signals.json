@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T12:19:31Z",
+  "generated_at": "2026-10-09T01:26:06Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,43 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-1549166beaf3",
+      "competitor": "Jeppesen",
+      "date": "2026-10-08",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight pushes aviation-specific AI with a human touch",
+      "summary": "Jeppesen reported a messaging shift update: Jeppesen ForeFlight pushes aviation-specific AI with a human touch. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPSHJEaExxbjNKa0hTaU91S0xJNE50NWluZnQ1bXZDNmJXQTNRN1p5V1VxR2V3YXp5MG16dHU5czVDeUg3ZHRxQVVqU0pBeGp4NEJQLTZmbmJFMm5ldzA4dW40TUhEVHNsTHFCVWlyckdEZ3RCX1JBcW91dGpoZ1l0UEh2Ukhwb1NBT202VW5WY3FsSlJoelJqNUFfYVhvTGhJSDRRVDF3dmI4QVlEV2lvLUxfOHkzUQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending"
+    },
     {
       "id": "cap-e70b87ab10e0",
       "competitor": "Jeppesen",
@@ -47,7 +84,25 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:26:24+00:00",
+        "source_sha256": "5ccdb13c9d671433c0a8f9ec3c29889b4c94569e03f0a75b26366f03ff832775",
+        "summary": "On October 7, 2026, Jeppesen announced bringing AI Agents to ForeFlight, framing it as a messaging shift update. The announcement was captured via Google News RSS and relates to ForeFlight product operations for airline flight monitoring.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "The announcement indicates Jeppesen is positioning ForeFlight with AI-enhanced capabilities as part of a strategic messaging shift.",
+        "caveat": "No full article text or verification provided; assessment limited to headline and RSS summary.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-d20d956f5890",
@@ -158,7 +213,25 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:26:43+00:00",
+        "source_sha256": "00b8952ea67d80162c19310ca65bf92dfa90bd977649f4b4e1f07234e2f3c003",
+        "summary": "Lufthansa Systems published a customer interview on digital navigation for pilots on 2026-10-06, distributed via Google News and LinkedIn. Finnair EFB Key User Mikko Lehtinen explains how pilots use Lido mPilot throughout their journey, from gate to gate. The discussion covers daily operations and EFB integration across the flight cycle.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Lufthansa Systems is showcasing Lido mPilot integration through Finnair customer testimony, highlighting EFB role in pilot operations.",
+        "caveat": "No official product release or strategic statement; content is a customer interview excerpt from aggregated news sources.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.6,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-2cc41319a65b",
@@ -195,7 +268,25 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:26:58+00:00",
+        "source_sha256": "9a2268970f33194ae5a911f6b26f3f591e42a309546db8af8cdf6b80e809ac45",
+        "summary": "Jeppesen ForeFlight unveiled the first of hundreds of planned agents for its ForeFlight Airflow Aviation Operating Intelligence platform on October 6, 2026. The agents run on a unique aviation-centric context layer, keeping customer data and knowledge sovereign while grounding governance in the industry’s Safety Management System framework. Users can set the level of automation as part of an initial rollout.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen ForeFlight is introducing a modular AI-agent layer for its Airflow platform, prioritizing data sovereignty and Safety Management System‑aligned governance as a distinguishing feature in commercial aviation software.",
+        "caveat": "The source summary ends mid‑sentence ('while keeping…'), the event date (2026‑10‑06) is forward‑relative to current time, and no customer rollout data, pricing, or competitive comparison details are provided.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.85,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-7cba612caf88",
@@ -269,7 +360,25 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:27:37+00:00",
+        "source_sha256": "5cdf87d977c63e6322692a140f3ffb4f2af3be4d2648c828b908c3eab3719451",
+        "summary": "Bytron Skybook announced a platform emphasizing customizable control over dispatch, briefing, and EFF operations. The solution allows tailoring settings across Dispatch, EFF, ETOPS, NOTAMs, Charts, Fleets, RAIM, FIR Briefings, WX Watch, Reports, and EFB app customisations. The headline directly questions user control over these operational workflows.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Bytron Skybook positions customizable control over dispatch, briefing, and EFF as a central differentiator in airline flight-operations software monitoring.",
+        "caveat": "Evidence originates from a LinkedIn/Google News RSS feed with no confirmed release timeline, user feedback, or market impact data.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.6,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-448145695c07",
@@ -306,7 +415,25 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:27:55+00:00",
+        "source_sha256": "c82e7bfe19a60256f7dcdd6ed21c6780f55fb73437f9242b5c058c74b3f1a654",
+        "summary": "Navblue issued a press release on 2026-09-28 announcing TransNusa's expanded digital collaboration with Skywise. The update confirms a partnership between the companies as a digital collaboration effort. Verification requires opening the linked source for full scope and impact.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Navblue appears to be expanding its digital partnership reach via TransNusa's Skywise collaboration, suggesting growth in its aviation software ecosystem.",
+        "caveat": "Linked source not fully accessible; complete details and impact require opening the original press release.",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-766223840a89",
@@ -343,7 +470,25 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:28:10+00:00",
+        "source_sha256": "5bcaf1d9367e6670fe39ecbd0949191c7abe41f65cd58c2d30f64c150c1fb3e6",
+        "summary": "The Airline Forum 2026 marks an important milestone for the NetLine community. Over the past years, our discussions have increasingly focused on how airlines can succeed in a world of growing complexity and constant disruption.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Lufthansa Systems elevates NetLine as a community addressing airline resilience amid industry complexity and disruption.",
+        "caveat": "The evidence does not specify product details, specific announcements, or the nature of the NetLine community beyond the forum milestone.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.4,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.5,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-907ad46e8554",
@@ -380,7 +525,25 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:28:23+00:00",
+        "source_sha256": "724802a4d1d4349b7529a2dd4be6b9c67781fcceed1147e570cecc9ded2a815e",
+        "summary": "Jeppesen held a ForeFlight Business Aviation Customer Workshop in Vienna on September 16–17. Attendees valued the opportunity to learn more about ForeFlight, exchange ideas with aviation professionals, and consider how its capabilities. The event underscores continued investment in business aviation customer engagement.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen is leveraging a ForeFlight workshop to strengthen customer relationships and gather insights in the business aviation segment.",
+        "caveat": "Workshop details are limited to an attendee perspective; no official product updates, competitive metrics, or market impact data are provided.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.8,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "browser-cc81837bbf5f",
@@ -417,7 +580,25 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:28:32+00:00",
+        "source_sha256": "d8c80cea9860821532544a701d03a3ad205afb8e025db58f3499bec0d26bddd6",
+        "summary": "TransNusa expanded its Skywise collaboration at MRO APAC Singapore, signing for Skywise Core X2 and Skywise Fleet Performance+. These are the first such agreements in Indonesia, establishing a new benchmark for unified, data-driven airline operations in the region.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "TransNusa's new Skywise agreements represent the first of their kind in Indonesia, suggesting Navblue is expanding its regional operations software footprint.",
+        "caveat": "Source is a LinkedIn post; broader market adoption and contractual details are not independently verified.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.8,
+        "type_matches_existing": true,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.5,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-7f60da3663cf",
@@ -454,7 +635,25 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:28:49+00:00",
+        "source_sha256": "67424d0049da989efd3b903a141122c3315582307357ec6901358e985c010847",
+        "summary": "A professional with 10 years at Southwest Airlines has been appointed Senior Product Manager for Ground Controls at Jeppesen ForeFlight. The appointment was announced on September 25, 2026, as shared via a LinkedIn post captured by Google News.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen ForeFlight appears to be strengthening its ground controls product leadership with experienced airline operations talent from Southwest Airlines.",
+        "caveat": "No additional context on the specific ground controls features, product roadmap, or market reception beyond the individual appointment announcement is provided.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.6,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-04ef1a8c8c7e",
@@ -491,7 +690,25 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:29:22+00:00",
+        "source_sha256": "324f7af7e86c8dce3eb1375e9cf8de98113ba307017a4067a9dcc08ee4429074",
+        "summary": "Lufthansa Systems announced the Airline Forum 2026 event titled 'Together as One.' The forum brings together airline experts from planning, operations and finance, our vision. Lufthansa Systems stated it unveiled NetLine One and a vision.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Inferred: Lufthansa Systems is reinforcing its forum strategy around airline planning, operations, and finance alignment.",
+        "caveat": "Captured summary truncated; full product details and vision scope not verified from original source.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.7,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-5c0bfdebae79",
@@ -528,7 +745,25 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:29:39+00:00",
+        "source_sha256": "15456128c8110d30341013f54cd1a292294bc327ea8681e979df3813b1a48a9a",
+        "summary": "TransNusa expanded its Skywise collaboration to launch Indonesia’s first integrated Flight and Technical Operations. Adoption of Skywise Core X2 and S.FP+ unites flight and technical operations, enabling real-time fleet health monitoring and operational efficiency. The announcement was made on September 24, 2026.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "TransNusa's launch of integrated flight and technical operations may establish a regional benchmark for unified fleet monitoring in Indonesia.",
+        "caveat": "Evidence sourced from a single press release; no independent verification of operational results or broader market impact available.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.85,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "browser-c2a986e9925f",
@@ -565,7 +800,25 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:29:49+00:00",
+        "source_sha256": "dc94f3df159447a7e7dc19bd4299a153d45e34c10500a5ed31d8bc6e7c0cf21e",
+        "summary": "AvioBook announced an Enhanced Awareness solution package targeting weather shifts, GNSS interference warnings, and turnaround time changes in flight operations. The package is framed as closing the gap for Collaborative Decision Making (CDM) within cockpit workflows. The announcement was captured via a LinkedIn browser collector on 2026-09-21.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "AvioBook positions its Enhanced Awareness package as a response to operational disruptions from weather and GNSS interference affecting flight turnaround and CDM processes.",
+        "caveat": "Source is a single LinkedIn browser collector; headline is truncated; date is future (2026-09-21); no official press release or broader context provided; captured summary is abbreviated.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.6,
+        "type_matches_existing": false,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "browser-7d8392514ccb",
@@ -602,7 +855,25 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:30:11+00:00",
+        "source_sha256": "30ee3ea95193286c36c05c1afcf2838aa6cab2aee1100e56d0b7ef999e1aab0b",
+        "summary": "Lufthansa Systems customer Eurowings states they are completely rethinking how crew pairings are created, moving beyond new software implementation. Aurel Beheschti, Project Manager Crew Pairing Application, explains automation and optimization are transforming pairing from a manual task into a strategic process. Planners are evolving into architects as a result of this shift.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Lufthansa Systems is positioning its crew pairing solution as a strategic operations transformation, not merely a software upgrade.",
+        "caveat": "Product details and full operational context are not fully specified; reliance on customer statement via LinkedIn may reflect selective framing.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.65,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "browser-8e5caf004003",
@@ -639,7 +910,25 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:30:25+00:00",
+        "source_sha256": "24bdc46ae2ae41a8ebc7595539774cdc5afbfb9683899392ef69fae7981afee9",
+        "summary": "Aviobook announced its Connect 3.0 webinar launches tomorrow, featuring colleague Koen Boon. He will cover the broader AvioBook suite and answer questions about the wider product range. The session targets flight-operations and connected communications engagement for teams.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Aviobook appears to be using a webinar to educate flight-operations users on its broader suite, suggesting a strategic push for product engagement.",
+        "caveat": "The public post lacks specifics on webinar agenda, attendance metrics, and exact product enhancements; details are based on untrusted self-reported social media content.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.7,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "cap-71365b84a950",
@@ -676,7 +965,25 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:30:38+00:00",
+        "source_sha256": "62cca200dcf5228b852949445408948beca24ae9774c3420f32f9dc38809535e",
+        "summary": "Bytron Skybook announced instant messaging connecting dispatchers and pilots directly through the EFB, with notifications for important updates like ATC changes, critical NOTAMs, loadsheets, and NOTOCs. The announcement was posted on September 18, 2026 on LinkedIn.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Bytron Skybook likely prioritizes operational awareness within its EFB messaging suite based on announced update notifications.",
+        "caveat": "Evidence derived from a single LinkedIn post via Google News RSS; no official press release, broader market data, or third-party validation available.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.75,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "browser-03fd811a120c",
@@ -713,7 +1020,25 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:30:57+00:00",
+        "source_sha256": "432b0f1f1c3f739020ce589bdfb7aaed77520a1587cb86c5dad3c8e07dc44c10",
+        "summary": "Lufthansa Systems' headline prompts airlines to consider response speed amid market shifts. Its NetLine Plan claims to transform network planning from reactive analysis, serving airlines responsible for approximately 20% of global ASKs, and addresses evaluation of new routes, schedule changes, fleet adjustments, and partnership scenarios.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Inference: Lufthansa Systems appears to be positioning NetLine Plan as a proactive network planning solution for a substantial share of global airline operations.",
+        "caveat": "Captured summary truncated at 'proactive dec'; product details and current offerings unspecified; existing type/focus labels not verified against latest market offerings.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.55,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.5,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        }
+      }
     },
     {
       "id": "browser-b8f49628138c",
@@ -2911,6 +3236,43 @@
       "ai_enrichment_status": "pending"
     },
     {
+      "id": "cap-8ac9264db5f8",
+      "competitor": "Jeppesen",
+      "date": "2026-04-28",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "ForeFlight Training Course Takes Off",
+      "summary": "Jeppesen reported a messaging shift update: ForeFlight Training Course Takes Off. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUWJ6LXZyeVZKV1gwanU3R3EtV2FLRjlrRC1QNnNLQWk1OXdod3FrdFJBWEY0UW04ajdGbTFyTXBjamZzdjNIU0ZuOHRHY0Fwd3czMlc5aGJIRDBJLWJQdHJUNGpxVC1Xb2NvSEs0dWpnMDk2TDR5Y0k1RFFTOFlSTi1uOFNsbGs?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
       "id": "cap-e8710302bd5c",
       "competitor": "Jeppesen",
       "date": "2026-04-27",
@@ -2975,6 +3337,43 @@
         {
           "title": "Google News RSS",
           "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNdHFUWkFQRW91TnRPQ2hjYWNBWW5NMzNHNmc1UjBZd3Vya1ByQTJMejVBTTN1ai1NRmtXZ1FqdnJuU0w5a3FjWENnV1plSlRnVUV1Sy15WGlxX1BVYnNkMWt5dVR3Tk1Zc0l4VWpiWnllaUdJVG81OEdXZ19tMTVNU2ZYTWxmNjY5SWJHeFRMaXptVks5NS1oR2IxV0o?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-7620ae4f30cf",
+      "competitor": "Jeppesen",
+      "date": "2026-04-23",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Tecnam Forms Alliance With Jeppesen ForeFlight",
+      "summary": "Jeppesen reported a messaging shift update: Tecnam Forms Alliance With Jeppesen ForeFlight. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE0wTnRYU184VURkZVlLYVd3a0lsc2tnX3BEdXdWM2RUWmwyUGtETWpDUWRrM0pWcVpnYlNSUjlsOHB1WDZOSnpldGxQaWc5bXQ4UXhhNDVqS0pPQWRaWVU4M0xxRFFCbUF2c1p0bFBMb09Oa2s3b1FoNWZUdUZvZw?oc=5"
         }
       ],
       "tags": [
