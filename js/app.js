@@ -319,6 +319,9 @@ function truncateTitleAtBoundary(text, maxLength = 150) {
 }
 
 function displaySignalTitle(signal) {
+  const aiHeadline = cleanText(signal.ai_enrichment?.headline_summary);
+  if (aiHeadline) return aiHeadline;
+
   const headline = cleanHeadline(signal.headline);
   const withoutTrailingMarker = headline.replace(/(?:\s*(?:…|\.\.\.)\s*)+$/, "").trim();
   const hasTruncationMarker = withoutTrailingMarker !== headline;
@@ -608,6 +611,9 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
 
   const evidenceSummary = conciseEvidenceSummary(cleanText(signal.ai_enrichment?.summary || signal.summary));
   const evidenceLabel = signal.ai_enrichment?.summary ? "AI evidence summary" : "Evidence preview";
+  const capturedHeadline = signal.ai_enrichment?.headline_summary
+    ? `<p class="ai-source-headline"><strong>Captured headline:</strong> ${escapeHtml(cleanHeadline(signal.headline))}</p>`
+    : "";
   const sourceLabel = SOURCE_LABELS[signal.source_origin] || SOURCE_LABELS[signal.source_channel] || signal.source_origin || signal.source_channel || "Source";
   const operatorLabel = extractOperator(signal);
   const aiAnalysis = renderSavedAIAnalysis(signal);
@@ -617,6 +623,7 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
     <h3>${escapeHtml(displaySignalTitle(signal))}</h3>
     <div class="briefing-summary">
       <p class="briefing-summary-label">${escapeHtml(evidenceLabel)}</p>
+      ${capturedHeadline}
       <p class="briefing-summary-text">${escapeHtml(evidenceSummary)}</p>
     </div>
     <section class="ai-summary" aria-label="AI-generated signal summary">

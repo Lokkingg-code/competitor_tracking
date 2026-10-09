@@ -33,3 +33,16 @@ test("main movement uses the newest saved AI insight with a headline fallback", 
   assert.equal(rows.find((row) => row.competitor === "IFS").mainMovement, "IFS signed an LCC agreement for its EFBOne platform.");
   assert.equal(rows.find((row) => row.competitor === "Aviobook").mainMovement, "Latest: AvioBook launches Connect");
 });
+
+test("LCC movement counts distinct named customers only with high-confidence evidence", () => {
+  const signals = [
+    { id: "one", competitor: "IFS", date: "2026-10-08", headline: "IFS signs AirAsia", ai_enrichment: { customer_airline: "AirAsia", customer_relationship: "signed", customer_segment: "lcc", customer_confidence: 0.92, customer_segment_confidence: 0.95, competitive_insight: "IFS signed an AirAsia agreement." } },
+    { id: "two", competitor: "IFS", date: "2026-10-07", headline: "IFS partners with Jetstar", ai_enrichment: { customer_airline: "Jetstar", customer_relationship: "partnered", customer_segment: "lcc", customer_confidence: 0.9, customer_segment_confidence: 0.9, competitive_insight: "IFS partnered with Jetstar." } },
+    { id: "mention", competitor: "IFS", date: "2026-10-06", headline: "IFS mentions Wizz", ai_enrichment: { customer_airline: "Wizz Air", customer_relationship: "mentioned", customer_segment: "lcc", customer_confidence: 0.95, customer_segment_confidence: 0.95 } },
+    { id: "low-confidence", competitor: "IFS", date: "2026-10-05", headline: "IFS mentions possible customer", ai_enrichment: { customer_airline: "Possibly LCC", customer_relationship: "signed", customer_segment: "lcc", customer_confidence: 0.95, customer_segment_confidence: 0.6 } },
+  ];
+  const row = summarizeActivity(signals)[0];
+  assert.equal(row.lccAirlineCount, 2);
+  assert.equal(row.lccSignalCount, 2);
+  assert.match(row.mainMovement, /2 named LCCs \(2 signals\): AirAsia, Jetstar/);
+});

@@ -137,9 +137,10 @@ variables are not automatically available to GitHub Actions.
 
 Only new or explicitly pending signal IDs are sent to Nemotron. Each successful
 result is saved as `ai_enrichment` in the signal and archive, including summary,
-announcement tone, competitive insight, caveat, suggested signal type and
-product focus, confidence, whether each suggestion matches the existing label,
-model, timestamp, and source-content hash. The existing canonical `type` and
+one-sentence headline summary, announcement tone, competitive insight, caveat,
+named customer airline/relationship/segment when source-supported, suggested
+signal type and product focus, confidence, whether each suggestion matches the
+existing label, model, timestamp, and source-content hash. The existing canonical `type` and
 `product_focus` fields are corrected when the corresponding model confidence is
 at least 80%; the previous label is retained in the AI record and shown as an
 AI update. Lower-confidence disagreements remain suggestions flagged for
@@ -152,7 +153,10 @@ and replaces the existing Evidence Preview in the briefing. Competitive insight
 remains separate so analysis is not mixed into the source-grounded summary.
 The At a Glance **Main movement** uses the newest saved competitive insight for
 each competitor in the selected window, falling back to the newest headline
-until that competitor has saved AI analysis.
+until that competitor has saved AI analysis. When at least two distinct named
+airlines have high-confidence, source-supported LCC customer/partner activity,
+it reports the distinct airline and signal counts. LCC status is not inferred
+from an airline name alone.
 
 The dashboard reads saved analysis locally from `data/signals.json`; viewing or
 selecting an enriched signal makes no model request. GitHub Actions commits the

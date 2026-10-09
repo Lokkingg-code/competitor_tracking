@@ -90,6 +90,7 @@ test("renders saved AI enrichment without calling the summary API again", async 
       ai_enrichment: {
         model: "nvidia/nemotron-3.5-lightning",
         enriched_at: "2026-10-08T00:00:00+00:00",
+        headline_summary: "Navblue adds Skywise flight operations intelligence.",
         summary: "First concise sentence. Second concise sentence. Third concise sentence. Fourth sentence should be hidden.",
         announcement_tone: "Positive",
         competitive_insight: "This could improve operations visibility.",
@@ -123,8 +124,10 @@ test("renders saved AI enrichment without calling the summary API again", async 
 
     await page.goto(baseUrl);
     await page.getByText("First concise sentence.").waitFor({ state: "visible" });
+    assert.equal(await page.locator("h3").first().textContent(), "Navblue adds Skywise flight operations intelligence.");
     assert.equal(await page.locator(".briefing-summary-text").textContent(), "First concise sentence. Second concise sentence. Third concise sentence.");
     assert.equal(await page.getByText("Fourth sentence should be hidden.").count(), 0);
+    assert.equal(await page.locator(".ai-source-headline").textContent(), `Captured headline: ${signal.headline}`);
     assert.equal(await page.locator(".briefing-summary-label").textContent(), "AI evidence summary");
     assert.equal(await page.locator(".ai-summary-result").count(), 0);
     assert.ok(await page.getByText(/Signal type: Feature change.*AI updated from Customer win/).count());

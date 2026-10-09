@@ -36,16 +36,23 @@ class AIEnrichmentTests(unittest.TestCase):
     def test_parses_structured_review_without_overwriting_existing_labels(self):
         signal = {"id": "new", "type": "customer_win", "product_focus": "other"}
         output = {
+            "headline_summary": "A flight-folder feature adds airline operational tooling.",
             "summary": "A new flight-folder feature was announced.",
             "announcement_tone": "Positive",
             "competitive_insight": "It may improve operational document workflows.",
             "caveat": "Customer impact is not specified.",
+            "customer_airline": "unknown",
+            "customer_relationship": "unknown",
+            "customer_segment": "unknown",
+            "customer_confidence": 0.2,
+            "customer_segment_confidence": 0.2,
             "suggested_type": "feature_change",
             "type_confidence": 0.91,
             "suggested_product_focus": "eff",
             "focus_confidence": 0.88,
         }
         result = ENRICH.parse_enrichment(json.dumps(output), signal)
+        self.assertEqual(result["headline_summary"], "A flight-folder feature adds airline operational tooling.")
         self.assertEqual(result["suggested_type"], "feature_change")
         self.assertFalse(result["type_matches_existing"])
         self.assertEqual(result["suggested_product_focus"], "eff")
@@ -81,10 +88,16 @@ class AIEnrichmentTests(unittest.TestCase):
         content = [{"type": "text", "text": '{"summary": "test"}'}]
         self.assertEqual(ENRICH.extract_text(content), '{"summary": "test"}')
         invalid = {
+            "headline_summary": "Test headline.",
             "summary": "Test summary.",
             "announcement_tone": "Positive",
             "competitive_insight": "Test insight.",
             "caveat": "",
+            "customer_airline": "unknown",
+            "customer_relationship": "unknown",
+            "customer_segment": "unknown",
+            "customer_confidence": 0.5,
+            "customer_segment_confidence": 0.5,
             "suggested_type": "invented_type",
             "type_confidence": 0.5,
             "suggested_product_focus": "eff",
@@ -95,10 +108,16 @@ class AIEnrichmentTests(unittest.TestCase):
 
     def test_parses_explanatory_fenced_json_and_normalizes_labels(self):
         output = {
+            "headline_summary": "A flight-folder feature adds airline operational tooling.",
             "summary": "A flight-folder feature was announced.",
             "announcement_tone": "Positive (promotional)",
             "competitive_insight": "It may improve disruption coordination.",
             "caveat": "Impact is not quantified.",
+            "customer_airline": "unknown",
+            "customer_relationship": "unknown",
+            "customer_segment": "unknown",
+            "customer_confidence": 0.2,
+            "customer_segment_confidence": 0.2,
             "suggested_type": "Feature change",
             "type_confidence": "91%",
             "suggested_product_focus": "Electronic Flight Folder (EFF)",

@@ -35,13 +35,36 @@ export function summarizeActivity(signals, competitorName = (signal) => signal.c
       ? `Latest: ${plainText(evidence[0].headline)}`
       : "No substantive movement identified in these captures.";
     const latestAIInsight = evidence.find((signal) => plainText(signal.ai_enrichment?.competitive_insight));
+    const lccCustomerSignals = evidence.filter((signal) => {
+      const analysis = signal.ai_enrichment;
+      const relationship = analysis?.customer_relationship;
+      const isCustomerAction = ["signed", "selected", "adopted", "implemented", "partnered"].includes(relationship);
+      const airline = plainText(analysis?.customer_airline);
+      return analysis?.customer_segment === "lcc"
+        && isCustomerAction
+        && Number(analysis?.customer_confidence) >= 0.8
+        && Number(analysis?.customer_segment_confidence) >= 0.8
+        && airline
+        && !/^unknown$/i.test(airline);
+    });
+    const lccAirlineNames = new Map();
+    for (const signal of lccCustomerSignals) {
+      const airline = plainText(signal.ai_enrichment.customer_airline);
+      if (!lccAirlineNames.has(airline.toLowerCase())) lccAirlineNames.set(airline.toLowerCase(), airline);
+    }
+    const lccAirlines = [...lccAirlineNames.values()];
+    const lccMovement = lccAirlines.length >= 2
+      ? `${competitor} has customer or partner activity across ${lccAirlines.length} named LCCs (${lccCustomerSignals.length} signals): ${lccAirlines.slice(0, 3).join(", ")}${lccAirlines.length > 3 ? `, and ${lccAirlines.length - 3} more` : ""}.`
+      : "";
     return {
       competitor,
       capturedCount: captured.length,
       themes,
-      mainMovement: latestAIInsight
+      mainMovement: lccMovement || (latestAIInsight
         ? plainText(latestAIInsight.ai_enrichment.competitive_insight)
-        : summary,
+        : summary),
+      lccAirlineCount: lccAirlines.length,
+      lccSignalCount: lccCustomerSignals.length,
       summary,
       evidence,
     };
