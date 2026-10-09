@@ -34,7 +34,10 @@ export function summarizeActivity(signals, competitorName = (signal) => signal.c
     const summary = evidence.length
       ? `Latest: ${plainText(evidence[0].headline)}`
       : "No substantive movement identified in these captures.";
-    const latestAIInsight = evidence.find((signal) => plainText(signal.ai_enrichment?.competitive_insight));
+    const latestAIInsight = evidence.find((signal) =>
+      plainText(signal.ai_enrichment?.headline_summary)
+      && plainText(signal.ai_enrichment?.competitive_insight),
+    );
     const lccCustomerSignals = evidence.filter((signal) => {
       const analysis = signal.ai_enrichment;
       const relationship = analysis?.customer_relationship;

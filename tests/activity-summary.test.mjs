@@ -25,8 +25,9 @@ test("empty and filtered inputs determine the summary scope", () => {
 
 test("main movement uses the newest saved AI insight with a headline fallback", () => {
   const signals = [
-    { id: "newest", competitor: "IFS", date: "2026-10-08", headline: "LCC signs with IFS", ai_enrichment: { competitive_insight: "IFS signed an LCC agreement for its EFBOne platform." } },
-    { id: "older", competitor: "IFS", date: "2026-10-01", headline: "IFS releases update", ai_enrichment: { competitive_insight: "IFS expanded EFBOne capabilities." } },
+    { id: "newest", competitor: "IFS", date: "2026-10-08", headline: "LCC signs with IFS", ai_enrichment: { headline_summary: "IFS signs an LCC for EFBOne.", competitive_insight: "IFS signed an LCC agreement for its EFBOne platform." } },
+    { id: "legacy", competitor: "IFS", date: "2026-10-09", headline: "Legacy generated text", ai_enrichment: { competitive_insight: "Generic legacy insight with no structured headline." } },
+    { id: "older", competitor: "IFS", date: "2026-10-01", headline: "IFS releases update", ai_enrichment: { headline_summary: "IFS updates EFBOne.", competitive_insight: "IFS expanded EFBOne capabilities." } },
     { id: "fallback", competitor: "Aviobook", date: "2026-10-07", headline: "AvioBook launches Connect" },
   ];
   const rows = summarizeActivity(signals);
