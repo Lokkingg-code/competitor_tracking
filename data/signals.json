@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T01:55:28Z",
+  "generated_at": "2026-10-09T02:17:41Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -47,7 +47,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:18:13+00:00",
+        "source_sha256": "3992099bf4e25711986f84ce98cea29afa3cfe027bce261a83c552e14a8ba289",
+        "summary": "Jeppesen ForeFlight reported a messaging shift update on October 8, 2026, introducing aviation-specific AI with a human touch. The announcement emphasizes AI integration within ForeFlight, reflecting a strategic change in aviation messaging with a human touch.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen pushes aviation-specific AI with a human touch for ForeFlight, indicating a messaging shift toward AI integration.",
+        "caveat": "RSS source provides headline and summary only; full article content and external impact not verified.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.95,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-e70b87ab10e0",
@@ -1369,8 +1389,8 @@
       "date": "2026-09-10",
       "date_is_estimated": false,
       "type": "product_launch",
-      "priority": "high",
-      "severity": 4,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.65,
       "headline": "On the skybook EFB application, pilots can: 📄 R",
       "summary": "✈️ Receiving them. On the skybook EFB application, pilots can: 📄 R linkedin.com</fon",
@@ -1769,8 +1789,8 @@
       "date": "2026-09-01",
       "date_is_estimated": false,
       "type": "feature_change",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.65,
       "headline": "Send instant messages directly to the skybook EFB during flight briefings.",
       "summary": "Send instant messages directly to the skybook EFB during flight briefings. 💬 🛫 Dispatchers can quickly share important operational updates with pilots, ensuring the latest information reaches the cockpit when it matters.",
@@ -1977,7 +1997,7 @@
       "competitor": "Jeppesen",
       "date": "2026-08-13",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "product_launch",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -2007,7 +2027,28 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:19:02+00:00",
+        "source_sha256": "6db1c14ff240316c8370060c42c4cb0a7758866285aac3ced0f478a6f778ee71",
+        "summary": "Jeppesen, under the Qantas Group workforce strategic planning team, launched Jeppesen Pairings then Rostering. Jetstar Airways previously built rosters manually, working with limited room to weigh options, before this launch replaced that manual rostering process.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen launched Jeppesen Pairings then Rostering, shifting Jetstar Airways from manual to automated rostering.",
+        "caveat": "Source provides launch announcement details; broader rollout metrics, adoption rates, and competitive displacement effects are not specified.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.95,
+        "type_matches_existing": false,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-4581508f82ef",
@@ -2237,7 +2278,7 @@
       "competitor": "Jeppesen",
       "date": "2026-08-06",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "regulatory",
       "priority": "low",
       "severity": 2,
       "confidence": 0.8,
@@ -2245,7 +2286,7 @@
       "summary": "AUSTIN, TEXAS — JUNE 16, 2026 — Jeppesen ForeFlight today announced it has received a Department of Defense Impact Level 5 (IL5) Authority to Operate. The Authority to Operate enables military and defense organizations to deploy ForeFlight for sensitive, mission-critical operations with full regulatory confidence, and applies across the Department of Defense, with reciprocity available to all military branches…",
       "source_channel": "press_release",
       "source_origin": "official_site",
-      "product_focus": "other",
+      "product_focus": "efb",
       "product": "ForeFlight",
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -2267,7 +2308,29 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:19:42+00:00",
+        "source_sha256": "bd037ef9c59d65979d8e96ee566a20a52a04b41d3e9331ccd30a73f876086875",
+        "summary": "Jeppesen ForeFlight announced receipt of a Department of Defense Impact Level 5 Authority to Operate, enabling military and defense organizations to deploy the software for sensitive, mission-critical operations with full regulatory confidence across all branches. The IL5 authorization applies Department-wide and includes reciprocity for all military services.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen ForeFlight secured a Department of Defense Impact Level 5 Authority to Operate, authorizing military and defense organizations to deploy the software for sensitive, mission-critical operations with full regulatory confidence across all branches.",
+        "caveat": "Date inconsistency between headline (2026-08-06) and captured summary (June 16, 2026); source does not detail operational deployment timelines or specific reciprocity terms beyond branch coverage.",
+        "suggested_type": "regulatory",
+        "type_confidence": 0.9,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.85,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-34f7cb947b3c",
@@ -2304,7 +2367,27 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:20:08+00:00",
+        "source_sha256": "1594714dcea322a90ab159ef4417ed0803522829d53b49c19c01f0cb5fdd17e6",
+        "summary": "The skybook 1.51.0 release notes from Bytron Aviation Systems explore updates including NOTAM filtering, digital loadsheet management for upload, comparing and signing, and an upgraded interactive globe. This update was published on 2026-08-04 as part of the skybook 1.51.0 version release.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Bytron Skybook released version 1.51.0, adding NOTAM filtering and digital loadsheet management, thereby expanding its software feature set.",
+        "caveat": "Evidence limited to release notes; no market adoption, customer feedback, or broader competitive impact data provided.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-635beb962343",
@@ -2341,7 +2424,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:20:25+00:00",
+        "source_sha256": "d5487a85b907755e1b5b9384cf901a003e5c6e00e0e42000cc2b0407ac5d73f8",
+        "summary": "Jeppesen reported a messaging shift update titled A Closer Look at ForeFlight’s Panel Interface, published via Google News RSS on August 2, 2026. The update directs readers to verify details and assess impact for Cathay Technologies.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen reported a messaging shift update titled A Closer Look at ForeFlight’s Panel Interface, directing impact assessment toward Cathay Technologies.",
+        "caveat": "Source is a Google News RSS feed; details and exact impact require verification of the linked article.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-f37bb149ce93",
@@ -2415,7 +2518,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:21:06+00:00",
+        "source_sha256": "447d05b962c2b1f682c92a3bb83fbcf50d7dd74cda7682c949af88399046fd66",
+        "summary": "Jeppesen reported a messaging shift update for ForeFlight focused on creating a single connected EFB ecosystem for airlines. The update supports unified EFB deployment across airline flight operations and navigation planning.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen reported a messaging shift update for ForeFlight focused on creating a single connected EFB ecosystem for airlines, indicating a strategic emphasis on unified airline EFB integration.",
+        "caveat": "Source captured via Google News RSS; direct verification of announcement details and impact assessment not performed.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.7,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "avio-2026-07-23-escape-routes",
@@ -2453,8 +2576,29 @@
       "source_channel": "curated",
       "source_origin": "linkedin",
       "product": "AvioBook",
-      "product_focus": "eff",
-      "ai_enrichment_status": "pending"
+      "product_focus": "efb",
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:21:28+00:00",
+        "source_sha256": "2c3b360cc737c8e925d2fadbaa252a835667a95c7a32d1489b0c6efa43e7729f",
+        "summary": "AvioBook previewed an upcoming Escape Routes feature for flight-operations software. The tool integrates valid diversion paths into the pilot workflow, highlights routes near high-terrain areas, and updates the navlog when a diversion is selected.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "AvioBook previewed an upcoming Escape Routes feature that integrates valid diversion paths into the pilot workflow and highlights high-terrain routes, directly supporting terrain-aware diversion planning.",
+        "caveat": "The announcement is a preview; no launch date, availability, or commercial deployment details are confirmed in the evidence.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.75,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.85,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-4e87b72d9136",
@@ -2491,7 +2635,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:21:53+00:00",
+        "source_sha256": "b13b7516c1f5f5e6af0345b870d84c74d1e8531d60d572402210ddfb3192061a",
+        "summary": "Jeppesen reported a messaging shift update on ForeFlight's Mobile Clearance Tech addition. The signal appeared via the Google News RSS on July 23, 2026, noting Cathay Technologies impact assessment pending detailed source verification.",
+        "announcement_tone": "Unclear",
+        "competitive_insight": "Jeppesen reported a messaging shift update on ForeFlight's Mobile Clearance Tech addition, indicating its public reporting of competitor operational changes.",
+        "caveat": "Source details require opening the linked RSS feed for full verification; impact assessment for Cathay Technologies is noted but not confirmed beyond the captured summary.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.6,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "avio-2026-07-16-braathens-story",
