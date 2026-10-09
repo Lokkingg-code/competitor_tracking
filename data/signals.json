@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T02:17:41Z",
+  "generated_at": "2026-10-09T02:39:40Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -216,7 +216,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:40:01+00:00",
+        "source_sha256": "9127e2c2e0f468434bf3d9d495d09178ad11c5de7fcbab688cca4e86ba6577f6",
+        "summary": "Jeppesen reported ForeFlight expanding AI into airline operations as a messaging shift on October 6, 2026. The update was characterized as a messaging shift, with impact assessment directed at Cathay Technologies and verification via the Google News RSS source.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen reported a messaging shift update on ForeFlight’s AI expansion into airline operations, with impact assessment directed at Cathay Technologies.",
+        "caveat": "Source is a Google News RSS feed; direct verification of details not performed.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.6,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-f9e077e6e9b0",
@@ -363,7 +383,27 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:40:20+00:00",
+        "source_sha256": "f77fcb38d067e3afd6427491e768c714e1917698bd61c533f512a6193980bc75",
+        "summary": "At the Lufthansa Systems Airline Forum 2026, the company stated that agentic AI works best with a human in the loop. Lufthansa Systems said its system analyzes what is happening across operations in real time.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Lufthansa Systems stated at the Airline Forum 2026 that agentic AI works best with a human in the loop, supporting real-time operations analysis with human oversight.",
+        "caveat": "The source provides only a forum keynote statement; no product release, implementation details, customer adoption data, or external validation are included, creating uncertainty about tangible impact.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-3347d8862415",
@@ -1115,7 +1155,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:40:35+00:00",
+        "source_sha256": "d5b21ad4e42e877694c1f5ba1e94aabcdaade70677506af2e9441d0b7e78c502",
+        "summary": "Aviobook stated it wants to be a partner genuinely close to airline operators' day-to-day operations to understand their needs before they become problems. The statement references ASL Airlines Belgium's Director of Flight Operations discussing daily EFB use and rapid team support when issues arise.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Aviobook stated a partnership approach focused on day-to-day operational closeness to anticipate airline needs, indicating a strategy to integrate daily EFB use with rapid issue resolution.",
+        "caveat": "Signal derived from a single LinkedIn quote; no formal announcement, product roadmap, or third-party verification provided.",
+        "suggested_type": "partnership",
+        "type_confidence": 0.6,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-d80af89ec4b3",
@@ -1209,7 +1269,27 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:40:51+00:00",
+        "source_sha256": "e16a0a59139b7ffea47d465c4ac8316021b8f6d77931880d7e935870f1450d9d",
+        "summary": "Saxon Air is expanding its partnership with Jeppesen ForeFlight, moving to the full operational suite to support greater visibility, efficiency, and smarter decision-making across its operations. The expansion was announced on September 11, 2026, by Jeppesen ForeFlight via LinkedIn.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen ForeFlight announces Saxon Air expanding its partnership to the full operational suite, supporting greater visibility, efficiency, and smarter decision-making across operations.",
+        "caveat": "Based on a LinkedIn post; no official press release or financial details provided.",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.85,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-0384fbd2ed67",
@@ -1990,7 +2070,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:41:11+00:00",
+        "source_sha256": "2024d0ccb23760a6e4d03883756d702a98e92f33c0028bb4448af71d07afe976",
+        "summary": "Lufthansa Systems announced a smarter planning focus for airline operations, emphasizing that every minute counts. The company promotes NetLine Crew Interaction Apps, stating they give crews instant access to duty information to improve agility and communication during plan changes.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Lufthansa Systems announced NetLine Crew Interaction Apps to give crews instant duty information access, directly supporting airline operational agility.",
+        "caveat": "Evidence consists solely of a LinkedIn post headline and summary; no formal press release, product documentation, customer confirmation, or market impact data provided.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.55,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-3e4887b87066",
@@ -2085,7 +2185,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:41:27+00:00",
+        "source_sha256": "c7c993db45093ef228f0513b5ccbacef0075c611274c4f836fafcca020f6d9e5",
+        "summary": "Lufthansa Systems was featured in Airports International for NetLine HubControl, which unifies legacy data, video feeds, and real-time inputs into a single platform. The feature, highlighted by Head of Product Management Dirk Bracklow, emphasizes predictive visibility to spot bottlenecks before they cause disruptions.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Lufthansa Systems was featured in Airports International, positioning NetLine HubControl as a platform that consolidates legacy and real-time data for predictive airline operational insight.",
+        "caveat": "Source is a LinkedIn share of a magazine feature; full article content and entity relationship between Lufthansa Systems and NetLine not fully verified.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.6,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.5,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-2ab7397b4a82",
@@ -2122,14 +2242,34 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:41:42+00:00",
+        "source_sha256": "f7642d1a282ae1b93f7311c037d3e6a336141070b67682bbc84ce8180ca51659",
+        "summary": "Lufthansa Systems announced a partnership with Azul, leveraging Lido Flight 4D Integrated Flight Support to enhance flight planning, enable faster operational decisions, and improve day-to-day operational control. The initiative addresses airline pressure from rising costs, operational complexity, and constant disruption through strong collaboration.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Lufthansa Systems partnered with Azul to leverage Lido Flight 4D Integrated Flight Support for enhanced flight planning and improved operational control, directly addressing airline pressure from rising costs and operational complexity.",
+        "caveat": "Evidence derived from a single LinkedIn post; no official press release or verified data available; details may be incomplete or subject to interpretation.",
+        "suggested_type": "partnership",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-63b784ca0cea",
       "competitor": "Lufthansa Systems",
       "date": "2026-08-10",
       "date_is_estimated": false,
-      "type": "implementation",
+      "type": "product_launch",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -2159,7 +2299,28 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:41:58+00:00",
+        "source_sha256": "6357357d116e0e90dbda2686c65c6bd6485c63602d035a170c361156c2583dad",
+        "summary": "A planning platform at Lufthansa Group makes network decisions throughout the entire season planning process, from shaping network structure and evaluating bank concepts to optimizing connectivity and identifying growth opportunities. NetLine/HubDesigner supports these decisions with powerful scenario simulations to test different schedule options.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Lufthansa Systems launched a planning platform where network decisions span the entire season planning process, with scenario simulations supporting schedule testing, reflecting a focus on data-driven network optimization.",
+        "caveat": "Source is a LinkedIn post with truncated summary; tone not explicitly stated and implications are inferred from limited evidence.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.85,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "original_type": "implementation",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-6fa1922473d2",
@@ -2174,7 +2335,7 @@
       "summary": "We are pleased to announce that Precision Air Tanzania has selected EFBOne as its Electronic Flight Bag platform, becoming Tanzania’s first TCAA-approved Electronic Flight Folder.Thank you to Lucas Mathew and the Flight Operations team for their close collaboration and successful implementation process.https://lnkd.in/eDwv6EJp …more",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "eff",
+      "product_focus": "efb",
       "product": "IFS EFBOne",
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -2196,7 +2357,28 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:42:08+00:00",
+        "source_sha256": "98d11d3b26fbeb1b66c25edbb3573474292e9a3a5a7ed5cc863509138955192a",
+        "summary": "IFS announced Precision Air Tanzania selected EFBOne as its Electronic Flight Bag platform, becoming Tanzania’s first TCAA-approved Electronic Flight Folder. The selection followed close collaboration with the Flight Operations team and a successful implementation process.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "IFS announced Precision Air Tanzania selected EFBOne as its Electronic Flight Bag platform, marking Tanzania’s first TCAA-approved Electronic Flight Folder.",
+        "caveat": "Source is a LinkedIn announcement; independent verification of TCAA approval specifics not provided.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.95,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.95,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "avio-2026-08-06-connect-3",
@@ -2234,7 +2416,27 @@
       "source_origin": "linkedin",
       "product": "AvioBook Connect",
       "product_focus": "adjacent",
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:42:45+00:00",
+        "source_sha256": "ce735ffa63d8a4f61adf934ff0e750a72e59cd103a304078a61688a51ff72c0a",
+        "summary": "Aviobook teased a major Connect 3.0 preview via a LinkedIn campaign on August 6, 2026. The LinkedIn campaign announced webinars previewing a major release on September 17, 2026, focused on the unified real-time flight-ops information.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Aviobook teased a Connect 3.0 preview for September 17, 2026, indicating development of unified real-time flight-ops information capabilities.",
+        "caveat": "Announcement derived from a LinkedIn teaser; exact release scope and details not yet confirmed.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.8,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-00ca3f8a3c2e",
@@ -2271,7 +2473,27 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:43:02+00:00",
+        "source_sha256": "21526f679df755ac0676c2189c6a8bf94c1d3f466f5cf4e283941dd3c496f8ba",
+        "summary": "Jeppesen Dispatch v2026-3 is now available on August 6, 2026. This release helps flight operations teams respond faster when plans change in flight. It also helps plan more safely around aircraft equipment issues and manage workload across busy operations centers.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen launched Dispatch v2026-3, enabling flight operations teams to respond faster when plans change in flight.",
+        "caveat": "Summary based on captured headline and text; no internal testing data or third-party validation provided.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-da9edaf974cf",
@@ -2451,7 +2673,7 @@
       "competitor": "Jeppesen",
       "date": "2026-07-28",
       "date_is_estimated": false,
-      "type": "customer_win",
+      "type": "partnership",
       "priority": "high",
       "severity": 4,
       "confidence": 0.8,
@@ -2481,7 +2703,28 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:43:22+00:00",
+        "source_sha256": "4e512c3b3baba02c4a22421d8d6bfbc8d335ce0862d10ee4d0d4d65542a541dc",
+        "summary": "Jeppesen ForeFlight signed an MOU with UrbanLink Air Mobility on July 28, 2026, to collaborate on electronic flight bag and dispatch procedures for e-VTOL and all-electric aircraft operations in the South Florida airspace. The MOU targets standardized EFB and dispatch protocols for advanced air mobility in the region.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen ForeFlight signed an MOU with UrbanLink Air Mobility to collaborate on electronic flight bag and dispatch procedures for e-VTOL and all-electric aircraft operations in the South Florida airspace, establishing joint standards for emerging advanced air mobility operations.",
+        "caveat": "Source provides no details on MOU terms, implementation timeline, or regulatory approvals.",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "original_type": "customer_win",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-8c30ce296ce8",
@@ -2545,8 +2788,8 @@
       "competitor": "Aviobook",
       "date": "2026-07-23",
       "type": "product_launch",
-      "priority": "high",
-      "severity": 4,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.9,
       "headline": "AvioBook previews Escape Routes flight-operations feature",
       "summary": "AvioBook announced an upcoming Escape Routes feature that brings valid diversion paths into the pilot workflow, highlights routes near high-terrain areas, and updates the navlog when a diversion is selected.",
@@ -2692,15 +2935,36 @@
       "source_channel": "curated",
       "source_origin": "linkedin",
       "product": "AvioBook",
-      "product_focus": "eff",
-      "ai_enrichment_status": "pending"
+      "product_focus": "efb",
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:43:34+00:00",
+        "source_sha256": "90b7ee000ea041098d7b4688b9f406d3075f9585947fb8313e7c1396c86ea240",
+        "summary": "AvioBook published a customer interview with Braathens’ EFB Administrator and Fleet Manager on LinkedIn, focusing on implementation reliability and ongoing collaboration. The story details a smooth EFB rollout and highlights continued operational partnership between the companies.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "AvioBook published a customer interview with Braathens’ EFB Administrator and Fleet Manager, indicating market validation of its EFB implementation reliability.",
+        "caveat": "Based on a single LinkedIn customer interview; broader commercial terms and market impact are not disclosed.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-5c33d1838bcc",
       "competitor": "Jeppesen",
       "date": "2026-07-16",
       "date_is_estimated": false,
-      "type": "feature_change",
+      "type": "product_launch",
       "priority": "low",
       "severity": 2,
       "confidence": 0.8,
@@ -2730,7 +2994,28 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:43:53+00:00",
+        "source_sha256": "85856dbb9182c8245b7d5ea352cf802ec08cc3e9105a7b9e70f25eb89d0dd60a",
+        "summary": "Jeppesen ForeFlight announced the largest product line up with new products, upgraded features, special pricing, and promotions at EAA AirVenture Oshkosh 2026. Offerings span artificial intelligence, panel-connected cockpit hardware, aviation insurance, and flight school scheduling and operations.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen ForeFlight announced new products, upgraded features, special pricing, and promotions at EAA AirVenture Oshkosh 2026, indicating inclusion of flight school scheduling and aviation insurance in its product suite.",
+        "caveat": "No customer reception data, exact pricing details, or rollout timeline provided in the source.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.85,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "original_type": "feature_change",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-1798f8657ac9",
@@ -2745,7 +3030,7 @@
       "summary": "Jeppesen reported a messaging shift update: Sporty’s Becomes Authorized Distributor of Jeppesen ForeFlight Education Tools. Open the linked source to verify details and assess impact for Cathay Technologies.",
       "source_channel": "rss",
       "source_origin": "google_news",
-      "product_focus": "eff",
+      "product_focus": "efb",
       "product": "ForeFlight",
       "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
       "segment": "Unknown",
@@ -2767,7 +3052,28 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:44:32+00:00",
+        "source_sha256": "f6b191a17aa4fc657ca66e63a99bf24ffc8a1edc0def7e611024544ce840633d",
+        "summary": "Jeppesen reported a messaging shift update: Sporty’s became an authorized distributor of Jeppesen ForeFlight Education Tools, as noted in the Google News RSS source. The announcement was made on July 16, 2026, via the Google News RSS source.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen designated Sporty’s as authorized distributor of ForeFlight Education Tools, reflecting a messaging shift in distribution.",
+        "caveat": "Caveat: Detailed article content not fully extracted; headline and source metadata only available, impact assessment for Cathay Technologies unverified per source instruction.",
+        "suggested_type": "partnership",
+        "type_confidence": 0.7,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-74478f681dcd",
@@ -2804,7 +3110,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:44:45+00:00",
+        "source_sha256": "c7356643eb5ce8e5832fe3c8ba4c7288a3531abca4bc97491dad45475733bd79",
+        "summary": "Jeppesen reported that ForeFlight added AI-powered summaries for NOTAMs as part of a messaging shift update. The change took effect on July 14, 2026, and is categorized under the ForeFlight product with an existing EFB-focused product focus.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen reported that ForeFlight added AI summaries for NOTAMs, characterizing the update as a messaging shift.",
+        "caveat": "Tone and broader market impact not independently verified; based solely on reported headline and summary.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.85,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-ee883a79a5d4",
@@ -2841,7 +3167,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:45:23+00:00",
+        "source_sha256": "87247a1ad584e920f55e1597da6fccd0a5b4ff33c0e69f69b4db0c8d802b5c1c",
+        "summary": "Jeppesen reported a messaging shift update on 2026-07-14 featuring the headline 'uAvionix and Jeppesen’s SkyPlay Brings ForeFlight to Cockpit', integrating ForeFlight into cockpit operations. The update characterizes this as a messaging shift for cockpit operations.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen reported a messaging shift update bringing ForeFlight to the cockpit via SkyPlay, indicating a messaging shift in ForeFlight cockpit delivery.",
+        "caveat": "Caveat: The RSS source content was not directly verified; evidence fields are treated as untrusted and may not reflect full details.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.85,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-ea2d2623ce9d",
@@ -2878,7 +3224,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:45:42+00:00",
+        "source_sha256": "c85864bade21c301c42896173e9fd8c906c444961646453442823a0ee8448ca5",
+        "summary": "On 2026-07-13 Jeppesen reported a messaging shift update concerning SkyPlay Mini and ForeFlight software monitoring. The update announces SkyPlay Mini positions ForeFlight on the instrument panel for flight operations, referencing ForeFlight's placement within SkyPlay Mini's software interface context.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen reported a messaging shift update announcing SkyPlay Mini positions ForeFlight on the instrument panel, reflecting a repositioning within flight operations software monitoring context.",
+        "caveat": "Source is a Google News RSS headline; full details, verification, and impact assessment require accessing the linked article.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "jep-2026-07-06-avia-solutions",
@@ -2916,7 +3282,27 @@
       "source_origin": "official_site",
       "product": "ForeFlight FliteDeck Pro",
       "product_focus": "efb",
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:46:03+00:00",
+        "source_sha256": "d37ec94f1905f0a6e66476b4d25d40637bfd4ebb26f0cb6185baaad14cfd7526",
+        "summary": "Jeppesen expands its Avia Solutions Group deal across 10 ACMI airlines, deploying FliteDeck Pro (including Smart Airports, NavData, and Airport Data) globally. This extends ForeFlight coverage to Avia Solutions Group’s worldwide ACMI airline portfolio.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen expands its Avia Solutions Group deal across 10 ACMI airlines, extending FliteDeck Pro deployment globally, which now covers Avia’s worldwide ACMI airline portfolio.",
+        "caveat": "Based on single corporate headline; no independent verification of deployment terms or scope.",
+        "suggested_type": "partnership",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-9bbac78f0c3d",
@@ -2953,7 +3339,27 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:46:14+00:00",
+        "source_sha256": "f5537c3115e8beb5b43602de34c16e58f66c36f70af13e19843789eda1c0d482",
+        "summary": "Jeppesen ForeFlight unveiled Airflow, an aviation-centric AI engine developed over several years using deep domain experience and industry-leading data. The engine spans crew and fleet planning, with capabilities extending to day-of-flight operations, forming the foundation of the company's responsible AI strategy for aviation.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen unveiled Airflow, positioning it as the foundation for responsible AI across all aviation sectors.",
+        "caveat": "Source summary truncated after 'day-of-flight'; full capabilities and market reception not detailed in source.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-9ab015534872",
