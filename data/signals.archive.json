@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T02:39:40Z",
+  "generated_at": "2026-10-09T03:17:05Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -2674,8 +2674,8 @@
       "date": "2026-07-28",
       "date_is_estimated": false,
       "type": "partnership",
-      "priority": "high",
-      "severity": 4,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.8,
       "headline": "Jeppesen Foreflight And Urbanlink Air Mobility Sign Mou To Advance Electronic Flight Bag And…",
       "summary": "MIAMI, FL and AUSTIN, TX – July 28, 2026 – Jeppesen ForeFlight and UrbanLink Air Mobility today announced they have signed a Memorandum of Understanding (MOU) to collaborate on electronic flight bag (EFB) requirements and dispatch procedures supporting electric vertical takeoff and landing (e-VTOL) and other all-electric aircraft operations in the South Florida airspace.",
@@ -3023,8 +3023,8 @@
       "date": "2026-07-16",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.6000000000000001,
       "headline": "Sporty’s Becomes Authorized Distributor of Jeppesen ForeFlight Education Tools",
       "summary": "Jeppesen reported a messaging shift update: Sporty’s Becomes Authorized Distributor of Jeppesen ForeFlight Education Tools. Open the linked source to verify details and assess impact for Cathay Technologies.",
@@ -3433,7 +3433,33 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:17:12+00:00",
+        "source_sha256": "5642e9dfe7654838a347d0e9139156099c4109af6fd96ee896f2b896775916a6",
+        "headline_summary": "Lufthansa Systems seeks experienced Scheduler familiar with NetLine tools for Product Consultants team based in Singapore.",
+        "summary": "Lufthansa Systems posted a job listing for an experienced Scheduler role, ideally familiar with NetLine tools, to join their Product Consultants team based in Singapore. The posting was captured from Google News and LinkedIn RSS feeds on June 25, 2026. This reflects ongoing hiring activity for airline flight-operations software talent.",
+        "announcement_tone": "Unclear",
+        "competitive_insight": "Lufthansa Systems is actively recruiting for specialized scheduler expertise with its NetLine product line, indicating continued investment in flight-operations software capabilities.",
+        "caveat": "The source is a job posting; no direct customer airline relationship, product launch confirmation, or operational deployment is evidenced. Role and location details are inferred from the listing text.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "product_launch",
+        "type_confidence": 0.3,
+        "type_matches_existing": false,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.3,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-54520ab475db",
@@ -3845,7 +3871,33 @@
       "source_origin": "official_site",
       "product": null,
       "product_focus": "adjacent",
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:18:08+00:00",
+        "source_sha256": "fda85a1de808cf0bb4c7157b47a4f165900b63536e0b48922b9182509dff4429",
+        "headline_summary": "Korean Air selected Jeppesen Dispatch for its 230+ aircraft Korean Air–Asiana fleet integration after 24-month evaluation.",
+        "summary": "Korean Air selected Jeppesen Dispatch as its future flight planning system for the integrated Korean Air–Asiana fleet after a 24-month evaluation. The decision includes renewal of existing Jeppesen flight planning solutions and supports a combined fleet of 230+ aircraft. The announcement establishes Jeppesen as the standard flight planning platform for the merged network.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Korean Air's 24-month evaluation and selection of Jeppesen Dispatch for its combined 230+ aircraft Korean Air–Asiana fleet signals a post-merger fleet standardization strategy consolidating flight planning under a single provider.",
+        "caveat": "The source does not provide implementation timelines, financial details, or the full scope of fleet-wide rollout beyond the announced selection and evaluation period.",
+        "customer_airline": "Korean Air",
+        "customer_relationship": "selected",
+        "customer_segment": "unknown",
+        "customer_confidence": 1.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-f7123f18f474",
@@ -3882,7 +3934,33 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:18:27+00:00",
+        "source_sha256": "ae5f8ae6b4974b571a45847b415015389b55d85964931c7b9c00a0b320181e49",
+        "headline_summary": "Jeppesen ForeFlight appointed three senior executives—CFO, CCO, and Chief People Officer—to accelerate growth and innovation in aviation software.",
+        "summary": "Jeppesen ForeFlight announced three senior executive appointments on December 16, 2025. Joe Ayers joined as CFO, Toya Del Valle as CCO, and Richa Gupta as chief people officer to drive growth and innovation in aviation software.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen ForeFlight's executive appointments signal a leadership-driven strategy to accelerate innovation and growth in aviation software, marking a single operational move rather than a broader industry trend.",
+        "caveat": "Source announcement truncated after 'as of…'; no airline, customer, or product-specification details provided in evidence.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.7,
+        "type_matches_existing": true,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.5,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-c783586c0440",
@@ -3919,7 +3997,33 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:18:55+00:00",
+        "source_sha256": "fc1bf255f50c7beeda794d212f0a95db2135644f8f4e55b2c4dc76cff6ecaef5",
+        "headline_summary": "Navblue reports Pan Am taps Skywise digital suite to power historic entry-into-service, marking digital operations advancement.",
+        "summary": "Navblue reported a product launch update: Pan Am taps Skywise digital suite to power historic EIS. The press release confirms the digital suite supports Pan Am's entry-into-service. Cathay Technologies is referenced as the assessment target, with instructions to open the linked source for verification.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Pan Am's selection of Skywise digital suite for historic entry-into-service, while a single event, signals wider carrier migration to integrated digital operations platforms.",
+        "caveat": "Source is a Google News RSS feed; full article text not directly accessible, and Pan Am's current operational status is ambiguous.",
+        "customer_airline": "Pan Am",
+        "customer_relationship": "selected",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.9,
+        "customer_segment_confidence": 0.1,
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-4f107cda915f",
@@ -3956,7 +4060,33 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:19:24+00:00",
+        "source_sha256": "d314668f8f2139a503ff89f4dce68d01216d7c369f1d93a663b6ce3778a4998b",
+        "headline_summary": "Navblue's Skywise Digital Suite selected by Pan American World Airways to power historic flight operations revival.",
+        "summary": "Pan American World Airways has adopted the Skywise Digital Suite to provide the technological backbone for its historic return to flight operations. Pan American World Airways' selection of Skywise Digital Suite marks its return to flight operations.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Pan American World Airways' adoption of Skywise Digital Suite illustrates how legacy carriers leverage advanced operations software to enable historic service restarts and modernize flight operations.",
+        "caveat": "Source does not specify financial terms, full deployment scope, or Pan Am's current operational status beyond the announced re-entry.",
+        "customer_airline": "Pan American World Airways",
+        "customer_relationship": "adopted",
+        "customer_segment": "unknown",
+        "customer_confidence": 1.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "type_matches_existing": true,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-5ee144b48db6",
@@ -3993,7 +4123,33 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:19:43+00:00",
+        "source_sha256": "2fc6a80d07b9fbf4a6305fd3d73bb5412f749b838edf2538c43cfc06dd8204b7",
+        "headline_summary": "Bytron released Skybook 1.50.0, adding enhanced flight tracking, dispatch visibility, OTP filtering, FRV edit tracking, navigation reclearance routes, and RVSM engine oil recording fields.",
+        "summary": "Bytron Aviation Systems announced the Skybook 1.50.0 release on May 26, 2026. Updates include an enhanced flight tracking map, configurable dispatch visibility, OTP filtering, FRV edit tracking, navigation reclearance routes, and new RVSM engine oil recording fields.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Bytron's Skybook 1.50.0 release signals product-level feature expansion in flight-operations monitoring, reflecting iterative development rather than broader market shifts.",
+        "caveat": "No customer airline or segment explicitly identified; features derived solely from release notes.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "feature_change",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.5,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "avio-2026-05-21-connect-webinar",
@@ -4031,7 +4187,33 @@
       "source_origin": "official_site",
       "product": "AvioBook Connect",
       "product_focus": "adjacent",
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:20:17+00:00",
+        "source_sha256": "276efd4019589b24be46846ebd67dea6857db9711a977a1f46354739fea3bd2a",
+        "headline_summary": "Aviobook launched AvioBook Connect, a per-flight secure ops chat for IROPs, featuring integrations used by Southwest, Finnair, KLM and United.",
+        "summary": "Aviobook showcased AvioBook Connect as a per-flight secure ops chat at the Aircraft IT webinar on May 21 2026. It features API-driven alerts, role mentions, and integrations used by Southwest Finnair KLM and United for IROPs.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Aviobook's Connect webinar demo positions the platform as a per-flight IROPs communication solution featuring integrations relevant to major carriers including Southwest Finnair KLM and United, signaling targeted expansion into operational chat markets.",
+        "caveat": "The evidence references carrier integrations in a webinar demo context but does not explicitly confirm customer adoption status, partnership details, or commercial terms; relationship nature and segment classification are inferred from the headline and summary.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "product_launch",
+        "type_confidence": 0.8,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-9e329b513740",
@@ -4068,7 +4250,33 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:20:38+00:00",
+        "source_sha256": "39c36073d4af4ec1a4a8766a30f18a8e49f8ac8b18036f365bfad3ccbab63b29",
+        "headline_summary": "Jeppesen ForeFlight collaborates with GE Aerospace to deliver an end-to-end airline fuel savings solution.",
+        "summary": "Jeppesen ForeFlight and GE Aerospace announced a collaboration on April 30, 2026. The collaboration combines GE Aerospace's flight data analytics platform with Jeppesen ForeFlight's Cost Index Optimization solution. Together they provide airlines a continuous fuel efficiency workflow spanning pre-flight planning in-flight optimization and post-flight analysis.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "A single collaboration between Jeppesen ForeFlight and GE Aerospace introduces an integrated fuel efficiency workflow for airlines, signaling convergence between navigation and flight data analytics.",
+        "caveat": "No specific airline customer, operational metrics, or LCC classification provided in the source.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "jep-2026-04-29-dispatch-2026-2",
@@ -4106,7 +4314,33 @@
       "source_origin": "official_site",
       "product": "ForeFlight EFFCore",
       "product_focus": "eff",
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T03:21:20+00:00",
+        "source_sha256": "071d86c1026962d98b99b86c2bff401cf93772e12eb5a3197ab00160e7410d1a",
+        "headline_summary": "Jeppesen ForeFlight launches Dispatch v2026-2, with Corendon Airlines as launch customer, expanding automation and reporting fuel and planning-time gains.",
+        "summary": "Jeppesen ForeFlight launches Dispatch v2026-2, expanding automation for complex planning workflows. Corendon Airlines (31× 737) is a launch customer, integrating with EFFCore and Jeppesen EFB, reporting fuel and planning-time gains. Drivers report fuel and planning-time gains.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen ForeFlight's Dispatch v2026-2 launch with Corendon Airlines signals targeted automation upgrades in flight planning, validated by early fuel and time efficiencies rather than a broader industry shift.",
+        "caveat": "Source does not quantify specific fuel savings or explicitly define Corendon's airline segment beyond fleet composition.",
+        "customer_airline": "Corendon Airlines",
+        "customer_relationship": "selected",
+        "customer_segment": "unknown",
+        "customer_confidence": 1.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-8ac9264db5f8",
