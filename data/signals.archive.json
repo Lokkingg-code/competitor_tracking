@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T01:26:06Z",
+  "generated_at": "2026-10-09T01:55:28Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -139,7 +139,27 @@
         "google_news",
         "rss"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:55:48+00:00",
+        "source_sha256": "2a43e776617ea340871aa222e2cb9bf6b10b7b422e7238cbdbfe239f4046410b",
+        "summary": "Jeppesen debuted ForeFlight Airflow™ Agents for commercial aviation on October 6, 2026, centered on operating intelligence and adoption flexibility. The launch was reported as a customer win update, emphasizing enhanced operational insights and flexible deployment for ForeFlight users.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen launched ForeFlight Airflow™ Agents for commercial aviation, reporting the event as a customer win update focused on operating intelligence and adoption flexibility.",
+        "caveat": "Source is an RSS feed with linked article; specific customer details and full impact beyond the headline are not directly verified in the provided snippet.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.75,
+        "type_matches_existing": false,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-379fa06b7157",
@@ -1112,7 +1132,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:56:15+00:00",
+        "source_sha256": "72ba5c372def0e027a97c84fbf37a8919bce7de275d2ef67fd5178067fbd28d5",
+        "summary": "IFS expressed excitement about welcoming MY FREIGHTER (Centrum Air), Central Asia's largest air cargo operator, to the EFBOne platform. MY FREIGHTER (Centrum Air) was welcomed to the EFBOne platform as Central Asia's largest air cargo operator.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "IFS welcomed MY FREIGHTER (Centrum Air) to the EFBOne platform, strengthening its position in Central Asia's air cargo market.",
+        "caveat": "Tone and implications inferred from headline wording; engagement metrics and full context not verified as evidence fields are treated as untrusted data.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.7,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-eede314fcaab",
@@ -1186,7 +1226,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:56:37+00:00",
+        "source_sha256": "7d97688bd868b750287d0dcb614b888c8303f57f5aea92d17c4468ade23f1930",
+        "summary": "Lufthansa Systems shared a customer testimonial featuring KLM Royal Dutch Airlines project manager Hans Dijkman. Dijkman describes working with Lufthansa Systems as 'feels like a partnership.' The testimonial highlights Lido Flight 4D IFS supporting dispatch teams with integrated workflows, a modern user experience, and operational efficiencies.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Lufthansa Systems shared a customer testimonial featuring KLM Royal Dutch Airlines, highlighting Lido Flight 4D IFS integration benefits for dispatch operations and efficiencies.",
+        "caveat": "The source is a LinkedIn customer testimonial without formal press release details; scope and novelty of the signal are uncertain.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.8,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-cb2fca77cee3",
@@ -1201,7 +1261,7 @@
       "summary": "Excited to welcome MY FREIGHTER (Centrum Air), Central Asia's largest air cargo operator, to the EFBOne platform.A big thank you to their operational and flight technical teams for the outstanding collaboration on this project.https://lnkd.in/eZ4A7TdR …more",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "eff",
+      "product_focus": "efb",
       "product": "IFS EFBOne",
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -1223,7 +1283,28 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:56:59+00:00",
+        "source_sha256": "c469d34bc3061e7ba7f01977f198ae9bb9e1e668d682fd900a3bc73895f5c6e9",
+        "summary": "Excited to welcome MY FREIGHTER (Centrum Air), Central Asia's largest air cargo operator, to the EFBOne platform. A big thank you to their operational and flight technical teams for the outstanding collaboration on this project.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "IFS welcomed MY FREIGHTER (Centrum Air), Central Asia's largest air cargo operator, to the EFBOne platform, confirming EFBOne's expanding customer base in the cargo sector.",
+        "caveat": "Based on a single LinkedIn post; no official press release or third-party verification available.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.8,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-4c94bfb370a8",
@@ -1260,7 +1341,27 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:57:28+00:00",
+        "source_sha256": "37b0fc39aaf5fd80f9fb94f15948649d066b3a554176ccbe67970dec1b3e9a20",
+        "summary": "Lufthansa Systems announced the Lido Talks event, described as 40 opportunities to learn, be inspired and gain new perspectives. The initiative was launched four years ago in Zurich to create informal opportunities for teams to learn.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Lufthansa Systems launched the Lido Talks event, indicating a focus on informal internal learning and perspective-sharing.",
+        "caveat": "Captured summary truncated; event launch date and current signal date may not align.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.5,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.5,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-cad0ad912b4e",
@@ -1275,7 +1376,7 @@
       "summary": "✈️ Receiving them. On the skybook EFB application, pilots can: 📄 R linkedin.com</fon",
       "source_channel": "linkedin",
       "source_origin": "google_news",
-      "product_focus": "eff",
+      "product_focus": "efb",
       "product": "Bytron Skybook",
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -1297,7 +1398,28 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:57:49+00:00",
+        "source_sha256": "898d100378161cd818d49aa97a33bf87410009206e8ad909025856eea3b36443",
+        "summary": "On 2026-09-10, competitor Bytron Skybook shared an announcement about its EFB application for pilots. The headline states pilots can: 📄 R, and the summary notes receiving them. The captured feed from LinkedIn is truncated at that point.",
+        "announcement_tone": "Unclear",
+        "competitive_insight": "Bytron Skybook shared an announcement about its EFB application for pilots, confirming new document interaction features.",
+        "caveat": "The evidence feed is truncated and uses symbolic notation (📄 R, ✈️), limiting full interpretation of the announced capabilities.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.75,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.95,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "browser-16f3824401f5",
@@ -1334,7 +1456,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:58:07+00:00",
+        "source_sha256": "f757f705473ecb9530a38e96787bc94cdef39e847c08a58b1bc568e0dbe13094",
+        "summary": "Lufthansa Systems released Lido mPilot 7.3, enhancing the Airport Moving Map with aircraft-specific taxiway restrictions displayed directly on the chart. The update presents critical ground movement information in context, enabling pilots to quickly identify relevant limitations and maintain situational awareness in complex airport environments. By simplifying access to contextual data, the release aids pilot situational awareness during taxi operations.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Lufthansa Systems released Lido mPilot 7.3, enhancing the Airport Moving Map with aircraft-specific taxiway restrictions, indicating improved pilot situational awareness in complex airport environments.",
+        "caveat": "Source is a LinkedIn post with truncated text; full product details and rollout scope not entirely verified in evidence.",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-9a9036fcf9da",
@@ -1371,7 +1513,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:58:34+00:00",
+        "source_sha256": "b8d41d1dbdeea7026d52bda20c509168a175a2277aebd0a7ba7adb4440478fd5",
+        "summary": "fastjet selected EFBOne as its Electronic Flight Bag platform, replacing a legacy system across its Embraer 145 fleet. The custom-configured solution is tailored to its SOPs as it moves toward a fully paperless flight deck.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "IFS won fastjet as an EFBOne customer, with the airline replacing its legacy Embraer 145 fleet to support a fully paperless flight deck.",
+        "caveat": "Evidence sourced from LinkedIn post; no official press release or regulatory filing verified.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.95,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.95,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-631773759920",
@@ -1408,7 +1570,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:58:57+00:00",
+        "source_sha256": "f8aa8ce37f7ccc07045d1fc5b78d64c8e2ad436b882989ccde13aa2b46fbbc0a",
+        "summary": "Lufthansa Systems promoted NetLine Plan enabling full O&D-based profitability evaluations in under 30 seconds. The tool supports planners assessing complex scenarios including new routes, schedule changes, fleet adjustments, and partnership scenarios. The headline questions airline ability to respond swiftly to network changes.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Lufthansa Systems promoted NetLine Plan enabling full O&D-based profitability evaluations in under 30 seconds, reflecting the headline's emphasis on quick market response.",
+        "caveat": "The evidence is a LinkedIn promotional post; no explicit launch, partnership, or signed action is confirmed, only capability messaging.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.6,
+        "type_matches_existing": false,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.6,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-541011120c72",
@@ -1445,7 +1627,27 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:59:13+00:00",
+        "source_sha256": "b35fc884efa041b67f2eb6343e8f6040e4c33baf293e3255503bd14093edac72",
+        "summary": "IFS announced that MY FREIGHTER LLC (Centrum Air) has selected EFBOne as its electronic flight bag platform. The selection was reported as a customer win update on September 8, 2026. EFBOne is IFS's electronic flight bag software platform.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "IFS secured MY FREIGHTER LLC (Centrum Air) as an EFBOne customer, indicating increased freight-sector adoption.",
+        "caveat": "Source derived from RSS feed headline and captured summary; linked URL not independently verified; no contract or financial details provided in evidence.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.95,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-cc8507541cc6",
@@ -1482,7 +1684,27 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:59:28+00:00",
+        "source_sha256": "be8db6c2f62c289d615d43b9ff8f925d1736a5c7a32354835d8c01b587f5cd71",
+        "summary": "Jeppesen presented its EFB journey and lessons learned at CONNECT 2026 with the headline 'From managing EFBs to talking about EFBs,' signaling a messaging shift around electronic flight bags. The company shared its EFB journey and experiences with attendees at the September 2026 event.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen presented its EFB journey and lessons learned at CONNECT 2026, indicating it is reframing its EFB narrative from management to strategic discussion.",
+        "caveat": "Evidence is limited to event participation and messaging; no product changes, partnerships, or regulatory actions are indicated.",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-88d9d3627aee",
@@ -1519,7 +1741,27 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T01:59:52+00:00",
+        "source_sha256": "d32fa26d7e243012e37522379a03b4480a6288d83a5e6aaea30520717161d748",
+        "summary": "Viva takes the next step in digital cockpit operations with Lufthansa Systems' Lido mPilot, now supporting pilots with dynamically updated aeronautical charts, geo-referenced airport maps, weather overlays, enroute navigation data and operational documents via iOS-based Electronic Flight Bag solution. The implementation was completed within just two weeks.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Lufthansa Systems' Lido mPilot now supports Viva pilots, directly supported by a two-week implementation.",
+        "caveat": "Source summary truncated at 'demonstrating the close'; Viva airline identity and full implementation context not fully verified.",
+        "suggested_type": "implementation",
+        "type_confidence": 0.7,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-d0ca361f6e7a",
@@ -1534,7 +1776,7 @@
       "summary": "Send instant messages directly to the skybook EFB during flight briefings. 💬 🛫 Dispatchers can quickly share important operational updates with pilots, ensuring the latest information reaches the cockpit when it matters.",
       "source_channel": "linkedin",
       "source_origin": "google_news",
-      "product_focus": "eff",
+      "product_focus": "efb",
       "product": "Bytron Skybook",
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -1556,7 +1798,28 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:00:13+00:00",
+        "source_sha256": "941738ae74954350958ea28d37b10af5c0eaae8f5c2c7f9af8a49e66a29c226d",
+        "summary": "Bytron Skybook now allows dispatchers to send instant messages directly to the EFB during flight briefings. Dispatchers can share operational updates with pilots, ensuring the latest information reaches the cockpit when it matters. This capability is part of the skybook EFB product.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Bytron Skybook allows sending instant messages directly to the EFB during flight briefings, ensuring operational updates reach pilots' cockpits.",
+        "caveat": "The date 2026-09-01 is forward-dated; no explicit launch confirmation, rollout scope, or version details are provided in the evidence.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.7,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-ab53f449704f",
@@ -1593,7 +1856,27 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:00:36+00:00",
+        "source_sha256": "70ead3ce4dbc2f43ab363a31cae0ae14b6c1860c62b1f72d88d0bb27bddffcb4",
+        "summary": "TUS Airways selected EFBOne as its new Electronic Flight Bag platform. TUS Airways is integrating EFBOne across its Airbus A320 fleet to centralize flight-reporting workflows and optimize cockpit operations, currently in final stages of Cyprus CAA evaluation.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "IFS secured TUS Airways as a customer for EFBOne, indicating integration across its Airbus A320 fleet to centralize flight-reporting workflows.",
+        "caveat": "Source is a single LinkedIn post; no external verification or additional context provided.",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.75,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-8f8b8a22d8b5",
@@ -1630,7 +1913,27 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "nvidia/nemotron-3.5-lightning",
+        "enriched_at": "2026-10-09T02:00:58+00:00",
+        "source_sha256": "6be6341d67ffcabd75f39883f6a5216deaeed0148734db77d36f2e3409a57876",
+        "summary": "AvioBook groups its features into solution packages, each built around a specific need in airline operations. For flight operations, information should be a compass, not an anchor. AvioBook made this statement on August 25, 2026.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "AvioBook has grouped its features into solution packages, each targeting a specific airline operation need.",
+        "caveat": "Evidence derived from a single corporate statement; no independent verification of feature packages or market impact.",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.7,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.8,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 4.9e-08,
+          "completion": 1.4e-07
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-2d207adfbd7d",
