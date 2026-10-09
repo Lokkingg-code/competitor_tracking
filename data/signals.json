@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T06:47:51Z",
+  "generated_at": "2026-10-09T12:10:23Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -77,6 +77,43 @@
       }
     },
     {
+      "id": "cap-783a0f8c81a0",
+      "competitor": "Aviobook",
+      "date": "2026-10-08",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Looking forward to exhibiting in Bangkok! I have a few fun things for Connect to preview at AvioBook’s booth for those who will be there 👀",
+      "summary": "Aviobook reported a messaging shift update: Looking forward to exhibiting in Bangkok! I have a few fun things for Connect to preview at AvioBook’s booth for those who will be there 👀.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOQmpFa0IwRUdRXzY5SW5xNjh2VEJFT3VOZU1IdW14dzVBVE9ZaF9aVDdLa29Qa0o3dkFIU2tJd2hFRm5lcU1DcWlNSUkxWkYzaGZhbkxnOVlFVUNXb0tFbjZRbDZCXzJ2TGNsb2c4NmliYXhwb2hlR3BpTm9sOTZBYS13REZUUGVqVlVybjFMV082b0l1NmdYLUYzR2c0bHNQWm53dXJEX2pnWEE5NXZvQ1pNMmx4T3lBOEE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
       "id": "cap-e70b87ab10e0",
       "competitor": "Jeppesen",
       "date": "2026-10-07",
@@ -139,6 +176,43 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       }
+    },
+    {
+      "id": "cap-2a0edb7e3ea5",
+      "competitor": "Bytron Skybook",
+      "date": "2026-10-07",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Read more about dispatch & EFF management: https://lnkd.in/ew-YDSct #aviation #avgeek #efb",
+      "summary": "Your EFF doesn’t have to change... Read more about dispatch & EFF management: https://lnkd.in/ew-YDSct #aviation #avgeek #efb LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPS1BvOVI4WGRhc1hWVXpncURsR1E1SWtsa3RuUG1kbFlLUHB3U1QzX0s4UkRhYXVPQXExb3hieE5DYjlxUjMzNjBQVGQ0dmpMV2lSeHFqTWZ4ZlFmNVV1TDdMRUZObnd2Yk1PeEZ3ZWx5d0dBMk12aHJ2VmxMRUs4dEFLamFCREZfdVI3aUhYeTAzS2FWNHhRaVJBd0FSdw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending"
     },
     {
       "id": "cap-d20d956f5890",
