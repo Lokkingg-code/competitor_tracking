@@ -623,7 +623,8 @@ def sanitize_signal(signal: dict) -> dict:
         cleaned["headline"] = derive_auto_headline(cleaned["headline"], cleaned.get("summary", ""))
     summary = strip_html(cleaned.get("summary", ""))
     is_auto = "auto-capture" in cleaned.get("tags", [])
-    if is_auto and is_release_notes(cleaned["headline"]):
+    has_ai_enrichment = isinstance(cleaned.get("ai_enrichment"), dict)
+    if is_auto and is_release_notes(cleaned["headline"]) and not has_ai_enrichment:
         cleaned["type"] = "feature_change"
 
     if is_auto or not summary_is_useful(cleaned["headline"], summary):
@@ -641,7 +642,7 @@ def sanitize_signal(signal: dict) -> dict:
     blob = f"{cleaned.get('headline', '')} {cleaned.get('summary', '')} {cleaned.get('why_it_matters', '')}"
     cleaned["product"] = cleaned.get("product") or detect_product(blob)
     product_focus = cleaned.get("product_focus")
-    if product_focus not in VALID_PRODUCT_FOCUSES or is_auto:
+    if product_focus not in VALID_PRODUCT_FOCUSES or (is_auto and not has_ai_enrichment):
         product_focus = classify_product_focus(blob, cleaned.get("competitor", ""))
     cleaned["product_focus"] = product_focus
     cleaned["priority"] = adjust_priority_for_focus(

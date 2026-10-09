@@ -54,6 +54,29 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(signal["product_focus"], "other")
         self.assertEqual(len(result["source_sha256"]), 64)
 
+    def test_applies_only_high_confidence_type_and_focus_corrections(self):
+        signal = {"type": "customer_win", "product_focus": "other"}
+        enrichment = {
+            "suggested_type": "feature_change",
+            "type_confidence": 0.9,
+            "suggested_product_focus": "eff",
+            "focus_confidence": 0.8,
+        }
+        ENRICH.apply_confident_classifications(signal, enrichment)
+        self.assertEqual(signal["type"], "feature_change")
+        self.assertEqual(signal["product_focus"], "eff")
+        self.assertEqual(enrichment["original_type"], "customer_win")
+        self.assertEqual(enrichment["original_product_focus"], "other")
+        self.assertTrue(enrichment["type_auto_applied"])
+        self.assertTrue(enrichment["focus_auto_applied"])
+
+        low_confidence_signal = {"type": "customer_win", "product_focus": "other"}
+        low_confidence = {**enrichment, "type_confidence": 0.79, "focus_confidence": 0.79}
+        ENRICH.apply_confident_classifications(low_confidence_signal, low_confidence)
+        self.assertEqual(low_confidence_signal, {"type": "customer_win", "product_focus": "other"})
+        self.assertFalse(low_confidence["type_auto_applied"])
+        self.assertFalse(low_confidence["focus_auto_applied"])
+
     def test_extracts_text_blocks_and_rejects_invalid_classification(self):
         content = [{"type": "text", "text": '{"summary": "test"}'}]
         self.assertEqual(ENRICH.extract_text(content), '{"summary": "test"}')

@@ -74,14 +74,18 @@ class ProductFocusTests(unittest.TestCase):
             "id": "enriched",
             "competitor": "Aviobook",
             "date": "2026-10-08",
-            "type": "feature_change",
+            "type": "customer_win",
             "priority": "medium",
-            "headline": "Aviobook releases a flight-folder update",
-            "summary": "Aviobook releases new flight-folder features.",
+            "headline": "Aviobook release notes for a flight-folder update",
+            "summary": "Aviobook release notes describe flight-folder features.",
             "tags": ["auto-capture"],
-            "ai_enrichment": saved,
+            "product_focus": "efb",
+            "ai_enrichment": {**saved, "suggested_type": "customer_win", "suggested_product_focus": "efb"},
         }
-        self.assertEqual(MERGE_SIGNALS.sanitize_signal(signal)["ai_enrichment"], saved)
+        sanitized = MERGE_SIGNALS.sanitize_signal(signal)
+        self.assertEqual(sanitized["ai_enrichment"]["summary"], saved["summary"])
+        self.assertEqual(sanitized["type"], "customer_win")
+        self.assertEqual(sanitized["product_focus"], "efb")
 
     def test_explicit_context_overrides_generic_foreflight_indicator(self):
         self.assertEqual(MERGE_SIGNALS.classify_product_focus("ForeFlight crew pairing automation"), "adjacent")

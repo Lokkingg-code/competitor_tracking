@@ -140,7 +140,9 @@ result is saved as `ai_enrichment` in the signal and archive, including summary,
 announcement tone, competitive insight, caveat, suggested signal type and
 product focus, confidence, whether each suggestion matches the existing label,
 model, timestamp, and source-content hash. The existing canonical `type` and
-`product_focus` fields are not overwritten; disagreements are flagged for
+`product_focus` fields are corrected when the corresponding model confidence is
+at least 80%; the previous label is retained in the AI record and shown as an
+AI update. Lower-confidence disagreements remain suggestions flagged for
 review. Signals with saved enrichment are skipped on future runs. Up to 20
 signals are processed per workflow run; rate-limited or failed signals remain
 pending for a later run.
@@ -148,6 +150,9 @@ pending for a later run.
 The AI summary is tuned to exactly two or three short, evidence-only sentences
 and replaces the existing Evidence Preview in the briefing. Competitive insight
 remains separate so analysis is not mixed into the source-grounded summary.
+The At a Glance **Main movement** uses the newest saved competitive insight for
+each competitor in the selected window, falling back to the newest headline
+until that competitor has saved AI analysis.
 
 The dashboard reads saved analysis locally from `data/signals.json`; viewing or
 selecting an enriched signal makes no model request. GitHub Actions commits the

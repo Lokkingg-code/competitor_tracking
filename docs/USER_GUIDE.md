@@ -22,9 +22,9 @@ Select **Light mode** or **Dark mode** to change appearance. Your choice is reme
 
 ## At a Glance
 
-The overview is below **12-month activity**, at the bottom of the dashboard. Its own **Summary window** defaults to **Last 30 days** and offers the same periods as the feed's Window selector. It uses all competitors and ignores the feed's search, filters, and matrix selection. Each competitor tag sits beside its main movement and supporting-signal count.
+The overview is below **12-month activity**, at the bottom of the dashboard. Its own **Summary window** defaults to **Last 30 days** and offers the same periods as the feed's Window selector. It uses all competitors and ignores the feed's search, filters, and matrix selection. Each competitor tag sits beside its latest saved AI insight and supporting-signal count; before AI analysis is available, the latest headline is shown.
 
-Expand a competitor row to see full-width supporting signals with dates, types, focus labels, and headlines. Select a signal to open its briefing in a quick-look window. Use the back arrow to return to the list; Close or Escape returns to the same dashboard position without changing feed filters. Obvious hiring noise is excluded from the movement labels, and identical normalized headlines appear once in the evidence list. Related stories with different headlines can still appear separately: counts are captures, not unique announcements or verified customer wins.
+Expand a competitor row to see full-width supporting signals with dates, types, focus labels, and headlines. Select a signal to open its briefing in a quick-look window. Use the back arrow to return to the list; Close or Escape returns to the same dashboard position without changing feed filters. Obvious hiring noise is excluded, and identical normalized headlines appear once in the evidence list. Related stories with different headlines can still appear separately: counts are captures, not unique announcements or verified customer wins.
 
 ![At a Glance competitor overview](screenshots/06-activity-summary.png)
 

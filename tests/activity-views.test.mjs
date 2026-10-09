@@ -97,9 +97,13 @@ test("renders saved AI enrichment without calling the summary API again", async 
         suggested_type: "feature_change",
         type_confidence: 0.91,
         type_matches_existing: false,
+        type_auto_applied: true,
+        original_type: "customer_win",
         suggested_product_focus: "eff",
         focus_confidence: 0.88,
         focus_matches_existing: false,
+        focus_auto_applied: true,
+        original_product_focus: "other",
         catalog_pricing: { prompt: 0.000000049, completion: 0.00000014 },
       },
     } : item),
@@ -122,8 +126,9 @@ test("renders saved AI enrichment without calling the summary API again", async 
     assert.equal(await page.locator(".briefing-summary-text").textContent(), "Saved model summary for this signal.");
     assert.equal(await page.locator(".briefing-summary-label").textContent(), "AI evidence summary");
     assert.equal(await page.locator(".ai-summary-result").count(), 0);
-    assert.ok(await page.getByText(/Signal type: Feature change.*Review suggestion/).count());
-    assert.ok(await page.getByText(/Product focus: EFF.*Review suggestion/).count());
+    assert.ok(await page.getByText(/Signal type: Feature change.*AI updated from Customer win/).count());
+    assert.ok(await page.getByText(/Product focus: EFF.*AI updated from Other/).count());
+    assert.ok(await page.locator(".activity-movement").filter({ hasText: "This could improve operations visibility." }).count());
     assert.ok(await page.getByText(/rates per 1M tokens USD: input \$0.049, output \$0.140/).count());
     assert.equal(summaryRequests, 0);
   } finally {

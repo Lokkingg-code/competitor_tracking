@@ -31,11 +31,18 @@ export function summarizeActivity(signals, competitorName = (signal) => signal.c
       order,
       count: evidence.filter((signal) => pattern.test(plainText(`${signal.headline} ${signal.summary}`))).length,
     })).filter((theme) => theme.count).sort((first, second) => second.count - first.count || first.order - second.order).slice(0, 2).map((theme) => theme.label);
+    const summary = evidence.length
+      ? `Latest: ${plainText(evidence[0].headline)}`
+      : "No substantive movement identified in these captures.";
+    const latestAIInsight = evidence.find((signal) => plainText(signal.ai_enrichment?.competitive_insight));
     return {
       competitor,
       capturedCount: captured.length,
       themes,
-      summary: evidence.length ? `Latest: ${plainText(evidence[0].headline)}` : "No substantive movement identified in these captures.",
+      mainMovement: latestAIInsight
+        ? plainText(latestAIInsight.ai_enrichment.competitive_insight)
+        : summary,
+      summary,
       evidence,
     };
   }).sort((first, second) => second.capturedCount - first.capturedCount || first.competitor.localeCompare(second.competitor));

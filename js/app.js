@@ -500,12 +500,16 @@ function renderSavedAIAnalysis(signal) {
   const suggestedType = TYPE_LABELS[analysis.suggested_type] || analysis.suggested_type;
   const currentFocus = FOCUS_LABELS[signal.product_focus] || signal.product_focus || "Unknown";
   const suggestedFocus = FOCUS_LABELS[analysis.suggested_product_focus] || analysis.suggested_product_focus;
-  const typeStatus = analysis.type_matches_existing
-    ? "Matches current label"
-    : `Review suggestion · current: ${currentType}`;
-  const focusStatus = analysis.focus_matches_existing
-    ? "Matches current label"
-    : `Review suggestion · current: ${currentFocus}`;
+  const typeStatus = analysis.type_auto_applied
+    ? `AI updated from ${TYPE_LABELS[analysis.original_type] || analysis.original_type || "Unknown"}`
+    : analysis.type_matches_existing
+      ? "Matches current label"
+      : `Review suggestion · current: ${currentType}`;
+  const focusStatus = analysis.focus_auto_applied
+    ? `AI updated from ${FOCUS_LABELS[analysis.original_product_focus] || analysis.original_product_focus || "Unknown"}`
+    : analysis.focus_matches_existing
+      ? "Matches current label"
+      : `Review suggestion · current: ${currentFocus}`;
   const rates = analysis.catalog_pricing;
   const rateNote = rates
     && Number.isFinite(rates.prompt)
@@ -750,7 +754,7 @@ function renderActivitySummary() {
   }
   container.innerHTML = `<div class="activity-columns" aria-hidden="true"><span>Competitor</span><span>Main movement</span><span>Evidence</span></div>${rows.map((row) => `<details class="activity-group">
     <summary class="activity-columns"><span><span class="competitor-tag ${competitorClass(row.competitor)}">${escapeHtml(row.competitor)}</span></span>
-      <strong class="activity-movement">${escapeHtml(row.themes.join(" / ") || "General updates")}</strong>
+      <strong class="activity-movement">${escapeHtml(row.mainMovement)}</strong>
       <span class="activity-evidence">${row.evidence.length} supporting signals <span class="muted">(${row.capturedCount} captured)</span></span>
     </summary>
     <div class="compact-signals">${compactSignalRows(row.evidence) || '<p class="muted">No substantive evidence in these captures.</p>'}</div>
