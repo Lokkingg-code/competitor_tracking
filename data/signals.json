@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T11:27:49Z",
+  "generated_at": "2026-10-11T11:41:22Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -104,6 +104,43 @@
         {
           "title": "Google News · LinkedIn",
           "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOQmpFa0IwRUdRXzY5SW5xNjh2VEJFT3VOZU1IdW14dzVBVE9ZaF9aVDdLa29Qa0o3dkFIU2tJd2hFRm5lcU1DcWlNSUkxWkYzaGZhbkxnOVlFVUNXb0tFbjZRbDZCXzJ2TGNsb2c4NmliYXhwb2hlR3BpTm9sOTZBYS13REZUUGVqVlVybjFMV082b0l1NmdYLUYzR2c0bHNQWm53dXJEX2pnWEE5NXZvQ1pNMmx4T3lBOEE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-038f2208c047",
+      "competitor": "Jeppesen",
+      "date": "2026-10-08",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "In this AMA, Susan deCastro, Customer Success Manager, shares her path from flight instruction…",
+      "summary": "In this AMA, Susan deCastro, Customer Success Manager, shares her path from flight instruction, corporate and charter flying, and aviation software support to helping business aviation customers onboard and succeed with Jeppesen ForeFlight product",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPengwWHZEU0RXQmdLczY5UkxFdmpfNDBYVUhtYjVMVFVPWF9mLWJkU3gycFZ5U2VsUFA1ejNTUUE5Q1hKSkh1UG5aeU5HSVd3cHlnY0RTanlSU1hKdEpTZ0FRNkNjLWE1Y0tRM1gwd0RfSm94a3FXSXdaWDZ4bXJHU01HMDlSWnl4cy00NTV3STVZRk9aV1VBelU0d3pPVnR2d0dUYTB2TUdWaWRVQW4td0czVEZWb3J1MUs2QWVqVjZYSDFZM0ZQcGdZdEdyTWZO?oc=5"
         }
       ],
       "tags": [
