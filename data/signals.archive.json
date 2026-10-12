@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T11:41:22Z",
+  "generated_at": "2026-10-12T13:38:42Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,43 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-9d51eeb7dfe2",
+      "competitor": "Bytron Skybook",
+      "date": "2026-10-09",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Two AOCs. One EFB platform. Texel Air needed a solution that could support different…",
+      "summary": "One EFB platform. Texel Air needed a solution that could support different requirements for their Bahrain and New Zealand operations while providing a consistent platform.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "efb",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPUnhmM2o5R0dxRmpaYkswaThpY20tV1lUbmtzakNiazF5RTFHMV9nQVcyOVBOdmxFS0F5Y2VOZGlrajR5NkRUNk9jV1U4R2N4QmplRDBKYlg4cGRTYURHdWszUDQ5SDRBejRLNEJWQjRpS2M5Ylp2bnJZaDVEVGhLbnFfQlFfUzB6bkVORk9GYlU1aWpjb3lJREdfOUZCSmdvZ3FBMmE1Mm1hVTY0MkFUSEhHTHZnS3ot?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending"
+    },
     {
       "id": "cap-1549166beaf3",
       "competitor": "Jeppesen",
@@ -6626,6 +6663,43 @@
         "auto-capture",
         "linkedin",
         "linkedin"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-d5ee1e8488c5",
+      "competitor": "Bytron Skybook",
+      "date": "2025-10-21",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Boeing Jeppesen and Bytron strengthen partnership with five-year deal",
+      "summary": "Bytron Skybook reported a partnership update: Boeing Jeppesen and Bytron strengthen partnership with five-year deal. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPcHVRaTVjdHRtTTR0S2pVVUk5Rk5NMWwxOWtzd2dmX0xSYlVpY0dlM05vb1VweVRKbmc5N0RxdzJ4bVJWcnVoNjZGc2tqbnkyT25xRVdNWlBVckdaYXY2ZTREX0JSV05SOGlvbktHRnY0cHZZUGw2TVhTU0JaeEhUWDBad1hZUdIBiwFBVV95cUxNaElFYkQ1N0xBZ0o5c1lUUGpYVnVZLU5kNnJSYXJmUzJaSlRhTG1kVS1DR25BN2xMdTQ4V3I0UV9BUjVfRlZzZXU3M0taMkl6MUhXanNqRGNxTW1mQks4VXl3YlVBOXpHaFJ0RkZKdldRaWNHTHJXZlNLZHFMZ0tvZWZheFJzWDdrOUNj?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
       ],
       "ai_enrichment_status": "pending"
     },
