@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-12T13:38:42Z",
-  "raw_capture_at": "2026-10-12T13:38:42.481728+00:00",
+  "generated_at": "2026-10-13T13:01:45Z",
+  "raw_capture_at": "2026-10-13T13:01:45.656541+00:00",
   "status": "healthy",
   "required_public_sources": [
     {
@@ -27,7 +27,7 @@
       "kind": "newsroom",
       "url": "https://www.bytron.aero/release-notes/",
       "status": "healthy",
-      "captured_items": 5,
+      "captured_items": 6,
       "errors": []
     }
   ],
