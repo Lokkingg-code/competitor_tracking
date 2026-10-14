@@ -54,7 +54,7 @@ export default {
       return json({ error: "Unauthorized." }, 401);
     }
 
-    const modelId = process.env.OPENROUTER_MODEL?.trim() || "liquid/lfm-2.5-2.6b";
+    const modelId = process.env.OPENROUTER_MODEL?.trim() || "liquid/lfm-2.5-2.6b:free";
     try {
       const catalogResponse = await openRouterFetch("models", apiKey);
       if (!catalogResponse.ok) {

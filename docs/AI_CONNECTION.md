@@ -97,7 +97,7 @@ export OPENROUTER_MODEL="replace-with-listed-free-model-id"
 read -s "OPENROUTER_API_KEY?OpenRouter API key: "; export OPENROUTER_API_KEY; npm run ai:openrouter-check; unset OPENROUTER_API_KEY; echo
 ```
 
-To safely check a specific model first, such as `liquid/lfm-2.5-2.6b`,
+To safely check a specific model first, such as `liquid/lfm-2.5-2.6b:free`,
 set its exact ID as `OPENROUTER_MODEL`. If the catalog reports a nonzero price or
 cannot verify zero pricing, the script refuses to send a model request.
 
@@ -120,7 +120,7 @@ Preview deployment:
 - `AI_TEST_TOKEN`: a separate long random secret used to protect the endpoint.
 
 Optionally set `OPENROUTER_MODEL` as a nonsecret environment variable to override
-the model ID; it defaults to `liquid/lfm-2.5-2.6b`. The selected model must appear
+the model ID; it defaults to `liquid/lfm-2.5-2.6b:free`. The selected model must appear
 in the OpenRouter catalog with zero input and output prices.
 
 Create a new Preview deployment after saving the variables. From a terminal,
@@ -138,7 +138,7 @@ The `refresh-signals` GitHub Actions workflow runs after a change to
 `scripts/enrich_signals.py` before committing the updated dashboard data. Add
 `OPENROUTER_API_KEY` as a GitHub Actions repository secret; Vercel environment
 variables are not automatically available to GitHub Actions. The workflow defaults
-to `liquid/lfm-2.5-2.6b`; if that ID is absent from the account's model catalog, set
+to `liquid/lfm-2.5-2.6b:free`; if that ID is absent from the account's model catalog, set
 the GitHub Actions repository variable `OPENROUTER_MODEL` to an exact listed free
 model ID. Nonzero-priced models are rejected before signal text is sent.
 

@@ -50,6 +50,26 @@ test("Vercel smoke test calls LiquidAI only when catalog pricing is zero", async
   assert.equal(JSON.parse(calls[1].options.body).model, "liquid/test-model:free");
 });
 
+test("Vercel smoke test defaults to the catalog-listed free model ID", async () => {
+  configureTestSecrets();
+  delete process.env.OPENROUTER_MODEL;
+  const calls = [];
+  globalThis.fetch = async (url, options) => {
+    calls.push({ url, options });
+    if (url.endsWith("/models")) {
+      return Response.json({ data: [{ id: "liquid/lfm-2.5-2.6b:free", pricing: { prompt: "0", completion: "0" } }] });
+    }
+    return Response.json({ choices: [{ message: { content: "VERCEL_OPENROUTER_OK" } }] });
+  };
+
+  const response = await endpoint.fetch(request());
+  const result = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(result.model, "liquid/lfm-2.5-2.6b:free");
+  assert.equal(JSON.parse(calls[1].options.body).model, "liquid/lfm-2.5-2.6b:free");
+});
+
 test("Vercel smoke test refuses a nonzero-priced model before completion", async () => {
   configureTestSecrets();
   const calls = [];

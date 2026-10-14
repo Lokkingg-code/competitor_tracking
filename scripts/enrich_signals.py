@@ -23,7 +23,7 @@ from scripts.dedupe_signals import prune_duplicate_customer_events
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
-MODEL_ID = os.environ.get("OPENROUTER_MODEL", "").strip() or "liquid/lfm-2.5-2.6b"
+MODEL_ID = os.environ.get("OPENROUTER_MODEL", "").strip() or "liquid/lfm-2.5-2.6b:free"
 OPENROUTER_API = "https://openrouter.ai/api/v1"
 ENRICHMENT_SCHEMA_VERSION = 2
 CURRENT_ENRICHMENT_FIELDS = {

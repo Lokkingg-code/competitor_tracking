@@ -24,7 +24,7 @@ class AIEnrichmentTests(unittest.TestCase):
         with patch.object(ENRICH, "openrouter_request", return_value=free_model) as request:
             pricing = ENRICH.verify_model_pricing("test-key")
 
-        self.assertEqual(ENRICH.MODEL_ID, "liquid/lfm-2.5-2.6b")
+        self.assertEqual(ENRICH.MODEL_ID, "liquid/lfm-2.5-2.6b:free")
         self.assertEqual(pricing, {"prompt": 0, "completion": 0})
         request.assert_called_once_with("models", "test-key")
 
