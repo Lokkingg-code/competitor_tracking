@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T08:04:49Z",
+  "generated_at": "2026-10-14T08:53:14Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -792,8 +792,8 @@
       "date": "2026-10-07",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.65,
       "headline": "We’re in Bangkok for the Airline & Aerospace MRO & Flight Operations IT Conference on Oct 14–15 ✈️",
       "summary": "We’re in Bangkok for the Airline & Aerospace MRO & Flight Operations IT Conference on Oct 14–15 ✈️ Team members Yuliia Dolko, Shreya Sahani, and Madalina Constantinescu will be at Booth 40 showcasing EFBOne. Aircraft Commerce Aircraft IT … more 19 reactions 19 3 reposts 3 reposts Like Comment Repost Send",
