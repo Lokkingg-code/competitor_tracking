@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T07:59:34Z",
+  "generated_at": "2026-10-14T08:04:49Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -183,7 +183,7 @@
       "competitor": "Bytron Skybook",
       "date": "2026-10-09",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "implementation",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -213,7 +213,35 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "liquid/lfm-2.5-2.6b:free",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T08:05:52+00:00",
+        "source_sha256": "6a18cc2b397cd0a753146e50397cf3eed86466f50826eadeaad4fe34ffff45ee",
+        "headline_summary": "Bytron Skybook adopts EFB platform for Texel Air to support Bahrain and New Zealand operations.",
+        "summary": "Bytron Skybook is presented as an EFB platform solution. Texel Air selected it to meet operational requirements across Bahrain and New Zealand routes.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Bytron Skybook's adoption by Texel Air demonstrates demand for integrated EFB solutions across diverse international routes.",
+        "caveat": "Evidence confirms Bytron Skybook and Texel Air but lacks detailed technical specifications or broader market impact.",
+        "customer_airline": "Texel Air",
+        "customer_relationship": "selected",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.9,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "implementation",
+        "type_confidence": 0.85,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.95,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 0.0,
+          "completion": 0.0
+        },
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-e12a5536ea74",
@@ -351,7 +379,34 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "liquid/lfm-2.5-2.6b:free",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T08:06:22+00:00",
+        "source_sha256": "23467520636414d148aba3ad281f0cea954bfc4261b1e4e8a8be7c2634141e5f",
+        "headline_summary": "Aviobook announced a messaging shift and will exhibit at Connect in Bangkok, previewing new features for aviation operators.",
+        "summary": "Aviobook issued a messaging shift update and plans to showcase its platform at the Connect event in Bangkok. The announcement includes several previews at AvioBook's booth to engage aviation industry participants during the Connect exhibition.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Aviobook is actively promoting its platform through a targeted event presence and messaging adjustment to strengthen its visibility among aviation technology buyers.",
+        "caveat": "Evidence originates from social media RSS feeds and may not reflect official corporate statements; specific product details remain unverified.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.95,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 0.0,
+          "completion": 0.0
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-038f2208c047",
@@ -388,7 +443,34 @@
         "linkedin",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "liquid/lfm-2.5-2.6b:free",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T08:06:38+00:00",
+        "source_sha256": "283920def99704fdd43766e283b5967a26c7558f0d8e392e8cc219e402ca33db",
+        "headline_summary": "Jeppesen provided ForeFlight support enabling business aviation customers to operate flights successfully.",
+        "summary": "Jeppesen hosted an AMA featuring Susan deCastro discussing business aviation customer support strategies. Her insights emphasized how the ForeFlight product helps these customers onboard and achieve successful operations, thereby enhancing overall fleet management effectiveness.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "Jeppesen is actively expanding its business aviation market presence through targeted customer success initiatives.",
+        "caveat": "No specific airline names were mentioned in the source; relationships remain unconfirmed beyond general business aviation context.",
+        "customer_airline": "unknown",
+        "customer_relationship": "mentioned",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "customer_win",
+        "type_confidence": 0.9,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.95,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 0.0,
+          "completion": 0.0
+        },
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-09c07278fa0b",
@@ -570,7 +652,7 @@
       "competitor": "Aviobook",
       "date": "2026-10-07",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "feature_change",
       "priority": "high",
       "severity": 4,
       "confidence": 0.65,
@@ -600,7 +682,35 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "liquid/lfm-2.5-2.6b:free",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T08:07:20+00:00",
+        "source_sha256": "a97b9d1df8e49005e9fa6491d29d027d95b39c0ad081c99940c339abbcde9661",
+        "headline_summary": "Aviobook launched a new NOTAM section feature placing company notices prominently in flight operation briefings.",
+        "summary": "On 2026-10-07, Aviobook introduced a dedicated NOTAM section within Briefing > NOTAMs that highlights company notices. This feature is included in every briefing package and offers easy bookmarking for users.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Aviobook's NOTAM organization improvement signals enhanced operational visibility for airline customers adopting its flight operations platform.",
+        "caveat": "Evidence does not identify specific airline customers or confirm adoption by any carrier; the LinkedIn source may lack comprehensive usage data.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "feature_change",
+        "type_confidence": 0.95,
+        "type_matches_existing": false,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "catalog_pricing": {
+          "prompt": 0.0,
+          "completion": 0.0
+        },
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-0fe1e9140e52",
@@ -689,7 +799,7 @@
       "summary": "We’re in Bangkok for the Airline & Aerospace MRO & Flight Operations IT Conference on Oct 14–15 ✈️ Team members Yuliia Dolko, Shreya Sahani, and Madalina Constantinescu will be at Booth 40 showcasing EFBOne. Aircraft Commerce Aircraft IT … more 19 reactions 19 3 reposts 3 reposts Like Comment Repost Send",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "eff",
+      "product_focus": "efb",
       "product": "IFS EFBOne",
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -711,7 +821,35 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "liquid/lfm-2.5-2.6b:free",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T08:07:55+00:00",
+        "source_sha256": "e6778b35d6b1beff9250b18b07bd6569f21078602d731d806283fdbff1d867d6",
+        "headline_summary": "IFS showcased EFBOne at an Airline & Aerospace MRO & Flight Operations IT Conference in Bangkok.",
+        "summary": "IFS team members will present EFBOne at an Airline & Aerospace MRO & Flight Operations IT Conference in Bangkok. The presentation emphasizes EFBOne's role in modernizing flight operations technology within the global aviation sector.",
+        "announcement_tone": "Neutral",
+        "competitive_insight": "IFS participated in a major aviation IT conference to promote its EFBOne flight operations software, signaling continued market engagement rather than a systemic shift.",
+        "caveat": "Evidence confirms conference attendance and booth presence but does not verify product adoption, pricing, or competitive response.",
+        "customer_airline": "unknown",
+        "customer_relationship": "unknown",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.98,
+        "focus_matches_existing": false,
+        "catalog_pricing": {
+          "prompt": 0.0,
+          "completion": 0.0
+        },
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-d20d956f5890",
