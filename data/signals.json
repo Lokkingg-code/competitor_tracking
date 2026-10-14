@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T06:51:41Z",
+  "generated_at": "2026-10-14T07:44:41Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -6320,6 +6320,43 @@
         {
           "title": "Skywise Press Releases",
           "url": "https://www.skywise.com/en/newsroom/press-releases/hong-kong-air-cargo-chooses-navblue-to-improve-its-operational-efficiency"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-e7e3a34d867e",
+      "competitor": "Navblue",
+      "date": "2026-03-03",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Navblue And Easyjet United To Improve Efficiency And Fuel Savings",
+      "summary": "Navblue reported a partnership update: Navblue And Easyjet United To Improve Efficiency And Fuel Savings. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/navblue-and-easyjet-united-to-improve-efficiency-and-fuel-savings"
         }
       ],
       "tags": [
