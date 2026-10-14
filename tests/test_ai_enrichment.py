@@ -17,8 +17,8 @@ SPEC.loader.exec_module(ENRICH)
 
 
 class AIEnrichmentTests(unittest.TestCase):
-    def test_deepseek_model_defaults_to_chat(self):
-        self.assertEqual(ENRICH.MODEL_ID, "deepseek-chat")
+    def test_gemini_model_defaults_to_38_flash(self):
+        self.assertEqual(ENRICH.MODEL_ID, "gemini-3.8-flash")
 
     def test_enrichment_requests_json_object_response_from_selected_model(self):
         result = {
@@ -37,39 +37,39 @@ class AIEnrichmentTests(unittest.TestCase):
             "suggested_product_focus": "efb",
             "focus_confidence": 0.9,
         }
-        response = {"choices": [{"message": {"content": json.dumps(result)}}]}
+        response = {"candidates": [{"content": {"parts": [{"text": json.dumps(result)}]}}]}
         signal = {
             "id": "test-signal", "competitor": "Example Systems", "date": "2026-10-14",
             "headline": "Example Air selects an EFB platform", "summary": "A customer announcement.",
             "type": "customer_win", "product_focus": "efb", "product": "Example EFB",
         }
 
-        with patch.object(ENRICH, "deepseek_request", return_value=response) as request:
+        with patch.object(ENRICH, "gemini_request", return_value=response) as request:
             ENRICH.enrich_signal(signal, "test-key")
 
         request.assert_called_once()
         request_args = request.call_args.args
         self.assertEqual(request_args[0], "test-key")
-        self.assertEqual(request_args[1]["model"], ENRICH.MODEL_ID)
-        self.assertEqual(request_args[1]["response_format"], {"type": "json_object"})
-        self.assertEqual(request_args[1]["max_tokens"], 4096)
+        self.assertEqual(request_args[1], ENRICH.MODEL_ID)
+        self.assertEqual(request_args[2]["contents"][0]["role"], "user")
+        self.assertEqual(request_args[2]["generationConfig"]["responseMimeType"], "application/json")
+        self.assertEqual(request_args[2]["generationConfig"]["maxOutputTokens"], 4096)
 
     def test_empty_truncated_response_reports_safe_usage_metadata(self):
         signal = {"id": "truncated", "competitor": "Example Systems", "date": "2026-10-14"}
         response = {
-            "choices": [{"finish_reason": "length", "message": {"content": None, "reasoning": "hidden"}}],
-            "usage": {"completion_tokens": 1600},
+            "candidates": [{"finishReason": "MAX_TOKENS", "content": {"parts": []}}],
+            "usageMetadata": {"candidatesTokenCount": 4096},
         }
 
-        with patch.object(ENRICH, "deepseek_request", return_value=response):
+        with patch.object(ENRICH, "gemini_request", return_value=response):
             with self.assertRaises(ENRICH.EnrichmentError) as raised:
                 ENRICH.enrich_signal(signal, "test-key")
 
-        self.assertIn("finish_reason=length", str(raised.exception))
-        self.assertIn("completion_tokens=1600", str(raised.exception))
+        self.assertIn("finish_reason=MAX_TOKENS", str(raised.exception))
+        self.assertIn("completion_tokens=4096", str(raised.exception))
         self.assertIn("response_chars=0", str(raised.exception))
-        self.assertIn("message_fields=content,reasoning", str(raised.exception))
-        self.assertNotIn("hidden", str(raised.exception))
+        self.assertIn("response_fields=candidates,usageMetadata", str(raised.exception))
     def test_http_402_stops_batch_and_leaves_all_signals_pending(self):
         with tempfile.TemporaryDirectory() as directory:
             signals_path = Path(directory) / "signals.json"
@@ -81,7 +81,7 @@ class AIEnrichmentTests(unittest.TestCase):
                 patch.object(ENRICH, "ARCHIVE_PATH", archive_path),
                 patch.object(ENRICH, "base_signal_ids", return_value=set()),
                 patch.object(ENRICH, "enrich_signal", side_effect=ENRICH.EnrichmentError("HTTP 402", http_status=402)) as enrich,
-                patch.dict(os.environ, {"DEEPSEEK_API_KEY": "test-key"}),
+                patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
                 patch.object(sys, "argv", ["enrich_signals.py", "--base-ref", "test", "--max-signals", "3"]),
                 contextlib.redirect_stderr(io.StringIO()),
             ):
@@ -94,22 +94,22 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(len(saved["signals"]), 3)
         self.assertTrue(all(signal["ai_enrichment_status"] == "pending" for signal in saved["signals"]))
 
-    def test_deepseek_http_error_includes_provider_message(self):
-        body = json.dumps({"error": {"message": "Insufficient balance"}}).encode()
+    def test_gemini_http_error_includes_provider_message(self):
+        body = json.dumps({"error": {"message": "API key not valid"}}).encode()
         error = ENRICH.urllib.error.HTTPError(
-            "https://api.deepseek.com/chat/completions",
-            402,
-            "Payment Required",
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+            400,
+            "Bad Request",
             hdrs=None,
             fp=io.BytesIO(body),
         )
 
         with patch.object(ENRICH.urllib.request, "urlopen", side_effect=error):
             with self.assertRaises(ENRICH.EnrichmentError) as raised:
-                ENRICH.deepseek_request("test-key", {"model": "deepseek-chat"})
+                ENRICH.gemini_request("test-key", "gemini-3.8-flash", {"contents": []})
 
-        self.assertEqual(raised.exception.http_status, 402)
-        self.assertIn("Insufficient balance", str(raised.exception))
+        self.assertEqual(raised.exception.http_status, 400)
+        self.assertIn("API key not valid", str(raised.exception))
         error.close()
 
     def test_selects_new_and_pending_signals_but_skips_completed(self):

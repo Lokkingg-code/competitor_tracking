@@ -18,8 +18,8 @@ fi
 
 python3 scripts/merge_signals.py "${RAW_ARGS[@]}"
 
-if [[ -n "${DEEPSEEK_API_KEY:-}" ]]; then
+if [[ -n "${GEMINI_API_KEY:-}" ]]; then
 	python3 scripts/enrich_signals.py --base-ref "$BASE_REF"
 else
-	echo "DEEPSEEK_API_KEY is unset; new signals remain pending for GitHub Actions enrichment."
+	echo "GEMINI_API_KEY is unset; new signals remain pending for GitHub Actions enrichment."
 fi

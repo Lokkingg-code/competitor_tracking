@@ -1,7 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 
-const DEEPSEEK_API = "https://api.deepseek.com";
-const TEST_PROMPT = "Reply with exactly VERCEL_DEEPSEEK_OK and nothing else.";
+const GEMINI_API = "https://generativelanguage.googleapis.com/v1beta";
+const TEST_PROMPT = "Reply with exactly VERCEL_GEMINI_OK and nothing else.";
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -23,10 +23,10 @@ export default {
       return json({ error: "Method not allowed." }, 405);
     }
 
-    const apiKey = process.env.DEEPSEEK_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY;
     const expectedToken = process.env.AI_TEST_TOKEN;
     if (!apiKey || !expectedToken) {
-      return json({ error: "DeepSeek test endpoint is not configured." }, 503);
+      return json({ error: "Gemini test endpoint is not configured." }, 503);
     }
 
     const authorization = request.headers.get("authorization") || "";
@@ -37,36 +37,37 @@ export default {
       return json({ error: "Unauthorized." }, 401);
     }
 
-    const model = process.env.DEEPSEEK_MODEL?.trim() || "deepseek-chat";
+    const model = process.env.GEMINI_MODEL?.trim() || "gemini-3.8-flash";
     try {
-      const response = await fetch(`${DEEPSEEK_API}/chat/completions`, {
+      const response = await fetch(`${GEMINI_API}/models/${model}:generateContent`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          "x-goog-api-key": apiKey,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model,
-          messages: [{ role: "user", content: TEST_PROMPT }],
-          temperature: 0,
-          max_tokens: 32,
+          contents: [{ role: "user", parts: [{ text: TEST_PROMPT }] }],
+          generationConfig: { temperature: 0, maxOutputTokens: 32 },
         }),
         signal: AbortSignal.timeout(25_000),
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) {
         const message = result.error?.message || `HTTP ${response.status}`;
-        return json({ error: `DeepSeek returned ${response.status}: ${message}` }, 502);
+        return json({ error: `Gemini returned ${response.status}: ${message}` }, 502);
       }
 
-      const text = result.choices?.[0]?.message?.content?.trim();
-      if (!text?.includes("VERCEL_DEEPSEEK_OK")) {
-        return json({ error: "DeepSeek did not return the expected test response." }, 502);
+      const text = (result.candidates?.[0]?.content?.parts || [])
+        .map((part) => part.text || "")
+        .join("")
+        .trim();
+      if (!text.includes("VERCEL_GEMINI_OK")) {
+        return json({ error: "Gemini did not return the expected test response." }, 502);
       }
 
       return json({ ok: true, model, response: text });
     } catch {
-      return json({ error: "Could not reach DeepSeek from the Vercel function." }, 502);
+      return json({ error: "Could not reach Gemini from the Vercel function." }, 502);
     }
   },
 };

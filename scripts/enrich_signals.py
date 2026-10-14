@@ -23,8 +23,8 @@ from scripts.dedupe_signals import prune_duplicate_customer_events
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
-MODEL_ID = os.environ.get("DEEPSEEK_MODEL", "").strip() or "deepseek-chat"
-DEEPSEEK_API = "https://api.deepseek.com"
+MODEL_ID = os.environ.get("GEMINI_MODEL", "").strip() or "gemini-3.8-flash"
+GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
 ENRICHMENT_SCHEMA_VERSION = 2
 CURRENT_ENRICHMENT_FIELDS = {
     "headline_summary",
@@ -354,12 +354,12 @@ def parse_enrichment(content: object, signal: dict) -> dict:
     }
 
 
-def deepseek_request(api_key: str, payload: dict) -> dict:
+def gemini_request(api_key: str, model: str, payload: dict) -> dict:
     data = json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(
-        f"{DEEPSEEK_API}/chat/completions",
+        f"{GEMINI_API}/models/{model}:generateContent",
         data=data,
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
         method="POST",
     )
     try:
@@ -375,13 +375,11 @@ def deepseek_request(api_key: str, payload: dict) -> dict:
         if isinstance(error_info, dict) and isinstance(error_info.get("message"), str):
             message = re.sub(r"\s+", " ", error_info["message"]).strip()[:300]
             detail = f": {message}" if message else ""
-        if error.code == 402:
-            detail += " (check DeepSeek account balance)"
-        raise EnrichmentError(f"DeepSeek returned HTTP {error.code}{detail}", http_status=error.code) from error
+        raise EnrichmentError(f"Gemini returned HTTP {error.code}{detail}", http_status=error.code) from error
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
-        raise EnrichmentError("DeepSeek request failed") from error
+        raise EnrichmentError("Gemini request failed") from error
     if not isinstance(result, dict):
-        raise EnrichmentError("DeepSeek returned an invalid JSON response")
+        raise EnrichmentError("Gemini returned an invalid JSON response")
     return result
 
 
@@ -426,28 +424,29 @@ def enrich_signal(signal: dict, api_key: str) -> dict:
         "Signal evidence JSON:",
         json.dumps(evidence, ensure_ascii=False),
     ])
-    response = deepseek_request(api_key, {
-        "model": MODEL_ID,
-        "messages": [{"role": "user", "content": prompt}],
-        "response_format": {"type": "json_object"},
-        "temperature": 0.2,
-        "max_tokens": 4096,
+    response = gemini_request(api_key, MODEL_ID, {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "responseMimeType": "application/json",
+            "temperature": 0.2,
+            "maxOutputTokens": 4096,
+        },
     })
-    choices = response.get("choices") or []
-    choice = choices[0] if choices else {}
-    message = choice.get("message") or {}
-    content = message.get("content")
+    candidates = response.get("candidates") or []
+    candidate = candidates[0] if candidates else {}
+    parts = (candidate.get("content") or {}).get("parts") or []
+    content = "\n".join(part.get("text", "") for part in parts if isinstance(part, dict))
     try:
         enrichment = parse_enrichment(content, signal)
     except EnrichmentError as error:
         content_length = len(extract_text(content))
-        finish_reason = choice.get("finish_reason", "missing")
-        usage = response.get("usage") or {}
-        completion_tokens = usage.get("completion_tokens", "unknown")
-        message_fields = ",".join(sorted(message.keys())) or "none"
+        finish_reason = candidate.get("finishReason", "missing")
+        usage = response.get("usageMetadata") or {}
+        completion_tokens = usage.get("candidatesTokenCount", "unknown")
+        response_fields = ",".join(sorted(response.keys())) or "none"
         raise EnrichmentError(
             f"{error} (finish_reason={finish_reason}, completion_tokens={completion_tokens}, "
-            f"response_chars={content_length}, message_fields={message_fields})"
+            f"response_chars={content_length}, response_fields={response_fields})"
         ) from error
     apply_confident_classifications(signal, enrichment)
     return enrichment
@@ -542,12 +541,12 @@ def main() -> int:
     if overflow:
         print(f"{overflow} signal(s) remain pending for a later run.")
 
-    api_key = os.environ.get("DEEPSEEK_API_KEY")
+    api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         persist_payloads(payload)
-        raise EnrichmentError("DEEPSEEK_API_KEY GitHub Actions secret is not configured")
+        raise EnrichmentError("GEMINI_API_KEY GitHub Actions secret is not configured")
 
-    print(f"Enriching {len(pending)} pending signal(s) with DeepSeek {MODEL_ID}")
+    print(f"Enriching {len(pending)} pending signal(s) with Gemini {MODEL_ID}")
     failures = []
     for index, signal in enumerate(pending):
         try:
@@ -557,11 +556,11 @@ def main() -> int:
         except EnrichmentError as error:
             failures.append(signal["id"])
             print(f"Enrichment failed for {signal['id']}: {error}", file=sys.stderr)
-            if error.http_status in {400, 401, 402, 403}:
+            if error.http_status in {400, 401, 402, 403, 429}:
                 remaining = pending[index + 1:]
                 failures.extend(signal.get("id") for signal in remaining)
                 print(
-                    f"Stopping enrichment after DeepSeek HTTP {error.http_status}; "
+                    f"Stopping enrichment after Gemini HTTP {error.http_status}; "
                     f"{len(remaining)} signal(s) were not attempted.",
                     file=sys.stderr,
                 )

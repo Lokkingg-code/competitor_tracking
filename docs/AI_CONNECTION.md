@@ -59,11 +59,11 @@ read -s "GEMINI_API_KEY?Gemini API key: "; export GEMINI_API_KEY; npm run ai:gem
 ```
 
 Without `GEMINI_MODEL`, the check verifies the key and lists models available to
-it, but sends no prompt. Choose an eligible model ID, then run the same command
-with that ID set to send a synthetic connectivity prompt:
+it, but sends no prompt. The enrichment workflow defaults to `gemini-3.8-flash`.
+To test that exact model with a synthetic connectivity prompt:
 
 ```sh
-export GEMINI_MODEL=<model-id>
+export GEMINI_MODEL=gemini-3.8-flash
 read -s "GEMINI_API_KEY?Gemini API key: "; export GEMINI_API_KEY; npm run ai:gemini-check; unset GEMINI_API_KEY; echo
 ```
 
@@ -76,61 +76,45 @@ and [supported regions](https://ai.google.dev/gemini-api/docs/available-regions)
 before sending any captured news. Do not use a VPN or alternate region to bypass
 provider restrictions.
 
-## DeepSeek connection check
-
-Create a DeepSeek API key at
-[platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys). Enter
-it at a hidden terminal prompt and run the synthetic-only connection check:
-
-```sh
-read -s "DEEPSEEK_API_KEY?DeepSeek API key: "; export DEEPSEEK_API_KEY; npm run ai:deepseek-check; unset DEEPSEEK_API_KEY; echo
-```
-
-The check uses `https://api.deepseek.com/chat/completions` and defaults to
-`deepseek-chat`. Override the model with `DEEPSEEK_MODEL` if needed. It sends
-only a synthetic prompt and does not read dashboard files. See the official
-[DeepSeek API docs](https://api-docs.deepseek.com/) for current models, pricing,
-limits, and retention terms.
-
 ## Vercel server-side smoke test
 
-The root `api/ai-test.js` function provides a protected, synthetic-only DeepSeek
+The root `api/ai-test.js` function provides a protected, synthetic-only Gemini
 test for Vercel. It sends one fixed connection prompt and does not accept prompt
 text from the caller.
 
 In Vercel Project Settings, add these as **Secret** environment variables for a
 Preview deployment:
 
-- `DEEPSEEK_API_KEY`: your DeepSeek API key.
+- `GEMINI_API_KEY`: your Google AI Studio API key.
 - `AI_TEST_TOKEN`: a separate long random secret used to protect the endpoint.
 
-Optionally set `DEEPSEEK_MODEL` as a nonsecret environment variable to override
-the model ID; it defaults to `deepseek-chat`.
+Optionally set `GEMINI_MODEL` as a nonsecret environment variable to override
+the model ID; it defaults to `gemini-3.8-flash`.
 
 Create a new Preview deployment after saving the variables. From a terminal,
 call `https://<your-preview-domain>/api/ai-test` using `POST` with
 `Authorization: Bearer <AI_TEST_TOKEN>`. Enter the test token only in your
 terminal; do not put either secret in browser code. A `502` response includes a
-DeepSeek API or connectivity failure. Vercel functions have their own usage
-limits and billing, separate from DeepSeek API usage.
+Gemini API or connectivity failure. Vercel functions have their own usage limits
+and billing, separate from Gemini API usage.
 
 ## Automatic signal enrichment
 
 The `refresh-signals` GitHub Actions workflow runs after a change to
 `data/signals.json` and on its daily schedule. It merges captures, then runs
 `scripts/enrich_signals.py` before committing the updated dashboard data. Add
-`DEEPSEEK_API_KEY` as a GitHub Actions repository secret; Vercel environment
+`GEMINI_API_KEY` as a GitHub Actions repository secret; Vercel environment
 variables are not automatically available to GitHub Actions. The workflow
-defaults to `deepseek-chat`; optionally set the repository variable
-`DEEPSEEK_MODEL` to another model supported by the DeepSeek account.
+defaults to `gemini-3.8-flash`; optionally set the repository variable
+`GEMINI_MODEL` to another model supported by the Gemini API key.
 
 The local `scripts/capture/weekly_capture.sh` path runs the LinkedIn browser
 collector, merges its output, then enriches new signals immediately when
-`DEEPSEEK_API_KEY` is set in that shell. Without the key, it leaves those
+`GEMINI_API_KEY` is set in that shell. Without the key, it leaves those
 signals pending; pushing the refreshed feed lets the GitHub workflow enrich them
 using the repository secret.
 
-Only new or explicitly pending signal IDs are sent to DeepSeek. Each successful
+Only new or explicitly pending signal IDs are sent to Gemini. Each successful
 result is saved as `ai_enrichment` in the signal and archive, including summary,
 one-sentence headline summary, announcement tone, competitive insight, caveat,
 named customer airline/relationship/segment when source-supported, suggested
@@ -163,8 +147,10 @@ Run workflow** and enable **Re-enrich historical signals missing the current AI
 schema**. This includes older `ai_enrichment` records missing the newer headline
 and customer/segment fields, but skips records already using the current schema.
 It enriches at most 20 signals per run; run it again to process the next pending batch.
-Backfill makes model requests and can consume DeepSeek API balance; review the
-current DeepSeek pricing and account limits before running large backfills. The
+Backfill makes model requests. Gemini 3.8 Flash has free input and output on
+the free tier, but Google may use free-tier prompts to improve its products and
+enforces tier-specific rate limits. Review Google's current [pricing](https://ai.google.dev/gemini-api/docs/pricing)
+and [terms](https://ai.google.dev/gemini-api/terms) before backfilling. The
 separate Vercel smoke-test endpoint uses `AI_TEST_TOKEN` and does not power
 dashboard summaries.
 

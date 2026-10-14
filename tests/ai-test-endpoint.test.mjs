@@ -3,24 +3,24 @@ import assert from "node:assert/strict";
 import endpoint from "../api/ai-test.js";
 
 const originalFetch = globalThis.fetch;
-const originalApiKey = process.env.DEEPSEEK_API_KEY;
+const originalApiKey = process.env.GEMINI_API_KEY;
 const originalTestToken = process.env.AI_TEST_TOKEN;
-const originalModel = process.env.DEEPSEEK_MODEL;
+const originalModel = process.env.GEMINI_MODEL;
 
 afterEach(() => {
   globalThis.fetch = originalFetch;
-  if (originalApiKey === undefined) delete process.env.DEEPSEEK_API_KEY;
-  else process.env.DEEPSEEK_API_KEY = originalApiKey;
+  if (originalApiKey === undefined) delete process.env.GEMINI_API_KEY;
+  else process.env.GEMINI_API_KEY = originalApiKey;
   if (originalTestToken === undefined) delete process.env.AI_TEST_TOKEN;
   else process.env.AI_TEST_TOKEN = originalTestToken;
-  if (originalModel === undefined) delete process.env.DEEPSEEK_MODEL;
-  else process.env.DEEPSEEK_MODEL = originalModel;
+  if (originalModel === undefined) delete process.env.GEMINI_MODEL;
+  else process.env.GEMINI_MODEL = originalModel;
 });
 
 function configureTestSecrets() {
-  process.env.DEEPSEEK_API_KEY = "test-deepseek-key";
+  process.env.GEMINI_API_KEY = "test-gemini-key";
   process.env.AI_TEST_TOKEN = "test-ai-token";
-  process.env.DEEPSEEK_MODEL = "deepseek-test-model";
+  process.env.GEMINI_MODEL = "gemini-test-model";
 }
 
 function request() {
@@ -30,52 +30,51 @@ function request() {
   });
 }
 
-test("Vercel smoke test calls DeepSeek with the configured model", async () => {
+test("Vercel smoke test calls Gemini with the configured model", async () => {
   configureTestSecrets();
   const calls = [];
   globalThis.fetch = async (url, options) => {
     calls.push({ url, options });
-    return Response.json({ choices: [{ message: { content: "VERCEL_DEEPSEEK_OK" } }] });
+    return Response.json({ candidates: [{ content: { parts: [{ text: "VERCEL_GEMINI_OK" }] } }] });
   };
 
   const response = await endpoint.fetch(request());
   const result = await response.json();
 
   assert.equal(response.status, 200);
-  assert.equal(result.model, "deepseek-test-model");
+  assert.equal(result.model, "gemini-test-model");
   assert.equal(calls.length, 1);
-  assert.equal(calls[0].url, "https://api.deepseek.com/chat/completions");
-  assert.equal(calls[0].options.headers.Authorization, "Bearer test-deepseek-key");
-  assert.equal(JSON.parse(calls[0].options.body).model, "deepseek-test-model");
+  assert.equal(calls[0].url, "https://generativelanguage.googleapis.com/v1beta/models/gemini-test-model:generateContent");
+  assert.equal(calls[0].options.headers["x-goog-api-key"], "test-gemini-key");
 });
 
-test("Vercel smoke test defaults to deepseek-chat", async () => {
+test("Vercel smoke test defaults to Gemini 3.8 Flash", async () => {
   configureTestSecrets();
-  delete process.env.DEEPSEEK_MODEL;
-  let requestedModel;
-  globalThis.fetch = async (_url, options) => {
-    requestedModel = JSON.parse(options.body).model;
-    return Response.json({ choices: [{ message: { content: "VERCEL_DEEPSEEK_OK" } }] });
+  delete process.env.GEMINI_MODEL;
+  let requestedUrl;
+  globalThis.fetch = async (url) => {
+    requestedUrl = url;
+    return Response.json({ candidates: [{ content: { parts: [{ text: "VERCEL_GEMINI_OK" }] } }] });
   };
 
   const response = await endpoint.fetch(request());
   const result = await response.json();
 
   assert.equal(response.status, 200);
-  assert.equal(result.model, "deepseek-chat");
-  assert.equal(requestedModel, "deepseek-chat");
+  assert.equal(result.model, "gemini-3.8-flash");
+  assert.match(requestedUrl, /models\/gemini-3\.8-flash:generateContent$/);
 });
 
-test("Vercel smoke test reports DeepSeek API errors", async () => {
+test("Vercel smoke test reports Gemini API errors", async () => {
   configureTestSecrets();
   globalThis.fetch = async () => Response.json(
-    { error: { message: "Insufficient balance" } },
-    { status: 402 },
+    { error: { message: "API key not valid" } },
+    { status: 400 },
   );
 
   const response = await endpoint.fetch(request());
   const result = await response.json();
 
   assert.equal(response.status, 502);
-  assert.match(result.error, /DeepSeek returned 402: Insufficient balance/);
+  assert.match(result.error, /Gemini returned 400: API key not valid/);
 });

@@ -5,7 +5,6 @@
   "scripts": {
     "ai:check": "node scripts/ai/check_copilot.mjs",
     "ai:gemini-check": "node scripts/ai/check_gemini.mjs",
-    "ai:deepseek-check": "node scripts/ai/check_deepseek.mjs",
     "capture:linkedin": "node scripts/capture/linkedin_browser_collector.mjs",
     "capture:weekly": "bash scripts/capture/weekly_capture.sh"
   },
