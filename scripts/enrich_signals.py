@@ -16,6 +16,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from scripts.dedupe_signals import deduplicate_customer_events
+
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
 MODEL_ID = "nvidia/nemotron-3.5-lightning"
@@ -477,7 +482,6 @@ def write_payload(path: Path, payload: dict) -> None:
 
 
 def persist_payloads(payload: dict) -> None:
-    write_payload(SIGNALS_PATH, payload)
     archive_payload = json.loads(ARCHIVE_PATH.read_text(encoding="utf-8")) if ARCHIVE_PATH.exists() else payload
     archive_by_id = {signal.get("id"): signal for signal in archive_payload.get("signals", [])}
     archive_by_id.update({signal.get("id"): signal for signal in payload.get("signals", [])})
@@ -485,7 +489,16 @@ def persist_payloads(payload: dict) -> None:
     archive_payload["signals"] = sorted(
         archive_by_id.values(), key=lambda signal: signal.get("date", ""), reverse=True
     )
+    archive_payload["signals"] = deduplicate_customer_events(archive_payload["signals"])
     write_payload(ARCHIVE_PATH, archive_payload)
+    payload_ids = {signal.get("id") for signal in payload.get("signals", [])}
+    feed_signals = [signal for signal in archive_payload["signals"] if not signal.get("duplicate_of")]
+    feed_signals.sort(
+        key=lambda signal: (signal.get("date", ""), signal.get("id") in payload_ids),
+        reverse=True,
+    )
+    feed_payload = {**payload, "signals": feed_signals}
+    write_payload(SIGNALS_PATH, feed_payload)
 
 
 def main() -> int:
