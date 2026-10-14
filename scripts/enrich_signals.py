@@ -470,19 +470,25 @@ def enrich_signal(signal: dict, api_key: str, catalog_pricing: dict) -> dict:
         "model": MODEL_ID,
         "messages": [{"role": "user", "content": prompt}],
         "response_format": {"type": "json_object"},
+        "reasoning": {"effort": "none"},
         "temperature": 0.2,
-        "max_tokens": 900,
+        "max_completion_tokens": 1600,
     })
     choices = response.get("choices") or []
     choice = choices[0] if choices else {}
-    content = choice.get("message", {}).get("content")
+    message = choice.get("message") or {}
+    content = message.get("content")
     try:
         enrichment = parse_enrichment(content, signal)
     except EnrichmentError as error:
         content_length = len(extract_text(content))
         finish_reason = choice.get("finish_reason", "missing")
+        usage = response.get("usage") or {}
+        completion_tokens = usage.get("completion_tokens", "unknown")
+        message_fields = ",".join(sorted(message.keys())) or "none"
         raise EnrichmentError(
-            f"{error} (finish_reason={finish_reason}, response_chars={content_length})"
+            f"{error} (finish_reason={finish_reason}, completion_tokens={completion_tokens}, "
+            f"response_chars={content_length}, message_fields={message_fields})"
         ) from error
     enrichment["catalog_pricing"] = catalog_pricing
     apply_confident_classifications(signal, enrichment)

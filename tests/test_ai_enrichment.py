@@ -78,7 +78,25 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(request_args[0], "chat/completions")
         self.assertEqual(request_args[2]["model"], ENRICH.MODEL_ID)
         self.assertEqual(request_args[2]["response_format"], {"type": "json_object"})
-        self.assertEqual(request_args[2]["max_tokens"], 900)
+        self.assertEqual(request_args[2]["reasoning"], {"effort": "none"})
+        self.assertEqual(request_args[2]["max_completion_tokens"], 1600)
+
+    def test_empty_truncated_response_reports_safe_usage_metadata(self):
+        signal = {"id": "truncated", "competitor": "Example Systems", "date": "2026-10-14"}
+        response = {
+            "choices": [{"finish_reason": "length", "message": {"content": None, "reasoning": "hidden"}}],
+            "usage": {"completion_tokens": 1600},
+        }
+
+        with patch.object(ENRICH, "openrouter_request", return_value=response):
+            with self.assertRaises(ENRICH.EnrichmentError) as raised:
+                ENRICH.enrich_signal(signal, "test-key", {"prompt": 0, "completion": 0})
+
+        self.assertIn("finish_reason=length", str(raised.exception))
+        self.assertIn("completion_tokens=1600", str(raised.exception))
+        self.assertIn("response_chars=0", str(raised.exception))
+        self.assertIn("message_fields=content,reasoning", str(raised.exception))
+        self.assertNotIn("hidden", str(raised.exception))
     def test_http_402_stops_batch_and_leaves_all_signals_pending(self):
         with tempfile.TemporaryDirectory() as directory:
             signals_path = Path(directory) / "signals.json"
