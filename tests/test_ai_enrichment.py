@@ -45,6 +45,40 @@ class AIEnrichmentTests(unittest.TestCase):
         with patch.object(ENRICH, "openrouter_request", return_value=catalog):
             with self.assertRaisesRegex(ENRICH.EnrichmentError, "liquid/available-free-model"):
                 ENRICH.verify_model_pricing("test-key")
+
+    def test_enrichment_requests_json_object_response_from_selected_model(self):
+        result = {
+            "headline_summary": "A competitor selected an airline for its EFB platform.",
+            "summary": "The airline selected the EFB platform. The source describes the operational use.",
+            "announcement_tone": "Positive",
+            "competitive_insight": "This adds another airline to the competitor's customer base.",
+            "caveat": "Contract terms are not stated.",
+            "customer_airline": "Example Air",
+            "customer_relationship": "selected",
+            "customer_segment": "unknown",
+            "customer_confidence": 0.95,
+            "customer_segment_confidence": 0,
+            "suggested_type": "customer_win",
+            "type_confidence": 0.9,
+            "suggested_product_focus": "efb",
+            "focus_confidence": 0.9,
+        }
+        response = {"choices": [{"message": {"content": json.dumps(result)}}]}
+        signal = {
+            "id": "test-signal", "competitor": "Example Systems", "date": "2026-10-14",
+            "headline": "Example Air selects an EFB platform", "summary": "A customer announcement.",
+            "type": "customer_win", "product_focus": "efb", "product": "Example EFB",
+        }
+
+        with patch.object(ENRICH, "openrouter_request", return_value=response) as request:
+            ENRICH.enrich_signal(signal, "test-key", {"prompt": 0, "completion": 0})
+
+        request.assert_called_once()
+        request_args = request.call_args.args
+        self.assertEqual(request_args[0], "chat/completions")
+        self.assertEqual(request_args[2]["model"], ENRICH.MODEL_ID)
+        self.assertEqual(request_args[2]["response_format"], {"type": "json_object"})
+        self.assertEqual(request_args[2]["max_tokens"], 900)
     def test_http_402_stops_batch_and_leaves_all_signals_pending(self):
         with tempfile.TemporaryDirectory() as directory:
             signals_path = Path(directory) / "signals.json"

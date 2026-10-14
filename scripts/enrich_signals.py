@@ -469,12 +469,21 @@ def enrich_signal(signal: dict, api_key: str, catalog_pricing: dict) -> dict:
     response = openrouter_request("chat/completions", api_key, {
         "model": MODEL_ID,
         "messages": [{"role": "user", "content": prompt}],
+        "response_format": {"type": "json_object"},
         "temperature": 0.2,
-        "max_tokens": 700,
+        "max_tokens": 900,
     })
     choices = response.get("choices") or []
-    content = choices[0].get("message", {}).get("content") if choices else None
-    enrichment = parse_enrichment(content, signal)
+    choice = choices[0] if choices else {}
+    content = choice.get("message", {}).get("content")
+    try:
+        enrichment = parse_enrichment(content, signal)
+    except EnrichmentError as error:
+        content_length = len(extract_text(content))
+        finish_reason = choice.get("finish_reason", "missing")
+        raise EnrichmentError(
+            f"{error} (finish_reason={finish_reason}, response_chars={content_length})"
+        ) from error
     enrichment["catalog_pricing"] = catalog_pricing
     apply_confident_classifications(signal, enrichment)
     return enrichment
