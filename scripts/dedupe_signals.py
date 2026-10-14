@@ -3,8 +3,9 @@
 
 from __future__ import annotations
 
-import re
+import argparse
 import json
+import re
 import unicodedata
 from datetime import date
 from pathlib import Path
@@ -119,8 +120,17 @@ def merge_sources(canonical: dict, duplicates: list[dict]) -> None:
             seen.add(key)
             sources.append(source)
     canonical["sources"] = sources
-    canonical["duplicate_count"] = len(duplicates)
-    canonical["duplicate_signal_ids"] = [signal.get("id") for signal in duplicates if signal.get("id")]
+    prior_ids = canonical.get("duplicate_signal_ids") or []
+    duplicate_ids = list(dict.fromkeys([
+        *(signal_id for signal_id in prior_ids if signal_id),
+        *(signal.get("id") for signal in duplicates if signal.get("id")),
+    ]))
+    prior_count = canonical.get("duplicate_count", 0)
+    if isinstance(prior_count, bool) or not isinstance(prior_count, int):
+        prior_count = 0
+    unidentified_duplicates = sum(not signal.get("id") for signal in duplicates)
+    canonical["duplicate_count"] = max(len(duplicate_ids), prior_count + unidentified_duplicates)
+    canonical["duplicate_signal_ids"] = duplicate_ids
 
 
 def deduplicate_customer_events(signals: list[dict], window_days: int = EVENT_WINDOW_DAYS) -> list[dict]:
@@ -130,8 +140,6 @@ def deduplicate_customer_events(signals: list[dict], window_days: int = EVENT_WI
         signal = dict(original)
         signal.pop("duplicate_of", None)
         signal.pop("duplicate_reason", None)
-        signal.pop("duplicate_count", None)
-        signal.pop("duplicate_signal_ids", None)
         records.append(signal)
 
     groups: dict[tuple[str, str, str, str], list[int]] = {}
@@ -163,3 +171,50 @@ def deduplicate_customer_events(signals: list[dict], window_days: int = EVENT_WI
                 records[index]["duplicate_reason"] = "Same high-confidence customer deal, competitor, product, and date window"
 
     return records
+
+
+def prune_duplicate_customer_events(signals: list[dict], window_days: int = EVENT_WINDOW_DAYS) -> list[dict]:
+    """Remove duplicate objects but retain their IDs and source links on canonical records."""
+    records = deduplicate_customer_events(signals, window_days=window_days)
+    return [record for record in records if not record.get("duplicate_of")]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Prune duplicate customer events from feed and archive JSON.")
+    parser.add_argument("--apply", action="store_true", help="Write pruned records; otherwise print a dry-run report.")
+    parser.add_argument("--archive", type=Path, default=ROOT / "data" / "signals.archive.json")
+    parser.add_argument("--feed", type=Path, default=ROOT / "data" / "signals.json")
+    args = parser.parse_args()
+
+    updates = []
+    for path in (args.archive, args.feed):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        records = deduplicate_customer_events(payload.get("signals", []))
+        duplicates = [record for record in records if record.get("duplicate_of")]
+        payload["signals"] = [record for record in records if not record.get("duplicate_of")]
+        updates.append((path, payload, duplicates))
+        print(f"{path}: {len(records)} records, {len(duplicates)} duplicates")
+        for duplicate in duplicates:
+            print(f"  {duplicate.get('id')} -> {duplicate.get('duplicate_of')}")
+
+    if not args.apply:
+        print("Dry run only; pass --apply to write these changes.")
+        return 0
+
+    temporary_paths = []
+    try:
+        for path, payload, _ in updates:
+            temporary = path.with_suffix(path.suffix + ".tmp")
+            temporary.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            temporary_paths.append((temporary, path))
+        for temporary, path in temporary_paths:
+            temporary.replace(path)
+    finally:
+        for temporary, _ in temporary_paths:
+            temporary.unlink(missing_ok=True)
+    print("Pruned duplicate objects; canonical signals retain their source links and duplicate IDs.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.dedupe_signals import deduplicate_customer_events
+from scripts.dedupe_signals import prune_duplicate_customer_events
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
@@ -489,10 +489,10 @@ def persist_payloads(payload: dict) -> None:
     archive_payload["signals"] = sorted(
         archive_by_id.values(), key=lambda signal: signal.get("date", ""), reverse=True
     )
-    archive_payload["signals"] = deduplicate_customer_events(archive_payload["signals"])
+    archive_payload["signals"] = prune_duplicate_customer_events(archive_payload["signals"])
     write_payload(ARCHIVE_PATH, archive_payload)
     payload_ids = {signal.get("id") for signal in payload.get("signals", [])}
-    feed_signals = [signal for signal in archive_payload["signals"] if not signal.get("duplicate_of")]
+    feed_signals = list(archive_payload["signals"])
     feed_signals.sort(
         key=lambda signal: (signal.get("date", ""), signal.get("id") in payload_ids),
         reverse=True,

@@ -114,6 +114,18 @@
         {
           "title": "LinkedIn browser collector",
           "url": "https://lnkd.in/p/gpDV-bDb"
+        },
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOUF9uSEczSjM2M0hRMzc5VUs1NExTTjBfVXotbTlfZmhqNXJrb0dNcVo0TW1nZWwzOWt6dm95TkNnWkFLcUliLVR0TXRFOC1OYVJKV1BRdWs0N2F2YXU4Tjl1YWtqYWItbGN4VndkdHZELTJMaXBES1pDUDZaMG41QXM2OEw3VXhmdFZzTW13a2JQc0VwVWZjYk9BVlU2aG9EcFd4ZTg3Q29zcU42TmQyeg?oc=5"
+        },
+        {
+          "title": "LinkedIn direct post",
+          "url": "https://www.linkedin.com/posts/aviobook-thalesags-efb-share-7513931955172818944-_70O"
+        },
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gnq3Jn4Q"
         }
       ],
       "tags": [
@@ -121,7 +133,13 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment_status": "pending",
+      "duplicate_count": 3,
+      "duplicate_signal_ids": [
+        "cap-8919a9ceec99",
+        "cap-98f697fd8db5",
+        "browser-e6ef85639f4f"
+      ]
     },
     {
       "id": "browser-46f6c86d6171",
@@ -156,43 +174,6 @@
       "tags": [
         "auto-capture",
         "linkedin_browser",
-        "linkedin"
-      ],
-      "ai_enrichment_status": "pending"
-    },
-    {
-      "id": "cap-8919a9ceec99",
-      "competitor": "Aviobook",
-      "date": "2026-10-13",
-      "date_is_estimated": false,
-      "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
-      "confidence": 0.65,
-      "headline": "Royal Air Maroc has agreed a five-year contract with Thales to equip pilots across…",
-      "summary": "Royal Air Maroc has agreed a five-year contract with Thales to equip pilots across its aircraft with AvioBook Flight, an Electronic Flight Bag solution developed by AvioBook, a Thales Group company. The airline will use the system to support fuel optimisation an <font color",
-      "source_channel": "linkedin",
-      "source_origin": "google_news",
-      "product_focus": "efb",
-      "product": "AvioBook",
-      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
-      "segment": "Unknown",
-      "implications": [
-        "Needs analyst confirmation before executive distribution."
-      ],
-      "next_actions": [
-        "Open source link, validate claim, upgrade confidence.",
-        "If confirmed, add implications for Cathay Technologies."
-      ],
-      "sources": [
-        {
-          "title": "Google News · LinkedIn",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOUF9uSEczSjM2M0hRMzc5VUs1NExTTjBfVXotbTlfZmhqNXJrb0dNcVo0TW1nZWwzOWt6dm95TkNnWkFLcUliLVR0TXRFOC1OYVJKV1BRdWs0N2F2YXU4Tjl1YWtqYWItbGN4VndkdHZELTJMaXBES1pDUDZaMG41QXM2OEw3VXhmdFZzTW13a2JQc0VwVWZjYk9BVlU2aG9EcFd4ZTg3Q29zcU42TmQyeg?oc=5"
-        }
-      ],
-      "tags": [
-        "auto-capture",
-        "linkedin",
         "linkedin"
       ],
       "ai_enrichment_status": "pending"
@@ -262,43 +243,6 @@
         {
           "title": "LinkedIn browser collector",
           "url": "https://lnkd.in/p/gVqWuURU"
-        }
-      ],
-      "tags": [
-        "auto-capture",
-        "linkedin_browser",
-        "linkedin"
-      ],
-      "ai_enrichment_status": "pending"
-    },
-    {
-      "id": "browser-e6ef85639f4f",
-      "competitor": "Aviobook",
-      "date": "2026-10-09",
-      "date_is_estimated": false,
-      "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
-      "confidence": 0.65,
-      "headline": "Belgische software voor de cockpit van Royal Air Maroc: de maatschappij kiest voor vijf jaar AvioBook Flight uit Hasselt.",
-      "summary": "Belgische software voor de cockpit van Royal Air Maroc: de maatschappij kiest voor vijf jaar AvioBook Flight uit Hasselt. https://lnkd.in/eQyT5ptB #RoyalAirMaroc #AvioBook #FlightOperations #EFB #AviationTechnology Thales … more Show translation 30 reactions 30 3 reposts 3 reposts Like Comment Repost Send",
-      "source_channel": "linkedin",
-      "source_origin": "linkedin",
-      "product_focus": "efb",
-      "product": "AvioBook",
-      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
-      "segment": "Unknown",
-      "implications": [
-        "Needs analyst confirmation before executive distribution."
-      ],
-      "next_actions": [
-        "Open source link, validate claim, upgrade confidence.",
-        "If confirmed, add implications for Cathay Technologies."
-      ],
-      "sources": [
-        {
-          "title": "LinkedIn browser collector",
-          "url": "https://lnkd.in/p/gnq3Jn4Q"
         }
       ],
       "tags": [
@@ -479,43 +423,6 @@
       "tags": [
         "auto-capture",
         "linkedin_browser",
-        "linkedin"
-      ],
-      "ai_enrichment_status": "pending"
-    },
-    {
-      "id": "cap-98f697fd8db5",
-      "competitor": "Aviobook",
-      "date": "2026-10-08",
-      "date_is_estimated": false,
-      "type": "partnership",
-      "priority": "low",
-      "severity": 2,
-      "confidence": 0.65,
-      "headline": "#aviobook #thalesags #efb #royalairmaroc | AvioBook",
-      "summary": "We're proud to announce that Royal Air Maroc has chosen AvioBook to digitise its flight operations with our Electronic Flight Bag platform. This contract also marks a new milestone in the long-standing partnership between Thales (Thales Aerospace )and Royal Air Maroc, which already spans In-flight Entertainment, maintenance, and cybersecurity.",
-      "source_channel": "linkedin",
-      "source_origin": "linkedin",
-      "product_focus": "efb",
-      "product": "AvioBook",
-      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
-      "segment": "Unknown",
-      "implications": [
-        "Needs analyst confirmation before executive distribution."
-      ],
-      "next_actions": [
-        "Open source link, validate claim, upgrade confidence.",
-        "If confirmed, add implications for Cathay Technologies."
-      ],
-      "sources": [
-        {
-          "title": "LinkedIn direct post",
-          "url": "https://www.linkedin.com/posts/aviobook-thalesags-efb-share-7513931955172818944-_70O"
-        }
-      ],
-      "tags": [
-        "auto-capture",
-        "linkedin",
         "linkedin"
       ],
       "ai_enrichment_status": "pending"
@@ -2101,71 +2008,6 @@
       }
     },
     {
-      "id": "browser-d80af89ec4b3",
-      "competitor": "IFS",
-      "date": "2026-09-14",
-      "date_is_estimated": false,
-      "type": "customer_win",
-      "priority": "high",
-      "severity": 4,
-      "confidence": 0.65,
-      "headline": "Excited to welcome MY FREIGHTER (Centrum Air), Central Asia's largest air cargo operator, to the EFBOne platform.",
-      "summary": "Excited to welcome MY FREIGHTER (Centrum Air), Central Asia's largest air cargo operator, to the EFBOne platform. https://lnkd.in/eZ4A7TdR … more 93 reactions 93 1 comment 1 comment • 1 repost 1 repost Like Comment Repost Send",
-      "source_channel": "linkedin",
-      "source_origin": "linkedin",
-      "product_focus": "efb",
-      "product": "IFS EFBOne",
-      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
-      "segment": "Unknown",
-      "implications": [
-        "Needs analyst confirmation before executive distribution."
-      ],
-      "next_actions": [
-        "Open source link, validate claim, upgrade confidence.",
-        "If confirmed, add implications for Cathay Technologies."
-      ],
-      "sources": [
-        {
-          "title": "LinkedIn browser collector",
-          "url": "https://lnkd.in/p/gDPMbu6a"
-        }
-      ],
-      "tags": [
-        "auto-capture",
-        "linkedin_browser",
-        "linkedin"
-      ],
-      "ai_enrichment": {
-        "model": "nvidia/nemotron-3.5-lightning",
-        "schema_version": 2,
-        "enriched_at": "2026-10-09T06:09:19+00:00",
-        "source_sha256": "72ba5c372def0e027a97c84fbf37a8919bce7de275d2ef67fd5178067fbd28d5",
-        "headline_summary": "IFS welcomes Centrum Air, Central Asia's largest air cargo operator, to its EFBOne platform.",
-        "summary": "IFS welcomed Centrum Air, Central Asia's largest air cargo operator, to its EFBOne platform on September 14 2026. The LinkedIn post announcing the welcome received 93 reactions, one comment, and one repost indicating platform adoption.",
-        "announcement_tone": "Positive",
-        "competitive_insight": "IFS's onboarding of Centrum Air signals targeted expansion of EFBOne into Central Asian air cargo operations, without indicating a broader industry digital shift.",
-        "caveat": "Evidence does not provide operational details, contract terms, or confirmation of MY FREIGHTER's specific customer status beyond the platform welcome announcement.",
-        "customer_airline": "MY FREIGHTER (Centrum Air)",
-        "customer_relationship": "adopted",
-        "customer_segment": "unknown",
-        "customer_confidence": 1.0,
-        "customer_segment_confidence": 0.0,
-        "suggested_type": "customer_win",
-        "type_confidence": 1.0,
-        "type_matches_existing": true,
-        "suggested_product_focus": "efb",
-        "focus_confidence": 1.0,
-        "focus_matches_existing": false,
-        "catalog_pricing": {
-          "prompt": 4.69e-08,
-          "completion": 1.34e-07
-        },
-        "type_auto_applied": false,
-        "original_product_focus": "eff",
-        "focus_auto_applied": true
-      }
-    },
-    {
       "id": "cap-eede314fcaab",
       "competitor": "Jeppesen",
       "date": "2026-09-11",
@@ -2321,6 +2163,10 @@
         {
           "title": "LinkedIn browser collector",
           "url": "https://www.linkedin.com/feed/update/urn:li:activity:7503397509013180416"
+        },
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gDPMbu6a"
         }
       ],
       "tags": [
@@ -2355,7 +2201,11 @@
         },
         "type_auto_applied": false,
         "focus_auto_applied": false
-      }
+      },
+      "duplicate_count": 1,
+      "duplicate_signal_ids": [
+        "browser-d80af89ec4b3"
+      ]
     },
     {
       "id": "cap-4c94bfb370a8",

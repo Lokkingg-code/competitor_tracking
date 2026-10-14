@@ -110,7 +110,7 @@ class CustomerEventDedupeTests(unittest.TestCase):
         self.assertEqual(len(records), len(signals))
         self.assertTrue(all(not record.get("duplicate_of") for record in records))
 
-    def test_persistence_filters_feed_but_keeps_archive_records(self):
+    def test_persistence_prunes_feed_and_archive_objects_but_keeps_provenance(self):
         payload = {"generated_at": "2026-10-14T00:00:00Z", "signals": [
             signal("linkedin", url="https://example.com/post"),
             signal("news", date="2026-10-10", url="https://example.com/article"),
@@ -126,8 +126,24 @@ class CustomerEventDedupeTests(unittest.TestCase):
 
         self.assertEqual([item["id"] for item in feed["signals"]], ["news"])
         self.assertEqual(len(feed["signals"][0]["sources"]), 2)
-        self.assertEqual(len(archive["signals"]), 2)
-        self.assertEqual(sum(bool(item.get("duplicate_of")) for item in archive["signals"]), 1)
+        self.assertEqual(len(archive["signals"]), 1)
+        self.assertEqual(archive["signals"][0]["duplicate_count"], 1)
+        self.assertEqual(archive["signals"][0]["duplicate_signal_ids"], ["linkedin"])
+
+    def test_pruning_is_idempotent_and_preserves_duplicate_provenance(self):
+        signals = [
+            signal("canonical", url="https://example.com/canonical"),
+            signal("duplicate", date="2026-10-06", url="https://example.com/duplicate"),
+        ]
+
+        pruned = dedupe_signals.prune_duplicate_customer_events(signals)
+        pruned_again = dedupe_signals.prune_duplicate_customer_events(pruned)
+
+        self.assertEqual(len(pruned), 1)
+        self.assertEqual(pruned[0]["duplicate_signal_ids"], ["duplicate"])
+        self.assertEqual(pruned[0]["duplicate_count"], 1)
+        self.assertEqual(len(pruned[0]["sources"]), 2)
+        self.assertEqual(pruned_again, pruned)
 
 
 if __name__ == "__main__":

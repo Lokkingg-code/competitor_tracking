@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.dedupe_signals import deduplicate_customer_events
+from scripts.dedupe_signals import prune_duplicate_customer_events
 
 SEED_PATH = ROOT / "data" / "signals.seed.json"
 SIGNALS_PATH = ROOT / "data" / "signals.json"
@@ -732,8 +732,7 @@ def main() -> None:
         key=lambda s: s["date"],
         reverse=True,
     )
-    archive_signals = deduplicate_customer_events(signals)
-    feed_signals = [signal for signal in archive_signals if not signal.get("duplicate_of")]
+    archive_signals = prune_duplicate_customer_events(signals)
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "lookback_days": seed.get("lookback_days", 365),
@@ -742,9 +741,8 @@ def main() -> None:
         "signals": archive_signals,
     }
     ARCHIVE_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    feed_payload = {**payload, "signals": feed_signals}
-    SIGNALS_PATH.write_text(json.dumps(feed_payload, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {len(feed_signals)} signals → data/signals.json ({len(signals) - len(feed_signals)} duplicates retained in archive)")
+    SIGNALS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {len(archive_signals)} unique events to feed and archive ({len(signals) - len(archive_signals)} duplicates removed)")
 
 
 if __name__ == "__main__":
