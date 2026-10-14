@@ -58,7 +58,9 @@ VALID_CUSTOMER_SEGMENTS = {"lcc", "full_service", "regional", "cargo", "charter"
 
 
 class EnrichmentError(RuntimeError):
-    pass
+    def __init__(self, message: str, http_status: int | None = None):
+        super().__init__(message)
+        self.http_status = http_status
 
 
 def has_current_enrichment(signal: dict) -> bool:
@@ -364,7 +366,8 @@ def openrouter_request(path: str, api_key: str, payload: dict | None = None) -> 
         with urllib.request.urlopen(request, timeout=45) as response:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as error:
-        raise EnrichmentError(f"OpenRouter returned HTTP {error.code}") from error
+        detail = " (check OpenRouter credits, billing, or model access)" if error.code == 402 else ""
+        raise EnrichmentError(f"OpenRouter returned HTTP {error.code}{detail}", http_status=error.code) from error
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
         raise EnrichmentError("OpenRouter request failed") from error
     if not isinstance(result, dict):
@@ -549,7 +552,7 @@ def main() -> int:
         f"output ${catalog_pricing['completion'] * 1_000_000:.3f}"
     )
     failures = []
-    for signal in pending:
+    for index, signal in enumerate(pending):
         try:
             signal["ai_enrichment"] = enrich_signal(signal, api_key, catalog_pricing)
             signal.pop("ai_enrichment_status", None)
@@ -557,6 +560,14 @@ def main() -> int:
         except EnrichmentError as error:
             failures.append(signal["id"])
             print(f"Enrichment failed for {signal['id']}: {error}", file=sys.stderr)
+            if error.http_status == 402:
+                remaining = pending[index + 1:]
+                failures.extend(signal.get("id") for signal in remaining)
+                print(
+                    f"Stopping enrichment after HTTP 402; {len(remaining)} signal(s) were not attempted.",
+                    file=sys.stderr,
+                )
+                break
 
     persist_payloads(payload)
     if failures:

@@ -1,8 +1,13 @@
 import importlib.util
+import contextlib
+import io
 import json
+import os
+import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "scripts" / "enrich_signals.py"
@@ -12,6 +17,31 @@ SPEC.loader.exec_module(ENRICH)
 
 
 class AIEnrichmentTests(unittest.TestCase):
+    def test_http_402_stops_batch_and_leaves_all_signals_pending(self):
+        with tempfile.TemporaryDirectory() as directory:
+            signals_path = Path(directory) / "signals.json"
+            archive_path = Path(directory) / "signals.archive.json"
+            payload = {"signals": [{"id": f"signal-{index}"} for index in range(3)]}
+            signals_path.write_text(json.dumps(payload), encoding="utf-8")
+            with (
+                patch.object(ENRICH, "SIGNALS_PATH", signals_path),
+                patch.object(ENRICH, "ARCHIVE_PATH", archive_path),
+                patch.object(ENRICH, "base_signal_ids", return_value=set()),
+                patch.object(ENRICH, "verify_model_pricing", return_value={"prompt": 0, "completion": 0}),
+                patch.object(ENRICH, "enrich_signal", side_effect=ENRICH.EnrichmentError("HTTP 402", http_status=402)) as enrich,
+                patch.dict(os.environ, {"OPENROUTER_API_KEY": "test-key"}),
+                patch.object(sys, "argv", ["enrich_signals.py", "--base-ref", "test", "--max-signals", "3"]),
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
+                result = ENRICH.main()
+
+            saved = json.loads(signals_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(result, 0)
+        self.assertEqual(enrich.call_count, 1)
+        self.assertEqual(len(saved["signals"]), 3)
+        self.assertTrue(all(signal["ai_enrichment_status"] == "pending" for signal in saved["signals"]))
+
     def test_selects_new_and_pending_signals_but_skips_completed(self):
         signals = [
             {"id": "old"},
