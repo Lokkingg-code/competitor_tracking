@@ -23,7 +23,7 @@ from scripts.dedupe_signals import prune_duplicate_customer_events
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
-MODEL_ID = "nvidia/nemotron-3.5-lightning"
+MODEL_ID = "liquid/lfm-2.5-2.6b"
 OPENROUTER_API = "https://openrouter.ai/api/v1"
 ENRICHMENT_SCHEMA_VERSION = 2
 CURRENT_ENRICHMENT_FIELDS = {
@@ -366,7 +366,17 @@ def openrouter_request(path: str, api_key: str, payload: dict | None = None) -> 
         with urllib.request.urlopen(request, timeout=45) as response:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as error:
-        detail = " (check OpenRouter credits, billing, or model access)" if error.code == 402 else ""
+        detail = ""
+        try:
+            error_payload = json.loads(error.read().decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            error_payload = {}
+        error_info = error_payload.get("error") if isinstance(error_payload, dict) else None
+        if isinstance(error_info, dict) and isinstance(error_info.get("message"), str):
+            message = re.sub(r"\s+", " ", error_info["message"]).strip()[:300]
+            detail = f": {message}" if message else ""
+        if error.code == 402:
+            detail += " (check OpenRouter credits, billing, or model access)"
         raise EnrichmentError(f"OpenRouter returned HTTP {error.code}{detail}", http_status=error.code) from error
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
         raise EnrichmentError("OpenRouter request failed") from error
@@ -389,6 +399,11 @@ def verify_model_pricing(api_key: str) -> dict:
         raise EnrichmentError("OpenRouter model pricing is missing or invalid") from error
     if prompt < 0 or completion < 0:
         raise EnrichmentError("OpenRouter model pricing is invalid")
+    if prompt != 0 or completion != 0:
+        raise EnrichmentError(
+            f"{MODEL_ID} is not verified free (input ${prompt * 1_000_000:.4f}, "
+            f"output ${completion * 1_000_000:.4f} per 1M tokens); no model request was sent"
+        )
     return {"prompt": prompt, "completion": completion}
 
 

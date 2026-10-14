@@ -17,6 +17,23 @@ SPEC.loader.exec_module(ENRICH)
 
 
 class AIEnrichmentTests(unittest.TestCase):
+    def test_selected_model_must_have_zero_catalog_pricing(self):
+        free_model = {
+            "data": [{"id": ENRICH.MODEL_ID, "pricing": {"prompt": "0", "completion": "0"}}],
+        }
+        with patch.object(ENRICH, "openrouter_request", return_value=free_model) as request:
+            pricing = ENRICH.verify_model_pricing("test-key")
+
+        self.assertEqual(ENRICH.MODEL_ID, "liquid/lfm-2.5-2.6b")
+        self.assertEqual(pricing, {"prompt": 0, "completion": 0})
+        request.assert_called_once_with("models", "test-key")
+
+        paid_model = {
+            "data": [{"id": ENRICH.MODEL_ID, "pricing": {"prompt": "0.000001", "completion": "0"}}],
+        }
+        with patch.object(ENRICH, "openrouter_request", return_value=paid_model):
+            with self.assertRaisesRegex(ENRICH.EnrichmentError, "no model request was sent"):
+                ENRICH.verify_model_pricing("test-key")
     def test_http_402_stops_batch_and_leaves_all_signals_pending(self):
         with tempfile.TemporaryDirectory() as directory:
             signals_path = Path(directory) / "signals.json"
@@ -41,6 +58,24 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(enrich.call_count, 1)
         self.assertEqual(len(saved["signals"]), 3)
         self.assertTrue(all(signal["ai_enrichment_status"] == "pending" for signal in saved["signals"]))
+
+    def test_openrouter_http_error_includes_provider_message(self):
+        body = json.dumps({"error": {"message": "Insufficient credits for this request"}}).encode()
+        error = ENRICH.urllib.error.HTTPError(
+            "https://openrouter.ai/api/v1/chat/completions",
+            402,
+            "Payment Required",
+            hdrs=None,
+            fp=io.BytesIO(body),
+        )
+
+        with patch.object(ENRICH.urllib.request, "urlopen", side_effect=error):
+            with self.assertRaises(ENRICH.EnrichmentError) as raised:
+                ENRICH.openrouter_request("chat/completions", "test-key", {"model": "test"})
+
+        self.assertEqual(raised.exception.http_status, 402)
+        self.assertIn("Insufficient credits for this request", str(raised.exception))
+        error.close()
 
     def test_selects_new_and_pending_signals_but_skips_completed(self):
         signals = [

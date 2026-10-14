@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 
-const MODEL_ID = "nvidia/nemotron-3.5-lightning";
+const MODEL_ID = "liquid/lfm-2.5-2.6b";
 const OPENROUTER_API = "https://openrouter.ai/api/v1";
 const TEST_PROMPT = "Reply with exactly VERCEL_OPENROUTER_OK and nothing else.";
 
@@ -63,15 +63,15 @@ export default {
       const catalog = await catalogResponse.json();
       const model = catalog.data?.find((entry) => entry.id === MODEL_ID);
       if (!model) {
-        return json({ error: "Nemotron 3.5 Lightning is not in the current OpenRouter catalog." }, 404);
+        return json({ error: "LiquidAI LFM2.5-2.6B is not in the current OpenRouter catalog." }, 404);
       }
 
       const inputPrice = parsePrice(model.pricing?.prompt);
       const outputPrice = parsePrice(model.pricing?.completion);
       if (!Number.isFinite(inputPrice) || !Number.isFinite(outputPrice)
-        || inputPrice < 0 || outputPrice < 0) {
+        || inputPrice !== 0 || outputPrice !== 0) {
         return json({
-          error: "Nemotron 3.5 Lightning pricing could not be verified; no model request was sent.",
+          error: "LiquidAI LFM2.5-2.6B is not verified free; no model request was sent.",
         }, 402);
       }
 

@@ -97,7 +97,7 @@ export OPENROUTER_MODEL="replace-with-listed-free-model-id"
 read -s "OPENROUTER_API_KEY?OpenRouter API key: "; export OPENROUTER_API_KEY; npm run ai:openrouter-check; unset OPENROUTER_API_KEY; echo
 ```
 
-To safely check a specific model first, such as `nvidia/nemotron-3.5-lightning`,
+To safely check a specific model first, such as `liquid/lfm-2.5-2.6b`,
 set its exact ID as `OPENROUTER_MODEL`. If the catalog reports a nonzero price or
 cannot verify zero pricing, the script refuses to send a model request.
 
@@ -110,7 +110,7 @@ news. The check never reads dashboard files.
 
 The root `api/ai-test.js` function provides a protected, synthetic-only test for
 Vercel. It checks the live OpenRouter catalog and sends a completion only when
-Nemotron 3.5 Lightning has valid, nonnegative input and output prices. It does not accept
+LiquidAI LFM2.5-2.6B has zero input and output prices. It does not accept
 prompt text from the caller.
 
 In Vercel Project Settings, add these as **Secret** environment variables for a
@@ -122,8 +122,8 @@ Preview deployment:
 Create a new Preview deployment after saving the variables. From a terminal,
 call `https://<your-preview-domain>/api/ai-test` using `POST` with
 `Authorization: Bearer <AI_TEST_TOKEN>`. Enter the test token only in your
-terminal; do not put either secret in browser code. A `402` response means Nemotron
-pricing is missing or invalid and no model prompt was sent. A `502` response means the
+terminal; do not put either secret in browser code. A `402` response means LFM2.5-2.6B
+pricing is nonzero or could not be verified and no model prompt was sent. A `502` response means the
 Vercel function could not reach or use OpenRouter. Vercel functions have their
 own usage limits and billing; this is separate from OpenRouter model charges.
 
@@ -141,7 +141,7 @@ collector, merges its output, then enriches new signals immediately when
 signals pending; pushing the refreshed feed lets the GitHub workflow enrich them
 using the repository secret.
 
-Only new or explicitly pending signal IDs are sent to Nemotron. Each successful
+Only new or explicitly pending signal IDs are sent to LiquidAI LFM2.5-2.6B. Each successful
 result is saved as `ai_enrichment` in the signal and archive, including summary,
 one-sentence headline summary, announcement tone, competitive insight, caveat,
 named customer airline/relationship/segment when source-supported, suggested
