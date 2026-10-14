@@ -470,9 +470,9 @@ def enrich_signal(signal: dict, api_key: str, catalog_pricing: dict) -> dict:
         "model": MODEL_ID,
         "messages": [{"role": "user", "content": prompt}],
         "response_format": {"type": "json_object"},
-        "reasoning": {"effort": "none"},
+        "reasoning": {"effort": "low"},
         "temperature": 0.2,
-        "max_completion_tokens": 1600,
+        "max_completion_tokens": 4096,
     })
     choices = response.get("choices") or []
     choice = choices[0] if choices else {}

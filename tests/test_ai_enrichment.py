@@ -78,8 +78,8 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(request_args[0], "chat/completions")
         self.assertEqual(request_args[2]["model"], ENRICH.MODEL_ID)
         self.assertEqual(request_args[2]["response_format"], {"type": "json_object"})
-        self.assertEqual(request_args[2]["reasoning"], {"effort": "none"})
-        self.assertEqual(request_args[2]["max_completion_tokens"], 1600)
+        self.assertEqual(request_args[2]["reasoning"], {"effort": "low"})
+        self.assertEqual(request_args[2]["max_completion_tokens"], 4096)
 
     def test_empty_truncated_response_reports_safe_usage_metadata(self):
         signal = {"id": "truncated", "competitor": "Example Systems", "date": "2026-10-14"}
