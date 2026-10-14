@@ -76,79 +76,61 @@ and [supported regions](https://ai.google.dev/gemini-api/docs/available-regions)
 before sending any captured news. Do not use a VPN or alternate region to bypass
 provider restrictions.
 
-## OpenRouter free-model connection check
+## DeepSeek connection check
 
-Create an OpenRouter API key at
-[openrouter.ai/settings/keys](https://openrouter.ai/settings/keys). In the
-terminal, enter it at the hidden prompt to validate the key and list currently
-available zero-priced models. This first check sends no model prompt:
-
-```sh
-read -s "OPENROUTER_API_KEY?OpenRouter API key: "; export OPENROUTER_API_KEY; npm run ai:openrouter-check; unset OPENROUTER_API_KEY; echo
-```
-
-Select an exact model ID printed by the check and set it before repeating the
-command to test a synthetic response. The checker re-reads current catalog
-pricing, and sends the synthetic prompt only when both input and output are
-priced at zero:
+Create a DeepSeek API key at
+[platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys). Enter
+it at a hidden terminal prompt and run the synthetic-only connection check:
 
 ```sh
-export OPENROUTER_MODEL="replace-with-listed-free-model-id"
-read -s "OPENROUTER_API_KEY?OpenRouter API key: "; export OPENROUTER_API_KEY; npm run ai:openrouter-check; unset OPENROUTER_API_KEY; echo
+read -s "DEEPSEEK_API_KEY?DeepSeek API key: "; export DEEPSEEK_API_KEY; npm run ai:deepseek-check; unset DEEPSEEK_API_KEY; echo
 ```
 
-To safely check a specific model first, such as `liquid/lfm-2.5-2.6b:free`,
-set its exact ID as `OPENROUTER_MODEL`. If the catalog reports a nonzero price or
-cannot verify zero pricing, the script refuses to send a model request.
-
-Free-model availability, capacity, and account limits can change. OpenRouter
-routes requests to the selected model's provider; review both OpenRouter's and
-the underlying provider's data and retention terms before sending captured
-news. The check never reads dashboard files.
+The check uses `https://api.deepseek.com/chat/completions` and defaults to
+`deepseek-chat`. Override the model with `DEEPSEEK_MODEL` if needed. It sends
+only a synthetic prompt and does not read dashboard files. See the official
+[DeepSeek API docs](https://api-docs.deepseek.com/) for current models, pricing,
+limits, and retention terms.
 
 ## Vercel server-side smoke test
 
-The root `api/ai-test.js` function provides a protected, synthetic-only test for
-Vercel. It checks the live OpenRouter catalog and sends a completion only when
-LiquidAI LFM2.5-2.6B has zero input and output prices. It does not accept
-prompt text from the caller.
+The root `api/ai-test.js` function provides a protected, synthetic-only DeepSeek
+test for Vercel. It sends one fixed connection prompt and does not accept prompt
+text from the caller.
 
 In Vercel Project Settings, add these as **Secret** environment variables for a
 Preview deployment:
 
-- `OPENROUTER_API_KEY`: your OpenRouter key.
+- `DEEPSEEK_API_KEY`: your DeepSeek API key.
 - `AI_TEST_TOKEN`: a separate long random secret used to protect the endpoint.
 
-Optionally set `OPENROUTER_MODEL` as a nonsecret environment variable to override
-the model ID; it defaults to `liquid/lfm-2.5-2.6b:free`. The selected model must appear
-in the OpenRouter catalog with zero input and output prices.
+Optionally set `DEEPSEEK_MODEL` as a nonsecret environment variable to override
+the model ID; it defaults to `deepseek-chat`.
 
 Create a new Preview deployment after saving the variables. From a terminal,
 call `https://<your-preview-domain>/api/ai-test` using `POST` with
 `Authorization: Bearer <AI_TEST_TOKEN>`. Enter the test token only in your
-terminal; do not put either secret in browser code. A `402` response means LFM2.5-2.6B
-pricing is nonzero or could not be verified and no model prompt was sent. A `502` response means the
-Vercel function could not reach or use OpenRouter. Vercel functions have their
-own usage limits and billing; this is separate from OpenRouter model charges.
+terminal; do not put either secret in browser code. A `502` response includes a
+DeepSeek API or connectivity failure. Vercel functions have their own usage
+limits and billing, separate from DeepSeek API usage.
 
 ## Automatic signal enrichment
 
 The `refresh-signals` GitHub Actions workflow runs after a change to
 `data/signals.json` and on its daily schedule. It merges captures, then runs
 `scripts/enrich_signals.py` before committing the updated dashboard data. Add
-`OPENROUTER_API_KEY` as a GitHub Actions repository secret; Vercel environment
-variables are not automatically available to GitHub Actions. The workflow defaults
-to `liquid/lfm-2.5-2.6b:free`; if that ID is absent from the account's model catalog, set
-the GitHub Actions repository variable `OPENROUTER_MODEL` to an exact listed free
-model ID. Nonzero-priced models are rejected before signal text is sent.
+`DEEPSEEK_API_KEY` as a GitHub Actions repository secret; Vercel environment
+variables are not automatically available to GitHub Actions. The workflow
+defaults to `deepseek-chat`; optionally set the repository variable
+`DEEPSEEK_MODEL` to another model supported by the DeepSeek account.
 
 The local `scripts/capture/weekly_capture.sh` path runs the LinkedIn browser
 collector, merges its output, then enriches new signals immediately when
-`OPENROUTER_API_KEY` is set in that shell. Without the key, it leaves those
+`DEEPSEEK_API_KEY` is set in that shell. Without the key, it leaves those
 signals pending; pushing the refreshed feed lets the GitHub workflow enrich them
 using the repository secret.
 
-Only new or explicitly pending signal IDs are sent to LiquidAI LFM2.5-2.6B. Each successful
+Only new or explicitly pending signal IDs are sent to DeepSeek. Each successful
 result is saved as `ai_enrichment` in the signal and archive, including summary,
 one-sentence headline summary, announcement tone, competitive insight, caveat,
 named customer airline/relationship/segment when source-supported, suggested
@@ -181,15 +163,10 @@ Run workflow** and enable **Re-enrich historical signals missing the current AI
 schema**. This includes older `ai_enrichment` records missing the newer headline
 and customer/segment fields, but skips records already using the current schema.
 It enriches at most 20 signals per run; run it again to process the next pending batch.
-Backfill makes model requests and can consume OpenRouter credits; review the
-catalog rates and account balance first. A missing card does not guarantee zero
-usage if credits are already available.
-
-OpenRouter's current catalog rates are used and displayed with each summary.
-They can change. A missing payment method does not guarantee zero usage charges
-if the account has credits or another balance; check the OpenRouter usage and
-balance. The separate Vercel smoke-test endpoint uses `AI_TEST_TOKEN` and does
-not power dashboard summaries.
+Backfill makes model requests and can consume DeepSeek API balance; review the
+current DeepSeek pricing and account limits before running large backfills. The
+separate Vercel smoke-test endpoint uses `AI_TEST_TOKEN` and does not power
+dashboard summaries.
 
 ## SearXNG public-news discovery
 

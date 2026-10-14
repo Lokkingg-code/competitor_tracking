@@ -23,8 +23,8 @@ from scripts.dedupe_signals import prune_duplicate_customer_events
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
-MODEL_ID = os.environ.get("OPENROUTER_MODEL", "").strip() or "liquid/lfm-2.5-2.6b:free"
-OPENROUTER_API = "https://openrouter.ai/api/v1"
+MODEL_ID = os.environ.get("DEEPSEEK_MODEL", "").strip() or "deepseek-chat"
+DEEPSEEK_API = "https://api.deepseek.com"
 ENRICHMENT_SCHEMA_VERSION = 2
 CURRENT_ENRICHMENT_FIELDS = {
     "headline_summary",
@@ -354,13 +354,13 @@ def parse_enrichment(content: object, signal: dict) -> dict:
     }
 
 
-def openrouter_request(path: str, api_key: str, payload: dict | None = None) -> dict:
-    data = json.dumps(payload).encode("utf-8") if payload is not None else None
+def deepseek_request(api_key: str, payload: dict) -> dict:
+    data = json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(
-        f"{OPENROUTER_API}/{path}",
+        f"{DEEPSEEK_API}/chat/completions",
         data=data,
         headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-        method="POST" if payload is not None else "GET",
+        method="POST",
     )
     try:
         with urllib.request.urlopen(request, timeout=45) as response:
@@ -376,56 +376,16 @@ def openrouter_request(path: str, api_key: str, payload: dict | None = None) -> 
             message = re.sub(r"\s+", " ", error_info["message"]).strip()[:300]
             detail = f": {message}" if message else ""
         if error.code == 402:
-            detail += " (check OpenRouter credits, billing, or model access)"
-        raise EnrichmentError(f"OpenRouter returned HTTP {error.code}{detail}", http_status=error.code) from error
+            detail += " (check DeepSeek account balance)"
+        raise EnrichmentError(f"DeepSeek returned HTTP {error.code}{detail}", http_status=error.code) from error
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
-        raise EnrichmentError("OpenRouter request failed") from error
+        raise EnrichmentError("DeepSeek request failed") from error
     if not isinstance(result, dict):
-        raise EnrichmentError("OpenRouter returned an invalid JSON response")
+        raise EnrichmentError("DeepSeek returned an invalid JSON response")
     return result
 
 
-def verify_model_pricing(api_key: str) -> dict:
-    catalog = openrouter_request("models", api_key)
-    model = next((entry for entry in catalog.get("data", []) if entry.get("id") == MODEL_ID), None)
-    if not model:
-        free_liquid_models = []
-        free_models = []
-        for entry in catalog.get("data", []):
-            pricing = entry.get("pricing", {})
-            try:
-                is_free = float(pricing["prompt"]) == 0 and float(pricing["completion"]) == 0
-            except (KeyError, TypeError, ValueError):
-                is_free = False
-            if is_free:
-                free_models.append(entry["id"])
-            if entry.get("id", "").startswith("liquid/") and is_free:
-                free_liquid_models.append(entry["id"])
-        suggestions = free_liquid_models or free_models
-        label = "Free LiquidAI model IDs" if free_liquid_models else "Free model IDs"
-        available = ", ".join(suggestions[:8]) or "none listed"
-        raise EnrichmentError(
-            f"{MODEL_ID} is not in the OpenRouter model catalog. "
-            f"{label} currently listed: {available}"
-        )
-
-    pricing = model.get("pricing", {})
-    try:
-        prompt = float(pricing["prompt"])
-        completion = float(pricing["completion"])
-    except (KeyError, TypeError, ValueError) as error:
-        raise EnrichmentError("OpenRouter model pricing is missing or invalid") from error
-    if prompt < 0 or completion < 0:
-        raise EnrichmentError("OpenRouter model pricing is invalid")
-    if prompt != 0 or completion != 0:
-        raise EnrichmentError(
-            f"{MODEL_ID} is not verified free (input ${prompt * 1_000_000:.4f}, "
-            f"output ${completion * 1_000_000:.4f} per 1M tokens); no model request was sent"
-        )
-    return {"prompt": prompt, "completion": completion}
-
-
-def enrich_signal(signal: dict, api_key: str, catalog_pricing: dict) -> dict:
+def enrich_signal(signal: dict, api_key: str) -> dict:
     evidence = {
         "competitor": signal.get("competitor"),
         "date": signal.get("date"),
@@ -466,13 +426,12 @@ def enrich_signal(signal: dict, api_key: str, catalog_pricing: dict) -> dict:
         "Signal evidence JSON:",
         json.dumps(evidence, ensure_ascii=False),
     ])
-    response = openrouter_request("chat/completions", api_key, {
+    response = deepseek_request(api_key, {
         "model": MODEL_ID,
         "messages": [{"role": "user", "content": prompt}],
         "response_format": {"type": "json_object"},
-        "reasoning": {"effort": "low"},
         "temperature": 0.2,
-        "max_completion_tokens": 4096,
+        "max_tokens": 4096,
     })
     choices = response.get("choices") or []
     choice = choices[0] if choices else {}
@@ -490,7 +449,6 @@ def enrich_signal(signal: dict, api_key: str, catalog_pricing: dict) -> dict:
             f"{error} (finish_reason={finish_reason}, completion_tokens={completion_tokens}, "
             f"response_chars={content_length}, message_fields={message_fields})"
         ) from error
-    enrichment["catalog_pricing"] = catalog_pricing
     apply_confident_classifications(signal, enrichment)
     return enrichment
 
@@ -584,35 +542,27 @@ def main() -> int:
     if overflow:
         print(f"{overflow} signal(s) remain pending for a later run.")
 
-    api_key = os.environ.get("OPENROUTER_API_KEY")
+    api_key = os.environ.get("DEEPSEEK_API_KEY")
     if not api_key:
         persist_payloads(payload)
-        raise EnrichmentError("OPENROUTER_API_KEY GitHub Actions secret is not configured")
+        raise EnrichmentError("DEEPSEEK_API_KEY GitHub Actions secret is not configured")
 
-    try:
-        catalog_pricing = verify_model_pricing(api_key)
-    except EnrichmentError:
-        persist_payloads(payload)
-        raise
-    print(
-        f"Enriching {len(pending)} new signals with {MODEL_ID}; "
-        f"catalog rates per 1M tokens: input ${catalog_pricing['prompt'] * 1_000_000:.3f}, "
-        f"output ${catalog_pricing['completion'] * 1_000_000:.3f}"
-    )
+    print(f"Enriching {len(pending)} pending signal(s) with DeepSeek {MODEL_ID}")
     failures = []
     for index, signal in enumerate(pending):
         try:
-            signal["ai_enrichment"] = enrich_signal(signal, api_key, catalog_pricing)
+            signal["ai_enrichment"] = enrich_signal(signal, api_key)
             signal.pop("ai_enrichment_status", None)
             print(f"Enriched {signal['id']}")
         except EnrichmentError as error:
             failures.append(signal["id"])
             print(f"Enrichment failed for {signal['id']}: {error}", file=sys.stderr)
-            if error.http_status == 402:
+            if error.http_status in {400, 401, 402, 403}:
                 remaining = pending[index + 1:]
                 failures.extend(signal.get("id") for signal in remaining)
                 print(
-                    f"Stopping enrichment after HTTP 402; {len(remaining)} signal(s) were not attempted.",
+                    f"Stopping enrichment after DeepSeek HTTP {error.http_status}; "
+                    f"{len(remaining)} signal(s) were not attempted.",
                     file=sys.stderr,
                 )
                 break

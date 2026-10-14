@@ -17,34 +17,8 @@ SPEC.loader.exec_module(ENRICH)
 
 
 class AIEnrichmentTests(unittest.TestCase):
-    def test_selected_model_must_have_zero_catalog_pricing(self):
-        free_model = {
-            "data": [{"id": ENRICH.MODEL_ID, "pricing": {"prompt": "0", "completion": "0"}}],
-        }
-        with patch.object(ENRICH, "openrouter_request", return_value=free_model) as request:
-            pricing = ENRICH.verify_model_pricing("test-key")
-
-        self.assertEqual(ENRICH.MODEL_ID, "liquid/lfm-2.5-2.6b:free")
-        self.assertEqual(pricing, {"prompt": 0, "completion": 0})
-        request.assert_called_once_with("models", "test-key")
-
-        paid_model = {
-            "data": [{"id": ENRICH.MODEL_ID, "pricing": {"prompt": "0.000001", "completion": "0"}}],
-        }
-        with patch.object(ENRICH, "openrouter_request", return_value=paid_model):
-            with self.assertRaisesRegex(ENRICH.EnrichmentError, "no model request was sent"):
-                ENRICH.verify_model_pricing("test-key")
-
-    def test_missing_model_reports_available_free_liquid_ids(self):
-        catalog = {
-            "data": [
-                {"id": "liquid/available-free-model", "pricing": {"prompt": "0", "completion": "0"}},
-                {"id": "other/free-model", "pricing": {"prompt": "0", "completion": "0"}},
-            ],
-        }
-        with patch.object(ENRICH, "openrouter_request", return_value=catalog):
-            with self.assertRaisesRegex(ENRICH.EnrichmentError, "liquid/available-free-model"):
-                ENRICH.verify_model_pricing("test-key")
+    def test_deepseek_model_defaults_to_chat(self):
+        self.assertEqual(ENRICH.MODEL_ID, "deepseek-chat")
 
     def test_enrichment_requests_json_object_response_from_selected_model(self):
         result = {
@@ -70,16 +44,15 @@ class AIEnrichmentTests(unittest.TestCase):
             "type": "customer_win", "product_focus": "efb", "product": "Example EFB",
         }
 
-        with patch.object(ENRICH, "openrouter_request", return_value=response) as request:
-            ENRICH.enrich_signal(signal, "test-key", {"prompt": 0, "completion": 0})
+        with patch.object(ENRICH, "deepseek_request", return_value=response) as request:
+            ENRICH.enrich_signal(signal, "test-key")
 
         request.assert_called_once()
         request_args = request.call_args.args
-        self.assertEqual(request_args[0], "chat/completions")
-        self.assertEqual(request_args[2]["model"], ENRICH.MODEL_ID)
-        self.assertEqual(request_args[2]["response_format"], {"type": "json_object"})
-        self.assertEqual(request_args[2]["reasoning"], {"effort": "low"})
-        self.assertEqual(request_args[2]["max_completion_tokens"], 4096)
+        self.assertEqual(request_args[0], "test-key")
+        self.assertEqual(request_args[1]["model"], ENRICH.MODEL_ID)
+        self.assertEqual(request_args[1]["response_format"], {"type": "json_object"})
+        self.assertEqual(request_args[1]["max_tokens"], 4096)
 
     def test_empty_truncated_response_reports_safe_usage_metadata(self):
         signal = {"id": "truncated", "competitor": "Example Systems", "date": "2026-10-14"}
@@ -88,9 +61,9 @@ class AIEnrichmentTests(unittest.TestCase):
             "usage": {"completion_tokens": 1600},
         }
 
-        with patch.object(ENRICH, "openrouter_request", return_value=response):
+        with patch.object(ENRICH, "deepseek_request", return_value=response):
             with self.assertRaises(ENRICH.EnrichmentError) as raised:
-                ENRICH.enrich_signal(signal, "test-key", {"prompt": 0, "completion": 0})
+                ENRICH.enrich_signal(signal, "test-key")
 
         self.assertIn("finish_reason=length", str(raised.exception))
         self.assertIn("completion_tokens=1600", str(raised.exception))
@@ -107,9 +80,8 @@ class AIEnrichmentTests(unittest.TestCase):
                 patch.object(ENRICH, "SIGNALS_PATH", signals_path),
                 patch.object(ENRICH, "ARCHIVE_PATH", archive_path),
                 patch.object(ENRICH, "base_signal_ids", return_value=set()),
-                patch.object(ENRICH, "verify_model_pricing", return_value={"prompt": 0, "completion": 0}),
                 patch.object(ENRICH, "enrich_signal", side_effect=ENRICH.EnrichmentError("HTTP 402", http_status=402)) as enrich,
-                patch.dict(os.environ, {"OPENROUTER_API_KEY": "test-key"}),
+                patch.dict(os.environ, {"DEEPSEEK_API_KEY": "test-key"}),
                 patch.object(sys, "argv", ["enrich_signals.py", "--base-ref", "test", "--max-signals", "3"]),
                 contextlib.redirect_stderr(io.StringIO()),
             ):
@@ -122,10 +94,10 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(len(saved["signals"]), 3)
         self.assertTrue(all(signal["ai_enrichment_status"] == "pending" for signal in saved["signals"]))
 
-    def test_openrouter_http_error_includes_provider_message(self):
-        body = json.dumps({"error": {"message": "Insufficient credits for this request"}}).encode()
+    def test_deepseek_http_error_includes_provider_message(self):
+        body = json.dumps({"error": {"message": "Insufficient balance"}}).encode()
         error = ENRICH.urllib.error.HTTPError(
-            "https://openrouter.ai/api/v1/chat/completions",
+            "https://api.deepseek.com/chat/completions",
             402,
             "Payment Required",
             hdrs=None,
@@ -134,10 +106,10 @@ class AIEnrichmentTests(unittest.TestCase):
 
         with patch.object(ENRICH.urllib.request, "urlopen", side_effect=error):
             with self.assertRaises(ENRICH.EnrichmentError) as raised:
-                ENRICH.openrouter_request("chat/completions", "test-key", {"model": "test"})
+                ENRICH.deepseek_request("test-key", {"model": "deepseek-chat"})
 
         self.assertEqual(raised.exception.http_status, 402)
-        self.assertIn("Insufficient credits for this request", str(raised.exception))
+        self.assertIn("Insufficient balance", str(raised.exception))
         error.close()
 
     def test_selects_new_and_pending_signals_but_skips_completed(self):

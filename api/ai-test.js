@@ -1,7 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 
-const OPENROUTER_API = "https://openrouter.ai/api/v1";
-const TEST_PROMPT = "Reply with exactly VERCEL_OPENROUTER_OK and nothing else.";
+const DEEPSEEK_API = "https://api.deepseek.com";
+const TEST_PROMPT = "Reply with exactly VERCEL_DEEPSEEK_OK and nothing else.";
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -17,33 +17,16 @@ function safeTokenMatch(received, expected) {
     && timingSafeEqual(receivedBytes, expectedBytes);
 }
 
-function parsePrice(value) {
-  if (typeof value !== "string" && typeof value !== "number") return Number.NaN;
-  return Number(value);
-}
-
-async function openRouterFetch(path, apiKey, options = {}) {
-  return fetch(`${OPENROUTER_API}/${path}`, {
-    ...options,
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-      ...options.headers,
-    },
-    signal: AbortSignal.timeout(25_000),
-  });
-}
-
 export default {
   async fetch(request) {
     if (request.method !== "POST") {
       return json({ error: "Method not allowed." }, 405);
     }
 
-    const apiKey = process.env.OPENROUTER_API_KEY;
+    const apiKey = process.env.DEEPSEEK_API_KEY;
     const expectedToken = process.env.AI_TEST_TOKEN;
     if (!apiKey || !expectedToken) {
-      return json({ error: "AI test endpoint is not configured." }, 503);
+      return json({ error: "DeepSeek test endpoint is not configured." }, 503);
     }
 
     const authorization = request.headers.get("authorization") || "";
@@ -54,54 +37,36 @@ export default {
       return json({ error: "Unauthorized." }, 401);
     }
 
-    const modelId = process.env.OPENROUTER_MODEL?.trim() || "liquid/lfm-2.5-2.6b:free";
+    const model = process.env.DEEPSEEK_MODEL?.trim() || "deepseek-chat";
     try {
-      const catalogResponse = await openRouterFetch("models", apiKey);
-      if (!catalogResponse.ok) {
-        return json({ error: "Could not check OpenRouter model pricing." }, 502);
-      }
-      const catalog = await catalogResponse.json();
-      const model = catalog.data?.find((entry) => entry.id === modelId);
-      if (!model) {
-        return json({ error: `${modelId} is not in the current OpenRouter catalog.` }, 404);
-      }
-
-      const inputPrice = parsePrice(model.pricing?.prompt);
-      const outputPrice = parsePrice(model.pricing?.completion);
-      if (!Number.isFinite(inputPrice) || !Number.isFinite(outputPrice)
-        || inputPrice !== 0 || outputPrice !== 0) {
-        return json({
-          error: `${modelId} is not verified free; no model request was sent.`,
-        }, 402);
-      }
-
-      const completionResponse = await openRouterFetch("chat/completions", apiKey, {
+      const response = await fetch(`${DEEPSEEK_API}/chat/completions`, {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
-          model: modelId,
+          model,
           messages: [{ role: "user", content: TEST_PROMPT }],
           temperature: 0,
           max_tokens: 32,
         }),
+        signal: AbortSignal.timeout(25_000),
       });
-      if (!completionResponse.ok) {
-        return json({ error: "OpenRouter could not complete the synthetic test." }, 502);
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        const message = result.error?.message || `HTTP ${response.status}`;
+        return json({ error: `DeepSeek returned ${response.status}: ${message}` }, 502);
       }
 
-      const completion = await completionResponse.json();
-      const text = completion.choices?.[0]?.message?.content?.trim();
-      if (!text?.includes("VERCEL_OPENROUTER_OK")) {
-        return json({ error: "The model did not return the expected test response." }, 502);
+      const text = result.choices?.[0]?.message?.content?.trim();
+      if (!text?.includes("VERCEL_DEEPSEEK_OK")) {
+        return json({ error: "DeepSeek did not return the expected test response." }, 502);
       }
 
-      return json({
-        ok: true,
-        model: modelId,
-        response: text,
-        catalogPricing: { prompt: inputPrice, completion: outputPrice },
-      });
+      return json({ ok: true, model, response: text });
     } catch {
-      return json({ error: "Could not reach OpenRouter from the Vercel function." }, 502);
+      return json({ error: "Could not reach DeepSeek from the Vercel function." }, 502);
     }
   },
 };
