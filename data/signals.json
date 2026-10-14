@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T09:31:48Z",
+  "generated_at": "2026-10-14T10:42:52Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -18,8 +18,8 @@
       "date": "2026-10-13",
       "date_is_estimated": false,
       "type": "feature_change",
-      "priority": "high",
-      "severity": 4,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.8,
       "headline": "skybook 1.52.0 Release Notes | Bytron Aviation Systems",
       "summary": "Explore the latest skybook EFB and Ground Portal update, featuring customisable settings, new checklists, fuel fields, performance data and improved notifications.",
@@ -79,8 +79,8 @@
       "date": "2026-10-13",
       "date_is_estimated": false,
       "type": "implementation",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "A new milestone for flight operations in Eastern Africa ✈️",
       "summary": "A new milestone for flight operations in Eastern Africa ✈️ Kenya Airways is taking the next step with the successful implementation of Lido Flight 4D. By combining advanced flight planning, digital briefing, and real-time fleet visibility, the airline is enhancing operational efficiency and supporting informed decision-making across its flight operations.",
@@ -195,8 +195,8 @@
       "date": "2026-10-13",
       "date_is_estimated": false,
       "type": "unknown",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.65,
       "headline": "Now boarding: your next career move!",
       "summary": "At Aviobook, we build that technology, and we’re looking for talented people to join our crew. 🌍 Here are the seats waiting to be filled: 🧭 Product Manager: chart the course for products pilots use in the cockpit 💻 Back End Developer: build the engines that power our platform 🤝 Account Executive: help airlines discover what we can do for them 📈 Senior Account Executive: lead key partnerships with airlines worldwide…",
@@ -6591,6 +6591,43 @@
         {
           "title": "Skywise Press Releases",
           "url": "https://www.skywise.com/en/newsroom/press-releases/navblue-and-easyjet-united-to-improve-efficiency-and-fuel-savings"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-933d8bdc83a5",
+      "competitor": "Navblue",
+      "date": "2026-03-03",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "How Navblue Improves Flight Operations Documentation At Japan Airlines",
+      "summary": "Navblue reported a product launch update: How Navblue Improves Flight Operations Documentation At Japan Airlines. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/how-navblue-improves-flight-operations-documentation-at-japan-airlines"
         }
       ],
       "tags": [
