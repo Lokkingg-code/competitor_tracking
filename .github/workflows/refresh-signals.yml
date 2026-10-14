@@ -18,6 +18,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: refresh-signals-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   refresh:
     if: github.actor != 'github-actions[bot]'
@@ -27,7 +31,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
+
+      - name: Update to latest main before refresh
+        run: git pull --ff-only origin main
 
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -85,4 +93,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/signals.json data/signals.archive.json data/capture-health.json
           git commit -m "Refresh competitor signals" || exit 0
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
