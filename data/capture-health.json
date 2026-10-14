@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-13T13:01:45Z",
-  "raw_capture_at": "2026-10-13T13:01:45.656541+00:00",
+  "generated_at": "2026-10-14T02:13:43Z",
+  "raw_capture_at": "2026-10-14T02:13:43.768926+00:00",
   "status": "healthy",
   "required_public_sources": [
     {
@@ -18,7 +18,7 @@
       "kind": "newsroom",
       "url": "https://www.skywise.com/en/newsroom/press-releases",
       "status": "healthy",
-      "captured_items": 6,
+      "captured_items": 7,
       "errors": []
     },
     {
@@ -27,14 +27,14 @@
       "kind": "newsroom",
       "url": "https://www.bytron.aero/release-notes/",
       "status": "healthy",
-      "captured_items": 6,
+      "captured_items": 5,
       "errors": []
     }
   ],
   "manual_linkedin": {
     "mode": "manual",
-    "captured_at": "2026-09-28T04:13:11.509Z",
-    "captured_items": 31,
+    "captured_at": "2026-10-14T02:08:33.958Z",
+    "captured_items": 37,
     "status": "available"
   },
   "failures": []
