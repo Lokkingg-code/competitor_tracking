@@ -5,6 +5,7 @@ import endpoint from "../api/ai-test.js";
 const originalFetch = globalThis.fetch;
 const originalApiKey = process.env.OPENROUTER_API_KEY;
 const originalTestToken = process.env.AI_TEST_TOKEN;
+const originalModel = process.env.OPENROUTER_MODEL;
 
 afterEach(() => {
   globalThis.fetch = originalFetch;
@@ -12,11 +13,14 @@ afterEach(() => {
   else process.env.OPENROUTER_API_KEY = originalApiKey;
   if (originalTestToken === undefined) delete process.env.AI_TEST_TOKEN;
   else process.env.AI_TEST_TOKEN = originalTestToken;
+  if (originalModel === undefined) delete process.env.OPENROUTER_MODEL;
+  else process.env.OPENROUTER_MODEL = originalModel;
 });
 
 function configureTestSecrets() {
   process.env.OPENROUTER_API_KEY = "test-openrouter-key";
   process.env.AI_TEST_TOKEN = "test-ai-token";
+  process.env.OPENROUTER_MODEL = "liquid/test-model:free";
 }
 
 function request() {
@@ -32,7 +36,7 @@ test("Vercel smoke test calls LiquidAI only when catalog pricing is zero", async
   globalThis.fetch = async (url, options) => {
     calls.push({ url, options });
     if (url.endsWith("/models")) {
-      return Response.json({ data: [{ id: "liquid/lfm-2.5-2.6b", pricing: { prompt: "0", completion: "0" } }] });
+      return Response.json({ data: [{ id: "liquid/test-model:free", pricing: { prompt: "0", completion: "0" } }] });
     }
     return Response.json({ choices: [{ message: { content: "VERCEL_OPENROUTER_OK" } }] });
   };
@@ -41,9 +45,9 @@ test("Vercel smoke test calls LiquidAI only when catalog pricing is zero", async
   const result = await response.json();
 
   assert.equal(response.status, 200);
-  assert.equal(result.model, "liquid/lfm-2.5-2.6b");
+  assert.equal(result.model, "liquid/test-model:free");
   assert.equal(calls.length, 2);
-  assert.equal(JSON.parse(calls[1].options.body).model, "liquid/lfm-2.5-2.6b");
+  assert.equal(JSON.parse(calls[1].options.body).model, "liquid/test-model:free");
 });
 
 test("Vercel smoke test refuses a nonzero-priced model before completion", async () => {
@@ -51,7 +55,7 @@ test("Vercel smoke test refuses a nonzero-priced model before completion", async
   const calls = [];
   globalThis.fetch = async (url) => {
     calls.push(url);
-    return Response.json({ data: [{ id: "liquid/lfm-2.5-2.6b", pricing: { prompt: "0.000001", completion: "0" } }] });
+    return Response.json({ data: [{ id: "liquid/test-model:free", pricing: { prompt: "0.000001", completion: "0" } }] });
   };
 
   const response = await endpoint.fetch(request());

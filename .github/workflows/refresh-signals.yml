@@ -72,6 +72,7 @@ jobs:
       - name: Enrich new signals once
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'liquid/lfm-2.5-2.6b' }}
           BASE_REF: ${{ github.event.before }}
           AI_ENRICH_MAX_SIGNALS_PER_RUN: "20"
           BACKFILL_MISSING_AI: ${{ inputs.backfill_missing_ai }}

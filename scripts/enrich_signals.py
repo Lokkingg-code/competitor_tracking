@@ -23,7 +23,7 @@ from scripts.dedupe_signals import prune_duplicate_customer_events
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
-MODEL_ID = "liquid/lfm-2.5-2.6b"
+MODEL_ID = os.environ.get("OPENROUTER_MODEL", "").strip() or "liquid/lfm-2.5-2.6b"
 OPENROUTER_API = "https://openrouter.ai/api/v1"
 ENRICHMENT_SCHEMA_VERSION = 2
 CURRENT_ENRICHMENT_FIELDS = {
@@ -389,7 +389,25 @@ def verify_model_pricing(api_key: str) -> dict:
     catalog = openrouter_request("models", api_key)
     model = next((entry for entry in catalog.get("data", []) if entry.get("id") == MODEL_ID), None)
     if not model:
-        raise EnrichmentError(f"{MODEL_ID} is not in the OpenRouter model catalog")
+        free_liquid_models = []
+        free_models = []
+        for entry in catalog.get("data", []):
+            pricing = entry.get("pricing", {})
+            try:
+                is_free = float(pricing["prompt"]) == 0 and float(pricing["completion"]) == 0
+            except (KeyError, TypeError, ValueError):
+                is_free = False
+            if is_free:
+                free_models.append(entry["id"])
+            if entry.get("id", "").startswith("liquid/") and is_free:
+                free_liquid_models.append(entry["id"])
+        suggestions = free_liquid_models or free_models
+        label = "Free LiquidAI model IDs" if free_liquid_models else "Free model IDs"
+        available = ", ".join(suggestions[:8]) or "none listed"
+        raise EnrichmentError(
+            f"{MODEL_ID} is not in the OpenRouter model catalog. "
+            f"{label} currently listed: {available}"
+        )
 
     pricing = model.get("pricing", {})
     try:

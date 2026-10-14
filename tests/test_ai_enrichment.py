@@ -34,6 +34,17 @@ class AIEnrichmentTests(unittest.TestCase):
         with patch.object(ENRICH, "openrouter_request", return_value=paid_model):
             with self.assertRaisesRegex(ENRICH.EnrichmentError, "no model request was sent"):
                 ENRICH.verify_model_pricing("test-key")
+
+    def test_missing_model_reports_available_free_liquid_ids(self):
+        catalog = {
+            "data": [
+                {"id": "liquid/available-free-model", "pricing": {"prompt": "0", "completion": "0"}},
+                {"id": "other/free-model", "pricing": {"prompt": "0", "completion": "0"}},
+            ],
+        }
+        with patch.object(ENRICH, "openrouter_request", return_value=catalog):
+            with self.assertRaisesRegex(ENRICH.EnrichmentError, "liquid/available-free-model"):
+                ENRICH.verify_model_pricing("test-key")
     def test_http_402_stops_batch_and_leaves_all_signals_pending(self):
         with tempfile.TemporaryDirectory() as directory:
             signals_path = Path(directory) / "signals.json"

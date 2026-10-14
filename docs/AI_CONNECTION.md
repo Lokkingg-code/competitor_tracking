@@ -119,6 +119,10 @@ Preview deployment:
 - `OPENROUTER_API_KEY`: your OpenRouter key.
 - `AI_TEST_TOKEN`: a separate long random secret used to protect the endpoint.
 
+Optionally set `OPENROUTER_MODEL` as a nonsecret environment variable to override
+the model ID; it defaults to `liquid/lfm-2.5-2.6b`. The selected model must appear
+in the OpenRouter catalog with zero input and output prices.
+
 Create a new Preview deployment after saving the variables. From a terminal,
 call `https://<your-preview-domain>/api/ai-test` using `POST` with
 `Authorization: Bearer <AI_TEST_TOKEN>`. Enter the test token only in your
@@ -133,7 +137,10 @@ The `refresh-signals` GitHub Actions workflow runs after a change to
 `data/signals.json` and on its daily schedule. It merges captures, then runs
 `scripts/enrich_signals.py` before committing the updated dashboard data. Add
 `OPENROUTER_API_KEY` as a GitHub Actions repository secret; Vercel environment
-variables are not automatically available to GitHub Actions.
+variables are not automatically available to GitHub Actions. The workflow defaults
+to `liquid/lfm-2.5-2.6b`; if that ID is absent from the account's model catalog, set
+the GitHub Actions repository variable `OPENROUTER_MODEL` to an exact listed free
+model ID. Nonzero-priced models are rejected before signal text is sent.
 
 The local `scripts/capture/weekly_capture.sh` path runs the LinkedIn browser
 collector, merges its output, then enriches new signals immediately when
