@@ -135,6 +135,12 @@ The `refresh-signals` GitHub Actions workflow runs after a change to
 `OPENROUTER_API_KEY` as a GitHub Actions repository secret; Vercel environment
 variables are not automatically available to GitHub Actions.
 
+The local `scripts/capture/weekly_capture.sh` path runs the LinkedIn browser
+collector, merges its output, then enriches new signals immediately when
+`OPENROUTER_API_KEY` is set in that shell. Without the key, it leaves those
+signals pending; pushing the refreshed feed lets the GitHub workflow enrich them
+using the repository secret.
+
 Only new or explicitly pending signal IDs are sent to Nemotron. Each successful
 result is saved as `ai_enrichment` in the signal and archive, including summary,
 one-sentence headline summary, announcement tone, competitive insight, caveat,
@@ -177,3 +183,19 @@ They can change. A missing payment method does not guarantee zero usage charges
 if the account has credits or another balance; check the OpenRouter usage and
 balance. The separate Vercel smoke-test endpoint uses `AI_TEST_TOKEN` and does
 not power dashboard summaries.
+
+## SearXNG public-news discovery
+
+The optional `scripts/capture/capture_searxng.py` collector searches the public
+`news_queries` in `scripts/capture/sources.json`. It uses SearXNG's JSON search
+endpoint and emits dated, public HTTP(S) results into the existing raw-signal
+format. The normal merger handles URL/headline deduplication; AI enrichment then
+runs once for each new signal. SearXNG is not used to scrape LinkedIn pages.
+
+To enable it in GitHub Actions, add the root URL of an accessible SearXNG
+instance as the repository Actions variable `SEARXNG_BASE_URL` under **Settings
+→ Secrets and variables → Actions → Variables**. For a local run, export
+`SEARXNG_BASE_URL` in the capture shell. If it is unset, the collector is
+skipped. Results without a published date or a valid HTTP(S) source link are
+discarded. Search coverage depends on the engines enabled by that SearXNG
+instance, so review the deduplicated feed before relying on its coverage.

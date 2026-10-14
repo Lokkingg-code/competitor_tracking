@@ -40,6 +40,12 @@ jobs:
       - name: Capture public sources
         run: python3 scripts/capture/capture_sources.py --days 365
 
+      - name: Capture SearXNG public news (optional)
+        if: ${{ vars.SEARXNG_BASE_URL != '' }}
+        env:
+          SEARXNG_BASE_URL: ${{ vars.SEARXNG_BASE_URL }}
+        run: python3 scripts/capture/capture_searxng.py --days 365
+
       - name: Validate capture health
         run: |
           python3 scripts/capture/validate_capture.py \
@@ -49,9 +55,11 @@ jobs:
 
       - name: Merge signals
         run: |
-          python3 scripts/merge_signals.py \
-            --raw data/raw/latest.json \
-            --raw data/raw/linkedin_latest.json
+          RAW_ARGS=(--raw data/raw/latest.json --raw data/raw/linkedin_latest.json)
+          if [[ -f data/raw/searxng_latest.json ]]; then
+            RAW_ARGS+=(--raw data/raw/searxng_latest.json)
+          fi
+          python3 scripts/merge_signals.py "${RAW_ARGS[@]}"
 
       - name: Enrich new signals once
         env:
