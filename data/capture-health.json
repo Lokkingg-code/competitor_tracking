@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-14T02:13:43Z",
-  "raw_capture_at": "2026-10-14T02:13:43.768926+00:00",
+  "generated_at": "2026-10-14T06:20:43Z",
+  "raw_capture_at": "2026-10-14T06:20:43.718589+00:00",
   "status": "healthy",
   "required_public_sources": [
     {
@@ -18,7 +18,7 @@
       "kind": "newsroom",
       "url": "https://www.skywise.com/en/newsroom/press-releases",
       "status": "healthy",
-      "captured_items": 7,
+      "captured_items": 6,
       "errors": []
     },
     {

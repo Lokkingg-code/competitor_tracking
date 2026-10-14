@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T02:13:44Z",
+  "generated_at": "2026-10-14T06:20:44Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -3720,6 +3720,43 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       },
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-026afd3135eb",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-07-27",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "We've partnered with Lufthansa Systems to integrate SIRAX/ONE Order into the Astra Nova platform.",
+      "summary": "Astra Nova now covers the complete airline retailing journey - from offer to settlement. We've partnered with Lufthansa Systems to integrate SIRAX/ONE Order into the Astra Nova platform.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbkRjLU9iLXY1anBXcVRZRU43LU5vM2dseThfX0xvQzc5SGFNT3VrVDNvR3d2M1Y4dGpoMFZDa0RCZmdZTUFib2t5V0RMejlQeHE1MnBveGxqaG9yS1Z1U0ZFc2FLWHZnNDluQmY5bGtVbW9WY1o2bk02Nk5JTGZFYW5wMkZYNXR2dWIxSkhFalNxQ0tDNVJPTGVTbksxUk9jcnhLelVpMlpXTTQxMEkxMWtIYndJaGRiMFE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
       "ai_enrichment_status": "pending"
     },
     {
