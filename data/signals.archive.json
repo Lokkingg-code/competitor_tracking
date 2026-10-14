@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T08:53:14Z",
+  "generated_at": "2026-10-14T09:31:48Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -25,7 +25,7 @@
       "summary": "Explore the latest skybook EFB and Ground Portal update, featuring customisable settings, new checklists, fuel fields, performance data and improved notifications.",
       "source_channel": "press_release",
       "source_origin": "press_release",
-      "product_focus": "eff",
+      "product_focus": "efb",
       "product": "Bytron Skybook",
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -47,7 +47,31 @@
         "press_release",
         "press_release"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "gemini-3.8-flash",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T09:32:05+00:00",
+        "source_sha256": "5a6a413fe6c6be7b20f65400e1e9328c15ba6dfedd31b8cce015e6167ecdf67e",
+        "headline_summary": "Bytron released skybook 1.52.0, upgrading its EFB and Ground Portal with customizable checklists, fuel fields, and performance data.",
+        "summary": "Bytron Aviation Systems announced the release of skybook version 1.52.0. This release updates the skybook EFB and Ground Portal with customisable settings and new checklists. It also incorporates new fuel fields, performance data, and improved notifications for users.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Bytron is pursuing routine incremental enhancements across its connected flight deck and dispatch portal to steadily improve daily workflow efficiency.",
+        "caveat": "The release notes summary provides high-level feature highlights without technical depth, rollout timing, or specific customer adoption details.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "feature_change",
+        "type_confidence": 0.95,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": false,
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "browser-92bda83d10db",
@@ -62,7 +86,7 @@
       "summary": "A new milestone for flight operations in Eastern Africa ✈️ Kenya Airways is taking the next step with the successful implementation of Lido Flight 4D. By combining advanced flight planning, digital briefing, and real-time fleet visibility, the airline is enhancing operational efficiency and supporting informed decision-making across its flight operations.",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "adjacent",
+      "product_focus": "eff",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -84,7 +108,31 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "gemini-3.8-flash",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T09:32:18+00:00",
+        "source_sha256": "57481b03548f2cffc6e9e6d3d61ef84ae8a4ad3b652d296716d2210848867b27",
+        "headline_summary": "Lufthansa Systems implemented Lido Flight 4D at Kenya Airways to enhance flight planning, digital briefing, and fleet visibility.",
+        "summary": "Kenya Airways has completed the implementation of Lufthansa Systems' Lido Flight 4D across its flight operations. The solution integrates advanced flight planning, digital briefing, and real-time fleet visibility. These capabilities are intended to enhance operational efficiency and support informed operational decision-making.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Lufthansa Systems strengthens its operational presence in Eastern Africa by successfully operationalizing its core flight planning and digital briefing suite with a major regional flag carrier.",
+        "caveat": "The announcement is sourced from a brief social media post and lacks technical details regarding contract terms, rollout scale, or timeline.",
+        "customer_airline": "Kenya Airways",
+        "customer_relationship": "implemented",
+        "customer_segment": "unknown",
+        "customer_confidence": 1.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "implementation",
+        "type_confidence": 0.95,
+        "type_matches_existing": true,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.85,
+        "focus_matches_existing": false,
+        "type_auto_applied": false,
+        "original_product_focus": "adjacent",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "browser-c4e4a3967528",
@@ -146,7 +194,7 @@
       "competitor": "Aviobook",
       "date": "2026-10-13",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "unknown",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -154,7 +202,7 @@
       "summary": "At Aviobook, we build that technology, and we’re looking for talented people to join our crew. 🌍 Here are the seats waiting to be filled: 🧭 Product Manager: chart the course for products pilots use in the cockpit 💻 Back End Developer: build the engines that power our platform 🤝 Account Executive: help airlines discover what we can do for them 📈 Senior Account Executive: lead key partnerships with airlines worldwide…",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "eff",
+      "product_focus": "efb",
       "product": "AvioBook",
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -176,7 +224,32 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "gemini-3.8-flash",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T09:32:31+00:00",
+        "source_sha256": "89c9a47535d3a02093637f5339e1e36858a246b54ab42ca6db4d306c1d9d7888",
+        "headline_summary": "Aviobook is recruiting product, engineering, and sales personnel to expand its cockpit platform and drive global airline commercial partnerships.",
+        "summary": "Aviobook announced recruitment across its product, engineering, and commercial teams. The company is actively hiring a Product Manager for pilot cockpit applications, a Back End Developer, and Account Executives to drive global airline commercial partnerships.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Aviobook's simultaneous recruitment across cockpit product management and enterprise sales reflects sustained investment in scaling its core EFB platform and airline reach.",
+        "caveat": "The evidence consists solely of a general hiring advertisement with no specifics regarding new product features, timelines, or partner airlines.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "unknown",
+        "type_confidence": 0.85,
+        "type_matches_existing": false,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.85,
+        "focus_matches_existing": false,
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-9d51eeb7dfe2",
@@ -507,7 +580,30 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "gemini-3.8-flash",
+        "schema_version": 2,
+        "enriched_at": "2026-10-14T09:32:45+00:00",
+        "source_sha256": "7b967595db7423fd4243e0c21ca8645317e02fb544cebc2e0e6f4f8d39edb6f1",
+        "headline_summary": "Lufthansa Systems is promoting its NetLine Slot software to help airlines manage slot portfolios and schedule quality amid capacity constraints.",
+        "summary": "Lufthansa Systems highlighted its NetLine Slot software for managing airport slot portfolios amid aviation congestion. The company noted the tool balances regulatory requirements, operational realities, and commercial goals to enhance schedule quality in capacity-constrained markets.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Lufthansa Systems is reinforcing its schedule and slot management portfolio marketing to capitalize on rising airport congestion and slot compliance pressures.",
+        "caveat": "The post is promotional marketing content without announcements of new product features or specific airline adoptions.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.85,
+        "type_matches_existing": true,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_matches_existing": true,
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-e70b87ab10e0",
