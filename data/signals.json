@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T02:39:13Z",
+  "generated_at": "2026-10-15T03:16:43Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -18,8 +18,8 @@
       "date": "2026-10-14",
       "date_is_estimated": false,
       "type": "product_launch",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "high",
+      "severity": 4,
       "confidence": 0.65,
       "headline": "What do you think the role of AI will be in aviation? Jeppesen ForeFlight…",
       "summary": "What do you think the role of AI will be in aviation? Jeppesen ForeFlight has introduced the first of hundreds of planned artificial intelligence agents for its Airflow aviation operations platform, designed to help airline",
@@ -6809,6 +6809,43 @@
         {
           "title": "Skywise Press Releases",
           "url": "https://www.skywise.com/en/newsroom/press-releases/how-navblue-improves-flight-operations-documentation-at-japan-airlines"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-1e2ee3695d33",
+      "competitor": "Navblue",
+      "date": "2026-03-03",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "8 Airlines Enter The Era Of Electronic Flight Assistant With Navblues Brand New Mission",
+      "summary": "Navblue reported a product launch update: 8 Airlines Enter The Era Of Electronic Flight Assistant With Navblues Brand New Mission. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/8-airlines-enter-the-era-of-electronic-flight-assistant-with-navblues-brand-new-mission"
         }
       ],
       "tags": [
