@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T10:42:52Z",
+  "generated_at": "2026-10-15T02:39:13Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,67 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-329b6f1d4cd2",
+      "competitor": "Jeppesen",
+      "date": "2026-10-14",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "What do you think the role of AI will be in aviation? Jeppesen ForeFlight…",
+      "summary": "What do you think the role of AI will be in aviation? Jeppesen ForeFlight has introduced the first of hundreds of planned artificial intelligence agents for its Airflow aviation operations platform, designed to help airline",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQUEFoLVBCUmZmRlJwbnRuTGpPaWhHN3FGODRpWG1sUTBNSnB6aUdsMXFoeDVqNHV3TGlvU2pKUl9JRTE5bTRCM0xsbFhvdjBEMEtVaGRWcmdIN0NUMUR6YWdmM3dHNE9YSEZLWXhyLVpwQ1dUT2pqNVRER0N4dzJSV0FoR1VWS1BydkM5SVlVQTJyMEw4T3VyZWowLWc1cG9jUjZpazdkLTJpTWlxbjcyWWctZjI0cXpkczNHUl9kaGg1NGpKNjVYQzU2R0ZJVG9JTnM4SWR0YnRRWDVoS0V3bzBn?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment": {
+        "model": "gemini-3.8-flash",
+        "schema_version": 2,
+        "enriched_at": "2026-10-15T02:39:27+00:00",
+        "source_sha256": "9c8b7d040befd2bfe37b4d20bb8df15db9f3fddd4535773bdea6994238eab373",
+        "headline_summary": "Jeppesen ForeFlight introduced its first artificial intelligence agent for the Airflow operations platform to assist airline flight operations.",
+        "summary": "Jeppesen ForeFlight has introduced the first of hundreds of planned artificial intelligence agents for its Airflow aviation operations platform. This release marks the beginning of a larger planned deployment of AI agents designed to support airline operations.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Jeppesen ForeFlight is embedding automated AI capabilities directly into Airflow, signaling an operational focus on scaling AI-driven airline workflow tools.",
+        "caveat": "The source snippet is truncated mid-sentence and does not include technical specifications or named airline deployments.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "product_launch",
+        "type_confidence": 0.85,
+        "type_matches_existing": false,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.85,
+        "focus_matches_existing": true,
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-b87dd0917c27",
       "competitor": "Bytron Skybook",
@@ -79,8 +140,8 @@
       "date": "2026-10-13",
       "date_is_estimated": false,
       "type": "implementation",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "high",
+      "severity": 4,
       "confidence": 0.65,
       "headline": "A new milestone for flight operations in Eastern Africa ✈️",
       "summary": "A new milestone for flight operations in Eastern Africa ✈️ Kenya Airways is taking the next step with the successful implementation of Lido Flight 4D. By combining advanced flight planning, digital briefing, and real-time fleet visibility, the airline is enhancing operational efficiency and supporting informed decision-making across its flight operations.",
@@ -181,13 +242,36 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending",
       "duplicate_count": 3,
       "duplicate_signal_ids": [
         "cap-8919a9ceec99",
         "cap-98f697fd8db5",
         "browser-e6ef85639f4f"
-      ]
+      ],
+      "ai_enrichment": {
+        "model": "gemini-3.8-flash",
+        "schema_version": 2,
+        "enriched_at": "2026-10-15T02:39:31+00:00",
+        "source_sha256": "4ce2ff2ad525053675c2b46bddcf8bf843689893e9e13e6687a143b724278985",
+        "headline_summary": "Royal Air Maroc signed a five-year agreement with Thales to deploy AvioBook Flight EFB across its fleet to streamline operations.",
+        "summary": "Royal Air Maroc signed a five-year agreement with Thales to deploy the AvioBook Flight Electronic Flight Bag across its fleet. The platform aims to streamline flight workflows, support fuel optimization, and improve crew and ground coordination as the carrier plans expansion to 200 aircraft by 2037.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Thales' AvioBook secured a multi-year fleet contract with a major national carrier, signaling strong competitive positioning in enterprise-scale EFB deployments.",
+        "caveat": "The text truncates at the end and does not provide financial terms or current fleet size figures.",
+        "customer_airline": "Royal Air Maroc",
+        "customer_relationship": "signed",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.98,
+        "customer_segment_confidence": 0.2,
+        "suggested_type": "customer_win",
+        "type_confidence": 0.95,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.98,
+        "focus_matches_existing": true,
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-46f6c86d6171",
@@ -351,7 +435,30 @@
         "linkedin_browser",
         "linkedin"
       ],
-      "ai_enrichment_status": "pending"
+      "ai_enrichment": {
+        "model": "gemini-3.8-flash",
+        "schema_version": 2,
+        "enriched_at": "2026-10-15T02:39:57+00:00",
+        "source_sha256": "def03d79aed026f4738b789f9558cc45eed185d37fe6779a1133ae2d432f2e2c",
+        "headline_summary": "Aviobook announced its participation as a Double Platinum Exhibitor alongside Thales at the Aircraft IT APAC conference to engage regional operators.",
+        "summary": "Aviobook announced its attendance as a Double Platinum Exhibitor at the Aircraft IT MRO & Flight Operations IT Conference – APAC alongside Thales colleagues. Representatives including Head of Sales and Account Management Sophie Jamain will host the company booth next week.",
+        "announcement_tone": "Positive",
+        "competitive_insight": "Aviobook is leveraging high-tier conference sponsorship alongside parent company Thales to reinforce sales visibility in the Asia-Pacific flight operations market.",
+        "caveat": "The post is purely a routine promotional event notice with no disclosure of commercial agreements, product roadmaps, or technical features.",
+        "customer_airline": "unknown",
+        "customer_relationship": "none",
+        "customer_segment": "unknown",
+        "customer_confidence": 0.0,
+        "customer_segment_confidence": 0.0,
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.5,
+        "type_matches_existing": true,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.7,
+        "focus_matches_existing": false,
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-1549166beaf3",
@@ -4619,6 +4726,43 @@
       "ai_enrichment_status": "pending"
     },
     {
+      "id": "cap-160cd33ed7dc",
+      "competitor": "Jeppesen",
+      "date": "2026-07-03",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Jeppesen ForeFlight Launches Airflow AI Engine to Bring Responsible AI to Aviation Operations General AI is confident, but often wrong.",
+      "summary": "Jeppesen ForeFlight Launches Airflow AI Engine to Bring Responsible AI to Aviation Operations General AI is confident, but often wrong. Artificial intelligence is not enou &nbs",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeUtpTjRGQkZSc1dmaGJyd0xMM0xsRmN0elNWby13QkxIdFp1Qmc1d3FVN3VqczBQMWY5TW5kQ1RPa0J1MGJKWnd2NkNSenVoR180SEhndUt1SWJTZ1FJZENycXJoejh6TkxZWVhyc1lMejVRTXFjZUtwUFhNRUxmLU1MM3h6bnZLUjlqcDFJWmlEV1RaREpXM0VJNi1OWVRlS2lRdVJBVEV1QW83NzFQVERLVnRLV3JkZDdn?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
       "id": "cap-f0efe546fc6e",
       "competitor": "Jeppesen",
       "date": "2026-07-01",
@@ -6072,6 +6216,43 @@
         {
           "title": "Google News RSS",
           "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE50Q1M3a0Joc09CVGllcy1mR0tFUzF3bEFQTTZ3WW1nSmU2cWFyN3NmNnU1SV9Sc0U3VTQ0WWNlNlRqSkc1UTN3N054SUhwclM2Zi1pRlNfanNTQUw3TS1wOUl6TmlJQXVOWDZvNElpZFF2UEVTd3h5Ng?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending"
+    },
+    {
+      "id": "cap-96cefa43ec79",
+      "competitor": "Navblue",
+      "date": "2026-04-08",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "Airbus Launches Skywise Subsidiary to Advance Integrated Digital Aviation Solutions",
+      "summary": "Navblue reported a partnership update: Airbus Launches Skywise Subsidiary to Advance Integrated Digital Aviation Solutions. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcHVFSmc5N185TGwyY1g2NTZJSks1UmVvSlYwbm5jYV85TjlUWGFiVi1TTkd1aHBHdk9fT1RmaUo1R2EySFgwaURiOHNjYThoMGQzOTJPZHRFQlRMSVhqYU14M1lSQnR6Q2RxaS1aWUVsRDlqRHlOMmxMNzBYV1Y3VEdqMEFuYjA4TFU1cmN6VklNbTh2Ym9KNkh4QUh1LXFxRV9IRGlvSlhkWDMzRzljSXBCSi1LeVE5?oc=5"
         }
       ],
       "tags": [
