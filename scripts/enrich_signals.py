@@ -376,8 +376,16 @@ def gemini_request(api_key: str, model: str, payload: dict) -> dict:
             message = re.sub(r"\s+", " ", error_info["message"]).strip()[:300]
             detail = f": {message}" if message else ""
         raise EnrichmentError(f"Gemini returned HTTP {error.code}{detail}", http_status=error.code) from error
-    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
-        raise EnrichmentError("Gemini request failed") from error
+    except TimeoutError as error:
+        raise EnrichmentError("Gemini request timed out (45-second socket timeout)") from error
+    except urllib.error.URLError as error:
+        if isinstance(error.reason, TimeoutError):
+            raise EnrichmentError("Gemini request timed out (45-second socket timeout)") from error
+        raise EnrichmentError(
+            f"Gemini network request failed (reason_type={type(error.reason).__name__})"
+        ) from error
+    except json.JSONDecodeError as error:
+        raise EnrichmentError("Gemini returned an invalid JSON response body") from error
     if not isinstance(result, dict):
         raise EnrichmentError("Gemini returned an invalid JSON response")
     return result

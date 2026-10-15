@@ -14,6 +14,14 @@ on:
         type: boolean
         required: false
         default: false
+      max_signals:
+        description: "Signals to attempt (choose 1 for an end-to-end test)"
+        type: choice
+        options:
+          - "1"
+          - "5"
+          - "20"
+        default: "1"
 
 permissions:
   contents: write
@@ -74,7 +82,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemma-4-26b-a4b-it' }}
           BASE_REF: ${{ github.event.before }}
-          AI_ENRICH_MAX_SIGNALS_PER_RUN: "20"
+          AI_ENRICH_MAX_SIGNALS_PER_RUN: ${{ inputs.max_signals || '20' }}
           BACKFILL_MISSING_AI: ${{ inputs.backfill_missing_ai }}
         run: |
           if [ -z "$BASE_REF" ]; then

@@ -112,6 +112,19 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertIn("API key not valid", str(raised.exception))
         error.close()
 
+    def test_request_failures_distinguish_timeout_network_and_invalid_json(self):
+        cases = [
+            (TimeoutError(), "timed out"),
+            (ENRICH.urllib.error.URLError(TimeoutError()), "timed out"),
+            (ENRICH.urllib.error.URLError(OSError()), "network request failed"),
+            (json.JSONDecodeError("invalid", "", 0), "invalid JSON response body"),
+        ]
+        for error, expected in cases:
+            with self.subTest(expected=expected, error_type=type(error).__name__):
+                with patch.object(ENRICH.urllib.request, "urlopen", side_effect=error):
+                    with self.assertRaisesRegex(ENRICH.EnrichmentError, expected):
+                        ENRICH.gemini_request("test-key", "gemma-4-26b-a4b-it", {"contents": []})
+
     def test_selects_new_and_pending_signals_but_skips_completed(self):
         signals = [
             {"id": "old"},
