@@ -23,7 +23,7 @@ from scripts.dedupe_signals import prune_duplicate_customer_events
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 ARCHIVE_PATH = ROOT / "data" / "signals.archive.json"
-MODEL_ID = os.environ.get("GEMINI_MODEL", "").strip() or "gemini-3.8-flash"
+MODEL_ID = os.environ.get("GEMINI_MODEL", "").strip() or "gemma-4-26b-a4b-it"
 GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
 ENRICHMENT_SCHEMA_VERSION = 2
 CURRENT_ENRICHMENT_FIELDS = {
@@ -424,13 +424,12 @@ def enrich_signal(signal: dict, api_key: str) -> dict:
         "Signal evidence JSON:",
         json.dumps(evidence, ensure_ascii=False),
     ])
+    generation_config = {"maxOutputTokens": 4096}
+    if not MODEL_ID.startswith("gemma-"):
+        generation_config["responseMimeType"] = "application/json"
     response = gemini_request(api_key, MODEL_ID, {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "responseMimeType": "application/json",
-            "temperature": 0.2,
-            "maxOutputTokens": 4096,
-        },
+        "generationConfig": generation_config,
     })
     candidates = response.get("candidates") or []
     candidate = candidates[0] if candidates else {}

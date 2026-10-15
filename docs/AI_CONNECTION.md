@@ -59,11 +59,11 @@ read -s "GEMINI_API_KEY?Gemini API key: "; export GEMINI_API_KEY; npm run ai:gem
 ```
 
 Without `GEMINI_MODEL`, the check verifies the key and lists models available to
-it, but sends no prompt. The enrichment workflow defaults to `gemini-3.8-flash`.
+it, but sends no prompt. The enrichment workflow defaults to `gemma-4-26b-a4b-it`.
 To test that exact model with a synthetic connectivity prompt:
 
 ```sh
-export GEMINI_MODEL=gemini-3.8-flash
+export GEMINI_MODEL=gemma-4-26b-a4b-it
 read -s "GEMINI_API_KEY?Gemini API key: "; export GEMINI_API_KEY; npm run ai:gemini-check; unset GEMINI_API_KEY; echo
 ```
 
@@ -89,7 +89,7 @@ Preview deployment:
 - `AI_TEST_TOKEN`: a separate long random secret used to protect the endpoint.
 
 Optionally set `GEMINI_MODEL` as a nonsecret environment variable to override
-the model ID; it defaults to `gemini-3.8-flash`.
+the model ID; it defaults to `gemma-4-26b-a4b-it`.
 
 Create a new Preview deployment after saving the variables. From a terminal,
 call `https://<your-preview-domain>/api/ai-test` using `POST` with
@@ -105,8 +105,13 @@ The `refresh-signals` GitHub Actions workflow runs after a change to
 `scripts/enrich_signals.py` before committing the updated dashboard data. Add
 `GEMINI_API_KEY` as a GitHub Actions repository secret; Vercel environment
 variables are not automatically available to GitHub Actions. The workflow
-defaults to `gemini-3.8-flash`; optionally set the repository variable
+defaults to `gemma-4-26b-a4b-it`; optionally set the repository variable
 `GEMINI_MODEL` to another model supported by the Gemini API key.
+
+An existing `GEMINI_MODEL` variable overrides this default: update it to
+`gemma-4-26b-a4b-it` or remove it when switching from Gemini Flash. The API key
+does not change. Gemma requests ask for JSON in the prompt without assuming
+native JSON-mode support; returned records still pass the same strict validation.
 
 The local `scripts/capture/weekly_capture.sh` path runs the LinkedIn browser
 collector, merges its output, then enriches new signals immediately when
@@ -147,9 +152,10 @@ Run workflow** and enable **Re-enrich historical signals missing the current AI
 schema**. This includes older `ai_enrichment` records missing the newer headline
 and customer/segment fields, but skips records already using the current schema.
 It enriches at most 20 signals per run; run it again to process the next pending batch.
-Backfill makes model requests. Gemini 3.8 Flash has free input and output on
-the free tier, but Google may use free-tier prompts to improve its products and
-enforces tier-specific rate limits. Review Google's current [pricing](https://ai.google.dev/gemini-api/docs/pricing)
+Backfill makes model requests. Google lists Gemma 4 input and output as free,
+but this does not mean unlimited usage. Check the selected model's actual RPM
+and RPD limits in AI Studio. Google may use free-tier prompts to improve its
+products. Review Google's current [pricing](https://ai.google.dev/gemini-api/docs/pricing)
 and [terms](https://ai.google.dev/gemini-api/terms) before backfilling. The
 separate Vercel smoke-test endpoint uses `AI_TEST_TOKEN` and does not power
 dashboard summaries.

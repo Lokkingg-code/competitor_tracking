@@ -37,7 +37,7 @@ export default {
       return json({ error: "Unauthorized." }, 401);
     }
 
-    const model = process.env.GEMINI_MODEL?.trim() || "gemini-3.8-flash";
+    const model = process.env.GEMINI_MODEL?.trim() || "gemma-4-26b-a4b-it";
     try {
       const response = await fetch(`${GEMINI_API}/models/${model}:generateContent`, {
         method: "POST",

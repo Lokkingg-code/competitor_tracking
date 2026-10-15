@@ -48,7 +48,7 @@ test("Vercel smoke test calls Gemini with the configured model", async () => {
   assert.equal(calls[0].options.headers["x-goog-api-key"], "test-gemini-key");
 });
 
-test("Vercel smoke test defaults to Gemini 3.8 Flash", async () => {
+test("Vercel smoke test defaults to Gemma 4", async () => {
   configureTestSecrets();
   delete process.env.GEMINI_MODEL;
   let requestedUrl;
@@ -61,8 +61,8 @@ test("Vercel smoke test defaults to Gemini 3.8 Flash", async () => {
   const result = await response.json();
 
   assert.equal(response.status, 200);
-  assert.equal(result.model, "gemini-3.8-flash");
-  assert.match(requestedUrl, /models\/gemini-3\.8-flash:generateContent$/);
+  assert.equal(result.model, "gemma-4-26b-a4b-it");
+  assert.match(requestedUrl, /models\/gemma-4-26b-a4b-it:generateContent$/);
 });
 
 test("Vercel smoke test reports Gemini API errors", async () => {

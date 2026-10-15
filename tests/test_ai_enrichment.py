@@ -17,8 +17,8 @@ SPEC.loader.exec_module(ENRICH)
 
 
 class AIEnrichmentTests(unittest.TestCase):
-    def test_gemini_model_defaults_to_38_flash(self):
-        self.assertEqual(ENRICH.MODEL_ID, "gemini-3.8-flash")
+    def test_model_defaults_to_gemma_4(self):
+        self.assertEqual(ENRICH.MODEL_ID, "gemma-4-26b-a4b-it")
 
     def test_enrichment_requests_json_object_response_from_selected_model(self):
         result = {
@@ -52,7 +52,7 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(request_args[0], "test-key")
         self.assertEqual(request_args[1], ENRICH.MODEL_ID)
         self.assertEqual(request_args[2]["contents"][0]["role"], "user")
-        self.assertEqual(request_args[2]["generationConfig"]["responseMimeType"], "application/json")
+        self.assertNotIn("responseMimeType", request_args[2]["generationConfig"])
         self.assertEqual(request_args[2]["generationConfig"]["maxOutputTokens"], 4096)
 
     def test_empty_truncated_response_reports_safe_usage_metadata(self):

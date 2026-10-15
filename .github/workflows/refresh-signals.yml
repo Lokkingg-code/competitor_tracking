@@ -72,7 +72,7 @@ jobs:
       - name: Enrich new signals once
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.8-flash' }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemma-4-26b-a4b-it' }}
           BASE_REF: ${{ github.event.before }}
           AI_ENRICH_MAX_SIGNALS_PER_RUN: "20"
           BACKFILL_MISSING_AI: ${{ inputs.backfill_missing_ai }}
