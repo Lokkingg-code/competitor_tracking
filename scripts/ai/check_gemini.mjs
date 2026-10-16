@@ -53,16 +53,18 @@ try {
         contents: [{
           parts: [{ text: "Reply with exactly GEMINI_CONNECTION_OK and nothing else." }],
         }],
-        generationConfig: { temperature: 0, maxOutputTokens: 32 },
+        generationConfig: { maxOutputTokens: 512 },
       }),
     });
     const text = result.candidates?.[0]?.content?.parts
+      ?.filter((part) => !part.thought)
       ?.map((part) => part.text || "")
       .join("")
       .trim();
 
-    if (!text?.includes("GEMINI_CONNECTION_OK")) {
-      throw new Error("Gemini did not return the expected connection-test response.");
+    if (text !== "GEMINI_CONNECTION_OK") {
+      const finishReason = result.candidates?.[0]?.finishReason || "missing";
+      throw new Error(`Gemini did not return the exact connection-test response (finish_reason=${finishReason}).`);
     }
     console.log(`Model response: ${text}`);
     console.log("Gemini connection: OK. No dashboard data was sent or modified.");

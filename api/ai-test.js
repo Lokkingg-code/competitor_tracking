@@ -58,10 +58,11 @@ export default {
       }
 
       const text = (result.candidates?.[0]?.content?.parts || [])
+        .filter((part) => !part.thought)
         .map((part) => part.text || "")
         .join("")
         .trim();
-      if (!text.includes("VERCEL_GEMINI_OK")) {
+      if (text !== "VERCEL_GEMINI_OK") {
         return json({ error: "Gemini did not return the expected test response." }, 502);
       }
 

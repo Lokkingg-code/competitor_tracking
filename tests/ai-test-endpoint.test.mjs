@@ -35,7 +35,10 @@ test("Vercel smoke test calls Gemini with the configured model", async () => {
   const calls = [];
   globalThis.fetch = async (url, options) => {
     calls.push({ url, options });
-    return Response.json({ candidates: [{ content: { parts: [{ text: "VERCEL_GEMINI_OK" }] } }] });
+    return Response.json({ candidates: [{ content: { parts: [
+      { text: "Internal reasoning", thought: true },
+      { text: "VERCEL_GEMINI_OK" },
+    ] } }] });
   };
 
   const response = await endpoint.fetch(request());
@@ -43,6 +46,7 @@ test("Vercel smoke test calls Gemini with the configured model", async () => {
 
   assert.equal(response.status, 200);
   assert.equal(result.model, "gemini-test-model");
+  assert.equal(result.response, "VERCEL_GEMINI_OK");
   assert.equal(calls.length, 1);
   assert.equal(calls[0].url, "https://generativelanguage.googleapis.com/v1beta/models/gemini-test-model:generateContent");
   assert.equal(calls[0].options.headers["x-goog-api-key"], "test-gemini-key");

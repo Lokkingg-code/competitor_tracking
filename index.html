@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=15" />
+  <link rel="stylesheet" href="css/styles.css?v=22" />
 </head>
 <body>
   <div class="app">
@@ -19,6 +19,7 @@
         <span class="system-name">Cathay Technologies</span>
         <span class="system-divider" aria-hidden="true"></span>
         <span class="system-context">Operations intelligence</span>
+        <time id="lastUpdate" class="last-update">Last update: —</time>
       </div>
       <div class="brand-block">
         <p class="eyebrow"><span class="live-dot"></span>Live monitoring · External sources</p>
@@ -36,17 +37,6 @@
         </label>
         <button id="clearSearch" class="clear-search" type="button" hidden>Clear</button>
         <label class="control">
-          <span>Window</span>
-          <select id="windowFilter">
-            <option value="7">Last 7 days</option>
-            <option value="14">Last 14 days</option>
-            <option value="365" selected>Last 12 months</option>
-            <option value="180">Last 6 months</option>
-            <option value="90">Last 90 days</option>
-            <option value="30">Last 30 days</option>
-          </select>
-        </label>
-        <label class="control">
           <span>Competitor</span>
           <select id="competitorFilter">
             <option value="all">All competitors</option>
@@ -58,24 +48,12 @@
             <option value="all">All types</option>
           </select>
         </label>
-        <label class="control">
-          <span>Product focus</span>
-          <select id="focusFilter">
-            <option value="all">All (EFF first)</option>
-            <option value="eff">EFF only</option>
-            <option value="efb">EFB only</option>
-            <option value="adjacent">Adjacent operations only</option>
-            <option value="other">Outside current focus only</option>
-          </select>
-        </label>
         <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
           <span class="theme-icon" aria-hidden="true">☼</span>
           <span class="theme-label">Light mode</span>
         </button>
       </div>
     </header>
-
-    <section class="metrics" id="metrics" aria-label="Summary metrics"></section>
 
     <main class="workspace">
       <section class="panel feed-panel" aria-label="Signal feed">
@@ -100,17 +78,44 @@
     <section class="panel heat-panel" aria-label="Activity heatmap">
       <div class="panel-head">
         <h2>12-month activity</h2>
-        <p class="muted">Signal volume by competitor × month</p>
+        <div id="chartSourceFilter" class="chart-source-filter" role="group" aria-label="Filter graph by source">
+          <button type="button" class="is-active" data-chart-source="all" aria-pressed="true">All sources</button>
+          <button type="button" data-chart-source="linkedin" aria-pressed="false">LinkedIn posts</button>
+        </div>
       </div>
-      <div class="heatmap-wrap">
-        <div id="heatmap" class="heatmap"></div>
+      <div class="trend-chart-wrap">
+        <div id="activityChart" class="trend-chart-container"></div>
       </div>
+    </section>
+
+    <section class="competitive-insights" aria-labelledby="insightsHeading">
+      <div class="insights-heading">
+        <div>
+          <h2 id="insightsHeading">Competitive intelligence</h2>
+          <p id="insightMeta" class="muted">Rolling 12-month synthesis</p>
+        </div>
+        <span class="insight-model-label">AI synthesis</span>
+      </div>
+      <p id="insightStatus" class="insight-status" aria-live="polite">No saved synthesis yet. It will appear after a successful data refresh.</p>
+      <p id="insightLead" class="insight-lead" hidden></p>
+      <div id="insightRows" class="insight-rows"></div>
+      <p class="insight-caveat muted">Patterns are model-generated from captured public signals; verify the cited records before acting.</p>
     </section>
 
     <section class="activity-overview" aria-labelledby="activityHeading">
       <div class="activity-heading">
         <div><h2 id="activityHeading">At a Glance</h2><p id="activityPeriod" class="muted"></p></div>
-        <label class="control"><span>Summary window</span><select id="activityWindow"></select></label>
+        <label class="control">
+          <span>Summary window</span>
+          <select id="activityWindow">
+            <option value="7">Last 7 days</option>
+            <option value="14">Last 14 days</option>
+            <option value="30">Last 30 days</option>
+            <option value="90">Last 90 days</option>
+            <option value="180">Last 6 months</option>
+            <option value="365">Last 12 months</option>
+          </select>
+        </label>
       </div>
       <div id="activitySummary"></div>
       <p class="activity-note muted">Captured signals are not unique announcements or verified wins.</p>
@@ -132,6 +137,6 @@
     </footer>
   </div>
 
-  <script src="js/app.js?v=ai-summary4" type="module"></script>
+  <script src="js/app.js?v=ai-summary9" type="module"></script>
 </body>
 </html>

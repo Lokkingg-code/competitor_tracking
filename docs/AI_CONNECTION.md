@@ -100,6 +100,12 @@ and billing, separate from Gemini API usage.
 
 ## Automatic signal enrichment
 
+Requests use a 180-second socket timeout to allow for slower hosted model
+responses. Set the Actions repository variable `AI_ENRICH_REQUEST_TIMEOUT_SECONDS`
+to an integer from 1 to 300 to override it (or export the same variable locally).
+This is a socket timeout, not a guaranteed total-request deadline. For diagnosis,
+run the manual workflow with `max_signals` set to `1` before attempting a batch.
+
 The `refresh-signals` GitHub Actions workflow runs after a change to
 `data/signals.json` and on its daily schedule. It merges captures, then runs
 `scripts/enrich_signals.py` before committing the updated dashboard data. Add
@@ -119,22 +125,66 @@ collector, merges its output, then enriches new signals immediately when
 signals pending; pushing the refreshed feed lets the GitHub workflow enrich them
 using the repository secret.
 
-Only new or explicitly pending signal IDs are sent to Gemini. Each successful
-result is saved as `ai_enrichment` in the signal and archive, including summary,
-one-sentence headline summary, announcement tone, competitive insight, caveat,
-named customer airline/relationship/segment when source-supported, suggested
-signal type and product focus, confidence, whether each suggestion matches the
-existing label, model, timestamp, and source-content hash. The existing canonical `type` and
-`product_focus` fields are corrected when the corresponding model confidence is
-at least 80%; the previous label is retained in the AI record and shown as an
-AI update. Lower-confidence disagreements remain suggestions flagged for
-review. Signals with saved enrichment are skipped on future runs. Up to 20
-signals are processed per workflow run; rate-limited or failed signals remain
-pending for a later run.
+The default stage is `brief`: it gradually processes all feed signals without a
+saved version-1 `ai_brief`, including signals with older full AI analysis. Each
+brief contains a useful competitor-movement title and 1-3 evidence-only summary
+sentences, plus model, timestamp, evidence scope, and source hash. Thin evidence
+may produce fewer sentences. This stage does not classify signal type or product
+focus and does not change priority, captured headlines, captured summaries, or
+existing `ai_enrichment` records.
 
-The AI summary is tuned to exactly two or three short, evidence-only sentences
-and replaces the existing Evidence Preview in the briefing. Competitive insight
-remains separate so analysis is not mixed into the source-grounded summary.
+The dashboard prefers `ai_brief.title` and `ai_brief.summary` for its displayed
+title and Evidence Preview, falling back to saved full analysis or captured text.
+The original headline remains available in the briefing. Brief generation uses
+the saved captured preview, not an automatic read of source URLs; its evidence
+scope records that limitation.
+
+Scheduled runs and local batches default to five signals; manual workflow runs
+offer 1, 5, or 20. Every successful brief is immediately saved to both feed and
+archive. Completed briefs are skipped on subsequent runs, and failures retain
+`ai_brief_status: pending`. Classification remains a separate explicit
+`--enrichment-stage classification` path with the existing confidence checks; it is not
+invoked by the default workflow.
+
+## Signal classification stage
+
+The second stage is explicit and does not regenerate saved briefs. Trial one
+signal without saving classifications:
+
+```sh
+python3 scripts/enrich_signals.py --test-signal browser-c4e4a3967528 --test-mode classification
+```
+
+To save a small classification batch with the configured `GEMINI_API_KEY`:
+
+```sh
+python3 scripts/enrich_signals.py --base-ref HEAD --enrichment-stage classification --max-signals 5
+```
+
+The response is stored as `ai_classification` in feed and archive. Type/focus
+corrections are applied only at confidence 0.8 or higher, retaining the original
+labels in that record; lower-confidence results remain suggestions. The prompt
+distinguishes customer selections/contracts from implementations and marketing.
+It uses captured evidence, not generated briefs, to avoid reinforcing earlier
+AI claims. The legacy `--enrichment-stage full` path remains available separately.
+
+AI technology is an independent flag, not a new message type. Feed rows display
+`Feature change | AI`, for example, only when `is_ai_related` is true and
+`ai_confidence` is at least 0.8. True flags must include a supporting quote found
+in captured text. Automation or optimization alone is not sufficient evidence of
+AI. This marker means the announcement concerns AI, not that AI assigned the label.
+Completed version-1 classifications are skipped on later classification runs.
+
+To save a small local batch using the configured key:
+
+```sh
+python3 scripts/enrich_signals.py --base-ref HEAD --max-signals 5
+```
+
+Unlike `--test-signal ... --test-mode brief`, this command writes feed and archive
+updates. It never replaces the original captured evidence.
+
+Competitive insight remains separate from the first-stage brief.
 The At a Glance **Main movement** uses the newest saved competitive insight for
 each competitor in the selected window, falling back to the newest headline
 until that competitor has saved AI analysis. When at least two distinct named
@@ -147,11 +197,11 @@ selecting an enriched signal makes no model request. GitHub Actions commits the
 enriched feed and archive, after which Vercel redeploys the saved results. This
 does not backfill older signals automatically.
 
-To backfill historical signals, open **Actions → Refresh competitor signals →
-Run workflow** and enable **Re-enrich historical signals missing the current AI
-schema**. This includes older `ai_enrichment` records missing the newer headline
-and customer/segment fields, but skips records already using the current schema.
-It enriches at most 20 signals per run; run it again to process the next pending batch.
+To backfill first-stage briefs, open **Actions → Refresh competitor signals →
+Run workflow** and select the batch size. No backfill checkbox is needed for the
+brief stage: each run continues through records without a saved brief. The
+historical AI-schema checkbox applies only to the separate full-classification
+CLI path and does not force regeneration of completed briefs.
 Backfill makes model requests. Google lists Gemma 4 input and output as free,
 but this does not mean unlimited usage. Check the selected model's actual RPM
 and RPD limits in AI Studio. Google may use free-tier prompts to improve its

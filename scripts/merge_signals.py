@@ -188,6 +188,26 @@ EFF_PATTERNS = [
     r"crew briefing pack",
 ]
 
+EFF_WATCHLIST_PRODUCTS = (
+    "Aviobook", "Boeing FlightFolder", "Bytron Skybook", "CAE eFlightManager",
+    "Flightman", "ForeFlight", "Lido mBriefing", "Logipad", "Mission+",
+    "Topwing", "IFS EFBOne",
+)
+
+EFF_WATCHLIST_PATTERNS = [
+    r"\baviobook\b|\baviovision\b",
+    r"\bboeing\s+flight\s*folder\b|\bflightfolder\b",
+    r"\bbytron\b|\bskybook\b",
+    r"\b(?:cae\s+)?eflightmanager\b",
+    r"\bflightman\b",
+    r"\bforeflight\b",
+    r"\b(?:lido\s+)?mbriefing\b",
+    r"\blogipad\b",
+    r"\bmission\+",
+    r"\btopwings?\b",
+    r"\b(?:ifs\s+)?efbone\b",
+]
+
 EFB_PATTERNS = [
     r"\bEFB\b",
     r"electronic flight bag",
@@ -310,11 +330,37 @@ def detect_product(text: str) -> str | None:
     return None
 
 
-def classify_product_focus(text: str, competitor: str = "") -> str:
-    """Classify product focus using explicit product precedence."""
+def classify_product_focus(text: str, competitor: str = "", product: str | None = None) -> str:
+    """Classify product focus, applying the user's EFF competitor watchlist."""
     text = unicodedata.normalize("NFKC", text)
-    if re.search(r"\b(?:AvioBook|Aviobook)\s+Connect\b", text, re.I):
+    context = f"{competitor or ''} {product or ''} {text}"
+    if product and re.search(r"\bLido\s+mBriefing\b", product, re.I):
+        return "eff"
+    if re.search(r"\bLido\s+Flight\s*4D\b", product or "", re.I):
         return "adjacent"
+    if re.search(r"\bLido\s+Flight\s*4D\b", context, re.I) and not re.search(
+        r"\bLido\s+mBriefing\b", product or "", re.I
+    ):
+        return "adjacent"
+    if re.search(r"\b(?:AvioBook|Aviobook)\s+Connect\b", context, re.I) or (
+        re.search(r"\b(?:AvioBook|Aviobook)\b", context, re.I)
+        and re.search(r"\bConnect(?:\s+3\.0)?\b", context, re.I)
+    ):
+        return "adjacent"
+    if re.search(r"\b(?:we're hiring|we are hiring|open roles?|career move|join our team)\b", context, re.I):
+        return "other"
+    if re.search(r"\bForeFlight\b", context, re.I) and re.search(
+        r"\b(?:insurance marketplace|executive appointments?|standalone company|private equity|acquisition|layoffs|insurance|leadership|department of defense)\b",
+        context,
+        re.I,
+    ):
+        return "other"
+    if re.search(r"\b(?:crew pairing|network planning|NetLine|flight planning system|fuel savings solution|AI engine)\b", context, re.I):
+        return "adjacent"
+
+    watchlist_text = f"{competitor or ''} {product or ''}"
+    if _matches_any(watchlist_text, EFF_WATCHLIST_PATTERNS):
+        return "eff"
 
     efb_product_patterns = [
         r"Mission\+ FLIGHT",
@@ -349,10 +395,6 @@ def classify_product_focus(text: str, competitor: str = "") -> str:
         return "eff"
     if _matches_any(text, ADJACENT_PATTERNS):
         return "adjacent"
-    if re.search(r"\bForeFlight\b|\bMission\+", text, re.I):
-        if re.search(r"\b(?:executive appointments?|standalone company|private equity|acquisition|layoffs|insurance|leadership|department of defense)\b", text, re.I):
-            return "other"
-        return "eff"
     return "other"
 
 
@@ -565,8 +607,8 @@ def raw_to_signal(item: dict) -> dict | None:
         return None
 
     signal_type = infer_type(blob, headline=item.get("title", ""))
-    product_focus = classify_product_focus(blob, item["competitor"])
     product = detect_product(blob)
+    product_focus = classify_product_focus(blob, item["competitor"], product)
     priority = adjust_priority_for_focus(priority_for(blob, signal_type), product_focus, signal_type)
     if source_channel == "press_release" and product_focus == "eff" and priority == "medium":
         priority = "high"
@@ -629,7 +671,7 @@ def sanitize_signal(signal: dict) -> dict:
         cleaned["headline"] = derive_auto_headline(cleaned["headline"], cleaned.get("summary", ""))
     summary = strip_html(cleaned.get("summary", ""))
     is_auto = "auto-capture" in cleaned.get("tags", [])
-    has_ai_enrichment = isinstance(cleaned.get("ai_enrichment"), dict)
+    has_ai_enrichment = isinstance(cleaned.get("ai_enrichment"), dict) or isinstance(cleaned.get("ai_classification"), dict)
     if is_auto and is_release_notes(cleaned["headline"]) and not has_ai_enrichment:
         cleaned["type"] = "feature_change"
 
@@ -649,7 +691,7 @@ def sanitize_signal(signal: dict) -> dict:
     cleaned["product"] = cleaned.get("product") or detect_product(blob)
     product_focus = cleaned.get("product_focus")
     if product_focus not in VALID_PRODUCT_FOCUSES or (is_auto and not has_ai_enrichment):
-        product_focus = classify_product_focus(blob, cleaned.get("competitor", ""))
+        product_focus = classify_product_focus(blob, cleaned.get("competitor", ""), cleaned["product"])
     cleaned["product_focus"] = product_focus
     cleaned["priority"] = adjust_priority_for_focus(
         cleaned.get("priority", "low"),

@@ -23,11 +23,16 @@ test("overview and activity quick look remain independent of feed filters", asyn
       await page.goto(baseUrl);
       await page.waitForSelector(".activity-group");
       assert.equal(await page.locator("#activityWindow").inputValue(), "30");
-      assert.deepEqual(await page.locator("#activityWindow option").allTextContents(), await page.locator("#windowFilter option").allTextContents());
+      assert.deepEqual(await page.locator("#activityWindow option").evaluateAll((options) => options.map((option) => option.value)), ["7", "14", "30", "90", "180", "365"]);
+      assert.equal(await page.locator("#windowFilter").count(), 0);
+      assert.equal(await page.locator("#focusFilter").count(), 0);
+      assert.equal(await page.locator("#metrics").count(), 0);
+      assert.equal(await page.locator("#lastUpdate").textContent(), "Last update: 15 Oct 2026, 03:16 UTC");
+      assert.ok((await page.locator("#insightStatus").textContent()).includes("No saved synthesis yet"));
       assert.ok(await page.locator(".activity-group").count() > 1);
-      assert.ok(await page.locator(".activity-overview").evaluate((element) => element.previousElementSibling.classList.contains("heat-panel")));
+      assert.ok(await page.locator(".activity-overview").evaluate((element) => element.previousElementSibling.classList.contains("competitive-insights") && element.previousElementSibling.previousElementSibling.classList.contains("heat-panel")));
       const original = await page.locator("#activitySummary").innerHTML();
-      for (const [selector, value] of [["#competitorFilter", "IFS"], ["#windowFilter", "7"], ["#typeFilter", "customer_win"], ["#focusFilter", "eff"]]) {
+      for (const [selector, value] of [["#competitorFilter", "IFS"], ["#typeFilter", "customer_win"]]) {
         await page.locator(selector).selectOption(value);
         assert.equal(await page.locator("#activitySummary").innerHTML(), original);
       }
@@ -54,10 +59,38 @@ test("overview and activity quick look remain independent of feed filters", asyn
       await page.locator("#quickLookClose").click();
       assert.equal(await group.getAttribute("open"), "");
       await page.locator(".activity-overview").screenshot({ path: `/tmp/activity-overview-${width}.png` });
-      const cell = page.locator('.heat-cell[data-competitor="Bytron Skybook"][data-month="2025-10"]');
-      await cell.scrollIntoViewIfNeeded();
+      assert.equal(await page.locator(".trend-line-series").count(), 7);
+      assert.ok(await page.locator(".trend-point").count() > 0);
+      assert.equal(await page.locator(".trend-area").count(), 7);
+      assert.equal(await page.locator(".panel-head p").filter({ hasText: "Signal volume by competitor" }).count(), 0);
+      const allSourcePoints = await page.locator(".trend-point").count();
+      const allSourcesButton = page.locator('[data-chart-source="all"]');
+      const linkedinButton = page.locator('[data-chart-source="linkedin"]');
+      assert.equal(await allSourcesButton.getAttribute("aria-pressed"), "true");
+      await linkedinButton.click();
+      const linkedinPointCount = await page.locator(".trend-point").count();
+      assert.ok(linkedinPointCount > 0 && linkedinPointCount < allSourcePoints);
+      assert.equal(await linkedinButton.getAttribute("aria-pressed"), "true");
+      const linkedinPoint = page.locator(".trend-point").first();
+      const linkedinCompetitor = await linkedinPoint.getAttribute("data-competitor");
+      const linkedinMonth = await linkedinPoint.getAttribute("data-month");
+      await linkedinPoint.focus();
+      await page.keyboard.press("Enter");
+      const expectedLinkedinSignals = payload.signals.filter((signal) => signal.source_channel === "linkedin" && signal.competitor === linkedinCompetitor && signal.date.startsWith(linkedinMonth));
+      assert.equal(await page.locator("#quickLookList .signal-row").count(), expectedLinkedinSignals.length);
+      await page.locator("#quickLookClose").click();
+      await allSourcesButton.click();
+      assert.equal(await page.locator(".trend-point").count(), allSourcePoints);
+      assert.equal(await allSourcesButton.getAttribute("aria-pressed"), "true");
+      await page.locator(".heat-panel").screenshot({ path: `/tmp/activity-trend-${width}.png` });
+      const point = page.locator('.trend-point[data-competitor="Bytron Skybook"][data-month="2025-10"]');
+      await point.scrollIntoViewIfNeeded();
+      await point.hover();
+      assert.equal(await page.locator(".trend-tooltip").isVisible(), true);
+      assert.equal(await page.locator(".trend-tooltip-name").textContent(), "Bytron Skybook");
+      assert.equal(await page.locator(".trend-tooltip-detail").textContent(), "Oct '25 · 2 signals");
       const scrollBefore = await page.evaluate(() => window.scrollY);
-      await cell.click();
+      await point.click();
       const expected = payload.signals.filter((signal) => signal.competitor === "Bytron Skybook" && signal.date.startsWith("2025-10"));
       assert.equal(await page.locator("#quickLookList .signal-row").count(), expected.length);
       await page.locator("#quickLookList .signal-row").first().click();
@@ -67,15 +100,132 @@ test("overview and activity quick look remain independent of feed filters", asyn
       assert.equal(await page.locator("#quickLookList .signal-row").first().evaluate((element) => element === document.activeElement), true);
       await page.keyboard.press("Escape");
       assert.equal(await page.locator("#quickLook").isVisible(), false);
-      assert.equal(await cell.evaluate((element) => element === document.activeElement), true);
+      assert.equal(await point.evaluate((element) => element === document.activeElement), true);
       assert.ok(Math.abs(await page.evaluate(() => window.scrollY) - scrollBefore) < 3);
       assert.equal(await page.locator("#searchInput").inputValue(), "no-match-validation");
       assert.equal(await page.locator("#competitorFilter").inputValue(), "IFS");
-      assert.equal(await page.locator("#windowFilter").inputValue(), "7");
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth));
       assert.deepEqual(errors, []);
       await page.close();
     }
+  } finally {
+    await browser.close();
+  }
+});
+
+test("keeps equal-count competitor markers visible and independently clickable", async () => {
+  const competitors = ["Jeppesen", "Aviobook", "IFS"];
+  const tiedPayload = {
+    generated_at: "2026-10-16T03:16:42Z",
+    lookback_days: 365,
+    signals: competitors.map((competitor) => ({
+      id: `tie-${competitor.toLowerCase().replaceAll(" ", "-")}`,
+      competitor,
+      date: "2026-10-08",
+      type: "feature_change",
+      priority: "medium",
+      confidence: 0.9,
+      headline: `${competitor} update`,
+      summary: `${competitor} reports a product update.`,
+      source_channel: "linkedin",
+      product_focus: "other",
+      sources: [],
+    })),
+  };
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    await page.clock.install({ time: new Date("2026-10-16T12:00:00Z") });
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: tiedPayload }));
+    await page.goto(baseUrl);
+    const points = page.locator('.trend-point[data-month="2026-10"]');
+    assert.equal(await points.count(), 3);
+    const xPositions = await points.evaluateAll((nodes) => nodes.map((node) => Number(node.querySelector(".trend-marker").getAttribute("cx"))));
+    assert.equal(new Set(xPositions).size, 3);
+
+    for (const point of await points.all()) {
+      const competitor = await point.getAttribute("data-competitor");
+      await point.scrollIntoViewIfNeeded();
+      await point.click();
+      const quickLookTitle = await page.locator("#quickLookTitle").textContent();
+      assert.ok(quickLookTitle.includes(competitor), `${competitor} marker opened "${quickLookTitle}"`);
+      await page.locator("#quickLookClose").click();
+    }
+    await browser.close();
+  } finally {
+    await browser.close();
+  }
+});
+
+test("renders dataset-level AI findings with signal evidence links", async () => {
+  const signal = payload.signals[0];
+  const insightPayload = {
+    schema_version: 1,
+    status: "ready",
+    model: "gemma-4-26b-a4b-it",
+    generated_at: "2026-10-16T03:16:42Z",
+    window_start: "2025-11-01",
+    window_end: "2026-10-16",
+    source_signal_count: 160,
+    lead: "Product news and customer adoption are accelerating in several captured feeds.",
+    insights: [{
+      category: "customer_adoption",
+      title: "IFS EFBOne appears in recent airline selections",
+      finding: "The cited post reports an EFBOne selection by fastjet.",
+      evidence_ids: [signal.id],
+      aviation_context: "fastjet is a low-cost carrier.",
+      caveat: "Verify the linked announcement before treating it as a confirmed deployment.",
+    }],
+  };
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: payload }));
+    await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: insightPayload }));
+    await page.goto(baseUrl);
+    await page.locator(".insight-row").waitFor();
+    assert.equal(await page.locator("#insightLead").textContent(), insightPayload.lead);
+    assert.equal(await page.locator(".insight-row h3").textContent(), insightPayload.insights[0].title);
+    await page.locator(`[data-insight-signal="${signal.id}"]`).click();
+    await page.locator("#quickLookBriefing").waitFor({ state: "visible" });
+    assert.ok((await page.locator("#quickLookTitle").textContent()).includes(signal.competitor));
+  } finally {
+    await browser.close();
+  }
+});
+
+test("renders first-stage briefs ahead of older enrichment without API calls", async () => {
+  const signal = payload.signals[0];
+  const briefPayload = { ...payload, signals: [{
+    ...signal,
+    type: "feature_change",
+    analyst_product_focus_review: { from: "efb", to: "eff", reason: "Watchlist" },
+    ai_classification: { is_ai_related: true, ai_confidence: 0.95 },
+    ai_brief: { title: "Jeppesen adds AI, Agentic AI and artificial intelligence tools for AirAsia", summary: "Royal Air Maroc selected AvioBook Flight. The agreement runs for five years." },
+    ai_enrichment: { headline_summary: "Older AI title", summary: "Older AI summary" },
+  }] };
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage();
+    let apiRequests = 0;
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: briefPayload }));
+    await page.route("**/api/**", (route) => {
+      apiRequests += 1;
+      return route.fulfill({ status: 500 });
+    });
+    await page.addInitScript((signalId) => {
+      sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify([signalId]));
+    }, signal.id);
+    await page.goto(baseUrl);
+    await page.locator(".briefing-summary-text").waitFor();
+    assert.equal(await page.locator("h3").first().textContent(), briefPayload.signals[0].ai_brief.title);
+    assert.deepEqual(await page.locator("h3 .title-ai").allTextContents(), ["AI", "Agentic AI", "artificial intelligence"]);
+    assert.equal(await page.locator(".title-ai").filter({ hasText: "AirAsia" }).count(), 0);
+    assert.equal(await page.locator(".briefing-summary-text").textContent(), briefPayload.signals[0].ai_brief.summary);
+    assert.ok(await page.locator(".ai-analysis-details p").filter({ hasText: "Reviewed from EFB" }).count());
+    assert.equal(await page.locator(".ai-source-headline").textContent(), `Captured headline: ${signal.headline}`);
+    assert.equal(apiRequests, 0);
+    assert.ok(await page.locator(".col-type").filter({ hasText: "Feature change | AI" }).count());
   } finally {
     await browser.close();
   }
@@ -87,6 +237,9 @@ test("renders saved AI enrichment without calling the summary API again", async 
     ...payload,
     signals: payload.signals.map((item) => item.id === signal.id ? {
       ...item,
+      ai_brief: null,
+      analyst_type_review: { from: "customer_win", to: "messaging_shift", reason: "Interview, no new commitment" },
+      analyst_product_focus_review: { from: "efb", to: "eff", reason: "Watchlist" },
       ai_enrichment: {
         model: "nvidia/nemotron-3.5-lightning",
         enriched_at: "2026-10-08T00:00:00+00:00",
@@ -130,8 +283,8 @@ test("renders saved AI enrichment without calling the summary API again", async 
     assert.equal(await page.locator(".ai-source-headline").textContent(), `Captured headline: ${signal.headline}`);
     assert.equal(await page.locator(".briefing-summary-label").textContent(), "AI evidence summary");
     assert.equal(await page.locator(".ai-summary-result").count(), 0);
-    assert.ok(await page.getByText(/Signal type: Feature change.*AI updated from Customer win/).count());
-    assert.ok(await page.getByText(/Product focus: EFF.*AI updated from Other/).count());
+    assert.ok(await page.getByText(/Signal type: Feature change.*Reviewed from Customer win/).count());
+    assert.ok(await page.getByText(/Product focus: EFF.*Reviewed from EFB/).count());
     assert.ok(await page.locator(".activity-movement").filter({ hasText: "This could improve operations visibility." }).count());
     assert.ok(await page.getByText(/rates per 1M tokens USD: input \$0.049, output \$0.140/).count());
     assert.equal(summaryRequests, 0);

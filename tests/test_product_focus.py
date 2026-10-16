@@ -41,7 +41,44 @@ class ProductFocusTests(unittest.TestCase):
     def test_eff_watchlist_defaults(self):
         for product in ("Aviobook", "Boeing flightfolder", "Bytron skybook", "CAE eflightmanager", "Flightman", "Foreflight", "Lido mbriefing", "Logipad", "Mission+", "Topwing", "IFS EFBOne"):
             with self.subTest(product=product):
-                self.assertEqual(MERGE_SIGNALS.classify_product_focus(product), "eff")
+                self.assertEqual(MERGE_SIGNALS.classify_product_focus(product, product=product), "eff")
+
+    def test_eff_watchlist_overrides_generic_efb_wording(self):
+        for product in ("Aviobook", "Boeing FlightFolder", "Bytron Skybook", "CAE eFlightManager", "Flightman", "ForeFlight", "Lido mBriefing", "Logipad", "Mission+", "Topwing", "IFS EFBOne"):
+            with self.subTest(product=product):
+                self.assertEqual(MERGE_SIGNALS.classify_product_focus(f"{product} EFB electronic flight bag platform", product=product), "eff")
+
+    def test_lido_flight4d_is_adjacent_while_mbriefing_is_eff(self):
+        self.assertEqual(
+            MERGE_SIGNALS.classify_product_focus(
+                "Lido Flight 4D combines flight planning and digital briefing",
+                "Lufthansa Systems", "Lido Flight 4D",
+            ),
+            "adjacent",
+        )
+        self.assertEqual(
+            MERGE_SIGNALS.classify_product_focus(
+                "Lido mBriefing delivers electronic pilot briefings",
+                "Lufthansa Systems", "Lido mBriefing",
+            ),
+            "eff",
+        )
+
+    def test_lido_flight4d_is_adjacent_but_lido_mbriefing_is_eff(self):
+        self.assertEqual(
+            MERGE_SIGNALS.classify_product_focus(
+                "Lufthansa Systems Lido Flight 4D combines flight planning and digital briefing",
+                "Lufthansa Systems", "Lido Flight 4D",
+            ),
+            "adjacent",
+        )
+        self.assertEqual(
+            MERGE_SIGNALS.classify_product_focus(
+                "Lido mBriefing delivers paperless pilot briefings",
+                "Lufthansa Systems", "Lido mBriefing",
+            ),
+            "eff",
+        )
 
     def test_recruitment_is_omitted_before_product_classification(self):
         for text in (
@@ -87,10 +124,22 @@ class ProductFocusTests(unittest.TestCase):
         self.assertEqual(sanitized["type"], "customer_win")
         self.assertEqual(sanitized["product_focus"], "efb")
 
+    def test_merge_sanitization_preserves_analyst_product_focus_review(self):
+        review = {"from": "efb", "to": "eff", "rule": "eff_competitor_watchlist"}
+        sanitized = MERGE_SIGNALS.sanitize_signal({
+            "id": "reviewed-focus", "competitor": "Bytron Skybook", "product": "Bytron Skybook",
+            "headline": "Bytron Skybook EFB update", "summary": "Release notes for Skybook EFB.",
+            "type": "feature_change", "priority": "medium", "product_focus": "eff",
+            "analyst_product_focus_review": review,
+        })
+        self.assertEqual(sanitized["product_focus"], "eff")
+        self.assertEqual(sanitized["analyst_product_focus_review"], review)
+
     def test_explicit_context_overrides_generic_foreflight_indicator(self):
         self.assertEqual(MERGE_SIGNALS.classify_product_focus("ForeFlight crew pairing automation"), "adjacent")
         self.assertEqual(MERGE_SIGNALS.classify_product_focus("ForeFlight Insurance Marketplace"), "other")
         self.assertEqual(MERGE_SIGNALS.classify_product_focus("ForeFlight announces executive appointments"), "other")
+        self.assertEqual(MERGE_SIGNALS.classify_product_focus("Jeppesen ForeFlight launches Airflow AI Engine"), "adjacent")
 
     def test_welcome_to_platform_is_customer_win(self):
         announcement = (
@@ -110,11 +159,11 @@ class ProductFocusTests(unittest.TestCase):
 
     def test_reviewed_product_focus_examples(self):
         cases = [
-            ("Corsair adopts Mission+ FLIGHT EFB configuration", "efb"),
-            ("Braathens customer story highlights smooth AvioBook EFB rollout", "efb"),
+            ("Corsair adopts Mission+ FLIGHT EFB configuration", "eff"),
+            ("Braathens customer story highlights smooth AvioBook EFB rollout", "eff"),
             ("FliteDeck Pro adds graphical NOTAMs", "efb"),
             ("Manage My EFB launches for airline crews", "efb"),
-            ("EFBOne as its Electronic Flight Bag platform", "efb"),
+            ("EFBOne as its Electronic Flight Bag platform", "eff"),
             ("Instant messaging connects dispatchers and pilots through the EFB", "efb"),
             ("Skybook adds electronic flight folder briefing", "eff"),
             ("ForeFlight EFFCore release improves crew briefing", "eff"),
@@ -127,7 +176,7 @@ class ProductFocusTests(unittest.TestCase):
         ]
         for text, expected in cases:
             with self.subTest(text=text):
-                self.assertEqual(MERGE_SIGNALS.classify_product_focus(text), expected)
+                self.assertEqual(MERGE_SIGNALS.classify_product_focus(text, product=text), expected)
 
 
 if __name__ == "__main__":

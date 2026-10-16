@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "status": "awaiting_generation",
+  "generated_at": null,
+  "window_start": null,
+  "window_end": null,
+  "source_signal_count": 0,
+  "lead": "",
+  "insights": [],
+  "caveat": "A cited synthesis will appear after a successful model refresh."
+}

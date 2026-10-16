@@ -81,8 +81,9 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemma-4-26b-a4b-it' }}
+          AI_ENRICH_REQUEST_TIMEOUT_SECONDS: ${{ vars.AI_ENRICH_REQUEST_TIMEOUT_SECONDS || '180' }}
           BASE_REF: ${{ github.event.before }}
-          AI_ENRICH_MAX_SIGNALS_PER_RUN: ${{ inputs.max_signals || '20' }}
+          AI_ENRICH_MAX_SIGNALS_PER_RUN: ${{ inputs.max_signals || '5' }}
           BACKFILL_MISSING_AI: ${{ inputs.backfill_missing_ai }}
         run: |
           if [ -z "$BASE_REF" ]; then
@@ -94,13 +95,22 @@ jobs:
           if [ "$BACKFILL_MISSING_AI" = "true" ]; then
             BACKFILL_ARGS+=(--backfill-missing)
           fi
-          python3 scripts/enrich_signals.py --base-ref "$BASE_REF" "${BACKFILL_ARGS[@]}"
+          python3 scripts/enrich_signals.py --base-ref "$BASE_REF" --enrichment-stage brief "${BACKFILL_ARGS[@]}"
+
+      - name: Generate rolling competitive insight brief
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_INSIGHTS_MODEL: ${{ vars.GEMINI_INSIGHTS_MODEL || 'gemini-3.5-flash-lite' }}
+          AI_ENRICH_REQUEST_TIMEOUT_SECONDS: ${{ vars.AI_ENRICH_REQUEST_TIMEOUT_SECONDS || '180' }}
+          AI_INSIGHTS_MAX_OUTPUT_TOKENS: "5000"
+        run: python3 scripts/summarize_competitive_insights.py
 
       - name: Commit refreshed dashboard data
         run: |
           git config user.name "competitor-tracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/signals.json data/signals.archive.json data/capture-health.json
+          git add data/signals.json data/signals.archive.json data/capture-health.json data/competitive-insights.json
           git stash push --keep-index --include-untracked -m "Temporary capture outputs"
           git commit -m "Refresh competitor signals" || exit 0
           git pull --rebase origin main

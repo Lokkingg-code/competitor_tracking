@@ -59,6 +59,15 @@ const PRODUCT_PATTERNS = [
 ];
 
 const FOCUS_ORDER = { eff: 0, efb: 1, adjacent: 2, other: 3 };
+const COMPETITOR_COLORS = {
+  Jeppesen: "#168579",
+  "Lufthansa Systems": "#c78927",
+  Aviobook: "#4288b5",
+  "Bytron Skybook": "#bd594a",
+  Navblue: "#7f6fa8",
+  IFS: "#57935d",
+  Others: "#647b82",
+};
 
 const EFF_PATTERNS = [
   /\bEFF\b/i,
@@ -127,20 +136,20 @@ const ADJACENT_PATTERNS = [
 let allSignals = [];
 let selectedId = null;
 let selectedMatrixIds = null;
+let activityChartSource = "all";
 
 const els = {
-  windowFilter: document.getElementById("windowFilter"),
   competitorFilter: document.getElementById("competitorFilter"),
   typeFilter: document.getElementById("typeFilter"),
-  focusFilter: document.getElementById("focusFilter"),
   searchInput: document.getElementById("searchInput"),
   clearSearch: document.getElementById("clearSearch"),
-  metrics: document.getElementById("metrics"),
   feedCount: document.getElementById("feedCount"),
   signalFeed: document.getElementById("signalFeed"),
   briefing: document.getElementById("briefing"),
-  heatmap: document.getElementById("heatmap"),
+  activityChart: document.getElementById("activityChart"),
+  chartSourceFilter: document.getElementById("chartSourceFilter"),
   dataMeta: document.getElementById("dataMeta"),
+  lastUpdate: document.getElementById("lastUpdate"),
   themeToggle: document.getElementById("themeToggle"),
 };
 
@@ -167,6 +176,20 @@ function formatDate(value) {
     year: "numeric",
     timeZone: "UTC",
   });
+}
+
+function formatTimestamp(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "—";
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "UTC",
+    timeZoneName: "short",
+  }).format(date);
 }
 
 function daysAgo(n) {
@@ -217,18 +240,16 @@ function detectProduct(signal) {
   return PRODUCT_PATTERNS.find(([, pattern]) => pattern.test(blob))?.[0] || "Unspecified product";
 }
 
-function filteredSignals({ ignoreFocus = false, windowDays = Number(els.windowFilter.value) } = {}) {
-  const cutoff = daysAgo(windowDays);
+function filteredSignals() {
+  const cutoff = daysAgo(365);
   const competitor = els.competitorFilter.value;
   const type = els.typeFilter.value;
-  const focus = els.focusFilter?.value || "all";
   const search = (els.searchInput?.value || "").trim().toLowerCase();
 
   return allSignals
     .filter((s) => selectedMatrixIds?.has(s.id) || parseDate(s.date) >= cutoff)
     .filter((s) => matchesCompetitor(s, competitor))
     .filter((s) => (type === "all" ? true : s.type === type))
-    .filter((s) => ignoreFocus || focus === "all" || classifyProductFocus(s) === focus)
     .filter((s) => {
       if (!search) return true;
       const sourceText = (s.sources || []).map((source) => `${source.title || ""} ${source.url || ""}`).join(" ");
@@ -250,37 +271,6 @@ function filteredSignals({ ignoreFocus = false, windowDays = Number(els.windowFi
       if (focusDiff !== 0) return focusDiff;
       return parseDate(b.date) - parseDate(a.date);
     });
-}
-
-function renderMetrics(signals) {
-  const byCompetitor = Object.fromEntries(COMPETITORS.map((c) => [c, 0]));
-  const byFocus = { eff: 0, efb: 0, adjacent: 0, other: 0 };
-
-  for (const s of signals) {
-    byCompetitor[s.competitor] = (byCompetitor[s.competitor] || 0) + 1;
-    const focus = classifyProductFocus(s);
-    byFocus[focus] = (byFocus[focus] || 0) + 1;
-  }
-
-  const cards = [
-    { label: "EFF-related", value: String(byFocus.eff), hint: "Core flight-folder products", focus: "eff" },
-    { label: "EFB-related", value: String(byFocus.efb), hint: "Flight-deck products", focus: "efb" },
-    { label: "Adjacent operations", value: String(byFocus.adjacent), hint: "Dispatch, planning, etc.", focus: "adjacent" },
-    { label: "Outside current focus", value: String(byFocus.other), hint: "Needs analyst review", focus: "other" },
-    { label: "Total in window", value: String(signals.length), hint: "All competitors · 12-month view", focus: "all" },
-    { label: "Last 14 days", value: `+${filteredSignals({ ignoreFocus: true, windowDays: 14 }).length}`, hint: "Recent signals · click to view", focus: "all", window: "14", className: "metric-recent" },
-  ];
-
-  els.metrics.innerHTML = cards
-    .map(
-      (c, i) => `
-      <button class="metric ${c.className || ""}${els.focusFilter.value === c.focus && (!c.window || els.windowFilter.value === c.window) ? " is-selected" : ""}" type="button" data-focus="${c.focus}"${c.window ? ` data-window="${c.window}"` : ""} aria-pressed="${els.focusFilter.value === c.focus && (!c.window || els.windowFilter.value === c.window)}" style="animation-delay:${i * 40}ms">
-        <p class="label">${c.label}</p>
-        <p class="value">${c.value}</p>
-        <p class="hint">${c.hint}</p>
-      </button>`
-    )
-    .join("");
 }
 
 function cleanText(value) {
@@ -318,8 +308,16 @@ function truncateTitleAtBoundary(text, maxLength = 150) {
   return `${candidate.slice(0, Math.max(boundary, 1)).replace(/[\s,;:.]+$/, "")}...`;
 }
 
+function signalTypeMarkup(signal) {
+  const label = escapeHtml(TYPE_LABELS[signal.type] || signal.type || "Unknown");
+  const classification = signal.ai_classification;
+  const aiRelated = classification?.is_ai_related === true
+    && Number(classification.ai_confidence) >= 0.8;
+  return aiRelated ? `${label} | <strong title="Announcement explicitly concerns AI technology">AI</strong>` : label;
+}
+
 function displaySignalTitle(signal) {
-  const aiHeadline = cleanText(signal.ai_enrichment?.headline_summary);
+  const aiHeadline = cleanText(signal.ai_brief?.title || signal.ai_enrichment?.headline_summary);
   if (aiHeadline) return aiHeadline;
 
   const headline = cleanHeadline(signal.headline);
@@ -449,12 +447,16 @@ function highlightTitle(signal) {
   const terms = [
     ...competitorTitleTerms(competitor).map((value) => ({ value, className: "title-competitor" })),
     { value: operator, className: "title-airline" },
+    ...["Agentic AI", "artificial intelligence", "AI"].map((value) => ({ value, className: "title-ai" })),
   ]
     .filter(({ value }) => value && value !== "N/A")
     .sort((a, b) => b.value.length - a.value.length);
   if (!terms.length) return title;
   const pattern = terms
-    .map(({ value }) => escapeHtml(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+    .map(({ value, className }) => {
+      const escaped = escapeHtml(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      return className === "title-ai" ? `\\b${escaped}\\b` : escaped;
+    })
     .join("|");
   return title.replace(new RegExp(`(${pattern})`, "gi"), (match) => {
     const term = terms.find(({ value }) => value.toLowerCase() === match.toLowerCase());
@@ -510,23 +512,41 @@ function conciseEvidenceSummary(value) {
 
 function renderSavedAIAnalysis(signal) {
   const analysis = signal.ai_enrichment;
+  const reviewNotes = [];
+  if (signal.analyst_type_review) {
+    const previous = TYPE_LABELS[signal.analyst_type_review.from] || signal.analyst_type_review.from || "previous type";
+    reviewNotes.push(`Signal type reviewed from ${previous}`);
+  }
+  if (signal.analyst_product_focus_review) {
+    const previous = FOCUS_LABELS[signal.analyst_product_focus_review.from] || signal.analyst_product_focus_review.from || "previous focus";
+    reviewNotes.push(`Product focus reviewed from ${previous}`);
+  }
+  const reviewMarkup = reviewNotes.length
+    ? `<p class="ai-summary-result">${escapeHtml(reviewNotes.join(" · "))}</p>`
+    : "";
   if (!analysis) {
+    if (signal.ai_brief?.summary) return reviewMarkup;
     const status = signal.ai_enrichment_status === "pending"
       ? "AI analysis is queued for the next background enrichment run."
       : "No saved AI analysis for this signal.";
-    return `<p class="ai-summary-result">${escapeHtml(status)}</p>`;
+    return `<p class="ai-summary-result">${escapeHtml(status)}</p>${reviewMarkup}`;
   }
 
   const currentType = TYPE_LABELS[signal.type] || signal.type || "Unknown";
   const suggestedType = TYPE_LABELS[analysis.suggested_type] || analysis.suggested_type;
   const currentFocus = FOCUS_LABELS[signal.product_focus] || signal.product_focus || "Unknown";
   const suggestedFocus = FOCUS_LABELS[analysis.suggested_product_focus] || analysis.suggested_product_focus;
-  const typeStatus = analysis.type_auto_applied
+  const typeStatus = signal.analyst_type_review
+    ? `Reviewed from ${TYPE_LABELS[signal.analyst_type_review.from] || signal.analyst_type_review.from || "previous type"}`
+    : analysis.type_auto_applied
     ? `AI updated from ${TYPE_LABELS[analysis.original_type] || analysis.original_type || "Unknown"}`
     : analysis.type_matches_existing
       ? "Matches current label"
       : `Review suggestion · current: ${currentType}`;
-  const focusStatus = analysis.focus_auto_applied
+  const reviewedFocus = signal.analyst_product_focus_review;
+  const focusStatus = reviewedFocus
+    ? `Reviewed from ${FOCUS_LABELS[reviewedFocus.from] || reviewedFocus.from || "Unknown"}`
+    : analysis.focus_auto_applied
     ? `AI updated from ${FOCUS_LABELS[analysis.original_product_focus] || analysis.original_product_focus || "Unknown"}`
     : analysis.focus_matches_existing
       ? "Matches current label"
@@ -571,7 +591,7 @@ function renderFeed(signals) {
         <button class="signal-row ${active}" role="option" aria-selected="${s.id === selectedId}" data-id="${s.id}">
           <span class="col col-date">${formatDate(s.date)}</span>
           <span class="col col-competitor"><span class="competitor-tag ${competitorClass(displayCompetitor(s.competitor))}">${escapeHtml(displayCompetitor(s.competitor))}</span></span>
-          <span class="col col-type">${TYPE_LABELS[s.type] || s.type}</span>
+          <span class="col col-type">${signalTypeMarkup(s)}</span>
           <span class="col col-focus"><span class="chip ${focusClass}">${FOCUS_LABELS[focus] || focus}</span></span>
           <span class="col col-title"><strong class="title-headline">${highlightTitle(s)}</strong></span>
         </button>`;
@@ -609,9 +629,9 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
     .map((src) => `<li><a href="${escapeAttr(src.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(src.title || src.url)}</a></li>`)
     .join("");
 
-  const evidenceSummary = conciseEvidenceSummary(cleanText(signal.ai_enrichment?.summary || signal.summary));
-  const evidenceLabel = signal.ai_enrichment?.summary ? "AI evidence summary" : "Evidence preview";
-  const capturedHeadline = signal.ai_enrichment?.headline_summary
+  const evidenceSummary = conciseEvidenceSummary(cleanText(signal.ai_brief?.summary || signal.ai_enrichment?.summary || signal.summary));
+  const evidenceLabel = signal.ai_brief?.summary || signal.ai_enrichment?.summary ? "AI evidence summary" : "Evidence preview";
+  const capturedHeadline = signal.ai_brief?.title || signal.ai_enrichment?.headline_summary
     ? `<p class="ai-source-headline"><strong>Captured headline:</strong> ${escapeHtml(cleanHeadline(signal.headline))}</p>`
     : "";
   const sourceLabel = SOURCE_LABELS[signal.source_origin] || SOURCE_LABELS[signal.source_channel] || signal.source_origin || signal.source_channel || "Source";
@@ -620,7 +640,7 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
 
   target.innerHTML = `
     <p class="kicker">${escapeHtml(signal.competitor)} · ${escapeHtml(operatorLabel)} · ${escapeHtml(sourceLabel)}</p>
-    <h3>${escapeHtml(displaySignalTitle(signal))}</h3>
+    <h3>${highlightTitle(signal)}</h3>
     <div class="briefing-summary">
       <p class="briefing-summary-label">${escapeHtml(evidenceLabel)}</p>
       ${capturedHeadline}
@@ -675,13 +695,23 @@ function last12MonthKeys() {
   return keys;
 }
 
-function renderHeatmap(signals) {
+function monthLabel(value) {
+  const [year, month] = value.split("-").map(Number);
+  const monthName = new Intl.DateTimeFormat("en-US", { month: "short", timeZone: "UTC" })
+    .format(new Date(Date.UTC(year, month - 1, 1)));
+  return `${monthName} '${String(year).slice(-2)}`;
+}
+
+function renderActivityChart(signals) {
+  const chartSignals = activityChartSource === "linkedin"
+    ? signals.filter((signal) => String(signal.source_channel || "").toLowerCase() === "linkedin")
+    : signals;
   const months = last12MonthKeys();
   const counts = {};
   for (const c of COMPETITORS) {
     counts[c] = Object.fromEntries(months.map((m) => [m, 0]));
   }
-  for (const s of signals) {
+  for (const s of chartSignals) {
     const key = monthKey(s.date);
     const competitor = displayCompetitor(s.competitor);
     if (counts[competitor] && key in counts[competitor]) {
@@ -689,31 +719,135 @@ function renderHeatmap(signals) {
     }
   }
 
-  const max = Math.max(1, ...signals.map(() => 0), ...COMPETITORS.flatMap((c) => Object.values(counts[c])));
+  const chartWidth = 1040;
+  const chartHeight = 360;
+  const plot = { left: 58, right: 20, top: 20, bottom: 292 };
+  const plotWidth = chartWidth - plot.left - plot.right;
+  const plotHeight = plot.bottom - plot.top;
+  const maxCount = Math.max(0, ...COMPETITORS.flatMap((competitor) => Object.values(counts[competitor])));
+  const tickStep = Math.max(1, Math.ceil(maxCount / 4));
+  const yMax = tickStep * 4;
+  const xPosition = (index) => plot.left + (plotWidth * index) / (months.length - 1);
+  const yPosition = (count) => plot.bottom - (count / yMax) * plotHeight;
+  const markerOffsets = Object.fromEntries(COMPETITORS.map((competitor) => [competitor, {}]));
+  for (const month of months) {
+    const competitorsByCount = new Map();
+    for (const competitor of COMPETITORS) {
+      const count = counts[competitor][month];
+      if (count === 0) continue;
+      const group = competitorsByCount.get(count) || [];
+      group.push(competitor);
+      competitorsByCount.set(count, group);
+    }
+    for (const competitors of competitorsByCount.values()) {
+      competitors.forEach((competitor, index) => {
+        markerOffsets[competitor][month] = (index - (competitors.length - 1) / 2) * 10;
+      });
+    }
+  }
 
-  const header = `<div class="heatmap-header"><span></span>${months
-    .map((m) => `<span>${m.slice(2)}</span>`)
-    .join("")}</div>`;
-
-  const rows = COMPETITORS.map((c) => {
-    const cells = months
-      .map((m) => {
-        const n = counts[c][m];
-        const intensity = n === 0 ? 0 : 0.18 + (n / max) * 0.82;
-        const bg = `rgba(42, 143, 132, ${intensity.toFixed(2)})`;
-        return `<button type="button" class="heat-cell" style="background:${bg}" data-competitor="${escapeAttr(c)}" data-month="${m}" aria-label="${escapeAttr(c)} ${m}: ${n} signals" title="${escapeAttr(c)} ${m}: ${n}" ${n ? "" : "disabled"}>${n || ""}</button>`;
-      })
-      .join("");
-    return `<div class="heatmap-row"><div class="heatmap-label">${c}</div>${cells}</div>`;
+  const horizontalGrid = Array.from({ length: 5 }, (_, index) => {
+    const value = tickStep * index;
+    const y = yPosition(value);
+    return `<g class="trend-y-tick"><line class="trend-grid-line" x1="${plot.left}" y1="${y}" x2="${chartWidth - plot.right}" y2="${y}" /><text class="trend-axis-label" x="${plot.left - 12}" y="${y + 4}" text-anchor="end">${value}</text></g>`;
   }).join("");
 
-  els.heatmap.innerHTML = header + rows;
-  els.heatmap.querySelectorAll("button:not(:disabled)").forEach((button) => {
-    button.addEventListener("click", () => {
-      const { competitor, month } = button.dataset;
-      const matches = signals.filter((signal) => displayCompetitor(signal.competitor) === competitor && monthKey(signal.date) === month);
+  const monthAxis = months.map((month, index) => {
+    const x = xPosition(index);
+    return `<g><line class="trend-month-grid" x1="${x}" y1="${plot.top}" x2="${x}" y2="${plot.bottom}" /><text class="trend-axis-label trend-month-label" x="${x}" y="${plot.bottom + 24}" text-anchor="middle">${monthLabel(month)}</text></g>`;
+  }).join("");
+
+  const series = COMPETITORS.map((competitor) => {
+    const values = months.map((month) => counts[competitor][month]);
+    const path = values.map((value, index) => `${index === 0 ? "M" : "L"} ${xPosition(index)} ${yPosition(value)}`).join(" ");
+    const areaPath = `M ${xPosition(0)} ${plot.bottom} ${values.map((value, index) => `L ${xPosition(index)} ${yPosition(value)}`).join(" ")} L ${xPosition(months.length - 1)} ${plot.bottom} Z`;
+    return `<g class="trend-series trend-line-series" data-competitor="${escapeAttr(competitor)}" style="--series-color:${COMPETITOR_COLORS[competitor]}"><path class="trend-area" d="${areaPath}" /><path class="trend-hover-line" d="${path}" /><path class="trend-line" d="${path}" /></g>`;
+  }).join("");
+
+  const points = COMPETITORS.map((competitor) => {
+    const competitorPoints = months.map((month, index) => {
+      const value = counts[competitor][month];
+      const lineX = xPosition(index);
+      const offset = markerOffsets[competitor][month] || 0;
+      const x = lineX + offset;
+      const y = yPosition(value);
+      if (value === 0) return `<circle class="trend-zero" cx="${x}" cy="${y}" r="2.5" />`;
+      const stem = offset ? `<line class="trend-point-stem" x1="${lineX}" y1="${y}" x2="${x}" y2="${y}" />` : "";
+      return `<g class="trend-point" role="button" tabindex="0" data-competitor="${escapeAttr(competitor)}" data-month="${month}" aria-label="${escapeAttr(competitor)} ${monthLabel(month)}: ${value} signals" title="${escapeAttr(competitor)} · ${monthLabel(month)}: ${value} signals">${stem}<circle class="trend-hit-area" cx="${x}" cy="${y}" r="4.5" /><circle class="trend-marker" cx="${x}" cy="${y}" r="4" /></g>`;
+    }).join("");
+    return `<g class="trend-series trend-point-series" data-competitor="${escapeAttr(competitor)}" style="--series-color:${COMPETITOR_COLORS[competitor]}">${competitorPoints}</g>`;
+  }).join("");
+
+  const legend = COMPETITORS.map((competitor) => `<span class="trend-legend-item"><span class="trend-legend-swatch" style="--series-color:${COMPETITOR_COLORS[competitor]}" aria-hidden="true"></span>${escapeHtml(competitor)}</span>`).join("");
+
+  els.activityChart.innerHTML = `
+    <svg class="trend-chart" viewBox="0 0 ${chartWidth} ${chartHeight}" role="group" aria-label="Monthly ${activityChartSource === "linkedin" ? "LinkedIn post" : "all source"} volume for each competitor">
+      <title>12-month ${activityChartSource === "linkedin" ? "LinkedIn post" : "signal"} volume by competitor</title>
+      ${horizontalGrid}${monthAxis}${series}${points}
+    </svg>
+    <div class="trend-legend" aria-label="Competitors">${legend}</div>
+    <div class="trend-tooltip" role="tooltip" hidden>
+      <strong class="trend-tooltip-name"></strong>
+      <span class="trend-tooltip-detail"></span>
+    </div>`;
+
+  const tooltip = els.activityChart.querySelector(".trend-tooltip");
+  const showTooltip = (competitor, index, clientX, clientY) => {
+    const month = months[index];
+    tooltip.querySelector(".trend-tooltip-name").textContent = competitor;
+    tooltip.querySelector(".trend-tooltip-detail").textContent = `${monthLabel(month)} · ${counts[competitor][month]} signals`;
+    tooltip.style.setProperty("--series-color", COMPETITOR_COLORS[competitor]);
+    tooltip.hidden = false;
+    const bounds = els.activityChart.getBoundingClientRect();
+    const left = clientX - bounds.left + 12;
+    const top = clientY - bounds.top + 12;
+    tooltip.style.left = `${Math.max(8, Math.min(els.activityChart.clientWidth - tooltip.offsetWidth - 8, left))}px`;
+    tooltip.style.top = `${Math.max(8, Math.min(chartHeight - tooltip.offsetHeight - 8, top))}px`;
+  };
+
+  els.activityChart.querySelectorAll(".trend-point").forEach((point) => {
+    const series = point.closest(".trend-series");
+    const showPointTooltip = () => {
+      const bounds = point.getBoundingClientRect();
+      const index = months.indexOf(point.dataset.month);
+      showTooltip(point.dataset.competitor, index, bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+    };
+    const openSignals = () => {
+      const { competitor, month } = point.dataset;
+      const matches = chartSignals.filter((signal) => displayCompetitor(signal.competitor) === competitor && monthKey(signal.date) === month);
       openQuickLook(matches, `${competitor} · ${month}`);
+    };
+    point.addEventListener("click", openSignals);
+    point.addEventListener("focus", showPointTooltip);
+    point.addEventListener("blur", () => {
+      if (!series.matches(":hover")) tooltip.hidden = true;
     });
+    point.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openSignals();
+      }
+    });
+  });
+
+  els.activityChart.querySelectorAll(".trend-series").forEach((series) => {
+    series.addEventListener("pointermove", (event) => {
+      if (event.pointerType === "touch") return;
+      const competitor = series.dataset.competitor;
+      const bounds = els.activityChart.querySelector(".trend-chart").getBoundingClientRect();
+      const chartX = ((event.clientX - bounds.left) / bounds.width) * chartWidth;
+      const index = Math.max(0, Math.min(months.length - 1, Math.round(((chartX - plot.left) / plotWidth) * (months.length - 1))));
+      showTooltip(competitor, index, event.clientX, event.clientY);
+    });
+    series.addEventListener("pointerleave", () => {
+      if (!series.contains(document.activeElement)) tooltip.hidden = true;
+    });
+  });
+
+  els.chartSourceFilter.querySelectorAll("[data-chart-source]").forEach((button) => {
+    const selected = button.dataset.chartSource === activityChartSource;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-pressed", String(selected));
   });
 }
 
@@ -721,9 +855,9 @@ function compactSignalRows(signals) {
   return signals.map((signal) => `<button type="button" class="signal-row compact-signal" data-quick-signal="${escapeAttr(signal.id)}">
     <span class="col-date">${formatDate(signal.date)}</span>
     <span class="competitor-tag ${competitorClass(displayCompetitor(signal.competitor))}">${escapeHtml(displayCompetitor(signal.competitor))}</span>
-    <span class="col-type">${escapeHtml(TYPE_LABELS[signal.type] || signal.type)}</span>
+    <span class="col-type">${signalTypeMarkup(signal)}</span>
     <span class="chip">${escapeHtml(FOCUS_LABELS[classifyProductFocus(signal)])}</span>
-    <strong class="title-headline">${escapeHtml(displaySignalTitle(signal))}</strong>
+    <strong class="title-headline">${highlightTitle(signal)}</strong>
   </button>`).join("");
 }
 
@@ -790,21 +924,63 @@ function renderActivitySummary() {
   });
 }
 
+function renderCompetitiveInsights(snapshot) {
+  const status = document.getElementById("insightStatus");
+  const lead = document.getElementById("insightLead");
+  const rows = document.getElementById("insightRows");
+  const meta = document.getElementById("insightMeta");
+  if (snapshot?.status !== "ready" || !Array.isArray(snapshot.insights)) {
+    status.textContent = "No saved synthesis yet. It will appear after a successful data refresh.";
+    return;
+  }
+
+  status.hidden = true;
+  lead.hidden = false;
+  lead.textContent = snapshot.lead;
+  const generated = formatTimestamp(snapshot.generated_at);
+  meta.textContent = `${snapshot.window_start} to ${snapshot.window_end} · ${snapshot.source_signal_count} captured signals · Updated ${generated}`;
+  rows.innerHTML = snapshot.insights.map((insight) => {
+    const citations = (insight.evidence_ids || []).map((signalId) => {
+      const signal = allSignals.find((item) => item.id === signalId);
+      if (!signal) return "";
+      return `<button type="button" class="insight-evidence" data-insight-signal="${escapeAttr(signalId)}">${escapeHtml(displayCompetitor(signal.competitor))} · ${escapeHtml(formatDate(signal.date))}</button>`;
+    }).join("");
+    return `<article class="insight-row">
+      <p class="insight-category">${escapeHtml(String(insight.category || "Pattern").replaceAll("_", " "))}</p>
+      <h3>${escapeHtml(insight.title)}</h3>
+      <p>${escapeHtml(insight.finding)}</p>
+      ${insight.aviation_context ? `<p class="insight-context">${escapeHtml(insight.aviation_context)}</p>` : ""}
+      ${insight.caveat ? `<p class="insight-caveat muted">${escapeHtml(insight.caveat)}</p>` : ""}
+      <div class="insight-evidence-list" aria-label="Evidence">${citations}</div>
+    </article>`;
+  }).join("");
+  if (!snapshot.insights.length) {
+    rows.innerHTML = '<p class="muted">No robust cross-signal pattern was found in the latest window.</p>';
+  }
+  rows.querySelectorAll("[data-insight-signal]").forEach((button) => {
+    const signal = allSignals.find((item) => item.id === button.dataset.insightSignal);
+    button.addEventListener("click", () => {
+      if (signal) openQuickLook([signal], `${displayCompetitor(signal.competitor)} · ${formatDate(signal.date)}`, signal.id);
+    });
+  });
+}
+
+async function loadCompetitiveInsights() {
+  try {
+    const response = await fetch("data/competitive-insights.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Insight snapshot unavailable (${response.status})`);
+    renderCompetitiveInsights(await response.json());
+  } catch {
+    renderCompetitiveInsights(null);
+  }
+}
+
 function render() {
   const baseSignals = filteredSignals();
   const signals = selectedMatrixIds ? baseSignals.filter((signal) => selectedMatrixIds.has(signal.id)) : baseSignals;
-  renderMetrics(filteredSignals({ ignoreFocus: true, windowDays: 365 }));
   renderFeed(signals);
   renderBriefing(signals);
 }
-
-els.metrics?.addEventListener("click", (event) => {
-  const card = event.target.closest("[data-focus]");
-  if (!card || !els.focusFilter) return;
-  els.focusFilter.value = card.dataset.focus;
-  els.windowFilter.value = card.dataset.window || "365";
-  render();
-});
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -826,13 +1002,16 @@ async function boot() {
   if (!res.ok) throw new Error(`Failed to load signals.json (${res.status})`);
   const payload = await res.json();
   allSignals = payload.signals || [];
+  const updatedAt = new Date(payload.generated_at);
+  els.lastUpdate.textContent = `Last update: ${formatTimestamp(payload.generated_at)}`;
+  if (!Number.isNaN(updatedAt.getTime())) els.lastUpdate.dateTime = updatedAt.toISOString();
   const matrixSelection = sessionStorage.getItem("ct-matrix-signal-ids");
   const matrixCompetitor = sessionStorage.getItem("ct-matrix-competitor");
   if (matrixSelection) {
     selectedMatrixIds = new Set(JSON.parse(matrixSelection));
     sessionStorage.removeItem("ct-matrix-signal-ids");
   }
-  els.dataMeta.textContent = `Generated ${payload.generated_at || "—"} · ${payload.lookback_days || 365}-day lookback · ${allSignals.length} raw signals`;
+  els.dataMeta.textContent = `${payload.lookback_days || 365}-day lookback · ${allSignals.length} raw signals`;
   populateFilters(allSignals);
   if (matrixCompetitor && [...els.competitorFilter.options].some((option) => option.value === matrixCompetitor)) {
     els.competitorFilter.value = matrixCompetitor;
@@ -840,14 +1019,21 @@ async function boot() {
   }
   render();
   const activityWindow = document.getElementById("activityWindow");
-  activityWindow.innerHTML = els.windowFilter.innerHTML;
   activityWindow.value = "30";
   activityWindow.addEventListener("change", renderActivitySummary);
   renderActivitySummary();
-  renderHeatmap(allSignals);
+  renderActivityChart(allSignals);
+  loadCompetitiveInsights();
 }
 
-for (const el of [els.windowFilter, els.competitorFilter, els.typeFilter, els.focusFilter].filter(Boolean)) {
+els.chartSourceFilter?.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-chart-source]");
+  if (!button || button.dataset.chartSource === activityChartSource) return;
+  activityChartSource = button.dataset.chartSource;
+  renderActivityChart(allSignals);
+});
+
+for (const el of [els.competitorFilter, els.typeFilter].filter(Boolean)) {
   el.addEventListener("change", render);
 }
 

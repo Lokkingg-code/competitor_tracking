@@ -9,6 +9,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from scripts import merge_signals as MERGE_SIGNALS
+
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "scripts" / "enrich_signals.py"
 SPEC = importlib.util.spec_from_file_location("enrich_signals", MODULE_PATH)
@@ -17,6 +19,302 @@ SPEC.loader.exec_module(ENRICH)
 
 
 class AIEnrichmentTests(unittest.TestCase):
+    def test_customer_interview_is_not_a_customer_win_without_new_commitment(self):
+        signal = {
+            "id": "finnair-interview",
+            "competitor": "Lufthansa Systems",
+            "product": "Lido mPilot",
+            "headline": "How does digital navigation support pilots in their daily operations?",
+            "summary": "In this customer interview, Mikko Lehtinen, EFB Key User at Finnair, shares how pilots use Lido mPilot throughout their journey, from gate to gate.",
+            "type": "customer_win",
+            "product_focus": "efb",
+        }
+        model_result = {
+            "suggested_type": "messaging_shift",
+            "type_confidence": 0.95,
+            "suggested_product_focus": "efb",
+            "focus_confidence": 0.9,
+            "is_ai_related": False,
+            "ai_confidence": 0.1,
+            "ai_evidence": "",
+        }
+        response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": json.dumps(model_result)}]}}]}
+
+        with patch.object(ENRICH, "gemini_request", return_value=response) as request:
+            result = ENRICH.classify_signal(signal, "test-key")
+
+        prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
+        self.assertIn("customer interview", prompt)
+        self.assertIn("NOT a customer win", prompt)
+        self.assertEqual(result["suggested_type"], "messaging_shift")
+        self.assertEqual(signal["type"], "messaging_shift")
+        self.assertEqual(result["original_type"], "customer_win")
+
+    def test_upcoming_product_webinar_is_not_a_product_launch(self):
+        signal = {
+            "id": "connect-webinar", "competitor": "Aviobook", "product": "AvioBook Connect",
+            "headline": "One more sleep. Our Connect 3.0 webinar goes live tomorrow",
+            "summary": "A colleague will cover the wider AvioBook product suite and answer questions.",
+            "type": "product_launch", "product_focus": "efb",
+        }
+        model_result = {
+            "suggested_type": "messaging_shift", "type_confidence": 0.95,
+            "suggested_product_focus": "efb", "focus_confidence": 0.9,
+            "is_ai_related": False, "ai_confidence": 0.95, "ai_evidence": "",
+        }
+        response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": json.dumps(model_result)}]}}]}
+
+        with patch.object(ENRICH, "gemini_request", return_value=response) as request:
+            result = ENRICH.classify_signal(signal, "test-key")
+
+        prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
+        self.assertIn("future webinar", prompt)
+        self.assertIn("not product_launch", prompt)
+        self.assertEqual(result["suggested_type"], "messaging_shift")
+        self.assertEqual(signal["type"], "messaging_shift")
+        self.assertEqual(result["original_type"], "product_launch")
+
+    def test_manual_interview_correction_survives_merge_sanitization(self):
+        reviewed = {
+            "from": "customer_win",
+            "to": "messaging_shift",
+            "reason": "Finnair is interviewed about existing Lido mPilot use; no new commitment is announced.",
+        }
+        sanitized = MERGE_SIGNALS.sanitize_signal({
+            "id": "finnair-interview", "competitor": "Lufthansa Systems",
+            "headline": "Finnair Lido mPilot interview", "summary": "Existing-use interview.",
+            "type": "messaging_shift", "priority": "low", "product_focus": "efb",
+            "analyst_type_review": reviewed,
+        })
+        self.assertEqual(sanitized["type"], "messaging_shift")
+        self.assertEqual(sanitized["analyst_type_review"], reviewed)
+
+    def test_classification_keeps_message_type_separate_from_ai_flag(self):
+        for ai_related, confidence in ((True, 0.95), (False, 0.95), (False, 0.5)):
+            with self.subTest(ai_related=ai_related, confidence=confidence):
+                signal = {
+                    "id": "example", "competitor": "Example Vendor", "product": "Platform",
+                    "headline": "Example Vendor adds AI agents to Platform" if ai_related else "Example Air signs a five-year Platform agreement",
+                    "summary": "Captured source evidence.", "type": "unknown", "product_focus": "other",
+                }
+                model_result = {
+                    "suggested_type": "feature_change" if ai_related else "customer_win",
+                    "type_confidence": confidence, "suggested_product_focus": "eff", "focus_confidence": confidence,
+                    "is_ai_related": ai_related, "ai_confidence": 0.95, "ai_evidence": "AI agents" if ai_related else "",
+                }
+                response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": json.dumps(model_result)}]}}]}
+                with patch.object(ENRICH, "gemini_request", return_value=response) as request:
+                    result = ENRICH.classify_signal(signal, "test-key")
+                self.assertEqual(result["is_ai_related"], ai_related)
+                self.assertEqual(result["suggested_type"], model_result["suggested_type"])
+                if confidence >= 0.8:
+                    self.assertEqual(signal["type"], model_result["suggested_type"])
+                    self.assertEqual(result["original_type"], "unknown")
+                    self.assertEqual(signal["product_focus"], "eff")
+                else:
+                    self.assertEqual(signal["type"], "unknown")
+                    self.assertEqual(signal["product_focus"], "other")
+                self.assertNotIn("ai_brief", signal)
+                self.assertIn("NOT a signal type", request.call_args.args[2]["contents"][0]["parts"][0]["text"])
+
+    def test_classification_rejects_ai_flag_without_source_quote(self):
+        result = {
+            "suggested_type": "feature_change", "type_confidence": 0.95,
+            "suggested_product_focus": "eff", "focus_confidence": 0.95,
+            "is_ai_related": True, "ai_confidence": 0.95, "ai_evidence": "AI agents",
+        }
+        response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": json.dumps(result)}]}}]}
+        signal = {"headline": "Workflow automation update", "summary": "New dispatch workflow", "type": "unknown"}
+        with patch.object(ENRICH, "gemini_request", return_value=response):
+            with self.assertRaisesRegex(ENRICH.EnrichmentError, "supporting quote"):
+                ENRICH.classify_signal(signal, "test-key")
+        self.assertEqual(signal["type"], "unknown")
+
+    def test_eff_watchlist_overrides_model_efb_suggestion_with_audit(self):
+        signal = {
+            "id": "bytron-efb-copy", "competitor": "Bytron Skybook", "product": "Bytron Skybook",
+            "headline": "Skybook EFB update", "summary": "Bytron improves its flight folder EFB.",
+            "type": "feature_change", "product_focus": "efb",
+        }
+        model_result = {
+            "suggested_type": "feature_change", "type_confidence": 0.95,
+            "suggested_product_focus": "efb", "focus_confidence": 0.99,
+            "is_ai_related": False, "ai_confidence": 0.9, "ai_evidence": "",
+        }
+        response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": json.dumps(model_result)}]}}]}
+
+        with patch.object(ENRICH, "gemini_request", return_value=response) as request:
+            result = ENRICH.classify_signal(signal, "test-key")
+
+        prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
+        self.assertIn("Bytron Skybook", prompt)
+        self.assertEqual(result["model_suggested_product_focus"], "efb")
+        self.assertEqual(result["suggested_product_focus"], "eff")
+        self.assertEqual(result["focus_rule_override"], "eff_competitor_watchlist")
+        self.assertTrue(result["focus_auto_applied"])
+        self.assertEqual(signal["product_focus"], "eff")
+        self.assertEqual(result["original_product_focus"], "efb")
+
+    def test_classifier_prompt_carries_full_eff_vendor_knowledge(self):
+        model_result = {
+            "suggested_type": "messaging_shift", "type_confidence": 0.9,
+            "suggested_product_focus": "eff", "focus_confidence": 0.9,
+            "is_ai_related": False, "ai_confidence": 0.9, "ai_evidence": "",
+        }
+        response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": json.dumps(model_result)}]}}]}
+        signal = {"id": "domain", "competitor": "Lufthansa Systems", "product": "Lido Flight 4D", "headline": "Flight planning", "summary": "Digital briefing"}
+        with patch.object(ENRICH, "gemini_request", return_value=response) as request:
+            ENRICH.classify_signal(signal, "test-key")
+        prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
+        for product in ENRICH.EFF_WATCHLIST_PRODUCTS:
+            with self.subTest(product=product):
+                self.assertIn(product, prompt)
+        self.assertIn("product/vendor identity outranks generic terminology", prompt)
+        self.assertIn("Lido Flight 4D", prompt)
+        self.assertIn("Lido mBriefing", prompt)
+        self.assertIn("AvioBook Connect", prompt)
+
+    def test_lido_flight4d_domain_rule_overrides_eff_model_suggestion(self):
+        signal = {
+            "id": "lido-flight-4d", "competitor": "Lufthansa Systems", "product": None,
+            "headline": "Kenya Airways implements Lido Flight 4D",
+            "summary": "The system combines flight planning, digital briefing, and real-time fleet visibility.",
+            "type": "implementation", "product_focus": "eff",
+        }
+        result = {"suggested_product_focus": "eff", "focus_confidence": 0.95}
+
+        ENRICH.apply_eff_watchlist_focus(signal, result)
+
+        self.assertEqual(result["suggested_product_focus"], "adjacent")
+        self.assertEqual(result["focus_rule_override"], "lido_flight_4d_flight_planning")
+        self.assertEqual(result["model_suggested_product_focus"], "eff")
+        self.assertEqual(result["focus_confidence"], 1.0)
+
+    def test_brief_batches_resume_without_changing_classification_or_existing_analysis(self):
+        with tempfile.TemporaryDirectory() as directory:
+            feed_path = Path(directory) / "signals.json"
+            archive_path = Path(directory) / "signals.archive.json"
+            saved_analysis = {"schema_version": 2, "summary": "Previous analysis"}
+            signals = [
+                {"id": "ram", "headline": "Original headline", "summary": "Captured evidence", "type": "customer_win", "product_focus": "efb", "ai_enrichment": saved_analysis},
+                {"id": "other", "headline": "Other headline", "summary": "Other evidence", "type": "messaging_shift", "product_focus": "eff"},
+            ]
+            feed_path.write_text(json.dumps({"signals": signals}))
+            brief = {"brief_version": 1, "title": "A competitor move", "summary": "Saved first-stage summary."}
+            with (
+                patch.object(ENRICH, "SIGNALS_PATH", feed_path),
+                patch.object(ENRICH, "ARCHIVE_PATH", archive_path),
+                patch.object(ENRICH, "base_signal_ids", return_value={"ram", "other"}),
+                patch.object(ENRICH, "brief_signal", return_value=brief) as generate,
+                patch.object(ENRICH, "enrich_signal") as classify,
+                patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
+                patch.object(sys, "argv", ["enrich_signals.py", "--base-ref", "test", "--max-signals", "1"]),
+                contextlib.redirect_stdout(io.StringIO()),
+            ):
+                self.assertEqual(ENRICH.main(), 0)
+                first_pass = json.loads(feed_path.read_text())
+                self.assertEqual(sum("ai_brief" in item for item in first_pass["signals"]), 1)
+                self.assertEqual(ENRICH.main(), 0)
+                self.assertEqual(ENRICH.main(), 0)
+            self.assertEqual(generate.call_count, 2)
+            classify.assert_not_called()
+            feed = json.loads(feed_path.read_text())
+            archive = json.loads(archive_path.read_text())
+            self.assertEqual(feed["signals"], archive["signals"])
+            customer = next(item for item in feed["signals"] if item["id"] == "ram")
+            self.assertEqual(customer["type"], "customer_win")
+            self.assertEqual(customer["product_focus"], "efb")
+            self.assertEqual(customer["headline"], "Original headline")
+            self.assertEqual(customer["summary"], "Captured evidence")
+            self.assertEqual(customer["ai_enrichment"], saved_analysis)
+            self.assertNotIn("ai_brief_status", customer)
+
+    def test_brief_reads_source_text_and_prints_two_fields_without_saving(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "signals.json"
+            source_path = Path(directory) / "article.txt"
+            path.write_text(json.dumps({"signals": [{
+                "id": "one", "headline": "Original", "summary": "Preview",
+                "competitor": "Example Systems", "product": "Example Platform", "date": "2026-10-15",
+            }]}))
+            source_path.write_text("Example Air selected a flight operations platform.", encoding="utf-8")
+            original = path.read_bytes()
+            response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [
+                {"thought": True, "text": "private reasoning"},
+                {"text": '```json\n{"title": "Example Air selects platform", "summary": "Example Air selected a flight operations platform."}\n```'},
+            ]}}]}
+            output = io.StringIO()
+            with (
+                patch.object(ENRICH, "SIGNALS_PATH", path),
+                patch.object(ENRICH, "gemini_request", return_value=response) as request,
+                patch.object(ENRICH, "persist_payloads") as persist,
+                patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
+                patch.object(sys, "argv", ["enrich_signals.py", "--test-signal", "one", "--test-mode", "brief", "--source-text-file", str(source_path)]),
+                contextlib.redirect_stdout(output),
+            ):
+                self.assertEqual(ENRICH.main(), 0)
+            persist.assert_not_called()
+            request.assert_called_once()
+            prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
+            self.assertIn("Example Air selected", prompt)
+            evidence = json.loads(prompt.split("Evidence JSON:\n", 1)[1])
+            self.assertEqual(evidence["competitor"], "Example Systems")
+            self.assertEqual(evidence["product"], "Example Platform")
+            self.assertEqual(evidence["source_text"], source_path.read_text())
+            self.assertNotIn("summary", evidence)
+            self.assertIn("not as proof of a customer deal", prompt)
+            self.assertIn("no concrete change is established", prompt)
+            self.assertNotIn("suggested_type", prompt)
+            self.assertIn('"title": "Example Air selects platform."', output.getvalue())
+            self.assertIn('"evidence_scope": "supplied_source_text"', output.getvalue())
+            self.assertNotIn("private reasoning", output.getvalue())
+            self.assertEqual(path.read_bytes(), original)
+
+    def test_summary_only_mode_sends_no_full_schema_and_does_not_save(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "signals.json"
+            path.write_text(json.dumps({"signals": [{"id": "one", "headline": "Test headline", "summary": "Test evidence"}]}))
+            response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [
+                {"text": "private reasoning", "thought": True}, {"text": "A short summary."},
+            ]}}]}
+            output = io.StringIO()
+            with (
+                patch.object(ENRICH, "SIGNALS_PATH", path),
+                patch.object(ENRICH, "gemini_request", return_value=response) as request,
+                patch.object(ENRICH, "persist_payloads") as persist,
+                patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
+                patch.object(sys, "argv", ["enrich_signals.py", "--test-signal", "one", "--test-mode", "summary"]),
+                contextlib.redirect_stdout(output),
+            ):
+                self.assertEqual(ENRICH.main(), 0)
+            persist.assert_not_called()
+            request.assert_called_once()
+            prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
+            self.assertIn("Test evidence", prompt)
+            self.assertNotIn("suggested_type", prompt)
+            self.assertIn("A short summary.", output.getvalue())
+            self.assertNotIn("private reasoning", output.getvalue())
+
+    def test_single_signal_test_does_not_persist_or_load_baseline(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "signals.json"
+            path.write_text(json.dumps({"signals": [{"id": "one"}, {"id": "two"}]}))
+            original = path.read_bytes()
+            with (
+                patch.object(ENRICH, "SIGNALS_PATH", path),
+                patch.object(ENRICH, "enrich_signal", return_value={"summary": "Validated response"}) as enrich,
+                patch.object(ENRICH, "persist_payloads") as persist,
+                patch.object(ENRICH, "base_signal_ids") as baseline,
+                patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
+                patch.object(sys, "argv", ["enrich_signals.py", "--test-signal", "one"]),
+                contextlib.redirect_stdout(io.StringIO()),
+            ):
+                self.assertEqual(ENRICH.main(), 0)
+            enrich.assert_called_once_with({"id": "one"}, "test-key")
+            persist.assert_not_called()
+            baseline.assert_not_called()
+            self.assertEqual(path.read_bytes(), original)
+
     def test_model_defaults_to_gemma_4(self):
         self.assertEqual(ENRICH.MODEL_ID, "gemma-4-26b-a4b-it")
 
@@ -55,6 +353,16 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertNotIn("responseMimeType", request_args[2]["generationConfig"])
         self.assertEqual(request_args[2]["generationConfig"]["maxOutputTokens"], 4096)
 
+    def test_thought_parts_are_not_treated_as_final_answer(self):
+        response = {
+            "candidates": [{"finishReason": "MAX_TOKENS", "content": {"parts": [
+                {"text": "Reasoning text, not a final response", "thought": True},
+            ]}}],
+        }
+        with patch.object(ENRICH, "gemini_request", return_value=response):
+            with self.assertRaisesRegex(ENRICH.EnrichmentError, "response_chars=0"):
+                ENRICH.enrich_signal({"id": "thought-only"}, "test-key")
+
     def test_empty_truncated_response_reports_safe_usage_metadata(self):
         signal = {"id": "truncated", "competitor": "Example Systems", "date": "2026-10-14"}
         response = {
@@ -82,7 +390,7 @@ class AIEnrichmentTests(unittest.TestCase):
                 patch.object(ENRICH, "base_signal_ids", return_value=set()),
                 patch.object(ENRICH, "enrich_signal", side_effect=ENRICH.EnrichmentError("HTTP 402", http_status=402)) as enrich,
                 patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
-                patch.object(sys, "argv", ["enrich_signals.py", "--base-ref", "test", "--max-signals", "3"]),
+                patch.object(sys, "argv", ["enrich_signals.py", "--base-ref", "test", "--max-signals", "3", "--enrichment-stage", "full"]),
                 contextlib.redirect_stderr(io.StringIO()),
             ):
                 result = ENRICH.main()
@@ -115,6 +423,7 @@ class AIEnrichmentTests(unittest.TestCase):
     def test_request_failures_distinguish_timeout_network_and_invalid_json(self):
         cases = [
             (TimeoutError(), "timed out"),
+            (ENRICH.http.client.RemoteDisconnected("Remote end closed connection without response"), "closed before an HTTP response"),
             (ENRICH.urllib.error.URLError(TimeoutError()), "timed out"),
             (ENRICH.urllib.error.URLError(OSError()), "network request failed"),
             (json.JSONDecodeError("invalid", "", 0), "invalid JSON response body"),
@@ -124,6 +433,26 @@ class AIEnrichmentTests(unittest.TestCase):
                 with patch.object(ENRICH.urllib.request, "urlopen", side_effect=error):
                     with self.assertRaisesRegex(ENRICH.EnrichmentError, expected):
                         ENRICH.gemini_request("test-key", "gemma-4-26b-a4b-it", {"contents": []})
+
+    def test_request_uses_configured_socket_timeout(self):
+        with (
+            patch.dict(os.environ, {"AI_ENRICH_REQUEST_TIMEOUT_SECONDS": "180"}),
+            patch.object(ENRICH.urllib.request, "urlopen", side_effect=TimeoutError()) as request,
+        ):
+            with self.assertRaisesRegex(ENRICH.EnrichmentError, "180-second socket timeout"):
+                ENRICH.gemini_request("test-key", "gemma-4-26b-a4b-it", {"contents": []})
+        self.assertEqual(request.call_args.kwargs["timeout"], 180)
+
+    def test_invalid_socket_timeout_sends_no_request(self):
+        for value in ("0", "301", "invalid"):
+            with (
+                self.subTest(value=value),
+                patch.dict(os.environ, {"AI_ENRICH_REQUEST_TIMEOUT_SECONDS": value}),
+                patch.object(ENRICH.urllib.request, "urlopen") as request,
+            ):
+                with self.assertRaisesRegex(ENRICH.EnrichmentError, "integer from 1 to 300"):
+                    ENRICH.gemini_request("test-key", "gemma-4-26b-a4b-it", {"contents": []})
+                request.assert_not_called()
 
     def test_selects_new_and_pending_signals_but_skips_completed(self):
         signals = [
