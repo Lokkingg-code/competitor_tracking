@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T03:16:43Z",
+  "generated_at": "2026-10-16T10:13:46Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,52 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-bc53e9d2f7e1",
+      "competitor": "Jeppesen",
+      "date": "2026-10-15",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight Debuts New Airflow Tm Agents And Connected Solutions At Nbaa Bace",
+      "summary": "AUSTIN, Texas- October 15, 2026 — Jeppesen ForeFlight today introduced its largest slate of new business aviation capabilities to date ahead of NBAA-BACE 2026. These new capabilities include safety management, flight tracking, paperless cockpit operations, runway performance, fuel, aircraft privacy, and new agents with Airflow, its agentic AI operating intelligence platform.",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-debuts-new-airflow-tm-agents-and-connected-solutions-at-nbaa-bace"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-16T10:14:08+00:00",
+        "source_sha256": "c786a4d0fffe355bd26c9b809aafbbb1682771b285efecc7d526f23ee7ff7a76",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen debuts new ForeFlight business aviation capabilities and Airflow agentic AI agents at NBAA-BACE.",
+        "summary": "Jeppesen introduced new ForeFlight capabilities including safety management, flight tracking, paperless cockpit operations, and runway performance. The update features new agents powered by Airflow, its agentic AI operating intelligence platform."
+      }
+    },
     {
       "id": "cap-329b6f1d4cd2",
       "competitor": "Jeppesen",
@@ -104,8 +150,8 @@
       "date": "2026-10-13",
       "date_is_estimated": false,
       "type": "feature_change",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.8,
       "headline": "skybook 1.52.0 Release Notes | Bytron Aviation Systems",
       "summary": "Explore the latest skybook EFB and Ground Portal update, featuring customisable settings, new checklists, fuel fields, performance data and improved notifications.",
@@ -182,8 +228,8 @@
       "date": "2026-10-13",
       "date_is_estimated": false,
       "type": "implementation",
-      "priority": "high",
-      "severity": 4,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.65,
       "headline": "A new milestone for flight operations in Eastern Africa ✈️",
       "summary": "A new milestone for flight operations in Eastern Africa ✈️ Kenya Airways is taking the next step with the successful implementation of Lido Flight 4D. By combining advanced flight planning, digital briefing, and real-time fleet visibility, the airline is enhancing operational efficiency and supporting informed decision-making across its flight operations.",
@@ -422,13 +468,59 @@
       "ai_classification_status": "pending"
     },
     {
+      "id": "cap-b767fcda5e66",
+      "competitor": "Jeppesen",
+      "date": "2026-10-12",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Thank you to the nearly 350 operators who joined us this week.",
+      "summary": "Thank you to the nearly 350 operators who joined us this week. Ready to join our Jeppesen ForeFlight Airflow™ co-development phase?",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRXlvNGpSMTNjVkFoYVk2NVA3ZkF0M1NpSmtxc3NiYUZmZEY3bzJkOEx5QnNWX05tS0RsTHcxTENOU0J6bkFqTzBUb1pjQkJpdnVXX1FBQU9LZ0RQXzNjMjl3RVdGaER1OFlPMHVjWEsySW54Vkk4aHhrbUJsSE5iREJJenlVSjM1bUxOSVBUY3JDNG9SLUhOT2l5WHVZWTVvOXY4RmU4TG94N2tnRC1zZTNvQ0lUZUE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-16T10:14:26+00:00",
+        "source_sha256": "e1c8e08d1f637ffafed613c27ae68475c68d5c443b1718b0ce6be770fe56130b",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen promotes participation in the ForeFlight Airflow co-development phase.",
+        "summary": "Jeppesen is inviting operators to join the ForeFlight Airflow co-development phase following an event attended by nearly 350 operators. No concrete product release or new customer contracts were announced."
+      }
+    },
+    {
       "id": "cap-9d51eeb7dfe2",
       "competitor": "Bytron Skybook",
       "date": "2026-10-09",
       "date_is_estimated": false,
       "type": "implementation",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "Two AOCs. One EFB platform. Texel Air needed a solution that could support different…",
       "summary": "One EFB platform. Texel Air needed a solution that could support different requirements for their Bahrain and New Zealand operations while providing a consistent platform.",
@@ -666,8 +758,8 @@
       "date": "2026-10-08",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.65,
       "headline": "Looking forward to exhibiting in Bangkok! I have a few fun things for Connect to preview at AvioBook’s booth for those who will be there 👀",
       "summary": "Aviobook reported a messaging shift update: Looking forward to exhibiting in Bangkok! I have a few fun things for Connect to preview at AvioBook’s booth for those who will be there 👀.",
@@ -852,8 +944,8 @@
       "date": "2026-10-08",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "In today's congested aviation environment, airport slots are among an airline's most valuable assets.",
       "summary": "Balancing regulatory requirements, operational realities, and commercial objectives requires more than spreadsheets and manual processes. With NetLine Slot, airlines can manage their slot portfolio more effectively, improve schedule quality, and make informed decisions in increasingly capacity-constrained markets.",
@@ -930,6 +1022,90 @@
         "original_product_focus": "adjacent",
         "focus_auto_applied": true
       }
+    },
+    {
+      "id": "cap-4971df753f44",
+      "competitor": "Jeppesen",
+      "date": "2026-10-08",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Exciting agentic times ahead 🚀🤖✈️ At this year’s CONNECT Flight Operations Users Conference in…",
+      "summary": "Exciting agentic times ahead 🚀🤖✈️ At this year’s CONNECT Flight Operations Users Conference in Paris, we unveiled the first agents built on Jeppesen ForeFlight Airflow™ — our Aviation Operating Intelligence platform. This marks the first look at our agentic <font color=\"#6f6f",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPdnFTT1pHOXo1MVJZNGNTSk9HdUZNaGNQNVljR0E5TkZ2WlhwYnNWS0xJR1JPOTJfbE5fNnZRR2dZU0JUalZvcDV0MnpfUk9ZemhyM3Z6Z1FhdXl6LTRFZWl5THdUY1Q3SThqOTl2RFZzUUpDdTd4X3NMRzVPSHFpbTluWExlbVFtSUdjWU40WnlERE9ZVDEtQjVabkt4anBtUnJOcy1xeGNqWWVNWVk4?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-16T10:14:48+00:00",
+        "source_sha256": "2b04a2ec026cc7ffc8752dd821e5b63defdc6610c8b76bf2e48a8fcf1401f000",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen unveils agents built on the ForeFlight Airflow platform at the CONNECT Flight Operations Users Conference.",
+        "summary": "At the CONNECT Flight Operations Users Conference in Paris, Jeppesen unveiled its first agents built on the ForeFlight Airflow platform. These agentic capabilities are part of the Jeppesen Aviation Operating Intelligence platform."
+      }
+    },
+    {
+      "id": "cap-bb22b41b2cfe",
+      "competitor": "Jeppesen",
+      "date": "2026-10-08",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Optimen was proud to be part of the Jeppesen ForeFlight CONNECT Flight Operations Users Conference in Paris.",
+      "summary": "Optimen was proud to be part of the Jeppesen ForeFlight CONNECT Flight Operations Users Conference in Paris. Our CEO, Oscar Rodriguez Yañez , attended the event, joining leaders and professionals from across the aviation community to exchange persp <font color=\"#6f6",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdjZDVEJMRERnYWVEN3paUFMwZDB5WXNBNENxOVVfSE5aMkQzeGJvZnBmUGphNXh4UFZDT1cxQWJHbGhqYWZlQU8tTk5FU00wQTczRkdmdjhHMnJYRkVZX2hId0JkMWRLbWtJQ2V2MGx0V0VQd3FvSFJRelBxTEp2bjl4V3Y4cHlhNU1jeVlmNHhyeXcxeXBDZGJ6clFGTTh0SVhUeFdsaUdIN2pLcVJ1Q3A0RGhVQQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending"
     },
     {
       "id": "cap-e70b87ab10e0",
@@ -1345,8 +1521,8 @@
       "date": "2026-10-07",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "We’re in Bangkok for the Airline & Aerospace MRO & Flight Operations IT Conference on Oct 14–15 ✈️",
       "summary": "We’re in Bangkok for the Airline & Aerospace MRO & Flight Operations IT Conference on Oct 14–15 ✈️ Team members Yuliia Dolko, Shreya Sahani, and Madalina Constantinescu will be at Booth 40 showcasing EFBOne. Aircraft Commerce Aircraft IT … more 19 reactions 19 3 reposts 3 reposts Like Comment Repost Send",
@@ -1419,6 +1595,52 @@
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      }
+    },
+    {
+      "id": "cap-8e8899c9f246",
+      "competitor": "Jeppesen",
+      "date": "2026-10-07",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "We just wrapped this year's CONNECT Flight Operations Users Conference in Paris!",
+      "summary": "We just wrapped this year's CONNECT Flight Operations Users Conference in Paris! 🇫🇷 We unveiled the first agents built on Jeppesen ForeFlight Airflow™, our Aviation Operating Intelligence platform.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOWjlyd1FHdEc2b0hyTE1SQWxQVmdXUXRtWl9Yd0xLcG92c2JQWllFZGluV3JuXzgydG5ueUlfZDFERUhEbkRha0c5cXJiSmcydTg1V0I5Y3RobExSZE5wM1Y2R2M3anFDbm5tNHJmaG9fQjFoUjhQLURPV2Y1Mi1JLW1ac3ljX29naGpEVXlCMV9vYWczZ0p2RW41OU44SVJjODFYdFFjaFlFT2V6RFZieFNYZWxxTTItaHVnRWl2eE1Gdw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-16T10:15:04+00:00",
+        "source_sha256": "bf0b44a20bced54d065076b8516f9a6a59ecdb09d70a432ed2f47a21000d6955",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen unveils agents built on ForeFlight Airflow at the CONNECT Flight Operations Users Conference.",
+        "summary": "During the CONNECT Flight Operations Users Conference in Paris, Jeppesen unveiled the first agents built on its ForeFlight Airflow aviation operating intelligence platform."
       }
     },
     {
@@ -1847,8 +2069,8 @@
       "date": "2026-09-30",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "How much control do you have over the way your dispatch, briefing and EFF…",
       "summary": "How much control do you have over the way your dispatch, briefing and EFF works? 🧐 With skybook, you can tailor settings across Dispatch, EFF, ETOPS, NOTAMs, Charts, Fleets, RAIM, FIR Briefings, WX Watch, Reports, EFB app customisations and more.",
@@ -2703,8 +2925,8 @@
       "date": "2026-09-21",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "\"𝗪𝗲'𝗿𝗲 𝗻𝗼𝘁 𝗷𝘂𝘀𝘁 𝗶𝗺𝗽𝗹𝗲𝗺𝗲𝗻𝘁𝗶𝗻𝗴 𝗻𝗲𝘄 𝘀𝗼𝗳𝘁𝘄𝗮𝗿𝗲. 𝗪𝗲'𝗿𝗲 𝗰𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗹𝘆 𝗿𝗲𝘁𝗵𝗶𝗻𝗸𝗶𝗻𝗴 𝗵𝗼𝘄 𝗽𝗮𝗶𝗿𝗶𝗻𝗴𝘀 𝗮𝗿𝗲 𝗰𝗿𝗲𝗮𝘁𝗲𝗱.\"",
       "summary": "𝗪𝗲'𝗿𝗲 𝗰𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗹𝘆 𝗿𝗲𝘁𝗵𝗶𝗻𝗸𝗶𝗻𝗴 𝗵𝗼𝘄 𝗽𝗮𝗶𝗿𝗶𝗻𝗴𝘀 𝗮𝗿𝗲 𝗰𝗿𝗲𝗮𝘁𝗲𝗱.\" In this customer statement, Aurel Beheschti, Project Manager Crew Pairing Application from Eurowings explains how automation, optimization, and a strong partnership with Lufthansa Systems are helping transform crew pairing from a manual task into a strategic process. 🎥 Watch the video and discover how planners can evolve from builders of pairings to architects…",
@@ -2885,8 +3107,8 @@
       "date": "2026-09-18",
       "date_is_estimated": false,
       "type": "feature_change",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "Instant messaging connects dispatchers and pilots directly through the EFB, with notifications for important…",
       "summary": "Instant messaging connects dispatchers and pilots directly through the EFB, with notifications for important updates like ATC changes, critical NOTAMs, loadsheets or NOTOCs. #EFB #aviation #avgeek #aviationindustry linkedin.com",
@@ -3055,8 +3277,8 @@
       "date": "2026-09-14",
       "date_is_estimated": false,
       "type": "partnership",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "We want to be a partner that's genuinely close to their day-to-day operations, so we understand what they need",
       "summary": "We want to be a partner that's genuinely close to their day-to-day operations, so we understand what they need before it becomes a problem. In this video, Vincent Carpentier, Director of Flight Operations at ASL Airlines Belgium, talks about what that closeness looks like in practice, from daily EFB use to how quickly his team gets help when something comes up.",
@@ -3210,8 +3432,8 @@
       "date": "2026-09-10",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "high",
-      "severity": 4,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.65,
       "headline": "\"𝗜𝘁 𝗳𝗲𝗲𝗹𝘀 𝗹𝗶𝗸𝗲 𝗮 𝗽𝗮𝗿𝘁𝗻𝗲𝗿𝘀𝗵𝗶𝗽.\"That's how KLM Royal Dutch Airlines project manager and flight…",
       "summary": "\"𝗜𝘁 𝗳𝗲𝗲𝗹𝘀 𝗹𝗶𝗸𝗲 𝗮 𝗽𝗮𝗿𝘁𝗻𝗲𝗿𝘀𝗵𝗶𝗽.\"That's how KLM Royal Dutch Airlines project manager and flight dispatch instructor Hans Dijkman describes working with Lufthansa Systems.In this customer testimonial, learn how Lido Flight 4D IFS supports dispatch teams with integrated workflows, a modern user experience, and operational efficiencies that matter.▶️ Watch the full video on YouTube…",
@@ -3485,8 +3707,8 @@
       "date": "2026-09-10",
       "date_is_estimated": false,
       "type": "product_launch",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "On the skybook EFB application, pilots can: 📄 R",
       "summary": "✈️ Receiving them. On the skybook EFB application, pilots can: 📄 R linkedin.com</fon",
@@ -4098,8 +4320,8 @@
       "date": "2026-09-01",
       "date_is_estimated": false,
       "type": "feature_change",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "Send instant messages directly to the skybook EFB during flight briefings.",
       "summary": "Send instant messages directly to the skybook EFB during flight briefings. 💬 🛫 Dispatchers can quickly share important operational updates with pilots, ensuring the latest information reaches the cockpit when it matters.",
@@ -5251,8 +5473,8 @@
       "date": "2026-07-28",
       "date_is_estimated": false,
       "type": "partnership",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.8,
       "headline": "Jeppesen Foreflight And Urbanlink Air Mobility Sign Mou To Advance Electronic Flight Bag And…",
       "summary": "MIAMI, FL and AUSTIN, TX – July 28, 2026 – Jeppesen ForeFlight and UrbanLink Air Mobility today announced they have signed a Memorandum of Understanding (MOU) to collaborate on electronic flight bag (EFB) requirements and dispatch procedures supporting electric vertical takeoff and landing (e-VTOL) and other all-electric aircraft operations in the South Florida airspace.",
@@ -5327,8 +5549,8 @@
       "date": "2026-07-27",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.6000000000000001,
       "headline": "How Jeppesen ForeFlight creates a single connected EFB ecosystem for airlines",
       "summary": "Jeppesen reported a messaging shift update: How Jeppesen ForeFlight creates a single connected EFB ecosystem for airlines. Open the linked source to verify details and assess impact for Cathay Technologies.",
@@ -5448,8 +5670,8 @@
       "competitor": "Aviobook",
       "date": "2026-07-23",
       "type": "product_launch",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.9,
       "headline": "AvioBook previews Escape Routes flight-operations feature",
       "summary": "AvioBook announced an upcoming Escape Routes feature that brings valid diversion paths into the pilot workflow, highlights routes near high-terrain areas, and updates the navlog when a diversion is selected.",
@@ -5741,8 +5963,8 @@
       "date": "2026-07-16",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.6000000000000001,
       "headline": "Sporty’s Becomes Authorized Distributor of Jeppesen ForeFlight Education Tools",
       "summary": "Jeppesen reported a messaging shift update: Sporty’s Becomes Authorized Distributor of Jeppesen ForeFlight Education Tools. Open the linked source to verify details and assess impact for Cathay Technologies.",
@@ -6012,8 +6234,8 @@
       "competitor": "Jeppesen",
       "date": "2026-07-06",
       "type": "partnership",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.9,
       "headline": "Jeppesen expands Avia Solutions Group deal across 10 ACMI airlines",
       "summary": "Jeppesen ForeFlight will deploy FliteDeck Pro (incl. Smart Airports), NavData and Airport Data across Avia Solutions Group’s global ACMI airline portfolio.",
@@ -6542,8 +6764,8 @@
       "competitor": "Jeppesen",
       "date": "2026-06-09",
       "type": "product_launch",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.88,
       "headline": "Jeppesen + Stratix launch Manage My EFB Device-as-a-Service",
       "summary": "Subscription model bundles Apple iPad hardware, Jeppesen ForeFlight EFB software, Stratix lifecycle services and connectivity into a per-device monthly cost.",
@@ -6598,8 +6820,8 @@
       "date": "2026-06-09",
       "date_is_estimated": false,
       "type": "product_launch",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.6000000000000001,
       "headline": "Stratix and Jeppesen ForeFlight Launch Manage My EFB",
       "summary": "Jeppesen reported a product launch update: Stratix and Jeppesen ForeFlight Launch Manage My EFB. Open the linked source to verify details and assess impact for Cathay Technologies.",
@@ -6652,8 +6874,8 @@
       "date": "2026-06-05",
       "date_is_estimated": false,
       "type": "partnership",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "Proud to partner with Jeppesen ForeFlight to bring this capability to flight crews wo",
       "summary": "SkyPath turbulence insights are now available within Jeppesen ForeFlight FliteDeck Pro v5.3, helping pilots make more informed decisions in a single workflow. Proud to partner with Jeppesen ForeFlight to bring this capability to flight crews wo <f",
@@ -7975,8 +8197,8 @@
       "date": "2026-04-13",
       "date_is_estimated": false,
       "type": "product_launch",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.6000000000000001,
       "headline": "Jeppesen ForeFlight Releases Graphical Notams in FliteDeck Pro",
       "summary": "Jeppesen reported a product launch update: Jeppesen ForeFlight Releases Graphical Notams in FliteDeck Pro. Open the linked source to verify details and assess impact for Cathay Technologies.",
@@ -10138,8 +10360,8 @@
       "date": "2025-10-24",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "We’re proud to have been represented by our valued customer, Virgin Australia, at Aircraft…",
       "summary": "We’re proud to have been represented by our valued customer, Virgin Australia, at Aircraft IT APAC! 🇦🇺 A big thank you to Robyn Logan, Manager Flight Operations Services, for sharing how the AVIOBOOK EFB is transforming pilot workflows, driving on-time <font co",
@@ -10419,8 +10641,8 @@
       "date": "2025-09-17",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "#thales #indigo #aviobook #aviation #mro #india #efb #airlines #aerospacetech | Thales | 12 comments",
       "summary": "Aviobook reported a messaging shift update: #thales #indigo #aviobook #aviation #mro #india #efb #airlines #aerospacetech | Thales | 12 comments. Open the linked source to verify details and assess impact for Cathay Technologies.",
