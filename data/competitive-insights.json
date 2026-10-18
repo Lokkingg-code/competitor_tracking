@@ -2,72 +2,59 @@
   "schema_version": 1,
   "status": "ready",
   "model": "gemini-3.5-flash-lite",
-  "generated_at": "2026-10-16T10:15:15+00:00",
+  "generated_at": "2026-10-18T10:02:57+00:00",
   "window_start": "2025-11-01",
-  "window_end": "2026-10-16",
-  "source_signal_count": 161,
-  "lead": "Aviation software competitors expanded EFB, flight planning, and AI-driven platforms through recent customer adoptions and product releases, though explicit low-cost carrier concentration remains unverified by the data.",
+  "window_end": "2026-10-18",
+  "source_signal_count": 167,
+  "lead": "Analysis of the rolling history shows steady product development and customer adoption across major EFB, flight planning, and crew management vendors, with Jeppesen, Lufthansa Systems, and IFS actively capturing new airline agreements while introducing advanced workflow and AI capabilities.",
   "insights": [
     {
       "category": "customer_adoption",
-      "title": "Vendor-specific IFS EFB wins across regional and freight carriers",
-      "finding": "IFS secured multiple EFBOne platform selections and deployments, including fastjet across its Embraer 145 fleet, TUS Airways for its Airbus A320 fleet, and MY FREIGHTER (Centrum Air).",
+      "title": "Vendor-Specific IFS EFBOne Fleet Penetration",
+      "finding": "IFS secured multiple customer wins and deployments for its IFS EFBOne platform, including selections by fastjet, TUS Airways, and MY FREIGHTER (Centrum Air).",
       "evidence_ids": [
         "browser-cb2fca77cee3",
         "browser-9a9036fcf9da",
-        "cap-541011120c72",
         "cap-ab53f449704f"
       ],
-      "aviation_context": "fastjet is classified as a low-cost carrier, while TUS Airways and MY FREIGHTER operate regional/charter or cargo services.",
-      "caveat": "Explicit LCC adoption concentration cannot be formally asserted solely from these wins."
+      "aviation_context": "fastjet is a low-cost carrier (LCC), while TUS Airways and MY FREIGHTER operate regional/hybrid and cargo models, respectively.",
+      "caveat": "Recorded customer segments in the raw feed are marked as unknown; classifications are based on general industry knowledge of the named airlines."
     },
     {
       "category": "product_news",
-      "title": "Jeppesen and competitors introduce AI and automated flight planning capabilities",
-      "finding": "Jeppesen introduced initial artificial intelligence agents for its ForeFlight Airflow platform and released Dispatch v2026-2 with automated planning workflows.",
+      "title": "AI and Agentic Operations Integration in Flight Planning",
+      "finding": "Jeppesen introduced artificial intelligence agents into its ForeFlight and Airflow platforms, alongside Jeppesen Dispatch v2026-2.",
       "evidence_ids": [
         "cap-329b6f1d4cd2",
         "cap-2cc41319a65b",
         "jep-2026-04-29-dispatch-2026-2"
       ],
-      "aviation_context": "",
-      "caveat": "Teasers or planned agent roadmaps do not confirm full operational deployment of all features."
+      "aviation_context": "Corendon Airlines acted as a launch customer for Dispatch v2026-2 to expand planning automation.",
+      "caveat": "Evidentiary text highlights initial agent rollouts and planned features without detailing production performance outcomes."
     },
     {
       "category": "customer_adoption",
-      "title": "Lufthansa Systems expands Lido Flight 4D and mPilot deployments",
-      "finding": "Lufthansa Systems deployed Lido Flight 4D for Kenya Airways and integrated the iOS-based Lido mPilot EFB solution for Viva.",
+      "title": "Lufthansa Systems Lido Flight 4D and mPilot Implementations",
+      "finding": "Lufthansa Systems announced implementations and deployments of its Lido software suite with Kenya Airways and Viva.",
       "evidence_ids": [
         "browser-92bda83d10db",
         "browser-88d9d3627aee"
       ],
-      "aviation_context": "Kenya Airways is a full-service carrier, while Viva operates as a low-cost carrier.",
-      "caveat": "Evidence is limited to individual implementation announcements."
+      "aviation_context": "Kenya Airways is a full-service carrier, while Viva represents an LCC or regional operator depending on the specific operating entity.",
+      "caveat": "The data reflects individual implementation announcements rather than an exhaustive count of active fleet deployments."
     },
     {
-      "category": "market_pattern",
-      "title": "Navblue and Airbus integrate digital portfolios following structural reorganization",
-      "finding": "Navblue merged with Skywise digital solutions into a consolidated subsidiary, subsequently supporting Skywise Digital Suite adoptions for TransNusa and Pan American World Airways.",
+      "category": "strategy",
+      "title": "Airbus Skywise Digital Suite Expansion via Navblue",
+      "finding": "Navblue and its integrated Skywise digital structure announced customer selections and operational integrations for carriers such as TransNusa and Pan American World Airways.",
       "evidence_ids": [
-        "cap-c783586c0440",
         "browser-cc81837bbf5f",
         "cap-5c0bfdebae79",
+        "cap-4f107cda915f",
         "nav-2026-04-01-skywise-merger"
       ],
-      "aviation_context": "",
-      "caveat": "Historical context on Pan American World Airways and TransNusa operational scopes is constrained by source text."
-    },
-    {
-      "category": "product_news",
-      "title": "Aviobook and Bytron Skybook release functional updates for EFB modules",
-      "finding": "Aviobook launched AvioBook 26.3 with customizable seat swap confirmations and added a dedicated airline notice section to NOTAMs, while Bytron Skybook released skybook 1.52.0 for its EFB and Ground Portal.",
-      "evidence_ids": [
-        "browser-09b8ffe5dc70",
-        "browser-0fe1e9140e52",
-        "cap-b87dd0917c27"
-      ],
-      "aviation_context": "",
-      "caveat": "Customer impact and adoption rates for these specific module updates are not reported in the sources."
+      "aviation_context": "TransNusa operates regional/LCC routes, whereas Pan American World Airways represents a restart/charter-oriented context.",
+      "caveat": "Corporate restructuring tied to the Airbus Skywise merger forms the backdrop for several digital suite announcements."
     }
   ],
   "caveat": "AI-generated synthesis of captured public signals; verify cited sources before making decisions."
