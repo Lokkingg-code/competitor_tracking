@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T09:59:57Z",
+  "generated_at": "2026-10-19T11:22:41Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -280,6 +280,52 @@
         "original_type": "product_launch",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-5f7167686634",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-10-14",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Kenya Airways Adopts Lido Flight 4D for Flight Operations Kenya Airways has successfully implemented #Lido Flight 4D from Lufthansa Systems.",
+      "summary": "Kenya Airways Adopts Lido Flight 4D for Flight Operations Kenya Airways has successfully implemented #Lido Flight 4D from Lufthansa Systems. The flight planning solution supports the airline in making informed operational decisions, improving flight planni <font color=\"#6f6f6",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZklQZWFteVVVbnBsS29DdDl4a2dnMmNSTjE3U1NvVV9ORmoybnhjeUxacjRZd1RUZmVhY2RNZzdGcGVFU1BzbEJDYW9UWlpwakZSSllxOFVndFFCNFh6UXVmSEVUSy1ndDYyMHVnaWw1UVJVYTlkeXgxVmdUUXdzejd4Y2RlNlhDQjVoWGp6M1UyN0dPTUtyaVB6cWloVHJGVmR1bTBiTzR1aXVqTGV3?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-19T11:23:02+00:00",
+        "source_sha256": "aebfba6693605bd3d4fc4e3e20251b53fef7a51d443343ba18fadfcd0a5932e5",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems implements Lido Flight 4D for Kenya Airways flight operations.",
+        "summary": "Kenya Airways has implemented Lufthansa Systems' Lido Flight 4D for its flight operations. The solution is used for flight planning and supporting operational decision-making."
       }
     },
     {
@@ -2976,6 +3022,52 @@
         "summary": "TransNusa is adopting Skywise Core X2 and S.FP+ to integrate its flight and technical operations. This deployment enables real-time fleet health monitoring to drive operational efficiency."
       },
       "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-15b0210793f1",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-24",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "The Lufthansa Systems 2026 #AirlineForum has come to a close and now it's time to go home.",
+      "summary": "The Lufthansa Systems 2026 #AirlineForum has come to a close and now it's time to go home. A huge highlight for me was attending the NetLine Slot sessions conducted by Yvonne Dimt.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZV9OVWNXaFB2RVhvV1NDdHhid1NaeVVrWndFeUN6ZUFOSG5BNXZKNF8zMURJS1ZsZE9XWGM2YmpCNGxOX1BPUWthdWQySjdGT3pmRGZTNzVGSUh0U0VfNklTUVVEUUFxT3lOaE1pMmxwQmFsTGFVMnlZS1Y0eU1vSWJtMFYzYjJlSHVMUHlrWm5OWWc5S0E?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-19T11:24:57+00:00",
+        "source_sha256": "978c7e11195c5c5063ec9a2f2a70810b6ebfcac76cadb4734b3f9b6606977261",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes its 2026 Airline Forum and NetLine Slot sessions.",
+        "summary": "The text describes the conclusion of the Lufthansa Systems 2026 Airline Forum and mentions NetLine Slot sessions. No new product releases or concrete developments are established."
+      }
     },
     {
       "id": "browser-c2a986e9925f",
@@ -6161,7 +6253,6 @@
         "focus_auto_applied": true
       },
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
@@ -6169,6 +6260,15 @@
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-19T11:25:21+00:00",
+        "source_sha256": "f6b191a17aa4fc657ca66e63a99bf24ffc8a1edc0def7e611024544ce840633d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen authorizes Sporty’s as a distributor of ForeFlight education tools.",
+        "summary": "Sporty’s has become an authorized distributor of Jeppesen’s ForeFlight education tools. The announcement specifies the distribution of the product's educational-focused tools."
       }
     },
     {
@@ -6411,7 +6511,15 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending"
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-19T11:25:41+00:00",
+        "source_sha256": "f8713f79d5734cd153959184e736c1d4b373177315c4b498c1844973d997ef10",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen hosts LightTable CEO at ForeFlight Global Aviation Data Product Guild.",
+        "summary": "Jeppesen promotes its Global Aviation Data Product Guild through the hosting of LightTable Co-founder and CEO Paul Zeckser. No concrete product developments, new capabilities, or customer agreements are established."
+      }
     },
     {
       "id": "jep-2026-07-06-avia-solutions",

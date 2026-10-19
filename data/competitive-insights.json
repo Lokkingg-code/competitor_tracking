@@ -2,59 +2,69 @@
   "schema_version": 1,
   "status": "ready",
   "model": "gemini-3.5-flash-lite",
-  "generated_at": "2026-10-18T10:02:57+00:00",
+  "generated_at": "2026-10-19T11:25:51+00:00",
   "window_start": "2025-11-01",
-  "window_end": "2026-10-18",
-  "source_signal_count": 167,
-  "lead": "Analysis of the rolling history shows steady product development and customer adoption across major EFB, flight planning, and crew management vendors, with Jeppesen, Lufthansa Systems, and IFS actively capturing new airline agreements while introducing advanced workflow and AI capabilities.",
+  "window_end": "2026-10-19",
+  "source_signal_count": 169,
+  "lead": "During the window of late 2025 through October 2026, major EFB, flight planning, and crew system vendors—including Jeppesen, Lufthansa Systems, IFS, Aviobook, Bytron Skybook, and Navblue—concentrated their public output on platform updates, artificial intelligence capabilities, and airline customer adoptions. Evidence regarding low-cost carrier (LCC) adoption is insufficient to establish industry concentration with a single competitor, though specific hybrid and LCC instances appear in product launches.",
   "insights": [
     {
+      "category": "product_news",
+      "title": "Jeppesen and Lufthansa Systems Introduce Advanced Navigation and AI Features",
+      "finding": "Jeppesen and Lufthansa Systems both released platform enhancements featuring new artificial intelligence and operational capabilities, such as Jeppesen's ForeFlight Airflow AI agents and Lufthansa Systems' Lido mPilot 7.3 taxiway restrictions mapping.",
+      "evidence_ids": [
+        "cap-329b6f1d4cd2",
+        "browser-16f3824401f5"
+      ],
+      "aviation_context": "Enhances Electronic Flight Bag (EFB) utility for flight crews navigating complex airport environments and managing flight operations.",
+      "caveat": "Teasers and initial agent deployments do not confirm full operational rollout across all customer fleets."
+    },
+    {
       "category": "customer_adoption",
-      "title": "Vendor-Specific IFS EFBOne Fleet Penetration",
-      "finding": "IFS secured multiple customer wins and deployments for its IFS EFBOne platform, including selections by fastjet, TUS Airways, and MY FREIGHTER (Centrum Air).",
+      "title": "IFS Secures Multiple EFB Platform Selections Across Regional and Cargo Carriers",
+      "finding": "IFS expanded its EFB footprint by securing customer selections and deployments for its IFS EFBOne platform with operators including fastjet, TUS Airways, and MY FREIGHTER (Centrum Air).",
       "evidence_ids": [
         "browser-cb2fca77cee3",
         "browser-9a9036fcf9da",
         "cap-ab53f449704f"
       ],
-      "aviation_context": "fastjet is a low-cost carrier (LCC), while TUS Airways and MY FREIGHTER operate regional/hybrid and cargo models, respectively.",
-      "caveat": "Recorded customer segments in the raw feed are marked as unknown; classifications are based on general industry knowledge of the named airlines."
-    },
-    {
-      "category": "product_news",
-      "title": "AI and Agentic Operations Integration in Flight Planning",
-      "finding": "Jeppesen introduced artificial intelligence agents into its ForeFlight and Airflow platforms, alongside Jeppesen Dispatch v2026-2.",
-      "evidence_ids": [
-        "cap-329b6f1d4cd2",
-        "cap-2cc41319a65b",
-        "jep-2026-04-29-dispatch-2026-2"
-      ],
-      "aviation_context": "Corendon Airlines acted as a launch customer for Dispatch v2026-2 to expand planning automation.",
-      "caveat": "Evidentiary text highlights initial agent rollouts and planned features without detailing production performance outcomes."
+      "aviation_context": "fastjet operates as a low-cost carrier (LCC) in Africa, TUS Airways as a hybrid/charter carrier, and MY FREIGHTER/Centrum Air as a cargo/hybrid operator.",
+      "caveat": "Announcements reflect selected or adopted status; ongoing operational performance is not reported."
     },
     {
       "category": "customer_adoption",
-      "title": "Lufthansa Systems Lido Flight 4D and mPilot Implementations",
-      "finding": "Lufthansa Systems announced implementations and deployments of its Lido software suite with Kenya Airways and Viva.",
+      "title": "Jeppesen and Lufthansa Systems Capture Major Flag Carrier Implementations",
+      "finding": "Jeppesen secured a flight planning agreement for Korean Air's integrated fleet and launched Dispatch v2026-2 with Corendon Airlines, while Lufthansa Systems implemented Lido Flight 4D for Kenya Airways.",
       "evidence_ids": [
-        "browser-92bda83d10db",
-        "browser-88d9d3627aee"
+        "jep-2026-06-01-korean-dispatch",
+        "jep-2026-04-29-dispatch-2026-2",
+        "browser-92bda83d10db"
       ],
-      "aviation_context": "Kenya Airways is a full-service carrier, while Viva represents an LCC or regional operator depending on the specific operating entity.",
-      "caveat": "The data reflects individual implementation announcements rather than an exhaustive count of active fleet deployments."
+      "aviation_context": "Korean Air and Kenya Airways are full-service network carriers, while Corendon Airlines is a leisure/LCC carrier.",
+      "caveat": "Evidence highlights contract agreements and implementations but does not quantify operational efficiency outcomes."
     },
     {
       "category": "strategy",
-      "title": "Airbus Skywise Digital Suite Expansion via Navblue",
-      "finding": "Navblue and its integrated Skywise digital structure announced customer selections and operational integrations for carriers such as TransNusa and Pan American World Airways.",
+      "title": "Navblue Integrates with Airbus Skywise for Digital Suite Expansion",
+      "finding": "Navblue merged with Skywise digital solutions to form a new digital services subsidiary and subsequently secured Skywise Digital Suite adoptions with carriers like Pan Am and TransNusa.",
       "evidence_ids": [
-        "browser-cc81837bbf5f",
-        "cap-5c0bfdebae79",
-        "cap-4f107cda915f",
-        "nav-2026-04-01-skywise-merger"
+        "nav-2026-04-01-skywise-merger",
+        "cap-c783586c0440",
+        "browser-cc81837bbf5f"
       ],
-      "aviation_context": "TransNusa operates regional/LCC routes, whereas Pan American World Airways represents a restart/charter-oriented context.",
-      "caveat": "Corporate restructuring tied to the Airbus Skywise merger forms the backdrop for several digital suite announcements."
+      "aviation_context": "Combines flight operations software with broader aircraft health and technical operations data platforms.",
+      "caveat": "Pan American World Airways represents a restart/return-to-service EIS context rather than an established major network carrier."
+    },
+    {
+      "category": "market_pattern",
+      "title": "Insufficient Evidence to Prove LCC Market Concentration with a Single Vendor",
+      "finding": "While individual low-cost or hybrid carriers like Corendon Airlines adopted Jeppesen and fastjet selected IFS, overall evidence is insufficient to demonstrate that LCC adoption is concentrated with any single competitor.",
+      "evidence_ids": [
+        "jep-2026-04-29-dispatch-2026-2",
+        "browser-9a9036fcf9da"
+      ],
+      "aviation_context": "LCCs typically seek streamlined dispatch and EFB solutions to minimize cockpit workload and ground turnaround times.",
+      "caveat": "Public capture feeds do not represent exhaustive market share data across all global LCC deployments."
     }
   ],
   "caveat": "AI-generated synthesis of captured public signals; verify cited sources before making decisions."
