@@ -97,6 +97,15 @@ jobs:
           fi
           python3 scripts/enrich_signals.py --base-ref "$BASE_REF" --enrichment-stage brief "${BACKFILL_ARGS[@]}"
 
+      - name: Classify signal types and AI relevance
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemma-4-26b-a4b-it' }}
+          AI_ENRICH_REQUEST_TIMEOUT_SECONDS: ${{ vars.AI_ENRICH_REQUEST_TIMEOUT_SECONDS || '180' }}
+          AI_ENRICH_MAX_SIGNALS_PER_RUN: ${{ inputs.max_signals || '5' }}
+        run: python3 scripts/enrich_signals.py --base-ref "$(git rev-parse HEAD)" --enrichment-stage classification
+
       - name: Generate rolling competitive insight brief
         continue-on-error: true
         env:

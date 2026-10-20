@@ -27,7 +27,11 @@ test("overview and activity quick look remain independent of feed filters", asyn
       assert.equal(await page.locator("#windowFilter").count(), 0);
       assert.equal(await page.locator("#focusFilter").count(), 0);
       assert.equal(await page.locator("#metrics").count(), 0);
-      assert.equal(await page.locator("#lastUpdate").textContent(), "Last update: 15 Oct 2026, 03:16 UTC");
+      const expectedLastUpdate = new Intl.DateTimeFormat("en-GB", {
+        day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit",
+        timeZone: "UTC", timeZoneName: "short",
+      }).format(new Date(payload.generated_at));
+      assert.equal(await page.locator("#lastUpdate").textContent(), `Last update: ${expectedLastUpdate}`);
       assert.ok((await page.locator("#insightStatus").textContent()).includes("No saved synthesis yet"));
       assert.ok(await page.locator(".activity-group").count() > 1);
       assert.ok(await page.locator(".activity-overview").evaluate((element) => element.previousElementSibling.classList.contains("competitive-insights") && element.previousElementSibling.previousElementSibling.classList.contains("heat-panel")));
