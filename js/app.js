@@ -923,14 +923,15 @@ function renderActivitySummaries(snapshot) {
       ${periods.map(([period, label]) => {
         const summary = row[period] || {};
         const citations = Array.isArray(summary.evidence_ids) ? summary.evidence_ids : [];
-        const citationLabel = `${citations.length} cited signal${citations.length === 1 ? "" : "s"}`;
-        const evidenceButton = citations.length
-          ? `<button type="button" class="activity-summary-evidence" data-activity-competitor="${escapeAttr(row.competitor)}" data-activity-period="${period}" data-activity-evidence="${escapeAttr(JSON.stringify(citations))}">${citationLabel}</button>`
+        const contextCitations = Array.isArray(summary.context_evidence_ids) ? summary.context_evidence_ids : [];
+        const evidenceButton = (ids, label) => ids.length
+          ? `<button type="button" class="activity-summary-evidence" data-activity-competitor="${escapeAttr(row.competitor)}" data-activity-period="${period}" data-activity-evidence="${escapeAttr(JSON.stringify(ids))}">${label} · ${ids.length}</button>`
           : "";
         return `<div class="activity-summary-cell" role="cell" aria-label="${escapeAttr(row.competitor)} ${label}">
           <p class="activity-summary-movement">${escapeHtml(summary.main_movement || "No summary available for this period.")}</p>
+          ${summary.trend_context ? `<p class="activity-summary-context">${escapeHtml(summary.trend_context)}</p>` : ""}
           <p class="activity-summary-count muted">${Number(summary.captured_signals || 0)} captured · ${Number(summary.linkedin_captures || 0)} LinkedIn</p>
-          ${evidenceButton}
+          <div class="activity-summary-evidence-list">${evidenceButton(citations, "This period")}${evidenceButton(contextCitations, "Broader context")}</div>
         </div>`;
       }).join("")}
     </div>`).join("")}
@@ -940,7 +941,8 @@ function renderActivitySummaries(snapshot) {
       const ids = JSON.parse(button.dataset.activityEvidence);
       const signals = ids.map((signalId) => allSignals.find((signal) => signal.id === signalId)).filter(Boolean);
       if (signals.length) {
-        openQuickLook(signals, `${button.dataset.activityCompetitor} · ${button.dataset.activityPeriod}`);
+        const scope = button.textContent.startsWith("Broader context") ? "broader context" : button.dataset.activityPeriod;
+        openQuickLook(signals, `${button.dataset.activityCompetitor} · ${scope}`);
       }
     });
   });

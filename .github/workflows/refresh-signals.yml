@@ -112,7 +112,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_INSIGHTS_MODEL: ${{ vars.GEMINI_INSIGHTS_MODEL || 'gemini-3.5-flash-lite' }}
           AI_ENRICH_REQUEST_TIMEOUT_SECONDS: ${{ vars.AI_ENRICH_REQUEST_TIMEOUT_SECONDS || '180' }}
-          AI_INSIGHTS_MAX_OUTPUT_TOKENS: "5000"
+          AI_INSIGHTS_MAX_OUTPUT_TOKENS: "8000"
         run: python3 scripts/summarize_competitive_insights.py
 
       - name: Commit refreshed dashboard data

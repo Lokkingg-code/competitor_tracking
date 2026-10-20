@@ -21,9 +21,9 @@ from scripts.enrich_signals import EnrichmentError, extract_json_result, gemini_
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 INSIGHTS_PATH = ROOT / "data" / "competitive-insights.json"
-INSIGHT_VERSION = 2
+INSIGHT_VERSION = 3
 INSIGHT_MODEL_ID = os.environ.get("GEMINI_INSIGHTS_MODEL", "").strip() or "gemini-3.5-flash-lite"
-MAX_INSIGHTS = 5
+MAX_INSIGHTS = 3
 ACTIVITY_PERIODS = {"monthly": 30, "quarterly": 90, "yearly": 365}
 CUSTOMER_RELATIONSHIPS = {"signed", "selected", "adopted", "implemented", "partnered", "mentioned"}
 
@@ -99,10 +99,14 @@ def build_analysis_context(
         competitor = str(signal.get("competitor") or "Unknown")
         key = (competitor, normalized_title(headline))
         if key in grouped_events:
-            grouped_events[key]["signal_ids"].append(str(signal.get("id") or ""))
+            signal_id = str(signal.get("id") or "")
+            grouped_events[key]["signal_ids"].append(signal_id)
+            grouped_events[key]["signal_dates"][signal_id] = signal_date.isoformat()
             continue
+        signal_id = str(signal.get("id") or "")
         grouped_events[key] = {
-            "signal_ids": [str(signal.get("id") or "")],
+            "signal_ids": [signal_id],
+            "signal_dates": {signal_id: signal_date.isoformat()},
             "date": signal_date.isoformat(),
             "competitor": competitor,
             "type": str(signal.get("type") or "unknown"),
@@ -148,11 +152,19 @@ def build_analysis_context(
                 (signal, signal_date) for signal, signal_date in dated_signals
                 if signal.get("competitor") == competitor and period_start <= signal_date <= as_of
             ]
-            period_events = [
-                event for event in selected_events
-                if event["competitor"] == competitor and period_start.isoformat() <= event["date"] <= as_of.isoformat()
-            ]
-            period_ids = sorted({signal_id for event in period_events for signal_id in event["signal_ids"]})
+            period_ids = set()
+            context_ids = set()
+            for event in selected_events:
+                if event["competitor"] != competitor:
+                    continue
+                for signal_id, signal_date_text in event["signal_dates"].items():
+                    signal_date = date.fromisoformat(signal_date_text)
+                    if period_start <= signal_date <= as_of:
+                        period_ids.add(signal_id)
+                    if period == "yearly" or signal_date < period_start:
+                        context_ids.add(signal_id)
+            period_ids = sorted(period_ids)
+            context_ids = sorted(context_ids)
             activity_window_evidence_ids[period][competitor] = period_ids
             competitor_windows.append({
                 "competitor": competitor,
@@ -161,6 +173,7 @@ def build_analysis_context(
                 "product_launches": sum(signal.get("type") == "product_launch" for signal, _ in period_signals),
                 "feature_changes": sum(signal.get("type") == "feature_change" for signal, _ in period_signals),
                 "evidence_ids": period_ids,
+                "context_evidence_ids": context_ids,
             })
         activity_windows.append({
             "period": period,
@@ -197,7 +210,7 @@ def insights_prompt(context: dict) -> str:
         "Use aviation knowledge to classify named airlines as LCC, full-service, hybrid, regional, cargo, charter, or uncertain when useful. Keep airline segment separate from proof of a competitor relationship. A mention, testimonial, hiring post, or event attendance is not a customer win. Existing signal type labels can be wrong; teasers are not shipped features.",
         "Aviation classification anchor: fastjet is an African low-cost carrier (LCC), not a regional carrier. Do not assume TUS Airways is an LCC; classify it as hybrid/leisure/uncertain unless evidence supports a stronger label.",
         "Explicitly assess whether named airline adoption suggests LCC activity is concentrated with a competitor; classify only recognizable airlines with confidence and state when evidence is insufficient. Monthly counts show captured feed visibility, not total real-world posting frequency. LinkedIn includes both live-scraper and Google News-LinkedIn captures; use the origin counts to distinguish them. Repeated captures/headlines can describe one announcement. Event rows are representative examples, not exhaustive; use monthly totals for volume and cadence.",
-        "Return at most five concise overall insights. A single-competitor finding must be worded as vendor-specific; a cross-industry or comparative claim must cite at least two distinct competitors. Every overall insight must cite exact signal IDs from the supplied event examples. Also return activity_summaries: exactly one row for every competitor and a monthly, quarterly, and yearly object for each. Each object has main_movement (one concise AI-written sentence) and evidence_ids. For each competitor-period object, copy evidence_ids only from that exact period row's evidence_ids array; do not reuse an ID from another period, even when the headline is similar. If its evidence_ids array is empty, return an empty evidence_ids array. When captured_signals is zero, say no captured movement. When captures exist but no substantive cited event supports a movement, say that evidence is limited rather than inventing a development. The periods are rolling 30, 90, and 365-day windows. Return JSON only with schema: {\"lead\":\"1-2 sentence overall read\",\"insights\":[{\"category\":\"customer_adoption|product_news|posting_activity|strategy|market_pattern\",\"title\":\"short claim\",\"finding\":\"1-2 sentences\",\"evidence_ids\":[\"exact signal ID\"],\"aviation_context\":\"optional domain interpretation\",\"caveat\":\"uncertainty/limits\"}],\"activity_summaries\":[{\"competitor\":\"exact competitor\",\"monthly\":{\"main_movement\":\"...\",\"evidence_ids\":[]},\"quarterly\":{\"main_movement\":\"...\",\"evidence_ids\":[]},\"yearly\":{\"main_movement\":\"...\",\"evidence_ids\":[]}}]}. If the data does not support a pattern, say so rather than forcing one.",
+        "Return at most three concise overall insights. A single-competitor finding must be worded as vendor-specific; a cross-industry or comparative claim must cite at least two distinct competitors. Every overall insight must cite exact signal IDs from the supplied event examples. Also return activity_summaries: exactly one row for every competitor and a monthly, quarterly, and yearly object for each. Each main_movement must be one short sentence of at most 20 words about that exact period. Each trend_context must be one short sentence of at most 16 words comparing with the broader rolling year; when context IDs exist, describe the historical pattern they support rather than repeat the no-new-activity statement. evidence_ids must come only from that period row; context_evidence_ids must come only from that period's context row. Never copy IDs across the period/context boundary. For monthly and quarterly, context IDs are historical events outside the focus period; for yearly, context IDs are representative events within the year supporting the trend. If the period evidence_ids array is empty, do not claim a deployment, customer win, or product change in main_movement: use 'No substantive movement captured in this period.' when captures exist, and 'No signals captured in this period.' when there are none. If the context IDs array is empty, use an empty context citation list and say context is unavailable. The periods are rolling 30, 90, and 365-day windows. Return JSON only with schema: {\"lead\":\"1-2 sentence overall read\",\"insights\":[{\"category\":\"customer_adoption|product_news|posting_activity|strategy|market_pattern\",\"title\":\"short claim\",\"finding\":\"1-2 sentences\",\"evidence_ids\":[\"exact signal ID\"],\"aviation_context\":\"optional domain interpretation\",\"caveat\":\"uncertainty/limits\"}],\"activity_summaries\":[{\"competitor\":\"exact competitor\",\"monthly\":{\"main_movement\":\"...\",\"evidence_ids\":[],\"trend_context\":\"...\",\"context_evidence_ids\":[]},\"quarterly\":{\"main_movement\":\"...\",\"evidence_ids\":[],\"trend_context\":\"...\",\"context_evidence_ids\":[]},\"yearly\":{\"main_movement\":\"...\",\"evidence_ids\":[],\"trend_context\":\"...\",\"context_evidence_ids\":[]}}]}. If the data does not support a pattern, say so rather than forcing one.",
             "Do not infer safety, efficiency, cost, reliability, adoption, regulatory, or performance outcomes unless the cited source explicitly reports them. Aviation context may classify carriers and explain neutral operational terminology, but must not add causal benefits or technical details absent from the evidence.",
         "Rolling evidence JSON:\n" + json.dumps(evidence, ensure_ascii=False, separators=(",", ":")),
     ])
@@ -266,10 +279,26 @@ def validate_insight_result(result: dict, context: dict) -> dict:
             allowed_ids = set(context["activity_window_evidence_ids"][period].get(competitor, []))
             if any(signal_id not in allowed_ids for signal_id in citations):
                 raise EnrichmentError(f"Activity summary cited evidence outside {period} for {competitor}")
+            trend_context = summary.get("trend_context")
+            context_citations = summary.get("context_evidence_ids")
+            if not isinstance(trend_context, str) or len(trend_context) > 400:
+                raise EnrichmentError(f"Activity summary has invalid {period} trend context for {competitor}")
+            if not isinstance(context_citations, list):
+                raise EnrichmentError(f"Activity summary omitted {period} context evidence for {competitor}")
+            context_citations = list(dict.fromkeys(str(signal_id) for signal_id in context_citations))
+            allowed_context_ids = set(window_counts[period][competitor]["context_evidence_ids"])
+            if any(signal_id not in allowed_context_ids for signal_id in context_citations):
+                raise EnrichmentError(f"Activity summary cited evidence outside broader context for {competitor}")
             counts = window_counts[period][competitor]
             windows[period] = {
-                "main_movement": main_movement.strip(),
+                "main_movement": (
+                    main_movement.strip() if citations
+                    else "No substantive movement captured in this period." if counts["captured_signals"]
+                    else "No signals captured in this period."
+                ),
                 "evidence_ids": citations,
+                "trend_context": trend_context.strip(),
+                "context_evidence_ids": context_citations,
                 "captured_signals": counts["captured_signals"],
                 "linkedin_captures": counts["linkedin_captures"],
             }
@@ -293,7 +322,7 @@ def generate_insights(
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": 0,
-                "maxOutputTokens": int(os.environ.get("AI_INSIGHTS_MAX_OUTPUT_TOKENS", "5000")),
+                "maxOutputTokens": int(os.environ.get("AI_INSIGHTS_MAX_OUTPUT_TOKENS", "8000")),
             },
         })
         candidates = response.get("candidates") or []

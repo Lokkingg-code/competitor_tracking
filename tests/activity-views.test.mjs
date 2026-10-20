@@ -49,6 +49,8 @@ test("overview and activity quick look remain independent of feed filters", asyn
         timeZone: "UTC", timeZoneName: "short",
       }).format(new Date(payload.generated_at));
       assert.equal(await page.locator("#lastUpdate").textContent(), `Last update: ${expectedLastUpdate}`);
+      assert.equal(await page.locator("#insightsHeading").textContent(), "Competitive Intelligence");
+      assert.equal(await page.locator(".insight-model-label").count(), 0);
       assert.equal(await page.locator(".activity-summary-row").count(), payload.competitors.length);
       assert.ok(await page.locator(".activity-overview").evaluate((element) => element.previousElementSibling.classList.contains("competitive-insights") && element.previousElementSibling.previousElementSibling.classList.contains("heat-panel")));
       const original = await page.locator("#activitySummary").innerHTML();

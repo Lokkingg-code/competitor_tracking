@@ -11,6 +11,15 @@ from unittest.mock import patch
 from scripts import summarize_competitive_insights as INSIGHTS
 
 
+def period_summary(main_movement, evidence_ids=(), trend_context="", context_evidence_ids=()):
+    return {
+        "main_movement": main_movement,
+        "evidence_ids": list(evidence_ids),
+        "trend_context": trend_context,
+        "context_evidence_ids": list(context_evidence_ids),
+    }
+
+
 class CompetitiveInsightTests(unittest.TestCase):
     def setUp(self):
         self.signals = [
@@ -61,6 +70,17 @@ class CompetitiveInsightTests(unittest.TestCase):
         self.assertEqual(others["evidence_ids"], [])
         self.assertIn("Others", context["competitors"])
 
+    def test_deduplicated_events_keep_citations_in_their_actual_period(self):
+        signals = [
+            {**self.signals[0], "id": "ifs-same-story-oct", "date": "2026-10-05"},
+            {**self.signals[0], "id": "ifs-same-story-sep", "date": "2026-09-10"},
+            {**self.signals[0], "id": "ifs-same-story-aug", "date": "2026-08-15"},
+        ]
+        context = INSIGHTS.build_analysis_context(signals, date(2026, 10, 16))
+        ifs = next(row for row in context["activity_windows"][0]["competitors"] if row["competitor"] == "IFS")
+        self.assertEqual(ifs["evidence_ids"], ["ifs-same-story-oct"])
+        self.assertEqual(ifs["context_evidence_ids"], ["ifs-same-story-aug", "ifs-same-story-sep"])
+
     def test_generation_validates_citations_and_builds_snapshot(self):
         model_result = {
             "lead": "IFS has a recent customer adoption signal.",
@@ -75,15 +95,15 @@ class CompetitiveInsightTests(unittest.TestCase):
             "activity_summaries": [
                 {
                     "competitor": "Bytron Skybook",
-                    "monthly": {"main_movement": "Bytron posted an EFB messaging feature update.", "evidence_ids": ["scraped-launch"]},
-                    "quarterly": {"main_movement": "Bytron added EFB messaging.", "evidence_ids": ["scraped-launch"]},
-                    "yearly": {"main_movement": "Bytron's captured activity includes an EFB messaging update.", "evidence_ids": ["scraped-launch"]},
+                    "monthly": period_summary("Bytron posted an EFB messaging feature update.", ["scraped-launch"]),
+                    "quarterly": period_summary("Bytron added EFB messaging.", ["scraped-launch"]),
+                    "yearly": period_summary("Bytron's captured activity includes an EFB messaging update.", ["scraped-launch"]),
                 },
                 {
                     "competitor": "IFS",
-                    "monthly": {"main_movement": "No captured movement in this window.", "evidence_ids": []},
-                    "quarterly": {"main_movement": "fastjet selected EFBOne.", "evidence_ids": ["news-linkedin"]},
-                    "yearly": {"main_movement": "fastjet selected EFBOne.", "evidence_ids": ["news-linkedin"]},
+                    "monthly": period_summary("No new customer event this month.", trend_context="This quarter includes fastjet's selection.", context_evidence_ids=["news-linkedin"]),
+                    "quarterly": period_summary("fastjet selected EFBOne.", ["news-linkedin"]),
+                    "yearly": period_summary("fastjet selected EFBOne.", ["news-linkedin"]),
                 },
             ],
         }
@@ -94,12 +114,15 @@ class CompetitiveInsightTests(unittest.TestCase):
         with patch.object(INSIGHTS, "gemini_request", return_value=response) as request:
             snapshot = INSIGHTS.generate_insights(self.signals, "test-key", date(2026, 10, 16))
         self.assertEqual(snapshot["status"], "ready")
-        self.assertEqual(snapshot["schema_version"], 2)
+        self.assertEqual(snapshot["schema_version"], 3)
         self.assertEqual(snapshot["model"], "gemini-3.5-flash-lite")
         self.assertEqual(request.call_args.args[1], "gemini-3.5-flash-lite")
         self.assertEqual(snapshot["insights"][0]["evidence_ids"], ["news-linkedin"])
         ifs_summary = next(row for row in snapshot["activity_summaries"] if row["competitor"] == "IFS")
         self.assertEqual(ifs_summary["monthly"]["evidence_ids"], [])
+        self.assertEqual(ifs_summary["monthly"]["main_movement"], "No signals captured in this period.")
+        self.assertEqual(ifs_summary["monthly"]["context_evidence_ids"], ["news-linkedin"])
+        self.assertEqual(ifs_summary["monthly"]["trend_context"], "This quarter includes fastjet's selection.")
         self.assertEqual(ifs_summary["quarterly"]["evidence_ids"], ["news-linkedin"])
         prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
         self.assertIn("low-cost carriers (LCCs)", prompt)
@@ -126,9 +149,9 @@ class CompetitiveInsightTests(unittest.TestCase):
             "activity_summaries": [
                 {
                     "competitor": competitor,
-                    "monthly": {"main_movement": "No movement.", "evidence_ids": ["scraped-launch"] if competitor == "IFS" else []},
-                    "quarterly": {"main_movement": "Window summary.", "evidence_ids": []},
-                    "yearly": {"main_movement": "Window summary.", "evidence_ids": []},
+                    "monthly": period_summary("No movement.", ["scraped-launch"] if competitor == "IFS" else []),
+                    "quarterly": period_summary("Window summary."),
+                    "yearly": period_summary("Window summary."),
                 }
                 for competitor in context["competitors"]
             ],
@@ -144,15 +167,15 @@ class CompetitiveInsightTests(unittest.TestCase):
                 "activity_summaries": [
                     {
                         "competitor": "Bytron Skybook",
-                        "monthly": {"main_movement": "Bytron released a feature.", "evidence_ids": ["scraped-launch"]},
-                        "quarterly": {"main_movement": "Bytron released a feature.", "evidence_ids": ["scraped-launch"]},
-                        "yearly": {"main_movement": "Bytron released a feature.", "evidence_ids": ["scraped-launch"]},
+                        "monthly": period_summary("Bytron released a feature.", ["scraped-launch"]),
+                        "quarterly": period_summary("Bytron released a feature.", ["scraped-launch"]),
+                        "yearly": period_summary("Bytron released a feature.", ["scraped-launch"]),
                     },
                     {
                         "competitor": "IFS",
-                        "monthly": {"main_movement": "IFS selected fastjet.", "evidence_ids": ifs_monthly_ids},
-                        "quarterly": {"main_movement": "IFS selected fastjet.", "evidence_ids": ["news-linkedin"]},
-                        "yearly": {"main_movement": "IFS selected fastjet.", "evidence_ids": ["news-linkedin"]},
+                        "monthly": period_summary("IFS selected fastjet.", ifs_monthly_ids),
+                        "quarterly": period_summary("IFS selected fastjet.", ["news-linkedin"]),
+                        "yearly": period_summary("IFS selected fastjet.", ["news-linkedin"]),
                     },
                 ],
             }

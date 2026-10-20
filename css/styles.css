@@ -14,7 +14,9 @@
 .activity-summary-competitor { padding-top: 16px; }
 .activity-summary-cell { border-left: 1px solid var(--border); }
 .activity-summary-movement { margin: 0; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.activity-summary-context { margin: 7px 0 0; color: var(--text-muted); font-size: 12px; line-height: 1.45; }
 .activity-summary-count { margin: 7px 0 0; font-size: 11px; }
+.activity-summary-evidence-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .activity-summary-evidence { margin-top: 7px; padding: 2px 0; border: 0; background: transparent; color: var(--teal-bright); font: inherit; font-size: 11px; text-align: left; cursor: pointer; }
 .activity-summary-evidence:hover { color: var(--text); text-decoration: underline; }
 .activity-summary-empty { padding: 12px; }
@@ -1025,7 +1027,6 @@ code {
 
 .insights-heading h2 { margin: 0; font-size: 18px; }
 .insights-heading p { margin: 2px 0 0; }
-.insight-model-label { color: var(--teal-bright); font-size: 11px; font-weight: 600; text-transform: uppercase; }
 .insight-status { margin: 16px 0 0; color: var(--text-muted); }
 .insight-lead { max-width: 1000px; margin: 16px 0 8px; font-size: 16px; font-weight: 500; }
 .insight-rows { display: grid; }
