@@ -49,7 +49,7 @@ class CompetitiveInsightTests(unittest.TestCase):
         september = next(row for row in ifs["monthly"] if row[0] == "2026-09")
         self.assertEqual(september[2], 1)
         self.assertEqual(september[4], 1)
-        self.assertEqual(len(ifs["monthly"]), 12)
+        self.assertEqual(len(ifs["monthly"]), 13)
         self.assertEqual(context["source_signal_count"], 2)
         ids = {signal_id for event in context["events"] for signal_id in event["signal_ids"]}
         self.assertEqual(ids, {"news-linkedin", "scraped-launch"})
@@ -65,6 +65,20 @@ class CompetitiveInsightTests(unittest.TestCase):
                 "aviation_context": "fastjet is a low-cost carrier.",
                 "caveat": "Validate the source announcement.",
             }],
+            "activity_summaries": [
+                {
+                    "competitor": "Bytron Skybook",
+                    "monthly": {"main_movement": "Bytron posted an EFB messaging feature update.", "evidence_ids": ["scraped-launch"]},
+                    "quarterly": {"main_movement": "Bytron added EFB messaging.", "evidence_ids": ["scraped-launch"]},
+                    "yearly": {"main_movement": "Bytron's captured activity includes an EFB messaging update.", "evidence_ids": ["scraped-launch"]},
+                },
+                {
+                    "competitor": "IFS",
+                    "monthly": {"main_movement": "No captured movement in this window.", "evidence_ids": []},
+                    "quarterly": {"main_movement": "fastjet selected EFBOne.", "evidence_ids": ["news-linkedin"]},
+                    "yearly": {"main_movement": "fastjet selected EFBOne.", "evidence_ids": ["news-linkedin"]},
+                },
+            ],
         }
         response = {"candidates": [{
             "finishReason": "STOP",
@@ -73,21 +87,77 @@ class CompetitiveInsightTests(unittest.TestCase):
         with patch.object(INSIGHTS, "gemini_request", return_value=response) as request:
             snapshot = INSIGHTS.generate_insights(self.signals, "test-key", date(2026, 10, 16))
         self.assertEqual(snapshot["status"], "ready")
+        self.assertEqual(snapshot["schema_version"], 2)
         self.assertEqual(snapshot["model"], "gemini-3.5-flash-lite")
         self.assertEqual(request.call_args.args[1], "gemini-3.5-flash-lite")
         self.assertEqual(snapshot["insights"][0]["evidence_ids"], ["news-linkedin"])
+        ifs_summary = next(row for row in snapshot["activity_summaries"] if row["competitor"] == "IFS")
+        self.assertEqual(ifs_summary["monthly"]["evidence_ids"], [])
+        self.assertEqual(ifs_summary["quarterly"]["evidence_ids"], ["news-linkedin"])
         prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
         self.assertIn("low-cost carriers (LCCs)", prompt)
+        self.assertIn("fastjet is an African low-cost carrier (LCC)", prompt)
+        self.assertIn("monthly, quarterly, and yearly", prompt)
         self.assertIn("A single-competitor finding must be worded as vendor-specific", prompt)
         self.assertIn("A mention", prompt)
         self.assertIn("Do not infer safety, efficiency", prompt)
 
     def test_generation_rejects_unknown_evidence_ids(self):
+        context = INSIGHTS.build_analysis_context(self.signals, date(2026, 10, 16))
         with self.assertRaisesRegex(INSIGHTS.EnrichmentError, "outside the supplied evidence"):
             INSIGHTS.validate_insight_result({
                 "lead": "A pattern.",
                 "insights": [{"title": "Claim", "finding": "Finding", "evidence_ids": ["missing-id"]}],
-            }, {"known-id"})
+                "activity_summaries": [],
+            }, context)
+
+    def test_activity_summary_rejects_citation_from_outside_competitor_window(self):
+        context = INSIGHTS.build_analysis_context(self.signals, date(2026, 10, 16))
+        result = {
+            "lead": "A pattern.",
+            "insights": [],
+            "activity_summaries": [
+                {
+                    "competitor": competitor,
+                    "monthly": {"main_movement": "No movement.", "evidence_ids": ["scraped-launch"] if competitor == "IFS" else []},
+                    "quarterly": {"main_movement": "Window summary.", "evidence_ids": []},
+                    "yearly": {"main_movement": "Window summary.", "evidence_ids": []},
+                }
+                for competitor in context["competitors"]
+            ],
+        }
+        with self.assertRaisesRegex(INSIGHTS.EnrichmentError, "outside monthly for IFS"):
+            INSIGHTS.validate_insight_result(result, context)
+
+    def test_generation_repairs_one_out_of_window_citation(self):
+        def response(ifs_monthly_ids):
+            result = {
+                "lead": "Recent activity is vendor-specific.",
+                "insights": [],
+                "activity_summaries": [
+                    {
+                        "competitor": "Bytron Skybook",
+                        "monthly": {"main_movement": "Bytron released a feature.", "evidence_ids": ["scraped-launch"]},
+                        "quarterly": {"main_movement": "Bytron released a feature.", "evidence_ids": ["scraped-launch"]},
+                        "yearly": {"main_movement": "Bytron released a feature.", "evidence_ids": ["scraped-launch"]},
+                    },
+                    {
+                        "competitor": "IFS",
+                        "monthly": {"main_movement": "IFS selected fastjet.", "evidence_ids": ifs_monthly_ids},
+                        "quarterly": {"main_movement": "IFS selected fastjet.", "evidence_ids": ["news-linkedin"]},
+                        "yearly": {"main_movement": "IFS selected fastjet.", "evidence_ids": ["news-linkedin"]},
+                    },
+                ],
+            }
+            return {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": json.dumps(result)}]}}]}
+
+        with patch.object(INSIGHTS, "gemini_request", side_effect=[response(["news-linkedin"]), response([])]) as request:
+            snapshot = INSIGHTS.generate_insights(self.signals, "test-key", date(2026, 10, 16))
+        self.assertEqual(request.call_count, 2)
+        retry_prompt = request.call_args_list[1].args[2]["contents"][0]["parts"][0]["text"]
+        self.assertIn("previous response was rejected", retry_prompt)
+        ifs_summary = next(row for row in snapshot["activity_summaries"] if row["competitor"] == "IFS")
+        self.assertEqual(ifs_summary["monthly"]["evidence_ids"], [])
 
     def test_api_failure_preserves_previous_snapshot(self):
         with tempfile.TemporaryDirectory() as directory:

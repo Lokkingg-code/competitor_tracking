@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=22" />
+  <link rel="stylesheet" href="css/styles.css?v=23" />
 </head>
 <body>
   <div class="app">
@@ -104,21 +104,12 @@
 
     <section class="activity-overview" aria-labelledby="activityHeading">
       <div class="activity-heading">
-        <div><h2 id="activityHeading">At a Glance</h2><p id="activityPeriod" class="muted"></p></div>
-        <label class="control">
-          <span>Summary window</span>
-          <select id="activityWindow">
-            <option value="7">Last 7 days</option>
-            <option value="14">Last 14 days</option>
-            <option value="30">Last 30 days</option>
-            <option value="90">Last 90 days</option>
-            <option value="180">Last 6 months</option>
-            <option value="365">Last 12 months</option>
-          </select>
-        </label>
+        <div><h2 id="activityHeading">At a Glance</h2><p class="muted">AI main movement by competitor across three rolling windows</p></div>
       </div>
-      <div id="activitySummary"></div>
-      <p class="activity-note muted">Captured signals are not unique announcements or verified wins.</p>
+      <div class="activity-summary-wrap">
+        <div id="activitySummary" aria-live="polite"></div>
+      </div>
+      <p class="activity-note muted">AI summaries are grounded in captured signals; verify cited evidence before acting.</p>
     </section>
 
     <dialog id="quickLook" class="quick-look" aria-labelledby="quickLookTitle">
@@ -137,6 +128,6 @@
     </footer>
   </div>
 
-  <script src="js/app.js?v=ai-summary9" type="module"></script>
+  <script src="js/app.js?v=ai-summary10" type="module"></script>
 </body>
 </html>

@@ -5,6 +5,22 @@ import { chromium } from "playwright";
 
 const baseUrl = process.env.DASHBOARD_URL || "http://127.0.0.1:8766/index.html";
 const payload = JSON.parse(await readFile(new URL("../data/signals.json", import.meta.url), "utf8"));
+const activitySummarySnapshot = {
+  status: "ready",
+  lead: "Fixture synthesis",
+  insights: [],
+  activity_summaries: payload.competitors.map((competitor) => {
+    const signal = payload.signals.find((item) => item.competitor === competitor);
+    const evidenceIds = signal ? [signal.id] : [];
+    const summary = {
+      main_movement: `${competitor} activity for this period.`,
+      evidence_ids: evidenceIds,
+      captured_signals: evidenceIds.length,
+      linkedin_captures: evidenceIds.length,
+    };
+    return { competitor, monthly: summary, quarterly: summary, yearly: summary };
+  }),
+};
 
 test("overview and activity quick look remain independent of feed filters", async () => {
   const browser = await chromium.launch({ headless: true });
@@ -15,15 +31,16 @@ test("overview and activity quick look remain independent of feed filters", asyn
       page.on("pageerror", (error) => errors.push(error.message));
       await page.clock.install({ time: new Date("2026-09-29T12:00:00Z") });
       await page.route("**/data/signals.json", (route) => route.fulfill({ json: payload }));
+      await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: activitySummarySnapshot }));
       await page.addInitScript(() => {
         sessionStorage.setItem("ct-matrix-signal-ids", '["cap-bab00bf9c288"]');
         sessionStorage.setItem("ct-matrix-competitor", "Bytron Skybook");
         localStorage.setItem("ct-theme", "light");
       });
       await page.goto(baseUrl);
-      await page.waitForSelector(".activity-group");
-      assert.equal(await page.locator("#activityWindow").inputValue(), "30");
-      assert.deepEqual(await page.locator("#activityWindow option").evaluateAll((options) => options.map((option) => option.value)), ["7", "14", "30", "90", "180", "365"]);
+      await page.waitForSelector(".activity-summary-row");
+      assert.equal(await page.locator("#activityWindow").count(), 0);
+      assert.deepEqual(await page.locator(".activity-summary-header [role='columnheader']").allTextContents(), ["Competitor", "Monthly · 30 days", "Quarterly · 90 days", "Yearly · 12 months"]);
       assert.equal(await page.locator("#windowFilter").count(), 0);
       assert.equal(await page.locator("#focusFilter").count(), 0);
       assert.equal(await page.locator("#metrics").count(), 0);
@@ -32,8 +49,7 @@ test("overview and activity quick look remain independent of feed filters", asyn
         timeZone: "UTC", timeZoneName: "short",
       }).format(new Date(payload.generated_at));
       assert.equal(await page.locator("#lastUpdate").textContent(), `Last update: ${expectedLastUpdate}`);
-      assert.ok((await page.locator("#insightStatus").textContent()).includes("No saved synthesis yet"));
-      assert.ok(await page.locator(".activity-group").count() > 1);
+      assert.equal(await page.locator(".activity-summary-row").count(), payload.competitors.length);
       assert.ok(await page.locator(".activity-overview").evaluate((element) => element.previousElementSibling.classList.contains("competitive-insights") && element.previousElementSibling.previousElementSibling.classList.contains("heat-panel")));
       const original = await page.locator("#activitySummary").innerHTML();
       for (const [selector, value] of [["#competitorFilter", "IFS"], ["#typeFilter", "customer_win"]]) {
@@ -42,26 +58,12 @@ test("overview and activity quick look remain independent of feed filters", asyn
       }
       await page.locator("#searchInput").fill("no-match-validation");
       assert.equal(await page.locator("#activitySummary").innerHTML(), original);
-      for (const days of [7, 14, 30, 90, 180, 365]) {
-        await page.locator("#activityWindow").selectOption(String(days));
-        const cutoff = new Date("2026-09-29T00:00:00Z");
-        cutoff.setUTCDate(cutoff.getUTCDate() - days);
-        const count = payload.signals.filter((signal) => new Date(signal.date) >= cutoff && new Date(signal.date) <= new Date("2026-09-29T12:00:00Z")).length;
-        assert.ok((await page.locator("#activityPeriod").textContent()).includes(`${count} captured signals`));
-      }
-      await page.locator("#activityWindow").selectOption("30");
-      const group = page.locator(".activity-group").first();
-      await group.locator("summary").click();
-      const evidence = group.locator(".compact-signals");
-      const groupBox = await group.boundingBox();
-      const evidenceBox = await evidence.boundingBox();
-      assert.ok(evidenceBox.width >= groupBox.width - 2);
-      await evidence.locator("button").first().click();
-      assert.equal(await page.locator("#quickLookBriefing").isVisible(), true);
-      await page.locator("#quickLookBack").click();
-      assert.equal(await page.locator("#quickLookList").isVisible(), true);
+      const evidence = page.locator(".activity-summary-evidence").first();
+      const evidenceIds = await evidence.getAttribute("data-activity-evidence");
+      const expectedEvidenceCount = JSON.parse(evidenceIds).length;
+      await evidence.click();
+      assert.equal(await page.locator("#quickLookList .signal-row").count(), expectedEvidenceCount);
       await page.locator("#quickLookClose").click();
-      assert.equal(await group.getAttribute("open"), "");
       await page.locator(".activity-overview").screenshot({ path: `/tmp/activity-overview-${width}.png` });
       assert.equal(await page.locator(".trend-line-series").count(), 7);
       assert.ok(await page.locator(".trend-point").count() > 0);
@@ -271,6 +273,7 @@ test("renders saved AI enrichment without calling the summary API again", async 
     const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     let summaryRequests = 0;
     await page.route("**/data/signals.json", (route) => route.fulfill({ json: enrichedPayload }));
+    await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: { status: "ready", lead: "", insights: [] } }));
     await page.route("**/api/ai-summary**", (route) => {
       summaryRequests += 1;
       return route.fulfill({ status: 500, body: "Should not be called for saved analyses." });
@@ -289,7 +292,7 @@ test("renders saved AI enrichment without calling the summary API again", async 
     assert.equal(await page.locator(".ai-summary-result").count(), 0);
     assert.ok(await page.getByText(/Signal type: Feature change.*Reviewed from Customer win/).count());
     assert.ok(await page.getByText(/Product focus: EFF.*Reviewed from EFB/).count());
-    assert.ok(await page.locator(".activity-movement").filter({ hasText: "This could improve operations visibility." }).count());
+    assert.ok(await page.locator(".activity-summary-empty").filter({ hasText: "AI period summaries" }).count());
     assert.ok(await page.getByText(/rates per 1M tokens USD: input \$0.049, output \$0.140/).count());
     assert.equal(summaryRequests, 0);
   } finally {

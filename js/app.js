@@ -1,5 +1,3 @@
-import { summarizeActivity } from "./activity-summary.js";
-
 const COMPETITORS = [
   "Jeppesen",
   "Lufthansa Systems",
@@ -897,30 +895,46 @@ function openQuickLook(signals, title, initialId = null) {
 
 document.getElementById("quickLookClose").addEventListener("click", () => document.getElementById("quickLook").close());
 
-function renderActivitySummary() {
+function renderActivitySummaries(snapshot) {
   const container = document.getElementById("activitySummary");
-  const period = document.getElementById("activityPeriod");
-  if (!container || !period) return;
-  const windowSelect = document.getElementById("activityWindow");
-  const cutoff = daysAgo(Number(windowSelect.value));
-  const now = new Date();
-  const signals = allSignals.filter((signal) => parseDate(signal.date) >= cutoff && parseDate(signal.date) <= now);
-  period.textContent = `${windowSelect.selectedOptions[0].textContent} · ${signals.length} captured signals`;
-  const rows = summarizeActivity(signals, (signal) => displayCompetitor(signal.competitor));
-  if (!rows.length) {
-    container.innerHTML = '<p class="muted">No activity in this period.</p>';
+  if (!container) return;
+  const summaries = snapshot?.activity_summaries;
+  if (snapshot?.status !== "ready" || !Array.isArray(summaries) || !summaries.length) {
+    container.innerHTML = '<p class="muted activity-summary-empty">AI period summaries will appear after a successful insight refresh.</p>';
     return;
   }
-  container.innerHTML = `<div class="activity-columns" aria-hidden="true"><span>Competitor</span><span>Main movement</span><span>Evidence</span></div>${rows.map((row) => `<details class="activity-group">
-    <summary class="activity-columns"><span><span class="competitor-tag ${competitorClass(row.competitor)}">${escapeHtml(row.competitor)}</span></span>
-      <strong class="activity-movement">${escapeHtml(row.mainMovement)}</strong>
-      <span class="activity-evidence">${row.evidence.length} supporting signals <span class="muted">(${row.capturedCount} captured)</span></span>
-    </summary>
-    <div class="compact-signals">${compactSignalRows(row.evidence) || '<p class="muted">No substantive evidence in these captures.</p>'}</div>
-  </details>`).join("")}`;
-  container.querySelectorAll("[data-quick-signal]").forEach((button) => {
-    const row = rows.find((entry) => entry.evidence.some((signal) => signal.id === button.dataset.quickSignal));
-    button.addEventListener("click", () => openQuickLook(row.evidence, row.competitor, button.dataset.quickSignal));
+  const periods = [
+    ["monthly", "Monthly · 30 days"],
+    ["quarterly", "Quarterly · 90 days"],
+    ["yearly", "Yearly · 12 months"],
+  ];
+  container.innerHTML = `<div class="activity-summary-grid" role="table" aria-label="AI movement summaries by competitor and period">
+    <div class="activity-summary-header" role="row"><div role="columnheader">Competitor</div>${periods.map(([, label]) => `<div role="columnheader">${label}</div>`).join("")}</div>
+    ${summaries.map((row) => `<div class="activity-summary-row" role="row">
+      <div class="activity-summary-competitor" role="rowheader"><span class="competitor-tag ${competitorClass(row.competitor)}">${escapeHtml(row.competitor)}</span></div>
+      ${periods.map(([period, label]) => {
+        const summary = row[period] || {};
+        const citations = Array.isArray(summary.evidence_ids) ? summary.evidence_ids : [];
+        const citationLabel = `${citations.length} cited signal${citations.length === 1 ? "" : "s"}`;
+        const evidenceButton = citations.length
+          ? `<button type="button" class="activity-summary-evidence" data-activity-competitor="${escapeAttr(row.competitor)}" data-activity-period="${period}" data-activity-evidence="${escapeAttr(JSON.stringify(citations))}">${citationLabel}</button>`
+          : "";
+        return `<div class="activity-summary-cell" role="cell" aria-label="${escapeAttr(row.competitor)} ${label}">
+          <p class="activity-summary-movement">${escapeHtml(summary.main_movement || "No summary available for this period.")}</p>
+          <p class="activity-summary-count muted">${Number(summary.captured_signals || 0)} captured · ${Number(summary.linkedin_captures || 0)} LinkedIn</p>
+          ${evidenceButton}
+        </div>`;
+      }).join("")}
+    </div>`).join("")}
+  </div>`;
+  container.querySelectorAll("[data-activity-evidence]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const ids = JSON.parse(button.dataset.activityEvidence);
+      const signals = ids.map((signalId) => allSignals.find((signal) => signal.id === signalId)).filter(Boolean);
+      if (signals.length) {
+        openQuickLook(signals, `${button.dataset.activityCompetitor} · ${button.dataset.activityPeriod}`);
+      }
+    });
   });
 }
 
@@ -931,6 +945,7 @@ function renderCompetitiveInsights(snapshot) {
   const meta = document.getElementById("insightMeta");
   if (snapshot?.status !== "ready" || !Array.isArray(snapshot.insights)) {
     status.textContent = "No saved synthesis yet. It will appear after a successful data refresh.";
+    renderActivitySummaries(null);
     return;
   }
 
@@ -963,6 +978,7 @@ function renderCompetitiveInsights(snapshot) {
       if (signal) openQuickLook([signal], `${displayCompetitor(signal.competitor)} · ${formatDate(signal.date)}`, signal.id);
     });
   });
+  renderActivitySummaries(snapshot);
 }
 
 async function loadCompetitiveInsights() {
@@ -1018,10 +1034,6 @@ async function boot() {
     sessionStorage.removeItem("ct-matrix-competitor");
   }
   render();
-  const activityWindow = document.getElementById("activityWindow");
-  activityWindow.value = "30";
-  activityWindow.addEventListener("change", renderActivitySummary);
-  renderActivitySummary();
   renderActivityChart(allSignals);
   loadCompetitiveInsights();
 }

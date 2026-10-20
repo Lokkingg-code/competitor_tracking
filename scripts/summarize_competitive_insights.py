@@ -10,7 +10,7 @@ import re
 import sys
 import tempfile
 from collections import Counter, defaultdict
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,9 +21,10 @@ from scripts.enrich_signals import EnrichmentError, extract_json_result, gemini_
 
 SIGNALS_PATH = ROOT / "data" / "signals.json"
 INSIGHTS_PATH = ROOT / "data" / "competitive-insights.json"
-INSIGHT_VERSION = 1
+INSIGHT_VERSION = 2
 INSIGHT_MODEL_ID = os.environ.get("GEMINI_INSIGHTS_MODEL", "").strip() or "gemini-3.5-flash-lite"
 MAX_INSIGHTS = 5
+ACTIVITY_PERIODS = {"monthly": 30, "quarterly": 90, "yearly": 365}
 CUSTOMER_RELATIONSHIPS = {"signed", "selected", "adopted", "implemented", "partnered", "mentioned"}
 
 
@@ -40,8 +41,7 @@ def normalized_title(value: str) -> str:
 
 def build_analysis_context(signals: list[dict], as_of: date | None = None) -> dict:
     as_of = as_of or datetime.now(timezone.utc).date()
-    start_month_index = as_of.year * 12 + as_of.month - 1 - 11
-    start = date(start_month_index // 12, start_month_index % 12 + 1, 1)
+    start = as_of - timedelta(days=364)
     dated_signals = [
         (signal, signal_date)
         for signal in signals
@@ -130,11 +130,46 @@ def build_analysis_context(signals: list[dict], as_of: date | None = None) -> di
             selected_events.append(event)
             selected_ids.update(event_ids)
 
+    activity_windows = []
+    activity_window_evidence_ids = {}
+    for period, days in ACTIVITY_PERIODS.items():
+        period_start = start if period == "yearly" else max(start, as_of - timedelta(days=days - 1))
+        competitor_windows = []
+        activity_window_evidence_ids[period] = {}
+        for competitor in competitors:
+            period_signals = [
+                (signal, signal_date) for signal, signal_date in dated_signals
+                if signal.get("competitor") == competitor and period_start <= signal_date <= as_of
+            ]
+            period_events = [
+                event for event in selected_events
+                if event["competitor"] == competitor and period_start.isoformat() <= event["date"] <= as_of.isoformat()
+            ]
+            period_ids = sorted({signal_id for event in period_events for signal_id in event["signal_ids"]})
+            activity_window_evidence_ids[period][competitor] = period_ids
+            competitor_windows.append({
+                "competitor": competitor,
+                "captured_signals": len(period_signals),
+                "linkedin_captures": sum(str(signal.get("source_channel") or "").casefold() == "linkedin" for signal, _ in period_signals),
+                "product_launches": sum(signal.get("type") == "product_launch" for signal, _ in period_signals),
+                "feature_changes": sum(signal.get("type") == "feature_change" for signal, _ in period_signals),
+                "evidence_ids": period_ids,
+            })
+        activity_windows.append({
+            "period": period,
+            "start_date": period_start.isoformat(),
+            "end_date": as_of.isoformat(),
+            "competitors": competitor_windows,
+        })
+
     return {
         "window_start": start.isoformat(),
         "window_end": as_of.isoformat(),
         "source_signal_count": len(dated_signals),
         "activity_by_competitor_month": activity,
+        "activity_windows": activity_windows,
+        "activity_window_evidence_ids": activity_window_evidence_ids,
+        "competitors": competitors,
         "product_event_counts_by_competitor": {
             competitor: {
                 "launches": sum(signal.get("competitor") == competitor and signal.get("type") == "product_launch" for signal, _ in dated_signals),
@@ -148,21 +183,24 @@ def build_analysis_context(signals: list[dict], as_of: date | None = None) -> di
 
 
 def insights_prompt(context: dict) -> str:
-    evidence = {key: value for key, value in context.items() if key != "evidence_ids"}
+    evidence = {key: value for key, value in context.items() if key not in {"evidence_ids", "activity_window_evidence_ids"}}
     return "\n\n".join([
         "You are an aviation competitive-intelligence analyst specializing in airline operations, EFB/EFF, flight planning, dispatch, crew systems, airline news, and low-cost carriers (LCCs).",
         "Analyze the rolling history as a whole. Identify patterns across customers, LCC adoption, posting/capture cadence, product launches/features, and strategic messaging. Prefer changes over time and cross-signal comparisons over isolated event summaries.",
         "Use aviation knowledge to classify named airlines as LCC, full-service, hybrid, regional, cargo, charter, or uncertain when useful. Keep airline segment separate from proof of a competitor relationship. A mention, testimonial, hiring post, or event attendance is not a customer win. Existing signal type labels can be wrong; teasers are not shipped features.",
+        "Aviation classification anchor: fastjet is an African low-cost carrier (LCC), not a regional carrier. Do not assume TUS Airways is an LCC; classify it as hybrid/leisure/uncertain unless evidence supports a stronger label.",
         "Explicitly assess whether named airline adoption suggests LCC activity is concentrated with a competitor; classify only recognizable airlines with confidence and state when evidence is insufficient. Monthly counts show captured feed visibility, not total real-world posting frequency. LinkedIn includes both live-scraper and Google News-LinkedIn captures; use the origin counts to distinguish them. Repeated captures/headlines can describe one announcement. Event rows are representative examples, not exhaustive; use monthly totals for volume and cadence.",
-        "Return at most five concise, useful insights. A single-competitor finding must be worded as vendor-specific; a cross-industry or comparative claim must cite at least two distinct competitors. Every insight must cite exact signal IDs from the supplied event examples. Do not invent facts, customer relationships, release status, or carrier classifications. Mention uncertainty explicitly. Return JSON only with schema: {\"lead\":\"1-2 sentence overall read\",\"insights\":[{\"category\":\"customer_adoption|product_news|posting_activity|strategy|market_pattern\",\"title\":\"short claim\",\"finding\":\"1-2 sentences\",\"evidence_ids\":[\"exact signal ID\"],\"aviation_context\":\"optional domain interpretation\",\"caveat\":\"uncertainty/limits\"}]}. If the data does not support a pattern, say so rather than forcing one.",
+        "Return at most five concise overall insights. A single-competitor finding must be worded as vendor-specific; a cross-industry or comparative claim must cite at least two distinct competitors. Every overall insight must cite exact signal IDs from the supplied event examples. Also return activity_summaries: exactly one row for every competitor and a monthly, quarterly, and yearly object for each. Each object has main_movement (one concise AI-written sentence) and evidence_ids. For each competitor-period object, copy evidence_ids only from that exact period row's evidence_ids array; do not reuse an ID from another period, even when the headline is similar. If its evidence_ids array is empty, return an empty evidence_ids array. When captured_signals is zero, say no captured movement. When captures exist but no substantive cited event supports a movement, say that evidence is limited rather than inventing a development. The periods are rolling 30, 90, and 365-day windows. Return JSON only with schema: {\"lead\":\"1-2 sentence overall read\",\"insights\":[{\"category\":\"customer_adoption|product_news|posting_activity|strategy|market_pattern\",\"title\":\"short claim\",\"finding\":\"1-2 sentences\",\"evidence_ids\":[\"exact signal ID\"],\"aviation_context\":\"optional domain interpretation\",\"caveat\":\"uncertainty/limits\"}],\"activity_summaries\":[{\"competitor\":\"exact competitor\",\"monthly\":{\"main_movement\":\"...\",\"evidence_ids\":[]},\"quarterly\":{\"main_movement\":\"...\",\"evidence_ids\":[]},\"yearly\":{\"main_movement\":\"...\",\"evidence_ids\":[]}}]}. If the data does not support a pattern, say so rather than forcing one.",
             "Do not infer safety, efficiency, cost, reliability, adoption, regulatory, or performance outcomes unless the cited source explicitly reports them. Aviation context may classify carriers and explain neutral operational terminology, but must not add causal benefits or technical details absent from the evidence.",
         "Rolling evidence JSON:\n" + json.dumps(evidence, ensure_ascii=False, separators=(",", ":")),
     ])
 
 
-def validate_insight_result(result: dict, evidence_ids: set[str]) -> dict:
+def validate_insight_result(result: dict, context: dict) -> dict:
     lead = result.get("lead")
     insights = result.get("insights")
+    activity_summaries = result.get("activity_summaries")
+    evidence_ids = set(context["evidence_ids"])
     if not isinstance(lead, str) or not lead.strip() or len(lead) > 700:
         raise EnrichmentError("Insight response omitted a valid overall lead")
     if not isinstance(insights, list) or len(insights) > MAX_INSIGHTS:
@@ -191,29 +229,87 @@ def validate_insight_result(result: dict, evidence_ids: set[str]) -> dict:
             "aviation_context": str(insight.get("aviation_context") or "")[:400].strip(),
             "caveat": str(insight.get("caveat") or "")[:400].strip(),
         })
-    return {"lead": lead.strip(), "insights": validated}
+
+    expected_competitors = set(context["competitors"])
+    if not isinstance(activity_summaries, list):
+        raise EnrichmentError("Insight response omitted per-competitor activity summaries")
+    summaries_by_competitor = {}
+    window_counts = {
+        period["period"]: {row["competitor"]: row for row in period["competitors"]}
+        for period in context["activity_windows"]
+    }
+    for competitor_summary in activity_summaries:
+        if not isinstance(competitor_summary, dict):
+            raise EnrichmentError("Activity summary contains a malformed competitor")
+        competitor = competitor_summary.get("competitor")
+        if competitor not in expected_competitors or competitor in summaries_by_competitor:
+            raise EnrichmentError("Activity summary contains an unknown or duplicate competitor")
+        windows = {}
+        for period in ACTIVITY_PERIODS:
+            summary = competitor_summary.get(period)
+            if not isinstance(summary, dict):
+                raise EnrichmentError(f"Activity summary omitted {period} for {competitor}")
+            main_movement = summary.get("main_movement")
+            citations = summary.get("evidence_ids")
+            if not isinstance(main_movement, str) or not main_movement.strip() or len(main_movement) > 500:
+                raise EnrichmentError(f"Activity summary has invalid {period} movement for {competitor}")
+            if not isinstance(citations, list):
+                raise EnrichmentError(f"Activity summary omitted {period} evidence list for {competitor}")
+            citations = list(dict.fromkeys(str(signal_id) for signal_id in citations))
+            allowed_ids = set(context["activity_window_evidence_ids"][period].get(competitor, []))
+            if any(signal_id not in allowed_ids for signal_id in citations):
+                raise EnrichmentError(f"Activity summary cited evidence outside {period} for {competitor}")
+            counts = window_counts[period][competitor]
+            windows[period] = {
+                "main_movement": main_movement.strip(),
+                "evidence_ids": citations,
+                "captured_signals": counts["captured_signals"],
+                "linkedin_captures": counts["linkedin_captures"],
+            }
+        summaries_by_competitor[competitor] = {"competitor": competitor, **windows}
+    if set(summaries_by_competitor) != expected_competitors:
+        raise EnrichmentError("Insight response must summarize every competitor")
+    validated_summaries = [summaries_by_competitor[competitor] for competitor in context["competitors"]]
+    return {"lead": lead.strip(), "insights": validated, "activity_summaries": validated_summaries}
 
 
 def generate_insights(signals: list[dict], api_key: str, as_of: date | None = None) -> dict:
     context = build_analysis_context(signals, as_of)
-    response = gemini_request(api_key, INSIGHT_MODEL_ID, {
-        "contents": [{"role": "user", "parts": [{"text": insights_prompt(context)}]}],
-        "generationConfig": {
-            "temperature": 0,
-            "maxOutputTokens": int(os.environ.get("AI_INSIGHTS_MAX_OUTPUT_TOKENS", "5000")),
-        },
-    })
-    candidates = response.get("candidates") or []
-    candidate = candidates[0] if candidates else {}
-    if candidate.get("finishReason") != "STOP":
-        raise EnrichmentError(f"Insight generation did not complete (finish_reason={candidate.get('finishReason', 'missing')})")
-    parts = (candidate.get("content") or {}).get("parts") or []
-    text = "\n".join(
-        part.get("text", "") for part in parts
-        if isinstance(part, dict) and not part.get("thought")
-    ).strip()
-    result = extract_json_result(text, required={"lead", "insights"})
-    validated = validate_insight_result(result, set(context["evidence_ids"]))
+
+    def request_result(prompt: str) -> dict:
+        response = gemini_request(api_key, INSIGHT_MODEL_ID, {
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {
+                "temperature": 0,
+                "maxOutputTokens": int(os.environ.get("AI_INSIGHTS_MAX_OUTPUT_TOKENS", "5000")),
+            },
+        })
+        candidates = response.get("candidates") or []
+        candidate = candidates[0] if candidates else {}
+        if candidate.get("finishReason") != "STOP":
+            raise EnrichmentError(f"Insight generation did not complete (finish_reason={candidate.get('finishReason', 'missing')})")
+        parts = (candidate.get("content") or {}).get("parts") or []
+        text = "\n".join(
+            part.get("text", "") for part in parts
+            if isinstance(part, dict) and not part.get("thought")
+        ).strip()
+        return extract_json_result(text, required={"lead", "insights", "activity_summaries"})
+
+    prompt = insights_prompt(context)
+    result = request_result(prompt)
+    try:
+        validated = validate_insight_result(result, context)
+    except EnrichmentError as error:
+        if "cited evidence outside" not in str(error):
+            raise
+        repair_prompt = (
+            prompt
+            + "\n\nYour previous response was rejected because an activity summary cited evidence outside its stated time period. "
+            + f"Validation error: {error}. Regenerate the complete JSON. For every competitor-period summary, copy citations only from that exact row's evidence_ids list; use [] if it is empty. Do not reuse IDs across periods."
+        )
+        result = request_result(repair_prompt)
+        validated = validate_insight_result(result, context)
+
     return {
         "schema_version": INSIGHT_VERSION,
         "status": "ready",
@@ -224,6 +320,7 @@ def generate_insights(signals: list[dict], api_key: str, as_of: date | None = No
         "source_signal_count": context["source_signal_count"],
         "lead": validated["lead"],
         "insights": validated["insights"],
+        "activity_summaries": validated["activity_summaries"],
         "caveat": "AI-generated synthesis of captured public signals; verify cited sources before making decisions.",
     }
 
