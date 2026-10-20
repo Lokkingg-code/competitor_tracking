@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T07:05:26Z",
+  "generated_at": "2026-10-20T08:26:47Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -494,7 +494,7 @@
       "competitor": "Lufthansa Systems",
       "date": "2026-10-14",
       "date_is_estimated": false,
-      "type": "customer_win",
+      "type": "implementation",
       "priority": "high",
       "severity": 4,
       "confidence": 0.65,
@@ -534,7 +534,23 @@
         "title": "Lufthansa Systems implements Lido Flight 4D for Kenya Airways flight operations.",
         "summary": "Kenya Airways has implemented Lufthansa Systems' Lido Flight 4D for its flight operations. The solution is used for flight planning and supporting operational decision-making."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T08:30:35+00:00",
+        "source_sha256": "aebfba6693605bd3d4fc4e3e20251b53fef7a51d443343ba18fadfcd0a5932e5",
+        "suggested_type": "implementation",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "customer_win",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-b87dd0917c27",
@@ -605,13 +621,28 @@
         "title": "Bytron Skybook releases skybook 1.52.0 update for EFB and Ground Portal.",
         "summary": "Bytron Skybook released version 1.52.0 for its EFB and Ground Portal. The update includes customizable settings, new checklists, fuel fields, performance data, and improved notifications."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T08:30:54+00:00",
+        "source_sha256": "5a6a413fe6c6be7b20f65400e1e9328c15ba6dfedd31b8cce015e6167ecdf67e",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -683,13 +714,28 @@
         "title": "Lufthansa Systems implements Lido Flight 4D for Kenya Airways.",
         "summary": "Kenya Airways has implemented Lufthansa Systems' Lido Flight 4D. The software provides flight planning, digital briefing, and real-time fleet visibility."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "eff",
         "to": "adjacent",
         "rule": "lido_flight_4d_flight_planning",
         "reason": "Lido Flight 4D is flight-planning/operations-control software, distinct from the watched Lido mBriefing EFF product.",
         "reviewed_at": "2026-10-16T06:34:53+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T08:31:16+00:00",
+        "source_sha256": "57481b03548f2cffc6e9e6d3d61ef84ae8a4ad3b652d296716d2210848867b27",
+        "suggested_type": "implementation",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -8431,8 +8477,16 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T08:27:08+00:00",
+        "source_sha256": "43f3362f1cda130ec4ccda0963051e30265856786ecbb3e2a8fb7e004f6481da",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen updates ForeFlight Glide Mode to include potential off-airport landing sites.",
+        "summary": "Jeppesen has expanded ForeFlight's Glide Mode to include potential off-airport landing sites."
+      }
     },
     {
       "id": "cap-7620ae4f30cf",
