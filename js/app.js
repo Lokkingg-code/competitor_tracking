@@ -349,6 +349,8 @@ const AIRLINE_DICTIONARY = [
   "easyJet",
   "Pan American World Airways",
   "Hong Kong Air Cargo",
+  "MY FREIGHTER",
+  "Centrum Air",
   "TUS Airways",
   "TUS Air",
   "Korean Air",

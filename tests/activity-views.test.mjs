@@ -198,6 +198,12 @@ test("does not label generic aviation phrases as airlines or operators", async (
       summary: "fastjet selected the EFB platform.",
       expected: "fastjet",
     },
+    {
+      id: "my-freighter",
+      headline: "Excited to welcome MY FREIGHTER LLC (Centrum Air)",
+      summary: "Central Asia's largest air cargo operator is joining EFBOne.",
+      expected: "MY FREIGHTER",
+    },
   ];
   const operatorPayload = {
     generated_at: payload.generated_at,

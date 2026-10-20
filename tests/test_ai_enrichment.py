@@ -353,6 +353,39 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertNotIn("responseMimeType", request_args[2]["generationConfig"])
         self.assertEqual(request_args[2]["generationConfig"]["maxOutputTokens"], 4096)
 
+    def test_prompt_classifies_explicit_freight_operator_as_cargo_not_lcc(self):
+        result = {
+            "headline_summary": "IFS selected by MY FREIGHTER LLC.",
+            "summary": "MY FREIGHTER LLC is Central Asia's largest air cargo operator and selected EFBOne.",
+            "announcement_tone": "Neutral",
+            "competitive_insight": "IFS adds a cargo EFB customer.",
+            "caveat": "Fleet deployment details are limited.",
+            "customer_airline": "MY FREIGHTER LLC",
+            "customer_relationship": "selected",
+            "customer_segment": "cargo",
+            "customer_confidence": 0.95,
+            "customer_segment_confidence": 0.98,
+            "suggested_type": "customer_win",
+            "type_confidence": 0.95,
+            "suggested_product_focus": "eff",
+            "focus_confidence": 0.95,
+        }
+        response = {"candidates": [{"content": {"parts": [{"text": json.dumps(result)}]}}]}
+        signal = {
+            "id": "my-freighter-cargo", "competitor": "IFS", "date": "2026-09-08",
+            "headline": "MY FREIGHTER LLC selects EFBOne",
+            "summary": "MY FREIGHTER LLC is Central Asia's largest air cargo operator and selected EFBOne.",
+            "type": "customer_win", "product_focus": "eff", "product": "IFS EFBOne",
+        }
+        with patch.object(ENRICH, "gemini_request", return_value=response) as request:
+            enriched = ENRICH.enrich_signal(signal, "test-key")
+        prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
+        self.assertIn("air-cargo or freight operator", prompt)
+        self.assertIn("MY FREIGHTER LLC / MY FREIGHTER (Centrum Air) is an LCC", prompt)
+        self.assertIn("LLC is a legal suffix, not an LCC label", prompt)
+        self.assertEqual(enriched["customer_segment"], "cargo")
+        self.assertEqual(enriched["customer_segment_confidence"], 0.98)
+
     def test_thought_parts_are_not_treated_as_final_answer(self):
         response = {
             "candidates": [{"finishReason": "MAX_TOKENS", "content": {"parts": [

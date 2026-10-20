@@ -9,7 +9,7 @@ const els = {
 
 let signals = [];
 let airlinePattern;
-const PREFERRED_OPERATOR_NAMES = ["Pan American World Airways", "Pan Am", "UrbanLink Air Mobility"];
+const PREFERRED_OPERATOR_NAMES = ["Pan American World Airways", "Pan Am", "UrbanLink Air Mobility", "MY FREIGHTER", "Centrum Air"];
 const NON_OPERATOR_NAMES = new Set([
   "business aviation", "civil aviation", "commercial aviation", "digital aviation", "general aviation",
   "avia solutions group", "ge aerospace",

@@ -4060,9 +4060,9 @@
         "caveat": "Source does not specify commercial terms, implementation timeline, or passenger vs. cargo airline segment details",
         "customer_airline": "MY FREIGHTER (Centrum Air)",
         "customer_relationship": "adopted",
-        "customer_segment": "unknown",
+        "customer_segment": "lcc",
         "customer_confidence": 1.0,
-        "customer_segment_confidence": 0.0,
+        "customer_segment_confidence": 0.99,
         "suggested_type": "customer_win",
         "type_confidence": 1.0,
         "type_matches_existing": true,
@@ -4096,6 +4096,18 @@
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "analyst_customer_segment_review": {
+        "from": "cargo",
+        "to": "lcc",
+        "reason": "Analyst domain correction: MY FREIGHTER / Centrum Air is an LCC. The captured phrase 'air cargo operator' describes its cargo operations and does not replace the carrier's LCC classification. LLC is a legal suffix, not the abbreviation LCC.",
+        "reviewed_at": "2026-10-20T08:45:00+00:00",
+        "previous_review": {
+          "from": "unknown",
+          "to": "cargo",
+          "reason": "Classified as cargo using cross-signal evidence: browser-cb2fca77cee3 explicitly describes MY FREIGHTER (Centrum Air) as Central Asia's largest air cargo operator; cap-541011120c72 names MY FREIGHTER LLC (Centrum Air), the same operator. Not an LCC.",
+          "reviewed_at": "2026-10-20T08:20:00+00:00"
+        }
       }
     },
     {
@@ -4603,9 +4615,9 @@
         "caveat": "Source link not verified; airline segment and operational details unconfirmed beyond headline.",
         "customer_airline": "MY FREIGHTER LLC",
         "customer_relationship": "selected",
-        "customer_segment": "unknown",
+        "customer_segment": "lcc",
         "customer_confidence": 0.9,
-        "customer_segment_confidence": 0.1,
+        "customer_segment_confidence": 0.99,
         "suggested_type": "customer_win",
         "type_confidence": 0.95,
         "type_matches_existing": true,
@@ -4635,6 +4647,18 @@
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "analyst_customer_segment_review": {
+        "from": "cargo",
+        "to": "lcc",
+        "reason": "Analyst domain correction: MY FREIGHTER / Centrum Air is an LCC. The captured phrase 'air cargo operator' describes its cargo operations and does not replace the carrier's LCC classification. LLC is a legal suffix, not the abbreviation LCC.",
+        "reviewed_at": "2026-10-20T08:45:00+00:00",
+        "previous_review": {
+          "from": "unknown",
+          "to": "cargo",
+          "reason": "Classified as cargo using cross-signal evidence: browser-cb2fca77cee3 explicitly describes MY FREIGHTER (Centrum Air) as Central Asia's largest air cargo operator; cap-541011120c72 names MY FREIGHTER LLC (Centrum Air), the same operator. Not an LCC.",
+          "reviewed_at": "2026-10-20T08:20:00+00:00"
+        }
       }
     },
     {

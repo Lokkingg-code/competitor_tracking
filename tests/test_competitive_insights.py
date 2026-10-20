@@ -127,6 +127,8 @@ class CompetitiveInsightTests(unittest.TestCase):
         prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
         self.assertIn("low-cost carriers (LCCs)", prompt)
         self.assertIn("fastjet is an African low-cost carrier (LCC)", prompt)
+        self.assertIn("MY FREIGHTER LLC / MY FREIGHTER (Centrum Air)", prompt)
+        self.assertIn("MY FREIGHTER LLC / MY FREIGHTER (Centrum Air) is an LCC", prompt)
         self.assertIn("monthly, quarterly, and yearly", prompt)
         self.assertIn("A single-competitor finding must be worded as vendor-specific", prompt)
         self.assertIn("A mention", prompt)
