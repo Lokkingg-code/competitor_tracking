@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T09:08:09Z",
+  "generated_at": "2026-10-20T09:25:37Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -361,7 +361,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_classification_status": "pending",
       "ai_brief": {
         "model": "gemma-4-26b-a4b-it",
         "brief_version": 1,
@@ -370,6 +369,22 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen promotes ForeFlight safety management for business aviation operators.",
         "summary": "Jeppesen is promoting ForeFlight's safety management capabilities for business aviation operators. No concrete product changes or customer acquisitions are established in the text."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T09:28:05+00:00",
+        "source_sha256": "764148cbece9ff88eb018ee0cf33cba4c2b199e709440025395a56f9964bdaea",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -377,7 +392,7 @@
       "competitor": "Jeppesen",
       "date": "2026-10-15",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "product_launch",
       "priority": "high",
       "severity": 4,
       "confidence": 0.8,
@@ -417,7 +432,23 @@
         "title": "Jeppesen debuts new ForeFlight business aviation capabilities and Airflow agentic AI agents at NBAA-BACE.",
         "summary": "Jeppesen introduced new ForeFlight capabilities including safety management, flight tracking, paperless cockpit operations, and runway performance. The update features new agents powered by Airflow, its agentic AI operating intelligence platform."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T09:28:42+00:00",
+        "source_sha256": "c786a4d0fffe355bd26c9b809aafbbb1682771b285efecc7d526f23ee7ff7a76",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "new agents with Airflow, its agentic AI operating intelligence platform",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-329b6f1d4cd2",
@@ -1186,7 +1217,22 @@
         "title": "Aviobook to exhibit as a Double Platinum sponsor at the Aircraft IT MRO & Flight Operations IT Conference – APAC.",
         "summary": "Aviobook is promoting its participation as a Double Platinum Exhibitor at the upcoming Aircraft IT MRO & Flight Operations IT Conference – APAC. No new product developments or customer agreements are established in the text."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T09:29:04+00:00",
+        "source_sha256": "def03d79aed026f4738b789f9558cc45eed185d37fe6779a1133ae2d432f2e2c",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-1549166beaf3",
@@ -1591,7 +1637,23 @@
         "title": "Jeppesen unveils agents built on the ForeFlight Airflow platform at the CONNECT Flight Operations Users Conference.",
         "summary": "At the CONNECT Flight Operations Users Conference in Paris, Jeppesen unveiled its first agents built on the ForeFlight Airflow platform. These agentic capabilities are part of the Jeppesen Aviation Operating Intelligence platform."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T09:30:44+00:00",
+        "source_sha256": "2b04a2ec026cc7ffc8752dd821e5b63defdc6610c8b76bf2e48a8fcf1401f000",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": "eff_competitor_watchlist",
+        "model_suggested_product_focus": "adjacent",
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "unveiled the first agents built on Jeppesen ForeFlight Airflow™",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-bb22b41b2cfe",
@@ -2183,8 +2245,8 @@
       "date": "2026-10-06",
       "date_is_estimated": false,
       "type": "feature_change",
-      "priority": "low",
-      "severity": 4,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.6000000000000001,
       "headline": "Jeppesen ForeFlight Airflow™ Agents Debut for Commercial Aviation, Centered on Operating Intelligence and Adoption Flexibility",
       "summary": "Jeppesen unveiled the first of hundreds of planned agents for its ForeFlight Airflow Aviation Operating Intelligence platform. The announcement describes new agent capabilities; it does not identify a customer contract, selection, or deployment.",
@@ -9965,8 +10027,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T09:25:59+00:00",
+        "source_sha256": "9babbf270b8d5329acbba96431bf1c02cc304b8cb040cb7b41c3110c62262690",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen promotes its resource optimization systems through a journey-based narrative.",
+        "summary": "Jeppesen shares promotional messaging regarding its role as a provider of resource optimization systems. No concrete product updates, customer names, or new contract details are established in the provided text."
+      }
     },
     {
       "id": "cap-fdbde5a591f1",
@@ -11367,8 +11437,16 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T09:27:42+00:00",
+        "source_sha256": "723c7ad8ea759c905d3079b68347af3829eb96b14a83dae10b9f8964cd6bc10d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook enters five-year partnership deal with Boeing Jeppesen.",
+        "summary": "Bytron Skybook has entered a five-year partnership agreement with Boeing Jeppesen to strengthen their existing collaboration."
+      }
     },
     {
       "id": "cap-bab00bf9c288",
