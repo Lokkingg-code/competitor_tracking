@@ -84,13 +84,18 @@ test("overview and activity quick look remain independent of feed filters", asyn
       assert.ok(await page.locator(".trend-point").count() > 0);
       assert.equal(await page.locator(".trend-area").count(), 7);
       assert.equal(await page.locator(".panel-head p").filter({ hasText: "Signal volume by competitor" }).count(), 0);
-      const allSourcePoints = await page.locator(".trend-point").count();
       const allSourcesButton = page.locator('[data-chart-source="all"]');
       const linkedinButton = page.locator('[data-chart-source="linkedin"]');
+      assert.equal(await linkedinButton.getAttribute("aria-pressed"), "true");
+      assert.equal(await allSourcesButton.getAttribute("aria-pressed"), "false");
+      const linkedinPointCount = await page.locator(".trend-point").count();
+      assert.ok(linkedinPointCount > 0);
+      await allSourcesButton.click();
+      const allSourcePoints = await page.locator(".trend-point").count();
+      assert.ok(allSourcePoints > linkedinPointCount);
       assert.equal(await allSourcesButton.getAttribute("aria-pressed"), "true");
       await linkedinButton.click();
-      const linkedinPointCount = await page.locator(".trend-point").count();
-      assert.ok(linkedinPointCount > 0 && linkedinPointCount < allSourcePoints);
+      assert.equal(await page.locator(".trend-point").count(), linkedinPointCount);
       assert.equal(await linkedinButton.getAttribute("aria-pressed"), "true");
       const linkedinPoint = page.locator(".trend-point").first();
       const linkedinCompetitor = await linkedinPoint.getAttribute("data-competitor");
@@ -129,6 +134,44 @@ test("overview and activity quick look remain independent of feed filters", asyn
       assert.deepEqual(errors, []);
       await page.close();
     }
+  } finally {
+    await browser.close();
+  }
+});
+
+test("feed headers switch between latest, competitor groups, signal types, and EFF-first focus", async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+    await page.clock.install({ time: new Date("2026-09-29T12:00:00Z") });
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: payload }));
+    await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: activitySummarySnapshot }));
+    await page.goto(baseUrl);
+    await page.locator(".signal-row").first().waitFor();
+    const sortButton = (key) => page.locator(`[data-feed-sort="${key}"]`);
+    const readDates = () => page.locator(".signal-row").evaluateAll((rows) => rows.map((row) => row.dataset.date));
+    let feedDates = await readDates();
+    assert.deepEqual(feedDates, [...feedDates].sort((first, second) => second.localeCompare(first)));
+    assert.equal(await sortButton("date").getAttribute("aria-pressed"), "true");
+
+    await sortButton("competitor").click();
+    const competitorGroups = await page.locator(".feed-group-heading").allTextContents();
+    assert.ok(competitorGroups.length > 1);
+    assert.deepEqual(competitorGroups, [...competitorGroups].sort((first, second) => first.localeCompare(second)));
+
+    await sortButton("type").click();
+    const typeGroups = await page.locator(".feed-group-heading").allTextContents();
+    assert.ok(typeGroups.length > 1);
+    assert.deepEqual(typeGroups, [...typeGroups].sort((first, second) => first.localeCompare(second)));
+
+    await sortButton("focus").click();
+    assert.equal(await page.locator(".signal-row").first().getAttribute("data-focus"), "eff");
+
+    await sortButton("date").click();
+    assert.equal(await page.locator(".feed-group-heading").count(), 0);
+    feedDates = await readDates();
+    assert.deepEqual(feedDates, [...feedDates].sort((first, second) => second.localeCompare(first)));
+    await browser.close();
   } finally {
     await browser.close();
   }
@@ -197,6 +240,12 @@ test("does not label generic aviation phrases as airlines or operators", async (
       headline: "fastjet selects EFBOne",
       summary: "fastjet selected the EFB platform.",
       expected: "fastjet",
+    },
+    {
+      id: "vendor-not-airline",
+      headline: "Lufthansa Systems promotes Lido mPilot",
+      summary: "Lufthansa Systems discusses its flight operations software.",
+      expected: "N/A",
     },
     {
       id: "my-freighter",
@@ -300,7 +349,7 @@ test("renders dataset-level AI findings with signal evidence links", async () =>
     insights: [{
       category: "customer_adoption",
       title: "IFS EFBOne appears in recent airline selections",
-      finding: "AirAsia and fastjet are adopting AI-enabled flight operations tools.",
+      finding: "Lufthansa Systems provides AI-enabled tools to AirAsia and fastjet.",
       evidence_ids: [signal.id],
       aviation_context: "fastjet is a low-cost carrier and artificial intelligence is an emerging aviation capability.",
       caveat: "Verify the linked announcement before treating it as a confirmed deployment.",
@@ -319,6 +368,7 @@ test("renders dataset-level AI findings with signal evidence links", async () =>
     assert.ok(await page.locator(".insight-row .title-ai").count() >= 2);
     assert.ok(await page.locator(".insight-row .title-airline").filter({ hasText: "AirAsia" }).count());
     assert.ok(await page.locator(".insight-row .title-airline").filter({ hasText: "fastjet" }).count());
+    assert.equal(await page.locator(".insight-row .title-airline").filter({ hasText: "Lufthansa" }).count(), 0);
     await page.locator(`[data-insight-signal="${signal.id}"]`).click();
     await page.locator("#quickLookBriefing").waitFor({ state: "visible" });
     assert.ok((await page.locator("#quickLookTitle").textContent()).includes(signal.competitor));

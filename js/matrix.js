@@ -51,7 +51,9 @@ function buildAirlinePattern(names) {
 function extractOperator(signal) {
   const text = cleanText(`${signal.headline || ""} ${signal.summary || ""}`);
   const dictionaryMatch = airlinePattern ? text.match(airlinePattern) : null;
-  if (dictionaryMatch && !/\bBytron Aviation(?: Systems)?\b/i.test(dictionaryMatch[0])) return canonicalOperator(dictionaryMatch[0]);
+  const isLufthansaSystems = dictionaryMatch?.[0].toLowerCase() === "lufthansa"
+    && /^\s+systems\b/i.test(text.slice(dictionaryMatch.index + dictionaryMatch[0].length));
+  if (dictionaryMatch && !isLufthansaSystems && !/\bBytron Aviation(?: Systems)?\b/i.test(dictionaryMatch[0])) return canonicalOperator(dictionaryMatch[0]);
   const fallback = text.match(/\b[A-Z][A-Za-z&.'-]+(?:\s+[A-Z][A-Za-z&.'-]+){0,2}\s+(?:Airways|Airlines|Air)\b/)?.[0];
   const isGenericIndustryTerm = /^(?:Digital|Commercial|Business|General|Civil) Aviation$/i.test(fallback || "");
   return fallback && !isGenericIndustryTerm && !/\bBytron Aviation(?: Systems)?\b/i.test(fallback) ? fallback : "N/A";

@@ -5005,7 +5005,7 @@
       "competitor": "Jeppesen",
       "date": "2026-08-27",
       "date_is_estimated": false,
-      "type": "customer_win",
+      "type": "messaging_shift",
       "priority": "high",
       "severity": 4,
       "confidence": 0.65,
@@ -5045,7 +5045,30 @@
         "title": "Jeppesen features ForeFlight Customer Success Manager in a career-focused AMA.",
         "summary": "Jeppesen published an AMA featuring Customer Success Manager Ricardo Sánchez-Galán discussing his professional career journey. This content is promotional and establishes no new product developments, customer wins, or functional updates."
       },
-      "ai_classification_status": "pending"
+      "analyst_type_review": {
+        "from": "customer_win",
+        "to": "messaging_shift",
+        "reason": "Career-focused Customer Success Manager AMA; no product change, new customer commitment, or deployment is announced.",
+        "reviewed_at": "2026-10-20T08:45:00+00:00",
+        "previous_review": null
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T08:39:41+00:00",
+        "source_sha256": "38f1c3f2ab46cb8e0472669a6255ab0c1fd2800889c3141c54ef90da5ecd8ea2",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "customer_win",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-8f8b8a22d8b5",
@@ -8917,7 +8940,7 @@
       "competitor": "Bytron Skybook",
       "date": "2026-04-07",
       "date_is_estimated": false,
-      "type": "customer_win",
+      "type": "messaging_shift",
       "priority": "high",
       "severity": 4,
       "confidence": 0.65,
@@ -8957,7 +8980,30 @@
         "title": "Bytron Skybook promotes Weight & Balance automation within its Skybook EFB.",
         "summary": "Bytron Skybook is promoting Weight & Balance capabilities within its Skybook EFB, highlighting automatic aircraft envelope application during sector selection. No concrete product development or contract change is established by this promotional messaging."
       },
-      "ai_classification_status": "pending"
+      "analyst_type_review": {
+        "from": "customer_win",
+        "to": "messaging_shift",
+        "reason": "Promotional description of existing Skybook Weight & Balance automation; no new feature release or customer commitment is stated.",
+        "reviewed_at": "2026-10-20T08:45:00+00:00",
+        "previous_review": null
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T08:39:05+00:00",
+        "source_sha256": "3de1e388cf654f6f6f2094506c3c7c97dbb384ec8460a063f32bdb377b06f568",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "customer_win",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-0f66921a6c90",

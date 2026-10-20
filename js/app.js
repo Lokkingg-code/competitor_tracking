@@ -134,7 +134,8 @@ const ADJACENT_PATTERNS = [
 let allSignals = [];
 let selectedId = null;
 let selectedMatrixIds = null;
-let activityChartSource = "all";
+let feedSort = "date";
+let activityChartSource = "linkedin";
 let savedCompetitiveInsights = null;
 
 const els = {
@@ -265,10 +266,24 @@ function filteredSignals() {
       ].join(" ").toLowerCase();
       return searchable.includes(search);
     })
-    .sort((a, b) => {
-      const focusDiff = FOCUS_ORDER[classifyProductFocus(a)] - FOCUS_ORDER[classifyProductFocus(b)];
-      if (focusDiff !== 0) return focusDiff;
-      return parseDate(b.date) - parseDate(a.date);
+    .sort((first, second) => {
+      if (feedSort === "competitor") {
+        return displayCompetitor(first.competitor).localeCompare(displayCompetitor(second.competitor))
+          || parseDate(second.date) - parseDate(first.date);
+      }
+      if (feedSort === "type") {
+        return (TYPE_LABELS[first.type] || first.type || "").localeCompare(TYPE_LABELS[second.type] || second.type || "")
+          || parseDate(second.date) - parseDate(first.date);
+      }
+      if (feedSort === "focus") {
+        const focusDiff = FOCUS_ORDER[classifyProductFocus(first)] - FOCUS_ORDER[classifyProductFocus(second)];
+        if (focusDiff !== 0) return focusDiff;
+      }
+      if (feedSort === "title") {
+        return displaySignalTitle(first).localeCompare(displaySignalTitle(second))
+          || parseDate(second.date) - parseDate(first.date);
+      }
+      return parseDate(second.date) - parseDate(first.date);
     });
 }
 
@@ -411,6 +426,7 @@ function extractOperator(signal) {
     const match = text.match(pattern);
     if (match) {
       const candidate = (match[1] || match[0]).replace(/\s+/g, " ").trim();
+      if (/^Lufthansa$/i.test(candidate) && /^\s+Systems\b/i.test(text.slice(match.index + match[0].length))) continue;
       if (/^(?:Digital|Commercial|Business|General|Civil) Aviation$/i.test(candidate)) continue;
       if (/\bBytron Aviation(?: Systems)?\b/i.test(candidate)) continue;
       return canonicalOperator(candidate);
@@ -599,33 +615,64 @@ function renderFeed(signals) {
     selectedId = signals[0].id;
   }
 
-  const rows = signals
-    .map((s) => {
-      const active = s.id === selectedId ? "active" : "";
-      const focus = classifyProductFocus(s);
-      const focusClass = focus === "eff" ? "focus-eff" : focus === "efb" ? "focus-efb" : "focus-other";
-      return `
-        <button class="signal-row ${active}" role="option" aria-selected="${s.id === selectedId}" data-id="${s.id}">
-          <span class="col col-date">${formatDate(s.date)}</span>
-          <span class="col col-competitor"><span class="competitor-tag ${competitorClass(displayCompetitor(s.competitor))}">${escapeHtml(displayCompetitor(s.competitor))}</span></span>
-          <span class="col col-type">${signalTypeMarkup(s)}</span>
-          <span class="col col-focus"><span class="chip ${focusClass}">${FOCUS_LABELS[focus] || focus}</span></span>
-          <span class="col col-title"><strong class="title-headline">${highlightTitle(s)}</strong></span>
-        </button>`;
-    })
-    .join("");
+  const renderSignalRow = (signal) => {
+    const active = signal.id === selectedId ? "active" : "";
+    const focus = classifyProductFocus(signal);
+    const focusClass = focus === "eff" ? "focus-eff" : focus === "efb" ? "focus-efb" : "focus-other";
+    return `
+      <button class="signal-row ${active}" role="option" aria-selected="${signal.id === selectedId}" data-id="${escapeAttr(signal.id)}" data-date="${escapeAttr(signal.date)}" data-competitor="${escapeAttr(displayCompetitor(signal.competitor))}" data-type="${escapeAttr(signal.type)}" data-focus="${focus}">
+        <span class="col col-date">${formatDate(signal.date)}</span>
+        <span class="col col-competitor"><span class="competitor-tag ${competitorClass(displayCompetitor(signal.competitor))}">${escapeHtml(displayCompetitor(signal.competitor))}</span></span>
+        <span class="col col-type">${signalTypeMarkup(signal)}</span>
+        <span class="col col-focus"><span class="chip ${focusClass}">${FOCUS_LABELS[focus] || focus}</span></span>
+        <span class="col col-title"><strong class="title-headline">${highlightTitle(signal)}</strong></span>
+      </button>`;
+  };
+  let rows;
+  if (feedSort === "competitor" || feedSort === "type") {
+    rows = "";
+    let previousGroup = null;
+    for (const signal of signals) {
+      const group = feedSort === "competitor"
+        ? displayCompetitor(signal.competitor)
+        : TYPE_LABELS[signal.type] || signal.type || "Unknown";
+      if (group !== previousGroup) {
+        rows += `<div class="feed-group-heading" role="presentation">${escapeHtml(group)}</div>`;
+        previousGroup = group;
+      }
+      rows += renderSignalRow(signal);
+    }
+  } else {
+    rows = signals.map(renderSignalRow).join("");
+  }
+
+  const sortOptions = [
+    ["date", "Date"],
+    ["competitor", "Competitor"],
+    ["type", "Signal type"],
+    ["focus", "Focus"],
+    ["title", "Title"],
+  ];
+  const headers = sortOptions.map(([sort, label]) => {
+    const selected = feedSort === sort;
+    const indicator = selected ? `<span class="feed-sort-indicator" aria-hidden="true">${sort === "date" ? "↓" : "↑"}</span>` : "";
+    return `<button type="button" class="feed-sort col col-${sort}${selected ? " is-active" : ""}" data-feed-sort="${sort}" aria-pressed="${selected}" title="Sort or group by ${escapeAttr(label)}">${label}${indicator}</button>`;
+  }).join("");
 
   els.signalFeed.innerHTML = `
     <div class="feed-table">
-      <div class="feed-header" aria-hidden="true">
-        <span class="col col-date">Date</span>
-        <span class="col col-competitor">Competitor</span>
-        <span class="col col-type">Signal type</span>
-        <span class="col col-focus">Focus</span>
-        <span class="col col-title">Title</span>
+      <div class="feed-header" role="toolbar" aria-label="Sort signal feed">
+        ${headers}
       </div>
       <div class="feed-body">${rows}</div>
     </div>`;
+
+  els.signalFeed.querySelectorAll("[data-feed-sort]").forEach((button) => {
+    button.addEventListener("click", () => {
+      feedSort = button.dataset.feedSort;
+      render();
+    });
+  });
 
   for (const btn of els.signalFeed.querySelectorAll(".signal-row")) {
     btn.addEventListener("click", () => {
@@ -1054,6 +1101,13 @@ function highlightInsightText(value) {
   let cursor = 0;
   for (const match of text.matchAll(pattern)) {
     result += escapeHtml(text.slice(cursor, match.index));
+    const isLufthansaSystems = match[0].toLowerCase() === "lufthansa"
+      && /^\s+systems\b/i.test(text.slice(match.index + match[0].length));
+    if (isLufthansaSystems) {
+      result += escapeHtml(match[0]);
+      cursor = match.index + match[0].length;
+      continue;
+    }
     const className = classByTerm.get(match[0].toLowerCase());
     result += `<mark class="${className}">${escapeHtml(match[0])}</mark>`;
     cursor = match.index + match[0].length;
