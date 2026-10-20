@@ -348,6 +348,7 @@ test("renders saved AI enrichment without calling the summary API again", async 
     signals: payload.signals.map((item) => item.id === signal.id ? {
       ...item,
       ai_brief: null,
+      ai_classification: null,
       analyst_type_review: { from: "customer_win", to: "messaging_shift", reason: "Interview, no new commitment" },
       analyst_product_focus_review: { from: "efb", to: "eff", reason: "Watchlist" },
       ai_enrichment: {
