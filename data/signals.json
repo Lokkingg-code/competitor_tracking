@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T09:25:37Z",
+  "generated_at": "2026-10-20T10:30:18Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -871,13 +871,28 @@
         "title": "Thales (Aviobook) signs five-year agreement with Royal Air Maroc for AvioBook Flight EFB platform.",
         "summary": "Royal Air Maroc has signed a five-year agreement with Thales to equip its pilots with the AvioBook Flight Electronic Flight Bag (EFB) platform. The deployment aims to streamline flight workflows, support fuel optimization, and improve coordination between flight crews and ground teams."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T10:32:36+00:00",
+        "source_sha256": "7b5bb34b52ad8268f6b174ff3d9312d5edd4ab10751d0057f45d227becbf59ff",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -1904,12 +1919,27 @@
         "title": "Lufthansa Systems promotes Lido mPilot usage at Finnair via customer interview.",
         "summary": "Lufthansa Systems promotes Lido mPilot through a customer interview with Finnair. The messaging focuses on existing navigation and weather features, and no new product release or contract change is established."
       },
-      "ai_classification_status": "pending",
       "analyst_type_review": {
         "from": "customer_win",
         "to": "messaging_shift",
         "reason": "Finnair is interviewed about existing Lido mPilot use; no new selection, contract, renewal, or implementation is established.",
         "reviewed_at": "2026-10-16T02:44:09+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T10:33:25+00:00",
+        "source_sha256": "f523805a96480ec66e20b389e52e069e7c41cda1c33abb1bc13c7fc370b35dc5",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -2006,7 +2036,7 @@
       "competitor": "Aviobook",
       "date": "2026-10-07",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "feature_change",
       "priority": "high",
       "severity": 4,
       "confidence": 0.65,
@@ -2046,7 +2076,23 @@
         "title": "Aviobook releases AvioBook 26.3 with customizable seat swap confirmation messages.",
         "summary": "Aviobook announces AvioBook 26.3, which introduces a customizable seat swap confirmation message for crew members to view before finalizing changes. The company is promoting a webinar on 27 October to demonstrate the suite's latest updates."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T10:33:48+00:00",
+        "source_sha256": "33768a7badcb94b82bd68638626513617d048fc90066aa3de7452c48ce73d705",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-fffdc0720d93",
@@ -2183,13 +2229,28 @@
         "title": "IFS showcases EFBOne at the Airline & Aerospace MRO & Flight Operations IT Conference.",
         "summary": "IFS is promoting its attendance at the Airline & Aerospace MRO & Flight Operations IT Conference in Bangkok on October 14–15. The company will showcase EFBOne at Booth 40, but no concrete product developments or customer wins are established."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T10:34:04+00:00",
+        "source_sha256": "e6778b35d6b1beff9250b18b07bd6569f21078602d731d806283fdbff1d867d6",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -10168,8 +10229,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T10:30:48+00:00",
+        "source_sha256": "fddce3adb23e6846640d91ee5841c5ad153f021098a1b876cd73daf0203de7ba",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes partnership milestone involving a GCC.",
+        "summary": "The messaging highlights a milestone reached in a partnership involving a GCC. No concrete details regarding the specific nature of the milestone or the partner are established."
+      }
     },
     {
       "id": "byt-2025-12-23-integrations-story",
