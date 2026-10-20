@@ -54,6 +54,13 @@ class CompetitiveInsightTests(unittest.TestCase):
         ids = {signal_id for event in context["events"] for signal_id in event["signal_ids"]}
         self.assertEqual(ids, {"news-linkedin", "scraped-launch"})
 
+    def test_context_keeps_configured_competitors_with_no_recent_signals(self):
+        context = INSIGHTS.build_analysis_context(self.signals, date(2026, 10, 16), ["Others"])
+        others = next(row for row in context["activity_windows"][0]["competitors"] if row["competitor"] == "Others")
+        self.assertEqual(others["captured_signals"], 0)
+        self.assertEqual(others["evidence_ids"], [])
+        self.assertIn("Others", context["competitors"])
+
     def test_generation_validates_citations_and_builds_snapshot(self):
         model_result = {
             "lead": "IFS has a recent customer adoption signal.",

@@ -39,7 +39,11 @@ def normalized_title(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
 
 
-def build_analysis_context(signals: list[dict], as_of: date | None = None) -> dict:
+def build_analysis_context(
+    signals: list[dict],
+    as_of: date | None = None,
+    competitor_names: list[str] | None = None,
+) -> dict:
     as_of = as_of or datetime.now(timezone.utc).date()
     start = as_of - timedelta(days=364)
     dated_signals = [
@@ -53,7 +57,10 @@ def build_analysis_context(signals: list[dict], as_of: date | None = None) -> di
         months.append(month_cursor.strftime("%Y-%m"))
         month_cursor = date(month_cursor.year + (month_cursor.month == 12), month_cursor.month % 12 + 1, 1)
 
-    competitors = sorted({str(signal.get("competitor") or "Unknown") for signal, _ in dated_signals})
+    competitors = sorted(
+        {str(signal.get("competitor") or "Unknown") for signal, _ in dated_signals}
+        | {str(name) for name in (competitor_names or []) if str(name).strip()}
+    )
     activity = []
     for competitor in competitors:
         monthly = []
@@ -273,8 +280,13 @@ def validate_insight_result(result: dict, context: dict) -> dict:
     return {"lead": lead.strip(), "insights": validated, "activity_summaries": validated_summaries}
 
 
-def generate_insights(signals: list[dict], api_key: str, as_of: date | None = None) -> dict:
-    context = build_analysis_context(signals, as_of)
+def generate_insights(
+    signals: list[dict],
+    api_key: str,
+    as_of: date | None = None,
+    competitor_names: list[str] | None = None,
+) -> dict:
+    context = build_analysis_context(signals, as_of, competitor_names)
 
     def request_result(prompt: str) -> dict:
         response = gemini_request(api_key, INSIGHT_MODEL_ID, {
@@ -346,7 +358,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     try:
         payload = json.loads(args.signals.read_text(encoding="utf-8"))
-        snapshot = generate_insights(payload.get("signals", []), api_key)
+        snapshot = generate_insights(
+            payload.get("signals", []),
+            api_key,
+            competitor_names=payload.get("competitors", []),
+        )
     except (OSError, json.JSONDecodeError, EnrichmentError, ValueError) as error:
         print(f"AI insight refresh skipped; existing snapshot preserved: {error}", file=sys.stderr)
         return 0
