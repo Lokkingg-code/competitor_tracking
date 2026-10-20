@@ -242,6 +242,12 @@ test("does not label generic aviation phrases as airlines or operators", async (
       expected: "fastjet",
     },
     {
+      id: "corsair",
+      headline: "Corsair adopts Skywise Mission+ FLIGHT, a first in France",
+      summary: "Corsair adopted the Mission+ FLIGHT configuration.",
+      expected: "Corsair",
+    },
+    {
       id: "vendor-not-airline",
       headline: "Lufthansa Systems promotes Lido mPilot",
       summary: "Lufthansa Systems discusses its flight operations software.",
@@ -280,6 +286,9 @@ test("does not label generic aviation phrases as airlines or operators", async (
       const card = page.locator(".brief-card").filter({ hasText: "Airline / operator" });
       await card.waitFor();
       assert.equal(await card.locator("p").textContent(), item.expected);
+      if (item.id === "corsair") {
+        assert.equal(await page.locator(`.signal-row[data-id="${item.id}"] .title-airline`).first().textContent(), "Corsair");
+      }
       await page.close();
     }
   } finally {
