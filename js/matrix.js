@@ -10,6 +10,10 @@ const els = {
 let signals = [];
 let airlinePattern;
 const PREFERRED_OPERATOR_NAMES = ["Pan American World Airways", "Pan Am", "UrbanLink Air Mobility"];
+const NON_OPERATOR_NAMES = new Set([
+  "business aviation", "civil aviation", "commercial aviation", "digital aviation", "general aviation",
+  "avia solutions group", "ge aerospace",
+]);
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -38,7 +42,7 @@ function competitorClass(name) {
 
 function buildAirlinePattern(names) {
   const terms = [...new Set(names.filter(Boolean))]
-    .filter((name) => name.trim().length >= 3 && name.trim().toLowerCase() !== "via")
+    .filter((name) => name.trim().length >= 3 && name.trim().toLowerCase() !== "via" && !NON_OPERATOR_NAMES.has(name.trim().toLowerCase()))
     .sort((a, b) => b.length - a.length)
     .map((name) => name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   return new RegExp(`\\b(?:${terms.join("|")})\\b`, "i");
@@ -48,7 +52,7 @@ function extractOperator(signal) {
   const text = cleanText(`${signal.headline || ""} ${signal.summary || ""}`);
   const dictionaryMatch = airlinePattern ? text.match(airlinePattern) : null;
   if (dictionaryMatch && !/\bBytron Aviation(?: Systems)?\b/i.test(dictionaryMatch[0])) return canonicalOperator(dictionaryMatch[0]);
-  const fallback = text.match(/\b[A-Z][A-Za-z&.'-]+(?:\s+[A-Z][A-Za-z&.'-]+){0,3}\s+(?:Airways|Airlines|Air|Aviation)\b/)?.[0];
+  const fallback = text.match(/\b[A-Z][A-Za-z&.'-]+(?:\s+[A-Z][A-Za-z&.'-]+){0,2}\s+(?:Airways|Airlines|Air)\b/)?.[0];
   const isGenericIndustryTerm = /^(?:Digital|Commercial|Business|General|Civil) Aviation$/i.test(fallback || "");
   return fallback && !isGenericIndustryTerm && !/\bBytron Aviation(?: Systems)?\b/i.test(fallback) ? fallback : "N/A";
 }

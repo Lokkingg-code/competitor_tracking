@@ -375,13 +375,17 @@ const AIRLINE_DICTIONARY = [
   "United Airlines",
   "Delta Air Lines",
 ];
+const NON_OPERATOR_NAMES = new Set([
+  "business aviation", "civil aviation", "commercial aviation", "digital aviation", "general aviation",
+  "avia solutions group", "ge aerospace",
+]);
 
 let airlineDictionaryPattern = buildAirlineDictionaryPattern(AIRLINE_DICTIONARY);
 
 function buildAirlineDictionaryPattern(names) {
   const terms = [...new Set(names.filter(Boolean))]
     .map((name) => name.trim())
-    .filter((name) => name.length >= 3 && name.toLowerCase() !== "via" && !/^\\n$/i.test(name))
+    .filter((name) => name.length >= 3 && name.toLowerCase() !== "via" && !NON_OPERATOR_NAMES.has(name.toLowerCase()) && !/^\\n$/i.test(name))
     .sort((a, b) => b.length - a.length)
     .map((name) => name.replace(/[.*+?^${}()|[\\]\\]/g, "\\\\$&"));
   return new RegExp(`\\b(?:${terms.join("|")})\\b`, "i");
@@ -390,7 +394,7 @@ function buildAirlineDictionaryPattern(names) {
 const OPERATOR_PATTERNS = [
   airlineDictionaryPattern,
   /\b(?:customer|represented by|selected by)\s*,?\s*([A-Z][A-Za-z&.'-]+(?:\s+[A-Z][A-Za-z&.'-]+){0,3})(?=,|\s+at\b|\s+has\s+selected\b)/,
-  /\b[A-Z][A-Za-z&.'-]+(?:\s+[A-Z][A-Za-z&.'-]+){0,3}\s+(?:Airways|Airlines|Air|Aviation)\b/,
+  /\b[A-Z][A-Za-z&.'-]+(?:\s+[A-Z][A-Za-z&.'-]+){0,2}\s+(?:Airways|Airlines|Air)\b/,
 ];
 
 function extractOperator(signal) {
@@ -531,22 +535,26 @@ function renderSavedAIAnalysis(signal) {
   }
 
   const currentType = TYPE_LABELS[signal.type] || signal.type || "Unknown";
-  const suggestedType = TYPE_LABELS[analysis.suggested_type] || analysis.suggested_type;
+  const typeAnalysis = signal.ai_classification?.suggested_type ? signal.ai_classification : analysis;
+  const focusAnalysis = signal.ai_classification?.suggested_product_focus ? signal.ai_classification : analysis;
+  const suggestedType = TYPE_LABELS[typeAnalysis.suggested_type] || typeAnalysis.suggested_type;
   const currentFocus = FOCUS_LABELS[signal.product_focus] || signal.product_focus || "Unknown";
-  const suggestedFocus = FOCUS_LABELS[analysis.suggested_product_focus] || analysis.suggested_product_focus;
+  const suggestedFocus = FOCUS_LABELS[focusAnalysis.suggested_product_focus] || focusAnalysis.suggested_product_focus;
+  const typeConfidence = Number(typeAnalysis.type_confidence || 0);
+  const focusConfidence = Number(focusAnalysis.focus_confidence || 0);
   const typeStatus = signal.analyst_type_review
     ? `Reviewed from ${TYPE_LABELS[signal.analyst_type_review.from] || signal.analyst_type_review.from || "previous type"}`
-    : analysis.type_auto_applied
-    ? `AI updated from ${TYPE_LABELS[analysis.original_type] || analysis.original_type || "Unknown"}`
-    : analysis.type_matches_existing
+    : typeAnalysis.type_auto_applied
+    ? `AI updated from ${TYPE_LABELS[typeAnalysis.original_type] || typeAnalysis.original_type || "Unknown"}`
+    : typeAnalysis.type_matches_existing
       ? "Matches current label"
       : `Review suggestion · current: ${currentType}`;
   const reviewedFocus = signal.analyst_product_focus_review;
   const focusStatus = reviewedFocus
     ? `Reviewed from ${FOCUS_LABELS[reviewedFocus.from] || reviewedFocus.from || "Unknown"}`
-    : analysis.focus_auto_applied
-    ? `AI updated from ${FOCUS_LABELS[analysis.original_product_focus] || analysis.original_product_focus || "Unknown"}`
-    : analysis.focus_matches_existing
+    : focusAnalysis.focus_auto_applied
+    ? `AI updated from ${FOCUS_LABELS[focusAnalysis.original_product_focus] || focusAnalysis.original_product_focus || "Unknown"}`
+    : focusAnalysis.focus_matches_existing
       ? "Matches current label"
       : `Review suggestion · current: ${currentFocus}`;
   const rates = analysis.catalog_pricing;
@@ -559,8 +567,8 @@ function renderSavedAIAnalysis(signal) {
   return `
     <div class="ai-analysis-details">
       <p><strong>Announcement tone:</strong> ${escapeHtml(analysis.announcement_tone)}</p>
-      <p><strong>Signal type:</strong> ${escapeHtml(suggestedType)} · ${Math.round(analysis.type_confidence * 100)}% confidence · ${escapeHtml(typeStatus)}</p>
-      <p><strong>Product focus:</strong> ${escapeHtml(suggestedFocus)} · ${Math.round(analysis.focus_confidence * 100)}% confidence · ${escapeHtml(focusStatus)}</p>
+      <p><strong>Signal type:</strong> ${escapeHtml(suggestedType)} · ${Math.round(typeConfidence * 100)}% confidence · ${escapeHtml(typeStatus)}</p>
+      <p><strong>Product focus:</strong> ${escapeHtml(suggestedFocus)} · ${Math.round(focusConfidence * 100)}% confidence · ${escapeHtml(focusStatus)}</p>
       <p><strong>Competitive insight:</strong> ${escapeHtml(analysis.competitive_insight)}</p>
       <p><strong>Caveat:</strong> ${escapeHtml(analysis.caveat || "No additional caveat provided.")}</p>
     </div>

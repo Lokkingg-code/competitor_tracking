@@ -163,6 +163,108 @@ test("keeps equal-count competitor markers visible and independently clickable",
   }
 });
 
+test("does not label generic aviation phrases as airlines or operators", async () => {
+  const cases = [
+    {
+      id: "generic-commercial-aviation",
+      headline: "ForeFlight Airflow Agents Debut For Commercial Aviation",
+      summary: "Jeppesen introduces agents for commercial aviation.",
+      expected: "N/A",
+    },
+    {
+      id: "codic-aviation-company",
+      headline: "Exciting times at Codic! We launched Codic Aviation",
+      summary: "Codic has worked with crew planning and Jeppesen systems.",
+      expected: "N/A",
+    },
+    {
+      id: "known-airline",
+      headline: "fastjet selects EFBOne",
+      summary: "fastjet selected the EFB platform.",
+      expected: "fastjet",
+    },
+  ];
+  const operatorPayload = {
+    generated_at: payload.generated_at,
+    lookback_days: 365,
+    signals: cases.map((item) => ({
+      ...item,
+      competitor: "Jeppesen",
+      date: "2026-10-14",
+      type: "messaging_shift",
+      product_focus: "other",
+      source_channel: "linkedin",
+      sources: [],
+    })),
+  };
+  const browser = await chromium.launch({ headless: true });
+  try {
+    for (const item of cases) {
+      const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+      await page.route("**/data/signals.json", (route) => route.fulfill({ json: operatorPayload }));
+      await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: { status: "awaiting_generation", insights: [] } }));
+      await page.addInitScript((signalId) => {
+        sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify([signalId]));
+      }, item.id);
+      await page.goto(baseUrl);
+      const card = page.locator(".brief-card").filter({ hasText: "Airline / operator" });
+      await card.waitFor();
+      assert.equal(await card.locator("p").textContent(), item.expected);
+      await page.close();
+    }
+  } finally {
+    await browser.close();
+  }
+});
+
+test("shows the Codic AI evidence preview without inventing an airline operator", async () => {
+  const signal = payload.signals.find((item) => item.id === "cap-0e8e8ea77a5e");
+  assert.ok(signal?.ai_brief?.summary);
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: payload }));
+    await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: { status: "awaiting_generation", insights: [] } }));
+    await page.addInitScript((signalId) => {
+      sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify([signalId]));
+    }, signal.id);
+    await page.goto(baseUrl);
+    await page.locator(".briefing-summary-text").waitFor();
+    assert.equal(await page.locator(".briefing-summary-label").textContent(), "AI evidence summary");
+    assert.equal(await page.locator(".briefing-summary-text").textContent(), signal.ai_brief.summary);
+    const operatorCard = page.locator(".brief-grid .brief-card").filter({ hasText: "Airline / operator" });
+    assert.equal(await operatorCard.locator("p").textContent(), "N/A");
+  } finally {
+    await browser.close();
+  }
+});
+
+test("uses current AI classification instead of an older enrichment type suggestion", async () => {
+  const signal = payload.signals[0];
+  const reviewedPayload = {
+    ...payload,
+    signals: [{
+      ...signal,
+      type: "messaging_shift",
+      analyst_type_review: { from: "implementation", to: "messaging_shift", reason: "Existing customer case study; no new deployment announced." },
+      ai_enrichment: { suggested_type: "implementation", type_confidence: 0.85, type_auto_applied: true, original_type: "messaging_shift", suggested_product_focus: "efb", focus_confidence: 0.7 },
+      ai_classification: { suggested_type: "messaging_shift", type_confidence: 0.9, suggested_product_focus: "eff", focus_confidence: 1 },
+    }],
+  };
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage();
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: reviewedPayload }));
+    await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: { status: "awaiting_generation", insights: [] } }));
+    await page.addInitScript((signalId) => sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify([signalId])), signal.id);
+    await page.goto(baseUrl);
+    assert.ok(await page.locator(".ai-analysis-details").getByText(/Signal type: Messaging shift · 90% confidence · Reviewed from Implementation/).count());
+    assert.ok(await page.locator(".ai-analysis-details").getByText(/Product focus: EFF · 100% confidence/).count());
+  } finally {
+    await browser.close();
+  }
+});
+
 test("renders dataset-level AI findings with signal evidence links", async () => {
   const signal = payload.signals[0];
   const insightPayload = {

@@ -702,7 +702,7 @@
       "competitor": "Bytron Skybook",
       "date": "2026-10-09",
       "date_is_estimated": false,
-      "type": "implementation",
+      "type": "messaging_shift",
       "priority": "high",
       "severity": 4,
       "confidence": 0.65,
@@ -737,15 +737,15 @@
         "schema_version": 2,
         "enriched_at": "2026-10-14T08:05:52+00:00",
         "source_sha256": "6a18cc2b397cd0a753146e50397cf3eed86466f50826eadeaad4fe34ffff45ee",
-        "headline_summary": "Bytron Skybook adopts EFB platform for Texel Air to support Bahrain and New Zealand operations.",
-        "summary": "Bytron Skybook is presented as an EFB platform solution. Texel Air selected it to meet operational requirements across Bahrain and New Zealand routes.",
+        "headline_summary": "Bytron Skybook presents Texel Air’s existing two-AOC EFB use as a customer case study.",
+        "summary": "Bytron Skybook describes Texel Air’s existing use of one EFB platform across its Bahrain and New Zealand AOCs. The post promotes a case study and does not announce a new selection or go-live.",
         "announcement_tone": "Neutral",
-        "competitive_insight": "Bytron Skybook's adoption by Texel Air demonstrates demand for integrated EFB solutions across diverse international routes.",
-        "caveat": "Evidence confirms Bytron Skybook and Texel Air but lacks detailed technical specifications or broader market impact.",
+        "competitive_insight": "The post uses Texel Air’s existing two-AOC Skybook EFB use as a customer reference, not as a newly announced deployment.",
+        "caveat": "The captured post links to a full case study but does not state when implementation occurred or announce a new customer commitment.",
         "customer_airline": "Texel Air",
-        "customer_relationship": "selected",
+        "customer_relationship": "mentioned",
         "customer_segment": "unknown",
-        "customer_confidence": 0.9,
+        "customer_confidence": 0.95,
         "customer_segment_confidence": 0.0,
         "suggested_type": "implementation",
         "type_confidence": 0.85,
@@ -770,13 +770,49 @@
         "title": "Bytron Skybook provides a single EFB platform for Texel Air’s operations in Bahrain and New Zealand.",
         "summary": "Texel Air uses the Bytron Skybook EFB platform to manage operational requirements for two separate AOCs in Bahrain and New Zealand."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "analyst_type_review": {
+        "from": "implementation",
+        "to": "messaging_shift",
+        "reason": "The LinkedIn post is a customer case study about an existing two-AOC Skybook EFB relationship; it announces no new selection, deployment, or go-live.",
+        "reviewed_at": "2026-10-20T06:48:16+00:00"
+      },
+      "analyst_customer_relationship_review": {
+        "from": "selected",
+        "to": "mentioned",
+        "reason": "The post describes existing Texel Air use and links to a case study; it does not report a new commitment.",
+        "reviewed_at": "2026-10-20T06:48:16+00:00"
+      },
+      "analyst_ai_review": {
+        "reviewed_at": "2026-10-20T06:48:16+00:00",
+        "reason": "Gemma independently suggested messaging_shift (0.90 confidence) from the captured evidence.",
+        "previous_customer_relationship": "selected",
+        "previous_headline_summary": "Bytron Skybook adopts EFB platform for Texel Air to support Bahrain and New Zealand operations.",
+        "previous_summary": "Bytron Skybook is presented as an EFB platform solution. Texel Air selected it to meet operational requirements across Bahrain and New Zealand routes.",
+        "previous_competitive_insight": "Bytron Skybook's adoption by Texel Air demonstrates demand for integrated EFB solutions across diverse international routes."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T06:48:16+00:00",
+        "source_sha256": "681b058ad579724855f61310f57c8dafa51b74569b9250ae0e185ec4e56e7363",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "implementation",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -10054,8 +10090,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemini-3.5-flash-lite",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T06:44:12+00:00",
+        "source_sha256": "581b1a24b60693e2d4fe58dd93b7d6dfcb95795b0213d73e48ff891d661a7998",
+        "evidence_scope": "captured_preview_only",
+        "title": "Codic launches Codic Aviation following years of work with crew planning and Jeppesen systems.",
+        "summary": "Codic announced the launch of Codic Aviation, building on prior work involving crew planning and Jeppesen systems. The text contains no updates regarding Jeppesen itself."
+      }
     },
     {
       "id": "cap-190aa6c23838",
