@@ -117,8 +117,8 @@ jobs:
 
       - name: Commit refreshed dashboard data
         run: |
-          git config user.name "${{ vars.REFRESH_COMMIT_AUTHOR_NAME || 'ansonkanhanglok' }}"
-          git config user.email "${{ vars.REFRESH_COMMIT_AUTHOR_EMAIL || 'anson_kan@cathaypacific.com' }}"
+          git config user.name "competitor-tracking-engine-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/signals.json data/signals.archive.json data/capture-health.json data/competitive-insights.json
           git stash push --keep-index --include-untracked -m "Temporary capture outputs"
           git commit -m "Refresh competitor signals" || exit 0
