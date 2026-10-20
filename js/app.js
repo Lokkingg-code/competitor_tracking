@@ -135,6 +135,7 @@ let allSignals = [];
 let selectedId = null;
 let selectedMatrixIds = null;
 let activityChartSource = "all";
+let savedCompetitiveInsights = null;
 
 const els = {
   competitorFilter: document.getElementById("competitorFilter"),
@@ -379,6 +380,11 @@ const NON_OPERATOR_NAMES = new Set([
   "business aviation", "civil aviation", "commercial aviation", "digital aviation", "general aviation",
   "avia solutions group", "ge aerospace",
 ]);
+const AI_HIGHLIGHT_TERMS = [
+  "artificial intelligence", "artificial intelligent", "machine learning",
+  "generative AI", "agentic AI", "AI agents", "AI-powered", "AI",
+];
+let airlineHighlightNames = AIRLINE_DICTIONARY.filter((name) => !NON_OPERATOR_NAMES.has(name.toLowerCase()));
 
 let airlineDictionaryPattern = buildAirlineDictionaryPattern(AIRLINE_DICTIONARY);
 
@@ -423,7 +429,10 @@ async function loadAirlineDictionary() {
   if (!res.ok) throw new Error(`Failed to load airlines.json (${res.status})`);
   const payload = await res.json();
   const publicNames = (payload.airlines || []).flatMap((airline) => [airline.name, airline.alias]);
-  airlineDictionaryPattern = buildAirlineDictionaryPattern([...AIRLINE_DICTIONARY, ...publicNames]);
+  airlineHighlightNames = [...new Set([...AIRLINE_DICTIONARY, ...publicNames])]
+    .map((name) => String(name || "").trim())
+    .filter((name) => name.length >= 3 && name.toLowerCase() !== "via" && name !== "\\N" && name !== "N/A" && !NON_OPERATOR_NAMES.has(name.toLowerCase()));
+  airlineDictionaryPattern = buildAirlineDictionaryPattern(airlineHighlightNames);
   OPERATOR_PATTERNS[0] = airlineDictionaryPattern;
 }
 
@@ -902,9 +911,11 @@ function openQuickLook(signals, title, initialId = null) {
 }
 
 document.getElementById("quickLookClose").addEventListener("click", () => document.getElementById("quickLook").close());
+document.getElementById("activityPeriodFilter")?.addEventListener("change", () => renderActivitySummaries(savedCompetitiveInsights));
 
 function renderActivitySummaries(snapshot) {
   const container = document.getElementById("activitySummary");
+  const periodMeta = document.getElementById("activityPeriod");
   if (!container) return;
   const summaries = snapshot?.activity_summaries;
   if (snapshot?.status !== "ready" || !Array.isArray(summaries) || !summaries.length) {
@@ -916,24 +927,27 @@ function renderActivitySummaries(snapshot) {
     ["quarterly", "Quarterly · 90 days"],
     ["yearly", "Yearly · 12 months"],
   ];
-  container.innerHTML = `<div class="activity-summary-grid" role="table" aria-label="AI movement summaries by competitor and period">
-    <div class="activity-summary-header" role="row"><div role="columnheader">Competitor</div>${periods.map(([, label]) => `<div role="columnheader">${label}</div>`).join("")}</div>
+  const selectedPeriod = document.getElementById("activityPeriodFilter")?.value || "monthly";
+  const selectedLabel = periods.find(([period]) => period === selectedPeriod)?.[1] || periods[0][1];
+  if (periodMeta) periodMeta.textContent = `${selectedLabel} · AI main movement with broader history`;
+  container.innerHTML = `<div class="activity-summary-grid" role="table" aria-label="${escapeAttr(selectedLabel)} AI movement summaries by competitor">
+    <div class="activity-summary-header" role="row"><div role="columnheader">Competitor</div><div role="columnheader">${selectedLabel} main movement</div><div role="columnheader">Broader trend · 12 months</div><div role="columnheader">Evidence</div></div>
     ${summaries.map((row) => `<div class="activity-summary-row" role="row">
       <div class="activity-summary-competitor" role="rowheader"><span class="competitor-tag ${competitorClass(row.competitor)}">${escapeHtml(row.competitor)}</span></div>
-      ${periods.map(([period, label]) => {
-        const summary = row[period] || {};
+      ${(() => {
+        const summary = row[selectedPeriod] || {};
         const citations = Array.isArray(summary.evidence_ids) ? summary.evidence_ids : [];
         const contextCitations = Array.isArray(summary.context_evidence_ids) ? summary.context_evidence_ids : [];
-        const evidenceButton = (ids, label) => ids.length
-          ? `<button type="button" class="activity-summary-evidence" data-activity-competitor="${escapeAttr(row.competitor)}" data-activity-period="${period}" data-activity-evidence="${escapeAttr(JSON.stringify(ids))}">${label} · ${ids.length}</button>`
+        const evidenceButton = (ids, scope, label) => ids.length
+          ? `<button type="button" class="activity-summary-evidence" data-activity-competitor="${escapeAttr(row.competitor)}" data-activity-period="${selectedPeriod}" data-activity-scope="${scope}" data-activity-evidence="${escapeAttr(JSON.stringify(ids))}">${label} · ${ids.length}</button>`
           : "";
-        return `<div class="activity-summary-cell" role="cell" aria-label="${escapeAttr(row.competitor)} ${label}">
-          <p class="activity-summary-movement">${escapeHtml(summary.main_movement || "No summary available for this period.")}</p>
-          ${summary.trend_context ? `<p class="activity-summary-context">${escapeHtml(summary.trend_context)}</p>` : ""}
+        return `<div class="activity-summary-cell" role="cell">
+          <p class="activity-summary-movement">${highlightInsightText(summary.main_movement || "No summary available for this period.")}</p>
           <p class="activity-summary-count muted">${Number(summary.captured_signals || 0)} captured · ${Number(summary.linkedin_captures || 0)} LinkedIn</p>
-          <div class="activity-summary-evidence-list">${evidenceButton(citations, "This period")}${evidenceButton(contextCitations, "Broader context")}</div>
-        </div>`;
-      }).join("")}
+        </div>
+        <div class="activity-summary-cell activity-summary-trend" role="cell"><p class="activity-summary-context">${highlightInsightText(summary.trend_context || "No broader trend context available.")}</p></div>
+        <div class="activity-summary-cell" role="cell"><div class="activity-summary-evidence-list">${evidenceButton(citations, "period", "This period")}${evidenceButton(contextCitations, "context", "Broader context")}</div></div>`;
+      })()}
     </div>`).join("")}
   </div>`;
   container.querySelectorAll("[data-activity-evidence]").forEach((button) => {
@@ -941,7 +955,7 @@ function renderActivitySummaries(snapshot) {
       const ids = JSON.parse(button.dataset.activityEvidence);
       const signals = ids.map((signalId) => allSignals.find((signal) => signal.id === signalId)).filter(Boolean);
       if (signals.length) {
-        const scope = button.textContent.startsWith("Broader context") ? "broader context" : button.dataset.activityPeriod;
+        const scope = button.dataset.activityScope === "context" ? "broader context" : button.dataset.activityPeriod;
         openQuickLook(signals, `${button.dataset.activityCompetitor} · ${scope}`);
       }
     });
@@ -953,6 +967,8 @@ function renderCompetitiveInsights(snapshot) {
   const lead = document.getElementById("insightLead");
   const rows = document.getElementById("insightRows");
   const meta = document.getElementById("insightMeta");
+  savedCompetitiveInsights = snapshot?.status === "ready" ? snapshot : null;
+  savedCompetitiveInsights = snapshot?.status === "ready" ? snapshot : null;
   if (snapshot?.status !== "ready" || !Array.isArray(snapshot.insights)) {
     status.textContent = "No saved synthesis yet. It will appear after a successful data refresh.";
     renderActivitySummaries(null);
@@ -961,7 +977,7 @@ function renderCompetitiveInsights(snapshot) {
 
   status.hidden = true;
   lead.hidden = false;
-  lead.textContent = snapshot.lead;
+  lead.innerHTML = highlightInsightText(snapshot.lead);
   const generated = formatTimestamp(snapshot.generated_at);
   meta.textContent = `${snapshot.window_start} to ${snapshot.window_end} · ${snapshot.source_signal_count} captured signals · Updated ${generated}`;
   rows.innerHTML = snapshot.insights.map((insight) => {
@@ -972,10 +988,10 @@ function renderCompetitiveInsights(snapshot) {
     }).join("");
     return `<article class="insight-row">
       <p class="insight-category">${escapeHtml(String(insight.category || "Pattern").replaceAll("_", " "))}</p>
-      <h3>${escapeHtml(insight.title)}</h3>
-      <p>${escapeHtml(insight.finding)}</p>
-      ${insight.aviation_context ? `<p class="insight-context">${escapeHtml(insight.aviation_context)}</p>` : ""}
-      ${insight.caveat ? `<p class="insight-caveat muted">${escapeHtml(insight.caveat)}</p>` : ""}
+      <h3>${highlightInsightText(insight.title)}</h3>
+      <p>${highlightInsightText(insight.finding)}</p>
+      ${insight.aviation_context ? `<p class="insight-context">${highlightInsightText(insight.aviation_context)}</p>` : ""}
+      ${insight.caveat ? `<p class="insight-caveat muted">${highlightInsightText(insight.caveat)}</p>` : ""}
       <div class="insight-evidence-list" aria-label="Evidence">${citations}</div>
     </article>`;
   }).join("");
@@ -1018,6 +1034,29 @@ function escapeHtml(value) {
 
 function escapeAttr(value) {
   return escapeHtml(value).replaceAll("'", "&#39;");
+}
+
+function highlightInsightText(value) {
+  const text = String(value ?? "");
+  const terms = [
+    ...airlineHighlightNames.map((term) => ({ term, className: "title-airline" })),
+    ...AI_HIGHLIGHT_TERMS.map((term) => ({ term, className: "title-ai" })),
+  ]
+    .filter(({ term }, index, all) => all.findIndex((entry) => entry.term.toLowerCase() === term.toLowerCase()) === index)
+    .sort((first, second) => second.term.length - first.term.length);
+  if (!terms.length) return escapeHtml(text);
+  const classByTerm = new Map(terms.map(({ term, className }) => [term.toLowerCase(), className]));
+  const escapedTerms = terms.map(({ term }) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = new RegExp(`\\b(?:${escapedTerms.join("|")})\\b`, "gi");
+  let result = "";
+  let cursor = 0;
+  for (const match of text.matchAll(pattern)) {
+    result += escapeHtml(text.slice(cursor, match.index));
+    const className = classByTerm.get(match[0].toLowerCase());
+    result += `<mark class="${className}">${escapeHtml(match[0])}</mark>`;
+    cursor = match.index + match[0].length;
+  }
+  return result + escapeHtml(text.slice(cursor));
 }
 
 async function boot() {

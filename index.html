@@ -103,7 +103,15 @@
 
     <section class="activity-overview" aria-labelledby="activityHeading">
       <div class="activity-heading">
-        <div><h2 id="activityHeading">At a Glance</h2><p class="muted">AI main movement by competitor across three rolling windows</p></div>
+        <div><h2 id="activityHeading">At a Glance</h2><p id="activityPeriod" class="muted">AI main movement with broader trend context</p></div>
+        <label class="control activity-period-control">
+          <span>Summary window</span>
+          <select id="activityPeriodFilter">
+            <option value="monthly" selected>Monthly · 30 days</option>
+            <option value="quarterly">Quarterly · 90 days</option>
+            <option value="yearly">Yearly · 12 months</option>
+          </select>
+        </label>
       </div>
       <div class="activity-summary-wrap">
         <div id="activitySummary" aria-live="polite"></div>
@@ -127,6 +135,6 @@
     </footer>
   </div>
 
-  <script src="js/app.js?v=ai-summary12" type="module"></script>
+  <script src="js/app.js?v=ai-summary13" type="module"></script>
 </body>
 </html>

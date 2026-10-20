@@ -12,13 +12,15 @@ const activitySummarySnapshot = {
   activity_summaries: payload.competitors.map((competitor) => {
     const signal = payload.signals.find((item) => item.competitor === competitor);
     const evidenceIds = signal ? [signal.id] : [];
-    const summary = {
-      main_movement: `${competitor} activity for this period.`,
+    const summary = (period) => ({
+      main_movement: `${competitor} ${period} AI movement includes AirAsia.`,
+      trend_context: `${competitor} broader Artificial Intelligence and fastjet activity.`,
       evidence_ids: evidenceIds,
+      context_evidence_ids: evidenceIds,
       captured_signals: evidenceIds.length,
       linkedin_captures: evidenceIds.length,
-    };
-    return { competitor, monthly: summary, quarterly: summary, yearly: summary };
+    });
+    return { competitor, monthly: summary("monthly"), quarterly: summary("quarterly"), yearly: summary("yearly") };
   }),
 };
 
@@ -39,8 +41,10 @@ test("overview and activity quick look remain independent of feed filters", asyn
       });
       await page.goto(baseUrl);
       await page.waitForSelector(".activity-summary-row");
+      assert.equal(await page.locator("#activityPeriodFilter").inputValue(), "monthly");
+      assert.deepEqual(await page.locator("#activityPeriodFilter option").evaluateAll((options) => options.map((option) => option.textContent)), ["Monthly · 30 days", "Quarterly · 90 days", "Yearly · 12 months"]);
       assert.equal(await page.locator("#activityWindow").count(), 0);
-      assert.deepEqual(await page.locator(".activity-summary-header [role='columnheader']").allTextContents(), ["Competitor", "Monthly · 30 days", "Quarterly · 90 days", "Yearly · 12 months"]);
+      assert.deepEqual(await page.locator(".activity-summary-header [role='columnheader']").allTextContents(), ["Competitor", "Monthly · 30 days main movement", "Broader trend · 12 months", "Evidence"]);
       assert.equal(await page.locator("#windowFilter").count(), 0);
       assert.equal(await page.locator("#focusFilter").count(), 0);
       assert.equal(await page.locator("#metrics").count(), 0);
@@ -52,6 +56,15 @@ test("overview and activity quick look remain independent of feed filters", asyn
       assert.equal(await page.locator("#insightsHeading").textContent(), "Competitive Intelligence");
       assert.equal(await page.locator(".insight-model-label").count(), 0);
       assert.equal(await page.locator(".activity-summary-row").count(), payload.competitors.length);
+      const firstMovement = page.locator(".activity-summary-movement").first();
+      assert.match(await firstMovement.textContent(), /monthly AI movement includes AirAsia/);
+      assert.ok(await firstMovement.locator(".title-ai").count());
+      assert.ok(await firstMovement.locator(".title-airline").filter({ hasText: "AirAsia" }).count());
+      await page.locator("#activityPeriodFilter").selectOption("quarterly");
+      assert.match(await page.locator(".activity-summary-movement").first().textContent(), /quarterly AI movement includes AirAsia/);
+      await page.locator("#activityPeriodFilter").selectOption("yearly");
+      assert.match(await page.locator(".activity-summary-movement").first().textContent(), /yearly AI movement includes AirAsia/);
+      await page.locator("#activityPeriodFilter").selectOption("monthly");
       assert.ok(await page.locator(".activity-overview").evaluate((element) => element.previousElementSibling.classList.contains("competitive-insights") && element.previousElementSibling.previousElementSibling.classList.contains("heat-panel")));
       const original = await page.locator("#activitySummary").innerHTML();
       for (const [selector, value] of [["#competitorFilter", "IFS"], ["#typeFilter", "customer_win"]]) {
@@ -277,13 +290,13 @@ test("renders dataset-level AI findings with signal evidence links", async () =>
     window_start: "2025-11-01",
     window_end: "2026-10-16",
     source_signal_count: 160,
-    lead: "Product news and customer adoption are accelerating in several captured feeds.",
+    lead: "AI and artificial intelligence product news is increasing across captured feeds.",
     insights: [{
       category: "customer_adoption",
       title: "IFS EFBOne appears in recent airline selections",
-      finding: "The cited post reports an EFBOne selection by fastjet.",
+      finding: "AirAsia and fastjet are adopting AI-enabled flight operations tools.",
       evidence_ids: [signal.id],
-      aviation_context: "fastjet is a low-cost carrier.",
+      aviation_context: "fastjet is a low-cost carrier and artificial intelligence is an emerging aviation capability.",
       caveat: "Verify the linked announcement before treating it as a confirmed deployment.",
     }],
   };
@@ -296,6 +309,10 @@ test("renders dataset-level AI findings with signal evidence links", async () =>
     await page.locator(".insight-row").waitFor();
     assert.equal(await page.locator("#insightLead").textContent(), insightPayload.lead);
     assert.equal(await page.locator(".insight-row h3").textContent(), insightPayload.insights[0].title);
+    assert.deepEqual(await page.locator("#insightLead .title-ai").allTextContents(), ["AI", "artificial intelligence"]);
+    assert.ok(await page.locator(".insight-row .title-ai").count() >= 2);
+    assert.ok(await page.locator(".insight-row .title-airline").filter({ hasText: "AirAsia" }).count());
+    assert.ok(await page.locator(".insight-row .title-airline").filter({ hasText: "fastjet" }).count());
     await page.locator(`[data-insight-signal="${signal.id}"]`).click();
     await page.locator("#quickLookBriefing").waitFor({ state: "visible" });
     assert.ok((await page.locator("#quickLookTitle").textContent()).includes(signal.competitor));
