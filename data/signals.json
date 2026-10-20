@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T08:26:47Z",
+  "generated_at": "2026-10-20T09:08:09Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -299,7 +299,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -315,6 +314,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T09:09:10+00:00",
+        "source_sha256": "cf2f62a34aef7c87ed954dc73be7804ff0f9073f2818904be45058488dff1194",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen adds new Airflow agents and features to ForeFlight.",
+        "summary": "Jeppesen announced the addition of new Airflow agents and features to its ForeFlight product. The provided text does not specify the functional details or operational impact of these updates."
       }
     },
     {
@@ -353,8 +361,16 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T09:09:31+00:00",
+        "source_sha256": "764148cbece9ff88eb018ee0cf33cba4c2b199e709440025395a56f9964bdaea",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen promotes ForeFlight safety management for business aviation operators.",
+        "summary": "Jeppesen is promoting ForeFlight's safety management capabilities for business aviation operators. No concrete product changes or customer acquisitions are established in the text."
+      }
     },
     {
       "id": "cap-bc53e9d2f7e1",
@@ -495,8 +511,8 @@
       "date": "2026-10-14",
       "date_is_estimated": false,
       "type": "implementation",
-      "priority": "high",
-      "severity": 4,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.65,
       "headline": "Kenya Airways Adopts Lido Flight 4D for Flight Operations Kenya Airways has successfully implemented #Lido Flight 4D from Lufthansa Systems.",
       "summary": "Kenya Airways Adopts Lido Flight 4D for Flight Operations Kenya Airways has successfully implemented #Lido Flight 4D from Lufthansa Systems. The flight planning solution supports the airline in making informed operational decisions, improving flight planni <font color=\"#6f6f6",
@@ -846,7 +862,7 @@
       "summary": "At Aviobook, we build that technology, and we’re looking for talented people to join our crew. 🌍 Here are the seats waiting to be filled: 🧭 Product Manager: chart the course for products pilots use in the cockpit 💻 Back End Developer: build the engines that power our platform 🤝 Account Executive: help airlines discover what we can do for them 📈 Senior Account Executive: lead key partnerships with airlines worldwide…",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "efb",
+      "product_focus": "other",
       "product": "AvioBook",
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -903,7 +919,23 @@
         "title": "Aviobook recruits for product management, backend development, and airline sales roles.",
         "summary": "Aviobook is hiring for several positions, including Product Manager, Back End Developer, and Account Executives. No concrete product developments or customer agreements are established by this recruitment notice."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T09:11:56+00:00",
+        "source_sha256": "9c4a74f6a21a4012550920ac1450c34ac2c03ee5bf0cf8e696f174071b903479",
+        "suggested_type": "unknown",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "other",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "efb",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-b767fcda5e66",
@@ -950,7 +982,23 @@
         "title": "Jeppesen promotes participation in the ForeFlight Airflow co-development phase.",
         "summary": "Jeppesen is inviting operators to join the ForeFlight Airflow co-development phase following an event attended by nearly 350 operators. No concrete product release or new customer contracts were announced."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-20T09:12:46+00:00",
+        "source_sha256": "e1c8e08d1f637ffafed613c27ae68475c68d5c443b1718b0ce6be770fe56130b",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": "eff_competitor_watchlist",
+        "model_suggested_product_focus": "adjacent",
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-9d51eeb7dfe2",
@@ -3076,7 +3124,6 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       },
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -3098,6 +3145,15 @@
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T09:10:05+00:00",
+        "source_sha256": "37273e3b23660f4c47b56bc8247461db7c1a6c0783348507109b1f7431a3ef67",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue expands collaboration with TransNusa for Skywise Core X2 and Skywise Fleet Performance+.",
+        "summary": "TransNusa has signed for Skywise Core X2 and Skywise Fleet Performance+ (S.FP+). This expansion marks the first agreement for these specific products in Indonesia."
       }
     },
     {
@@ -7357,8 +7413,16 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T09:11:07+00:00",
+        "source_sha256": "f034b41db7b4095187a729837712cd5fb086ddf7cf0e32a3df1811e966faf011",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems announces SriLankan Airlines' use of Lido Flight 4D for flight planning.",
+        "summary": "SriLankan Airlines has implemented Lido Flight 4D to strengthen its flight planning operations."
+      }
     },
     {
       "id": "cap-d8520a68e289",
@@ -9156,6 +9220,53 @@
         "evidence_scope": "captured_preview_only",
         "title": "Navblue promotes Palantir’s partnership with Airbus regarding the Skywise platform.",
         "summary": "The text contains promotional messaging about Palantir’s partnership with Airbus to power the Skywise platform. No new developments or concrete operational changes are established."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-6ae3f2e5defa",
+      "competitor": "Navblue",
+      "date": "2026-04-02",
+      "date_is_estimated": false,
+      "type": "ma_pe",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "I’m thrilled to share that we have officially launched Skywise as an Airbus subsidiary!",
+      "summary": "I’m thrilled to share that we have officially launched Skywise as an Airbus subsidiary! 🚀 This milestone merges @Skywise digital solutions and @navblue solutions into a single, powerful entity.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOMnNWVENCXzNxN2JqM1Jpb0FyZVNkTkI2cUxqTk5PWkp4bGlzYTZEM21iWEY1MTlwT25tZUU5eGlKWDQwSWFMUEZVUzQ2NW9GZUtIcExsM3hwVF9iRVFwNWFQLThVcnVNZUxPUFFIZWFwN3dxY3p0UjZ0dkktcjRfblRJQjZYMmRKdHpxUUlVNkgwY1puRkJTa0hsSWhBSTRvZExXaUxJYkpXOWo5WUNvbGR2SEtJYzA5OGtvR1VUWHR2Q0M2WnUzUUxEZUZMRTdIb0JYUk53?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-20T09:11:26+00:00",
+        "source_sha256": "ddedbb664101c9ba05e00b234c4f14b97b970bc4d2eb9b63d437716d5bedd617",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue and Skywise digital solutions merge into a single Airbus subsidiary.",
+        "summary": "Skywise has officially launched as an Airbus subsidiary. This transition merges Skywise digital solutions and Navblue solutions into a single entity."
       },
       "ai_classification_status": "pending"
     },
