@@ -38,6 +38,18 @@ class ProductFocusTests(unittest.TestCase):
         self.assertEqual(MERGE_SIGNALS.infer_type("Airline signs for skybook"), "customer_win")
         self.assertEqual(MERGE_SIGNALS.infer_type("Airline selects skybook; see release notes for product details", headline="Airline selects skybook"), "customer_win")
 
+    def test_product_adoption_language_and_career_amas_are_not_customer_wins(self):
+        airflow_announcement = "Jeppesen introduced Airflow Agents for commercial aviation with adoption flexibility"
+        self.assertEqual(MERGE_SIGNALS.infer_type(airflow_announcement), "product_launch")
+        self.assertEqual(
+            MERGE_SIGNALS.infer_type("A regional airline adopted Skybook under a five-year agreement"),
+            "customer_win",
+        )
+        self.assertEqual(
+            MERGE_SIGNALS.infer_type("Career AMA with a Customer Success Manager discussing her professional journey"),
+            "messaging_shift",
+        )
+
     def test_eff_watchlist_defaults(self):
         for product in ("Aviobook", "Boeing flightfolder", "Bytron skybook", "CAE eflightmanager", "Flightman", "Foreflight", "Lido mbriefing", "Logipad", "Mission+", "Topwing", "IFS EFBOne"):
             with self.subTest(product=product):

@@ -546,11 +546,15 @@ def infer_type(text: str, headline: str | None = None) -> str:
         return "ma_pe"
     if re.search(r"\bwelcom(?:e|ing)\b\s+[^.]{3,150}?\s+to (?:the |our )?(?:[\w-]+ ){0,3}(?:platform|suite)\b", t):
         return "customer_win"
-    if re.search(r"\bsign(?:s|ed)\b(?![-\s]+off\b)", t) or any(k in t for k in ("select", "adopt", "chooses", "awarded", "renew", "renews", "confidence in", "signing for", "customer testimonial", "customer testimony", "customer story", "customer interview", "customer experience", "customer success")):
+    customer_action = re.search(
+        r"\b(?:select(?:s|ed|ing)?|adopt(?:s|ed|ing)?|choos(?:e|es|ing)|chosen|award(?:s|ed|ing)?|renew(?:s|ed|ing)?)\b",
+        t,
+    )
+    if re.search(r"\bsign(?:s|ed)\b(?![-\s]+off\b)", t) or customer_action or any(k in t for k in ("confidence in", "signing for")):
         return "customer_win"
     if any(k in t for k in ("partner", "integrat", "collaborat", "joint solution", "strategic alliance", "united to improve", "working with")):
         return "partnership"
-    if any(k in t for k in ("launch", "release", "unveils", "introduces", "version")):
+    if any(k in t for k in ("launch", "release", "unveil", "introduc", "debut", "version")):
         return "product_launch"
     if any(k in t for k in ("implement", "deploy", "rollout", "goes live")):
         return "implementation"

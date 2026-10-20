@@ -2134,12 +2134,12 @@
       "competitor": "Jeppesen",
       "date": "2026-10-06",
       "date_is_estimated": false,
-      "type": "customer_win",
-      "priority": "high",
+      "type": "feature_change",
+      "priority": "low",
       "severity": 4,
       "confidence": 0.6000000000000001,
       "headline": "Jeppesen ForeFlight Airflow™ Agents Debut for Commercial Aviation, Centered on Operating Intelligence and Adoption Flexibility",
-      "summary": "Jeppesen reported a customer win update: Jeppesen ForeFlight Airflow™ Agents Debut for Commercial Aviation, Centered on Operating Intelligence and Adoption Flexibility. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "summary": "Jeppesen unveiled the first of hundreds of planned agents for its ForeFlight Airflow Aviation Operating Intelligence platform. The announcement describes new agent capabilities; it does not identify a customer contract, selection, or deployment.",
       "source_channel": "rss",
       "source_origin": "google_news",
       "product_focus": "eff",
@@ -2201,7 +2201,13 @@
         "title": "Jeppesen debuts ForeFlight Airflow™ Agents for commercial aviation.",
         "summary": "Jeppesen has introduced ForeFlight Airflow™ Agents for the commercial aviation sector. The product debut focuses on operating intelligence and adoption flexibility."
       },
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "analyst_type_review": {
+        "from": "customer_win",
+        "to": "feature_change",
+        "reason": "Airflow Agents are a product capability debut, not a customer selection, contract, renewal, or deployment; matches the same-day Jeppesen newsroom capture.",
+        "reviewed_at": "2026-10-20T09:17:29Z"
+      }
     },
     {
       "id": "cap-379fa06b7157",
