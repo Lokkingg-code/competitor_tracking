@@ -2783,7 +2783,7 @@
     },
     {
       "name": "JetBlue Airways",
-      "alias": "\\N",
+      "alias": "JetBlue",
       "iata": "B6",
       "icao": "JBU",
       "country": "United States"
@@ -4733,6 +4733,13 @@
       "iata": "ZG",
       "icao": "VVM",
       "country": "Macau"
+    },
+    {
+      "name": "Viva",
+      "alias": "Viva Aerobus",
+      "iata": "VB",
+      "icao": "VIV",
+      "country": "Mexico"
     },
     {
       "name": "Volare Airlines",

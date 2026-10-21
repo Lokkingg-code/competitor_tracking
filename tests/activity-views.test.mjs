@@ -248,6 +248,12 @@ test("does not label generic aviation phrases as airlines or operators", async (
       expected: "Corsair",
     },
     {
+      id: "jetblue",
+      headline: "JetBlue signs for Skywise Fleet Performance+ solution",
+      summary: "JetBlue has signed for the Fleet Performance+ solution.",
+      expected: "JetBlue",
+    },
+    {
       id: "vendor-not-airline",
       headline: "Lufthansa Systems promotes Lido mPilot",
       summary: "Lufthansa Systems discusses its flight operations software.",
@@ -286,11 +292,33 @@ test("does not label generic aviation phrases as airlines or operators", async (
       const card = page.locator(".brief-card").filter({ hasText: "Airline / operator" });
       await card.waitFor();
       assert.equal(await card.locator("p").textContent(), item.expected);
-      if (item.id === "corsair") {
-        assert.equal(await page.locator(`.signal-row[data-id="${item.id}"] .title-airline`).first().textContent(), "Corsair");
+      if (["corsair", "jetblue"].includes(item.id)) {
+        assert.equal(await page.locator(`.signal-row[data-id="${item.id}"] .title-airline`).first().textContent(), item.expected);
       }
       await page.close();
     }
+  } finally {
+    await browser.close();
+  }
+});
+
+test("highlights Viva as the airline in its Lido mPilot signal", async () => {
+  const signal = payload.signals.find((item) => item.id === "browser-88d9d3627aee");
+  assert.ok(signal);
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: payload }));
+    await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: activitySummarySnapshot }));
+    await page.addInitScript((signalId) => {
+      sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify([signalId]));
+    }, signal.id);
+    await page.goto(baseUrl);
+    const row = page.locator(`.signal-row[data-id="${signal.id}"]`);
+    await row.waitFor();
+    assert.equal(await row.locator(".title-airline").first().textContent(), "Viva");
+    const operatorCard = page.locator(".brief-grid .brief-card").filter({ hasText: "Airline / operator" });
+    assert.equal(await operatorCard.locator("p").textContent(), "Viva");
   } finally {
     await browser.close();
   }
@@ -337,8 +365,8 @@ test("uses current AI classification instead of an older enrichment type suggest
     await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: { status: "awaiting_generation", insights: [] } }));
     await page.addInitScript((signalId) => sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify([signalId])), signal.id);
     await page.goto(baseUrl);
-    assert.ok(await page.locator(".ai-analysis-details").getByText(/Signal type: Messaging shift · 90% confidence · Reviewed from Implementation/).count());
-    assert.ok(await page.locator(".ai-analysis-details").getByText(/Product focus: EFF · 100% confidence/).count());
+    assert.equal(await page.locator(".signal-row").getAttribute("data-type"), "messaging_shift");
+    assert.equal(await page.locator(".ai-summary").count(), 0);
   } finally {
     await browser.close();
   }
@@ -414,7 +442,8 @@ test("renders first-stage briefs ahead of older enrichment without API calls", a
     assert.deepEqual(await page.locator("h3 .title-ai").allTextContents(), ["AI", "Agentic AI", "artificial intelligence"]);
     assert.equal(await page.locator(".title-ai").filter({ hasText: "AirAsia" }).count(), 0);
     assert.equal(await page.locator(".briefing-summary-text").textContent(), briefPayload.signals[0].ai_brief.summary);
-    assert.ok(await page.locator(".ai-analysis-details p").filter({ hasText: "Reviewed from EFB" }).count());
+    assert.equal(await page.locator(".ai-summary").count(), 0);
+    assert.equal(await page.locator(".briefing-summary-text").textContent(), briefPayload.signals[0].ai_brief.summary);
     assert.equal(await page.locator(".ai-source-headline").textContent(), `Captured headline: ${signal.headline}`);
     assert.equal(apiRequests, 0);
     assert.ok(await page.locator(".col-type").filter({ hasText: "Feature change | AI" }).count());
@@ -423,7 +452,7 @@ test("renders first-stage briefs ahead of older enrichment without API calls", a
   }
 });
 
-test("renders saved AI enrichment without calling the summary API again", async () => {
+test("renders a saved evidence summary without the legacy analysis panel or API calls", async () => {
   const signal = payload.signals[0];
   const enrichedPayload = {
     ...payload,
@@ -476,11 +505,9 @@ test("renders saved AI enrichment without calling the summary API again", async 
     assert.equal(await page.getByText("Fourth sentence should be hidden.").count(), 0);
     assert.equal(await page.locator(".ai-source-headline").textContent(), `Captured headline: ${signal.headline}`);
     assert.equal(await page.locator(".briefing-summary-label").textContent(), "AI evidence summary");
-    assert.equal(await page.locator(".ai-summary-result").count(), 0);
-    assert.ok(await page.getByText(/Signal type: Feature change.*Reviewed from Customer win/).count());
-    assert.ok(await page.getByText(/Product focus: EFF.*Reviewed from EFB/).count());
     assert.ok(await page.locator(".activity-summary-empty").filter({ hasText: "AI period summaries" }).count());
-    assert.ok(await page.getByText(/rates per 1M tokens USD: input \$0.049, output \$0.140/).count());
+    assert.equal(await page.locator(".ai-summary").count(), 0);
+    assert.equal(await page.locator(".briefing-summary-text").textContent(), "First concise sentence. Second concise sentence. Third concise sentence.");
     assert.equal(summaryRequests, 0);
   } finally {
     await browser.close();

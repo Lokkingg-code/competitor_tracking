@@ -798,68 +798,6 @@ code {
   max-width: none;
 }
 
-.ai-summary {
-  margin: 0 0 20px;
-  padding: 14px 16px;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-control);
-  background: var(--bg-elevated);
-}
-
-.ai-summary-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.ai-summary-label {
-  margin: 0 0 4px;
-  color: var(--gold);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.ai-summary-note {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 12px;
-}
-
-.ai-summary-result {
-  margin: 14px 0 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.55;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
-.ai-analysis-details {
-  display: grid;
-  gap: 8px;
-  margin-top: 12px;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.ai-analysis-details p {
-  margin: 0;
-  overflow-wrap: anywhere;
-}
-
-.ai-analysis-details strong {
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.ai-summary-result.is-error {
-  color: var(--risk);
-}
-
 .briefing .summary {
   margin: 0 0 18px;
   color: #c5d0cb;

@@ -539,70 +539,6 @@ function conciseEvidenceSummary(value) {
   return selected.join(" ");
 }
 
-function renderSavedAIAnalysis(signal) {
-  const analysis = signal.ai_enrichment;
-  const reviewNotes = [];
-  if (signal.analyst_type_review) {
-    const previous = TYPE_LABELS[signal.analyst_type_review.from] || signal.analyst_type_review.from || "previous type";
-    reviewNotes.push(`Signal type reviewed from ${previous}`);
-  }
-  if (signal.analyst_product_focus_review) {
-    const previous = FOCUS_LABELS[signal.analyst_product_focus_review.from] || signal.analyst_product_focus_review.from || "previous focus";
-    reviewNotes.push(`Product focus reviewed from ${previous}`);
-  }
-  const reviewMarkup = reviewNotes.length
-    ? `<p class="ai-summary-result">${escapeHtml(reviewNotes.join(" · "))}</p>`
-    : "";
-  if (!analysis) {
-    if (signal.ai_brief?.summary) return reviewMarkup;
-    const status = signal.ai_enrichment_status === "pending"
-      ? "AI analysis is queued for the next background enrichment run."
-      : "No saved AI analysis for this signal.";
-    return `<p class="ai-summary-result">${escapeHtml(status)}</p>${reviewMarkup}`;
-  }
-
-  const currentType = TYPE_LABELS[signal.type] || signal.type || "Unknown";
-  const typeAnalysis = signal.ai_classification?.suggested_type ? signal.ai_classification : analysis;
-  const focusAnalysis = signal.ai_classification?.suggested_product_focus ? signal.ai_classification : analysis;
-  const suggestedType = TYPE_LABELS[typeAnalysis.suggested_type] || typeAnalysis.suggested_type;
-  const currentFocus = FOCUS_LABELS[signal.product_focus] || signal.product_focus || "Unknown";
-  const suggestedFocus = FOCUS_LABELS[focusAnalysis.suggested_product_focus] || focusAnalysis.suggested_product_focus;
-  const typeConfidence = Number(typeAnalysis.type_confidence || 0);
-  const focusConfidence = Number(focusAnalysis.focus_confidence || 0);
-  const typeStatus = signal.analyst_type_review
-    ? `Reviewed from ${TYPE_LABELS[signal.analyst_type_review.from] || signal.analyst_type_review.from || "previous type"}`
-    : typeAnalysis.type_auto_applied
-    ? `AI updated from ${TYPE_LABELS[typeAnalysis.original_type] || typeAnalysis.original_type || "Unknown"}`
-    : typeAnalysis.type_matches_existing
-      ? "Matches current label"
-      : `Review suggestion · current: ${currentType}`;
-  const reviewedFocus = signal.analyst_product_focus_review;
-  const focusStatus = reviewedFocus
-    ? `Reviewed from ${FOCUS_LABELS[reviewedFocus.from] || reviewedFocus.from || "Unknown"}`
-    : focusAnalysis.focus_auto_applied
-    ? `AI updated from ${FOCUS_LABELS[focusAnalysis.original_product_focus] || focusAnalysis.original_product_focus || "Unknown"}`
-    : focusAnalysis.focus_matches_existing
-      ? "Matches current label"
-      : `Review suggestion · current: ${currentFocus}`;
-  const rates = analysis.catalog_pricing;
-  const rateNote = rates
-    && Number.isFinite(rates.prompt)
-    && Number.isFinite(rates.completion)
-    ? ` · rates per 1M tokens USD: input $${(rates.prompt * 1_000_000).toFixed(3)}, output $${(rates.completion * 1_000_000).toFixed(3)}`
-    : "";
-
-  return `
-    <div class="ai-analysis-details">
-      <p><strong>Announcement tone:</strong> ${escapeHtml(analysis.announcement_tone)}</p>
-      <p><strong>Signal type:</strong> ${escapeHtml(suggestedType)} · ${Math.round(typeConfidence * 100)}% confidence · ${escapeHtml(typeStatus)}</p>
-      <p><strong>Product focus:</strong> ${escapeHtml(suggestedFocus)} · ${Math.round(focusConfidence * 100)}% confidence · ${escapeHtml(focusStatus)}</p>
-      <p><strong>Competitive insight:</strong> ${escapeHtml(analysis.competitive_insight)}</p>
-      <p><strong>Caveat:</strong> ${escapeHtml(analysis.caveat || "No additional caveat provided.")}</p>
-    </div>
-    <p class="ai-summary-note">${escapeHtml(analysis.model)} · saved ${escapeHtml(analysis.enriched_at)}${escapeHtml(rateNote)}</p>
-  `;
-}
-
 function renderFeed(signals) {
   els.feedCount.textContent = `${signals.length} signals`;
 
@@ -700,7 +636,6 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
     : "";
   const sourceLabel = SOURCE_LABELS[signal.source_origin] || SOURCE_LABELS[signal.source_channel] || signal.source_origin || signal.source_channel || "Source";
   const operatorLabel = extractOperator(signal);
-  const aiAnalysis = renderSavedAIAnalysis(signal);
 
   target.innerHTML = `
     <p class="kicker">${escapeHtml(signal.competitor)} · ${escapeHtml(operatorLabel)} · ${escapeHtml(sourceLabel)}</p>
@@ -710,14 +645,6 @@ function renderBriefing(signals, target = els.briefing, activeId = selectedId) {
       ${capturedHeadline}
       <p class="briefing-summary-text">${escapeHtml(evidenceSummary)}</p>
     </div>
-    <section class="ai-summary" aria-label="AI-generated signal summary">
-      <div class="ai-summary-head">
-        <div>
-          <p class="ai-summary-note">AI analysis from captured evidence · verify against the original source</p>
-        </div>
-      </div>
-      <div role="status">${aiAnalysis}</div>
-    </section>
     <div class="brief-grid">
       <div class="brief-card">
         <h4>Competitor</h4>
