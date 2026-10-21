@@ -166,8 +166,6 @@ code {
 }
 
 .system-name { color: var(--text); font-weight: 600; }
-.system-divider { width: 1px; height: 14px; background: var(--border-strong); }
-.system-context { text-transform: uppercase; letter-spacing: 0.1em; }
 .primary-nav { display: inline-flex; gap: 3px; margin-top: 16px; padding: 3px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg-elevated); }
 .primary-nav-link { padding: 7px 13px; border-radius: var(--radius-control); color: var(--text-muted); font-size: 12px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: color 0.15s ease, background 0.15s ease; }
 .primary-nav-link:hover { color: var(--text); background: var(--bg-row-hover); }
@@ -974,13 +972,13 @@ code {
   align-items: center;
   gap: 7px;
   color: var(--text-muted);
-  font-size: 11px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
 .trend-legend-swatch {
-  width: 18px;
-  border-top: 3px solid var(--series-color);
+  width: 22px;
+  border-top: 4px solid var(--series-color);
 }
 
 .competitive-insights {
@@ -998,7 +996,6 @@ code {
 .insights-heading h2 { margin: 0; font-size: 18px; }
 .insights-heading p { margin: 2px 0 0; }
 .insight-status { margin: 16px 0 0; color: var(--text-muted); }
-.insight-lead { max-width: 1000px; margin: 16px 0 8px; font-size: 16px; font-weight: 500; }
 .insight-rows { display: grid; }
 .insight-row { display: grid; grid-template-columns: minmax(130px, 0.22fr) minmax(0, 1fr); column-gap: 20px; padding: 14px 0; border-top: 1px solid var(--border); }
 .insight-category { grid-row: span 4; margin: 2px 0 0; color: var(--teal-bright); font-size: 11px; text-transform: uppercase; }
@@ -1181,7 +1178,6 @@ code {
   }
 
   .topbar-utility { gap: 6px; }
-  .system-context, .system-divider { display: none; }
   .primary-nav { display: flex; width: 100%; overflow-x: auto; }
   .primary-nav-link { flex: 1 0 auto; text-align: center; padding: 7px 9px; }
   .insight-row { grid-template-columns: 1fr; row-gap: 4px; }

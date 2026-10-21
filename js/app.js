@@ -940,7 +940,6 @@ function renderActivitySummaries(snapshot) {
 
 function renderCompetitiveInsights(snapshot) {
   const status = document.getElementById("insightStatus");
-  const lead = document.getElementById("insightLead");
   const rows = document.getElementById("insightRows");
   const meta = document.getElementById("insightMeta");
   savedCompetitiveInsights = snapshot?.status === "ready" ? snapshot : null;
@@ -952,8 +951,6 @@ function renderCompetitiveInsights(snapshot) {
   }
 
   status.hidden = true;
-  lead.hidden = false;
-  lead.innerHTML = highlightInsightText(snapshot.lead);
   const generated = formatTimestamp(snapshot.generated_at);
   meta.textContent = `${snapshot.window_start} to ${snapshot.window_end} · ${snapshot.source_signal_count} captured signals · Updated ${generated}`;
   rows.innerHTML = snapshot.insights.map((insight) => {

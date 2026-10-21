@@ -399,9 +399,8 @@ test("renders dataset-level AI findings with signal evidence links", async () =>
     await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: insightPayload }));
     await page.goto(baseUrl);
     await page.locator(".insight-row").waitFor();
-    assert.equal(await page.locator("#insightLead").textContent(), insightPayload.lead);
+    assert.equal(await page.locator("#insightLead").count(), 0);
     assert.equal(await page.locator(".insight-row h3").textContent(), insightPayload.insights[0].title);
-    assert.deepEqual(await page.locator("#insightLead .title-ai").allTextContents(), ["AI", "artificial intelligence"]);
     assert.ok(await page.locator(".insight-row .title-ai").count() >= 2);
     assert.ok(await page.locator(".insight-row .title-airline").filter({ hasText: "AirAsia" }).count());
     assert.ok(await page.locator(".insight-row .title-airline").filter({ hasText: "fastjet" }).count());
