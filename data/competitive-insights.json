@@ -2,77 +2,75 @@
   "schema_version": 3,
   "status": "ready",
   "model": "gemini-3.5-flash-lite",
-  "generated_at": "2026-10-21T10:48:14+00:00",
-  "window_start": "2025-10-22",
-  "window_end": "2026-10-21",
-  "source_signal_count": 178,
-  "lead": "Captured aviation software signals reveal active customer adoptions and platform enhancements across EFB, flight planning, and dispatch vendors, with notable low-cost carrier wins concentrated in specific portfolios.",
+  "generated_at": "2026-10-22T10:49:23+00:00",
+  "window_start": "2025-10-23",
+  "window_end": "2026-10-22",
+  "source_signal_count": 179,
+  "lead": "Analysis of the rolling history reveals active customer acquisition and platform deployments across major EFB, flight planning, and dispatch vendors, led by Lufthansa Systems, Jeppesen, and IFS. Carrier adoption spans diverse business models, including LCCs and full-service carriers.",
   "insights": [
     {
       "category": "customer_adoption",
-      "title": "IFS Secures Multiple LCC and Regional Adoptions",
-      "finding": "IFS captured multiple customer wins for its IFS EFBOne platform, including selections by fastjet and MY FREIGHTER LLC (Centrum Air), demonstrating traction in the EFB market.",
+      "title": "IFS secures multiple EFB wins including LCC carriers",
+      "finding": "IFS secured key customer wins for its IFS EFBOne platform, including fastjet and MY FREIGHTER (Centrum Air), with MY FREIGHTER classified as an LCC.",
       "evidence_ids": [
         "browser-9a9036fcf9da",
-        "cap-541011120c72"
+        "browser-cb2fca77cee3"
       ],
-      "aviation_context": "fastjet is an African low-cost carrier, and MY FREIGHTER / Centrum Air is classified as an LCC.",
-      "caveat": "Captured feed visibility reflects public relations announcements rather than total industry market share."
-    },
-    {
-      "category": "product_news",
-      "title": "Jeppesen Expands ForeFlight Dispatch Capabilities",
-      "finding": "Jeppesen introduced new Airflow agents and trip feasibility features for its ForeFlight Dispatch platform at NBAA-BACE 2026.",
-      "evidence_ids": [
-        "cap-7acb91368715"
-      ],
-      "aviation_context": "ForeFlight Dispatch caters to business aviation and commercial flight planning workflows.",
-      "caveat": "Announcements reflect new software feature rollouts rather than verified fleet-wide operational deployment metrics."
+      "aviation_context": "fastjet is an African low-cost carrier (LCC), and MY FREIGHTER (Centrum Air) is classified as an LCC by analyst review.",
+      "caveat": "Captured feed visibility indicates active customer announcements rather than complete market share."
     },
     {
       "category": "customer_adoption",
-      "title": "Thales (Aviobook) Secures Royal Air Maroc Agreement",
-      "finding": "Thales signed a five-year agreement with Royal Air Maroc to deploy the AvioBook Flight EFB platform across its pilot workforce.",
+      "title": "Thales and Aviobook secure Royal Air Maroc EFB agreement",
+      "finding": "Thales and Aviobook signed a five-year agreement with Royal Air Maroc to deploy the AvioBook Flight EFB platform.",
       "evidence_ids": [
         "browser-c4e4a3967528"
       ],
-      "aviation_context": "Royal Air Maroc operates as a network carrier connecting Africa, Europe, and the Americas.",
-      "caveat": "Relationship status is based on a single captured contract announcement."
-    },
-    {
-      "category": "posting_activity",
-      "title": "Lufthansa Systems Leverages Customer Testimonials on LinkedIn",
-      "finding": "Lufthansa Systems heavily utilized LinkedIn to publish customer implementation updates and video testimonials featuring carriers like KLM, Finnair, and Kenya Airways.",
-      "evidence_ids": [
-        "browser-0384fbd2ed67",
-        "cap-f9e077e6e9b0",
-        "browser-92bda83d10db"
-      ],
-      "aviation_context": "Digital flight operations platforms rely on active pilot adoption and interface feedback.",
-      "caveat": "LinkedIn captures combine live-scraper and Google News sources, which can influence observed posting volume."
+      "aviation_context": "Royal Air Maroc is a full-service flag carrier.",
+      "caveat": "Based on a single captured contract announcement."
     },
     {
       "category": "customer_adoption",
-      "title": "Navblue Expands TransNusa Digital Suite Integration",
-      "finding": "TransNusa expanded its collaboration with Navblue by adopting Skywise Core X2 and S.FP+ to integrate flight and technical operations.",
+      "title": "Lufthansa Systems deploys Lido Flight 4D to Kenya Airways",
+      "finding": "Lufthansa Systems successfully implemented its Lido Flight 4D platform for Kenya Airways, providing flight planning and operational visibility.",
       "evidence_ids": [
-        "browser-cc81837bbf5f",
-        "cap-5c0bfdebae79"
+        "browser-92bda83d10db"
       ],
-      "aviation_context": "Skywise products integrate aircraft health monitoring with operational data streams.",
-      "caveat": "Captured signals emphasize commercial agreement announcements rather than implementation completion timelines."
+      "aviation_context": "Kenya Airways operates as a scheduled international full-service carrier.",
+      "caveat": "Implementation signals reflect captured corporate milestones."
+    },
+    {
+      "category": "customer_adoption",
+      "title": "Jeppesen expands dispatch and flight planning footprint",
+      "finding": "Jeppesen secured major enterprise flight planning agreements, including a fleet-wide adoption with Korean Air and selection by Corendon Airlines as a launch customer.",
+      "evidence_ids": [
+        "jep-2026-06-01-korean-dispatch",
+        "jep-2026-04-29-dispatch-2026-2"
+      ],
+      "aviation_context": "Korean Air is a full-service global carrier; Corendon Airlines operates in the leisure and LCC space.",
+      "caveat": "Representative deals captured via official site sources."
+    },
+    {
+      "category": "customer_adoption",
+      "title": "Navblue expands TransNusa partnership with Skywise suite",
+      "finding": "TransNusa expanded its collaboration with Navblue by adopting Skywise Core X2 and Skywise Fleet Performance+ for integrated flight and technical operations.",
+      "evidence_ids": [
+        "browser-cc81837bbf5f"
+      ],
+      "aviation_context": "TransNusa is a regional/low-cost operating carrier in Southeast Asia.",
+      "caveat": "Expanded agreement represents a specific regional customer footprint."
     }
   ],
   "activity_summaries": [
     {
       "competitor": "Aviobook",
       "monthly": {
-        "main_movement": "AvioBook released version 26.3 and secured a five-year EFB agreement with Royal Air Maroc.",
+        "main_movement": "Aviobook released version 26.3 with customizable seat confirmation messages and a dedicated NOTAMs airline notice section.",
         "evidence_ids": [
-          "browser-0fe1e9140e52",
-          "browser-c4e4a3967528"
+          "browser-09b8ffe5dc70",
+          "browser-0fe1e9140e52"
         ],
-        "trend_context": "Aviobook maintained steady product messaging and feature updates leading into the autumn release cycle.",
+        "trend_context": "Continues product updates and customer wins aligned with its yearly release cadence.",
         "context_evidence_ids": [
           "avio-2026-08-06-connect-3"
         ],
@@ -80,23 +78,25 @@
         "linkedin_captures": 6
       },
       "quarterly": {
-        "main_movement": "Aviobook promoted upcoming Connect releases and secured a major airline EFB agreement with Royal Air Maroc.",
+        "main_movement": "Aviobook advanced its product roadmap with the preview of Connect 3.0 and a five-year agreement with Royal Air Maroc.",
         "evidence_ids": [
           "avio-2026-08-06-connect-3",
           "browser-c4e4a3967528"
         ],
-        "trend_context": "Quarterly activity reflected continued platform development following webinar previews of Connect 3.0.",
+        "trend_context": "Reflects steady feature enhancements and major contract captures throughout the year.",
         "context_evidence_ids": [],
         "captured_signals": 11,
         "linkedin_captures": 10
       },
       "yearly": {
-        "main_movement": "Aviobook advanced its EFB platform with module updates and a multi-year carrier contract.",
+        "main_movement": "Aviobook launched multiple updates and secured a key five-year agreement with Royal Air Maroc for its EFB platform.",
         "evidence_ids": [
+          "avio-2026-08-06-connect-3",
           "browser-09b8ffe5dc70",
+          "browser-0fe1e9140e52",
           "browser-c4e4a3967528"
         ],
-        "trend_context": "The rolling year captured consistent EFB enhancement releases and structured webinar marketing.",
+        "trend_context": "Aviobook launched multiple updates and secured a key five-year agreement with Royal Air Maroc for its EFB platform.",
         "context_evidence_ids": [
           "avio-2026-08-06-connect-3",
           "browser-09b8ffe5dc70",
@@ -110,11 +110,11 @@
     {
       "competitor": "Bytron Skybook",
       "monthly": {
-        "main_movement": "Bytron Skybook released version 1.52.0 of its EFB and Ground Portal with customizable settings.",
+        "main_movement": "Bytron Skybook released version 1.52.0 featuring customizable settings, new checklists, and expanded fuel fields.",
         "evidence_ids": [
           "cap-b87dd0917c27"
         ],
-        "trend_context": "Bytron Skybook continued promoting messaging and notification features connecting dispatchers and flight crews.",
+        "trend_context": "Maintains a steady focus on EFB messaging and application feature improvements.",
         "context_evidence_ids": [
           "cap-71365b84a950",
           "cap-cad0ad912b4e"
@@ -123,23 +123,26 @@
         "linkedin_captures": 3
       },
       "quarterly": {
-        "main_movement": "Bytron Skybook updated its EFB application and highlighted operational multi-AOC deployment capabilities.",
+        "main_movement": "Bytron Skybook promoted EFB messaging capabilities and released version 1.52.0 for its Ground Portal and EFB.",
         "evidence_ids": [
           "cap-71365b84a950",
-          "cap-b87dd0917c27"
+          "cap-b87dd0917c27",
+          "cap-cad0ad912b4e"
         ],
-        "trend_context": "Quarterly communications focused on messaging features and portal customization options.",
+        "trend_context": "Demonstrates consistent application updates and operational messaging across the quarter.",
         "context_evidence_ids": [],
         "captured_signals": 8,
         "linkedin_captures": 6
       },
       "yearly": {
-        "main_movement": "Bytron Skybook delivered EFB updates and promoted multi-AOC platform capabilities for operators.",
+        "main_movement": "Bytron Skybook rolled out application enhancements and version updates across its EFB and Ground Portal platforms.",
         "evidence_ids": [
           "cap-71365b84a950",
-          "cap-b87dd0917c27"
+          "cap-9d51eeb7dfe2",
+          "cap-b87dd0917c27",
+          "cap-cad0ad912b4e"
         ],
-        "trend_context": "Annual tracking demonstrated iterative feature rollouts for ground portals and cockpit applications.",
+        "trend_context": "Bytron Skybook rolled out application enhancements and version updates across its EFB and Ground Portal platforms.",
         "context_evidence_ids": [
           "cap-71365b84a950",
           "cap-9d51eeb7dfe2",
@@ -155,7 +158,7 @@
       "monthly": {
         "main_movement": "No substantive movement captured in this period.",
         "evidence_ids": [],
-        "trend_context": "IFS sustained prior customer acquisition momentum secured during late August and September.",
+        "trend_context": "Builds on previous customer wins secured by the EFBOne platform earlier in the cycle.",
         "context_evidence_ids": [
           "browser-9a9036fcf9da",
           "browser-cb2fca77cee3",
@@ -166,27 +169,27 @@
         "linkedin_captures": 1
       },
       "quarterly": {
-        "main_movement": "IFS secured multiple EFBOne customer wins across regional and low-cost carrier segments.",
+        "main_movement": "IFS secured multiple EFB platform deployments including fastjet, MY FREIGHTER (Centrum Air), and TUS Airways.",
         "evidence_ids": [
           "browser-9a9036fcf9da",
           "browser-cb2fca77cee3",
           "cap-541011120c72",
           "cap-ab53f449704f"
         ],
-        "trend_context": "The quarter was defined by a cluster of carrier selections for the IFS EFBOne platform.",
+        "trend_context": "Reflects concentrated customer acquisition activity in the third quarter.",
         "context_evidence_ids": [],
         "captured_signals": 6,
         "linkedin_captures": 6
       },
       "yearly": {
-        "main_movement": "IFS secured multiple new customer deployments for its EFBOne platform.",
+        "main_movement": "IFS successfully captured key airline accounts for its EFBOne platform across multiple carrier segments.",
         "evidence_ids": [
           "browser-9a9036fcf9da",
           "browser-cb2fca77cee3",
           "cap-541011120c72",
           "cap-ab53f449704f"
         ],
-        "trend_context": "Annual activity was highlighted by targeted EFB system replacements among regional and low-cost operators.",
+        "trend_context": "IFS successfully captured key airline accounts for its EFBOne platform across multiple carrier segments.",
         "context_evidence_ids": [
           "browser-9a9036fcf9da",
           "browser-cb2fca77cee3",
@@ -200,62 +203,62 @@
     {
       "competitor": "Jeppesen",
       "monthly": {
-        "main_movement": "Jeppesen introduced new Airflow agents and trip feasibility features for ForeFlight Dispatch at NBAA-BACE.",
+        "main_movement": "Jeppesen introduced new Airflow capabilities, paperless cockpit tools, privacy ICAO addressing, and AI agents for ForeFlight.",
         "evidence_ids": [
-          "cap-7acb91368715",
-          "cap-9076ea2f1fd9",
+          "cap-6eb0c85960c5",
+          "cap-760ffdf1bbea",
           "cap-b7396c125556"
         ],
-        "trend_context": "Jeppesen built on earlier major fleet agreements and defense authorizations established during the rolling year.",
+        "trend_context": "Follows a high-volume product launch and regulatory authorization pattern established earlier in the year.",
         "context_evidence_ids": [
           "cap-da9edaf974cf",
           "cap-eede314fcaab",
           "jep-2026-04-29-dispatch-2026-2",
           "jep-2026-06-01-korean-dispatch"
         ],
-        "captured_signals": 21,
+        "captured_signals": 23,
         "linkedin_captures": 10
       },
       "quarterly": {
-        "main_movement": "Jeppesen announced new ForeFlight capabilities, regulatory authorizations, and partnership expansions.",
+        "main_movement": "Jeppesen achieved DoD IL5 authorization, expanded partnerships with Saxon Air, and rolled out ForeFlight Airflow updates.",
         "evidence_ids": [
-          "cap-7acb91368715",
-          "cap-9076ea2f1fd9",
+          "cap-6eb0c85960c5",
+          "cap-760ffdf1bbea",
           "cap-b7396c125556",
           "cap-da9edaf974cf",
           "cap-eede314fcaab"
         ],
-        "trend_context": "Quarterly performance reflected continued feature expansion following major dispatch contracts earlier in the year.",
+        "trend_context": "Builds upon major dispatch agreements such as the Korean Air fleet selection.",
         "context_evidence_ids": [
           "jep-2026-04-29-dispatch-2026-2",
           "jep-2026-06-01-korean-dispatch"
         ],
-        "captured_signals": 30,
+        "captured_signals": 32,
         "linkedin_captures": 15
       },
       "yearly": {
-        "main_movement": "Jeppesen expanded its ForeFlight and Dispatch portfolios with major airline wins, regulatory approvals, and new agents.",
+        "main_movement": "Jeppesen maintained high market visibility with extensive ForeFlight updates, dispatch launches, and defense authorizations.",
         "evidence_ids": [
-          "cap-7acb91368715",
-          "cap-9076ea2f1fd9",
+          "cap-6eb0c85960c5",
+          "cap-760ffdf1bbea",
           "cap-b7396c125556",
           "cap-da9edaf974cf",
           "cap-eede314fcaab",
           "jep-2026-04-29-dispatch-2026-2",
           "jep-2026-06-01-korean-dispatch"
         ],
-        "trend_context": "The rolling year established high product release volume alongside major carrier selections across commercial and business aviation.",
+        "trend_context": "Jeppesen maintained high market visibility with extensive ForeFlight updates, dispatch launches, and defense authorizations.",
         "context_evidence_ids": [
-          "cap-7acb91368715",
-          "cap-9076ea2f1fd9",
+          "cap-6eb0c85960c5",
+          "cap-760ffdf1bbea",
           "cap-b7396c125556",
           "cap-da9edaf974cf",
           "cap-eede314fcaab",
           "jep-2026-04-29-dispatch-2026-2",
           "jep-2026-06-01-korean-dispatch"
         ],
-        "captured_signals": 78,
-        "linkedin_captures": 32
+        "captured_signals": 79,
+        "linkedin_captures": 31
       }
     },
     {
@@ -266,7 +269,7 @@
           "browser-92bda83d10db",
           "cap-f9e077e6e9b0"
         ],
-        "trend_context": "Lufthansa Systems maintained active stakeholder engagement through customer testimonials and deployment announcements.",
+        "trend_context": "Aligns with an active rolling period of airline implementations and customer testimonials.",
         "context_evidence_ids": [
           "browser-0384fbd2ed67",
           "browser-16f3824401f5",
@@ -279,7 +282,7 @@
         "linkedin_captures": 10
       },
       "quarterly": {
-        "main_movement": "Lufthansa Systems advanced customer implementations for Lido Flight 4D and mPilot while highlighting carrier testimonials.",
+        "main_movement": "Lufthansa Systems advanced customer implementations including Lido mPilot for Viva and Lido Flight 4D for Kenya Airways.",
         "evidence_ids": [
           "browser-0384fbd2ed67",
           "browser-16f3824401f5",
@@ -289,7 +292,7 @@
           "browser-92bda83d10db",
           "cap-f9e077e6e9b0"
         ],
-        "trend_context": "Quarterly output emphasized digital chart enhancements and operational software deployments.",
+        "trend_context": "Sustains steady operational deployments across international airline accounts.",
         "context_evidence_ids": [
           "cap-3da496f57068"
         ],
@@ -297,7 +300,7 @@
         "linkedin_captures": 22
       },
       "yearly": {
-        "main_movement": "Lufthansa Systems deployed flight planning and EFB solutions while publishing customer case studies.",
+        "main_movement": "Lufthansa Systems executed multiple fleet deployments and software updates for Lido Flight 4D and mPilot solutions.",
         "evidence_ids": [
           "browser-0384fbd2ed67",
           "browser-16f3824401f5",
@@ -308,7 +311,7 @@
           "cap-3da496f57068",
           "cap-f9e077e6e9b0"
         ],
-        "trend_context": "The rolling year showed steady deployment cadence for Lido Flight 4D and mPilot across diverse international carriers.",
+        "trend_context": "Lufthansa Systems executed multiple fleet deployments and software updates for Lido Flight 4D and mPilot solutions.",
         "context_evidence_ids": [
           "browser-0384fbd2ed67",
           "browser-16f3824401f5",
@@ -326,12 +329,12 @@
     {
       "competitor": "Navblue",
       "monthly": {
-        "main_movement": "Navblue expanded its collaboration with TransNusa to integrate flight and technical operations.",
+        "main_movement": "Navblue expanded its collaboration with TransNusa for Skywise Core X2 and Skywise Fleet Performance+.",
         "evidence_ids": [
           "browser-cc81837bbf5f",
           "cap-5c0bfdebae79"
         ],
-        "trend_context": "Navblue sustained operational integration momentum following earlier Skywise digital suite agreements.",
+        "trend_context": "Reflects continuity from earlier digital suite selections such as Pan Am's return to service.",
         "context_evidence_ids": [
           "cap-4f107cda915f",
           "cap-6ae3f2e5defa",
@@ -343,12 +346,12 @@
         "linkedin_captures": 3
       },
       "quarterly": {
-        "main_movement": "Navblue expanded Skywise deployments to integrate flight and technical operations for regional carrier customers.",
+        "main_movement": "Navblue secured expanded digital suite adoptions with TransNusa for integrated flight and technical operations.",
         "evidence_ids": [
           "browser-cc81837bbf5f",
           "cap-5c0bfdebae79"
         ],
-        "trend_context": "Quarterly reporting focused on the ongoing expansion of Airbus Skywise digital suite adoption.",
+        "trend_context": "Builds upon strategic subsidiary restructuring and Pan Am digital adoption earlier in the year.",
         "context_evidence_ids": [
           "cap-4f107cda915f",
           "cap-6ae3f2e5defa",
@@ -360,7 +363,7 @@
         "linkedin_captures": 3
       },
       "yearly": {
-        "main_movement": "Navblue integrated into the Airbus Skywise digital structure and secured key platform agreements.",
+        "main_movement": "Navblue advanced its Skywise digital suite integration alongside organizational restructuring into an Airbus subsidiary.",
         "evidence_ids": [
           "browser-cc81837bbf5f",
           "cap-4f107cda915f",
@@ -370,7 +373,7 @@
           "cap-c783586c0440",
           "cap-dd22235f8f28"
         ],
-        "trend_context": "Annual activity centered on the consolidation of Navblue and Skywise digital solutions under Airbus.",
+        "trend_context": "Navblue advanced its Skywise digital suite integration alongside organizational restructuring into an Airbus subsidiary.",
         "context_evidence_ids": [
           "browser-cc81837bbf5f",
           "cap-4f107cda915f",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T10:41:59Z",
+  "generated_at": "2026-10-22T10:44:29Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,132 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-6eb0c85960c5",
+      "competitor": "Jeppesen",
+      "date": "2026-10-21",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight Debuts New Airflow Capabilities",
+      "summary": "Jeppesen reported a product launch update: Jeppesen ForeFlight Debuts New Airflow Capabilities. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPVVFxSkJnVEg2MW9XUWdjSjJlcXdEV1QweUxNMFRBOE9wNlRmRHd4U0VZTk1TVDJSRFU5a1JJOXltZDE5Q3o2LUxrbUgtRVRmTDE5RmhjMGhXS2M0WDh3dlZibnQ0ZElCYmpRaXZSMGpCZGdHeUxPaUxYazlYTHFFR2oxTFNGdmFTcktZbUpBa1JQRVNGMDdiYy04Zmo5SmRzR3BJNzBzYWZsZw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-22T10:44:44+00:00",
+        "source_sha256": "5d9e3ea79ad7827b63e34bdedd4deaea153aac589ff1b77710950f5210259169",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen debuts new Airflow capabilities for ForeFlight.",
+        "summary": "Jeppesen announced the introduction of new Airflow capabilities for its ForeFlight product. The provided text does not specify the technical details or functional changes associated with these capabilities."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-22T10:47:03+00:00",
+        "source_sha256": "5d9e3ea79ad7827b63e34bdedd4deaea153aac589ff1b77710950f5210259169",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-760ffdf1bbea",
+      "competitor": "Jeppesen",
+      "date": "2026-10-21",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight Adds Paperless Cockpit, Privacy ICAO Address and New AI Agents to Airflow Platform",
+      "summary": "Jeppesen reported a messaging shift update: Jeppesen ForeFlight Adds Paperless Cockpit, Privacy ICAO Address and New AI Agents to Airflow Platform. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5kOVBVUHBWdjJBWG8xYmU2dllhODJwRFBLWnlpOWhTd2hndHF5OFpSR3dwZVh1NUVOUlFsR09RM29BMnlCQjYtYXllVmdHU2J0VFpqRUVZRzJKQm1OUWVyRW94X19qS2w1U2ZqNmpVU1RuelE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-22T10:45:01+00:00",
+        "source_sha256": "103ebb8c232121b1e04f3ad45fd010699f87e3afded2b82a57472eb9b890cecd",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen adds paperless cockpit, privacy ICAO address, and AI agents to ForeFlight Airflow platform.",
+        "summary": "Jeppesen has introduced paperless cockpit features, a privacy ICAO address, and new AI agents to the ForeFlight Airflow platform."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-22T10:47:29+00:00",
+        "source_sha256": "103ebb8c232121b1e04f3ad45fd010699f87e3afded2b82a57472eb9b890cecd",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "New AI Agents to Airflow Platform",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-25af9b9e7fd9",
       "competitor": "Jeppesen",
@@ -2405,8 +2531,8 @@
       "date": "2026-10-06",
       "date_is_estimated": false,
       "type": "product_launch",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "high",
+      "severity": 4,
       "confidence": 0.6000000000000001,
       "headline": "Jeppesen ForeFlight Airflow™ Agents Debut for Commercial Aviation, Centered on Operating Intelligence and Adoption Flexibility",
       "summary": "Jeppesen unveiled the first of hundreds of planned agents for its ForeFlight Airflow Aviation Operating Intelligence platform. The announcement describes new agent capabilities; it does not identify a customer contract, selection, or deployment.",
@@ -3023,7 +3149,7 @@
       "summary": "✈️💡 We are thrilled to announce a new strategic research partnership between Airbus in Canada and the University of Waterloo, coordinated through the Waterloo Institute for Sustainable Aeronautics (WISA) and the Future in Motion (FIM) Network. For Skywise, operating on Waterloo’s North Campus with roots tracing back to local startup Navtech, this collaboration hits close to home.",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "other",
+      "product_focus": "adjacent",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -3055,7 +3181,23 @@
         "title": "Navblue announces research partnership between Airbus Canada and the University of Waterloo.",
         "summary": "Navblue announces a strategic research partnership between Airbus in Canada and the University of Waterloo, coordinated via the Waterloo Institute for Sustainable Aeronautics (WISA) and the Future in Motion (FIM) Network. The announcement notes Skywise's operations on the university's North Campus."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-22T10:48:09+00:00",
+        "source_sha256": "be27ecaf429ea410b0e44c154f29ac7d66970fac8999ffc0965b76a5ed516ff9",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.8,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-448145695c07",
@@ -3217,7 +3359,22 @@
         "title": "Lufthansa Systems promotes the NetLine community regarding the Airline Forum 2026.",
         "summary": "Lufthansa Systems describes the Airline Forum 2026 as a milestone for the NetLine community. The messaging focuses on managing airline complexity and disruption, but no concrete new developments are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-22T10:48:25+00:00",
+        "source_sha256": "5bcaf1d9367e6670fe39ecbd0949191c7abe41f65cd58c2d30f64c150c1fb3e6",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-907ad46e8554",
@@ -3415,7 +3572,7 @@
       "competitor": "Jeppesen",
       "date": "2026-09-25",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "unknown",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -3482,7 +3639,24 @@
         "title": "Jeppesen hires Senior Product Manager for ForeFlight Ground Controls.",
         "summary": "Jeppesen has hired a Senior Product Manager for ForeFlight Ground Controls. This announcement describes a personnel change and does not establish any new product releases or customer contracts."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-22T10:49:12+00:00",
+        "source_sha256": "67424d0049da989efd3b903a141122c3315582307357ec6901358e985c010847",
+        "suggested_type": "unknown",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": "eff_competitor_watchlist",
+        "model_suggested_product_focus": "other",
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-04ef1a8c8c7e",
