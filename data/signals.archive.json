@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T10:30:18Z",
+  "generated_at": "2026-10-21T09:03:50Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,67 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "browser-a715efb35b27",
+      "competitor": "Aviobook",
+      "date": "2026-10-20",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "⏰ One more week!",
+      "summary": "On October 27, Product Managers David Concostrina Sánchez and Petra Lafond are walking you through everything new in AvioBook 26.3 in our live webinar. Last chance to sign up below 👇🏼 https://lnkd.in/gtqvJukj #AvioBook #FutureofFlying #Webinar #FlightOps #FlightOperations #AviationTech … more 11 ​ 2 ​",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gVDaN7sU"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-21T09:03:34+00:00",
+        "source_sha256": "8ea58e213ce33bfe698b848426069bac58a83bf04b403e9a5392b26238cb25fc",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook announces webinar regarding new features in AvioBook 26.3.",
+        "summary": "Aviobook is promoting a webinar scheduled for October 27 to demonstrate updates in AvioBook 26.3. The text provides no information on specific functional changes or new capabilities."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-21T09:03:50+00:00",
+        "source_sha256": "8ea58e213ce33bfe698b848426069bac58a83bf04b403e9a5392b26238cb25fc",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-25af9b9e7fd9",
       "competitor": "Jeppesen",

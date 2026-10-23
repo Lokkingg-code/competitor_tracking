@@ -13,6 +13,7 @@ const outputDir = path.join(root, "data", "raw");
 const profileDir = process.env.LINKEDIN_PROFILE_DIR || path.join(os.homedir(), ".cathay-competitor-linkedin");
 const maxScrolls = Number(process.env.LINKEDIN_MAX_SCROLLS || 8);
 const lookbackDays = Number(process.env.LINKEDIN_LOOKBACK_DAYS || 14);
+const requestedOrganizations = (process.env.LINKEDIN_ORGANIZATIONS || "").split(",").map((name) => name.trim()).filter(Boolean);
 
 function stableId(competitor, value) {
   return `browser-${crypto.createHash("sha1").update(`${competitor}|${value}`).digest("hex").slice(0, 12)}`;
@@ -141,11 +142,32 @@ async function collectOrganization(page, organization) {
         if (seenPosts.has(signature)) continue;
         seenPosts.add(signature);
         check.posts_seen += 1;
-        await post.locator('button[aria-label^="Open control menu for post"]').click();
-        await page.evaluate(() => navigator.clipboard.writeText(""));
-        await page.getByRole("menuitem", { name: "Copy link to post" }).click();
-        await page.waitForTimeout(600);
-        const url = await page.evaluate(() => navigator.clipboard.readText());
+        let url;
+        try {
+          await page.evaluate(() => navigator.clipboard.writeText(""));
+          await page.keyboard.press("Escape");
+          const control = post.locator('button[aria-label^="Open control menu for post"]');
+          const copyLink = page.getByRole("menuitem", { name: "Copy link to post" });
+          await control.click();
+          try {
+            await copyLink.waitFor({ state: "visible", timeout: 5000 });
+          } catch {
+            await page.keyboard.press("Escape");
+            await control.click();
+            await copyLink.waitFor({ state: "visible", timeout: 5000 });
+          }
+          await copyLink.click();
+          const copiedUrl = await page.waitForFunction(async () => {
+            const value = await navigator.clipboard.readText();
+            return value.startsWith("https://") ? value : false;
+          }, null, { timeout: 5000 });
+          url = await copiedUrl.jsonValue();
+          await copiedUrl.dispose();
+        } catch (error) {
+          check.post_errors = [...(check.post_errors || []), { title: content[0]?.slice(0, 180), error: error.message }];
+          await page.keyboard.press("Escape");
+          continue;
+        }
         if (!/^https:\/\/(?:lnkd\.in\/p\/|www\.linkedin\.com\/(?:feed\/update\/|posts\/))/.test(url) || records.has(url)) continue;
         try {
           const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
@@ -181,11 +203,16 @@ async function collectOrganization(page, organization) {
   } else if (check.selector_matches === 0) {
     check.status = "selector_no_matches";
   }
+  if (check.post_errors?.length) check.status = records.size ? "partial_capture" : "post_capture_errors";
   console.log(`[linkedin-browser] check ${organization.vanity_name}: ${check.status}; articles=${check.article_nodes}; selector_matches=${check.selector_matches}; captured=${check.posts_captured}`);
   return { items: [...records.values()], check };
 }
 
 const config = await readConfig();
+const organizations = (config.linkedin_organizations || []).filter((organization) =>
+  !requestedOrganizations.length || requestedOrganizations.includes(organization.vanity_name)
+);
+if (!organizations.length) throw new Error("No configured LinkedIn organizations match the requested filter");
 const browser = await chromium.launchPersistentContext(profileDir, {
   headless: false,
   viewport: { width: 1440, height: 1000 },
@@ -195,10 +222,21 @@ const page = await browser.newPage();
 const items = [];
 const checks = [];
 try {
-  for (const organization of config.linkedin_organizations || []) {
-    const result = await collectOrganization(page, organization);
-    items.push(...result.items);
-    checks.push(result.check);
+  for (const organization of organizations) {
+    try {
+      const result = await collectOrganization(page, organization);
+      items.push(...result.items);
+      checks.push(result.check);
+    } catch (error) {
+      checks.push({
+        competitor: organization.competitor,
+        vanity_name: organization.vanity_name,
+        status: "collection_error",
+        error: error.message,
+        posts_captured: 0,
+      });
+      console.error(`[linkedin-browser] ${organization.vanity_name}: ${error.message}`);
+    }
   }
 } finally {
   await browser.close();
@@ -216,7 +254,9 @@ const payload = {
 await fs.mkdir(outputDir, { recursive: true });
 const outputPath = path.join(outputDir, `linkedin_browser_${new Date().toISOString().replace(/[-:]/g, "").replace(/\\..+/, "").replace("T", "T")}Z.json`);
 await fs.writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`);
-await fs.writeFile(path.join(outputDir, "linkedin_latest.json"), `${JSON.stringify(payload, null, 2)}\n`);
+if (!requestedOrganizations.length) {
+  await fs.writeFile(path.join(outputDir, "linkedin_latest.json"), `${JSON.stringify(payload, null, 2)}\n`);
+}
 console.log(`[linkedin-browser] captured ${unique.length} posts`);
 console.log(`[linkedin-browser] wrote ${path.relative(root, outputPath)}`);
 if (checks.length > 0 && checks.every((check) => check.article_nodes === 0)) {

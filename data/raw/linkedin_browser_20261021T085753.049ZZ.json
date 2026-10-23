@@ -1,0 +1,156 @@
+{
+  "captured_at": "2026-10-21T08:57:53.048Z",
+  "lookback_days": 14,
+  "cutoff": "2026-10-07",
+  "count": 2,
+  "checks": [
+    {
+      "competitor": "Jeppesen",
+      "vanity_name": "jeppesen",
+      "requested_url": "https://www.linkedin.com/company/jeppesen/posts/",
+      "final_url": "https://www.linkedin.com/company/jeppesen/posts/",
+      "page_title": "Jeppesen: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 13,
+      "article_nodes": 13,
+      "posts_seen": 0,
+      "posts_captured": 0,
+      "status": "ok"
+    },
+    {
+      "competitor": "Jeppesen",
+      "vanity_name": "foreflight",
+      "requested_url": "https://www.linkedin.com/company/foreflight/posts/",
+      "final_url": "https://www.linkedin.com/company/foreflight/posts/",
+      "page_title": "ForeFlight: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 13,
+      "article_nodes": 13,
+      "posts_seen": 0,
+      "posts_captured": 0,
+      "status": "ok"
+    },
+    {
+      "competitor": "Lufthansa Systems",
+      "vanity_name": "lufthansa-systems",
+      "requested_url": "https://www.linkedin.com/company/lufthansa-systems/posts/",
+      "final_url": "https://www.linkedin.com/company/lufthansa-systems/posts/",
+      "page_title": "Lufthansa Systems: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 33,
+      "article_nodes": 33,
+      "posts_seen": 1,
+      "posts_captured": 1,
+      "status": "ok"
+    },
+    {
+      "competitor": "Aviobook",
+      "vanity_name": "aviovision-nv",
+      "requested_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
+      "final_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
+      "page_title": "AvioBook: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 33,
+      "article_nodes": 33,
+      "posts_seen": 1,
+      "posts_captured": 1,
+      "status": "ok"
+    },
+    {
+      "competitor": "Bytron Skybook",
+      "vanity_name": "bytron-aviation-systems",
+      "requested_url": "https://www.linkedin.com/company/bytron-aviation-systems/posts/",
+      "final_url": "https://www.linkedin.com/company/bytron-aviation-systems/posts/",
+      "page_title": "",
+      "login_required": false,
+      "selector_matches": 0,
+      "article_nodes": 0,
+      "posts_seen": 0,
+      "posts_captured": 0,
+      "status": "no_article_nodes"
+    },
+    {
+      "competitor": "Navblue",
+      "vanity_name": "airbus-skywise",
+      "requested_url": "https://www.linkedin.com/company/airbus-skywise/posts/",
+      "final_url": "https://www.linkedin.com/company/airbus-skywise/posts/",
+      "page_title": "Skywise: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 23,
+      "article_nodes": 23,
+      "posts_seen": 0,
+      "posts_captured": 0,
+      "status": "ok"
+    },
+    {
+      "competitor": "Navblue",
+      "vanity_name": "navblue-an-airbus-company",
+      "requested_url": "https://www.linkedin.com/company/navblue-an-airbus-company/posts/",
+      "final_url": "https://www.linkedin.com/company/navblue-an-airbus-company/posts/",
+      "page_title": "NAVBLUE, an Airbus Company: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 30,
+      "article_nodes": 30,
+      "posts_seen": 0,
+      "posts_captured": 0,
+      "status": "ok"
+    },
+    {
+      "competitor": "IFS",
+      "vanity_name": "ifs-international-flight-support",
+      "requested_url": "https://www.linkedin.com/company/ifs-international-flight-support/posts/",
+      "final_url": "https://www.linkedin.com/company/ifs-international-flight-support/posts/",
+      "page_title": "IFS - International Flight Support: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 23,
+      "article_nodes": 23,
+      "posts_seen": 0,
+      "posts_captured": 0,
+      "status": "ok"
+    },
+    {
+      "competitor": "Others",
+      "vanity_name": "talora-efb",
+      "status": "collection_error",
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('menuitem', { name: 'Copy link to post' })\u001b[22m\n",
+      "posts_captured": 0
+    },
+    {
+      "competitor": "Others",
+      "vanity_name": "flightman",
+      "requested_url": "https://www.linkedin.com/company/flightman/posts/",
+      "final_url": "https://www.linkedin.com/company/flightman/posts/",
+      "page_title": "Flightman: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 13,
+      "article_nodes": 13,
+      "posts_seen": 0,
+      "posts_captured": 0,
+      "status": "ok"
+    }
+  ],
+  "items": [
+    {
+      "id": "browser-26dd89b5e0e7",
+      "competitor": "Lufthansa Systems",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "A great moment for the transition towards Modern Airline Retailing! ✈️",
+      "url": "https://lnkd.in/p/gdfUmBxK",
+      "summary": "A great moment for the transition towards Modern Airline Retailing! ✈️ At IATA WFS WPS in Macao, Finnair and our colleague Sebastian Holfert will take the stage together to share how the Tickets-to-Orders transformation is becoming reality in practice.  We’re especially proud to present this journey together with Finnair and provide insights into how SIRAX/ONE Order supports the transition towards Offers and Orders. Looking forward to an insightful session in Macao! #IATA #WFSWPS #ONEOrder #ModernAirlineRetailing #AirlineRetailing #SIRAX … more Sebastian Holfert • 3rd+ Senior Product Owner Fin",
+      "published_at": "2026-10-20"
+    },
+    {
+      "id": "browser-a715efb35b27",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "⏰ One more week!",
+      "url": "https://lnkd.in/p/gVDaN7sU",
+      "summary": "⏰ One more week! On October 27, Product Managers David Concostrina Sánchez and Petra Lafond are walking you through everything new in AvioBook 26.3 in our live webinar. Are you an AvioBook customer, or already in touch with our team? Then this one's for you! Last chance to sign up below 👇🏼 https://lnkd.in/gtqvJukj #AvioBook #FutureofFlying #Webinar #FlightOps #FlightOperations #AviationTech … more 11 ​ 2 ​",
+      "published_at": "2026-10-20"
+    }
+  ]
+}

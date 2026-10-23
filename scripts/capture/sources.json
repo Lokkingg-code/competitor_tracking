@@ -143,7 +143,7 @@
     {"competitor": "Jeppesen", "vanity_name": "foreflight"},
     {"competitor": "Lufthansa Systems", "vanity_name": "lufthansa-systems"},
     {"competitor": "Aviobook", "name": "Aviobook", "vanity_name": "aviovision-nv"},
-    {"competitor": "Bytron Skybook", "vanity_name": "bytron-aviation-systems"},
+    {"competitor": "Bytron Skybook", "vanity_name": "bytron"},
     {"competitor": "Navblue", "name": "Skywise", "scope": "Airbus", "vanity_name": "airbus-skywise"},
     {"competitor": "Navblue", "name": "Navblue", "scope": "Airbus", "vanity_name": "navblue-an-airbus-company"},
     {"competitor": "IFS", "vanity_name": "ifs-international-flight-support"},

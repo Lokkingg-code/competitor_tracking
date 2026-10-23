@@ -1,0 +1,58 @@
+{
+  "captured_at": "2026-10-21T09:21:37.463Z",
+  "lookback_days": 14,
+  "cutoff": "2026-10-07",
+  "count": 2,
+  "checks": [
+    {
+      "competitor": "Bytron Skybook",
+      "vanity_name": "bytron",
+      "requested_url": "https://www.linkedin.com/company/bytron/posts/",
+      "final_url": "https://www.linkedin.com/company/bytron/posts/",
+      "page_title": "Bytron Aviation Systems: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 23,
+      "article_nodes": 23,
+      "posts_seen": 3,
+      "posts_captured": 1,
+      "status": "ok"
+    },
+    {
+      "competitor": "Others",
+      "vanity_name": "talora-efb",
+      "requested_url": "https://www.linkedin.com/company/talora-efb/posts/",
+      "final_url": "https://www.linkedin.com/company/talora-efb/posts/",
+      "page_title": "Talora: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 23,
+      "article_nodes": 23,
+      "posts_seen": 4,
+      "posts_captured": 1,
+      "status": "ok"
+    }
+  ],
+  "items": [
+    {
+      "id": "browser-8b4c0d4e9d6e",
+      "competitor": "Bytron Skybook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "One operation, one connected view... ✈️",
+      "url": "https://lnkd.in/p/gcq2Fwc4",
+      "summary": "One operation, one connected view... ✈️ Dan Cook • 2nd Enhancing airlines with skybook, an EFB solution & integrated dispatch for complete flight data capture! Visit my website 23h Follow An integrated dispatch & EFF portal brings everything together. 🤝 When flight plans, weather, NOTAMs, aircraft, crew, fuel and communications are spread across different systems, maintaining one clear operational picture becomes harder. One connected view from dispatch to the flight crews EFB, helping teams stay informed, communicate quickly and respond when things change. Full article in the comments  ✈️ #f",
+      "published_at": "2026-10-20"
+    },
+    {
+      "id": "browser-94359d30bec8",
+      "competitor": "Others",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Next month our team including Prakash Rajan and Nico Müller-Lankow will be exhibiting at the Canadian Aviation Conference & Tradeshow (Air Transport Association of Canada - Associa",
+      "url": "https://lnkd.in/p/gE7F6SkJ",
+      "summary": "Next month our team including Prakash Rajan and Nico Müller-Lankow will be exhibiting at the Canadian Aviation Conference & Tradeshow (Air Transport Association of Canada - Association du transport aérien du Canada (ATAC)) - taking place at the The Westin Bayshore, Vancouver. If you are looking for a navigation chart alternative make sure to stop by at booth 122. #ATAC #Talora #AviationCanadienne #EFB #NavigationCharts … more 9 ​ 2 ​",
+      "published_at": "2026-10-20"
+    }
+  ]
+}
