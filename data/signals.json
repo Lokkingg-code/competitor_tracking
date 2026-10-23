@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T06:46:23Z",
+  "generated_at": "2026-10-23T10:36:26Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,69 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-ddff1771feb7",
+      "competitor": "Navblue",
+      "date": "2026-10-23",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "IndiGo selects Skywise Core X3 to power next-generation analytics at enterprise scale",
+      "summary": "Navblue reported a customer win update: IndiGo selects Skywise Core X3 to power next-generation analytics at enterprise scale. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-10-indigo-selects-skywise-core-x3-to-power-next-generation-analytics-at-enterprise-scale"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-23T10:36:49+00:00",
+        "source_sha256": "a967f5c1766eb8459666eb20a32b41ee9ef9429b74170d4503095d747fa69e39",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue reports IndiGo selection of Skywise Core X3 for enterprise-scale analytics.",
+        "summary": "Navblue announced that IndiGo has selected Skywise Core X3 to power its next-generation analytics at an enterprise scale."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T10:38:59+00:00",
+        "source_sha256": "a967f5c1766eb8459666eb20a32b41ee9ef9429b74170d4503095d747fa69e39",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
     {
       "id": "cap-9c8fa3605f12",
       "competitor": "Jeppesen",
@@ -4367,7 +4430,7 @@
       "competitor": "Bytron Skybook",
       "date": "2026-09-18",
       "date_is_estimated": false,
-      "type": "feature_change",
+      "type": "messaging_shift",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -4434,13 +4497,29 @@
         "title": "Bytron Skybook promotes instant messaging and notification features via its EFB.",
         "summary": "Bytron Skybook is promoting messaging features that connect dispatchers and pilots through its EFB, including notifications for ATC changes, NOTAMs, loadsheets, and NOTOCs. No concrete change or new release is established."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T10:39:30+00:00",
+        "source_sha256": "1a06017621228a32d5e4eb07a69c2d935755883cb34c27f3c003b572c3a607b7",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "feature_change",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -4537,7 +4616,7 @@
       "competitor": "Aviobook",
       "date": "2026-09-14",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "messaging_shift",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -4604,13 +4683,29 @@
         "title": "Aviobook promotes AvioBook EFB usage via ASL Airlines Belgium testimonial.",
         "summary": "Aviobook features a video testimonial from ASL Airlines Belgium regarding daily EFB use and support responsiveness. This is promotional messaging and establishes no new product or contract developments."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T10:40:00+00:00",
+        "source_sha256": "8f2e36043664f4cb79985a4fd29d33ee04d78d02811e40a219e4ddd061a3baf9",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -4618,7 +4713,7 @@
       "competitor": "Jeppesen",
       "date": "2026-09-11",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "customer_win",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -4685,7 +4780,23 @@
         "title": "Jeppesen expands partnership with Saxon Air to include full ForeFlight operational suite.",
         "summary": "Saxon Air is expanding its partnership with Jeppesen by adopting the full ForeFlight operational suite. The expansion is intended to support greater visibility and efficiency across its operations."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T10:40:51+00:00",
+        "source_sha256": "e16a0a59139b7ffea47d465c4ac8316021b8f6d77931880d7e935870f1450d9d",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-0384fbd2ed67",
@@ -4864,7 +4975,6 @@
         "title": "IFS deploys IFS EFBOne platform to MY FREIGHTER (Centrum Air).",
         "summary": "MY FREIGHTER (Centrum Air) has joined the IFS EFBOne platform. The deployment involved collaboration between IFS and the customer's operational and flight technical teams."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
@@ -4883,6 +4993,22 @@
           "reason": "Classified as cargo using cross-signal evidence: browser-cb2fca77cee3 explicitly describes MY FREIGHTER (Centrum Air) as Central Asia's largest air cargo operator; cap-541011120c72 names MY FREIGHTER LLC (Centrum Air), the same operator. Not an LCC.",
           "reviewed_at": "2026-10-20T08:20:00+00:00"
         }
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T10:41:19+00:00",
+        "source_sha256": "6deeb2dcaec090122232131ee9ccee4b8c904b1705d79ad10ff13e905ba062c0",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
