@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T10:44:29Z",
+  "generated_at": "2026-10-23T06:46:23Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,132 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-9c8fa3605f12",
+      "competitor": "Jeppesen",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight Introduces Enroute Profile View On Flitedeck Pro",
+      "summary": "AUSTIN, TX – Oct. 21, 2026 – Jeppesen ForeFlight today announced the release of FliteDeck Pro version 5.3, introducing Enroute Profile View and a set of targeted improvements designed to help commercial flight crews make better decisions, reduce workload, and maintain situational awareness throughout every phase of flight.",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "eff",
+      "product": "ForeFlight FliteDeck Pro",
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-introduces-enroute-profile-view-on-flitedeck-pro"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-23T06:46:43+00:00",
+        "source_sha256": "2651cf4a321285e85c8847ba40cf218abfa6320f164bc6db15324c00b7608e59",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen releases FliteDeck Pro version 5.3 featuring Enroute Profile View.",
+        "summary": "Jeppesen released FliteDeck Pro version 5.3, which introduces the Enroute Profile View feature. The update includes targeted improvements intended to assist commercial flight crews with decision-making, workload reduction, and situational awareness."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T06:49:15+00:00",
+        "source_sha256": "2651cf4a321285e85c8847ba40cf218abfa6320f164bc6db15324c00b7608e59",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-32145e1e1492",
+      "competitor": "Navblue",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "Raya Airways selects Skywise N-Ops & Crew solution to digitalise operations",
+      "summary": "Raya Airways, Malaysia’s all-cargo airline has signed an agreement to implement Skywise N-Ops & Crew (N-OC) as part of the airline’s ongoing digital transf",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-10-raya-airways-selects-skywise-n-ops-crew-solution-to-digitalise-operations"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-23T06:47:04+00:00",
+        "source_sha256": "43229e60711a6ac1903733eaf3e7ad958d4ac2570bd43fe9d723449f19b8572c",
+        "evidence_scope": "captured_preview_only",
+        "title": "Raya Airways selects Navblue Skywise N-Ops & Crew to digitalize operations.",
+        "summary": "Malaysian all-cargo carrier Raya Airways has signed an agreement to implement the Skywise N-Ops & Crew (N-OC) solution as part of its digital transformation."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T06:50:05+00:00",
+        "source_sha256": "43229e60711a6ac1903733eaf3e7ad958d4ac2570bd43fe9d723449f19b8572c",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
     {
       "id": "cap-6eb0c85960c5",
       "competitor": "Jeppesen",
@@ -3797,7 +3923,22 @@
         "title": "Lufthansa Systems promotes vision for NetLine One at Airline Forum 2026.",
         "summary": "Lufthansa Systems shared its vision for the NetLine One product during Airline Forum 2026. The text provides promotional messaging and establishes no concrete product changes or new developments."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T06:50:26+00:00",
+        "source_sha256": "324f7af7e86c8dce3eb1375e9cf8de98113ba307017a4067a9dcc08ee4429074",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-5c0bfdebae79",
@@ -3812,7 +3953,7 @@
       "summary": "TransNusa adopts Skywise Core X2 and S.FP+ to unite flight and technical operations, driving real-time fleet health monitoring and operational efficiency",
       "source_channel": "press_release",
       "source_origin": "press_release",
-      "product_focus": "eff",
+      "product_focus": "adjacent",
       "product": null,
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -3872,7 +4013,23 @@
         "title": "Navblue expands Skywise collaboration with TransNusa to launch integrated Flight and Technical Operations using Skywise Core X2 and S.FP+.",
         "summary": "TransNusa is adopting Skywise Core X2 and S.FP+ to integrate its flight and technical operations. This deployment enables real-time fleet health monitoring to drive operational efficiency."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T06:51:17+00:00",
+        "source_sha256": "82c999b5008607c9a4e03593705242b9f213dbfdb194c237b6f098bbd620b980",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-15b0210793f1",
@@ -3919,7 +4076,22 @@
         "title": "Lufthansa Systems promotes its 2026 Airline Forum and NetLine Slot sessions.",
         "summary": "The text describes the conclusion of the Lufthansa Systems 2026 Airline Forum and mentions NetLine Slot sessions. No new product releases or concrete developments are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-23T06:51:34+00:00",
+        "source_sha256": "978c7e11195c5c5063ec9a2f2a70810b6ebfcac76cadb4734b3f9b6606977261",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-c2a986e9925f",
@@ -8905,6 +9077,53 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen collaborates with GE Aerospace to integrate ForeFlight Cost Index Optimization with GE's flight data analytics platform.",
         "summary": "Jeppesen ForeFlight and GE Aerospace announced a collaboration to combine GE’s flight data analytics platform with ForeFlight’s Cost Index Optimization solution. The integration provides a fuel efficiency workflow covering pre-flight planning, in-flight optimization, and post-flight analysis."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-dc394fa54060",
+      "competitor": "Jeppesen",
+      "date": "2026-05-05",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Jeppesen Dispatch v2026-2 is now available. This major release delivers greater automation, faster performance…",
+      "summary": "Jeppesen Dispatch v2026-2 is now available. This major release delivers greater automation, faster performance, and improved optimization to help airline operations teams manage increasingly complex workflows with more speed and control.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxObkVCMW9qWmd2MXdBNTV3NEtUbzl0QXZUWXNORmVRUWdNbENtQUhlY3Q0LXllQ29rM29yd3dici04dXdxWEdkcVpLZEtqejhCZTZ4ZVlwT0R0MEs3Y3RUbVlubUtOZjhnaFJBd0FMZWtkMGY1djhwZ3JNQV80X1BEdFRVTkhDS2xkb1gwb1ZvV2xyd3FUSkZyb2xLNDlscm54bVVzOXc5T3RrSkllRkd6ZnZ5QTdHUVhmU1NjWlpnZlpMTVpK?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-23T06:47:30+00:00",
+        "source_sha256": "a3d99aedc6d020fdb2dc6c015d23d019135a9dd1d6e07e57929e0e4d5a55b0e2",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen releases Jeppesen Dispatch v2026-2.",
+        "summary": "Jeppesen has released version v2026-2 of Jeppesen Dispatch. The update provides increased automation, faster performance, and improved optimization for airline operations workflows."
       },
       "ai_classification_status": "pending"
     },
