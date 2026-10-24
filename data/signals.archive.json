@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T10:36:26Z",
+  "generated_at": "2026-10-24T09:54:00Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -62,6 +62,69 @@
         "model": "gemma-4-26b-a4b-it",
         "enriched_at": "2026-10-23T10:38:59+00:00",
         "source_sha256": "a967f5c1766eb8459666eb20a32b41ee9ef9429b74170d4503095d747fa69e39",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "cap-2df67701f55e",
+      "competitor": "Navblue",
+      "date": "2026-10-23",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "IndiGo (InterGlobe Aviation Ltd) has selected Skywise Core X3 to power next-generation analytics. IndiGo…",
+      "summary": "IndiGo (InterGlobe Aviation Ltd) has selected Skywise Core X3 to power next-generation analytics. IndiGo, the largest airline in India and one of the fastest-growing carriers in the world, has signed for Skywise Core X3, the premium tier of the Skywise Core X s",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQcFBJY05OQ1c1RDJ2SVFRVlpuRlZpekRZTG9Lam5hLW5BVGFfQ2NKaUxyYjlCVkg3SkNPVVB0bldhaUo2clU4a3Z2ZnVUOVFOdEpXdXFxdmJwSVJ0eC1yQ2NqVWJHQno4TEl2SzJKc0E0TUpWdjFGMk9NMlljTGEwOFZfWFlrWGFiM1d0MXVEcktzT0Zza1UwVWI4WFFVRkhpcndhLUNlRmxXWmdwMzZGT1FJVWRvMzdfbmY5SWln?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-24T09:54:27+00:00",
+        "source_sha256": "2db2578336b90c0cfc77ba131734158727d451c3aec3e0024d04e5633bd955d6",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue's Skywise Core X3 selected by IndiGo for next-generation analytics.",
+        "summary": "IndiGo has signed for Skywise Core X3, the premium tier of the Skywise Core X suite, to power next-generation analytics."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-24T09:57:26+00:00",
+        "source_sha256": "2db2578336b90c0cfc77ba131734158727d451c3aec3e0024d04e5633bd955d6",
         "suggested_type": "customer_win",
         "type_confidence": 1.0,
         "suggested_product_focus": "adjacent",
@@ -324,6 +387,68 @@
         "ai_evidence": "New AI Agents to Airflow Platform",
         "original_type": "messaging_shift",
         "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-9fb38a6ba3b9",
+      "competitor": "Jeppesen",
+      "date": "2026-10-21",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Jay Kadir stopped by the Jeppesen ForeFlight booth to talk with Reggie Arsenault, SVP…",
+      "summary": "Jay Kadir stopped by the Jeppesen ForeFlight booth to talk with Reggie Arsenault, SVP of Flight Operations, about our new platform: Jeppesen ForeFlight Airflow™ 🛩️ Jeppesen ForeFlight is launching pre-built agents, starting with Trip Feasibility and Ops Bri",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORGtINEM2MHB6SGxLOEg1MlRwY0lWT01mTGhYQ3hHRnRWUTJCV0NtSmZhdkk1TnNCUnJ2MVhUcS1IN1BTanl2bDU4emlGNWk0dko4OEVEZmpLVV9qUDM3S0Y3elA5VWloSXJRY01ZMnV3R1NiOS14VlRhV0JrRENJYVh3ano2UXczSjB5cVFVdDNnaFlmSmtiWXdlc3NZeTFtUmExUGIxbktRZXBrNk8tc3h6ZVVnVGlqWW5sVg?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-24T09:54:54+00:00",
+        "source_sha256": "e91044c730def857fc1eab07ba956807dcd828a38a2205277b9d840d6fb0555b",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen launches ForeFlight Airflow™ platform featuring pre-built agents for Trip Feasibility and Ops Briefing.",
+        "summary": "Jeppesen is launching the ForeFlight Airflow™ platform. The release includes pre-built agents, starting with Trip Feasibility and Ops Briefing."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-24T09:58:05+00:00",
+        "source_sha256": "e91044c730def857fc1eab07ba956807dcd828a38a2205277b9d840d6fb0555b",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.85,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "launching pre-built agents",
+        "type_auto_applied": false,
         "focus_auto_applied": false
       }
     },
@@ -4714,8 +4839,8 @@
       "date": "2026-09-11",
       "date_is_estimated": false,
       "type": "customer_win",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "high",
+      "severity": 4,
       "confidence": 0.65,
       "headline": "Saxon Air Expands Partnership with Jeppesen ForeFlight | Jeppesen ForeFlight posted on the topic | LinkedIn",
       "summary": "We’re excited to share that Saxon Air is expanding its partnership with Jeppesen ForeFlight, moving to the full operational suite to support greater visibility, efficiency, and smarter decision-making across its operations. Read more: https://lnkd.in/dfigY5Kd",
@@ -5541,7 +5666,6 @@
         "title": "IFS secures MY FREIGHTER LLC (Centrum Air) as a customer for its IFS EFBOne electronic flight bag platform.",
         "summary": "MY FREIGHTER LLC (Centrum Air) has selected IFS EFBOne to serve as its electronic flight bag (EFB) platform."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
@@ -5560,6 +5684,22 @@
           "reason": "Classified as cargo using cross-signal evidence: browser-cb2fca77cee3 explicitly describes MY FREIGHTER (Centrum Air) as Central Asia's largest air cargo operator; cap-541011120c72 names MY FREIGHTER LLC (Centrum Air), the same operator. Not an LCC.",
           "reviewed_at": "2026-10-20T08:20:00+00:00"
         }
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-24T09:58:21+00:00",
+        "source_sha256": "dbb9f4c4c821a2e01ef52ddd2a56f0fd46a2269d190cf3ffbeaf62f1588aad4e",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -5723,14 +5863,29 @@
         "title": "Lufthansa Systems deploys Lido mPilot iOS-based Electronic Flight Bag for Viva.",
         "summary": "Lufthansa Systems implemented its Lido mPilot iOS-based Electronic Flight Bag solution for Viva. The deployment provides pilots with aeronautical charts, airport maps, weather overlays, and navigation data, and was completed within two weeks."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-24T09:58:56+00:00",
+        "source_sha256": "c52261893a7d99e9955f9ff6141385db55a7fa1053f596a8cb4d1e444c8606c9",
+        "suggested_type": "implementation",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-d0ca361f6e7a",
       "competitor": "Bytron Skybook",
       "date": "2026-09-01",
       "date_is_estimated": false,
-      "type": "feature_change",
+      "type": "messaging_shift",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -5797,13 +5952,29 @@
         "title": "Bytron Skybook adds instant messaging capability from dispatchers to the Skybook EFB.",
         "summary": "Bytron Skybook highlights a feature enabling dispatchers to send instant messages to the Skybook EFB. This allows dispatchers to share operational updates directly with pilots during flight briefings."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-24T09:59:40+00:00",
+        "source_sha256": "941738ae74954350958ea28d37b10af5c0eaae8f5c2c7f9af8a49e66a29c226d",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "feature_change",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -11099,6 +11270,53 @@
       "ai_classification_status": "pending"
     },
     {
+      "id": "cap-be828492e6da",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-12-11",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Lufthansa Systems has launched its new IT subsidiary, Lufthansa Systems India, in Bengaluru, marking…",
+      "summary": "Lufthansa Systems has launched its new IT subsidiary, Lufthansa Systems India, in Bengaluru, marking a major milestone in its global expansion. Developed in collaboration with Infosys, the Global Capability Center will drive software and product developme <font color=\"",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQNDJhZE5EbWxWOHVpcXl2T1poaHp6YnVJQkJmWVBuMnBhV3B3cE4za1hGN0FVdXNReFE4OEFKM2xsQnl3NkQwMGJIRlY5dDZOMS1WU1FPbGx5SFg0aFRjWWU0R0JOUzhicHRBSjZwOHRWRTFpTVdWTEVTM1otYWJ2enpmSW1ELXVWRzlkeGZxdFNaUUNYMHZkS2ZONW01MUlhT0EtOXFMaVJKbHRHUWctemNreTM?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-24T09:55:10+00:00",
+        "source_sha256": "426a899296945d04601502d5e9d419a6ebfb4b415900992d1c755a87500990f7",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems launches new IT subsidiary Lufthansa Systems India in Bengaluru.",
+        "summary": "Lufthansa Systems has launched its new IT subsidiary, Lufthansa Systems India, in Bengaluru. Developed in collaboration with Infosys, the Global Capability Center will drive software and product development."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-6c44340efff4",
       "competitor": "Navblue",
       "date": "2025-12-10",
@@ -12083,6 +12301,53 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen ForeFlight launches as a standalone company backed by Thoma Bravo.",
         "summary": "Jeppesen and ForeFlight have launched as a standalone company, Jeppesen ForeFlight, with backing from Thoma Bravo."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-27d35e4ce23c",
+      "competitor": "Navblue",
+      "date": "2025-11-03",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "What if America’s telecom infrastructure worked the way aviation does today? When Airbus and…",
+      "summary": "What if America’s telecom infrastructure worked the way aviation does today? When Airbus and Palantir launched Skywise, they proved that shared intelligence could transform an entire industry—connecting 140+ airl",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOTTBWQ3FUWC1RbzFWbmVZalF2T1ZBRndwR25sd0dFYU9kR3JHeVp2NnQ3YTRHYS02ZnhicUVJTzZhZ3otelN1c0hLQUlNSTFhSWhWN3dLSER3YkZ4THJkbXhvQTdGcDc3MkFROGg0cFBmMzh5a1Q4NnJkSjdIOHBpd1k0U0h0NUppQ3U1UWFVT3ZUU25VRWtnVnR0VHh3LUN5NGpnbVh5a1BGOTctU1lTX0M2eE5hLUlZUVlva1lBaXFhN3hYdHJuWFRfczBUc09OWDd1cjFWRmViaDJRbkotal96YS1qZWVwT3c?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-24T09:57:03+00:00",
+        "source_sha256": "5ec7bb057c084179d82dd60030f2e5f60f8e1f93749cdcee238169d9b20a0089",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue promotes shared intelligence concepts via aviation industry comparisons.",
+        "summary": "Navblue discusses the potential for shared intelligence in telecom infrastructure by referencing the Airbus and Palantir Skywise model. No concrete product, contract, or deployment changes are established."
       },
       "ai_classification_status": "pending"
     },
