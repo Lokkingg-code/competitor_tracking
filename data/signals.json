@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T09:54:00Z",
+  "generated_at": "2026-10-25T10:15:00Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,69 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-c5391f77fae3",
+      "competitor": "Navblue",
+      "date": "2026-10-24",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "IndiGo selects Skywise Core X3 for next-gen analytics",
+      "summary": "Navblue reported a customer win update: IndiGo selects Skywise Core X3 for next-gen analytics. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYlZVZHZpZU9NWWgwMzV0ejhLUWR3am1FYWV6WGd1VkViMDhKNlIzQmJSQ2U0V2UwQ242LTE2b2FiS2I5QUhaZXVnVmRqb2hWWEpMVzFjazBVVVRuUmx3LU10eWlmYUYtandQMU8zWGd0dmZvaW9DRWhmUmZrNkV4TlRaekpTaFdZUHdjcWZB?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-25T10:15:27+00:00",
+        "source_sha256": "196543ce025ddba76627dfcad1171dc4efc296524cefa430bc826e2b65a06f75",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue's Skywise Core X3 selected by IndiGo for next-generation analytics.",
+        "summary": "IndiGo has selected Skywise Core X3 for next-generation analytics. This selection was reported by Navblue."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-25T10:18:36+00:00",
+        "source_sha256": "196543ce025ddba76627dfcad1171dc4efc296524cefa430bc826e2b65a06f75",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
     {
       "id": "cap-ddff1771feb7",
       "competitor": "Navblue",
@@ -139,6 +202,69 @@
       }
     },
     {
+      "id": "cap-3668c99bdc41",
+      "competitor": "Navblue",
+      "date": "2026-10-23",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "IndiGo has selected Skywise Core X3 to power next-generation analytics ✍️ IndiGo, the largest…",
+      "summary": "IndiGo has selected Skywise Core X3 to power next-generation analytics ✍️ IndiGo, the largest airline in India and one of the fastest growing carriers in the world, has signed for Skywise Core X3, the premium tier of the Skywise Core X suite, designed to explo &",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOeUNTWHYxWDNwa1A3dTJiWWZZN3VVVE9TMHU1dGhzbW95ay1ET3M5TXVUZ2xmWXZwY2lhaUpaZTlRMzNYUlpIelZDUGZESHVfZElFRWJzcmxHZnJqX2Qzb2x4Uk9yejh4bnBOakZUNTVEaHZCYUJHU2xqVjdOQTVvSElNdGJDQUY1UHFTbHBGTEhIX1JScmNodDBfNUJjb1FkaVBma0F3X09kSl9rdUV4N3RpcU8zcjBUbTU4Y0Jmd21wQQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-25T10:15:49+00:00",
+        "source_sha256": "f0a9ac89d7d40206827226615a4759e45315dbb9c037c2fbb271fd3c25c4a204",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue wins agreement with IndiGo for Skywise Core X3 analytics.",
+        "summary": "IndiGo has signed for Skywise Core X3, the premium tier of the Skywise Core X suite. The implementation is intended to power next-generation analytics for the airline."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-25T10:19:02+00:00",
+        "source_sha256": "f0a9ac89d7d40206827226615a4759e45315dbb9c037c2fbb271fd3c25c4a204",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
+    {
       "id": "cap-9c8fa3605f12",
       "competitor": "Jeppesen",
       "date": "2026-10-22",
@@ -251,6 +377,133 @@
         "model": "gemma-4-26b-a4b-it",
         "enriched_at": "2026-10-23T06:50:05+00:00",
         "source_sha256": "43229e60711a6ac1903733eaf3e7ad958d4ac2570bd43fe9d723449f19b8572c",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "cap-c605403b945e",
+      "competitor": "Jeppesen",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "unknown",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "New chapter, familiar place After a rewarding stint as Product Manager at Jeppesen ForeFlight…",
+      "summary": "New chapter, familiar place After a rewarding stint as Product Manager at Jeppesen ForeFlight, I’ve moved on, and I’m happy to share that I’ve rejoined Nagarro as an Aviation Product Consultant, helping airlines turn digital ambition into real results. At Jeppes <font color=\"#6f6f6",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT1E4a1dwYkxJNWZOR21tRTBERFR2bkVhR1ZtclBjSy0wZW55MjZMdGpkNm5aSEwwZkUtM0RaOWxCT0xiTGJ4d2dITWVzMG12M0JXM29EcXVveWUzSHExUWFaNDkwVWs5OU1DeUdTREZxR0ZMRFVqSnh1RmhOQUJFUW5XaENJNExVQUVVN1d1a3gwUEU2RW42OWVmUk53ZzhBU2ppUlFzRG52QQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-25T10:16:16+00:00",
+        "source_sha256": "4b4ab9084eb6569098117cbe54643494be5dfa9908198b1d5327379b196f234e",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight Product Manager joins Nagarro as Aviation Product Consultant.",
+        "summary": "A former Product Manager at Jeppesen ForeFlight has transitioned to a role as an Aviation Product Consultant at Nagarro. The text describes a personnel change and establishes no new product developments or customer contracts."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-25T10:19:46+00:00",
+        "source_sha256": "4b4ab9084eb6569098117cbe54643494be5dfa9908198b1d5327379b196f234e",
+        "suggested_type": "unknown",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": "eff_competitor_watchlist",
+        "model_suggested_product_focus": "other",
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-5b1032d32b77",
+      "competitor": "Navblue",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Exciting news from the Asia-Pacific aviation sector! ✈️ Raya Airways, Malaysia’s all-cargo airline, has…",
+      "summary": "✈️ Raya Airways, Malaysia’s all-cargo airline, has signed an agreement to implement Skywise N-Ops & Crew (N-OC) as part of its ongoing digital transformation journey. This agreement marks Raya Airways &n",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPaGVXNVRhaDdzY3VsQ3htU09kdFJ5UmlmMlBDLUhORi1QSC1aeksxa3BTWExOTm1IcEdVQ2VfaU4zRG9qdTdWMmFNMWlVQndxUGVCUnB6UWVpcV9SelZsV3U0T3pYMG9lWHc4cWdFUmZWdlVuSjIxejhmLUxWMmpJTmhsdy1pNGJQcFJRSWlsNEpVTm0tXzZCUlpWd1RUcGktRXJMUlNaS1BZbkdmdVhveXdlRUVGcU9PeU0tWnRSV3d3dw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-25T10:17:25+00:00",
+        "source_sha256": "f013a27d1248add47f1764717374a951eeccf0f4f06a6f8b7eefa838dc129268",
+        "evidence_scope": "captured_preview_only",
+        "title": "Raya Airways signs agreement to implement Skywise N-Ops & Crew (N-OC).",
+        "summary": "Raya Airways has signed an agreement to implement Skywise N-Ops & Crew (N-OC). The Malaysian all-cargo airline is adopting the software as part of its digital transformation journey."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-25T10:20:12+00:00",
+        "source_sha256": "f013a27d1248add47f1764717374a951eeccf0f4f06a6f8b7eefa838dc129268",
         "suggested_type": "customer_win",
         "type_confidence": 1.0,
         "suggested_product_focus": "eff",
@@ -2298,6 +2551,70 @@
         "ai_confidence": 1.0,
         "ai_evidence": "",
         "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-fb96cca416ae",
+      "competitor": "Jeppesen",
+      "date": "2026-10-08",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "We introduced our Aviation Operating Intelligence platform, Jeppesen ForeFlight Airflow and we heard from many of our customers on",
+      "summary": "What a great week in Paris, spending time with airlines from around the world with whom we enjoy longstanding partnership. We introduced our Aviation Operating Intelligence platform, Jeppesen ForeFlight Airflow and we heard from many of our customers on <fon",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYlFFb29LX21takVsUmxCU3RycGtKWURjY0poRmNjZU04WElURExCMU0xVlpmdGNsS2REUlJ2N3R0SXFSV0pMbHNBU2dSZDdIa09zVWtkaWgxQnBKeG1fY19vVXNKQXl2ZHMtb2FpM2pZMmt0ekJnek1sNlVaTHNOWFpENmVqTldYMGc1Sjhsa2ZlS0RhUEFWLUhaekNTMWlwMVprOGh4RlFSWE9NQjdKcGpNOEVqaWJSTVpxdA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-25T10:18:14+00:00",
+        "source_sha256": "12e618646cae4504c70d0046df81b34228e01f003bd48b67c8c5a1852266311f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen introduces Aviation Operating Intelligence platform Jeppesen ForeFlight Airflow.",
+        "summary": "Jeppesen introduced its Aviation Operating Intelligence platform, Jeppesen ForeFlight Airflow, in Paris. The announcement occurred during engagements with various international airline customers."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-25T10:21:12+00:00",
+        "source_sha256": "12e618646cae4504c70d0046df81b34228e01f003bd48b67c8c5a1852266311f",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": "eff_competitor_watchlist",
+        "model_suggested_product_focus": "adjacent",
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
         "focus_auto_applied": false
       }
     },
