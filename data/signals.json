@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T10:15:00Z",
+  "generated_at": "2026-10-26T11:38:51Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -6643,7 +6643,7 @@
       "competitor": "Jeppesen",
       "date": "2026-08-13",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -6651,7 +6651,7 @@
       "summary": "Jetstar Airways used to build rosters manually, working with limited room to weigh options. That changed when the workforce strategic planning team, under the Qantas Group, launched Jeppesen Pairings then Rostering.",
       "source_channel": "linkedin",
       "source_origin": "google_news",
-      "product_focus": "other",
+      "product_focus": "adjacent",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -6705,7 +6705,24 @@
         "title": "Jeppesen implements Pairings and Rostering for Jetstar Airways.",
         "summary": "Jetstar Airways transitioned from manual roster construction to utilizing Jeppesen Pairings and Rostering. The implementation was managed by the Qantas Group workforce strategic planning team."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-26T11:41:20+00:00",
+        "source_sha256": "db98a9860e1cecfb80d79c43de9a449477c6bb951af1ea51ee94d37bca9c39f5",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "browser-4581508f82ef",
@@ -7050,7 +7067,7 @@
       "id": "avio-2026-08-06-connect-3",
       "competitor": "Aviobook",
       "date": "2026-08-06",
-      "type": "product_launch",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.7,
@@ -7113,14 +7130,30 @@
         "title": "Aviobook announces webinar to preview AvioBook Connect 3.0 release on 17 September 2026.",
         "summary": "Aviobook is promoting a LinkedIn campaign for webinars previewing the AvioBook Connect 3.0 release. The upcoming version focuses on unified real-time flight-operations information."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-26T11:42:15+00:00",
+        "source_sha256": "ce735ffa63d8a4f61adf934ff0e750a72e59cd103a304078a61688a51ff72c0a",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-00ca3f8a3c2e",
       "competitor": "Jeppesen",
       "date": "2026-08-06",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "feature_change",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -7128,7 +7161,7 @@
       "summary": "Jeppesen Dispatch v2026-3 is now available. This release helps flight operations teams respond faster when plans change in flight, plan more safely around aircraft equipment issues, and manage workload across busy operations centers.",
       "source_channel": "linkedin",
       "source_origin": "google_news",
-      "product_focus": "adjacent",
+      "product_focus": "eff",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -7181,14 +7214,31 @@
         "title": "Jeppesen releases Jeppesen Dispatch v2026-3.",
         "summary": "Jeppesen has released Jeppesen Dispatch v2026-3. This version aims to help flight operations teams respond to in-flight plan changes, manage aircraft equipment issues, and handle workloads in operations centers."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-26T11:42:34+00:00",
+        "source_sha256": "21526f679df755ac0676c2189c6a8bf94c1d3f466f5cf4e283941dd3c496f8ba",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "original_product_focus": "adjacent",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-da9edaf974cf",
       "competitor": "Jeppesen",
       "date": "2026-08-06",
       "date_is_estimated": false,
-      "type": "regulatory",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.8,
@@ -7196,7 +7246,7 @@
       "summary": "AUSTIN, TEXAS — JUNE 16, 2026 — Jeppesen ForeFlight today announced it has received a Department of Defense Impact Level 5 (IL5) Authority to Operate. The Authority to Operate enables military and defense organizations to deploy ForeFlight for sensitive, mission-critical operations with full regulatory confidence, and applies across the Department of Defense, with reciprocity available to all military branches…",
       "source_channel": "press_release",
       "source_origin": "official_site",
-      "product_focus": "efb",
+      "product_focus": "eff",
       "product": "ForeFlight",
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -7251,7 +7301,24 @@
         "title": "Jeppesen ForeFlight achieves Department of Defense Impact Level 5 Authorization.",
         "summary": "Jeppesen ForeFlight has received Department of Defense Impact Level 5 (IL5) Authority to Operate. This authorization enables the deployment of ForeFlight for sensitive, mission-critical operations across the Department of Defense and its military branches."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-26T11:43:28+00:00",
+        "source_sha256": "33af312327b1be0003afe79ad6f0e669c82c407485045cd84c420266bfe62bc5",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "regulatory",
+        "type_auto_applied": true,
+        "original_product_focus": "efb",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-34f7cb947b3c",
@@ -11716,8 +11783,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-26T11:40:11+00:00",
+        "source_sha256": "ec62d39963222bb9101195b380a2cf6bd84718ef8693ee74e2900f2724a6adfb",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue's Skywise platform adds TCS to its Partner Programme.",
+        "summary": "TCS has joined the Skywise Partner Programme. The partnership aims to drive innovation and create more efficient operations for airlines using the Airbus platform."
+      }
     },
     {
       "id": "byt-2025-12-01-skybook-148",
@@ -11859,6 +11934,45 @@
         "title": "Lufthansa Systems launches IT subsidiary in India.",
         "summary": "Lufthansa Systems announced the launch of an IT subsidiary in India. No specific operational details or business functions for the new entity were provided."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-e8c2113f8028",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-27",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "✈️ We are proud to announce the official launch of Lufthansa Systems India, our newest subsidiary headquartered in Bengaluru.",
+      "summary": "Exciting news from Lufthansa Systems! ✈️ We are proud to announce the official launch of Lufthansa Systems India, our newest subsidiary headquartered in Bengaluru.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPb3N4Q0ctNlJKMThJVVY3RC0wV2pReXNqVkRrT1F5YnhJT0FsaWNMRENUa2NBZTNPWVhlRll1eXpEMFRqSzhRNDVSckJQejZsd20ySFRIN3FHRG14WHZlQmZiV1lZbzFJR01fTHlXNGFsWHNiaWdSSnNGWjBkYmxTd1A1UkdZdng1TkhWWE1JdjQtZDVRVkRkRGFzR1FrSGZlcFpmN1BBZmc4cEJEeVh5d2Q4UVRuelRBX3ZQalhR?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
