@@ -241,6 +241,7 @@ ADJACENT_PATTERNS = [
 ]
 
 PRODUCT_PATTERNS = [
+    ("Skywise Core X3", r"\bSkywise\s+Core\s+X3\b"),
     ("AvioBook Connect", r"(?:AvioBook|Aviobook)\s+Connect"),
     ("AvioBook", r"(?:AvioBook|Aviobook)\b"),
     ("Boeing FlightFolder", r"Boeing\s+Flight\s*Folder|FlightFolder"),

@@ -20,7 +20,7 @@ DEAL_ACTION_TOKENS = {
     "equips", "implement", "implemented", "implements", "kiest", "gekozen", "select",
     "selected", "selects", "signed", "signing", "signs", "choose", "chooses", "chose",
 }
-_AIRLINE_NAMES: list[str] | None = None
+_AIRLINE_NAMES: list[tuple[str, str]] | None = None
 
 
 def normalized_key(value: object) -> str:
@@ -29,7 +29,7 @@ def normalized_key(value: object) -> str:
     return re.sub(r"[^a-z0-9]+", " ", ascii_text).strip()
 
 
-def registered_airline_names() -> list[str]:
+def registered_airline_names() -> list[tuple[str, str]]:
     global _AIRLINE_NAMES
     if _AIRLINE_NAMES is None:
         try:
@@ -37,26 +37,38 @@ def registered_airline_names() -> list[str]:
         except (OSError, json.JSONDecodeError):
             _AIRLINE_NAMES = []
         else:
-            names = {
-                str(airline.get("name", "")).strip()
-                for airline in payload.get("airlines", [])
-                if isinstance(airline, dict)
-            }
-            _AIRLINE_NAMES = sorted(
-                (name for name in names if len(normalized_key(name)) >= 5 and normalized_key(name) not in {"unknown", "private flight"}),
-                key=lambda name: len(normalized_key(name)),
-                reverse=True,
-            )
+            aliases = set()
+            for airline in payload.get("airlines", []):
+                if not isinstance(airline, dict):
+                    continue
+                canonical = normalized_key(airline.get("name"))
+                if not canonical or canonical in {"unknown", "private flight"}:
+                    continue
+                for value in (airline.get("name"), airline.get("alias")):
+                    alias = normalized_key(value)
+                    if len(alias) >= 3 and alias not in {"n", "unknown", "private flight"}:
+                        aliases.add((alias, canonical))
+            _AIRLINE_NAMES = sorted(aliases, key=lambda item: len(item[0]), reverse=True)
     return _AIRLINE_NAMES
 
 
 def evidenced_airline(signal: dict, evidence: str) -> str | None:
     evidence_key = f" {normalized_key(evidence)} "
-    for name in registered_airline_names():
-        name_key = normalized_key(name)
-        if f" {name_key} " in evidence_key:
-            return name_key
+    for alias, canonical in registered_airline_names():
+        if f" {alias} " in evidence_key:
+            return canonical
     return None
+
+
+def canonical_airline_key(value: object) -> str | None:
+    airline_key = normalized_key(value)
+    if not airline_key or airline_key == "unknown":
+        return None
+    padded_key = f" {airline_key} "
+    for alias, canonical in registered_airline_names():
+        if f" {alias} " in padded_key:
+            return canonical
+    return airline_key
 
 
 def explicit_customer_deal_key(signal: dict, competitor: str, product: str) -> tuple[str, str, str, str] | None:
@@ -79,12 +91,11 @@ def customer_event_key(signal: dict) -> tuple[str, str, str, str] | None:
     if not competitor or not product:
         return None
     if isinstance(analysis, dict):
-        airline = normalized_key(analysis.get("customer_airline"))
+        airline = canonical_airline_key(analysis.get("customer_airline"))
         relationship = analysis.get("customer_relationship")
         confidence = analysis.get("customer_confidence")
         if (
             airline
-            and airline != "unknown"
             and relationship in CUSTOMER_DEAL_RELATIONSHIPS
             and not isinstance(confidence, bool)
             and isinstance(confidence, (int, float))

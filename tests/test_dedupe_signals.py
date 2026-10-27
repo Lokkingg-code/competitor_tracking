@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts import dedupe_signals, enrich_signals
+from scripts import dedupe_signals, enrich_signals, merge_signals
 
 
 def signal(signal_id, *, airline="Royal Air Maroc", product="AvioBook Flight", date="2026-10-08", confidence=0.95, competitor="Thales", relationship="signed", url=None, summary="Announcement"):
@@ -25,6 +25,55 @@ def signal(signal_id, *, airline="Royal Air Maroc", product="AvioBook Flight", d
 
 
 class CustomerEventDedupeTests(unittest.TestCase):
+    def test_four_cross_source_indigo_skywise_reports_collapse_to_one_deal(self):
+        variants = [
+            (
+                "official",
+                "2026-10-23",
+                "IndiGo selects Skywise Core X3 to power next-generation analytics at enterprise scale",
+                "IndiGo has selected Skywise Core X3 for next-generation analytics.",
+            ),
+            (
+                "google-news",
+                "2026-10-24",
+                "IndiGo selects Skywise Core X3 for next-gen analytics",
+                "Navblue says IndiGo selected Skywise Core X3 for next-gen analytics.",
+            ),
+            (
+                "linkedin-a",
+                "2026-10-23",
+                "IndiGo (InterGlobe Aviation Ltd) has selected Skywise Core X3 for next-generation analytics",
+                "IndiGo signed for Skywise Core X3, the premium tier of Skywise Core X.",
+            ),
+            (
+                "linkedin-b",
+                "2026-10-23",
+                "IndiGo has selected Skywise Core X3 to power next-generation analytics",
+                "The airline has signed for Skywise Core X3 to power its analytics.",
+            ),
+        ]
+        signals = []
+        for signal_id, event_date, headline, summary in variants:
+            product = merge_signals.detect_product(f"{headline} {summary}")
+            self.assertEqual(product, "Skywise Core X3")
+            signals.append({
+                "id": signal_id,
+                "competitor": "Navblue",
+                "product": product,
+                "date": event_date,
+                "headline": headline,
+                "summary": summary,
+                "sources": [{"title": signal_id, "url": f"https://example.com/{signal_id}"}],
+            })
+
+        records = dedupe_signals.deduplicate_customer_events(signals)
+        feed = [record for record in records if not record.get("duplicate_of")]
+
+        self.assertEqual(len(feed), 1)
+        self.assertEqual(feed[0]["duplicate_count"], 3)
+        self.assertEqual(set(feed[0]["duplicate_signal_ids"]), {"official", "google-news", "linkedin-a", "linkedin-b"} - {feed[0]["id"]})
+        self.assertEqual(len(feed[0]["sources"]), 4)
+
     def test_unenriched_english_and_dutch_deal_captures_collapse(self):
         signals = [
             {
