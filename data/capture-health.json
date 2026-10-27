@@ -1,4 +1,6 @@
 {
+  "generated_at": "2026-10-27T03:01:04Z",
+  "raw_capture_at": "2026-10-27T03:01:04.180607+00:00",
   "status": "healthy",
   "required_public_sources": [
     {
@@ -31,6 +33,7 @@
   ],
   "manual_linkedin": {
     "mode": "manual",
+    "captured_at": "2026-10-27T02:39:56.335Z",
     "captured_items": 0,
     "status": "attention_needed"
   },
