@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T10:44:29Z",
+  "generated_at": "2026-10-27T03:29:55Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,77 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-c605403b945e",
+      "competitor": "Jeppesen",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "New chapter, familiar place After a rewarding stint as Product Manager at Jeppesen ForeFlight…",
+      "summary": "New chapter, familiar place After a rewarding stint as Product Manager at Jeppesen ForeFlight, I’ve moved on, and I’m happy to share that I’ve rejoined Nagarro as an Aviation Product Consultant, helping airlines turn digital ambition into real results. At Jeppes <font color=\"#6f6f6",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT1E4a1dwYkxJNWZOR21tRTBERFR2bkVhR1ZtclBjSy0wZW55MjZMdGpkNm5aSEwwZkUtM0RaOWxCT0xiTGJ4d2dITWVzMG12M0JXM29EcXVveWUzSHExUWFaNDkwVWs5OU1DeUdTREZxR0ZMRFVqSnh1RmhOQUJFUW5XaENJNExVQUVVN1d1a3gwUEU2RW42OWVmUk53ZzhBU2ppUlFzRG52QQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-25T10:16:16+00:00",
+        "source_sha256": "4b4ab9084eb6569098117cbe54643494be5dfa9908198b1d5327379b196f234e",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight Product Manager joins Nagarro as Aviation Product Consultant.",
+        "summary": "A former Product Manager at Jeppesen ForeFlight has transitioned to a role as an Aviation Product Consultant at Nagarro. The text describes a personnel change and establishes no new product developments or customer contracts."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-25T10:19:46+00:00",
+        "source_sha256": "4b4ab9084eb6569098117cbe54643494be5dfa9908198b1d5327379b196f234e",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1,
+        "focus_rule_override": "eff_competitor_watchlist",
+        "model_suggested_product_focus": "other",
+        "is_ai_related": false,
+        "ai_confidence": 1,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": false,
+        "focus_auto_applied": false,
+        "model_suggested_type": "unknown"
+      },
+      "analyst_type_review": {
+        "from": "unknown",
+        "to": "messaging_shift",
+        "reason": "Career move to Nagarro; no product release, customer win, or deployment is announced.",
+        "reviewed_at": "2026-10-27T03:28:41.153Z"
+      }
+    },
     {
       "id": "cap-6eb0c85960c5",
       "competitor": "Jeppesen",
