@@ -109,13 +109,36 @@ class AIEnrichmentTests(unittest.TestCase):
                 self.assertEqual(result["suggested_type"], model_result["suggested_type"])
                 if confidence >= 0.8:
                     self.assertEqual(signal["type"], model_result["suggested_type"])
-                    self.assertEqual(result["original_type"], "unknown")
+                    self.assertEqual(result["original_type"], "messaging_shift")
                     self.assertEqual(signal["product_focus"], "eff")
                 else:
-                    self.assertEqual(signal["type"], "unknown")
+                    self.assertEqual(signal["type"], "messaging_shift")
                     self.assertEqual(signal["product_focus"], "other")
                 self.assertNotIn("ai_brief", signal)
                 self.assertIn("NOT a signal type", request.call_args.args[2]["contents"][0]["parts"][0]["text"])
+
+    def test_unknown_ai_type_and_personnel_move_fall_back_to_messaging_shift(self):
+        signal = {
+            "id": "nagarro-personnel-move",
+            "competitor": "Jeppesen",
+            "headline": "Jeppesen ForeFlight Product Manager joins Nagarro as Aviation Product Consultant",
+            "summary": "The employee has moved to a new consulting role; no product release or customer deal is announced.",
+            "type": "unknown",
+            "product_focus": "other",
+        }
+        model_result = {
+            "suggested_type": "unknown", "type_confidence": 0.55,
+            "suggested_product_focus": "other", "focus_confidence": 0.9,
+            "is_ai_related": False, "ai_confidence": 0.0, "ai_evidence": "",
+        }
+        response = {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": json.dumps(model_result)}]}}]}
+        with patch.object(ENRICH, "gemini_request", return_value=response) as request:
+            result = ENRICH.classify_signal(signal, "test-key")
+        prompt = request.call_args.args[2]["contents"][0]["parts"][0]["text"]
+        self.assertIn("employees joining, leaving, or changing roles", prompt)
+        self.assertEqual(result["suggested_type"], "messaging_shift")
+        self.assertEqual(signal["type"], "messaging_shift")
+        self.assertEqual(signal["type_normalized_from"], "unknown")
 
     def test_classification_rejects_ai_flag_without_source_quote(self):
         result = {
@@ -128,7 +151,7 @@ class AIEnrichmentTests(unittest.TestCase):
         with patch.object(ENRICH, "gemini_request", return_value=response):
             with self.assertRaisesRegex(ENRICH.EnrichmentError, "supporting quote"):
                 ENRICH.classify_signal(signal, "test-key")
-        self.assertEqual(signal["type"], "unknown")
+        self.assertEqual(signal["type"], "messaging_shift")
 
     def test_eff_watchlist_overrides_model_efb_suggestion_with_audit(self):
         signal = {

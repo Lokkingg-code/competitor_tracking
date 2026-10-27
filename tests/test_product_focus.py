@@ -49,6 +49,11 @@ class ProductFocusTests(unittest.TestCase):
             MERGE_SIGNALS.infer_type("Career AMA with a Customer Success Manager discussing her professional journey"),
             "messaging_shift",
         )
+        self.assertEqual(
+            MERGE_SIGNALS.infer_type("Jeppesen ForeFlight Product Manager joins Nagarro as Aviation Product Consultant"),
+            "messaging_shift",
+        )
+        self.assertEqual(MERGE_SIGNALS.sanitize_signal({"type": "unknown", "headline": "A career announcement"})["type"], "messaging_shift")
 
     def test_eff_watchlist_defaults(self):
         for product in ("Aviobook", "Boeing flightfolder", "Bytron skybook", "CAE eflightmanager", "Flightman", "Foreflight", "Lido mbriefing", "Logipad", "Mission+", "Topwing", "IFS EFBOne"):

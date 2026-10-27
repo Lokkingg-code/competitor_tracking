@@ -15,6 +15,7 @@ const TYPE_LABELS = {
   partnership: "Partnership",
   implementation: "Implementation",
   messaging_shift: "Messaging shift",
+  unknown: "Messaging shift",
   ma_pe: "M&A / PE",
   regulatory: "Regulatory",
 };
@@ -1046,7 +1047,9 @@ async function boot() {
   ]);
   if (!res.ok) throw new Error(`Failed to load signals.json (${res.status})`);
   const payload = await res.json();
-  allSignals = payload.signals || [];
+  allSignals = (payload.signals || []).map((signal) => signal.type === "unknown"
+    ? { ...signal, type: "messaging_shift" }
+    : signal);
   const updatedAt = new Date(payload.generated_at);
   els.lastUpdate.textContent = `Last update: ${formatTimestamp(payload.generated_at)}`;
   if (!Number.isNaN(updatedAt.getTime())) els.lastUpdate.dateTime = updatedAt.toISOString();

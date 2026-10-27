@@ -669,6 +669,8 @@ def raw_to_signal(item: dict) -> dict | None:
 
 def sanitize_signal(signal: dict) -> dict:
     cleaned = dict(signal)
+    if cleaned.get("type") == "unknown":
+        cleaned["type"] = "messaging_shift"
     if cleaned.get("competitor") == "EFF market":
         cleaned["competitor"] = "Others"
     cleaned["headline"] = clean_headline(cleaned.get("headline", ""))

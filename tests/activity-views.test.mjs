@@ -372,6 +372,29 @@ test("uses current AI classification instead of an older enrichment type suggest
   }
 });
 
+test("renders legacy unknown signal types as Messaging shift", async () => {
+  const signal = payload.signals[0];
+  const legacyPayload = {
+    ...payload,
+    signals: [{ ...signal, id: "legacy-unknown", type: "unknown" }],
+  };
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage();
+    await page.route("**/data/signals.json", (route) => route.fulfill({ json: legacyPayload }));
+    await page.route("**/data/competitive-insights.json", (route) => route.fulfill({ json: { status: "awaiting_generation", insights: [] } }));
+    await page.addInitScript(() => sessionStorage.setItem("ct-matrix-signal-ids", JSON.stringify(["legacy-unknown"])));
+    await page.goto(baseUrl);
+    const row = page.locator('.signal-row[data-id="legacy-unknown"]');
+    await row.waitFor();
+    assert.equal(await row.getAttribute("data-type"), "messaging_shift");
+    assert.match(await row.locator(".col-type").textContent(), /Messaging shift/);
+    assert.equal(await page.locator('#typeFilter option[value="unknown"]').count(), 0);
+  } finally {
+    await browser.close();
+  }
+});
+
 test("renders dataset-level AI findings with signal evidence links", async () => {
   const signal = payload.signals[0];
   const insightPayload = {

@@ -51,7 +51,6 @@ VALID_TYPES = {
     "messaging_shift",
     "ma_pe",
     "regulatory",
-    "unknown",
 }
 VALID_FOCUSES = {"eff", "efb", "adjacent", "other"}
 VALID_TONES = {"Positive", "Neutral", "Negative", "Mixed", "Unclear"}
@@ -190,8 +189,8 @@ def normalize_signal_type(value: object) -> str:
         "merger_acquisition": "ma_pe",
         "regulatory": "regulatory",
         "regulation": "regulatory",
-        "unknown": "unknown",
-        "unclear": "unknown",
+        "unknown": "messaging_shift",
+        "unclear": "messaging_shift",
     }
     for alias, canonical in aliases.items():
         if normalized == alias or normalized.startswith(f"{alias}_"):
@@ -478,6 +477,9 @@ def enrich_signal(signal: dict, api_key: str) -> dict:
 
 
 def apply_confident_classifications(signal: dict, enrichment: dict) -> None:
+    if signal.get("type") == "unknown":
+        signal["type"] = "messaging_shift"
+        enrichment["type_normalized_from"] = "unknown"
     if enrichment["type_confidence"] >= AUTO_APPLY_CONFIDENCE and enrichment["suggested_type"] != signal.get("type"):
         enrichment["original_type"] = signal.get("type")
         enrichment["type_auto_applied"] = True
@@ -552,6 +554,9 @@ def persist_payloads(payload: dict) -> None:
 
 
 def classify_signal(signal: dict, api_key: str) -> dict:
+    if signal.get("type") == "unknown":
+        signal["type"] = "messaging_shift"
+        signal["type_normalized_from"] = "unknown"
     evidence = {key: signal.get(key) for key in ("competitor", "product", "headline", "summary")}
     prompt = (
         "Classify this competitor signal for airline flight-operations software monitoring. "
@@ -568,7 +573,9 @@ def classify_signal(signal: dict, api_key: str) -> dict:
         "an actual release, deployment, or concrete change announcement, is messaging_shift. "
         "partnership: collaboration or integration, not automatically a customer win. "
         "messaging_shift: marketing, events or customer stories without a concrete new deal; unknown if unclear. "
-        "Hiring is not a product launch or customer win. Use ma_pe for mergers/acquisitions and regulatory for regulatory changes. "
+        "Personnel moves, including employees joining, leaving, or changing roles at a vendor, are messaging_shift when no product change or customer deal is announced. "
+        "Recruitment posts are also messaging_shift. Do not return unknown: for any usable but ambiguous post, choose messaging_shift with appropriately low confidence. "
+        "Use ma_pe for mergers/acquisitions and regulatory for regulatory changes. "
         "Apply this workspace's domain mapping as a rule, not a weak hint: product/vendor identity outranks generic terminology. "
         f"The EFF competitor/product watchlist is: {', '.join(EFF_WATCHLIST_PRODUCTS)}. "
         "When the competitor or product field identifies one of these watched offerings, classify focus as eff even if the source "
