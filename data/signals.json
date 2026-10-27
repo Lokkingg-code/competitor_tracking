@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T03:29:55Z",
+  "generated_at": "2026-10-27T11:08:48Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -2389,6 +2389,61 @@
       }
     },
     {
+      "id": "cap-fb96cca416ae",
+      "competitor": "Jeppesen",
+      "date": "2026-10-08",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "We introduced our Aviation Operating Intelligence platform, Jeppesen ForeFlight Airflow and we heard from many of our customers on",
+      "summary": "What a great week in Paris, spending time with airlines from around the world with whom we enjoy longstanding partnership. We introduced our Aviation Operating Intelligence platform, Jeppesen ForeFlight Airflow and we heard from many of our customers on <fon",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYlFFb29LX21takVsUmxCU3RycGtKWURjY0poRmNjZU04WElURExCMU0xVlpmdGNsS2REUlJ2N3R0SXFSV0pMbHNBU2dSZDdIa09zVWtkaWgxQnBKeG1fY19vVXNKQXl2ZHMtb2FpM2pZMmt0ekJnek1sNlVaTHNOWFpENmVqTldYMGc1Sjhsa2ZlS0RhUEFWLUhaekNTMWlwMVprOGh4RlFSWE9NQjdKcGpNOEVqaWJSTVpxdA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T11:10:41+00:00",
+        "source_sha256": "12e618646cae4504c70d0046df81b34228e01f003bd48b67c8c5a1852266311f",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": "eff_competitor_watchlist",
+        "model_suggested_product_focus": "adjacent",
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
       "id": "cap-e70b87ab10e0",
       "competitor": "Jeppesen",
       "date": "2026-10-07",
@@ -4199,7 +4254,22 @@
         "title": "Lufthansa Systems promotes vision for NetLine One at Airline Forum 2026.",
         "summary": "Lufthansa Systems shared its vision for the NetLine One product during Airline Forum 2026. The text provides promotional messaging and establishes no concrete product changes or new developments."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T11:11:00+00:00",
+        "source_sha256": "324f7af7e86c8dce3eb1375e9cf8de98113ba307017a4067a9dcc08ee4429074",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-5c0bfdebae79",
@@ -4214,7 +4284,7 @@
       "summary": "TransNusa adopts Skywise Core X2 and S.FP+ to unite flight and technical operations, driving real-time fleet health monitoring and operational efficiency",
       "source_channel": "press_release",
       "source_origin": "press_release",
-      "product_focus": "eff",
+      "product_focus": "adjacent",
       "product": null,
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -4274,7 +4344,23 @@
         "title": "Navblue expands Skywise collaboration with TransNusa to launch integrated Flight and Technical Operations using Skywise Core X2 and S.FP+.",
         "summary": "TransNusa is adopting Skywise Core X2 and S.FP+ to integrate its flight and technical operations. This deployment enables real-time fleet health monitoring to drive operational efficiency."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T11:11:59+00:00",
+        "source_sha256": "82c999b5008607c9a4e03593705242b9f213dbfdb194c237b6f098bbd620b980",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.85,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-15b0210793f1",
@@ -4321,7 +4407,22 @@
         "title": "Lufthansa Systems promotes its 2026 Airline Forum and NetLine Slot sessions.",
         "summary": "The text describes the conclusion of the Lufthansa Systems 2026 Airline Forum and mentions NetLine Slot sessions. No new product releases or concrete developments are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T11:12:19+00:00",
+        "source_sha256": "978c7e11195c5c5063ec9a2f2a70810b6ebfcac76cadb4734b3f9b6606977261",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-c2a986e9925f",
@@ -4664,13 +4765,28 @@
         "title": "Bytron Skybook promotes instant messaging and notification features via its EFB.",
         "summary": "Bytron Skybook is promoting messaging features that connect dispatchers and pilots through its EFB, including notifications for ATC changes, NOTAMs, loadsheets, and NOTOCs. No concrete change or new release is established."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T11:12:49+00:00",
+        "source_sha256": "1a06017621228a32d5e4eb07a69c2d935755883cb34c27f3c003b572c3a607b7",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -9250,8 +9366,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-27T11:09:15+00:00",
+        "source_sha256": "a3d99aedc6d020fdb2dc6c015d23d019135a9dd1d6e07e57929e0e4d5a55b0e2",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen releases Jeppesen Dispatch v2026-2 with enhanced automation and performance.",
+        "summary": "Jeppesen has released version v2026-2 of Jeppesen Dispatch. This update provides increased automation, faster performance, and improved optimization for airline operations workflows."
+      }
     },
     {
       "id": "jep-2026-04-29-dispatch-2026-2",
@@ -11134,8 +11258,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-27T11:09:33+00:00",
+        "source_sha256": "426a899296945d04601502d5e9d419a6ebfb4b415900992d1c755a87500990f7",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems establishes new IT subsidiary Lufthansa Systems India in Bengaluru to drive software and product development.",
+        "summary": "Lufthansa Systems launched a new IT subsidiary, Lufthansa Systems India, in Bengaluru. Developed in collaboration with Infosys, the Global Capability Center will focus on software and product development."
+      }
     },
     {
       "id": "cap-6c44340efff4",
