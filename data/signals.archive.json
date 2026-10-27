@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T10:44:29Z",
+  "generated_at": "2026-10-27T03:01:04Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,271 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-3668c99bdc41",
+      "competitor": "Navblue",
+      "date": "2026-10-23",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "IndiGo has selected Skywise Core X3 to power next-generation analytics ✍️ IndiGo, the largest…",
+      "summary": "IndiGo has selected Skywise Core X3 to power next-generation analytics ✍️ IndiGo, the largest airline in India and one of the fastest growing carriers in the world, has signed for Skywise Core X3, the premium tier of the Skywise Core X suite, designed to explo &",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": "Skywise Core X3",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOeUNTWHYxWDNwa1A3dTJiWWZZN3VVVE9TMHU1dGhzbW95ay1ET3M5TXVUZ2xmWXZwY2lhaUpaZTlRMzNYUlpIelZDUGZESHVfZElFRWJzcmxHZnJqX2Qzb2x4Uk9yejh4bnBOakZUNTVEaHZCYUJHU2xqVjdOQTVvSElNdGJDQUY1UHFTbHBGTEhIX1JScmNodDBfNUJjb1FkaVBma0F3X09kSl9rdUV4N3RpcU8zcjBUbTU4Y0Jmd21wQQ?oc=5"
+        },
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQcFBJY05OQ1c1RDJ2SVFRVlpuRlZpekRZTG9Lam5hLW5BVGFfQ2NKaUxyYjlCVkg3SkNPVVB0bldhaUo2clU4a3Z2ZnVUOVFOdEpXdXFxdmJwSVJ0eC1yQ2NqVWJHQno4TEl2SzJKc0E0TUpWdjFGMk9NMlljTGEwOFZfWFlrWGFiM1d0MXVEcktzT0Zza1UwVWI4WFFVRkhpcndhLUNlRmxXWmdwMzZGT1FJVWRvMzdfbmY5SWln?oc=5"
+        },
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-10-indigo-selects-skywise-core-x3-to-power-next-generation-analytics-at-enterprise-scale"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "duplicate_count": 2,
+      "duplicate_signal_ids": [
+        "cap-2df67701f55e",
+        "cap-ddff1771feb7"
+      ],
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-27T03:01:23+00:00",
+        "source_sha256": "666c5840335b672b06f143d18df0b85c783cfd5c22fe1d05950f3a68bf3a9d52",
+        "evidence_scope": "captured_preview_only",
+        "title": "IndiGo selects Navblue's Skywise Core X3 for next-generation analytics.",
+        "summary": "IndiGo has signed for Skywise Core X3, the premium tier of the Skywise Core X suite. The product is intended to power the airline's next-generation analytics."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T03:03:50+00:00",
+        "source_sha256": "666c5840335b672b06f143d18df0b85c783cfd5c22fe1d05950f3a68bf3a9d52",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "cap-5b1032d32b77",
+      "competitor": "Navblue",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Exciting news from the Asia-Pacific aviation sector! ✈️ Raya Airways, Malaysia’s all-cargo airline, has…",
+      "summary": "✈️ Raya Airways, Malaysia’s all-cargo airline, has signed an agreement to implement Skywise N-Ops & Crew (N-OC) as part of its ongoing digital transformation journey. This agreement marks Raya Airways &n",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPaGVXNVRhaDdzY3VsQ3htU09kdFJ5UmlmMlBDLUhORi1QSC1aeksxa3BTWExOTm1IcEdVQ2VfaU4zRG9qdTdWMmFNMWlVQndxUGVCUnB6UWVpcV9SelZsV3U0T3pYMG9lWHc4cWdFUmZWdlVuSjIxejhmLUxWMmpJTmhsdy1pNGJQcFJRSWlsNEpVTm0tXzZCUlpWd1RUcGktRXJMUlNaS1BZbkdmdVhveXdlRUVGcU9PeU0tWnRSV3d3dw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-27T03:01:54+00:00",
+        "source_sha256": "f013a27d1248add47f1764717374a951eeccf0f4f06a6f8b7eefa838dc129268",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue implements Skywise N-Ops & Crew (N-OC) at Raya Airways.",
+        "summary": "Raya Airways, a Malaysian all-cargo airline, has signed an agreement to implement Skywise N-Ops & Crew (N-OC). This deployment is part of the airline's digital transformation journey."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T03:04:23+00:00",
+        "source_sha256": "f013a27d1248add47f1764717374a951eeccf0f4f06a6f8b7eefa838dc129268",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "cap-9c8fa3605f12",
+      "competitor": "Jeppesen",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "Jeppesen Foreflight Introduces Enroute Profile View On Flitedeck Pro",
+      "summary": "AUSTIN, TX – Oct. 21, 2026 – Jeppesen ForeFlight today announced the release of FliteDeck Pro version 5.3, introducing Enroute Profile View and a set of targeted improvements designed to help commercial flight crews make better decisions, reduce workload, and maintain situational awareness throughout every phase of flight.",
+      "source_channel": "press_release",
+      "source_origin": "official_site",
+      "product_focus": "eff",
+      "product": "ForeFlight FliteDeck Pro",
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Jeppesen ForeFlight Newsroom",
+          "url": "https://www.jeppesenforeflight.com/news/jeppesen-foreflight-introduces-enroute-profile-view-on-flitedeck-pro"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-27T03:02:20+00:00",
+        "source_sha256": "2651cf4a321285e85c8847ba40cf218abfa6320f164bc6db15324c00b7608e59",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen releases ForeFlight FliteDeck Pro version 5.3 featuring Enroute Profile View.",
+        "summary": "Jeppesen released FliteDeck Pro version 5.3, which introduces the Enroute Profile View feature. The update includes improvements intended to assist commercial flight crews with decision-making and situational awareness."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T03:04:47+00:00",
+        "source_sha256": "2651cf4a321285e85c8847ba40cf218abfa6320f164bc6db15324c00b7608e59",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-32145e1e1492",
+      "competitor": "Navblue",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.8,
+      "headline": "Raya Airways selects Skywise N-Ops & Crew solution to digitalise operations",
+      "summary": "Raya Airways, Malaysia’s all-cargo airline has signed an agreement to implement Skywise N-Ops & Crew (N-OC) as part of the airline’s ongoing digital transf",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-10-raya-airways-selects-skywise-n-ops-crew-solution-to-digitalise-operations"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-27T03:03:03+00:00",
+        "source_sha256": "43229e60711a6ac1903733eaf3e7ad958d4ac2570bd43fe9d723449f19b8572c",
+        "evidence_scope": "captured_preview_only",
+        "title": "Raya Airways selects Navblue's Skywise N-Ops & Crew solution.",
+        "summary": "Malaysia-based all-cargo carrier Raya Airways signed an agreement to implement the Skywise N-Ops & Crew (N-OC) solution. The deployment is part of the airline's ongoing digital transformation."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T03:05:19+00:00",
+        "source_sha256": "43229e60711a6ac1903733eaf3e7ad958d4ac2570bd43fe9d723449f19b8572c",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
     {
       "id": "cap-6eb0c85960c5",
       "competitor": "Jeppesen",
@@ -196,6 +461,69 @@
         "ai_confidence": 1.0,
         "ai_evidence": "",
         "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-7a2be3b4dd1c",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-10-20",
+      "date_is_estimated": false,
+      "type": "ma_pe",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Lido Flight 4D is used by more than 125 airline operators flying more than 7,700 aircraft, w",
+      "summary": "Lufthansa is exploring a sale of Lido and NetLine, the Financial Times reported on 16 October, at close to €1bn. Lido Flight 4D is used by more than 125 airline operators flying more than 7,700 aircraft, w LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQVVhKVl9kMl95V1o1Q2tSQm51MFZjZ0x6a2tMaHZPNm55X2RQbWNycVR1SlVKTFY5THROY1J1UWQwZ2dwdXl5Q3V4RGlDelp3eUVWb3UtUVlhcDZRcnNjUVRQcndRbGIwamFSc09JM3lqZ1ZaQXVtTjBaN2xPQTdXLVhXQjFRa05BaWEySy1GcDhVZWNtamREeVQtdw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-27T03:03:29+00:00",
+        "source_sha256": "bcd7f3db09552530828f21c8f3908219521fec88a2609372b0bf28c7f9f59a01",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems explores sale of Lido and NetLine for approximately €1bn.",
+        "summary": "Lufthansa Systems is reportedly exploring a sale of its Lido and NetLine business units for close to €1bn, according to the Financial Times. The post notes that Lido Flight 4D is used by more than 125 airline operators."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-27T03:05:37+00:00",
+        "source_sha256": "bcd7f3db09552530828f21c8f3908219521fec88a2609372b0bf28c7f9f59a01",
+        "suggested_type": "ma_pe",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
         "focus_auto_applied": false
       }
     },
@@ -8177,115 +8505,6 @@
       }
     },
     {
-      "id": "nav-2026-06-04-corsair-mission",
-      "competitor": "Navblue",
-      "date": "2026-06-04",
-      "type": "customer_win",
-      "priority": "high",
-      "severity": 4,
-      "confidence": 0.91,
-      "headline": "Corsair first French airline on Skywise Mission+ FLIGHT EFB configuration",
-      "summary": "Corsair adopted Mission+ FLIGHT connected to FOMAX AID, extending a relationship that began with N-Flight Planning; joins TAP and KM Malta on Mission+ FLIGHT.",
-      "why_it_matters": "Concrete post-merger EFB win with AID connectivity story—relevant to digital flight-deck displacement deals.",
-      "geography": "Europe",
-      "segment": "Full-service / leisure long-haul",
-      "implications": [
-        "Mission+ FLIGHT + AID is a packaged differentiator for Airbus operators.",
-        "European reference set for Mission+ is growing."
-      ],
-      "next_actions": [
-        "Add Mission+ FLIGHT / FOMAX pattern to battlecard.",
-        "Prioritise Airbus fleets evaluating EFB refreshes in Europe."
-      ],
-      "sources": [
-        {
-          "title": "Corsair adopts Skywise Mission+ FLIGHT",
-          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-06-corsair-becomes-the-first-airline-in-france-to-adopt-skywise-mission-flight"
-        }
-      ],
-      "tags": [
-        "mission-plus",
-        "efb",
-        "corsair"
-      ],
-      "source_channel": "curated",
-      "source_origin": "press_release",
-      "product": "Mission+ FLIGHT",
-      "product_focus": "eff",
-      "ai_enrichment_status": "pending",
-      "ai_brief": {
-        "model": "gemma-4-26b-a4b-it",
-        "brief_version": 1,
-        "enriched_at": "2026-10-15T06:57:25+00:00",
-        "source_sha256": "3505c14662ec83b80d6003970778d82f25b82f5f53e010eadd0696b88c5099b9",
-        "evidence_scope": "captured_preview_only",
-        "title": "Corsair adopts Navblue Mission+ FLIGHT configuration connected to FOMAX AID.",
-        "summary": "Corsair adopted Navblue Mission+ FLIGHT connected to FOMAX AID, extending an existing relationship that began with N-Flight Planning. Corsair is the first French airline to use this specific configuration."
-      },
-      "ai_classification_status": "pending",
-      "analyst_product_focus_review": {
-        "from": "efb",
-        "to": "eff",
-        "rule": "eff_competitor_watchlist",
-        "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
-        "reviewed_at": "2026-10-16T03:19:34+00:00"
-      }
-    },
-    {
-      "id": "cap-b53d181ce811",
-      "competitor": "Navblue",
-      "date": "2026-06-04",
-      "date_is_estimated": false,
-      "type": "customer_win",
-      "priority": "high",
-      "severity": 4,
-      "confidence": 0.6000000000000001,
-      "headline": "Corsair adopts Skywise Mission+ FLIGHT, a first in France",
-      "summary": "Navblue reported a customer win update: Corsair adopts Skywise Mission+ FLIGHT, a first in France. Open the linked source to verify details and assess impact for Cathay Technologies.",
-      "source_channel": "rss",
-      "source_origin": "google_news",
-      "product_focus": "eff",
-      "product": "Mission+ FLIGHT",
-      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
-      "segment": "Unknown",
-      "implications": [
-        "Needs analyst confirmation before executive distribution."
-      ],
-      "next_actions": [
-        "Open source link, validate claim, upgrade confidence.",
-        "If confirmed, add implications for Cathay Technologies."
-      ],
-      "sources": [
-        {
-          "title": "Google News RSS",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQUc4aEtGYm1Ec0dHazRxcmNUWjVpeDI0SERubU1oMkRNQV9hTkVJZFgzdlZvWEQ2bUJ1RGVVZ19mRk90ZFhGQlVaaG1EUWRMTTgyV3FxUllod2FzSGJENlZNUHIwV2dET2FmMVE1TjV0cEtHM0xHclJNSG82cUhYTmdvSkpjVmZrT1g0?oc=5"
-        }
-      ],
-      "tags": [
-        "auto-capture",
-        "google_news",
-        "rss"
-      ],
-      "ai_enrichment_status": "pending",
-      "ai_brief": {
-        "model": "gemma-4-26b-a4b-it",
-        "brief_version": 1,
-        "enriched_at": "2026-10-15T07:53:08+00:00",
-        "source_sha256": "daba6430843b885a3dd6948dfabb8b28da0b0a4e2754d3f12f596fa7a23522c0",
-        "evidence_scope": "captured_preview_only",
-        "title": "Navblue secures Corsair as customer for Mission+ FLIGHT, the first deployment in France.",
-        "summary": "Corsair has adopted Navblue's Mission+ FLIGHT. This deployment represents the first implementation of the product in France."
-      },
-      "ai_classification_status": "pending",
-      "analyst_product_focus_review": {
-        "from": "efb",
-        "to": "eff",
-        "rule": "eff_competitor_watchlist",
-        "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
-        "reviewed_at": "2026-10-16T03:19:34+00:00"
-      }
-    },
-    {
       "id": "cap-cabcb68b3a03",
       "competitor": "Navblue",
       "date": "2026-06-04",
@@ -8313,6 +8532,14 @@
         {
           "title": "Google News RSS",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNTTVtZUJEWXBsNFEwTWNucGVXWFNTYWpRRnBLR0UtN1gxMldvbkkzNVFISWlPVk1MWnRiREdFMExyMXhMSUp0OWJhWjdka3p5OV9IYnVDdUdCMFJyTG5yUUc4WUF0N1FLZ2xLV2QtZlQyZmpYRFhQVlpGcE9XQjBnWms4VzZUVUZLdTQzUTJpeDdURDU5aDFVdFZaUkZvc2s5MllCcy1LYUl1VDAwTEJjOTJn?oc=5"
+        },
+        {
+          "title": "Corsair adopts Skywise Mission+ FLIGHT",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-06-corsair-becomes-the-first-airline-in-france-to-adopt-skywise-mission-flight"
+        },
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQUc4aEtGYm1Ec0dHazRxcmNUWjVpeDI0SERubU1oMkRNQV9hTkVJZFgzdlZvWEQ2bUJ1RGVVZ19mRk90ZFhGQlVaaG1EUWRMTTgyV3FxUllod2FzSGJENlZNUHIwV2dET2FmMVE1TjV0cEtHM0xHclJNSG82cUhYTmdvSkpjVmZrT1g0?oc=5"
         }
       ],
       "tags": [
@@ -8337,7 +8564,12 @@
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
-      }
+      },
+      "duplicate_count": 2,
+      "duplicate_signal_ids": [
+        "nav-2026-06-04-corsair-mission",
+        "cap-b53d181ce811"
+      ]
     },
     {
       "id": "jep-2026-06-01-panam-efb",
@@ -8906,6 +9138,45 @@
         "title": "Jeppesen collaborates with GE Aerospace to integrate ForeFlight Cost Index Optimization with GE's flight data analytics platform.",
         "summary": "Jeppesen ForeFlight and GE Aerospace announced a collaboration to combine GE’s flight data analytics platform with ForeFlight’s Cost Index Optimization solution. The integration provides a fuel efficiency workflow covering pre-flight planning, in-flight optimization, and post-flight analysis."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-dc394fa54060",
+      "competitor": "Jeppesen",
+      "date": "2026-05-05",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Jeppesen Dispatch v2026-2 is now available. This major release delivers greater automation, faster performance…",
+      "summary": "Jeppesen Dispatch v2026-2 is now available. This major release delivers greater automation, faster performance, and improved optimization to help airline operations teams manage increasingly complex workflows with more speed and control.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxObkVCMW9qWmd2MXdBNTV3NEtUbzl0QXZUWXNORmVRUWdNbENtQUhlY3Q0LXllQ29rM29yd3dici04dXdxWEdkcVpLZEtqejhCZTZ4ZVlwT0R0MEs3Y3RUbVlubUtOZjhnaFJBd0FMZWtkMGY1djhwZ3JNQV80X1BEdFRVTkhDS2xkb1gwb1ZvV2xyd3FUSkZyb2xLNDlscm54bVVzOXc5T3RrSkllRkd6ZnZ5QTdHUVhmU1NjWlpnZlpMTVpK?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
@@ -10754,6 +11025,45 @@
       "ai_classification_status": "pending"
     },
     {
+      "id": "cap-be828492e6da",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-12-11",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Lufthansa Systems has launched its new IT subsidiary, Lufthansa Systems India, in Bengaluru, marking…",
+      "summary": "Lufthansa Systems has launched its new IT subsidiary, Lufthansa Systems India, in Bengaluru, marking a major milestone in its global expansion. Developed in collaboration with Infosys, the Global Capability Center will drive software and product developme <font color=\"",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQNDJhZE5EbWxWOHVpcXl2T1poaHp6YnVJQkJmWVBuMnBhV3B3cE4za1hGN0FVdXNReFE4OEFKM2xsQnl3NkQwMGJIRlY5dDZOMS1WU1FPbGx5SFg0aFRjWWU0R0JOUzhicHRBSjZwOHRWRTFpTVdWTEVTM1otYWJ2enpmSW1ELXVWRzlkeGZxdFNaUUNYMHZkS2ZONW01MUlhT0EtOXFMaVJKbHRHUWctemNreTM?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-6c44340efff4",
       "competitor": "Navblue",
       "date": "2025-12-10",
@@ -10979,6 +11289,45 @@
         "title": "Lufthansa Systems launches IT subsidiary in India.",
         "summary": "Lufthansa Systems announced the launch of an IT subsidiary in India. No specific operational details or business functions for the new entity were provided."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-e8c2113f8028",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-11-27",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "✈️ We are proud to announce the official launch of Lufthansa Systems India, our newest subsidiary headquartered in Bengaluru.",
+      "summary": "Exciting news from Lufthansa Systems! ✈️ We are proud to announce the official launch of Lufthansa Systems India, our newest subsidiary headquartered in Bengaluru.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPb3N4Q0ctNlJKMThJVVY3RC0wV2pReXNqVkRrT1F5YnhJT0FsaWNMRENUa2NBZTNPWVhlRll1eXpEMFRqSzhRNDVSckJQejZsd20ySFRIN3FHRG14WHZlQmZiV1lZbzFJR01fTHlXNGFsWHNiaWdSSnNGWjBkYmxTd1A1UkdZdng1TkhWWE1JdjQtZDVRVkRkRGFzR1FrSGZlcFpmN1BBZmc4cEJEeVh5d2Q4UVRuelRBX3ZQalhR?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
@@ -11739,6 +12088,45 @@
         "title": "Jeppesen ForeFlight launches as a standalone company backed by Thoma Bravo.",
         "summary": "Jeppesen and ForeFlight have launched as a standalone company, Jeppesen ForeFlight, with backing from Thoma Bravo."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-27d35e4ce23c",
+      "competitor": "Navblue",
+      "date": "2025-11-03",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "What if America’s telecom infrastructure worked the way aviation does today? When Airbus and…",
+      "summary": "What if America’s telecom infrastructure worked the way aviation does today? When Airbus and Palantir launched Skywise, they proved that shared intelligence could transform an entire industry—connecting 140+ airl",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOTTBWQ3FUWC1RbzFWbmVZalF2T1ZBRndwR25sd0dFYU9kR3JHeVp2NnQ3YTRHYS02ZnhicUVJTzZhZ3otelN1c0hLQUlNSTFhSWhWN3dLSER3YkZ4THJkbXhvQTdGcDc3MkFROGg0cFBmMzh5a1Q4NnJkSjdIOHBpd1k0U0h0NUppQ3U1UWFVT3ZUU25VRWtnVnR0VHh3LUN5NGpnbVh5a1BGOTctU1lTX0M2eE5hLUlZUVlva1lBaXFhN3hYdHJuWFRfczBUc09OWDd1cjFWRmViaDJRbkotal96YS1qZWVwT3c?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
