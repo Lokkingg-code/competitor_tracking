@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T11:08:48Z",
+  "generated_at": "2026-10-28T11:43:44Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -48,6 +48,10 @@
         {
           "title": "Skywise Press Releases",
           "url": "https://www.skywise.com/en/newsroom/press-releases/2026-10-indigo-selects-skywise-core-x3-to-power-next-generation-analytics-at-enterprise-scale"
+        },
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYlZVZHZpZU9NWWgwMzV0ejhLUWR3am1FYWV6WGd1VkViMDhKNlIzQmJSQ2U0V2UwQ242LTE2b2FiS2I5QUhaZXVnVmRqb2hWWEpMVzFjazBVVVRuUmx3LU10eWlmYUYtandQMU8zWGd0dmZvaW9DRWhmUmZrNkV4TlRaekpTaFdZUHdjcWZB?oc=5"
         }
       ],
       "tags": [
@@ -56,10 +60,11 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "duplicate_count": 2,
+      "duplicate_count": 3,
       "duplicate_signal_ids": [
         "cap-2df67701f55e",
-        "cap-ddff1771feb7"
+        "cap-ddff1771feb7",
+        "cap-c5391f77fae3"
       ],
       "ai_brief": {
         "model": "gemma-4-26b-a4b-it",
@@ -2424,7 +2429,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -2441,6 +2445,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-28T11:44:08+00:00",
+        "source_sha256": "12e618646cae4504c70d0046df81b34228e01f003bd48b67c8c5a1852266311f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen introduces Aviation Operating Intelligence platform ForeFlight Airflow.",
+        "summary": "Jeppesen introduced its Aviation Operating Intelligence platform, ForeFlight Airflow. The announcement was made during a week-long event in Paris involving various airline customers."
       }
     },
     {
@@ -4883,7 +4896,7 @@
       "competitor": "Aviobook",
       "date": "2026-09-14",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "messaging_shift",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -4950,13 +4963,29 @@
         "title": "Aviobook promotes AvioBook EFB usage via ASL Airlines Belgium testimonial.",
         "summary": "Aviobook features a video testimonial from ASL Airlines Belgium regarding daily EFB use and support responsiveness. This is promotional messaging and establishes no new product or contract developments."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-28T11:48:06+00:00",
+        "source_sha256": "8f2e36043664f4cb79985a4fd29d33ee04d78d02811e40a219e4ddd061a3baf9",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -5031,7 +5060,22 @@
         "title": "Jeppesen expands partnership with Saxon Air to include full ForeFlight operational suite.",
         "summary": "Saxon Air is expanding its partnership with Jeppesen by adopting the full ForeFlight operational suite. The expansion is intended to support greater visibility and efficiency across its operations."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-28T11:49:03+00:00",
+        "source_sha256": "e16a0a59139b7ffea47d465c4ac8316021b8f6d77931880d7e935870f1450d9d",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-0384fbd2ed67",
@@ -5210,7 +5254,6 @@
         "title": "IFS deploys IFS EFBOne platform to MY FREIGHTER (Centrum Air).",
         "summary": "MY FREIGHTER (Centrum Air) has joined the IFS EFBOne platform. The deployment involved collaboration between IFS and the customer's operational and flight technical teams."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
@@ -5229,6 +5272,22 @@
           "reason": "Classified as cargo using cross-signal evidence: browser-cb2fca77cee3 explicitly describes MY FREIGHTER (Centrum Air) as Central Asia's largest air cargo operator; cap-541011120c72 names MY FREIGHTER LLC (Centrum Air), the same operator. Not an LCC.",
           "reviewed_at": "2026-10-20T08:20:00+00:00"
         }
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-28T11:49:39+00:00",
+        "source_sha256": "6deeb2dcaec090122232131ee9ccee4b8c904b1705d79ad10ff13e905ba062c0",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -5761,7 +5820,6 @@
         "title": "IFS secures MY FREIGHTER LLC (Centrum Air) as a customer for its IFS EFBOne electronic flight bag platform.",
         "summary": "MY FREIGHTER LLC (Centrum Air) has selected IFS EFBOne to serve as its electronic flight bag (EFB) platform."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
@@ -5780,6 +5838,22 @@
           "reason": "Classified as cargo using cross-signal evidence: browser-cb2fca77cee3 explicitly describes MY FREIGHTER (Centrum Air) as Central Asia's largest air cargo operator; cap-541011120c72 names MY FREIGHTER LLC (Centrum Air), the same operator. Not an LCC.",
           "reviewed_at": "2026-10-20T08:20:00+00:00"
         }
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-28T11:49:51+00:00",
+        "source_sha256": "dbb9f4c4c821a2e01ef52ddd2a56f0fd46a2269d190cf3ffbeaf62f1588aad4e",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -5943,7 +6017,22 @@
         "title": "Lufthansa Systems deploys Lido mPilot iOS-based Electronic Flight Bag for Viva.",
         "summary": "Lufthansa Systems implemented its Lido mPilot iOS-based Electronic Flight Bag solution for Viva. The deployment provides pilots with aeronautical charts, airport maps, weather overlays, and navigation data, and was completed within two weeks."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-28T11:51:08+00:00",
+        "source_sha256": "c52261893a7d99e9955f9ff6141385db55a7fa1053f596a8cb4d1e444c8606c9",
+        "suggested_type": "implementation",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-d0ca361f6e7a",
@@ -7935,6 +8024,53 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen hosts LightTable CEO at ForeFlight Global Aviation Data Product Guild.",
         "summary": "Jeppesen promotes its Global Aviation Data Product Guild through the hosting of LightTable Co-founder and CEO Paul Zeckser. No concrete product developments, new capabilities, or customer agreements are established."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-03decbe8c68d",
+      "competitor": "Jeppesen",
+      "date": "2026-07-07",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "ForeFlight Teams Up With uAvionix for Panel Display",
+      "summary": "Jeppesen reported a messaging shift update: ForeFlight Teams Up With uAvionix for Panel Display. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNVXc0RG9YUmcyMHZtZEdmSEl5Q0hjQm1wSTdRR1UwM1g1QzltQ3pHSGxPWUVBVWFYTTFjSGVqOTUwMXJJMldiYVdfUkp6UVVKZWFOMjkwYnVrZVBWeDlGaWJHUlViN0E2d043N3AzUmxnamJRdllRa0wtQUF2cEJYSEw5Y1hRVzBnM29Xbg?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-28T11:45:15+00:00",
+        "source_sha256": "41145b2b940bd86f883841c8eb0420638b20c3ee2254357efa89e96087fb4727",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen's ForeFlight partners with uAvionix for panel displays.",
+        "summary": "ForeFlight is partnering with uAvionix regarding panel display integration. The text does not provide specific technical specifications or deployment details."
       },
       "ai_classification_status": "pending"
     },
@@ -11352,8 +11488,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-28T11:47:01+00:00",
+        "source_sha256": "ec62d39963222bb9101195b380a2cf6bd84718ef8693ee74e2900f2724a6adfb",
+        "evidence_scope": "captured_preview_only",
+        "title": "TCS joins the Skywise Partner Programme.",
+        "summary": "TCS has joined the Skywise Partner Programme. The move aims to drive innovation and improve operational efficiency for airlines utilizing the Airbus platform."
+      }
     },
     {
       "id": "byt-2025-12-01-skybook-148",
@@ -11870,6 +12014,53 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen appoints new Chief Customer Officer for ForeFlight.",
         "summary": "Jeppesen has appointed a new Chief Customer Officer for ForeFlight. This announcement does not establish any new product releases or customer agreements."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-8bccf9bd2cac",
+      "competitor": "Jeppesen",
+      "date": "2025-11-08",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "What a pivotal moment in aviation technology: Jeppesen ForeFlight has launched as a $10.55b…",
+      "summary": "What a pivotal moment in aviation technology: Jeppesen ForeFlight has launched as a $10.55b independent company, following the completion of the separation from Boeing. This combination brings together Jeppesen's 90-year legacy of gold-standard aero LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOU1hCa3NjbDZsdWF0UUJLVU5LSk5UeTY2S1JMb3NsSGtVdDdMNm1idVJZWDA4d2FTOVhQemJRbHhHaUdiYXRqYlNYVU1lUGx5cm9ENGpZZFFSbTkzT2staWRKdzJwRTBjcDJialptUU5qQV93bmFwQ3d2b0xoYXM3YkR6TGxKQTJ2UU5YeG9TS0gtZ1p6SDhGN0hfeUo0bVZ3cE0xeE5n?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-28T11:47:19+00:00",
+        "source_sha256": "116a863ff4868423386ea17520fbdd357a80cc73768ce3c4cb83cc0139919113",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight launches as an independent company following separation from Boeing.",
+        "summary": "Jeppesen ForeFlight has launched as an independent company following its separation from Boeing. This move establishes the combined Jeppesen and ForeFlight business as a standalone entity."
       },
       "ai_classification_status": "pending"
     },
