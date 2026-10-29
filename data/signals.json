@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T11:43:44Z",
+  "generated_at": "2026-10-29T11:51:54Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,179 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-2a258b76a577",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-10-28",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "True modularity is built on partnerships 🤝 Proud to work alongside Lufthansa Systems, Ink…",
+      "summary": "True modularity is built on partnerships 🤝 Proud to work alongside Lufthansa Systems, Ink Innovation and M2P Consulting, with Tim Holmgren, Hendrik Nystroem and Oana Savu Novacescu, to bring modular airline retailing to life. Nine vendors, one order, one &nbs",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQTnNUdDF0c0lMWEJiN2puQmRUWFNYRlNGX2E5dy05VTlMNjRTTzAtbmN4UFAyYlV3Rk9IQ3BpWTRUZF9XYW9qdG9TZDBmRXd4b2JHb05GSmxCLUo0WW8zOFl6ekktS3NRb2liUXRUajBTZFFVWVVqRFFlZEp4UjMtQ0tMZTNpWHZIN0Q4bTR5aWJiX2hkbkRONDh4MURBTGxvSVZJb2IxSjRKZmwwTl9NRE9XbXNDa00yTlBONWR3bGM?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-29T11:52:19+00:00",
+        "source_sha256": "872916913b2f3a181a10e22f4dcb3507236d40933ba4670e86dc68fa7af2d78c",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes modular airline retailing through partnerships with Ink Innovation and M2P Consulting.",
+        "summary": "Lufthansa Systems is highlighted as a partner in a modular airline retailing ecosystem alongside Ink Innovation and M2P Consulting. No concrete product launch, customer win, or new contract is established."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-414e446e0054",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-10-27",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Why great tech needs great partners: Lufthansa Systems x Rocket Software / Lufthansa Systems",
+      "summary": "Lufthansa Systems reported a partnership update: Why great tech needs great partners: Lufthansa Systems x Rocket Software / Lufthansa Systems. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOV1pMMVMtWTZuWjFpR2lSekVndXhOM21CX2hRQUFVWWlubUIxemxmMERKTXFJeFZfb21hbk1qYzV6cURYbUZabGxTS0tlclNRc0RTZUp2a1hyVEhhTHFReGFGT052UC0tdG5BS0dDdDV5dUhVTmFybDBUMHlfVjRpTDdKbHB1bUcxYXgwV2s3OWtjOUl0NEFuR21lREQ0R3lmWlZlb0NPcldRUC1ybXo3VWctdDRNNlZJbmpHZmZ3Ul96ZjRoT2lr?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-29T11:53:08+00:00",
+        "source_sha256": "f80f60ced9a55bbdff6f4bfa09a5c99274793a84045695dcfe563533773bc48e",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes partnership with Rocket Software.",
+        "summary": "Lufthansa Systems is messaging about its partnership with Rocket Software. The provided text establishes no concrete technical developments, product integrations, or specific contract terms."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-29T11:54:17+00:00",
+        "source_sha256": "f80f60ced9a55bbdff6f4bfa09a5c99274793a84045695dcfe563533773bc48e",
+        "suggested_type": "partnership",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.8,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "cap-e60aec6e802f",
+      "competitor": "Bytron Skybook",
+      "date": "2026-10-26",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Our partners' success speaks for itself! ⭐ Discover how Skybook Global's call center support…",
+      "summary": "⭐ Discover how Skybook Global's call center support helps travel businesses improve customer service, increase sales, and build lasting relationships. #SkybookGlobal #ClientTestimonials #TravelBusiness #CustomerS",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNclcwRTFIM3JjeDR1b2pvSEcydVh0UkVEeHhKTXVxcENFXzVpc2o0eFYtNmRHZmR5c1pXMzJvWDUzZDZ5LWtib2FJdU1keGxRYkxCalNhdDk1VklUQVFxdnZhVnZUbkJ6SzFicU5QZXhHNHJNQnpPdmJ5d3pieUlwU1BiLWZhWWZ6aWlxZWdmbk1NLWs2RGlTVm9rcHN1cEpCbFh3aWVyc0IyU0ZhS0lZd1h1NXpNdXhGckJweTh2c2owRG50?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-29T11:53:44+00:00",
+        "source_sha256": "d01632a82cce967ec6f38d5b239e1b258fde4fb7342674ad7e0cd1b35a6c2682",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes call center support via partner testimonials.",
+        "summary": "Bytron Skybook is using marketing content to highlight how its call center support assists travel businesses with customer service and sales. No concrete change or new deployment is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-29T11:55:04+00:00",
+        "source_sha256": "d01632a82cce967ec6f38d5b239e1b258fde4fb7342674ad7e0cd1b35a6c2682",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-3668c99bdc41",
       "competitor": "Navblue",
@@ -6106,13 +6279,28 @@
         "title": "Bytron Skybook adds instant messaging capability from dispatchers to the Skybook EFB.",
         "summary": "Bytron Skybook highlights a feature enabling dispatchers to send instant messages to the Skybook EFB. This allows dispatchers to share operational updates directly with pilots during flight briefings."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-29T11:55:22+00:00",
+        "source_sha256": "941738ae74954350958ea28d37b10af5c0eaae8f5c2c7f9af8a49e66a29c226d",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -6464,7 +6652,7 @@
       "competitor": "Jeppesen",
       "date": "2026-08-13",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "customer_win",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -6472,7 +6660,7 @@
       "summary": "Jetstar Airways used to build rosters manually, working with limited room to weigh options. That changed when the workforce strategic planning team, under the Qantas Group, launched Jeppesen Pairings then Rostering.",
       "source_channel": "linkedin",
       "source_origin": "google_news",
-      "product_focus": "other",
+      "product_focus": "adjacent",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -6526,7 +6714,24 @@
         "title": "Jeppesen implements Pairings and Rostering for Jetstar Airways.",
         "summary": "Jetstar Airways transitioned from manual roster construction to utilizing Jeppesen Pairings and Rostering. The implementation was managed by the Qantas Group workforce strategic planning team."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-29T11:55:58+00:00",
+        "source_sha256": "db98a9860e1cecfb80d79c43de9a449477c6bb951af1ea51ee94d37bca9c39f5",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "browser-4581508f82ef",
@@ -9682,6 +9887,45 @@
       "ai_classification_status": "pending"
     },
     {
+      "id": "cap-c082cb9b0a7f",
+      "competitor": "Jeppesen",
+      "date": "2026-04-26",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Jeppesen ForeFlight has launched the ForeFlight Insurance Agency and a digital Aviation Insurance Marketplace…",
+      "summary": "Jeppesen ForeFlight has launched the ForeFlight Insurance Agency and a digital Aviation Insurance Marketplace focused on non-owned aircraft insurance for renter pilots and flight instructors. Initially licensed in 43 U.S.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNQU92VzhCd3FkOVJVdGZTcWE4RGFfcUdYZjQweE15MGpSRlpDV0NBUjBVekRnM05NNDVUMzNQX09QcmhlYUZ5VFE4M19fM1dvd3c0bjBoZ3FZSm9lRmZySDB3T1VOTzNnMWJ6a2o3anlxd25fd2xhbExDemdyQ0RGLXk1aTgzNGY2RUJic3VNc1BLVEF0UHptSE9BVHZTNWlFZkRFWHNYYjNvcVRfajRaZWRCcXFQVnc0N05IMF9zUWE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-15b0ee3d9d67",
       "competitor": "Jeppesen",
       "date": "2026-04-24",
@@ -11498,6 +11742,45 @@
         "title": "TCS joins the Skywise Partner Programme.",
         "summary": "TCS has joined the Skywise Partner Programme. The move aims to drive innovation and improve operational efficiency for airlines utilizing the Airbus platform."
       }
+    },
+    {
+      "id": "cap-c03d15cd4326",
+      "competitor": "Jeppesen",
+      "date": "2025-12-03",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Small Inputs, and big results for your airline. Our latest guide, \"Three Steps to…",
+      "summary": "Small Inputs, and big results for your airline. Our latest guide, \"Three Steps to Achieving Fuel and Emissions Efficiency with Cost Index Optimization for Jeppesen FliteDeck Pro\" will show you how to reduce fuel costs and emissions while boosting efficiency.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight FliteDeck Pro",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQdkRIdGNWT043d0R2TkRxTTI0Nm9qWWlGOHNsa2dmb3MyZFl4dTNqS01aSnJDekFZSXYxNHNfTnNKN3kxR3FYcDRuYVdjR1R1bV96eHRhdlc3a0FOQW4waW50QU5tUFdpaHpKRDdWd3JZbGpzUmFWX0dTajN1UTVvUjY5amR2RUdEczY5aTlIUFhESUk2WGtvYWQyLVk0YkctOTNRQzNDRXdIUURFRGozMTA0S0c5bTJx?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "byt-2025-12-01-skybook-148",
