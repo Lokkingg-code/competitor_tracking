@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T11:51:54Z",
+  "generated_at": "2026-10-30T11:44:57Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -57,7 +57,22 @@
         "title": "Lufthansa Systems promotes modular airline retailing through partnerships with Ink Innovation and M2P Consulting.",
         "summary": "Lufthansa Systems is highlighted as a partner in a modular airline retailing ecosystem alongside Ink Innovation and M2P Consulting. No concrete product launch, customer win, or new contract is established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-30T11:48:34+00:00",
+        "source_sha256": "872916913b2f3a181a10e22f4dcb3507236d40933ba4670e86dc68fa7af2d78c",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-414e446e0054",
@@ -7076,7 +7091,7 @@
       "id": "avio-2026-08-06-connect-3",
       "competitor": "Aviobook",
       "date": "2026-08-06",
-      "type": "product_launch",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.7,
@@ -7139,14 +7154,30 @@
         "title": "Aviobook announces webinar to preview AvioBook Connect 3.0 release on 17 September 2026.",
         "summary": "Aviobook is promoting a LinkedIn campaign for webinars previewing the AvioBook Connect 3.0 release. The upcoming version focuses on unified real-time flight-operations information."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-30T11:48:55+00:00",
+        "source_sha256": "ce735ffa63d8a4f61adf934ff0e750a72e59cd103a304078a61688a51ff72c0a",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-00ca3f8a3c2e",
       "competitor": "Jeppesen",
       "date": "2026-08-06",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "feature_change",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -7154,7 +7185,7 @@
       "summary": "Jeppesen Dispatch v2026-3 is now available. This release helps flight operations teams respond faster when plans change in flight, plan more safely around aircraft equipment issues, and manage workload across busy operations centers.",
       "source_channel": "linkedin",
       "source_origin": "google_news",
-      "product_focus": "adjacent",
+      "product_focus": "eff",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -7207,7 +7238,24 @@
         "title": "Jeppesen releases Jeppesen Dispatch v2026-3.",
         "summary": "Jeppesen has released Jeppesen Dispatch v2026-3. This version aims to help flight operations teams respond to in-flight plan changes, manage aircraft equipment issues, and handle workloads in operations centers."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-30T11:51:05+00:00",
+        "source_sha256": "21526f679df755ac0676c2189c6a8bf94c1d3f466f5cf4e283941dd3c496f8ba",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "original_product_focus": "adjacent",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-da9edaf974cf",
@@ -7611,6 +7659,45 @@
         "title": "Lufthansa Systems partners to integrate SIRAX/ONE Order into Astra Nova platform.",
         "summary": "Lufthansa Systems is partnering to integrate SIRAX/ONE Order into the Astra Nova platform. The integration is intended to cover the airline retailing journey from offer to settlement."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-d165ec19c8e4",
+      "competitor": "Jeppesen",
+      "date": "2026-07-24",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "What a great first half of the week at EAA AirVenture Oshkosh! This year…",
+      "summary": "What a great first half of the week at EAA AirVenture Oshkosh! This year Jeppesen ForeFlight brought our largest product lineup ever to the show, including ClearNOTAMs, which turns dense NOTAM text into plain language, Sentry SkyPlay, which brings ForeF L",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQQzJPU1l5T2RnNmh5WHZHUFNOa19aSWZGeXFxUHpSc1ZGUWlVcGJYT1lkSkdvZVZQSm5CT1AwZlNGZmkzS1VLNzhZTXpxS3VRYndoRDVnYmxmcDgwamNKekxvUnRwRTVqSDRweEhIRy01MFlWVFRVS29OSm9sdUR0LUp4Rjh5WUQ5QUZQazBuRGtXSjZBcE5fMjZkRFNCSTFYWjVSbldHMVFjYzFqZGc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
@@ -9922,8 +10009,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-30T11:46:50+00:00",
+        "source_sha256": "063bc4edb685b59c5505fd31081413dc30f9595d158e5436e7efd1d112449ceb",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen launches ForeFlight Insurance Agency and digital Aviation Insurance Marketplace for non-owned aircraft insurance.",
+        "summary": "Jeppesen has introduced the ForeFlight Insurance Agency and a digital Aviation Insurance Marketplace. These services focus on non-owned aircraft insurance for renter pilots and flight instructors, with initial licensing available in 43 U.S. states."
+      }
     },
     {
       "id": "cap-15b0ee3d9d67",
