@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T11:44:57Z",
+  "generated_at": "2026-10-31T11:18:57Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -539,6 +539,68 @@
         "to": "messaging_shift",
         "reason": "Career move to Nagarro; no product release, customer win, or deployment is announced.",
         "reviewed_at": "2026-10-27T03:28:41.153Z"
+      }
+    },
+    {
+      "id": "cap-6c20730675f3",
+      "competitor": "Jeppesen",
+      "date": "2026-10-22",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight introduces Airflow, bringing AI into flight operations",
+      "summary": "Jeppesen reported a product launch update: Jeppesen ForeFlight introduces Airflow, bringing AI into flight operations. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOYl9xQ1J0cTJzVUttWkhtMFg4YkQxM2VNN0RUeGtqOGliRDRRTjEyX2p4UTdYX25RbGluMWdqc0I5dXA1aFpHdElPcW9wLTdIamN4c1hoUFdhLXJGbnhJZkFwNzZIQ2tTcGpjdE9aQ2NPR1FQRUs1Mnp0WEg0T2x2dVkxR29lODlfZkZ0b213WnFTc1laM3fSAZsBQVVfeXFMTjhtcERWUncwdk1UY1hUVWtmeHVtU0hEZVhxVU5jS1lwUzd1eVBJR2RnQXF1bUN2eWhudElvWEJxNWRfVVIxMXQ5UEhnVDFiWUowVlMwVVJJeVlhTjRFSi1UVkhtdmo5bl9YeVdOTmYzRnVWTnZ6M01oTGQ4OW5JNnVVc3dIVmJqVzNsa19iUFpTUWlFT054UVZBTkE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-31T11:19:14+00:00",
+        "source_sha256": "83fdc063c5650fc99eeaae514fdafaa087b24c21deaaa39a7d82015faac3cd91",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight launches Airflow to integrate AI into flight operations.",
+        "summary": "Jeppesen has introduced Airflow, a new component for ForeFlight designed to incorporate artificial intelligence into flight operations."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-31T11:21:16+00:00",
+        "source_sha256": "83fdc063c5650fc99eeaae514fdafaa087b24c21deaaa39a7d82015faac3cd91",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.95,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "bringing AI into flight operations",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -6753,7 +6815,7 @@
       "competitor": "Lufthansa Systems",
       "date": "2026-08-10",
       "date_is_estimated": false,
-      "type": "feature_change",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -6820,7 +6882,23 @@
         "title": "Lufthansa Systems promotes NetLine HubControl capabilities through feature in Airports International.",
         "summary": "Lufthansa Systems highlights NetLine HubControl in Airports International, detailing its ability to unify legacy data, video feeds, and real-time inputs. No new product release or deployment is announced."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-31T11:21:40+00:00",
+        "source_sha256": "c7c993db45093ef228f0513b5ccbacef0075c611274c4f836fafcca020f6d9e5",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "feature_change",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-2ab7397b4a82",
@@ -7178,8 +7256,8 @@
       "date": "2026-08-06",
       "date_is_estimated": false,
       "type": "feature_change",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "Jeppesen Dispatch v2026-3 is now available. This release helps flight operations teams respond faster…",
       "summary": "Jeppesen Dispatch v2026-3 is now available. This release helps flight operations teams respond faster when plans change in flight, plan more safely around aircraft equipment issues, and manage workload across busy operations centers.",
@@ -7270,7 +7348,7 @@
       "summary": "AUSTIN, TEXAS — JUNE 16, 2026 — Jeppesen ForeFlight today announced it has received a Department of Defense Impact Level 5 (IL5) Authority to Operate. The Authority to Operate enables military and defense organizations to deploy ForeFlight for sensitive, mission-critical operations with full regulatory confidence, and applies across the Department of Defense, with reciprocity available to all military branches…",
       "source_channel": "press_release",
       "source_origin": "official_site",
-      "product_focus": "efb",
+      "product_focus": "eff",
       "product": "ForeFlight",
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -7325,7 +7403,23 @@
         "title": "Jeppesen ForeFlight achieves Department of Defense Impact Level 5 Authorization.",
         "summary": "Jeppesen ForeFlight has received Department of Defense Impact Level 5 (IL5) Authority to Operate. This authorization enables the deployment of ForeFlight for sensitive, mission-critical operations across the Department of Defense and its military branches."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-31T11:22:13+00:00",
+        "source_sha256": "33af312327b1be0003afe79ad6f0e669c82c407485045cd84c420266bfe62bc5",
+        "suggested_type": "regulatory",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "efb",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-34f7cb947b3c",
@@ -7393,7 +7487,22 @@
         "title": "Bytron Aviation Systems releases skybook 1.51.0 with NOTAM filtering and digital loadsheet management.",
         "summary": "The skybook 1.51.0 update introduces NOTAM filtering and an upgraded interactive globe. It also adds digital loadsheet management capabilities for uploading, comparing, and signing loadsheets."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-31T11:22:27+00:00",
+        "source_sha256": "1594714dcea322a90ab159ef4417ed0803522829d53b49c19c01f0cb5fdd17e6",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-635beb962343",
@@ -7461,7 +7570,22 @@
         "title": "Jeppesen promotes ForeFlight panel interface.",
         "summary": "Jeppesen provides messaging regarding the ForeFlight panel interface. No concrete product changes, new releases, or deployment details are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-10-31T11:22:49+00:00",
+        "source_sha256": "d5487a85b907755e1b5b9384cf901a003e5c6e00e0e42000cc2b0407ac5d73f8",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-f37bb149ce93",
@@ -7697,8 +7821,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-31T11:19:53+00:00",
+        "source_sha256": "a67d9081ba7d6a23b0401b6a25e28c72cdad78235998e48d5c1d5476232d88f4",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen promotes ForeFlight lineup including ClearNOTAMs and Sentry SkyPlay at EAA AirVenture Oshkosh.",
+        "summary": "Jeppesen is promoting its ForeFlight product lineup at EAA AirVenture Oshkosh. The featured tools include ClearNOTAMs, which converts dense NOTAM text into plain language, and Sentry SkyPlay."
+      }
     },
     {
       "id": "avio-2026-07-23-escape-routes",
@@ -11874,8 +12006,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-31T11:20:16+00:00",
+        "source_sha256": "71d00cb563b5edc255b67423c183597cc6dddd38ffce6d4583c79d815cb52b6d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen promotes cost index optimization guide for ForeFlight FliteDeck Pro.",
+        "summary": "Jeppesen is promoting a guide focused on achieving fuel and emissions efficiency via cost index optimization for ForeFlight FliteDeck Pro. No new software releases or customer contracts are established."
+      }
     },
     {
       "id": "byt-2025-12-01-skybook-148",
@@ -12901,8 +13041,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-10-31T11:20:45+00:00",
+        "source_sha256": "5ec7bb057c084179d82dd60030f2e5f60f8e1f93749cdcee238169d9b20a0089",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue promotes the concept of shared intelligence in aviation.",
+        "summary": "The messaging compares the potential for shared intelligence in aviation infrastructure to telecom models, citing the Airbus and Palantir Skywise platform. No concrete product development, customer win, or operational change is established."
+      }
     },
     {
       "id": "cap-776b4465d354",
