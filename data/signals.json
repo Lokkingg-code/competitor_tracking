@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T11:18:57Z",
+  "generated_at": "2026-11-01T12:07:56Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -279,6 +279,69 @@
         "type_auto_applied": false,
         "original_product_focus": "other",
         "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "cap-15007df2438b",
+      "competitor": "Jeppesen",
+      "date": "2026-10-23",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Happy Apple iPhone Duo release day! In Australia, OzRunways Pty Ltd (a Jeppesen ForeFlight…",
+      "summary": "Happy Apple iPhone Duo release day! In Australia, OzRunways Pty Ltd (a Jeppesen ForeFlight company) perpetually lives in the future - and therefore has become the first EFB to fully support iPhone Duo.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOTFh3dFVsMHNOYnNPVUJqbGNiYVBCWVEyVmVVN2FiVm5wT1d1N0RRRHhZMHNWTjdOaTZPMDFHSE9YeGx0VERMU1hpSlV5eXhVTGg3bGd0VmVoMDZPTUMwQTN2ZDgxeEFrYVc2LVhUSnlVVXQyam9DWHZwaEVPQWdlLVVlcnlkUjJKV0xEaC1kRXBuVThEU0tsQ2tydko5WDNwNTg2SkRoZzdKZVl4cUVMUHAxcGpFeG1Ma0tPbnZCanI?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-01T12:08:17+00:00",
+        "source_sha256": "a09d0b247ca7cfb720b2d6b49cc36eb919215c46909f52770844ec6c3ca62f8e",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen's OzRunways becomes the first EFB to provide full support for Apple iPhone Duo.",
+        "summary": "OzRunways, a Jeppesen ForeFlight company, has implemented full support for the Apple iPhone Duo. It is the first Electronic Flight Bag (EFB) to support this device."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-01T12:10:20+00:00",
+        "source_sha256": "a09d0b247ca7cfb720b2d6b49cc36eb919215c46909f52770844ec6c3ca62f8e",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -850,6 +913,68 @@
         "ai_evidence": "",
         "original_type": "messaging_shift",
         "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-93eb310097c5",
+      "competitor": "Jeppesen",
+      "date": "2026-10-20",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight Unveils ForeFlight SMS Safety Management System for Small and Mid-Size Business Aviation Operators at NBAA BACE 2026",
+      "summary": "Jeppesen reported a product launch update: Jeppesen ForeFlight Unveils ForeFlight SMS Safety Management System for Small and Mid-Size Business Aviation Operators at NBAA BACE 2026. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9Fb25QX0FFQlloNjh6bHdKN1VUNUlUaEVOM3lNY1dGcjRIc3VaRE9faG9qaVVZcG9QbHEwSElSM2dKaE16RVVwNlNtSjYyaExaZDRhNTNzRGNmM2xZWGRYWnZFMmEzTFZ2RzBBMjRHbWdJczA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-01T12:08:41+00:00",
+        "source_sha256": "eb08059c454921162ebd3f490ca46033e273f082c3f03890b36835a7cfa4bb40",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen unveils ForeFlight SMS Safety Management System for small and mid-size business aviation operators at NBAA BACE 2026.",
+        "summary": "Jeppesen has launched the ForeFlight SMS Safety Management System. The new product is intended for small and mid-size business aviation operators."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-01T12:10:56+00:00",
+        "source_sha256": "eb08059c454921162ebd3f490ca46033e273f082c3f03890b36835a7cfa4bb40",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
         "focus_auto_applied": false
       }
     },
@@ -2704,6 +2829,69 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen introduces Aviation Operating Intelligence platform ForeFlight Airflow.",
         "summary": "Jeppesen introduced its Aviation Operating Intelligence platform, ForeFlight Airflow. The announcement was made during a week-long event in Paris involving various airline customers."
+      }
+    },
+    {
+      "id": "cap-701bdb28b179",
+      "competitor": "Jeppesen",
+      "date": "2026-10-08",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "AI is moving closer to the core of airline operations. Jeppesen ForeFlight has now…",
+      "summary": "AI is moving closer to the core of airline operations. Jeppesen ForeFlight has now introduced the first Airflow agents, with use cases around Trip Trading, crew scheduling and disruption recovery.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPQTJ4OWVpTDN4WDNGQ3B6VDhlS19QWEtrLWJkZlluSnNfbk9SYjd2VUpLR2diU1NsQUZyUlV0cFllTjJMbUJsdzJsNndMVXlfWDlnQmR2UXZ4cHZhWjkzTVdSaGhIdWZmSHRjcDV0S29RUV9FM3BmbGlpcDFjdGRCbEV0cnVyOTA5ZWh6RU05a2xWUW1qbzkwTGl2aW5zdnpkS05JYTRReTNkNUdYSmhIbXlZS2stZjVoR2ROQWhyYw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-01T12:08:58+00:00",
+        "source_sha256": "c7ba61aa25ba92487d9de24f5cbbcdb41f1628a64fd566f922b308e781e9384d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen introduces Airflow agents for ForeFlight targeting trip trading, crew scheduling, and disruption recovery.",
+        "summary": "Jeppesen has introduced Airflow agents for its ForeFlight product. These agents are intended for use cases involving trip trading, crew scheduling, and disruption recovery."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-01T12:11:26+00:00",
+        "source_sha256": "c7ba61aa25ba92487d9de24f5cbbcdb41f1628a64fd566f922b308e781e9384d",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "introduced the first Airflow agents",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -5239,6 +5427,53 @@
       }
     },
     {
+      "id": "cap-6c6a64aeac52",
+      "competitor": "IFS",
+      "date": "2026-09-14",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Norse Atlantic's EFBOne–FLIGHTKEYS 5D Integration Is Less About Data Transfer and More About a Philosophy of Flight Deck Design",
+      "summary": "IFS reported a partnership update: Norse Atlantic's EFBOne–FLIGHTKEYS 5D Integration Is Less About Data Transfer and More About a Philosophy of Flight Deck Design. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "IFS EFBOne",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNbFR3cGpKNGpOaWsyQUtxd194Zl82RGJpM0ctT3VsOXVUU3p5dGM4M2xzakJubEgtclRwZ2UyZFhvTGdmel9RTEVJMVQ0YVFGWmFUQUtUSG5jdEdCTzVSdkJZRVZJWXJITmJ1ODdrTU51WFFicWswSDJpSm00Qkxfc2d1eWZxNTdVYW1ILXNpRFNERTBpa3BpY1lBZFhBYV8zam9Rbmgta0VnTEtJdDhyNGYyTXhjYUF4LXhhckpiTUxHeTQtcEE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-01T12:09:38+00:00",
+        "source_sha256": "d248a393d36814d08070e0fdc1d96aa1cde9514b91a86cbef732edb0af0c8ed3",
+        "evidence_scope": "captured_preview_only",
+        "title": "IFS promotes integration of IFS EFBOne and FLIGHTKEYS 5D at Norse Atlantic.",
+        "summary": "IFS discusses the integration of IFS EFBOne and FLIGHTKEYS 5D at Norse Atlantic. The messaging focuses on flight deck design philosophy rather than technical data transfer updates, and no concrete software release or contract change is established."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-eede314fcaab",
       "competitor": "Jeppesen",
       "date": "2026-09-11",
@@ -7341,8 +7576,8 @@
       "date": "2026-08-06",
       "date_is_estimated": false,
       "type": "regulatory",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.8,
       "headline": "Jeppesen Foreflight Achieves Department Of Defense Impact Level 5 Authorization",
       "summary": "AUSTIN, TEXAS — JUNE 16, 2026 — Jeppesen ForeFlight today announced it has received a Department of Defense Impact Level 5 (IL5) Authority to Operate. The Authority to Operate enables military and defense organizations to deploy ForeFlight for sensitive, mission-critical operations with full regulatory confidence, and applies across the Department of Defense, with reciprocity available to all military branches…",
@@ -12195,8 +12430,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-01T12:09:55+00:00",
+        "source_sha256": "26f9e5df306e443920dd0a1463380443e0b1a588f8f93ed7b50ea21084e7eb9d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems launches new subsidiary Lufthansa Systems India in Bengaluru.",
+        "summary": "Lufthansa Systems has launched a new subsidiary, Lufthansa Systems India, which is headquartered in Bengaluru."
+      }
     },
     {
       "id": "lhs-2025-11-25-eurowings-crew",
@@ -12533,6 +12776,45 @@
         "title": "Jeppesen appoints new Chief Customer Officer for ForeFlight.",
         "summary": "Jeppesen has appointed a new Chief Customer Officer for ForeFlight. This announcement does not establish any new product releases or customer agreements."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-695ec0d8c30e",
+      "competitor": "Jeppesen",
+      "date": "2025-11-10",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "By combining Jeppesen’s trusted aeronautical data with ForeFlight’s technology, this partnership marks a major step towar",
+      "summary": "🚀 Big news in aviation — Jeppesen and ForeFlight have joined forces as Jeppesen ForeFlight, creating a new digital aviation company. By combining Jeppesen’s trusted aeronautical data with ForeFlight’s technology, this partnership marks a major step towar<",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNanZvOXRicGRQMGpVSmUzWmRfVFFJWldxS3EwYWdjeEVQM0tNSEMzYVp0UnAwVWJ1SE9XUXAtM3g2dWpGVEY0VzJGLTFOZGtkQlhiSE9QT0VLSTNUYjFKaEcwemlpd09ENEp1Tlo1TmlUNnVKdWRiSHBvV290MDlwVEtjc2s2NUNzT1JfdnFoekZXUDJ1MEYxQzNuaXlXTmlFcG1Db3hFald3QXJXTHRPQTkwdkxiQ3c1eEM2a3BKRTJHekNjZTJmQk9n?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
