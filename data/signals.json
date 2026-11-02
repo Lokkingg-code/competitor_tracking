@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T12:07:56Z",
+  "generated_at": "2026-11-02T13:57:14Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,69 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-01e4ed7689a6",
+      "competitor": "Navblue",
+      "date": "2026-11-02",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Skywise expands its portfolio with the launch of enhanced digital flight training solutions",
+      "summary": "Navblue reported a product launch update: Skywise expands its portfolio with the launch of enhanced digital flight training solutions. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-11-skywise-expands-its-portfolio-with-the-launch-of-enhanced-digital-flight-training-solutions"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T13:57:37+00:00",
+        "source_sha256": "d39f04fed8b17a59ae992ddbff76d70083478d990073e9d914f14497a5b8af3f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue launches enhanced digital flight training solutions for the Skywise portfolio.",
+        "summary": "Navblue has expanded its Skywise portfolio through the launch of enhanced digital flight training solutions."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T13:58:28+00:00",
+        "source_sha256": "d39f04fed8b17a59ae992ddbff76d70083478d990073e9d914f14497a5b8af3f",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
     {
       "id": "cap-2a258b76a577",
       "competitor": "Lufthansa Systems",
@@ -5471,7 +5534,22 @@
         "title": "IFS promotes integration of IFS EFBOne and FLIGHTKEYS 5D at Norse Atlantic.",
         "summary": "IFS discusses the integration of IFS EFBOne and FLIGHTKEYS 5D at Norse Atlantic. The messaging focuses on flight deck design philosophy rather than technical data transfer updates, and no concrete software release or contract change is established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T13:58:49+00:00",
+        "source_sha256": "d248a393d36814d08070e0fdc1d96aa1cde9514b91a86cbef732edb0af0c8ed3",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-eede314fcaab",
@@ -7889,13 +7967,28 @@
         "title": "Jeppesen ForeFlight signs MOU with UrbanLink Air Mobility to collaborate on EFB requirements and dispatch procedures for e-VTOL operations.",
         "summary": "Jeppesen ForeFlight signed a Memorandum of Understanding (MOU) with UrbanLink Air Mobility. The collaboration aims to develop electronic flight bag (EFB) requirements and dispatch procedures for e-VTOL and all-electric aircraft operations within South Florida airspace."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T13:59:10+00:00",
+        "source_sha256": "883004067948eb4ea57219e23bbe9ee29b77d215c6f7cad5fbe22e00c99904d2",
+        "suggested_type": "partnership",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -8018,7 +8111,22 @@
         "title": "Lufthansa Systems partners to integrate SIRAX/ONE Order into Astra Nova platform.",
         "summary": "Lufthansa Systems is partnering to integrate SIRAX/ONE Order into the Astra Nova platform. The integration is intended to cover the airline retailing journey from offer to settlement."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T13:59:35+00:00",
+        "source_sha256": "87fe610597d559f1eebf0aea2b67d66859a542ccb695116c8c74f1c6b34d7e56",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-d165ec19c8e4",
@@ -12814,8 +12922,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T13:57:54+00:00",
+        "source_sha256": "e0c1effa59e284341932ea1220f280319d0cc5001ec12e09e4a2a01065a25932",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen and ForeFlight form a new digital aviation company named Jeppesen ForeFlight.",
+        "summary": "Jeppesen and ForeFlight have joined forces to create a new digital aviation company, Jeppesen ForeFlight. The entity combines Jeppesen’s aeronautical data with ForeFlight’s technology."
+      }
     },
     {
       "id": "cap-8bccf9bd2cac",
