@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T12:07:56Z",
+  "generated_at": "2026-11-02T06:44:41Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -75,6 +75,67 @@
       }
     },
     {
+      "id": "browser-00400c501069",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-10-28",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "High-speed airline operations demand high-performance IT infrastructure.",
+      "summary": "High-speed airline operations demand high-performance IT infrastructure. Behind the scenes at Lufthansa Systems, our NetLine suite keeps airline schedules, aircraft rotations, and crew planning running seamlessly.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/guuhpetZ"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T06:41:46+00:00",
+        "source_sha256": "49f45b1b978f61b16fad0462f24772a91b8d2caa0e86018708ba83bc1197c751",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T06:42:09+00:00",
+        "source_sha256": "49f45b1b978f61b16fad0462f24772a91b8d2caa0e86018708ba83bc1197c751",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes NetLine suite for airline operations.",
+        "summary": "Lufthansa Systems promotes its NetLine suite, highlighting its role in managing airline schedules, aircraft rotations, and crew planning. No concrete product changes or new developments are established."
+      }
+    },
+    {
       "id": "cap-414e446e0054",
       "competitor": "Lufthansa Systems",
       "date": "2026-10-27",
@@ -138,6 +199,68 @@
       }
     },
     {
+      "id": "browser-df9fd84a9819",
+      "competitor": "Aviobook",
+      "date": "2026-10-27",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Your pre-flight briefing for 26.3 starts tomorrow ⏰",
+      "summary": "Tomorrow we'll unpack everything the AvioBook 26.3 Release brings to your crews and your operations. #AvioBook #FutureOfFlying #Webinar #EFB #FlightOps #AviationTech … more 13 1 2 ​",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/g7VPqQDa"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T06:42:27+00:00",
+        "source_sha256": "92e4b85d5eb22f56321c54d6d584cc04be95928031c95788130edccd16231465",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T06:42:48+00:00",
+        "source_sha256": "abe972ea66ea973f3dc0d6a4d913dfd21df7d67810932dc1663b5fadeb765fb5",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook announces webinar regarding the AvioBook 26.3 release.",
+        "summary": "Aviobook is hosting a webinar to discuss the AvioBook 26.3 release and its implications for flight crews and operations. The post does not provide details on specific new features or functional changes."
+      }
+    },
+    {
       "id": "cap-e60aec6e802f",
       "competitor": "Bytron Skybook",
       "date": "2026-10-26",
@@ -198,6 +321,129 @@
         "original_type": "partnership",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-5dc2e286f0a7",
+      "competitor": "Aviobook",
+      "date": "2026-10-26",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Thanks to everyone who stopped by the AvioBook booth for a chat, a demo, or just to say hi.",
+      "summary": "Couldn't make it to Bangkok last week, but you're still curious about what's new in the AvioBook suite? ➡️ https://lnkd.in/gtqvJukj #AvioBook #FutureOfFlying #EFB #FlightOps #FlightOperations #AircraftIT #Webinar … more 55 ​ 2 ​",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gwEyN9Ei"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T06:43:08+00:00",
+        "source_sha256": "bc98690012f8bc1ebc8ed0b45dbced8c100db47ba5294e929da3b1be5de80dd3",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T06:43:29+00:00",
+        "source_sha256": "b9aac40b56f89d0c5d2c5508e9f54e2adac0361544ee32044d6045c595dff856",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook promotes AvioBook suite following Bangkok event presence.",
+        "summary": "Aviobook promotes its AvioBook suite following participation in an event in Bangkok. No concrete product developments, customer wins, or specific feature releases are established in the text."
+      }
+    },
+    {
+      "id": "browser-7bd0117339ee",
+      "competitor": "Bytron Skybook",
+      "date": "2026-10-26",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas.",
+      "summary": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas. Catch up with David and Jesper at booth 2964, and how skybook can better connect your operations.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gaSJWs2B"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T06:44:22+00:00",
+        "source_sha256": "a6c4c4e2a90d43cff3c4bd9e7e67ae09f253d59e28550fc2e889ef0317920e2c",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T06:44:41+00:00",
+        "source_sha256": "a6c4c4e2a90d43cff3c4bd9e7e67ae09f253d59e28550fc2e889ef0317920e2c",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes presence at NBAA-BACE conference.",
+        "summary": "Bytron Skybook is promoting its attendance at the NBAA-BACE conference in Las Vegas, inviting engagement at booth 2964. No new product releases, customer wins, or concrete operational changes are established."
       }
     },
     {
@@ -498,6 +744,10 @@
         {
           "title": "Skywise Press Releases",
           "url": "https://www.skywise.com/en/newsroom/press-releases/2026-10-raya-airways-selects-skywise-n-ops-crew-solution-to-digitalise-operations"
+        },
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/g6Jn7__J"
         }
       ],
       "tags": [
@@ -531,7 +781,11 @@
         "type_auto_applied": false,
         "original_product_focus": "other",
         "focus_auto_applied": true
-      }
+      },
+      "duplicate_count": 1,
+      "duplicate_signal_ids": [
+        "browser-6e82074829ec"
+      ]
     },
     {
       "id": "cap-c605403b945e",
@@ -1102,6 +1356,67 @@
         "original_type": "partnership",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-a3d5afd02cfd",
+      "competitor": "Aviobook",
+      "date": "2026-10-19",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Day two at Aircraft IT Bangkok.",
+      "summary": "Come talk to our AvioBook experts Sophie Jamain, Petra Lafond, and Ludwig Willems, right next to our colleagues from Thales Aerospace. #AvioBook #FutureOfFlying #EFB #FlightOps #FlightOperations #AircraftIT … more 24 ​ ​ ​",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gPejFwbZ"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T06:43:47+00:00",
+        "source_sha256": "368e6f137c6e7486df89bbe110db99a1bd211c12585211307fd7acc40996d374",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T06:44:05+00:00",
+        "source_sha256": "368e6f137c6e7486df89bbe110db99a1bd211c12585211307fd7acc40996d374",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook promotes presence at Aircraft IT Bangkok event.",
+        "summary": "Aviobook is promoting its participation in the Aircraft IT Bangkok event, inviting attendees to meet with company experts. No concrete product changes or customer agreements are established."
       }
     },
     {
@@ -1749,6 +2064,10 @@
         {
           "title": "LinkedIn browser collector",
           "url": "https://lnkd.in/p/gJrQbPD9"
+        },
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gFMqeaq4"
         }
       ],
       "tags": [
@@ -1812,7 +2131,11 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
-      }
+      },
+      "duplicate_count": 1,
+      "duplicate_signal_ids": [
+        "browser-9d03553d818c"
+      ]
     },
     {
       "id": "browser-c4e4a3967528",
@@ -1957,6 +2280,10 @@
         {
           "title": "LinkedIn browser collector",
           "url": "https://lnkd.in/p/gWBfKKtH"
+        },
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gbdsRaqg"
         }
       ],
       "tags": [
@@ -2017,7 +2344,11 @@
         "type_auto_applied": false,
         "original_product_focus": "efb",
         "focus_auto_applied": true
-      }
+      },
+      "duplicate_count": 1,
+      "duplicate_signal_ids": [
+        "browser-e90978d31008"
+      ]
     },
     {
       "id": "cap-b767fcda5e66",

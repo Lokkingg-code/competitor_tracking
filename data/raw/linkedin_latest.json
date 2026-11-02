@@ -1,8 +1,8 @@
 {
-  "captured_at": "2026-10-27T02:39:56.335Z",
+  "captured_at": "2026-11-02T06:35:19.316Z",
   "lookback_days": 14,
-  "cutoff": "2026-10-13",
-  "count": 0,
+  "cutoff": "2026-10-19",
+  "count": 16,
   "checks": [
     {
       "competitor": "Jeppesen",
@@ -24,9 +24,9 @@
       "final_url": "https://www.linkedin.com/company/foreflight/posts/",
       "page_title": "ForeFlight: Posts | LinkedIn",
       "login_required": false,
-      "selector_matches": 12,
-      "article_nodes": 12,
-      "posts_seen": 0,
+      "selector_matches": 32,
+      "article_nodes": 32,
+      "posts_seen": 2,
       "posts_captured": 0,
       "status": "ok"
     },
@@ -37,10 +37,10 @@
       "final_url": "https://www.linkedin.com/company/lufthansa-systems/posts/",
       "page_title": "Lufthansa Systems: Posts | LinkedIn",
       "login_required": false,
-      "selector_matches": 32,
-      "article_nodes": 32,
-      "posts_seen": 1,
-      "posts_captured": 0,
+      "selector_matches": 43,
+      "article_nodes": 43,
+      "posts_seen": 9,
+      "posts_captured": 4,
       "status": "ok"
     },
     {
@@ -50,10 +50,10 @@
       "final_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
       "page_title": "AvioBook: Posts | LinkedIn",
       "login_required": false,
-      "selector_matches": 22,
-      "article_nodes": 22,
-      "posts_seen": 1,
-      "posts_captured": 0,
+      "selector_matches": 43,
+      "article_nodes": 43,
+      "posts_seen": 11,
+      "posts_captured": 5,
       "status": "ok"
     },
     {
@@ -63,10 +63,10 @@
       "final_url": "https://www.linkedin.com/company/bytron/posts/",
       "page_title": "Bytron Aviation Systems: Posts | LinkedIn",
       "login_required": false,
-      "selector_matches": 32,
-      "article_nodes": 32,
-      "posts_seen": 0,
-      "posts_captured": 0,
+      "selector_matches": 33,
+      "article_nodes": 33,
+      "posts_seen": 4,
+      "posts_captured": 1,
       "status": "ok"
     },
     {
@@ -76,10 +76,10 @@
       "final_url": "https://www.linkedin.com/company/airbus-skywise/posts/",
       "page_title": "Skywise: Posts | LinkedIn",
       "login_required": false,
-      "selector_matches": 32,
-      "article_nodes": 32,
-      "posts_seen": 0,
-      "posts_captured": 0,
+      "selector_matches": 33,
+      "article_nodes": 33,
+      "posts_seen": 5,
+      "posts_captured": 2,
       "status": "ok"
     },
     {
@@ -89,8 +89,8 @@
       "final_url": "https://www.linkedin.com/company/navblue-an-airbus-company/posts/",
       "page_title": "NAVBLUE, an Airbus Company: Posts | LinkedIn",
       "login_required": false,
-      "selector_matches": 26,
-      "article_nodes": 26,
+      "selector_matches": 24,
+      "article_nodes": 24,
       "posts_seen": 0,
       "posts_captured": 0,
       "status": "ok"
@@ -104,7 +104,7 @@
       "login_required": false,
       "selector_matches": 21,
       "article_nodes": 21,
-      "posts_seen": 0,
+      "posts_seen": 1,
       "posts_captured": 0,
       "status": "ok"
     },
@@ -115,10 +115,10 @@
       "final_url": "https://www.linkedin.com/company/talora-efb/posts/",
       "page_title": "Talora: Posts | LinkedIn",
       "login_required": false,
-      "selector_matches": 22,
-      "article_nodes": 22,
-      "posts_seen": 0,
-      "posts_captured": 0,
+      "selector_matches": 33,
+      "article_nodes": 33,
+      "posts_seen": 10,
+      "posts_captured": 4,
       "status": "ok"
     },
     {
@@ -128,12 +128,189 @@
       "final_url": "https://www.linkedin.com/company/flightman/posts/",
       "page_title": "Flightman: Posts | LinkedIn",
       "login_required": false,
-      "selector_matches": 12,
-      "article_nodes": 12,
+      "selector_matches": 10,
+      "article_nodes": 10,
       "posts_seen": 0,
       "posts_captured": 0,
       "status": "ok"
     }
   ],
-  "items": []
+  "items": [
+    {
+      "id": "browser-26dd89b5e0e7",
+      "competitor": "Lufthansa Systems",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "🏆 Another milestone for SIRAX/ONE Order!",
+      "url": "https://lnkd.in/p/gdfUmBxK",
+      "summary": "🏆 Another milestone for SIRAX/ONE Order! For the second year in a row, Lufthansa Systems is part of a winning team in the 𝗜𝗔𝗧𝗔 𝗠𝘂𝗹𝘁𝗶-𝗩𝗲𝗻𝗱𝗼𝗿 𝗠𝗼𝗱𝘂𝗹𝗮𝗿𝗶𝘁𝘆 𝗣𝗿𝗼𝗼𝗳 𝗼𝗳 𝗖𝗼𝗻𝗰𝗲𝗽𝘁. This year’s focus: showing that even complex processes between airlines can work smoothly across different providers and systems in the new world of 𝗢𝗳𝗳𝗲𝗿𝘀 & 𝗢𝗿𝗱𝗲𝗿𝘀. A great step towards making Modern Airline Retailing a reality. ✈️ 𝗥𝗲𝗮𝗱 𝗺𝗼𝗿𝗲 𝗶𝗻 𝗼𝘂𝗿 𝗡𝗲𝘄𝘀 𝗥𝗼𝗼𝗺: https://lnkd.in/eTwt_uqt #SIRAX #IATA #ONEOrder #AirlineRetailing … more 73 1 2 ​",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-00400c501069",
+      "competitor": "Lufthansa Systems",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "High-speed airline operations demand high-performance IT infrastructure.",
+      "url": "https://lnkd.in/p/guuhpetZ",
+      "summary": "High-speed airline operations demand high-performance IT infrastructure. Behind the scenes at Lufthansa Systems, our NetLine suite keeps airline schedules, aircraft rotations, and crew planning running seamlessly. But serving real-time operational data across complex systems requires low latency, fast data delivery, and seamless remote access. That’s where Rocket Software comes into play. By utilizing Rocket Software's ETX platform, we give our teams fast, high-performance remote access to mission-critical operational environments. It streamlines our internal IT operations, helping us equip Ne",
+      "published_at": "2026-10-28"
+    },
+    {
+      "id": "browser-9d03553d818c",
+      "competitor": "Lufthansa Systems",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "A new milestone for flight operations in Eastern Africa ✈️",
+      "url": "https://lnkd.in/p/gFMqeaq4",
+      "summary": "A new milestone for flight operations in Eastern Africa ✈️ Kenya Airways is taking the next step with the successful implementation of Lido Flight 4D. By combining advanced flight planning, digital briefing, and real-time fleet visibility, the airline is enhancing operational efficiency and supporting informed decision-making across its flight operations. As the first Lido Flight 4D customer in Eastern Africa, Kenya Airways marks an important milestone for the region. We're proud to support Kenya Airways on its digital transformation journey. 👉 Read more in our News Room: https://lnkd.in/eHsm",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-9cae0595e8e3",
+      "competitor": "Lufthansa Systems",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "✈️ 𝗙𝗲𝘄 𝗱𝗮𝘆𝘀 𝘂𝗻𝘁𝗶𝗹 𝗠𝗥𝗢 & 𝗙𝗹𝗶𝗴𝗵𝘁 𝗢𝗽𝘀 𝗜𝗧 𝗔𝗣𝗔𝗖 𝟮𝟬𝟮𝟲...",
+      "url": "https://lnkd.in/p/gk_8DBTS",
+      "summary": "✈️ 𝗙𝗲𝘄 𝗱𝗮𝘆𝘀 𝘂𝗻𝘁𝗶𝗹 𝗠𝗥𝗢 & 𝗙𝗹𝗶𝗴𝗵𝘁 𝗢𝗽𝘀 𝗜𝗧 𝗔𝗣𝗔𝗖 𝟮𝟬𝟮𝟲... At this year's event, we'll be demonstrating how connected operational workflows can bring together flight planning, operational control and decision support to enable faster, more informed decision-making. Meet Marco Herold and Jasni Sa'aman in Bangkok and see Connected Airline Operations in action. 📍 Visit us at Booth #47 📅 Book a meeting with our team in advance: https://lnkd.in/e4uW-vjU We look forward to connecting with airline and industry professionals at the event. #MROFlightOpsIT #ConnectedAirlineOp",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-df9fd84a9819",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Your pre-flight briefing for 26.3 starts tomorrow ⏰",
+      "url": "https://lnkd.in/p/g7VPqQDa",
+      "summary": "Your pre-flight briefing for 26.3 starts tomorrow ⏰ New release, new features, smarter operations. Tomorrow we'll unpack everything the AvioBook 26.3 Release brings to your crews and your operations. On the passenger list: AvioBook customers and everyone already in conversation with our experts. ✅ Checklist complete? Secure your seat here: https://lnkd.in/gtqvJukj Capacity for the webinar is limited and the last seats are filling up fast! #AvioBook #FutureOfFlying #Webinar #EFB #FlightOps #AviationTech … more 13 1 2 ​",
+      "published_at": "2026-10-27"
+    },
+    {
+      "id": "browser-5dc2e286f0a7",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "What a week at Aircraft IT Bangkok! Thanks to everyone who stopped by the AvioBook booth for a chat, a demo, or just to say hi. Great conversations, great energy, and a great remin",
+      "url": "https://lnkd.in/p/gwEyN9Ei",
+      "summary": "What a week at Aircraft IT Bangkok! Thanks to everyone who stopped by the AvioBook booth for a chat, a demo, or just to say hi. Great conversations, great energy, and a great reminder of why we love being at these events in person. Couldn't make it to Bangkok last week, but you're still curious about what's new in the AvioBook suite? Register for our free webinar next Tuesday where our team will walk you through the latest updates in the AvioBook 26.3 release. ➡️ https://lnkd.in/gtqvJukj #AvioBook #FutureOfFlying #EFB #FlightOps #FlightOperations #AircraftIT #Webinar … more 55 ​ 2 ​",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-a715efb35b27",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Live from Aircraft IT in Bangkok! 🇹🇭 Find our AvioBook experts Sophie Jamain, Petra Lafond, and Ludwig Willems at booth 16 & 17, right next to our colleagues from Thales Aerospac",
+      "url": "https://lnkd.in/p/gVDaN7sU",
+      "summary": "Live from Aircraft IT in Bangkok! 🇹🇭 Find our AvioBook experts Sophie Jamain, Petra Lafond, and Ludwig Willems at booth 16 & 17, right next to our colleagues from Thales Aerospace (Thales). Fasten your seatbelts, the future of flight operations has arrived! Swing by for: 💬 a conversation with our team 📱 live demonstrations of our products ✨ the latest updates in the AvioBook suite (incl. AI sneak peek) #AvioBook #FutureOfFlying #EFB #FlightOps #FlightOperations #AircraftIT #Thales #Bangkok Aircraft IT Aircraft Commerce … more 57 1 2 ​",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-e90978d31008",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Now boarding: your next career move!",
+      "url": "https://lnkd.in/p/gbdsRaqg",
+      "summary": "Now boarding: your next career move! Every day, pilots around the world rely on technology to fly safer, smarter, and more efficiently. At Aviobook, we build that technology, and we’re looking for talented people to join our crew. 🌍 Here are the seats waiting to be filled: 🧭 Product Manager: chart the course for products pilots use in the cockpit 💻 Back End Developer: build the engines that power our platform 🤝 Account Executive: help airlines discover what we can do for them 📈 Senior Account Executive: lead key partnerships with airlines worldwide 🤖 Data & AI Engineer: turn flight data ",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-a3d5afd02cfd",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Day two at Aircraft IT Bangkok. We've loved seeing so many familiar faces again this week. Haven't made it to our booth yet? Today's the day! Find us at booth 16 & 17.",
+      "url": "https://lnkd.in/p/gPejFwbZ",
+      "summary": "Day two at Aircraft IT Bangkok. We've loved seeing so many familiar faces again this week. Haven't made it to our booth yet? Today's the day! Find us at booth 16 & 17. Come talk to our AvioBook experts Sophie Jamain, Petra Lafond, and Ludwig Willems, right next to our colleagues from Thales Aerospace. #AvioBook #FutureOfFlying #EFB #FlightOps #FlightOperations #AircraftIT … more 24 ​ ​ ​",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-7bd0117339ee",
+      "competitor": "Bytron Skybook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas.",
+      "url": "https://lnkd.in/p/gaSJWs2B",
+      "summary": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas. Catch up with David and Jesper at booth 2964, and how skybook can better connect your operations. #NBAABACE #businessaviation #aviation #aviationindustry … more 20 ​ 5 ​",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-4631c5584583",
+      "competitor": "Navblue",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "A look back at Day 1 at MRO Europe in Amsterdam! ✈️📸",
+      "url": "https://lnkd.in/p/gsRZXWvr",
+      "summary": "A look back at Day 1 at MRO Europe in Amsterdam! ✈️📸 The Skywise team hits the ground showcasing how our integrated digital ecosystem drives fleet resilience across airline operations and the wider supply chain. A standout moment from yesterday: Samuel Picaud Head of the Fleet Performance & Maintenance Suite at Skywise took the stage for his session, \"Bytes and Bolts Toolkit: A Smart MRO Showcase Session,\" Samuel highlighted how S. Fleet Performance+ combines predictive maintenance, live health monitoring, and reliability analysis to boost fleet resilience. Still walking the floor at RAI Amst",
+      "published_at": "2026-10-29"
+    },
+    {
+      "id": "browser-6e82074829ec",
+      "competitor": "Navblue",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Exciting news from the Asia-Pacific aviation sector! ✈️",
+      "url": "https://lnkd.in/p/g6Jn7__J",
+      "summary": "Exciting news from the Asia-Pacific aviation sector! ✈️ Raya Airways, Malaysia’s all-cargo airline, has signed an agreement to implement Skywise N-Ops & Crew (N-OC) as part of its ongoing digital transformation journey. This agreement marks Raya Airways as the first customer in Malaysia to adopt the N-Ops & Crew management solution. Building on a collaboration established in 2024 with N-Flight Planning (N-FP), N-OC will replace fragmented workflows across spreadsheets, email, and Microsoft Teams with a single, robust platform. The solution automates operational control and crew management acti",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-07e9e49e2348",
+      "competitor": "Others",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Next month from 17th - 19th November I will heading to the Canadian Aviation Conference & Tradeshow (Air Transport Association of Canada - Association du transport aérien du Canada",
+      "url": "https://lnkd.in/p/gPcWPEPf",
+      "summary": "Next month from 17th - 19th November I will heading to the Canadian Aviation Conference & Tradeshow (Air Transport Association of Canada - Association du transport aérien du Canada (ATAC)) - taking place at the The Westin Bayshore, Vancouver. Visit me and Prakash Rajan at booth 122 and let's discuss how Talora can help you modernize your flight operations. Looking forward to meet the Automated Systems In Aircraft Performance, Inc. - team on site including Cecil Teets and Brandon Gatica. #ATAC #AviationCanadienne #Talora #EFB … more 21 ​ 3 ​",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-e8a50ffed665",
+      "competitor": "Others",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Last week at the Aircraft Commerce Bangkok 2026 we had the opportunity to present our latest Navigation Charts developments and talk to the industry about the evolving needs of mod",
+      "url": "https://lnkd.in/p/g4dkYExn",
+      "summary": "Last week at the Aircraft Commerce Bangkok 2026 we had the opportunity to present our latest Navigation Charts developments and talk to the industry about the evolving needs of modern flight operations. Thanks to everyone who stopped by and shared their perspective on our product vision. To round off the year, make sure to visit us at Aircraft Commerce London. #Talora #NavigationCharts #AircraftCommerce #ACCBangkok2026 … more 19 ​ 2 ​",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-4e58bbf5b0ac",
+      "competitor": "Others",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Excited to share that Meteomatics has officially partnered with Talora by DextraData GmbH Aviation Technologies!",
+      "url": "https://lnkd.in/p/gHXQ3ZFj",
+      "summary": "Excited to share that Meteomatics has officially partnered with Talora by DextraData GmbH Aviation Technologies! In the aviation industry, precise and timely weather data isn't just a nice-to-have—it's critical for safety, efficiency, and route optimization. By integrating our hyper-local weather intelligence with Talora's innovative aviation solutions, we are empowering operators to make smarter, data-driven decisions in real time. Looking forward to seeing how this collaboration will drive the next generation of aviation technology forward. #AviationTech #WeatherIntelligence #Meteomatics #Ta",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-da78d4fe078a",
+      "competitor": "Others",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Global charts. One database.",
+      "url": "https://lnkd.in/p/gcwyCFQD",
+      "summary": "Global charts. One database. Folded paper charts, thick binders and the endless search for the right page used to be part of every flight. With Talora Navigation Charts, they're history. Talora brings navigation charts into one connected EFB platform: - 32,000+ airports worldwide in one chart database - Your route, waypoints and own-ship position on one map - Weather overlay along the route, switched on with a single tap - Navigation, weather and terrain layers combined as you need them - Always current and available offline All-in-One. Connected. Configurable. #EFB #NavigationCharts #Electron",
+      "published_at": "2026-10-26"
+    }
+  ]
 }

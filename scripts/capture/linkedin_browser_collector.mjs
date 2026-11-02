@@ -77,6 +77,10 @@ async function collectOrganization(page, organization) {
   if (page.url().includes("/login") || page.url().includes("/checkpoint")) {
     check.login_required = true;
     check.status = "login_required";
+    if (!process.stdin.isTTY) {
+      console.error(`[linkedin-browser] ${organization.vanity_name}: login or verification required; skipping non-interactive capture`);
+      return { items: [], check };
+    }
     console.log("LinkedIn login or verification is required. Complete it in the browser, then press Enter here.");
     process.stdin.setEncoding("utf8");
     await new Promise((resolve) => process.stdin.once("data", resolve));
