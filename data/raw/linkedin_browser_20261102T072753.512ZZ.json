@@ -1,0 +1,129 @@
+{
+  "captured_at": "2026-11-02T07:27:53.512Z",
+  "lookback_days": 14,
+  "cutoff": "2026-10-19",
+  "count": 9,
+  "checks": [
+    {
+      "competitor": "Aviobook",
+      "vanity_name": "aviovision-nv",
+      "requested_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
+      "final_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
+      "page_title": "AvioBook: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 32,
+      "article_nodes": 32,
+      "posts_seen": 112,
+      "posts_captured": 9,
+      "post_skips": {
+        "invalid_permalink": 2,
+        "duplicate_post_in_capture": 46,
+        "outside_lookback": 46,
+        "unparseable_date": 9
+      },
+      "feed_sort": "recent",
+      "status": "ok"
+    }
+  ],
+  "items": [
+    {
+      "id": "browser-5dc2e286f0a7",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "MRO Europe is about to open its doors and the Thales Aviation Global Services and Aerospace Communications teams are ready and looking forward to two days of connecting with our cu",
+      "url": "https://lnkd.in/p/gwEyN9Ei",
+      "summary": "MRO Europe is about to open its doors and the Thales Aviation Global Services and Aerospace Communications teams are ready and looking forward to two days of connecting with our customers, partners and suppliers from across the region. Come by booth #1156 to learn more about how Thales is providing the support and services the industry needs today and for tomorrow. #thales #thalesags #thalesaec … more 6 ​ ​ ​",
+      "published_at": "2026-10-29"
+    },
+    {
+      "id": "browser-0a70abe39ff2",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Why do we do what we do? Because when airlines grow, their pilots should be able to rely on technology that grows with them ✈️",
+      "url": "https://lnkd.in/p/gWqxe5Un",
+      "summary": "Why do we do what we do? Because when airlines grow, their pilots should be able to rely on technology that grows with them ✈️ That's exactly what Royal Air Maroc is setting out to do. With the ambition to reach a fleet of 200 aircraft by 2037, RAM has chosen AvioBook Flight to digitalize its flight operations and put the right information in their crews' hands before, during, and after every flight. Hear it from our CEO, Frédéric Dru 👇 https://lnkd.in/ewTMF_Yx #AvioBook #ThalesAGS #EFB #RoyalAirMaroc … more 44 ​ ​ ​",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-c35242eaef6a",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "What a week at Aircraft IT Bangkok! Thanks to everyone who stopped by the AvioBook booth for a chat, a demo, or just to say hi. Great conversations, great energy, and a great remin",
+      "url": "https://lnkd.in/p/gZfDK_kK",
+      "summary": "What a week at Aircraft IT Bangkok! Thanks to everyone who stopped by the AvioBook booth for a chat, a demo, or just to say hi. Great conversations, great energy, and a great reminder of why we love being at these events in person. Couldn't make it to Bangkok last week, but you're still curious about what's new in the AvioBook suite? Register for our free webinar next Tuesday where our team will walk you through the latest updates in the AvioBook 26.3 release. ➡️ https://lnkd.in/gtqvJukj #AvioBook #FutureOfFlying #EFB #FlightOps #FlightOperations #AircraftIT #Webinar … more 55 ​ 2 ​",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-d54b4bc8ade0",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "⏰ One more week!",
+      "url": "https://lnkd.in/p/gygQ9AVh",
+      "summary": "⏰ One more week! On October 27, Product Managers David Concostrina Sánchez and Petra Lafond are walking you through everything new in AvioBook 26.3 in our live webinar. Are you an AvioBook customer, or already in touch with our team? Then this one's for you! Last chance to sign up below 👇🏼 https://lnkd.in/gtqvJukj #AvioBook #FutureofFlying #Webinar #FlightOps #FlightOperations #AviationTech … more 13 ​ 3 ​",
+      "published_at": "2026-10-26"
+    },
+    {
+      "id": "browser-a715efb35b27",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Day two at Aircraft IT Bangkok. We've loved seeing so many familiar faces again this week. Haven't made it to our booth yet? Today's the day! Find us at booth 16 & 17.",
+      "url": "https://lnkd.in/p/gVDaN7sU",
+      "summary": "Day two at Aircraft IT Bangkok. We've loved seeing so many familiar faces again this week. Haven't made it to our booth yet? Today's the day! Find us at booth 16 & 17. Come talk to our AvioBook experts Sophie Jamain, Petra Lafond, and Ludwig Willems, right next to our colleagues from Thales Aerospace. #AvioBook #FutureOfFlying #EFB #FlightOps #FlightOperations #AircraftIT … more 24 ​ ​ ​",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-a8fe86ce53a6",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Live from Aircraft IT in Bangkok! 🇹🇭 Find our AvioBook experts Sophie Jamain, Petra Lafond, and Ludwig Willems at booth 16 & 17, right next to our colleagues from Thales Aerospac",
+      "url": "https://lnkd.in/p/gQBNUJuB",
+      "summary": "Live from Aircraft IT in Bangkok! 🇹🇭 Find our AvioBook experts Sophie Jamain, Petra Lafond, and Ludwig Willems at booth 16 & 17, right next to our colleagues from Thales Aerospace (Thales). Fasten your seatbelts, the future of flight operations has arrived! Swing by for: 💬 a conversation with our team 📱 live demonstrations of our products ✨ the latest updates in the AvioBook suite (incl. AI sneak peek) #AvioBook #FutureOfFlying #EFB #FlightOps #FlightOperations #AircraftIT #Thales #Bangkok Aircraft IT Aircraft Commerce … more 57 1 2 ​",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-2df97fd6ba6e",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "There's no time to improvise when an engine fails over high terrain. The aircraft can't hold its cruising level, and the crew needs to know right now which way to turn and how low ",
+      "url": "https://lnkd.in/p/gndmMK3U",
+      "summary": "There's no time to improvise when an engine fails over high terrain. The aircraft can't hold its cruising level, and the crew needs to know right now which way to turn and how low they can safely go. Airlines plan for this. Flight Ops Engineers prepare escape routes for terrain-critical segments, per aircraft type and per failure: a depressurisation route to get down quickly, a drift-down route to keep terrain clearance after an engine failure. But on the flight deck, these routes often sit in PDF charts or pages of text. Crews study them before departure, try to keep them in mind, and then ha",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-e90978d31008",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Royal Air Maroc has signed a five-year agreement with Thales to equip pilots across its fleet with AvioBook Flight, an Electronic Flight Bag platform designed to streamline flight ",
+      "url": "https://lnkd.in/p/gbdsRaqg",
+      "summary": "Royal Air Maroc has signed a five-year agreement with Thales to equip pilots across its fleet with AvioBook Flight, an Electronic Flight Bag platform designed to streamline flight workflows, support fuel optimisation and improve coordination between crews and ground teams. The deal comes as the Moroccan carrier targets a fleet of 200 aircraft by 2037, placing greater emphasis on operational systems that can support growth. The focus now will be on implementation and whether digital tools translate into measurable gains in efficiency, aircraft turnaround and fuel use. Read more here - https://l",
+      "published_at": "2026-10-19"
+    },
+    {
+      "id": "browser-a3d5afd02cfd",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "Now boarding: your next career move!",
+      "url": "https://lnkd.in/p/gPejFwbZ",
+      "summary": "Now boarding: your next career move! Every day, pilots around the world rely on technology to fly safer, smarter, and more efficiently. At Aviobook, we build that technology, and we’re looking for talented people to join our crew. 🌍 Here are the seats waiting to be filled: 🧭 Product Manager: chart the course for products pilots use in the cockpit 💻 Back End Developer: build the engines that power our platform 🤝 Account Executive: help airlines discover what we can do for them 📈 Senior Account Executive: lead key partnerships with airlines worldwide 🤖 Data & AI Engineer: turn flight data ",
+      "published_at": "2026-10-19"
+    }
+  ]
+}

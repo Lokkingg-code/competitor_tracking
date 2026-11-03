@@ -11,7 +11,7 @@ const root = path.resolve(new URL("../..", import.meta.url).pathname);
 const configPath = path.join(root, "scripts", "capture", "sources.json");
 const outputDir = path.join(root, "data", "raw");
 const profileDir = process.env.LINKEDIN_PROFILE_DIR || path.join(os.homedir(), ".cathay-competitor-linkedin");
-const maxScrolls = Number(process.env.LINKEDIN_MAX_SCROLLS || 8);
+const maxScrolls = Number(process.env.LINKEDIN_MAX_SCROLLS || 16);
 const lookbackDays = Number(process.env.LINKEDIN_LOOKBACK_DAYS || 14);
 const requestedOrganizations = (process.env.LINKEDIN_ORGANIZATIONS || "").split(",").map((name) => name.trim()).filter(Boolean);
 
@@ -51,8 +51,38 @@ function relativeDate(value) {
   return new Date(Date.now() - Number(match[1] || match[3]) * units[(match[2] || match[4]).toLowerCase()]).toISOString().slice(0, 10);
 }
 
+function postPreviewMatches(summary, description) {
+  if (String(description || "").trim().length < 40) return false;
+  const normalize = (value) => String(value || "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/https?:\/\/\S+/g, " ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+  const summaryText = ` ${normalize(summary)} `;
+  const words = normalize(description).split(/\s+/).filter((word) => word.length >= 3);
+  for (let index = 0; index <= words.length - 3; index += 1) {
+    const phrase = words.slice(index, index + 3).join(" ");
+    if (phrase.split(" ").filter((word) => word.length >= 4).length >= 2 && summaryText.includes(` ${phrase} `)) return true;
+  }
+  return false;
+}
+
 async function readConfig() {
   return JSON.parse(await fs.readFile(configPath, "utf8"));
+}
+
+async function selectRecentPosts(page) {
+  const sortButton = page.getByRole("button", { name: /^Sort by:/i });
+  await sortButton.waitFor({ state: "visible", timeout: 10000 });
+  if (/\brecent\b/i.test(await sortButton.innerText())) return "recent";
+
+  await sortButton.click();
+  const recentOption = page.getByRole("menuitem", { name: /^Recent$/i });
+  await recentOption.waitFor({ state: "visible", timeout: 5000 });
+  await recentOption.click();
+  await page.getByRole("button", { name: /^Sort by:\s*Recent$/i }).waitFor({ state: "visible", timeout: 5000 });
+  return "recent";
 }
 
 async function collectOrganization(page, organization) {
@@ -66,11 +96,17 @@ async function collectOrganization(page, organization) {
     requested_url: url,
     final_url: page.url(),
     page_title: await page.title(),
+    lookback_cutoff: cutoffDate(lookbackDays),
+    lookback_complete: false,
+    scrolls: 0,
+    oldest_observed_date: null,
     login_required: false,
     selector_matches: 0,
     article_nodes: 0,
     posts_seen: 0,
     posts_captured: 0,
+    post_skips: {},
+    feed_sort: "unknown",
     status: "ok",
   };
 
@@ -89,9 +125,23 @@ async function collectOrganization(page, organization) {
     check.page_title = await page.title();
   }
 
+  try {
+    check.feed_sort = await selectRecentPosts(page);
+  } catch (error) {
+    check.feed_sort = "recent_sort_unavailable";
+    check.sort_error = error.message;
+    console.warn(`[linkedin-browser] ${organization.vanity_name}: could not select Recent sort: ${error.message}`);
+  }
+
   const records = new Map();
   const seenPosts = new Set();
+  const cutoff = cutoffDate(lookbackDays);
+  let reachedLookbackBoundary = false;
+  const recordSkip = (reason) => {
+    check.post_skips[reason] = (check.post_skips[reason] || 0) + 1;
+  };
   for (let scroll = 0; scroll < maxScrolls; scroll += 1) {
+    check.scrolls = scroll + 1;
     check.article_nodes = Math.max(check.article_nodes, await page.locator("[role='article']").count());
     const postLocator = page.locator("[role='article'][data-urn]");
     check.selector_matches = Math.max(check.selector_matches, await postLocator.count());
@@ -113,7 +163,26 @@ async function collectOrganization(page, organization) {
       check.posts_seen += 1;
       const url = post.url?.split("?")[0];
       const date = isoDate(post.published_at) || relativeDate(post.published_at);
-      if (!url || !date || date < cutoffDate(lookbackDays) || records.has(url)) continue;
+      if (date && (!check.oldest_observed_date || date < check.oldest_observed_date)) {
+        check.oldest_observed_date = date;
+      }
+      if (date && date < cutoff) {
+        reachedLookbackBoundary = true;
+        recordSkip("outside_lookback");
+        continue;
+      }
+      if (!url) {
+        recordSkip("missing_permalink");
+        continue;
+      }
+      if (!date) {
+        recordSkip("unparseable_date");
+        continue;
+      }
+      if (records.has(url)) {
+        recordSkip("duplicate_permalink_in_capture");
+        continue;
+      }
       records.set(url, {
         id: stableId(organization.competitor, url),
         competitor: organization.competitor,
@@ -133,54 +202,108 @@ async function collectOrganization(page, organization) {
       check.article_nodes = Math.max(check.article_nodes, count);
       check.selector_matches = Math.max(check.selector_matches, count);
       for (let index = 0; index < count; index += 1) {
+        check.posts_seen += 1;
         const post = feedPosts.nth(index);
+        const postHandle = await post.elementHandle();
+        if (!postHandle) {
+          recordSkip("post_detached_before_capture");
+          continue;
+        }
         const lines = (await post.innerText()).split("\n").map((line) => line.trim()).filter(Boolean);
         const dateIndex = lines.findIndex((line, position) => position > 0 && /^(?:\d+\s*(?:m|h|d|w|mo|y|minutes?|hours?|days?|weeks?|months?|years?)(?:\s+ago)?)$/i.test(line));
-        if (dateIndex < 0) continue;
+        if (dateIndex < 0) {
+          recordSkip("unparseable_date");
+          continue;
+        }
         const content = lines.slice(dateIndex + 1);
         if (/^Follow(?:ing)?$/i.test(content[0])) content.shift();
         const summary = content.join(" ").slice(0, 600);
         const date = relativeDate(lines[dateIndex]);
-        if (!summary || !date || date < cutoffDate(lookbackDays)) continue;
+        if (date && (!check.oldest_observed_date || date < check.oldest_observed_date)) {
+          check.oldest_observed_date = date;
+        }
+        if (!summary) {
+          recordSkip("empty_summary");
+          continue;
+        }
+        if (!date) {
+          recordSkip("unparseable_date");
+          continue;
+        }
+        if (date < cutoff) {
+          reachedLookbackBoundary = true;
+          recordSkip("outside_lookback");
+          continue;
+        }
         const signature = `${date}|${summary}`;
-        if (seenPosts.has(signature)) continue;
+        if (seenPosts.has(signature)) {
+          recordSkip("duplicate_post_in_capture");
+          continue;
+        }
         seenPosts.add(signature);
-        check.posts_seen += 1;
         let url;
+        let permalinkMethod = "card_link";
+        const directAnchors = await postHandle.$$('a[href*="/feed/update/"], a[href*="linkedin.com/posts/"]');
+        const directLinks = await Promise.all(directAnchors.map((anchor) => anchor.evaluate((element) => element.href)));
+        url = directLinks.find((link) => /^https:\/\/www\.linkedin\.com\/(?:feed\/update\/|posts\/)/.test(link));
         try {
-          await page.evaluate(() => navigator.clipboard.writeText(""));
-          await page.keyboard.press("Escape");
-          const control = post.locator('button[aria-label^="Open control menu for post"]');
-          const copyLink = page.getByRole("menuitem", { name: "Copy link to post" });
-          await control.click();
-          try {
-            await copyLink.waitFor({ state: "visible", timeout: 5000 });
-          } catch {
+          if (!url) {
+            permalinkMethod = "post_menu";
+            const control = await postHandle.$('button[aria-label^="Open control menu for post"]');
+            if (!control) throw new Error("Post menu button missing from selected card");
             await page.keyboard.press("Escape");
+            await page.evaluate(() => navigator.clipboard.writeText(""));
+            const clipboardBefore = await page.waitForFunction(async () => await navigator.clipboard.readText() === "", null, { timeout: 3000 });
+            await clipboardBefore.dispose();
             await control.click();
+            let menu = page.locator('[role="menu"]:visible').last();
+            try {
+              await menu.waitFor({ state: "visible", timeout: 5000 });
+            } catch {
+              await page.keyboard.press("Escape");
+              await control.click();
+              menu = page.locator('[role="menu"]:visible').last();
+              await menu.waitFor({ state: "visible", timeout: 5000 });
+            }
+            const copyLink = menu.getByRole("menuitem", { name: /^Copy link to post$/i });
             await copyLink.waitFor({ state: "visible", timeout: 5000 });
+            await copyLink.click();
+            const copiedUrl = await page.waitForFunction(async () => {
+              const value = await navigator.clipboard.readText();
+              return value.startsWith("https://") ? value : false;
+            }, null, { timeout: 5000 });
+            url = await copiedUrl.jsonValue();
+            await copiedUrl.dispose();
           }
-          await copyLink.click();
-          const copiedUrl = await page.waitForFunction(async () => {
-            const value = await navigator.clipboard.readText();
-            return value.startsWith("https://") ? value : false;
-          }, null, { timeout: 5000 });
-          url = await copiedUrl.jsonValue();
-          await copiedUrl.dispose();
         } catch (error) {
           check.post_errors = [...(check.post_errors || []), { title: content[0]?.slice(0, 180), error: error.message }];
+          recordSkip(permalinkMethod === "post_menu" ? "permalink_menu_error" : "card_permalink_error");
           await page.keyboard.press("Escape");
           continue;
         }
-        if (!/^https:\/\/(?:lnkd\.in\/p\/|www\.linkedin\.com\/(?:feed\/update\/|posts\/))/.test(url) || records.has(url)) continue;
-        try {
-          const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
-          const html = await response.text();
-          const description = await page.evaluate((markup) => new DOMParser().parseFromString(markup, "text/html").querySelector('meta[property="og:description"]')?.content || "", html);
-          const normalize = (text) => text.toLowerCase().replace(/\s+/g, " ").trim();
-          if (description && !normalize(description).includes(normalize(content[0]).slice(0, 32))) continue;
-        } catch {
+        if (!/^https:\/\/(?:lnkd\.in\/p\/|www\.linkedin\.com\/(?:feed\/update\/|posts\/))/.test(url)) {
+          recordSkip("invalid_permalink");
           continue;
+        }
+        if (records.has(url)) {
+          recordSkip("duplicate_permalink_in_capture");
+          continue;
+        }
+        if (permalinkMethod === "post_menu") {
+          try {
+            const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
+            const html = await response.text();
+            const description = await page.evaluate((markup) => new DOMParser().parseFromString(markup, "text/html").querySelector('meta[property="og:description"]')?.content || "", html);
+            if (!postPreviewMatches(summary, description)) {
+              recordSkip("permalink_post_text_mismatch");
+              check.post_errors = [...(check.post_errors || []), { title: content[0]?.slice(0, 180), url, error: "Copied permalink preview did not match visible post" }];
+              continue;
+            }
+          } catch (error) {
+            recordSkip("permalink_preview_unavailable");
+            check.post_errors = [...(check.post_errors || []), { title: content[0]?.slice(0, 180), url, error: error.message }];
+            continue;
+          }
         }
         records.set(url, {
           id: stableId(organization.competitor, url),
@@ -192,10 +315,15 @@ async function collectOrganization(page, organization) {
           url,
           summary,
           published_at: date,
+          permalink_method: permalinkMethod,
         });
       }
     }
 
+    if (reachedLookbackBoundary) {
+      check.lookback_complete = true;
+      break;
+    }
     await page.mouse.wheel(0, 2500);
     await page.waitForTimeout(1200);
   }
@@ -208,7 +336,10 @@ async function collectOrganization(page, organization) {
     check.status = "selector_no_matches";
   }
   if (check.post_errors?.length) check.status = records.size ? "partial_capture" : "post_capture_errors";
-  console.log(`[linkedin-browser] check ${organization.vanity_name}: ${check.status}; articles=${check.article_nodes}; selector_matches=${check.selector_matches}; captured=${check.posts_captured}`);
+  if (check.sort_error && check.status === "ok") check.status = "sort_unavailable";
+  if (!check.lookback_complete && check.article_nodes > 0 && check.status === "ok") check.status = "lookback_incomplete";
+  if (!check.posts_captured && check.article_nodes > 0 && check.status === "ok") check.status = "no_posts_captured";
+  console.log(`[linkedin-browser] check ${organization.vanity_name}: ${check.status}; sort=${check.feed_sort}; lookback_complete=${check.lookback_complete}; oldest=${check.oldest_observed_date}; scrolls=${check.scrolls}/${maxScrolls}; articles=${check.article_nodes}; selector_matches=${check.selector_matches}; seen=${check.posts_seen}; captured=${check.posts_captured}; skipped=${JSON.stringify(check.post_skips)}`);
   return { items: [...records.values()], check };
 }
 

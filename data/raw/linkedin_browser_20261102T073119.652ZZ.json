@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-11-02T07:31:19.652Z",
+  "lookback_days": 14,
+  "cutoff": "2026-10-19",
+  "count": 0,
+  "checks": [
+    {
+      "competitor": "Aviobook",
+      "vanity_name": "aviovision-nv",
+      "status": "collection_error",
+      "error": "postHandle.locator is not a function",
+      "posts_captured": 0
+    }
+  ],
+  "items": []
+}

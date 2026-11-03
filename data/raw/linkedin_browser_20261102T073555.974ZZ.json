@@ -1,0 +1,65 @@
+{
+  "captured_at": "2026-11-02T07:35:55.974Z",
+  "lookback_days": 14,
+  "cutoff": "2026-10-19",
+  "count": 1,
+  "checks": [
+    {
+      "competitor": "Aviobook",
+      "vanity_name": "aviovision-nv",
+      "requested_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
+      "final_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
+      "page_title": "AvioBook: Posts | LinkedIn",
+      "login_required": false,
+      "selector_matches": 32,
+      "article_nodes": 32,
+      "posts_seen": 144,
+      "posts_captured": 1,
+      "post_skips": {
+        "invalid_permalink": 6,
+        "duplicate_post_in_capture": 57,
+        "permalink_post_text_mismatch": 4,
+        "outside_lookback": 64,
+        "unparseable_date": 12
+      },
+      "feed_sort": "recent",
+      "status": "partial_capture",
+      "post_errors": [
+        {
+          "title": "Why do we do what we do? Because when airlines grow, their pilots should be able to rely on technology that grows with them ✈️",
+          "url": "https://lnkd.in/p/gWqxe5Un",
+          "error": "Copied permalink preview did not match visible post"
+        },
+        {
+          "title": "⏰ One more week!",
+          "url": "https://lnkd.in/p/gygQ9AVh",
+          "error": "Copied permalink preview did not match visible post"
+        },
+        {
+          "title": "Live from Aircraft IT in Bangkok! 🇹🇭 Find our AvioBook experts Sophie Jamain, Petra Lafond, and Ludwig Willems at booth 16 & 17, right next to our colleagues from Thales Aerospac",
+          "url": "https://lnkd.in/p/gQBNUJuB",
+          "error": "Copied permalink preview did not match visible post"
+        },
+        {
+          "title": "Royal Air Maroc has signed a five-year agreement with Thales to equip pilots across its fleet with AvioBook Flight, an Electronic Flight Bag platform designed to streamline flight ",
+          "url": "https://lnkd.in/p/gbdsRaqg",
+          "error": "Copied permalink preview did not match visible post"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "browser-7c9243ba66e1",
+      "competitor": "Aviobook",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "MRO Europe is about to open its doors and the Thales Aviation Global Services and Aerospace Communications teams are ready and looking forward to two days of connecting with our cu",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7521123548342603776/",
+      "summary": "MRO Europe is about to open its doors and the Thales Aviation Global Services and Aerospace Communications teams are ready and looking forward to two days of connecting with our customers, partners and suppliers from across the region. Come by booth #1156 to learn more about how Thales is providing the support and services the industry needs today and for tomorrow. #thales #thalesags #thalesaec … more 6 ​ ​ ​",
+      "published_at": "2026-10-29",
+      "permalink_method": "card_link"
+    }
+  ]
+}
