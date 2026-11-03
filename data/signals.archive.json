@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T02:34:50Z",
+  "generated_at": "2026-11-03T02:52:34Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -915,7 +915,7 @@
       "headline": "Raya Airways selects Skywise N-Ops & Crew solution to digitalise operations",
       "summary": "Raya Airways, Malaysia’s all-cargo airline has signed an agreement to implement Skywise N-Ops & Crew (N-OC) as part of the airline’s ongoing digital transf",
       "source_channel": "press_release",
-      "source_origin": "press_release",
+      "source_origin": "linkedin",
       "product_focus": "eff",
       "product": null,
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
@@ -1230,6 +1230,68 @@
         "ai_evidence": "New AI Agents to Airflow Platform",
         "original_type": "messaging_shift",
         "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-9fb38a6ba3b9",
+      "competitor": "Jeppesen",
+      "date": "2026-10-21",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Jay Kadir stopped by the Jeppesen ForeFlight booth to talk with Reggie Arsenault, SVP…",
+      "summary": "Jay Kadir stopped by the Jeppesen ForeFlight booth to talk with Reggie Arsenault, SVP of Flight Operations, about our new platform: Jeppesen ForeFlight Airflow™ 🛩️ Jeppesen ForeFlight is launching pre-built agents, starting with Trip Feasibility and Ops Bri",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORGtINEM2MHB6SGxLOEg1MlRwY0lWT01mTGhYQ3hHRnRWUTJCV0NtSmZhdkk1TnNCUnJ2MVhUcS1IN1BTanl2bDU4emlGNWk0dko4OEVEZmpLVV9qUDM3S0Y3elA5VWloSXJRY01ZMnV3R1NiOS14VlRhV0JrRENJYVh3ano2UXczSjB5cVFVdDNnaFlmSmtiWXdlc3NZeTFtUmExUGIxbktRZXBrNk8tc3h6ZVVnVGlqWW5sVg?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-03T02:52:57+00:00",
+        "source_sha256": "e91044c730def857fc1eab07ba956807dcd828a38a2205277b9d840d6fb0555b",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen launches Jeppesen ForeFlight Airflow™ platform with pre-built Trip Feasibility and Ops Briefing agents.",
+        "summary": "Jeppesen is launching the Jeppesen ForeFlight Airflow™ platform. The rollout includes pre-built agents, beginning with Trip Feasibility and Ops Briefing capabilities."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:53:41+00:00",
+        "source_sha256": "e91044c730def857fc1eab07ba956807dcd828a38a2205277b9d840d6fb0555b",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 0.9,
+        "ai_evidence": "launching pre-built agents",
+        "type_auto_applied": false,
         "focus_auto_applied": false
       }
     },
@@ -8512,13 +8574,28 @@
         "title": "Jeppesen promotes ForeFlight as a single connected EFB ecosystem for airlines.",
         "summary": "Jeppesen promotes its ForeFlight product as a single connected EFB ecosystem for airlines. No new product releases, customer contracts, or concrete technical developments are established by the text."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:53:54+00:00",
+        "source_sha256": "31254f2e56e2bdbb261b0297dc47661e8d61499be968a15d707f0f72c610a4e0",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -8619,7 +8696,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_classification_status": "pending",
       "ai_brief": {
         "model": "gemma-4-26b-a4b-it",
         "brief_version": 1,
@@ -8628,13 +8704,29 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen promotes ForeFlight lineup including ClearNOTAMs and Sentry SkyPlay at EAA AirVenture Oshkosh.",
         "summary": "Jeppesen is promoting its ForeFlight product lineup at EAA AirVenture Oshkosh. The featured tools include ClearNOTAMs, which converts dense NOTAM text into plain language, and Sentry SkyPlay."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:54:24+00:00",
+        "source_sha256": "a67d9081ba7d6a23b0401b6a25e28c72cdad78235998e48d5c1d5476232d88f4",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
       "id": "avio-2026-07-23-escape-routes",
       "competitor": "Aviobook",
       "date": "2026-07-23",
-      "type": "product_launch",
+      "type": "messaging_shift",
       "priority": "high",
       "severity": 4,
       "confidence": 0.9,
@@ -8699,13 +8791,29 @@
         "title": "Aviobook previews upcoming Escape Routes feature for AvioBook flight operations.",
         "summary": "Aviobook announced an upcoming Escape Routes feature for its AvioBook platform. The tool integrates valid diversion paths into the pilot workflow, highlights routes near high-terrain areas, and updates the navlog upon diversion selection."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:54:46+00:00",
+        "source_sha256": "2c3b360cc737c8e925d2fadbaa252a835667a95c7a32d1489b0c6efa43e7729f",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -8774,7 +8882,22 @@
         "title": "Jeppesen adds mobile clearance technology to ForeFlight.",
         "summary": "Jeppesen is messaging the addition of mobile clearance technology to ForeFlight. The provided text describes a messaging update but establishes no specific technical or deployment details."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:55:32+00:00",
+        "source_sha256": "b13b7516c1f5f5e6af0345b870d84c74d1e8531d60d572402210ddfb3192061a",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.6,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "avio-2026-07-16-braathens-story",
