@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T06:44:41Z",
+  "generated_at": "2026-11-03T02:34:50Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,69 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-01e4ed7689a6",
+      "competitor": "Navblue",
+      "date": "2026-11-02",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "Skywise expands its portfolio with the launch of enhanced digital flight training solutions",
+      "summary": "Navblue reported a product launch update: Skywise expands its portfolio with the launch of enhanced digital flight training solutions. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-11-skywise-expands-its-portfolio-with-the-launch-of-enhanced-digital-flight-training-solutions"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T13:57:37+00:00",
+        "source_sha256": "d39f04fed8b17a59ae992ddbff76d70083478d990073e9d914f14497a5b8af3f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue launches enhanced digital flight training solutions for the Skywise portfolio.",
+        "summary": "Navblue has expanded its Skywise portfolio through the launch of enhanced digital flight training solutions."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T13:58:28+00:00",
+        "source_sha256": "d39f04fed8b17a59ae992ddbff76d70083478d990073e9d914f14497a5b8af3f",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
     {
       "id": "cap-2a258b76a577",
       "competitor": "Lufthansa Systems",
@@ -133,6 +196,68 @@
         "evidence_scope": "captured_preview_only",
         "title": "Lufthansa Systems promotes NetLine suite for airline operations.",
         "summary": "Lufthansa Systems promotes its NetLine suite, highlighting its role in managing airline schedules, aircraft rotations, and crew planning. No concrete product changes or new developments are established."
+      }
+    },
+    {
+      "id": "browser-61f67ece6da3",
+      "competitor": "Bytron Skybook",
+      "date": "2026-10-28",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "With skybook, airlines can manage and distribute EFFs seamlessly.",
+      "summary": "Visit my website 6d Follow Our latest article explores EFF management & distribution, providing a standardised way to connect operational systems with your chosen EFB application... #aviation #EFB #ARINC633 #aviationindustry #avgeek … more Dan's EFB & Aviation Updates Subscribe EFF Management & Distribution: Connecting Flight Planning to the EFB Dan Cook 1 ​ ​ ​",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7520813627763970049/"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:33:48+00:00",
+        "source_sha256": "20ed1892f3960dc44761a9cf4e44a811a4eba8a5ab943939a33112b010ed9b9c",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "customer_win",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-03T02:34:08+00:00",
+        "source_sha256": "90817c1a176ae7f82cb2981f8066653ee20da48fb248a1530c795e2bb6ed7e1f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes article on EFF management and distribution via ARINC 633.",
+        "summary": "Bytron Skybook is promoting an article regarding EFF management and distribution to connect operational systems with EFB applications. No concrete product changes or new developments are established."
       }
     },
     {
@@ -261,6 +386,68 @@
       }
     },
     {
+      "id": "browser-7b6f09e580d0",
+      "competitor": "Bytron Skybook",
+      "date": "2026-10-27",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "One operation, one connected view... ✈️",
+      "summary": "✈️ Dan Cook • 2nd Enhancing airlines with skybook, an EFB solution & integrated dispatch for complete flight data capture! One connected view from dispatch to the flight crews EFB, helping teams stay informed, communicate quickly and respond when things change.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://www.linkedin.com/feed/update/urn:li:share:7518252630821896192/"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:34:31+00:00",
+        "source_sha256": "59a7665d09587943518f6735717aab3acef2a65081c6285ef1da66d94104cd44",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-03T02:34:50+00:00",
+        "source_sha256": "704fcd3b02ef498ffb355b9f79e82ed1e6c806c535544841560cafb582e7b79c",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes integrated dispatch and EFB connectivity for flight data capture.",
+        "summary": "Bytron Skybook is promoting its EFB solution and integrated dispatch capabilities to provide a connected view from dispatch to flight crews. No new product releases or customer agreements are established in the post."
+      }
+    },
+    {
       "id": "cap-e60aec6e802f",
       "competitor": "Bytron Skybook",
       "date": "2026-10-26",
@@ -324,6 +511,67 @@
       }
     },
     {
+      "id": "browser-7bd0117339ee",
+      "competitor": "Bytron Skybook",
+      "date": "2026-10-26",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas.",
+      "summary": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas. Catch up with David and Jesper at booth 2964, and how skybook can better connect your operations.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn browser collector",
+          "url": "https://lnkd.in/p/gaSJWs2B"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin_browser",
+        "linkedin"
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T06:44:22+00:00",
+        "source_sha256": "a6c4c4e2a90d43cff3c4bd9e7e67ae09f253d59e28550fc2e889ef0317920e2c",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T06:44:41+00:00",
+        "source_sha256": "a6c4c4e2a90d43cff3c4bd9e7e67ae09f253d59e28550fc2e889ef0317920e2c",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes presence at NBAA-BACE conference.",
+        "summary": "Bytron Skybook is promoting its attendance at the NBAA-BACE conference in Las Vegas, inviting engagement at booth 2964. No new product releases, customer wins, or concrete operational changes are established."
+      }
+    },
+    {
       "id": "browser-5dc2e286f0a7",
       "competitor": "Aviobook",
       "date": "2026-10-26",
@@ -383,67 +631,6 @@
         "evidence_scope": "captured_preview_only",
         "title": "Aviobook promotes AvioBook suite following Bangkok event presence.",
         "summary": "Aviobook promotes its AvioBook suite following participation in an event in Bangkok. No concrete product developments, customer wins, or specific feature releases are established in the text."
-      }
-    },
-    {
-      "id": "browser-7bd0117339ee",
-      "competitor": "Bytron Skybook",
-      "date": "2026-10-26",
-      "date_is_estimated": false,
-      "type": "messaging_shift",
-      "priority": "medium",
-      "severity": 3,
-      "confidence": 0.65,
-      "headline": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas.",
-      "summary": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas. Catch up with David and Jesper at booth 2964, and how skybook can better connect your operations.",
-      "source_channel": "linkedin",
-      "source_origin": "linkedin",
-      "product_focus": "eff",
-      "product": "Bytron Skybook",
-      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
-      "segment": "Unknown",
-      "implications": [
-        "Needs analyst confirmation before executive distribution."
-      ],
-      "next_actions": [
-        "Open source link, validate claim, upgrade confidence.",
-        "If confirmed, add implications for Cathay Technologies."
-      ],
-      "sources": [
-        {
-          "title": "LinkedIn browser collector",
-          "url": "https://lnkd.in/p/gaSJWs2B"
-        }
-      ],
-      "tags": [
-        "auto-capture",
-        "linkedin_browser",
-        "linkedin"
-      ],
-      "ai_classification": {
-        "classification_version": 1,
-        "model": "gemma-4-26b-a4b-it",
-        "enriched_at": "2026-11-02T06:44:22+00:00",
-        "source_sha256": "a6c4c4e2a90d43cff3c4bd9e7e67ae09f253d59e28550fc2e889ef0317920e2c",
-        "suggested_type": "messaging_shift",
-        "type_confidence": 0.95,
-        "suggested_product_focus": "eff",
-        "focus_confidence": 1.0,
-        "focus_rule_override": null,
-        "is_ai_related": false,
-        "ai_confidence": 1.0,
-        "ai_evidence": "",
-        "type_auto_applied": false,
-        "focus_auto_applied": false
-      },
-      "ai_brief": {
-        "model": "gemma-4-26b-a4b-it",
-        "brief_version": 1,
-        "enriched_at": "2026-11-02T06:44:41+00:00",
-        "source_sha256": "a6c4c4e2a90d43cff3c4bd9e7e67ae09f253d59e28550fc2e889ef0317920e2c",
-        "evidence_scope": "captured_preview_only",
-        "title": "Bytron Skybook promotes presence at NBAA-BACE conference.",
-        "summary": "Bytron Skybook is promoting its attendance at the NBAA-BACE conference in Las Vegas, inviting engagement at booth 2964. No new product releases, customer wins, or concrete operational changes are established."
       }
     },
     {
@@ -5802,7 +5989,22 @@
         "title": "IFS promotes integration of IFS EFBOne and FLIGHTKEYS 5D at Norse Atlantic.",
         "summary": "IFS discusses the integration of IFS EFBOne and FLIGHTKEYS 5D at Norse Atlantic. The messaging focuses on flight deck design philosophy rather than technical data transfer updates, and no concrete software release or contract change is established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T13:58:49+00:00",
+        "source_sha256": "d248a393d36814d08070e0fdc1d96aa1cde9514b91a86cbef732edb0af0c8ed3",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-eede314fcaab",
@@ -8220,13 +8422,28 @@
         "title": "Jeppesen ForeFlight signs MOU with UrbanLink Air Mobility to collaborate on EFB requirements and dispatch procedures for e-VTOL operations.",
         "summary": "Jeppesen ForeFlight signed a Memorandum of Understanding (MOU) with UrbanLink Air Mobility. The collaboration aims to develop electronic flight bag (EFB) requirements and dispatch procedures for e-VTOL and all-electric aircraft operations within South Florida airspace."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T13:59:10+00:00",
+        "source_sha256": "883004067948eb4ea57219e23bbe9ee29b77d215c6f7cad5fbe22e00c99904d2",
+        "suggested_type": "partnership",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -8349,7 +8566,22 @@
         "title": "Lufthansa Systems partners to integrate SIRAX/ONE Order into Astra Nova platform.",
         "summary": "Lufthansa Systems is partnering to integrate SIRAX/ONE Order into the Astra Nova platform. The integration is intended to cover the airline retailing journey from offer to settlement."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-02T13:59:35+00:00",
+        "source_sha256": "87fe610597d559f1eebf0aea2b67d66859a542ccb695116c8c74f1c6b34d7e56",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-d165ec19c8e4",
@@ -13145,8 +13377,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-02T13:57:54+00:00",
+        "source_sha256": "e0c1effa59e284341932ea1220f280319d0cc5001ec12e09e4a2a01065a25932",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen and ForeFlight form a new digital aviation company named Jeppesen ForeFlight.",
+        "summary": "Jeppesen and ForeFlight have joined forces to create a new digital aviation company, Jeppesen ForeFlight. The entity combines Jeppesen’s aeronautical data with ForeFlight’s technology."
+      }
     },
     {
       "id": "cap-8bccf9bd2cac",
