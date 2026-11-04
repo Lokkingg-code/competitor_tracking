@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T02:34:50Z",
+  "generated_at": "2026-11-03T13:05:39Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,69 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-6555a85e8ee5",
+      "competitor": "Navblue",
+      "date": "2026-11-03",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.8,
+      "headline": "IndiGo expands digital flight training with Skywise A320 Virtual Procedure Trainer (VPT)",
+      "summary": "Navblue reported a messaging shift update: IndiGo expands digital flight training with Skywise A320 Virtual Procedure Trainer (VPT). Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "press_release",
+      "source_origin": "press_release",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Skywise Press Releases",
+          "url": "https://www.skywise.com/en/newsroom/press-releases/2026-11-indigo-expands-digital-flight-training-with-skywise-a320-virtual-procedure-trainer-vpt"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "press_release",
+        "press_release"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-03T13:06:03+00:00",
+        "source_sha256": "1781436c9d442e72a32fb709ddd6b40ce14986ca23a080663602ef4d5b9e819f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue expands IndiGo's digital flight training using Skywise A320 Virtual Procedure Trainer (VPT).",
+        "summary": "IndiGo is expanding its digital flight training capabilities through the use of Navblue's Skywise A320 Virtual Procedure Trainer (VPT)."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T13:09:59+00:00",
+        "source_sha256": "1781436c9d442e72a32fb709ddd6b40ce14986ca23a080663602ef4d5b9e819f",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
     {
       "id": "cap-01e4ed7689a6",
       "competitor": "Navblue",
@@ -73,6 +136,61 @@
         "type_auto_applied": false,
         "original_product_focus": "other",
         "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "cap-bb45cf649281",
+      "competitor": "Navblue",
+      "date": "2026-10-30",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "We’ll be joining forces with our Digital Alliance partners to demonstrate what truly integrated, data-driven fleet operations look li",
+      "summary": "Mark your calendar: November 9-10 🗓️✈️ The Skywise team is heading to Dublin for the Europe Predictive Aircraft Maintenance ! We’ll be joining forces with our Digital Alliance partners to demonstrate what truly integrated, data-driven fleet operations look li <font color=",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxORWtVSHpjTERPRTNsREFmNElBel9xcE1ZR2FXc0RSb1ZOUGZMdjFvb0o0ZENFalptVm01SjF1UzNIczFKdGtGNlkxV3dKVmViUllzMDY4Y18tYnQ2NVdkV3ZkNDM2aW16aWNZLXZ6eTk1WWhwNEIwY2RqdXpiZXA1MVU2MEVUZHN6Q2pQaVR3LWx1ZVlBZURKQ3VjdWRrRmtSdExIeC0yb0dKckdrTzFYWGdR?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T13:11:13+00:00",
+        "source_sha256": "90222cf4278959784856809b46c167afd365669f474a4f430aad261ba2ecd7e7",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.8,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -915,7 +1033,7 @@
       "headline": "Raya Airways selects Skywise N-Ops & Crew solution to digitalise operations",
       "summary": "Raya Airways, Malaysia’s all-cargo airline has signed an agreement to implement Skywise N-Ops & Crew (N-OC) as part of the airline’s ongoing digital transf",
       "source_channel": "press_release",
-      "source_origin": "press_release",
+      "source_origin": "linkedin",
       "product_focus": "eff",
       "product": null,
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
@@ -1230,6 +1348,68 @@
         "ai_evidence": "New AI Agents to Airflow Platform",
         "original_type": "messaging_shift",
         "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-9fb38a6ba3b9",
+      "competitor": "Jeppesen",
+      "date": "2026-10-21",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Jay Kadir stopped by the Jeppesen ForeFlight booth to talk with Reggie Arsenault, SVP…",
+      "summary": "Jay Kadir stopped by the Jeppesen ForeFlight booth to talk with Reggie Arsenault, SVP of Flight Operations, about our new platform: Jeppesen ForeFlight Airflow™ 🛩️ Jeppesen ForeFlight is launching pre-built agents, starting with Trip Feasibility and Ops Bri",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORGtINEM2MHB6SGxLOEg1MlRwY0lWT01mTGhYQ3hHRnRWUTJCV0NtSmZhdkk1TnNCUnJ2MVhUcS1IN1BTanl2bDU4emlGNWk0dko4OEVEZmpLVV9qUDM3S0Y3elA5VWloSXJRY01ZMnV3R1NiOS14VlRhV0JrRENJYVh3ano2UXczSjB5cVFVdDNnaFlmSmtiWXdlc3NZeTFtUmExUGIxbktRZXBrNk8tc3h6ZVVnVGlqWW5sVg?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-03T02:52:57+00:00",
+        "source_sha256": "e91044c730def857fc1eab07ba956807dcd828a38a2205277b9d840d6fb0555b",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen launches Jeppesen ForeFlight Airflow™ platform with pre-built Trip Feasibility and Ops Briefing agents.",
+        "summary": "Jeppesen is launching the Jeppesen ForeFlight Airflow™ platform. The rollout includes pre-built agents, beginning with Trip Feasibility and Ops Briefing capabilities."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:53:41+00:00",
+        "source_sha256": "e91044c730def857fc1eab07ba956807dcd828a38a2205277b9d840d6fb0555b",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 0.9,
+        "ai_evidence": "launching pre-built agents",
+        "type_auto_applied": false,
         "focus_auto_applied": false
       }
     },
@@ -5394,6 +5574,68 @@
       }
     },
     {
+      "id": "cap-2287d9fdac39",
+      "competitor": "Jeppesen",
+      "date": "2026-09-23",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Last week, aviation professionals from across the industry joined us in Vienna for another Jeppesen ForeFlight Customer Workshop.",
+      "summary": "Last week, aviation professionals from across the industry joined us in Vienna for another Jeppesen ForeFlight Customer Workshop. We spent two days diving into how to get more out of the Jeppesen ForeFlight ecosystem and ran focused sessions on each at LinkedIn</fon",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQzdTYjVneGd1WGV3RUE3VC1JWHppVFVsVEFzRkp4SXMxSVc3VjhQQ2R0QkpHLXlzVXBaUDExOXpKODR1SGNMOUdoYndMM2FNdDN5QVAySkdURmhYa3UtZWx1WmdfcjJzaktSODJzdDFVZVFSTzhuOXR5Nk1jOUE4UXdmYXFySlI3NmRHcHhUX1pEaFZJbHppWHhrbjFsRXBKenVxbDB3?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-03T13:07:31+00:00",
+        "source_sha256": "28ae74c7f5da45189b743c1ecba8b4c0b00f25e2abe31d02c19a89a82b3a5f64",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen conducts ForeFlight customer workshop in Vienna.",
+        "summary": "Jeppesen promoted the ForeFlight ecosystem through a two-day customer workshop in Vienna. The messaging describes a past event and establishes no concrete changes to product capabilities or customer contracts."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T13:11:36+00:00",
+        "source_sha256": "28ae74c7f5da45189b743c1ecba8b4c0b00f25e2abe31d02c19a89a82b3a5f64",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
       "id": "browser-c2a986e9925f",
       "competitor": "Aviobook",
       "date": "2026-09-21",
@@ -8512,13 +8754,28 @@
         "title": "Jeppesen promotes ForeFlight as a single connected EFB ecosystem for airlines.",
         "summary": "Jeppesen promotes its ForeFlight product as a single connected EFB ecosystem for airlines. No new product releases, customer contracts, or concrete technical developments are established by the text."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:53:54+00:00",
+        "source_sha256": "31254f2e56e2bdbb261b0297dc47661e8d61499be968a15d707f0f72c610a4e0",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -8619,7 +8876,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_classification_status": "pending",
       "ai_brief": {
         "model": "gemma-4-26b-a4b-it",
         "brief_version": 1,
@@ -8628,13 +8884,29 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen promotes ForeFlight lineup including ClearNOTAMs and Sentry SkyPlay at EAA AirVenture Oshkosh.",
         "summary": "Jeppesen is promoting its ForeFlight product lineup at EAA AirVenture Oshkosh. The featured tools include ClearNOTAMs, which converts dense NOTAM text into plain language, and Sentry SkyPlay."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:54:24+00:00",
+        "source_sha256": "a67d9081ba7d6a23b0401b6a25e28c72cdad78235998e48d5c1d5476232d88f4",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
       "id": "avio-2026-07-23-escape-routes",
       "competitor": "Aviobook",
       "date": "2026-07-23",
-      "type": "product_launch",
+      "type": "messaging_shift",
       "priority": "high",
       "severity": 4,
       "confidence": 0.9,
@@ -8699,13 +8971,29 @@
         "title": "Aviobook previews upcoming Escape Routes feature for AvioBook flight operations.",
         "summary": "Aviobook announced an upcoming Escape Routes feature for its AvioBook platform. The tool integrates valid diversion paths into the pilot workflow, highlights routes near high-terrain areas, and updates the navlog upon diversion selection."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:54:46+00:00",
+        "source_sha256": "2c3b360cc737c8e925d2fadbaa252a835667a95c7a32d1489b0c6efa43e7729f",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -8774,13 +9062,28 @@
         "title": "Jeppesen adds mobile clearance technology to ForeFlight.",
         "summary": "Jeppesen is messaging the addition of mobile clearance technology to ForeFlight. The provided text describes a messaging update but establishes no specific technical or deployment details."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T02:55:32+00:00",
+        "source_sha256": "b13b7516c1f5f5e6af0345b870d84c74d1e8531d60d572402210ddfb3192061a",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.6,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "avio-2026-07-16-braathens-story",
       "competitor": "Aviobook",
       "date": "2026-07-16",
-      "type": "customer_win",
+      "type": "messaging_shift",
       "priority": "high",
       "severity": 4,
       "confidence": 0.72,
@@ -8844,13 +9147,29 @@
         "title": "Aviobook promotes Braathens' AvioBook EFB implementation via customer interview.",
         "summary": "Aviobook published a customer interview with Braathens regarding AvioBook EFB implementation reliability and ongoing collaboration. This promotional content establishes no new product releases or contract changes."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T13:12:15+00:00",
+        "source_sha256": "90b7ee000ea041098d7b4688b9f406d3075f9585947fb8313e7c1396c86ea240",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "customer_win",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -8858,7 +9177,7 @@
       "competitor": "Jeppesen",
       "date": "2026-07-16",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.8,
@@ -8866,7 +9185,7 @@
       "summary": "AUSTIN, Texas - July 16, 2026 - Jeppesen ForeFlight is bringing a sweeping wave of new products, upgraded features, special pricing, promotions and more at EAA AirVenture Oshkosh 2026. The offerings span artificial intelligence, panel-connected cockpit hardware, aviation insurance, and flight school scheduling and operations.",
       "source_channel": "press_release",
       "source_origin": "official_site",
-      "product_focus": "other",
+      "product_focus": "eff",
       "product": "ForeFlight",
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -8920,7 +9239,24 @@
         "title": "Jeppesen promotes upcoming ForeFlight product offerings for EAA AirVenture Oshkosh 2026.",
         "summary": "Jeppesen is promoting upcoming ForeFlight features and promotions for EAA AirVenture Oshkosh 2026, covering AI, cockpit hardware, insurance, and flight school operations. No specific product launches or concrete developments are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-03T13:12:53+00:00",
+        "source_sha256": "cfabb924c369c792be39a1fe5b4ff5514910a597e42d8998bd608f813ec53928",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-1798f8657ac9",
@@ -10685,6 +11021,53 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen collaborates with GE Aerospace to integrate ForeFlight Cost Index Optimization with GE's flight data analytics platform.",
         "summary": "Jeppesen ForeFlight and GE Aerospace announced a collaboration to combine GE’s flight data analytics platform with ForeFlight’s Cost Index Optimization solution. The integration provides a fuel efficiency workflow covering pre-flight planning, in-flight optimization, and post-flight analysis."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-55a116ce4cd2",
+      "competitor": "Jeppesen",
+      "date": "2026-05-07",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Easily manage essential flight records, expedite flight documentation, and enhance compliance with the new…",
+      "summary": "Easily manage essential flight records, expedite flight documentation, and enhance compliance with the new electronic Journey Log in Jeppesen #FliteDeck Pro 5.2. Learn more about how this newest feature elevates your airline’s record-keeping: https://lnkd.i LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight FliteDeck Pro",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPbkxMMWRnaEktdWtZTVpVeDhLaUxpV3NXaXlGdU1EU1UyOUtyejBfYjVJaEFyWkJtaE5CMTFOR0s1bWE0Y05oelh3RW9wZlVTV3hlTUZmZ1ZWd0p4WmxYeVB3aFNqOHVtYmNhVnZtNUVudUM3QWIwX1BZYUdYODhrOHI5VUx6aEluRFZVRjZJSjJSakpkZV9YaDlR?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-03T13:08:56+00:00",
+        "source_sha256": "aed7addae8c699a7dede150437bebde1e544360c9c02ff0a54ac535b34480b4d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen releases electronic Journey Log feature in FliteDeck Pro 5.2.",
+        "summary": "Jeppesen introduced an electronic Journey Log feature in FliteDeck Pro 5.2. The update is designed to manage flight records, expedite documentation, and enhance compliance."
       },
       "ai_classification_status": "pending"
     },
