@@ -69,7 +69,7 @@ def main() -> None:
     if args.linkedin and args.linkedin.exists():
         linkedin = load_json(args.linkedin)
         linkedin_status = {
-            "mode": "manual",
+            "mode": linkedin.get("capture_mode", "manual"),
             "captured_at": linkedin.get("captured_at"),
             "captured_items": linkedin.get("count", 0),
             "status": "attention_needed" if linkedin.get("count", 0) == 0 else "available",

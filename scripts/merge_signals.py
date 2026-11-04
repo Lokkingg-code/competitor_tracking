@@ -87,6 +87,20 @@ LINKEDIN_VALUE_PATTERNS = [
     r"\brollout\b",
     r"\bconnect\b",
     r"\bversion\b",
+    r"\bNOTAMs?\b",
+    r"\bdispatch(?:er|ers)?\b",
+    r"\bflight operations?\b",
+]
+
+LINKEDIN_EVENT_PROMO_PATTERNS = [
+    r"\bjoin(?: us| our)?\b.{0,80}\bwebinar\b",
+    r"\bregister (?:now|here|today)\b",
+    r"\bsave your seat\b",
+]
+
+LINKEDIN_STRATEGIC_PATTERNS = [
+    r"\b(?:customer|airline|carrier|EFB|EFF|EFFCore)\b",
+    r"\b(?:launch|release|select(?:ed)?|adopt(?:ed)?|partner(?:ed)?|implement(?:ed)?|rollout|contract|feature)\b",
 ]
 
 VALUE_PATTERNS = [
@@ -283,6 +297,8 @@ def is_linkedin_noise(text: str) -> bool:
 
 
 def linkedin_looks_valuable(text: str) -> bool:
+    if _matches_any(text, LINKEDIN_EVENT_PROMO_PATTERNS) and not _matches_any(text, LINKEDIN_STRATEGIC_PATTERNS):
+        return False
     return any(re.search(p, text, re.I) for p in LINKEDIN_VALUE_PATTERNS)
 
 
@@ -598,7 +614,8 @@ def raw_to_signal(item: dict) -> dict | None:
 
     if not item.get("published_at"):
         return None
-    if not mentions_competitor(blob, item["competitor"]):
+    company_page_capture = source_channel == "linkedin" and item.get("captured_via") == "brightdata_linkedin"
+    if not mentions_competitor(blob, item["competitor"]) and not company_page_capture:
         return None
 
     if is_noise(blob):

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "snapshot_generated_at": "2026-11-04T10:21:22+08:00",
+  "generated_at": "2026-11-04T02:45:54Z",
+  "model": "Copilot",
+  "overall": {
+    "headline": "Validate LCC/NavBlue and Flag Carrier/Lido outreach; research EAP events first.",
+    "observations": [
+      "Recorded planning: **LCCs, NavBlue 6/10 and Lido 0/10**; **Flag Carriers, Lido 17/29**. Use these as pitch tests, not proven preferences.",
+      "Small LCCs reinforce NavBlue (**4/5**) over Lido (**0/5**), but that fleet-specific sample is only five airlines.",
+      "For future event research, start with EAP: NavBlue is **9/18 planning-known (50%)**, vs **16/68 overall (24%)**. Check audience fit before booking."
+    ],
+    "caveat": "Selections can include multiple systems per airline; blanks mean unknown."
+  },
+  "regions": [
+    {
+      "name": "Europe & Central Asia",
+      "headline": "Validate FlightKeys planning interest in Europe.",
+      "observations": [
+        "FlightKeys is **4/14 planning-known (29%)**, compared with **12/68 overall (18%)**.",
+        "In-house built EFF is **7/35 EFF-known (20%)**, versus **19/127 overall (15%)**. Research events whose audience matches flight-operations buyers."
+      ],
+      "caveat": "Only 35 of 151 airlines have EFF data and 14 have planning data; vendor counts are recorded selections."
+    },
+    {
+      "name": "East Asia & Pacific",
+      "headline": "Prioritize EAP for NavBlue-focused discovery and conference scouting.",
+      "observations": [
+        "NavBlue planning is **9/18 (50%)**, compared with **16/68 overall (24%)**; Lido is **7/18 (39%)**.",
+        "Use the NavBlue concentration to scout future EAP conferences; verify event audience and agenda before committing."
+      ],
+      "caveat": "Planning coverage is 18 of 130 airlines and EFF coverage is 39 of 130; multi-select values can count one airline in several systems."
+    },
+    {
+      "name": "North America",
+      "headline": "Test FlightKeys and AvioBook in North America; expand event research cautiously.",
+      "observations": [
+        "FlightKeys planning is **5/9 (56%)**, vs **12/68 overall (18%)**; AvioBook EFF is **5/14 (36%)**, vs **21/127 overall (17%)**.",
+        "Research North American events with airline planning and EFB audiences before allocating attendance budget."
+      ],
+      "caveat": "Only 14 of 59 airlines have EFF data and 9 have planning data; the conference count does not establish event value."
+    },
+    {
+      "name": "Latin America & Caribbean",
+      "headline": "Validate Lido planning interest before prioritizing conference spend.",
+      "observations": [
+        "Lido planning is **4/9 (44%)**, vs **24/68 overall (35%)**; the sample is only 9 records.",
+        "AvioBook, Flightman, and Paper tie at **2/12 EFF records (17%)** each. If researching events, prioritize airline-operations audience fit."
+      ],
+      "caveat": "Only 12 of 56 airlines have EFF data and 9 have planning data. No recorded events may reflect incomplete Airtable coverage."
+    },
+    {
+      "name": "Middle East & North Africa",
+      "headline": "No vendor outlier or conference signal is recorded here.",
+      "observations": [
+        "Bytron Skybook, Jeppesen Aviator, and Paper each appear in **3/15 EFF records (20%)**; Lido and NavBlue tie at **3/10 planning records (30%)**.",
+        "Vendor rates are close in the recorded sample; gather more market evidence before prioritizing event research."
+      ],
+      "caveat": "Only 15 of 51 airlines have EFF data and 10 have planning data; counts are not adoption shares."
+    },
+    {
+      "name": "Sub-Saharan Africa",
+      "headline": "Lido is a discovery lead only; the recorded sample is very small.",
+      "observations": [
+        "Lido is **2/4 planning records (50%)** and IFS EFBOne **2/8 EFF records (25%)**; too few records for a reliable event-targeting signal."
+      ],
+      "caveat": "Only 8 of 47 airlines have EFF data and 4 have planning data; this is insufficient to infer a regional preference."
+    },
+    {
+      "name": "South Asia",
+      "headline": "Do not infer a South Asia vendor preference from four planning records.",
+      "observations": [
+        "Lido is **2/4 planning records (50%)**; all four EFF records name different systems, so event targeting needs more evidence."
+      ],
+      "caveat": "With four records per system category, vendor comparisons are highly sensitive to individual entries."
+    },
+    {
+      "name": "Unmapped",
+      "headline": "Resolve location data before making regional targeting decisions.",
+      "observations": [
+        "None of the 11 airlines has an EFF status or planning system recorded; blanks are unknown, not non-adoption."
+      ],
+      "caveat": "Resolve missing or unmatched headquarters and event locations before using this group for regional conclusions."
+    }
+  ]
+}

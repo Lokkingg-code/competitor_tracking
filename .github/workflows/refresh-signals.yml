@@ -14,6 +14,18 @@ on:
         type: boolean
         required: false
         default: false
+      capture_linkedin:
+        description: "Run the capped Bright Data LinkedIn capture"
+        type: boolean
+        required: false
+        default: false
+      linkedin_lookback_days:
+        description: "Completed UTC days to include in a manual LinkedIn capture"
+        type: choice
+        options:
+          - "1"
+          - "2"
+        default: "1"
       max_signals:
         description: "Signals to attempt (choose 1 for an end-to-end test)"
         type: choice
@@ -50,8 +62,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node.js for Bright Data CLI
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Test product classification
-        run: python3 -m unittest tests/test_product_focus.py tests/test_ai_enrichment.py
+        run: python3 -m unittest tests/test_product_focus.py tests/test_ai_enrichment.py tests/test_brightdata_linkedin_capture.py
 
       - name: Capture public sources
         run: python3 scripts/capture/capture_sources.py --days 365
@@ -62,16 +79,60 @@ jobs:
           SEARXNG_BASE_URL: ${{ vars.SEARXNG_BASE_URL }}
         run: python3 scripts/capture/capture_searxng.py --days 365
 
+      - name: Decide Bright Data LinkedIn cadence
+        id: linkedin_cadence
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_CAPTURE_LINKEDIN: ${{ inputs.capture_linkedin }}
+          DISPATCH_LOOKBACK_DAYS: ${{ inputs.linkedin_lookback_days || '1' }}
+          INTERVAL_DAYS: ${{ vars.BRIGHTDATA_LINKEDIN_INTERVAL_DAYS || '1' }}
+        run: |
+          run_capture=false
+          capture_days=0
+          case "$INTERVAL_DAYS" in
+            1|2) ;;
+            *) echo "::error::BRIGHTDATA_LINKEDIN_INTERVAL_DAYS must be 1 or 2"; exit 1 ;;
+          esac
+          if [[ "$EVENT_NAME" == "schedule" ]]; then
+            case "$INTERVAL_DAYS" in
+              1) run_capture=true; capture_days=1 ;;
+              2)
+                day_number="$(( $(date -u +%s) / 86400 ))"
+                if (( day_number % 2 == 0 )); then run_capture=true; capture_days=2; fi
+                ;;
+            esac
+          elif [[ "$EVENT_NAME" == "workflow_dispatch" && "$DISPATCH_CAPTURE_LINKEDIN" == "true" ]]; then
+            case "$DISPATCH_LOOKBACK_DAYS" in
+              1|2) run_capture=true; capture_days="$DISPATCH_LOOKBACK_DAYS" ;;
+              *) echo "::error::linkedin_lookback_days must be 1 or 2"; exit 1 ;;
+            esac
+          fi
+          echo "run=$run_capture" >> "$GITHUB_OUTPUT"
+          echo "days=$capture_days" >> "$GITHUB_OUTPUT"
+
+      - name: Capture configured LinkedIn companies via Bright Data
+        if: steps.linkedin_cadence.outputs.run == 'true'
+        env:
+          BRIGHTDATA_API_KEY: ${{ secrets.BRIGHTDATA_API_KEY }}
+        run: |
+          python3 scripts/capture/capture_brightdata_linkedin.py \
+            --days "${{ steps.linkedin_cadence.outputs.days }}" \
+            --limit-per-company 5 \
+            --output data/raw/linkedin_brightdata_latest.json
+
       - name: Validate capture health
         run: |
           python3 scripts/capture/validate_capture.py \
             --raw data/raw/latest.json \
-            --linkedin data/raw/linkedin_latest.json \
+            --linkedin data/raw/linkedin_brightdata_latest.json \
             --output data/capture-health.json
 
       - name: Merge signals
         run: |
-          RAW_ARGS=(--raw data/raw/latest.json --raw data/raw/linkedin_latest.json)
+          RAW_ARGS=(--raw data/raw/latest.json)
+          if [[ -f data/raw/linkedin_brightdata_latest.json ]]; then
+            RAW_ARGS+=(--raw data/raw/linkedin_brightdata_latest.json)
+          fi
           if [[ -f data/raw/searxng_latest.json ]]; then
             RAW_ARGS+=(--raw data/raw/searxng_latest.json)
           fi
@@ -115,11 +176,18 @@ jobs:
           AI_INSIGHTS_MAX_OUTPUT_TOKENS: "8000"
         run: python3 scripts/summarize_competitive_insights.py
 
+      - name: Generate airline adoption strategy insight
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_INSIGHTS_MODEL: ${{ vars.GEMINI_INSIGHTS_MODEL || 'gemini-3.5-flash-lite' }}
+        run: node scripts/build_airline_insights_ai.mjs
+
       - name: Commit refreshed dashboard data
         run: |
           git config user.name "competitor-tracking-engine-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/signals.json data/signals.archive.json data/capture-health.json data/competitive-insights.json
+          git add data/signals.json data/signals.archive.json data/capture-health.json data/competitive-insights.json data/airline-insights-ai.json
           git stash push --keep-index --include-untracked -m "Temporary capture outputs"
           git commit -m "Refresh competitor signals" || exit 0
           git pull --rebase origin main

@@ -112,6 +112,40 @@ class ProductFocusTests(unittest.TestCase):
                 }))
         self.assertFalse(MERGE_SIGNALS.is_noise("Aviobook launches a new flight operations platform"))
 
+    def test_generic_linkedin_webinar_promotion_is_filtered(self):
+        generic_webinar = (
+            "Thinking about aircraft ownership? Join our live webinar on October 27 "
+            "to learn about renting, buying, and equity partnerships. Register here to save your seat."
+        )
+        product_webinar = (
+            "Join our webinar with an airline customer to discuss the ForeFlight EFFCore rollout and implementation."
+        )
+        self.assertFalse(MERGE_SIGNALS.linkedin_looks_valuable(generic_webinar))
+        self.assertTrue(MERGE_SIGNALS.linkedin_looks_valuable(product_webinar))
+        self.assertIsNone(MERGE_SIGNALS.raw_to_signal({
+            "id": "generic-webinar",
+            "competitor": "Jeppesen",
+            "title": "Thinking about taking the next step toward aircraft ownership?",
+            "summary": generic_webinar,
+            "published_at": "2026-10-21",
+            "source_channel": "linkedin",
+            "url": "https://www.linkedin.com/posts/foreflight_activity-7518725081120800768-F0zO",
+        }))
+
+    def test_linkedin_notam_and_dispatch_posts_are_useful(self):
+        post = "Effective NOTAM management helps flight dispatchers prioritize critical notices."
+        self.assertTrue(MERGE_SIGNALS.linkedin_looks_valuable(post))
+        self.assertIsNotNone(MERGE_SIGNALS.raw_to_signal({
+            "id": "bytron-notam-repost",
+            "competitor": "Bytron Skybook",
+            "title": "Less NOTAM noise, more operational awareness.",
+            "summary": f"Reposted content: {post}",
+            "published_at": "2026-11-03",
+            "captured_via": "brightdata_linkedin",
+            "source_channel": "linkedin",
+            "url": "https://www.linkedin.com/posts/bytron_notam-activity-123",
+        }))
+
     def test_archived_recruitment_cannot_reenter_feed(self):
         signal = {"headline": "New opportunities at AvioBook!", "summary": "Check our open roles", "tags": ["auto-capture"]}
         self.assertTrue(MERGE_SIGNALS.omit_archived_signal(signal))

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Airline Insights · Cathay Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=55" />
+</head>
+<body class="airline-insights-page">
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-utility">
+        <span class="system-name">Cathay Technologies</span>
+        <time id="airlineSnapshotDate" class="last-update">Airtable snapshot</time>
+      </div>
+      <div class="brand-block">
+        <p class="eyebrow"><span class="live-dot"></span>Airline Customer Pipeline · Airtable</p>
+        <h1>Airline Insights</h1>
+        <nav class="primary-nav" aria-label="Dashboard views">
+          <a class="primary-nav-link" href="index.html">Signal feed</a>
+          <a class="primary-nav-link" href="matrix.html">Market matrix</a>
+          <a class="primary-nav-link is-active" href="airline-insights.html" aria-current="page">Airline insights</a>
+          <a class="primary-nav-link" href="references.html">Reference library</a>
+        </nav>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+        <span class="theme-icon" aria-hidden="true">☼</span>
+        <span class="theme-label">Light mode</span>
+      </button>
+    </header>
+
+    <main class="airline-insights-main">
+      <section class="airline-kpis" aria-label="Airtable coverage summary">
+        <div class="airline-kpi"><span>Connected airlines</span><strong id="airlineCount">—</strong><small id="airlineCountNote">—</small></div>
+        <div class="airline-kpi"><span>EFF coverage</span><strong id="effCoverage">—</strong><small id="effCoverageNote">—</small><span class="airline-kpi-track"><i id="effCoverageBar"></i></span></div>
+        <div class="airline-kpi"><span>Flight planning coverage</span><strong id="planningCoverage">—</strong><small id="planningCoverageNote">—</small><span class="airline-kpi-track"><i id="planningCoverageBar"></i></span></div>
+      </section>
+
+      <section class="airline-map-layout" aria-label="Regional airline distribution">
+        <div class="airline-map-section">
+          <div class="airline-section-heading">
+            <div><h2>Headquarters footprint</h2><p id="airlineMapSummary" class="muted">Airtable country coverage</p></div>
+            <div class="airline-map-heading-tools">
+              <div class="airline-metric-control" role="group" aria-label="Map metric">
+                <span>Map metric</span>
+                <div class="segmented-control">
+                  <button type="button" data-airline-map-metric="airlines" aria-pressed="true">Airlines</button>
+                  <button type="button" data-airline-map-metric="eff">EFF</button>
+                  <button type="button" data-airline-map-metric="planning">Flight planning</button>
+                </div>
+              </div>
+              <span id="airlineMapTotal" class="muted">—</span>
+            </div>
+          </div>
+          <div class="airline-map-wrap">
+            <svg id="airlineWorldMap" viewBox="0 0 1000 500" role="img" aria-label="Airline headquarters by country"></svg>
+            <div id="airlineMapTooltip" class="airline-map-tooltip" role="status" hidden></div>
+          </div>
+          <div id="airlineMapLegend" class="airline-map-legend" aria-label="Map scale"></div>
+          <section class="airline-insight-section" aria-labelledby="airlineInsightHeading" aria-live="polite">
+            <div class="airline-insight-label"><span class="live-dot"></span><span id="airlineInsightScope">Overall</span><span class="airline-ai-badge">AI insight</span></div>
+            <h2 id="airlineInsightHeading">Airtable market read</h2>
+            <div id="airlineInsightBody"></div>
+          </section>
+        </div>
+        <div class="airline-region-section" aria-labelledby="airlineRegionMixHeading">
+          <div class="airline-section-heading">
+            <div><h2 id="airlineRegionMixHeading">Regional system mix</h2><p class="muted">Top 3 by airline count · shade indicates rank</p></div>
+          </div>
+          <div class="airline-table-scroll">
+            <table class="airline-data-table airline-region-mix-table">
+              <thead><tr><th>Region</th><th>EFF</th><th>Flight planning</th></tr></thead>
+              <tbody id="airlineRegionRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="airline-profile-section" aria-labelledby="airlineProfileHeading">
+        <div class="airline-section-heading airline-profile-heading">
+          <div><h2 id="airlineProfileHeading">System Mix Matrix</h2><p id="airlineProfileNote" class="muted">Choose a system category and row grouping</p></div>
+          <div class="airline-profile-controls">
+            <div class="airline-profile-control">
+              <span>System</span>
+              <div class="segmented-control" role="group" aria-label="System category">
+                <button type="button" data-airline-system="eff" aria-pressed="true">EFF status</button>
+                <button type="button" data-airline-system="planning" aria-pressed="false">Flight planning</button>
+              </div>
+            </div>
+            <div class="airline-profile-control">
+              <span>Rows by</span>
+              <div class="segmented-control" role="group" aria-label="Matrix rows">
+                <button type="button" data-profile-dimension="type" aria-pressed="true">Carrier type</button>
+                <button type="button" data-profile-dimension="fleet" aria-pressed="false">Fleet size</button>
+                <button type="button" data-profile-dimension="region" aria-pressed="false" hidden>Region</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="airline-table-scroll">
+          <table class="airline-data-table airline-profile-table">
+            <thead id="airlineProfileHead"><tr><th>Carrier type</th><th>Airlines</th><th>Field known</th><th>Top selections</th></tr></thead>
+            <tbody id="airlineProfileRows"></tbody>
+          </table>
+        </div>
+        <p class="airline-data-caveat muted">ULCC records are grouped with LCC for comparison. Cells show count and share of known fields; one airline can select multiple systems. Click a cell to inspect carriers.</p>
+      </section>
+
+      <dialog id="airlineQuickLook" class="quick-look airline-quick-look" aria-labelledby="airlineQuickLookTitle">
+        <div class="quick-look-head">
+          <h2 id="airlineQuickLookTitle">System detail</h2>
+          <button id="airlineQuickLookClose" type="button" aria-label="Close system detail" title="Close">×</button>
+        </div>
+        <p id="airlineQuickLookNote" class="airline-quick-look-note muted"></p>
+        <div id="airlineQuickLookContent" class="airline-quick-look-content"></div>
+        <div class="airline-table-scroll">
+          <table class="airline-data-table airline-detail-table">
+            <thead><tr><th>Airline</th><th>HQ</th><th>Region</th><th>Carrier type</th><th>Fleet</th><th>EFF status</th><th>Flight planning</th></tr></thead>
+            <tbody id="airlineQuickLookRows"></tbody>
+          </table>
+        </div>
+      </dialog>
+
+      <section class="airline-conference-section" aria-labelledby="conferenceHistoryHeading">
+        <div class="airline-section-heading">
+          <div><h2 id="conferenceHistoryHeading">Conference history</h2><p class="muted">Airtable event records linked to regional airline coverage</p></div>
+          <p id="conferenceHistoryNote" class="muted"></p>
+        </div>
+        <div class="airline-table-scroll">
+          <table class="airline-data-table">
+              <thead><tr><th>Event</th><th>Date</th><th>Location</th><th>Region</th><th>Attendees</th></tr></thead>
+            <tbody id="conferenceRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="airline-insights-footer muted">
+        <p id="airlineDataMethodology">Airtable snapshot · Missing fields are not treated as non-adoption.</p>
+        <p>Map boundaries: Natural Earth · Conference history is coverage context, not event ROI.</p>
+      </footer>
+    </main>
+  </div>
+  <script src="js/airline-insights.js?v=28" type="module"></script>
+</body>
+</html>

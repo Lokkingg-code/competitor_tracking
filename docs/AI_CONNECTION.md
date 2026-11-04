@@ -197,6 +197,16 @@ selecting an enriched signal makes no model request. GitHub Actions commits the
 enriched feed and archive, after which Vercel redeploys the saved results. This
 does not backfill older signals automatically.
 
+## Airline target-strategy insight
+
+The Airline Insights summary is also generated server-side with Gemini during
+the signal refresh workflow. It uses the same `GEMINI_API_KEY` secret and
+`GEMINI_INSIGHTS_MODEL` variable as the rolling signal summary, defaulting to
+`gemini-3.5-flash-lite`. Its prompt receives aggregate airline, vendor, region,
+carrier-type, and fleet counts only; it does not send airline names, contacts,
+or notes. Viewing the dashboard makes no model request. To refresh locally, set
+`GEMINI_API_KEY` in the build environment and run `npm run insights:airline-ai`.
+
 To backfill first-stage briefs, open **Actions → Refresh competitor signals →
 Run workflow** and select the batch size. No backfill checkbox is needed for the
 brief stage: each run continues through records without a saved brief. The
@@ -209,6 +219,39 @@ products. Review Google's current [pricing](https://ai.google.dev/gemini-api/doc
 and [terms](https://ai.google.dev/gemini-api/terms) before backfilling. The
 separate Vercel smoke-test endpoint uses `AI_TEST_TOKEN` and does not power
 dashboard summaries.
+
+## Bright Data LinkedIn capture
+
+The scheduled `refresh-signals` workflow adds Bright Data's LinkedIn Posts
+dataset without invoking the local browser collector. It reads all 10
+organization pages in `scripts/capture/sources.json`, requests the previous
+complete UTC calendar day by default, and caps discovery at five posts per page.
+Bright Data's discovery result includes post text and dates, so this workflow
+does not make a second detail-collection request. The existing merger filters
+hiring, culture, booth, and other low-value posts before they enter the feed;
+webinar-only promotions are also excluded.
+
+The workflow refreshes public sources and LinkedIn daily. Set the repository
+Actions variable `BRIGHTDATA_LINKEDIN_INTERVAL_DAYS` to `1` for daily capture or
+`2` for every-other-day capture; the latter requests the two previous complete
+UTC calendar days. A manual workflow dispatch can opt into one LinkedIn capture
+with the `capture_linkedin` checkbox and select one or two completed days with
+`linkedin_lookback_days`. Choose two days to recover a missed scheduled run
+without changing the recurring cadence.
+
+The per-page cap allows at most 50 delivered posts per run. At one free credit
+per delivered record, daily capture is bounded at about 1,500 credits per
+30-day month; the every-other-day setting is bounded at about 750. These are
+maximums, not expected usage. Check the Bright Data free-credit counter after
+the pilot and keep auto-recharge disabled if the run must stay within the free
+allocation.
+
+Add the rotated API key as the GitHub Actions repository secret
+`BRIGHTDATA_API_KEY` before enabling scheduled capture. The script uses the
+Bright Data CLI pinned to version 0.4.1 and never writes the key to the
+repository. Without the secret, an enabled capture fails clearly rather than
+reusing a stale browser snapshot. The legacy browser collector remains available
+for local fallback; its raw file is not merged by the scheduled workflow.
 
 ## SearXNG public-news discovery
 

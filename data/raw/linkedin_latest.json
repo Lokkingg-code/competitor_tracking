@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-11-03T02:24:23.196Z",
+  "captured_at": "2026-11-03T06:34:29.889Z",
   "lookback_days": 14,
   "cutoff": "2026-10-20",
   "count": 5,
@@ -13,15 +13,15 @@
       "lookback_cutoff": "2026-10-20",
       "lookback_complete": true,
       "scrolls": 2,
-      "oldest_observed_date": "2026-02-06",
+      "oldest_observed_date": "2025-12-08",
       "login_required": false,
-      "selector_matches": 2,
-      "article_nodes": 2,
-      "posts_seen": 2,
+      "selector_matches": 12,
+      "article_nodes": 12,
+      "posts_seen": 12,
       "posts_captured": 0,
       "post_skips": {
-        "outside_lookback": 1,
-        "unparseable_date": 1
+        "outside_lookback": 9,
+        "unparseable_date": 3
       },
       "feed_sort": "recent",
       "status": "no_posts_captured"
@@ -58,7 +58,7 @@
       "page_title": "Lufthansa Systems: Posts | LinkedIn",
       "lookback_cutoff": "2026-10-20",
       "lookback_complete": true,
-      "scrolls": 4,
+      "scrolls": 3,
       "oldest_observed_date": "2026-10-13",
       "login_required": false,
       "selector_matches": 13,
@@ -177,20 +177,15 @@
       "posts_seen": 16,
       "posts_captured": 0,
       "post_skips": {
-        "invalid_permalink": 3,
-        "permalink_post_text_mismatch": 3,
+        "invalid_permalink": 4,
         "unparseable_date": 5,
         "duplicate_post_in_capture": 2,
+        "permalink_post_text_mismatch": 2,
         "outside_lookback": 3
       },
       "feed_sort": "recent",
       "status": "post_capture_errors",
       "post_errors": [
-        {
-          "title": "They say Halloween is all about costumes, but our biggest wardrobe change actually happened back in April when we officially launched Skywise, uniting Airbus’s digital services and",
-          "url": "https://lnkd.in/p/gQgT7esb",
-          "error": "Copied permalink preview did not match visible post"
-        },
         {
           "title": "A look back at Day 1 at MRO Europe in Amsterdam! ✈️📸",
           "url": "https://lnkd.in/p/gsRZXWvr",
@@ -302,19 +297,19 @@
       "lookback_cutoff": "2026-10-20",
       "lookback_complete": true,
       "scrolls": 1,
-      "oldest_observed_date": "2026-04-07",
+      "oldest_observed_date": "2025-12-08",
       "login_required": false,
-      "selector_matches": 2,
-      "article_nodes": 2,
-      "posts_seen": 2,
+      "selector_matches": 10,
+      "article_nodes": 10,
+      "posts_seen": 10,
       "posts_captured": 0,
       "post_skips": {
         "unparseable_date": 1,
-        "outside_lookback": 1
+        "outside_lookback": 9
       },
       "feed_sort": "recent_sort_unavailable",
       "status": "sort_unavailable",
-      "sort_error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('menuitem', { name: /^Recent$/i }) to be visible\u001b[22m\n"
+      "sort_error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n  - waiting for getByRole('menuitem', { name: /^Recent$/i }) to be visible\n"
     }
   ],
   "items": [
