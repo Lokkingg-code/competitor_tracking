@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T08:26:06Z",
+  "generated_at": "2026-11-05T13:37:11Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -213,7 +213,7 @@
       "summary": "Only two weeks left until the Canadian Aviation Conference & Tradeshow ( Air Transport Association of Canada - Association du transport aérien du Canada (ATAC) ) is taking place at the The Westin Bayshore, Vancouver . #ATAC #ATAC2026 #Talora #EFB #NavigationCharts",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "efb",
+      "product_focus": "other",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -237,14 +237,30 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-05T13:37:49+00:00",
+        "source_sha256": "009fa63519a7de3ba86dbcc941f4bc211722b437972543b789dcd3432ede604e",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "efb",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "browser-db9005c047f5",
       "competitor": "Lufthansa Systems",
       "date": "2026-11-04",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -252,7 +268,7 @@
       "summary": "Meet our experts at Table #2 at the EFB Users Forum and discover how our solutions can help airlines: ✔️ Integrate surrounding traffic into the map experience ✔️ Support ETOPS/EDTO decision-making with greater confidence ✔️ Simplify departure and arrival procedures ✔️ Enhance situational awareness while reducing pilot workload We look forward to discussing your operational challenges and exploring how smarter EFB…",
       "source_channel": "linkedin",
       "source_origin": "linkedin",
-      "product_focus": "efb",
+      "product_focus": "eff",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -276,7 +292,24 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-05T13:38:36+00:00",
+        "source_sha256": "5216f066c8c12c3571b4ac4b31812fcbbe117dd77ce97c559c555c6badfb7664",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.8,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "original_product_focus": "efb",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-6555a85e8ee5",
@@ -5222,7 +5255,7 @@
       "summary": "Most airlines assume better route optimization means replacing the flight planning system they already have. Jeppesen Dispatch Analytics adds an optimization layer on top of the incumbent planning system.",
       "source_channel": "linkedin",
       "source_origin": "google_news",
-      "product_focus": "adjacent",
+      "product_focus": "eff",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -5246,7 +5279,23 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-05T13:39:17+00:00",
+        "source_sha256": "e027890969479ae3fa89bfa737d427338e2bff41bb2d0f66e6094a2bd9bda1a2",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "adjacent",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-448145695c07",
