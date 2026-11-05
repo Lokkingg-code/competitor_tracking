@@ -8,7 +8,21 @@ const ROOT = resolve(import.meta.dirname, "..");
 const SNAPSHOT_PATH = resolve(ROOT, "data/airline-insights.json");
 const OUTPUT_PATH = resolve(ROOT, "data/airline-insights-ai.json");
 const DEFAULT_MODEL = "gemini-3.5-flash-lite";
+const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
+const MAX_GENERATION_ATTEMPTS = 3;
 const SEGMENT_TYPES = new Set(["Flag Carrier", "LCC"]);
+
+function retryDelay(response, attempt) {
+  const retryAfter = Number(response.headers?.get("retry-after"));
+  if (Number.isFinite(retryAfter) && retryAfter >= 0) {
+    return Math.min(retryAfter * 1000, 30_000);
+  }
+  return Math.min(1_000 * (2 ** attempt), 8_000);
+}
+
+function wait(milliseconds) {
+  return new Promise((resolveWait) => setTimeout(resolveWait, milliseconds));
+}
 
 function topSystems(systems, limit = 5) {
   return (systems || []).slice(0, limit).map(({ name, count }) => ({ name, count }));
@@ -93,7 +107,12 @@ export function normalizeInsights(value, snapshot, model = DEFAULT_MODEL) {
   };
 }
 
-export async function generateInsights(snapshot, { apiKey, model = DEFAULT_MODEL, fetchImpl = fetch }) {
+export async function generateInsights(snapshot, {
+  apiKey,
+  model = DEFAULT_MODEL,
+  fetchImpl = fetch,
+  sleepImpl = wait,
+}) {
   if (!apiKey) throw new Error("GEMINI_API_KEY is required to generate AI insights.");
   const input = buildInsightInput(snapshot);
   const prompt = [
@@ -109,15 +128,22 @@ export async function generateInsights(snapshot, { apiKey, model = DEFAULT_MODEL
     "Aggregate-only input:",
     JSON.stringify(input),
   ].join("\n\n");
-  const response = await fetchImpl(`${API_BASE}/models/${model}:generateContent`, {
-    method: "POST",
-    headers: { "x-goog-api-key": apiKey, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ role: "user", parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0.2, maxOutputTokens: 7000, responseMimeType: "application/json" },
-    }),
-    signal: AbortSignal.timeout(45_000),
-  });
+  let response;
+  for (let attempt = 0; attempt < MAX_GENERATION_ATTEMPTS; attempt += 1) {
+    response = await fetchImpl(`${API_BASE}/models/${model}:generateContent`, {
+      method: "POST",
+      headers: { "x-goog-api-key": apiKey, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.2, maxOutputTokens: 7000, responseMimeType: "application/json" },
+      }),
+      signal: AbortSignal.timeout(45_000),
+    });
+    if (response.ok || !RETRYABLE_STATUS_CODES.has(response.status) || attempt === MAX_GENERATION_ATTEMPTS - 1) {
+      break;
+    }
+    await sleepImpl(retryDelay(response, attempt));
+  }
   const result = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(`Gemini returned ${response.status}: ${result.error?.message || "request failed"}`);
   const text = (result.candidates?.[0]?.content?.parts || [])

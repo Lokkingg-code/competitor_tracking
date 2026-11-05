@@ -89,6 +89,43 @@ test("Gemini generation sends the aggregate-only payload and returns validated J
   assert.equal(requestBody.generationConfig.responseMimeType, "application/json");
 });
 
+test("Gemini generation retries temporary 503 errors and honors Retry-After", async () => {
+  const snapshot = sampleSnapshot();
+  let requests = 0;
+  const delays = [];
+  const insights = await generateInsights(snapshot, {
+    apiKey: "test-key",
+    fetchImpl: async () => {
+      requests += 1;
+      if (requests === 1) {
+        return Response.json({ error: { message: "Temporary overload" } }, {
+          status: 503,
+          headers: { "Retry-After": "2" },
+        });
+      }
+      return Response.json({ candidates: [{ content: { parts: [{ text: generatedText(snapshot) }] } }] });
+    },
+    sleepImpl: async (delay) => delays.push(delay),
+  });
+
+  assert.equal(requests, 2);
+  assert.deepEqual(delays, [2000]);
+  assert.equal(insights.regions[0].name, "North America");
+});
+
+test("Gemini generation does not retry permanent client errors", async () => {
+  let requests = 0;
+  await assert.rejects(() => generateInsights(sampleSnapshot(), {
+    apiKey: "test-key",
+    fetchImpl: async () => {
+      requests += 1;
+      return Response.json({ error: { message: "Invalid request" } }, { status: 400 });
+    },
+    sleepImpl: async () => assert.fail("permanent errors should not be retried"),
+  }), /Gemini returned 400: Invalid request/);
+  assert.equal(requests, 1);
+});
+
 test("airline insights default to the signal summary Gemini model", async () => {
   const snapshot = sampleSnapshot();
   let requestedUrl;
