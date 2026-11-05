@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "source": "Airtable Airline Customer Pipeline shared view",
-  "generated_at": "2026-11-04T10:21:22+08:00",
-  "source_record_count": 520,
-  "unique_airline_count": 518,
+  "generated_at": "2026-11-05T06:23:40+00:00",
+  "source_record_count": 521,
+  "unique_airline_count": 519,
   "duplicate_name_groups": 2,
   "duplicate_conflict_groups": 2,
   "airline_type_overrides_applied": 36,
@@ -43,26 +43,26 @@
     "fleet_values_recorded": 514,
     "fleet_known": 513,
     "fleet_size_outliers": 1,
-    "airline_type_known": 516,
+    "airline_type_known": 517,
     "eff_status_known": 127,
     "flight_planning_known": 68,
     "conferences_recorded": 9,
     "upcoming_conferences_recorded": 0,
     "unmapped_event_regions": 2,
     "quality_flags": {
-      "missing_hq": 11,
-      "hq_region_unassigned": 11,
-      "fleet_size_outliers": 1,
-      "missing_eff_status": 391,
-      "missing_flight_planning": 450,
+      "missing_eff_status": 392,
+      "missing_flight_planning": 451,
       "hq_not_mapped": 28,
       "missing_airline_type": 2,
-      "missing_fleet_size": 4
+      "missing_hq": 12,
+      "hq_region_unassigned": 12,
+      "missing_fleet_size": 5,
+      "fleet_size_outliers": 1
     }
   },
   "overall": {
     "name": "All",
-    "airlines": 518,
+    "airlines": 519,
     "fleet_known": 513,
     "fleet_outliers": 1,
     "eff_known": 127,
@@ -211,7 +211,7 @@
       },
       {
         "name": "Business",
-        "count": 5
+        "count": 6
       },
       {
         "name": "Commercial",
@@ -237,7 +237,7 @@
       },
       {
         "name": "Unspecified",
-        "count": 4
+        "count": 5
       },
       {
         "name": "Check value",
@@ -1011,7 +1011,7 @@
     },
     {
       "name": "Unmapped",
-      "airlines": 11,
+      "airlines": 12,
       "fleet_known": 8,
       "fleet_outliers": 1,
       "eff_known": 0,
@@ -1025,12 +1025,12 @@
           "count": 4
         },
         {
-          "name": "Cargo",
+          "name": "Business",
           "count": 3
         },
         {
-          "name": "Business",
-          "count": 2
+          "name": "Cargo",
+          "count": 3
         },
         {
           "name": "Commercial",
@@ -1048,7 +1048,7 @@
         },
         {
           "name": "Unspecified",
-          "count": 2
+          "count": 3
         },
         {
           "name": "Check value",
@@ -1312,6 +1312,21 @@
       "planning_systems": []
     },
     {
+      "country": "Unspecified",
+      "map_name": null,
+      "region": "Unmapped",
+      "airlines": 12,
+      "fleet_values_recorded": 9,
+      "fleet_known": 8,
+      "fleet_sum": 424,
+      "fleet_outliers": 1,
+      "eff_known": 0,
+      "eff_no_vendor": 0,
+      "eff_systems": [],
+      "planning_known": 0,
+      "planning_systems": []
+    },
+    {
       "country": "Germany",
       "map_name": "Germany",
       "region": "Europe & Central Asia",
@@ -1336,21 +1351,6 @@
           "count": 1
         }
       ],
-      "planning_known": 0,
-      "planning_systems": []
-    },
-    {
-      "country": "Unspecified",
-      "map_name": null,
-      "region": "Unmapped",
-      "airlines": 11,
-      "fleet_values_recorded": 9,
-      "fleet_known": 8,
-      "fleet_sum": 424,
-      "fleet_outliers": 1,
-      "eff_known": 0,
-      "eff_no_vendor": 0,
-      "eff_systems": [],
       "planning_known": 0,
       "planning_systems": []
     },
@@ -2128,7 +2128,7 @@
       "airlines": 4,
       "fleet_values_recorded": 4,
       "fleet_known": 4,
-      "fleet_sum": 124,
+      "fleet_sum": 111,
       "fleet_outliers": 0,
       "eff_known": 1,
       "eff_no_vendor": 1,
@@ -7154,7 +7154,7 @@
       "airline_type": "Business",
       "fleet_band": "Unspecified",
       "name": "Unmapped",
-      "airlines": 2,
+      "airlines": 3,
       "fleet_known": 0,
       "fleet_outliers": 0,
       "eff_known": 0,
@@ -7165,13 +7165,13 @@
       "airline_types": [
         {
           "name": "Business",
-          "count": 2
+          "count": 3
         }
       ],
       "fleet_bands": [
         {
           "name": "Unspecified",
-          "count": 2
+          "count": 3
         }
       ],
       "conference_count": 2
@@ -10179,7 +10179,7 @@
       "airlines": 1,
       "fleet_values_recorded": 1,
       "fleet_known": 1,
-      "fleet_sum": 28,
+      "fleet_sum": 15,
       "fleet_outliers": 0,
       "eff_known": 0,
       "eff_no_vendor": 0,
@@ -13837,7 +13837,7 @@
       "region": "Unmapped",
       "airline_type": "Business",
       "fleet_band": "Unspecified",
-      "airlines": 2,
+      "airlines": 3,
       "fleet_values_recorded": 0,
       "fleet_known": 0,
       "fleet_sum": 0,
@@ -15483,6 +15483,16 @@
       "planning_systems": []
     },
     {
+      "airline": "BOND Aviation",
+      "country": "Unspecified",
+      "region": "Unmapped",
+      "airline_type": "Business",
+      "fleet_size": null,
+      "fleet_band": "Unspecified",
+      "eff_systems": [],
+      "planning_systems": []
+    },
+    {
       "airline": "Braathens Regional Airways",
       "country": "Sweden",
       "region": "Europe & Central Asia",
@@ -16509,7 +16519,7 @@
       "country": "Kazakhstan",
       "region": "Europe & Central Asia",
       "airline_type": "LCC",
-      "fleet_size": 28,
+      "fleet_size": 15,
       "fleet_band": "Small · 1–50",
       "eff_systems": [],
       "planning_systems": []
@@ -19738,12 +19748,38 @@
   ],
   "conferences": [
     {
+      "name": "EFB User Forum (2025)",
+      "start_date": "2025-06-24",
+      "end_date": "2025-06-26",
+      "date_conflict": false,
+      "location": "Montreal",
+      "region": "North America",
+      "attending_airlines": [
+        "Aer Lingus",
+        "Air Canada",
+        "Virgin Atlantic"
+      ],
+      "linked_airline_count": 3,
+      "nature": "Conference"
+    },
+    {
       "name": "Aircraft Commerce IT (2024)",
       "start_date": "2024-12-03",
       "end_date": "2024-12-04",
       "date_conflict": false,
       "location": "London",
       "region": "Europe & Central Asia",
+      "attending_airlines": [],
+      "linked_airline_count": 0,
+      "nature": "Conference"
+    },
+    {
+      "name": "Apple ASCEND",
+      "start_date": "2025-11-18",
+      "end_date": "2025-11-20",
+      "date_conflict": false,
+      "location": "Location not recorded",
+      "region": "Unmapped",
       "attending_airlines": [],
       "linked_airline_count": 0,
       "nature": "Conference"
@@ -19805,6 +19841,17 @@
       "nature": "Conference"
     },
     {
+      "name": "Apple Intelligence Roundtable",
+      "start_date": "2025-10-20",
+      "end_date": "2025-10-21",
+      "date_conflict": false,
+      "location": "Location not recorded",
+      "region": "Unmapped",
+      "attending_airlines": [],
+      "linked_airline_count": 0,
+      "nature": "Conference"
+    },
+    {
       "name": "Aircraft Commerce IT EMEA (2025)",
       "start_date": "2025-06-17",
       "end_date": "2025-06-18",
@@ -19820,21 +19867,6 @@
         "Uganda Airlines"
       ],
       "linked_airline_count": 6,
-      "nature": "Conference"
-    },
-    {
-      "name": "EFB User Forum (2025)",
-      "start_date": "2025-06-24",
-      "end_date": "2025-06-26",
-      "date_conflict": false,
-      "location": "Montreal",
-      "region": "North America",
-      "attending_airlines": [
-        "Aer Lingus",
-        "Air Canada",
-        "Virgin Atlantic"
-      ],
-      "linked_airline_count": 3,
       "nature": "Conference"
     },
     {
@@ -19898,51 +19930,6 @@
       "nature": "Conference"
     },
     {
-      "name": "Apple Intelligence Roundtable",
-      "start_date": "2025-10-20",
-      "end_date": "2025-10-21",
-      "date_conflict": false,
-      "location": "Location not recorded",
-      "region": "Unmapped",
-      "attending_airlines": [],
-      "linked_airline_count": 0,
-      "nature": "Conference"
-    },
-    {
-      "name": "Apple ASCEND",
-      "start_date": "2025-11-18",
-      "end_date": "2025-11-20",
-      "date_conflict": false,
-      "location": "Location not recorded",
-      "region": "Unmapped",
-      "attending_airlines": [],
-      "linked_airline_count": 0,
-      "nature": "Conference"
-    },
-    {
-      "name": "Aircraft Commerce IT EMEA (2026)",
-      "start_date": "2026-06-09",
-      "end_date": null,
-      "date_conflict": false,
-      "location": "Amsterdam",
-      "region": "Europe & Central Asia",
-      "attending_airlines": [
-        "Air Algérie",
-        "Air Europa",
-        "AirX",
-        "Condor Flugdienst",
-        "Iberia",
-        "KLM Royal Dutch Airlines",
-        "Luxair",
-        "Ryanair",
-        "SunExpress",
-        "Transavia",
-        "Wizz Air"
-      ],
-      "linked_airline_count": 11,
-      "nature": "Conference"
-    },
-    {
       "name": "Aircraft Commerce IT Bangkok (2026)",
       "start_date": "2026-10-13",
       "end_date": "2026-10-15",
@@ -19969,6 +19956,29 @@
         "Virgin Atlantic"
       ],
       "linked_airline_count": 17,
+      "nature": "Conference"
+    },
+    {
+      "name": "Aircraft Commerce IT EMEA (2026)",
+      "start_date": "2026-06-09",
+      "end_date": null,
+      "date_conflict": false,
+      "location": "Amsterdam",
+      "region": "Europe & Central Asia",
+      "attending_airlines": [
+        "Air Algérie",
+        "Air Europa",
+        "AirX",
+        "Condor Flugdienst",
+        "Iberia",
+        "KLM Royal Dutch Airlines",
+        "Luxair",
+        "Ryanair",
+        "SunExpress",
+        "Transavia",
+        "Wizz Air"
+      ],
+      "linked_airline_count": 11,
       "nature": "Conference"
     }
   ],
