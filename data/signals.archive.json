@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T06:25:13Z",
+  "generated_at": "2026-11-05T06:35:50Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -18,8 +18,8 @@
       "date": "2026-11-04",
       "date_is_estimated": false,
       "type": "partnership",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.6000000000000001,
       "headline": "FPT, Airbus’ Skywise, and Vietnam Airlines Partner to Advance AI-Powered Airline Operations",
       "summary": "Navblue reported a partnership update: FPT, Airbus’ Skywise, and Vietnam Airlines Partner to Advance AI-Powered Airline Operations. Open the linked source to verify details and assess impact for Cathay Technologies.",
@@ -88,7 +88,7 @@
       "summary": "Navblue reported a customer win update: IndiGo Selects Airbus's Skywise A320 Virtual Procedure Trainer. Open the linked source to verify details and assess impact for Cathay Technologies.",
       "source_channel": "rss",
       "source_origin": "google_news",
-      "product_focus": "other",
+      "product_focus": "adjacent",
       "product": null,
       "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
       "segment": "Unknown",
@@ -111,8 +111,32 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-05T06:36:28+00:00",
+        "source_sha256": "f6b3394765776247a31d6a3ec95030a902d4209f6a2fe4b2fe8cc044b2596a4a",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue's Skywise A320 Virtual Procedure Trainer selected by IndiGo.",
+        "summary": "IndiGo has selected Navblue's Skywise A320 Virtual Procedure Trainer."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-05T06:36:51+00:00",
+        "source_sha256": "f6b3394765776247a31d6a3ec95030a902d4209f6a2fe4b2fe8cc044b2596a4a",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "browser-57f33f8ca0d0",
