@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-05T06:35:50Z",
-  "raw_capture_at": "2026-11-05T06:34:09.864591+00:00",
+  "generated_at": "2026-11-05T08:26:06Z",
+  "raw_capture_at": "2026-11-05T08:23:40.892000+00:00",
   "status": "healthy",
   "required_public_sources": [
     {
@@ -33,7 +33,7 @@
   ],
   "manual_linkedin": {
     "mode": "brightdata_api",
-    "captured_at": "2026-11-05T06:34:17.651006Z",
+    "captured_at": "2026-11-05T08:23:57.900293Z",
     "captured_items": 5,
     "status": "available"
   },

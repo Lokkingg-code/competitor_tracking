@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T06:35:50Z",
+  "generated_at": "2026-11-05T08:26:06Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -174,8 +174,31 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-05T08:26:53+00:00",
+        "source_sha256": "e1aff96bd5d46dbcca336ad77f320bba3d4ff347a24601d9d2f08d6c62bdf8d2",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes EFB reliability and flight planning integration for Mauritania Airlines.",
+        "summary": "Bytron Aviation Systems highlights Mauritania Airlines' requirements for EFB platform reliability and integration with existing flight planning workflows. No concrete change or new deployment is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-05T08:27:29+00:00",
+        "source_sha256": "e1aff96bd5d46dbcca336ad77f320bba3d4ff347a24601d9d2f08d6c62bdf8d2",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-c64df0c48606",
