@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T13:05:39Z",
+  "generated_at": "2026-11-05T06:25:13Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,225 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-aaa393159597",
+      "competitor": "Navblue",
+      "date": "2026-11-04",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "FPT, Airbus’ Skywise, and Vietnam Airlines Partner to Advance AI-Powered Airline Operations",
+      "summary": "Navblue reported a partnership update: FPT, Airbus’ Skywise, and Vietnam Airlines Partner to Advance AI-Powered Airline Operations. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPaDM5UEVqRFQ3Rl9PR1dsVWp6T291Y1hqVHpHeEhyNDR2X2ZsalVWMC1qRDI5bEFnV1l0dkZxVW1mZ2QzUGx0N2dFR1dEd3VsblBuRllfSVBQZW5PbWhTeTRfLXM2UDB0V0w5Q1J5STNtMTdEbFc1YlE1UGtHbVRDMmNmZWV0UWkybmZLbg?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-05T06:25:48+00:00",
+        "source_sha256": "a5ecfdd9e290101105d40f0e5d206f3b37d0eba0c914352dae78284ddfcc4677",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue reports partnership between FPT, Airbus’ Skywise, and Vietnam Airlines for AI-powered airline operations.",
+        "summary": "Navblue reports a partnership between FPT, Airbus’ Skywise, and Vietnam Airlines aimed at advancing AI-powered airline operations. No concrete development or product change from Navblue is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-05T06:26:19+00:00",
+        "source_sha256": "a5ecfdd9e290101105d40f0e5d206f3b37d0eba0c914352dae78284ddfcc4677",
+        "suggested_type": "partnership",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.85,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "AI-Powered Airline Operations",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "cap-78452fa4ac5e",
+      "competitor": "Navblue",
+      "date": "2026-11-04",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "IndiGo Selects Airbus's Skywise A320 Virtual Procedure Trainer",
+      "summary": "Navblue reported a customer win update: IndiGo Selects Airbus's Skywise A320 Virtual Procedure Trainer. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQODdVbzZkUU0wNkUwWFBZeFo0eVpqM1AwSnp6RzlqeGZTUUx4VHFhcEJRMnZxaDY4eEsxcXI3VkcwM2xFbmY4RGJOV2VrWlFzOFBlandHa0F0SjdmZzJxZWVzVGZycUxkM2lmQlZnc0F5OEczOG9pcjB0czFuX0l3SHRHUl8?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "browser-57f33f8ca0d0",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-04",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Bytron Aviation Systems’ Post",
+      "summary": "Mauritania Airlines wanted to ensure its new EFB platform could perform reliably in live operations while integrating with its existing flight planning systems and workflows. https://lnkd.in/e44eRxcR #EFB #flightoperations #aviationindustry #avgeek #aviation",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_activity-7523703903947956224-JXmZ"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "browser-c64df0c48606",
+      "competitor": "Others",
+      "date": "2026-11-04",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Only two weeks left until the Canadian Aviation Conference & Tradeshow (Air Transport Association…",
+      "summary": "Only two weeks left until the Canadian Aviation Conference & Tradeshow ( Air Transport Association of Canada - Association du transport aérien du Canada (ATAC) ) is taking place at the The Westin Bayshore, Vancouver . #ATAC #ATAC2026 #Talora #EFB #NavigationCharts",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/talora-efb_atac-atac2026-talora-activity-7523729640037744640-N8bo"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "browser-db9005c047f5",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-11-04",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "More data doesn’t make flying safer.",
+      "summary": "Meet our experts at Table #2 at the EFB Users Forum and discover how our solutions can help airlines: ✔️ Integrate surrounding traffic into the map experience ✔️ Support ETOPS/EDTO decision-making with greater confidence ✔️ Simplify departure and arrival procedures ✔️ Enhance situational awareness while reducing pilot workload We look forward to discussing your operational challenges and exploring how smarter EFB…",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/lufthansa-systems_more-data-doesnt-make-flying-safer-better-activity-7523677165712723968-g6-z"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
     {
       "id": "cap-6555a85e8ee5",
       "competitor": "Navblue",
@@ -76,6 +295,45 @@
       }
     },
     {
+      "id": "cap-97b373e8a4e8",
+      "competitor": "Jeppesen",
+      "date": "2026-11-03",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "End of an Era: Jeppesen ForeFlight Bids Farewell to Paper Charts",
+      "summary": "Jeppesen reported a messaging shift update: End of an Era: Jeppesen ForeFlight Bids Farewell to Paper Charts. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQMVpQV3FNeFAzRFFieGs3Vmdiem1BT2l2VzlJNDR5amdhMUlMYjFfMVVPQ09EWUlZMV9xVVlHdkcyUDVWendWYjduZmFXeFRHT195SjIxM0pGTVBmWC1mUmhDNXk1YmZaS1JWWTZhSXZsLWZyNm9XcTVsUGZRNzYzZGgzU3QyZw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-01e4ed7689a6",
       "competitor": "Navblue",
       "date": "2026-11-02",
@@ -137,6 +395,45 @@
         "original_product_focus": "other",
         "focus_auto_applied": true
       }
+    },
+    {
+      "id": "cap-784c1eb8c2c1",
+      "competitor": "Navblue",
+      "date": "2026-11-02",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "They say Halloween is all about costumes, but our biggest wardrobe change actually happened…",
+      "summary": "They say Halloween is all about costumes, but our biggest wardrobe change actually happened back in April when we officially launched Skywise, uniting Airbus’s digital services and Navblue under one brand! ✈️ Of course, every great transformation comes <font",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxONHNPS0w2REtCMm5RcG9LS2VFWHY2U1NROWswTFA5XzZkM0lxUG50M2JCWmFvQWZ5UUZSOU9sWm9KekVCYjI4dFZDM182ZFNIWGIxQ3o0dDl4bk5tZnJ3OXhDeWdtWGtaUVZWbEVad3N1blU3RVQ2ek9nc0Nwc3FBeDdxT0VNYzZCWkdEVEVFRXl2WFQtM0VQMURjWHk2MnVYYUJra3k1NFJqUm83dG9obXJTLW1UbWswdFdrcw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "cap-bb45cf649281",
@@ -4866,6 +5163,45 @@
       }
     },
     {
+      "id": "cap-0a4cde9545bb",
+      "competitor": "Jeppesen",
+      "date": "2026-09-30",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Most airlines assume better route optimization means replacing the flight planning system they already have.",
+      "summary": "Most airlines assume better route optimization means replacing the flight planning system they already have. Jeppesen Dispatch Analytics adds an optimization layer on top of the incumbent planning system.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPQVZHUUlyQlp4c19PM2c0Qkc1a2FPNHFlNnU5V0hLeWZ0VXVxdC12eVFGczgxSnhfaUV4SnJKdE02c2JxdnBqTXVCaHRLU0xxdkZ1anc5QUh5VWZMM0hhbDEzd3diZGU1MUtSM3dQdzlrelFfUnh2RWRubFJmQnJhVmYwV0FIc28yZzhQbm0wSnNiTGhHeUZLMFprZlplNE9GcTBac1c0NjZHNUsyQktqeXVFdFZmUGZVVzJKTENZcnp0WHM0blBxMEtEMlY?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-448145695c07",
       "competitor": "Navblue",
       "date": "2026-09-28",
@@ -9178,8 +9514,8 @@
       "date": "2026-07-16",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.8,
       "headline": "Jeppesen Foreflight Brings Largest Product Line Up New Promotions To Eaa Airventure 2026",
       "summary": "AUSTIN, Texas - July 16, 2026 - Jeppesen ForeFlight is bringing a sweeping wave of new products, upgraded features, special pricing, promotions and more at EAA AirVenture Oshkosh 2026. The offerings span artificial intelligence, panel-connected cockpit hardware, aviation insurance, and flight school scheduling and operations.",
@@ -10659,6 +10995,45 @@
       "ai_classification_status": "pending"
     },
     {
+      "id": "cap-fdf3d275c02f",
+      "competitor": "Jeppesen",
+      "date": "2026-05-28",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Korean Air to Adopt Jeppesen ForeFlight’s Dispatch Solution",
+      "summary": "Jeppesen reported a customer win update: Korean Air to Adopt Jeppesen ForeFlight’s Dispatch Solution. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNRjFsa1dnakdtc2FXbFp5alhFMnpGbkNVOFBubnBTTDJkQlZRNmFJWnR6ZnY3QXJQNHViM2xEVWR0NEJQSTd2OHpCaGhaM0tEUVB6dElxMlctbmNZaUdERV80N0ZLdWRWYURidmhQamRGZEVGeUxTaDE2LVh1eFJyX0kxeTF6OXlxRG8zMEFCSGZPUHl3RjlwandxQkpNOXlKbzdXSUhULWlRNEwtMzNQa3NTeFdRaU1DblE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-c783586c0440",
       "competitor": "Navblue",
       "date": "2026-05-26",
@@ -11664,6 +12039,45 @@
       "ai_classification_status": "pending"
     },
     {
+      "id": "cap-0081b8a23f8e",
+      "competitor": "Navblue",
+      "date": "2026-04-21",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "With Skywise Fleet Performance+, we will support JetBlue’s A320 and A220 fleets by lever",
+      "summary": "As a newly launched digital services company, this marks one of our first major customer agreements. With Skywise Fleet Performance+, we will support JetBlue’s A320 and A220 fleets by le",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQZGJfQ0JvT2o5UVAxcy16STlVWDBTRmMxcUJKdWFRLUdoaTZzVTFDcXBFRjdYNGxWVGc2ektWRTlSMUpMelkzSDVtLWZSVUliSC1MVEl3NkFBOTlxcDBIMkdNMUF0M3lkdkgzenZOQkJ5a2ZhNmh0MkQ4S3FDd2tjS0tqSTBOMDZBVmsxZEtXNDlNWng4clNOaFdzYXlxdkx6TWl4emRfMDBNSnpNY3NLMjZlM19xcUQ4bDZNUTBiYnJWWGFCNndhbHUxV0g3RjQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-43e54536863b",
       "competitor": "Lufthansa Systems",
       "date": "2026-04-14",
@@ -12306,6 +12720,45 @@
       "ai_classification_status": "pending"
     },
     {
+      "id": "cap-67b0df735dc4",
+      "competitor": "Navblue",
+      "date": "2026-04-01",
+      "date_is_estimated": false,
+      "type": "ma_pe",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "✈️🌐 The merger between NAVBLUE and Skywise marks a significant milestone for our industry.",
+      "summary": "✈️🌐 The merger between NAVBLUE and Skywise marks a significant milestone for our industry. By uniting world-class flight operations expertise with the power of advanced data analytics, we are entering a n &nbs",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNSGR0T2kxRS1SQnJucVM1VmJsQk4tM2tQY0c1LVotU3hhQkxJdzREYjdFMW9pTWdxS1NaUDkyeVRnUEFMQ3hRZUJTc2hlb0JiSWZ5MG15QUpQQnhUY2pteEFLY1lza0pGODFOcjJiQ1Jzckx2X0xnVnFKVnRqajh5c3MtMUEtU1BvTlBSSzVRRWk2azNxeThCZHc3ejZsUlZubUkyR0xjZ2stRFM3bGRUQTdIdmtGRU5iV0ZnczVJTFc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-5e91b6c6b95e",
       "competitor": "Jeppesen",
       "date": "2026-03-23",
@@ -12729,6 +13182,45 @@
       "ai_classification_status": "pending"
     },
     {
+      "id": "cap-29dd3579101b",
+      "competitor": "Jeppesen",
+      "date": "2026-02-24",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "𝗙𝗼𝗿𝗲𝗙𝗹𝗶𝗴𝗵𝘁® 𝗵𝗮𝘀 𝗼𝗳𝗳𝗶𝗰𝗶𝗮𝗹𝗹𝘆 𝗲𝗻𝘁𝗲𝗿𝗲𝗱 𝘁𝗵𝗲 𝗰𝗲𝗿𝘁𝗶𝗳𝗶𝗲𝗱 𝗰𝗼𝗰𝗸𝗽𝗶𝘁. With the release of 𝗔𝗩-𝟯𝟬-𝗖 𝘀𝗼𝗳𝘁𝘄𝗮𝗿𝗲 𝘃𝗲𝗿𝘀𝗶𝗼𝗻…",
+      "summary": "𝗙𝗼𝗿𝗲𝗙𝗹𝗶𝗴𝗵𝘁® 𝗵𝗮𝘀 𝗼𝗳𝗳𝗶𝗰𝗶𝗮𝗹𝗹𝘆 𝗲𝗻𝘁𝗲𝗿𝗲𝗱 𝘁𝗵𝗲 𝗰𝗲𝗿𝘁𝗶𝗳𝗶𝗲𝗱 𝗰𝗼𝗰𝗸𝗽𝗶𝘁. With the release of 𝗔𝗩-𝟯𝟬-𝗖 𝘀𝗼𝗳𝘁𝘄𝗮𝗿𝗲 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝟯.𝟮.𝟭, uAvionix is bringing seamless ForeFlight integration and advanced autopilot coupling to certified aircraft—u LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNOWtBZW9jd2JBeVFVdXI1aHBLY05NbXE5X2U3UkVyOXBkTDQ4ckN0Zi04V1Vub3p6Z3Vjb0pOb3VBRmVIOUVGdGt1TVZNb1ZyeEN6c2QwNWlCOHdBTWJHMWdlbXo1cTUtSHNwNW1yNjI3OUp2ajVaTDBGSElYdGZ4bThQTmVWc0dlLXFjc0JxUGw3WU1nVFcxWEVyc24zOFdyYlVQQkZSS0VIeE4yTmNOelh1NS1KMGFnQWdULQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-d526316e878e",
       "competitor": "Jeppesen",
       "date": "2026-02-03",
@@ -12961,6 +13453,45 @@
         "title": "Bytron Skybook promotes system integration capabilities within its flight operations stack.",
         "summary": "Bytron published an overview highlighting EFB links to Lido mPilot, NavBlue Charts+, Jeppesen FliteDeck Pro/Aviator, and Navblue RAIM+ reporting. The text describes existing integration capabilities and establishes no new development or software release."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-1cb25bf85761",
+      "competitor": "Jeppesen",
+      "date": "2025-12-18",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Jeppesen Dispatch Academy is proud to announce the availability of our FAA Dispatcher Certification…",
+      "summary": "Jeppesen Dispatch Academy is proud to announce the availability of our FAA Dispatcher Certification (FOM-2) and Online FAA Dispatcher Certification (FOM-2 VLP) programs for 2026. Both pathways are designed to ensure students graduate fully prepared to &nb",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPLWlTN1FsNmFhU0lQNmt4b3hWVGRCNjY5X0JVdFRvY0ZQX0xZbkVkdC0yVnVCSEhEaUJFS2tLZUVGSGYwMFRqYlhTUk9QWGlNVkdFVW8tM2VBVWlkMVEwcXdVbzVPaXdSdERnbGRRYVV1VXJIam1ILUJla0Z6RGVkUWxaMGpQS3B1YV9wYVVfQXBNRUtMckNTbno5YjVkNTdJRE03RXZZWV9zSUh4eXlGcVNJNGxkR3FyWl9CZUlmVHpaN3M?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
