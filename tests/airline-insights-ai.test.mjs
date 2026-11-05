@@ -126,6 +126,25 @@ test("Gemini generation does not retry permanent client errors", async () => {
   assert.equal(requests, 1);
 });
 
+test("Gemini generation backs off for sustained temporary overload", async () => {
+  const snapshot = sampleSnapshot();
+  let requests = 0;
+  const delays = [];
+  await generateInsights(snapshot, {
+    apiKey: "test-key",
+    fetchImpl: async () => {
+      requests += 1;
+      return requests < 5
+        ? Response.json({ error: { message: "Temporary overload" } }, { status: 503 })
+        : Response.json({ candidates: [{ content: { parts: [{ text: generatedText(snapshot) }] } }] });
+    },
+    sleepImpl: async (delay) => delays.push(delay),
+  });
+
+  assert.equal(requests, 5);
+  assert.deepEqual(delays, [5000, 10000, 20000, 30000]);
+});
+
 test("airline insights default to the signal summary Gemini model", async () => {
   const snapshot = sampleSnapshot();
   let requestedUrl;

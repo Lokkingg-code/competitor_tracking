@@ -9,15 +9,18 @@ const SNAPSHOT_PATH = resolve(ROOT, "data/airline-insights.json");
 const OUTPUT_PATH = resolve(ROOT, "data/airline-insights-ai.json");
 const DEFAULT_MODEL = "gemini-3.5-flash-lite";
 const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
-const MAX_GENERATION_ATTEMPTS = 3;
+const MAX_GENERATION_ATTEMPTS = 5;
 const SEGMENT_TYPES = new Set(["Flag Carrier", "LCC"]);
 
 function retryDelay(response, attempt) {
-  const retryAfter = Number(response.headers?.get("retry-after"));
-  if (Number.isFinite(retryAfter) && retryAfter >= 0) {
-    return Math.min(retryAfter * 1000, 30_000);
+  const retryAfterHeader = response.headers?.get("retry-after");
+  if (retryAfterHeader !== null && retryAfterHeader !== undefined && retryAfterHeader.trim()) {
+    const retryAfter = Number(retryAfterHeader);
+    if (Number.isFinite(retryAfter) && retryAfter >= 0) {
+      return Math.min(retryAfter * 1000, 60_000);
+    }
   }
-  return Math.min(1_000 * (2 ** attempt), 8_000);
+  return Math.min(5_000 * (2 ** attempt), 30_000);
 }
 
 function wait(milliseconds) {
