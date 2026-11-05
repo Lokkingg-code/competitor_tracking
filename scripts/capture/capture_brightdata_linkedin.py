@@ -199,6 +199,17 @@ def load_organizations() -> list[dict]:
     return config.get("linkedin_organizations", [])
 
 
+def resolve_output_path(output: Path) -> Path:
+    return (output if output.is_absolute() else ROOT / output).resolve()
+
+
+def display_output_path(output: Path) -> str:
+    try:
+        return str(output.relative_to(ROOT))
+    except ValueError:
+        return str(output)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Capture configured LinkedIn companies via Bright Data")
     parser.add_argument("--days", type=int, default=1)
@@ -217,7 +228,8 @@ def main() -> None:
         parser.error("No LinkedIn organizations are configured in sources.json")
     captured_at = datetime.now(timezone.utc)
     start_date, end_date = capture_window(captured_at, args.days)
-    args.output.parent.mkdir(parents=True, exist_ok=True)
+    output_path = resolve_output_path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     with tempfile.TemporaryDirectory() as temporary_directory:
         result_path = Path(temporary_directory) / "brightdata-results.json"
@@ -234,16 +246,16 @@ def main() -> None:
             raise ValueError("Bright Data returned an unexpected result shape")
 
     payload = normalize_results(records, organizations, captured_at, args.days)
-    temporary_output = args.output.with_suffix(args.output.suffix + ".tmp")
+    temporary_output = output_path.with_suffix(output_path.suffix + ".tmp")
     temporary_output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    temporary_output.replace(args.output)
+    temporary_output.replace(output_path)
     print(f"Bright Data LinkedIn capture: {payload['count']} posts from {len(organizations)} company pages")
     for check in payload["checks"]:
         print(
             f"  {check['vanity_name']}: captured={check['posts_captured']} "
             f"skipped={check['posts_skipped']} errors={check['errors']}"
         )
-    print(f"Wrote {args.output.relative_to(ROOT)}")
+    print(f"Wrote {display_output_path(output_path)}")
 
 
 if __name__ == "__main__":

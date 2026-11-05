@@ -31,7 +31,6 @@ const elements = {
   quickLookRows: document.getElementById("airlineQuickLookRows"),
   conferences: document.getElementById("conferenceRows"),
   conferenceNote: document.getElementById("conferenceHistoryNote"),
-  methodology: document.getElementById("airlineDataMethodology"),
   themeToggle: document.getElementById("themeToggle"),
 };
 const numberFormat = new Intl.NumberFormat("en-US");
@@ -422,7 +421,6 @@ async function boot() {
   countryFeatures = await mapResponse.json();
   if (insightResponse?.ok) aiInsightSnapshot = await insightResponse.json();
   elements.snapshotDate.textContent = `Snapshot ${new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(snapshot.generated_at))}`;
-  elements.methodology.textContent = `${numberFormat.format(snapshot.unique_airline_count)} unique Airtable airline records · ${numberFormat.format(snapshot.duplicate_name_groups)} duplicate-name groups consolidated · ${numberFormat.format(snapshot.coverage.hq_region_assigned)} with region assigned · ${numberFormat.format(snapshot.airline_type_overrides_applied || 0)} type updates and ${numberFormat.format(snapshot.airline_hq_overrides_applied || 0)} HQ corrections applied; blank types remain Unclassified`;
   document.querySelectorAll("[data-airline-map-metric]").forEach(button => button.addEventListener("click", () => {
     state.mapMetric = button.dataset.airlineMapMetric;
     document.querySelectorAll("[data-airline-map-metric]").forEach(item => item.setAttribute("aria-pressed", String(item === button)));

@@ -109,6 +109,13 @@ class BrightDataLinkedInCaptureTests(unittest.TestCase):
         self.assertEqual(command.count("https://www.linkedin.com/company/lufthansa-systems"), 1)
         self.assertIn("@brightdata/cli@0.4.1", command)
 
+    def test_relative_output_path_resolves_from_repo_root_and_prints_safely(self):
+        output = CAPTURE.resolve_output_path(Path("data/raw/linkedin_brightdata_latest.json"))
+
+        self.assertEqual(output, CAPTURE.ROOT / "data/raw/linkedin_brightdata_latest.json")
+        self.assertEqual(CAPTURE.display_output_path(output), "data/raw/linkedin_brightdata_latest.json")
+        self.assertEqual(CAPTURE.display_output_path(Path("/tmp/capture.json")), "/tmp/capture.json")
+
 
 if __name__ == "__main__":
     unittest.main()
