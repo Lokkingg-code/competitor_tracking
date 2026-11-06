@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T13:37:11Z",
+  "generated_at": "2026-11-06T13:20:53Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,179 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-664871ab7be2",
+      "competitor": "Navblue",
+      "date": "2026-11-05",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "IndiGo (InterGlobe Aviation Ltd) has signed an agreement with Skywise to deploy the A320…",
+      "summary": "IndiGo (InterGlobe Aviation Ltd) has signed an agreement with Skywise to deploy the A320 Virtual Procedure Trainer (VPT), becoming the first airline worldwide to adopt its abnormal and emergency procedure training package. The agreement also establishe <font c",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOUQwM3FHMnJVbnlFMzRxeEotQ0N5c0VMWXRBMU9PMXlKSkw0RFp4RnV2NFRUU2I5V3R0em4zVlR5dVotV3ZHUktrRFZtRGppYkVmTHdOSTdBVDZIdHcxdlhDLUJTaW9GTW04N3dyelFxXzVoS3JmZWRKNU1kU3BNT3BxUGdBak5JcDB6WDRzbmxXb1BOVnN4dnEtRjV0dlhJaDZOVE4zRUlNWUxnSjQyYjRuN0NpREFmVWZz?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-06T13:22:35+00:00",
+        "source_sha256": "fe8b81ad72ede3d1d7e9188ea963145e1c0af346f78624c9b03c7427292aba39",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
+    },
+    {
+      "id": "browser-a24240ce91d8",
+      "competitor": "Aviobook",
+      "date": "2026-11-05",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "It takes a team to get a flight out on time.",
+      "summary": "✈️ A room for every flight, with the necessary crew added in automatically ⚡ System messages flag delays, gate changes, aircraft swaps and OFP or loadsheet status automatically 🏷️ Tag by role (@Dispatch, @Maintenance) and reach the right person right away 💬 Quick replies and smart actions turn \"Bins full\" or \"Ready to board\" into one tap 🔒 ISO 27001 certified, with a full communication log for every flight The…",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": "AvioBook Connect",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobooks-connected-comms-solution-package-activity-7524113723632943104-s_hb"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-06T13:23:28+00:00",
+        "source_sha256": "15f895a81efc28163734c15e4c5bcbb231e564e894377b1201b1c007222f1ca5",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-ecf8e87a2b93",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-11-05",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "From tickets to orders, in practice.",
+      "summary": "Their SIRAX/ONE Order solution: - Reflected the order as a single record for accounting from the moment of booking - Updated the order value instantly when baggage and seats were added, with no reissue and no separate documents - Finalised settlement between both carriers with a full audit trail TPConnects will explain how Astra Nova orchestrated the order and passed every change to accounting. Join Hendrik…",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/lufthansa-systems_webinar-series-modern-airline-retailing-activity-7524120035502526464-YwJy"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-06T13:21:36+00:00",
+        "source_sha256": "50b75ca7ecd36922bdc64fbf70eef5c3679b11f38792e7377f621b25426876ff",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes SIRAX/ONE Order solution workflows.",
+        "summary": "Lufthansa Systems describes functional workflows for its SIRAX/ONE Order solution, specifically regarding real-time order value updates and single-record accounting. The text promotes a demonstration of order orchestration involving Astra Nova and TPConnects, but no new product release or customer contract is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-06T13:24:06+00:00",
+        "source_sha256": "50b75ca7ecd36922bdc64fbf70eef5c3679b11f38792e7377f621b25426876ff",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.95,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-aaa393159597",
       "competitor": "Navblue",
@@ -261,8 +434,8 @@
       "date": "2026-11-04",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "More data doesn’t make flying safer.",
       "summary": "Meet our experts at Table #2 at the EFB Users Forum and discover how our solutions can help airlines: ✔️ Integrate surrounding traffic into the map experience ✔️ Support ETOPS/EDTO decision-making with greater confidence ✔️ Simplify departure and arrival procedures ✔️ Enhance situational awareness while reducing pilot workload We look forward to discussing your operational challenges and exploring how smarter EFB…",
@@ -5248,8 +5421,8 @@
       "date": "2026-09-30",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "Most airlines assume better route optimization means replacing the flight planning system they already have.",
       "summary": "Most airlines assume better route optimization means replacing the flight planning system they already have. Jeppesen Dispatch Analytics adds an optimization layer on top of the incumbent planning system.",

@@ -1,97 +1,97 @@
 {
   "schema_version": 1,
-  "snapshot_generated_at": "2026-11-05T08:23:57+00:00",
-  "generated_at": "2026-11-05T08:27:43.715Z",
+  "snapshot_generated_at": "2026-11-06T13:19:00+00:00",
+  "generated_at": "2026-11-06T13:24:39.309Z",
   "model": "gemini-3.5-flash-lite",
   "overall": {
-    "headline": "Global EFB and Flight Planning Selections Show Diverse Adoption Across Carrier Types",
+    "headline": "Global EFB and Flight Planning Selections Show Diverse Adoption Across Carrier Models",
     "observations": [
-      "Across **519** airlines, **21** of **127** recorded EFB selections are **AvioBook**, while **24** of **68** recorded planning selections are **Lido**.",
-      "Flag carriers and LCCs demonstrate varied technology choices, with large fleets often favoring in-house solutions or dedicated platforms like **AvioBook** and **Navblue Mission+**.",
-      "Smaller carriers frequently record higher reliance on **Paper** for EFB operations, showing **2** of **4** for small flag carriers in specific segments."
+      "Across **519** total airlines, **127** recorded EFB selections led by **AvioBook** at **21** of **127** (**16.5%**) and **In-house built** solutions at **19** of **127** (**15.0%**).",
+      "For flight planning, **68** airlines recorded selections, with **Lido** leading at **24** of **68** (**35.3%**) followed by **NavBlue** at **16** of **68** (**23.5%**).",
+      "Flag carriers and LCCs display varied system preferences depending on fleet size bands, though missing values prevent universal baseline assumptions."
     ],
-    "caveat": "Counts represent recorded selections rather than absolute market share, and missing fields are unknown rather than non-adoption."
+    "caveat": "Counts represent recorded selections rather than absolute market share, and missing fields reflect unknown data rather than non-adoption."
   },
   "regions": [
     {
       "name": "Europe & Central Asia",
-      "headline": "European Market Favors In-House EFB Systems and Lido Planning Solutions",
+      "headline": "European Carriers Rely Heavily on In-House and AvioBook Solutions",
       "observations": [
-        "Out of **151** airlines, **35** have recorded EFB selections, with **7** choosing **In-house built** solutions compared to the overall rate.",
-        "For flight planning, **5** of **14** recorded selections point to **Lido**, aligning closely with broader industry adoption patterns.",
-        "There are **0** of **1** planning-recorded large LCCs listing **Lido**."
+        "Out of **151** airlines, **35** recorded EFB selections, where **In-house built** reached **7** of **35** (**20.0%**) and **AvioBook** reached **6** of **35** (**17.1%**).",
+        "For flight planning, **14** airlines recorded selections, with **Lido** at **5** of **14** (**35.7%**) and **FlightKeys** at **4** of **14** (**28.6%**).",
+        "**0** of **14** planning-recorded European airlines list **Sabre**, diverging from broader global patterns."
       ],
-      "caveat": "Data reflects recorded inputs only; unrecorded carriers should be verified by checking event audience and agenda before engagement."
+      "caveat": "Counts are recorded selections from Airtable and do not cover all regional carriers."
     },
     {
       "name": "East Asia & Pacific",
-      "headline": "NavBlue and In-House Systems Lead Regional Selections",
+      "headline": "Significant Adoption of In-House EFB and NavBlue Planning in East Asia",
       "observations": [
-        "Among **130** airlines with **39** EFB-recorded entities, **9** select **In-house built** and **6** record **Paper** usage.",
-        "Planning selections show **9** of **18** recorded choices favoring **NavBlue**, outpacing standard baseline distribution rates.",
-        "Flag carriers in the medium fleet band show active adoption of **Lido mBriefing** with **2** of **8** recorded selections."
+        "Among **130** airlines, **39** recorded EFB selections, featuring **In-house built** at **9** of **39** (**23.1%**) and **Paper** at **6** of **39** (**15.4%**).",
+        "For flight planning, **18** airlines recorded selections, led by **NavBlue** at **9** of **18** (**50.0%**) and **Lido** at **7** of **18** (**38.9%**).",
+        "**NavBlue** planning usage here exceeds the overall global rate relative to recorded planning entries."
       ],
-      "caveat": "Multi-select fields may count individual airlines multiple times; missing fields do not imply non-adoption."
+      "caveat": "Unrecorded fields are treated as unknown rather than indicating zero usage."
     },
     {
       "name": "North America",
-      "headline": "FlightKeys and AvioBook Drive Regional Technology Preferences",
+      "headline": "North American Carriers Favor AvioBook EFB and FlightKeys Planning",
       "observations": [
-        "From **59** regional airlines, **14** recorded EFB choices highlight **AvioBook** at **5** selections.",
-        "Flight planning records indicate **5** of **9** selections utilize **FlightKeys**, representing a distinct regional concentration.",
-        "There are **0** of **3** planning-recorded small LCCs listing **FlightKeys**."
+        "From **59** airlines, **14** recorded EFB selections, with **AvioBook** leading at **5** of **14** (**35.7%**).",
+        "For flight planning, **9** airlines recorded selections, where **FlightKeys** dominates at **5** of **9** (**55.6%**).",
+        "**0** of **9** planning-recorded North American airlines list **Lido**, contrasting sharply with the global preference."
       ],
-      "caveat": "Aggregate counts are not exhaustive market share metrics; verify specific vendor footprints via direct agenda checks."
+      "caveat": "Multi-select fields and partial data reporting limit definitive market share conclusions."
     },
     {
       "name": "Latin America & Caribbean",
-      "headline": "Balanced Vendor Distribution with Lido Leading Planning",
+      "headline": "Balanced Regional Distribution Across Multiple EFB and Planning Vendors",
       "observations": [
-        "Out of **56** airlines, **12** EFB-recorded entries show an even split across **AvioBook**, **Flightman**, and **Paper** at **2** each.",
-        "Planning records total **9**, with **4** selections attributed to **Lido**, matching global planning trends.",
-        "Medium fleet flag carriers record **2** of **2** planning selections for **Lido**."
+        "Out of **56** airlines, **12** recorded EFB selections, showing a split including **AvioBook**, **Flightman**, and **Paper** each at **2** of **12** (**16.7%**).",
+        "For flight planning, **9** airlines recorded selections, led by **Lido** at **4** of **9** (**44.4%**).",
+        "**0** of **9** planning-recorded carriers in this region list **NavBlue**."
       ],
-      "caveat": "Unrecorded fields limit complete penetration analysis; investigate regional event agendas prior to planning research commitments."
+      "caveat": "Aggregate counts reflect explicit database entries and should not imply total market penetration."
     },
     {
       "name": "Middle East & North Africa",
-      "headline": "Bytron Skybook and Jeppesen Lead EFB Selections in MENA",
+      "headline": "MENA Region Displays High Reliance on Bytron Skybook and Jeppesen",
       "observations": [
-        "With **51** regional airlines and **15** EFB-recorded entities, **3** select **Bytron Skybook** and **3** choose **Jeppesen Aviator**.",
-        "Flight planning records total **10**, evenly split with **3** for **Lido** and **3** for **NavBlue**.",
-        "Large flag carriers record **2** of **2** EFB selections for **Jeppesen Aviator**."
+        "Among **51** airlines, **15** recorded EFB selections, led by **Bytron Skybook**, **Jeppesen Aviator**, and **Paper** each at **3** of **15** (**20.0%**).",
+        "For flight planning, **10** airlines recorded selections, with **Lido** and **NavBlue** tied at **3** of **10** (**30.0%**) each.",
+        "**Jeppesen Aviator** EFB adoption here outpaces its overall global proportional representation."
       ],
-      "caveat": "Data points reflect recorded selections only; absence of data does not indicate active rejection of tools."
+      "caveat": "Missing data points mean unlisted vendors cannot be assumed absent from actual operations."
     },
     {
       "name": "Sub-Saharan Africa",
-      "headline": "Emerging EFB Adoption Led by IFS EFBOne and Lido",
+      "headline": "Sub-Saharan African Carriers Show Fragmented EFB and Planning Choices",
       "observations": [
-        "Among **47** airlines, **8** have recorded EFB selections, with **2** utilizing **IFS EFBOne**.",
-        "Flight planning records show **4** total entries, where **2** airlines select **Lido**.",
-        "Small flag carriers account for **1** of **3** EFB selections for **AvioBook**."
+        "From **47** airlines, **8** recorded EFB selections, with **IFS EFBOne** leading at **2** of **8** (**25.0%**).",
+        "For flight planning, **4** airlines recorded selections, where **Lido** accounts for **2** of **4** (**50.0%**).",
+        "**0** of **8** EFB-recorded carriers in this region list **In-house built** solutions."
       ],
-      "caveat": "Low sample sizes in recorded fields require cross-referencing event participant lists before drawing firm market conclusions."
+      "caveat": "Small sample sizes for recorded fields require cautious interpretation of percentages."
     },
     {
       "name": "South Asia",
-      "headline": "Compact Regional Sample Shows Reliance on Established Vendors",
+      "headline": "South Asian Market Records Minimal System Adoption Across Segments",
       "observations": [
-        "Out of **13** regional airlines, **4** have recorded EFB choices distributed across **AvioBook**, **In-house built**, **Navblue Mission+**, and **Paper**.",
-        "Planning records capture **4** selections, with **2** pointing to **Lido**.",
-        "Small flag carriers record **2** of **3** planning selections for **Lido**."
+        "Out of **13** airlines, **4** recorded EFB selections across various vendors including **AvioBook**, **In-house built**, **Navblue Mission+**, and **Paper** at **1** of **4** (**25.0%**) each.",
+        "For flight planning, **4** airlines recorded selections, with **Lido** at **2** of **4** (**50.0%**).",
+        "**0** of **4** EFB-recorded carriers list **Bytron Skybook**."
       ],
-      "caveat": "Very small recorded denominators mean percentages should be interpreted with caution; verify audience scope before event commitments."
+      "caveat": "Low recording rates restrict broad regional generalizability."
     },
     {
       "name": "Unmapped",
-      "headline": "Unassigned Regional Records Pending Categorization",
+      "headline": "Unmapped Regional Category Contains No Recorded System Selections",
       "observations": [
-        "Across **12** unmapped airlines, **0** EFB selections or planning records have been formally logged.",
-        "No carrier segment breakdowns are currently available for this category.",
-        "Further data ingestion is required to establish baseline technology adoption rates for these entities."
+        "From **12** unmapped airlines, **0** recorded EFB or flight planning selections.",
+        "**0** of **12** carriers provide carrier type or fleet band context in this grouping.",
+        "Future research should verify geographic classification before assessing technology alignment."
       ],
-      "caveat": "Absence of recorded data reflects unknown status rather than intentional non-adoption of flight systems."
+      "caveat": "Absence of data points precludes meaningful technology adoption analysis."
     }
   ]
 }
