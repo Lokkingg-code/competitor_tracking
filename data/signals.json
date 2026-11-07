@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T13:20:53Z",
+  "generated_at": "2026-11-07T12:01:52Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -48,7 +48,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -65,6 +64,15 @@
         "type_auto_applied": false,
         "original_product_focus": "other",
         "focus_auto_applied": true
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-07T12:02:37+00:00",
+        "source_sha256": "92f46f51ef8e3063e6ac3657b4699f9bb13ecd99fe7fe2e01669f6a0e77b7666",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue deploys A320 Virtual Procedure Trainer (VPT) with IndiGo for abnormal and emergency procedure training.",
+        "summary": "IndiGo has signed an agreement to deploy the A320 Virtual Procedure Trainer (VPT) for abnormal and emergency procedure training. This deployment makes IndiGo the first airline to adopt this specific training package."
       }
     },
     {
@@ -103,7 +111,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -120,6 +127,15 @@
         "original_type": "product_launch",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-07T12:03:01+00:00",
+        "source_sha256": "1d7447e256602c4ba8f976a65439ee8787e2e64cd80fb9cc556e47b5e1bcf174",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook promotes AvioBook Connect communication and operational messaging features.",
+        "summary": "Aviobook describes AvioBook Connect features such as automated system messaging for flight updates, role-based tagging, and quick replies. No concrete product development or customer win is established."
       }
     },
     {
@@ -182,6 +198,68 @@
         "ai_evidence": "",
         "original_type": "partnership",
         "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-54493e81d66a",
+      "competitor": "Jeppesen",
+      "date": "2026-11-05",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Dispatch drills 131 Falcon 7X, LSGG → OMDW, planned off-block 1200 UTC.",
+      "summary": "Dispatch drills 131 Falcon 7X, LSGG → OMDW, planned off-block 1200 UTC. At 1140, a route restriction prompts recalculation in your ForeFlight Dispatch workflow.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNV0xWemFRU3hJZDB0ZWJIUVF0Y1ZRNVpwMVRxLVlTakZyLVpqSHhIaVgtU3hsMlk0SXFMYnlUZkJadTJkT2FGOWttSDk0Zl9ORjBoWmlLN2lxd21lQUxvclU0eWx2QVA2cUtuMVkxdUtjbE8tN2Q1RlBRMXVMdE5MLUZKY0VUVVM5QnhHcTQ0MFNKMXMxT01SNVY1clpudkRUV3ZrRUpxeUQ2SE9ZTnlCbXVNdnVsR090anhiNE1mZVpCYUhzRDhTc1RwUkc5Vmo3?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-07T12:03:27+00:00",
+        "source_sha256": "8f2e1767a14e5224d8a0ec921466429cde6e454933619054c31896e6ff30d8a4",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen demonstrates route restriction recalculation in ForeFlight Dispatch workflow.",
+        "summary": "Jeppesen describes a dispatch drill scenario where route restrictions trigger recalculations in the ForeFlight Dispatch workflow. No new product features or customer deals are established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-07T12:03:48+00:00",
+        "source_sha256": "8f2e1767a14e5224d8a0ec921466429cde6e454933619054c31896e6ff30d8a4",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
         "focus_auto_applied": false
       }
     },
@@ -584,7 +662,22 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-07T12:04:16+00:00",
+        "source_sha256": "716c1e8db5a63b4b7b12837ff0a95babdf6784df941a064e6fbb88532837dc96",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-01e4ed7689a6",
@@ -654,7 +747,7 @@
       "competitor": "Navblue",
       "date": "2026-11-02",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -686,7 +779,23 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-07T12:05:20+00:00",
+        "source_sha256": "915079d58cc2aa41d365ed64688adf8e77839b26aca3e0dc3f9d50afc7f93dc0",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.7,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-bb45cf649281",
@@ -9868,7 +9977,7 @@
       "competitor": "Jeppesen",
       "date": "2026-07-16",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "partnership",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.6000000000000001,
@@ -9921,7 +10030,6 @@
         "focus_auto_applied": true
       },
       "ai_enrichment_status": "pending",
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
@@ -9937,6 +10045,23 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen authorizes Sporty’s as a distributor of ForeFlight education tools.",
         "summary": "Sporty’s has become an authorized distributor of Jeppesen’s ForeFlight education tools. The announcement specifies the distribution of the product's educational-focused tools."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-07T12:05:50+00:00",
+        "source_sha256": "f6b191a17aa4fc657ca66e63a99bf24ffc8a1edc0def7e611024544ce840633d",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -9944,7 +10069,7 @@
       "competitor": "Jeppesen",
       "date": "2026-07-14",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "feature_change",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.6000000000000001,
@@ -10005,7 +10130,23 @@
         "title": "Jeppesen adds AI-generated NOTAM summaries to ForeFlight.",
         "summary": "ForeFlight has introduced a feature that provides AI-generated summaries for NOTAMs."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-07T12:06:10+00:00",
+        "source_sha256": "c7356643eb5ce8e5832fe3c8ba4c7288a3531abca4bc97491dad45475733bd79",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "ForeFlight Adds AI Summaries For NOTAMs",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-ee883a79a5d4",
@@ -12069,6 +12210,45 @@
         "title": "Jeppesen forms alliance with Tecnam for ForeFlight.",
         "summary": "Jeppesen announced an alliance with Tecnam involving its ForeFlight product. The provided text does not specify the technical or operational details of the partnership."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-bb70a5f5096c",
+      "competitor": "Jeppesen",
+      "date": "2026-04-23",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Jeppesen ForeFlight’s Chris Dean and Nick Anderson sat down with FlightGlobal to discuss the…",
+      "summary": "Jeppesen ForeFlight’s Chris Dean and Nick Anderson sat down with FlightGlobal to discuss the biggest challenges in ground operations, the catalyst that led to the development of our Airport Moving Map solution, and the latest innovation with the release of # LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRkR6eU5kZXpTTW56S2tXRk5OSFZTTG1sRDg4VHdPSXdjMDItTW9QT2I0eTdBdktKQ3h4VEx6UnFMdjc3VFJxQklieVFEVEk2cVFMTHNzcTMwTHlIeHFjSTAtZXNGMzJtQXF1Y2FXNk10bWNOMnFTSjJ5UFUyYzNLempCbHFMMG5tOUJVMXpmcl9yMzlJclYwbUFn?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
