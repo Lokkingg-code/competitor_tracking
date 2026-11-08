@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-07T12:01:52Z",
-  "raw_capture_at": "2026-11-07T11:59:35.062905+00:00",
+  "generated_at": "2026-11-08T12:19:58Z",
+  "raw_capture_at": "2026-11-08T12:17:35.396901+00:00",
   "status": "healthy",
   "required_public_sources": [
     {
@@ -33,9 +33,9 @@
   ],
   "manual_linkedin": {
     "mode": "brightdata_api",
-    "captured_at": "2026-11-07T11:59:50.402305Z",
-    "captured_items": 1,
-    "status": "available"
+    "captured_at": "2026-11-08T12:17:51.609130Z",
+    "captured_items": 0,
+    "status": "attention_needed"
   },
   "failures": []
 }

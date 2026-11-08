@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T12:01:52Z",
+  "generated_at": "2026-11-08T12:19:58Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -487,7 +487,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -504,6 +503,15 @@
         "type_auto_applied": false,
         "original_product_focus": "efb",
         "focus_auto_applied": true
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-08T12:20:38+00:00",
+        "source_sha256": "bb79edfde014b53ec13595ae0ecabd4cc1fb0d0f9d6f921e9558da373d0a6790",
+        "evidence_scope": "captured_preview_only",
+        "title": "Talora promotes participation in the Canadian Aviation Conference & Tradeshow.",
+        "summary": "The post serves as a reminder for the upcoming Canadian Aviation Conference & Tradeshow in Vancouver. No concrete developments or product announcements are established."
       }
     },
     {
@@ -542,7 +550,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -560,6 +567,15 @@
         "type_auto_applied": true,
         "original_product_focus": "efb",
         "focus_auto_applied": true
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-08T12:20:57+00:00",
+        "source_sha256": "792078e2b8ecfc113f44b0c742b9932e03ac1c19895ceeb45d663e4092d90e0e",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes EFB solution capabilities at the EFB Users Forum.",
+        "summary": "Lufthansa Systems is promoting its EFB capabilities, such as traffic integration and ETOPS/EDTO decision support, at the EFB Users Forum. No concrete product releases or customer agreements are established."
       }
     },
     {
@@ -661,7 +677,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -677,6 +692,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-08T12:21:26+00:00",
+        "source_sha256": "716c1e8db5a63b4b7b12837ff0a95babdf6784df941a064e6fbb88532837dc96",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen announces ForeFlight is transitioning away from paper charts.",
+        "summary": "Jeppesen's messaging indicates that ForeFlight is moving away from the use of paper charts. The provided text does not specify a transition timeline or technical details."
       }
     },
     {
@@ -778,7 +802,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -795,6 +818,15 @@
         "original_type": "product_launch",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-08T12:21:46+00:00",
+        "source_sha256": "523164f10e79976b7547e576517cd555da22d2542a19be412886d4fa6e555f6b",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue unites Airbus digital services and Navblue under the Skywise brand.",
+        "summary": "Navblue has united Airbus’s digital services and Navblue under the Skywise brand. This rebranding transition occurred in April."
       }
     },
     {
@@ -833,7 +865,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -850,6 +881,15 @@
         "original_type": "partnership",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-08T12:22:20+00:00",
+        "source_sha256": "7c17778e4a86a4ceabb22c14db508f0bbea7b0409f43e99386db4b5f90a86e4e",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue to demonstrate integrated fleet operations at Europe Predictive Aircraft Maintenance in Dublin.",
+        "summary": "Navblue's Skywise team will demonstrate integrated, data-driven fleet operations with Digital Alliance partners at the Europe Predictive Aircraft Maintenance event in Dublin on November 9-10. No concrete product release or contract is established."
       }
     },
     {
@@ -10214,7 +10254,22 @@
         "title": "Jeppesen's SkyPlay integrates ForeFlight into the cockpit in collaboration with uAvionix.",
         "summary": "Jeppesen's SkyPlay enables ForeFlight capabilities in the cockpit through a collaboration with uAvionix. No specific deployment details or release timelines are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-08T12:22:50+00:00",
+        "source_sha256": "87247a1ad584e920f55e1597da6fccd0a5b4ff33c0e69f69b4db0c8d802b5c1c",
+        "suggested_type": "partnership",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-ea2d2623ce9d",
@@ -10336,7 +10391,7 @@
       "competitor": "Jeppesen",
       "date": "2026-07-07",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "partnership",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.6000000000000001,
@@ -10376,7 +10431,23 @@
         "title": "Jeppesen's ForeFlight partners with uAvionix for panel displays.",
         "summary": "ForeFlight is partnering with uAvionix regarding panel display integration. The text does not provide specific technical specifications or deployment details."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-08T12:23:15+00:00",
+        "source_sha256": "41145b2b940bd86f883841c8eb0420638b20c3ee2254357efa89e96087fb4727",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "jep-2026-07-06-avia-solutions",
@@ -13658,6 +13729,45 @@
         {
           "title": "Google News · LinkedIn",
           "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNOWtBZW9jd2JBeVFVdXI1aHBLY05NbXE5X2U3UkVyOXBkTDQ4ckN0Zi04V1Vub3p6Z3Vjb0pOb3VBRmVIOUVGdGt1TVZNb1ZyeEN6c2QwNWlCOHdBTWJHMWdlbXo1cTUtSHNwNW1yNjI3OUp2ajVaTDBGSElYdGZ4bThQTmVWc0dlLXFjc0JxUGw3WU1nVFcxWEVyc24zOFdyYlVQQkZSS0VIeE4yTmNOelh1NS1KMGFnQWdULQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-59601212c095",
+      "competitor": "Navblue",
+      "date": "2026-02-12",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Palantir Technologies and Airbus have extended their strategic partnership for several more years, continuing…",
+      "summary": "Palantir Technologies and Airbus have extended their strategic partnership for several more years, continuing their collaboration on the Skywise open data platform. This platform, active since 2017, supports over 50,000 users worldwide by integrating aviation <fon",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWFUyYXF5dmdvTWR5anRwN1M5eTdpbEszMHRGS2Fpeml1TG4wdV96dGk1bF9fWTFHLVk1QjZudDRTeDJfTHhURS0zZm1YSnFmT1JFZW9xTDF3MEZiTVRqcEVzZ0hlakNSWFBWVnNYYnFhbjNXYndxdFhNYS1Sb2d5M1NET3ZzRWVaOFFjQVRpNWRqUFFzOEJ4UlFxbWR6c3E0dXpYTmlKN1Jia1ppeW4ySlNPRGRkOGw3?oc=5"
         }
       ],
       "tags": [
