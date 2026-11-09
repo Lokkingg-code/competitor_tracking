@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T12:19:58Z",
+  "generated_at": "2026-11-09T14:31:07Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -5600,7 +5600,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -5617,6 +5616,15 @@
         "type_auto_applied": false,
         "original_product_focus": "adjacent",
         "focus_auto_applied": true
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-09T14:32:01+00:00",
+        "source_sha256": "c9bb04d0f1b38408c996eaca1a32103f4bc8aa83bea27d6e3d2c351b3e2cccc1",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen promotes Dispatch Analytics as an optimization layer for existing flight planning systems.",
+        "summary": "Jeppesen positions Dispatch Analytics as a tool that adds an optimization layer on top of an airline's incumbent flight planning system. The text describes product messaging and no new release or customer contract is established."
       }
     },
     {
@@ -10337,7 +10345,22 @@
         "title": "Jeppesen promotes SkyPlay Mini for ForeFlight visibility.",
         "summary": "Jeppesen is using messaging to position SkyPlay Mini as a way to display ForeFlight on the instrument panel. No concrete product release or deployment is established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-09T14:33:40+00:00",
+        "source_sha256": "c85864bade21c301c42896173e9fd8c906c444961646453442823a0ee8448ca5",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-947d694bcacb",
@@ -10384,7 +10407,22 @@
         "title": "Jeppesen hosts LightTable CEO at ForeFlight Global Aviation Data Product Guild.",
         "summary": "Jeppesen promotes its Global Aviation Data Product Guild through the hosting of LightTable Co-founder and CEO Paul Zeckser. No concrete product developments, new capabilities, or customer agreements are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-09T14:34:02+00:00",
+        "source_sha256": "f8713f79d5734cd153959184e736c1d4b373177315c4b498c1844973d997ef10",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-03decbe8c68d",
@@ -10453,7 +10491,7 @@
       "id": "jep-2026-07-06-avia-solutions",
       "competitor": "Jeppesen",
       "date": "2026-07-06",
-      "type": "partnership",
+      "type": "customer_win",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.9,
@@ -10516,13 +10554,29 @@
         "title": "Jeppesen expands Avia Solutions Group agreement to deploy FliteDeck Pro, NavData, and Airport Data across 10 ACMI airlines.",
         "summary": "Jeppesen is expanding its existing agreement with Avia Solutions Group. The deployment includes FliteDeck Pro (including Smart Airports), NavData, and Airport Data across 10 of the group's global ACMI airlines."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-09T14:34:32+00:00",
+        "source_sha256": "759ddd6a682f0ba6881c54e6b07f0c6083eaa07fc4678ff3b47a491f0e34d6e2",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -10538,7 +10592,7 @@
       "summary": "AUSTIN, Texas — July 1, 2026 — Jeppesen ForeFlight today unveiled its aviation-centric AI engine, the foundation of its strategy to bring responsible artificial intelligence to all sectors of aviation. Jeppesen ForeFlight Airflow™ has been developed over the last several years, backed by decades of deep domain experience, industry-leading data, and capabilities spanning crew and fleet planning, day-of-flight…",
       "source_channel": "press_release",
       "source_origin": "official_site",
-      "product_focus": "eff",
+      "product_focus": "adjacent",
       "product": "ForeFlight",
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -10591,7 +10645,23 @@
         "title": "Jeppesen unveils Airflow, an aviation-centric AI engine for ForeFlight.",
         "summary": "Jeppesen has announced the launch of Airflow, an aviation-centric AI engine for ForeFlight. The engine provides capabilities for crew planning, fleet planning, and day-of-flight operations."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-09T14:35:21+00:00",
+        "source_sha256": "f5537c3115e8beb5b43602de34c16e58f66c36f70af13e19843789eda1c0d482",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.95,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "aviation-centric AI engine",
+        "type_auto_applied": false,
+        "original_product_focus": "eff",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-ed790b6163c2",
@@ -10638,7 +10708,22 @@
         "title": "Jeppesen adds AI-Decoded NOTAMs feature to ForeFlight.",
         "summary": "Jeppesen has added an AI-Decoded NOTAMs feature to its ForeFlight product."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-09T14:35:39+00:00",
+        "source_sha256": "d68c6c0d994a6b885427c2521ae32b398485394c8e62d44ed27b1813405148f0",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "AI-Decoded NOTAMs Feature",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-160cd33ed7dc",
@@ -12319,8 +12404,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-09T14:32:28+00:00",
+        "source_sha256": "64a3a53a57ef582547cdaec4dbd529944286784afafcb3613635fa89a2154350",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight promotes Airport Moving Map solution and ground operations insights via FlightGlobal interview.",
+        "summary": "Jeppesen ForeFlight representatives discussed ground operations challenges and the development of their Airport Moving Map solution in an interview with FlightGlobal. No concrete product releases or customer agreements are established in the text."
+      }
     },
     {
       "id": "nav-2026-04-21-jetblue-sfp",
@@ -12594,8 +12687,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-09T14:32:48+00:00",
+        "source_sha256": "47685891764ba95aeaf1767b564430d7462d1f4aa04094a7627246b0fd1e59e5",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue provides Skywise Fleet Performance+ support for JetBlue’s A320 and A220 fleets.",
+        "summary": "Navblue will support JetBlue’s A320 and A220 fleets using Skywise Fleet Performance+. This is described as one of the company's first major customer agreements following its launch as a digital services company."
+      }
     },
     {
       "id": "cap-43e54536863b",
