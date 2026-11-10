@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T14:31:07Z",
+  "generated_at": "2026-11-10T13:53:38Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,186 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-116c10793717",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-11-10",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Every airline has its own story.",
+      "summary": "Every airline has its own story. Its systems, its ways of working, the airports and partners it connects with.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNZ2VNTUZ4Tmh2SGpmclQ0aUFJQ3Z6OGFQQzZYWUdodGI0eGtpZVhUQWxRVHJHQ2dhTnR6Njl4dVhBbHN6eXFjcHFEY2VldU1tOF9yRXkyNkhqbmJEcUJ0VVBIX3RTODJBXzNBcUJWelVZWm9GaVE2d2sxMDVka0tuTkl1TE5vX3RhY19pcmdSWm5HYUl5YjVyTXJFNzF6S01aQWhyeVZrVUN3UUhqNlFGUy1KUHpYQ2NHd3VLN2tNb3A1TGdOeF9wNm0tMWlWdnZE?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-10T13:55:28+00:00",
+        "source_sha256": "d7166ca84f44bad705da21a9ecb2059ebcaba50ae97bb3bfb2860ccfd0fa4c2e",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.3,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-4205e8af77ff",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-09",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Situational awareness starts with having the right information in the right place.",
+      "summary": "✈️ Reposted content: The globe view helps flight crews build greater situational awareness of the weather and operational environment surrounding their planned route. #EFB #aviation #situationalawareness #avgeek #aviationindustry",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_situational-awareness-starts-with-having-activity-7525497991487578112-oDEf"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-10T13:53:58+00:00",
+        "source_sha256": "36e1d4bdac979990a416b25019724129a058eebbeb255615f225580685545ac9",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes globe view feature for flight crew situational awareness.",
+        "summary": "Bytron Skybook promotes its globe view feature to assist flight crews with situational awareness regarding weather and the operational environment. The post contains no announcement of new developments or product updates."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-10T13:55:47+00:00",
+        "source_sha256": "36e1d4bdac979990a416b25019724129a058eebbeb255615f225580685545ac9",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-e97b1952490d",
+      "competitor": "Navblue",
+      "date": "2026-11-09",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "📍✈️Meet Skywise in Dallas for the FALL EFB User Forum !",
+      "summary": "📍✈️Meet Skywise in Dallas for the FALL EFB User Forum ! The Skywise team is heading to Dallas, from November 17 to 19 📅 Visit our experts Prem Ramesh Chandran, Gino Carino , and Arnaud THURAT at Booth n°20 to learn how our Electronic Flight Bag solutions enhance airline operations and fleet performance.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/airbus-skywise_meet-skywise-in-dallas-for-the-fall-efb-activity-7525543343842426880-Da-1"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-10T13:54:17+00:00",
+        "source_sha256": "814dc25eb68bbbc66634b5a7936e44bfed3321a9dabf65d7f77a1167a978ba72",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue promotes Electronic Flight Bag solutions at the FALL EFB User Forum in Dallas.",
+        "summary": "Navblue is promoting its participation in the FALL EFB User Forum in Dallas from November 17 to 19. No concrete changes to product releases or customer contracts are established in this promotional messaging."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-10T13:56:13+00:00",
+        "source_sha256": "814dc25eb68bbbc66634b5a7936e44bfed3321a9dabf65d7f77a1167a978ba72",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "feature_change",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-664871ab7be2",
       "competitor": "Navblue",
@@ -10492,8 +10672,8 @@
       "competitor": "Jeppesen",
       "date": "2026-07-06",
       "type": "customer_win",
-      "priority": "medium",
-      "severity": 3,
+      "priority": "high",
+      "severity": 4,
       "confidence": 0.9,
       "headline": "Jeppesen expands Avia Solutions Group deal across 10 ACMI airlines",
       "summary": "Jeppesen ForeFlight will deploy FliteDeck Pro (incl. Smart Airports), NavData and Airport Data across Avia Solutions Group’s global ACMI airline portfolio.",
@@ -10585,8 +10765,8 @@
       "date": "2026-07-06",
       "date_is_estimated": false,
       "type": "product_launch",
-      "priority": "high",
-      "severity": 4,
+      "priority": "low",
+      "severity": 2,
       "confidence": 0.8,
       "headline": "Jeppesen Foreflight Unveils Airflow",
       "summary": "AUSTIN, Texas — July 1, 2026 — Jeppesen ForeFlight today unveiled its aviation-centric AI engine, the foundation of its strategy to bring responsible artificial intelligence to all sectors of aviation. Jeppesen ForeFlight Airflow™ has been developed over the last several years, backed by decades of deep domain experience, industry-leading data, and capabilities spanning crew and fleet planning, day-of-flight…",
@@ -10770,7 +10950,22 @@
         "title": "Jeppesen launches Airflow AI Engine for ForeFlight.",
         "summary": "Jeppesen has launched the Airflow AI Engine for ForeFlight. The engine is intended to bring responsible artificial intelligence to aviation operations."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-10T13:56:42+00:00",
+        "source_sha256": "288f2ec5a2156701d4664095104f3a1d7ecb78f3417d9e1120fa2f68f0609d79",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "Airflow AI Engine to Bring Responsible AI to Aviation Operations",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-f0efe546fc6e",
@@ -11596,8 +11791,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-10T13:54:38+00:00",
+        "source_sha256": "e9d84cabb017598510295b8f4d22c7d8ceb13738ab0ec4ea441c6e3dea0bc100",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen's ForeFlight Dispatch Solution to be adopted by Korean Air.",
+        "summary": "Jeppesen reports that Korean Air will adopt its ForeFlight dispatch solution. The provided text does not specify contract terms or deployment details."
+      }
     },
     {
       "id": "cap-c783586c0440",
@@ -14113,6 +14316,45 @@
         "title": "Bytron Skybook promotes system integration capabilities within its flight operations stack.",
         "summary": "Bytron published an overview highlighting EFB links to Lido mPilot, NavBlue Charts+, Jeppesen FliteDeck Pro/Aviator, and Navblue RAIM+ reporting. The text describes existing integration capabilities and establishes no new development or software release."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-d1bea71b56b2",
+      "competitor": "Lufthansa Systems",
+      "date": "2025-12-19",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Lufthansa Systems launches new subsidiary in India",
+      "summary": "Lufthansa Systems reported a product launch update: Lufthansa Systems launches new subsidiary in India. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVGNodWNyS2x0SXNtLVV6N2diYmZRYUpkZDIwcmIyal9XdVpwckFZLTVnQnFLTmJHamtyOUVOendVZm5xWFFic1RvUUFVSVlFVVp5MDk1VVh3ell6R3VENVZaZ2V1SmFKSEEybnlkazhfY2JHNDBza2g5elVhNDAxWkI4aG4yQnZ6dlg3VGVxN1N3cDBnQVRkU2lwVXZ0bVJtZWNHTFVYdjhQWl83cTlUYzZvel81aS1UcnhSb2JOdmdOeG0zZVdVZA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
