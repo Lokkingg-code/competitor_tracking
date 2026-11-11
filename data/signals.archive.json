@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T13:53:38Z",
+  "generated_at": "2026-11-11T13:04:11Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -66,6 +66,162 @@
         "type_auto_applied": true,
         "focus_auto_applied": false
       }
+    },
+    {
+      "id": "browser-a930e0147432",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-11-10",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "See you at the 159th IATA Slot Conference in Budapest.",
+      "summary": "What to expect: 🔹 NetLine One and our approach to connecting planning and operations 🔹 Solutions for slot management, scheduling and network planning 🔹 Codeshare management and schedule data publication / exchange 🔹 Approaches to connecting planning and operations more closely 🔹 Direct exchange around your airline’s priorities and challenges Meet and connect with our colleagues on site: Yvonne Dimt , Leoni…",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/lufthansa-systems_iata-slot-conference-in-budapest-activity-7525855706386743296-OpX0"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-11T13:04:53+00:00",
+        "source_sha256": "058e1cbaed914837ec9f907262cdb303764b4acc5f8b0929a6f84827fa2e032f",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-1cc5d6f8a231",
+      "competitor": "Aviobook",
+      "date": "2026-11-10",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "We’re heading to Dallas!",
+      "summary": "Joining us on-site this year are AvioBook experts Petra Lafond (Product Manager), Alex Fredlake (Account Manager), and Claudio Acciani (COO). #AvioBook #FutureOfFlying #EFBUsersForum #AEEC #FlightOperations #FlightOps #AIinAviation #EFB #Aviation",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobook-futureofflying-efbusersforum-activity-7525921076225269760-0TFz"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-11T13:04:32+00:00",
+        "source_sha256": "01b43ceb3b663f2d54d87e3c4b6befd43f8b447870ebceb6b9a8f0f058afacee",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook promotes staff presence at an upcoming industry event in Dallas.",
+        "summary": "Aviobook is promoting its attendance at an upcoming industry event in Dallas, noting that several staff members will be on-site. No concrete product, contract, or deployment changes are established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-11T13:05:13+00:00",
+        "source_sha256": "01b43ceb3b663f2d54d87e3c4b6befd43f8b447870ebceb6b9a8f0f058afacee",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-5159d51c4504",
+      "competitor": "Navblue",
+      "date": "2026-11-10",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "A new chapter in premium aviation, powered by Skywise 🔋",
+      "summary": "🌐 N-Flight Planning (N-FP), N-Ops & Crew (N-OC), Mission+ FLIGHT & MAPS, and Navigation+ for optimised Flight and Crew operations. A great example of how Airbus aircraft and Skywise digital solutions come together to shape the future of aviation ✈️ Explore the full details of this exciting collaboration here👉 https://lnkd.in/ePWxPDDG Reposted content: Airbus Corporate Jets & Skywise, an Airbus digital services…",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Mission+ FLIGHT",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/airbus-skywise_acj-signs-10-acj220-300-order-with-magnifica-activity-7525975857849475072-2dyR"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "browser-4205e8af77ff",
@@ -11012,7 +11168,22 @@
         "title": "Jeppesen unveils Agentic AI strategy and engine for ForeFlight.",
         "summary": "Jeppesen announced an Agentic AI strategy and engine for its ForeFlight product. The announcement focuses on the application of agentic AI capabilities within the aviation industry."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-11T13:05:41+00:00",
+        "source_sha256": "de519a10156818abbf0d120148929834eb8d989664c4ee644128738a9f5ca9a7",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "Agentic AI Strategy and Engine",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-a815a3f4082e",
