@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T08:57:36Z",
+  "generated_at": "2026-11-12T14:05:53Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,130 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "browser-d84441c69849",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-11",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Your EFB should adapt to your operation.",
+      "summary": "Your EFB should adapt to your operation. With skybook, operators have the flexibility to tailor their EFB to their own requirements.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_efb-customization-options-in-app-bytron-activity-7526309344116916224-4_qd"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T14:06:26+00:00",
+        "source_sha256": "860fd03c3b1ce4f8885c31bd15eb3ec01f2f7fa8bce208f1907ec4c5a9ff5c05",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes EFB customization flexibility.",
+        "summary": "Bytron Skybook's messaging focuses on the ability for operators to tailor their Electronic Flight Bag (EFB) to their specific requirements. No concrete product release or customer contract is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T14:10:06+00:00",
+        "source_sha256": "860fd03c3b1ce4f8885c31bd15eb3ec01f2f7fa8bce208f1907ec4c5a9ff5c05",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-8843ce4d73dd",
+      "competitor": "Others",
+      "date": "2026-11-11",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "One chart app here.",
+      "summary": "With Talora Navigation Charts, you get: A global database – one source for charts worldwide One application – everything in one place One subscription – global database Designed with pilots, for pilots. #Aviation #Pilots #FlightPlanning #EFB #Talora #NavigationCharts",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/talora-efb_aviation-pilots-flightplanning-activity-7526267251251953664-9mwG"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T14:06:50+00:00",
+        "source_sha256": "ad487be8143c37991a3ad4a12df13979a76fe6bfac1710d1dff63ffa4c7f9f9d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Talora promotes its Talora Navigation Charts product.",
+        "summary": "Talora promotes the features of its Talora Navigation Charts application, highlighting its single-subscription model and global database. No concrete product release or customer development is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T14:10:39+00:00",
+        "source_sha256": "ad487be8143c37991a3ad4a12df13979a76fe6bfac1710d1dff63ffa4c7f9f9d",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-116c10793717",
       "competitor": "Lufthansa Systems",
@@ -11605,7 +11729,22 @@
         "title": "Jeppesen shifts ForeFlight messaging to focus on AI following separation from Boeing.",
         "summary": "Jeppesen is shifting its ForeFlight messaging to emphasize AI integration and its separation from Boeing. The provided text establishes no concrete product releases or operational changes."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T14:11:20+00:00",
+        "source_sha256": "2140eb8abf513a70c6dda4be33af9c4063bacdd09d11975f3d739d1be510c525",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "bets big on AI",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "jep-2026-06-09-manage-my-efb",
@@ -11653,13 +11792,28 @@
         "title": "Jeppesen and Stratix launch Manage My EFB Device-as-a-Service subscription model.",
         "summary": "Jeppesen and Stratix launched the Manage My EFB Device-as-a-Service subscription model. The offering bundles Apple iPad hardware, ForeFlight EFB software, Stratix lifecycle services, and connectivity into a single per-device monthly cost."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T14:12:58+00:00",
+        "source_sha256": "f822bdab4210b1a176656fb3162d2e863bd4502e0608afb077fdce316a767cf3",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -11707,13 +11861,28 @@
         "title": "Jeppesen ForeFlight and Stratix launch Manage My EFB.",
         "summary": "Jeppesen ForeFlight and Stratix have launched Manage My EFB. The provided text does not include specific operational details or functional specifications regarding this launch."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T14:14:04+00:00",
+        "source_sha256": "13788694b13d34ff293a3918e14dd4a77896a9bac427493833ec41f25079cf2f",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -14334,8 +14503,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T14:08:08+00:00",
+        "source_sha256": "be9511914ab6559f5bfffe39542240d06d7bf8d93751253940352c5bb6a1bead",
+        "evidence_scope": "captured_preview_only",
+        "title": "uAvionix releases AV-30-C software version 3.2.1 with ForeFlight integration and autopilot coupling.",
+        "summary": "uAvionix has released AV-30-C software version 3.2.1, which provides ForeFlight integration and advanced autopilot coupling for certified aircraft."
+      }
     },
     {
       "id": "cap-59601212c095",
@@ -14655,8 +14832,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T14:08:21+00:00",
+        "source_sha256": "ae440cb726e8d92ed7f0ae5c6baa139124482522e628274977fd0c70b952e9bc",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems launches new subsidiary in India.",
+        "summary": "Lufthansa Systems has established a new subsidiary in India. The announcement does not disclose specific product updates, customer agreements, or operational details."
+      }
     },
     {
       "id": "cap-1cb25bf85761",
@@ -14694,8 +14879,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T14:09:20+00:00",
+        "source_sha256": "6c21fa557867d74dc911c30250ec5f7527c7a32f13525953d56211f498ef16d3",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen announces availability of FOM-2 and Online FOM-2 VLP FAA Dispatcher Certification programs for 2026.",
+        "summary": "Jeppesen Dispatch Academy announced the availability of its FOM-2 and Online FOM-2 VLP FAA Dispatcher Certification programs for 2026. These programs provide both standard and online certification pathways."
+      }
     },
     {
       "id": "cap-f00653cc7140",
