@@ -81,11 +81,13 @@ test("Gemini generation sends the aggregate-only payload and returns validated J
   const insights = await generateInsights(snapshot, { apiKey: "test-key", model: "test-model", fetchImpl });
   assert.equal(insights.regions.length, 1);
   assert.doesNotMatch(requestBody.contents[0].parts[0].text, /Private Airline|Private Contact|Private Notes/);
-  assert.match(requestBody.contents[0].parts[0].text, /carrier-type contrasts/);
-  assert.match(requestBody.contents[0].parts[0].text, /0 of 5 planning-recorded small LCCs/);
+  assert.match(requestBody.contents[0].parts[0].text, /carrier-type and fleet-band differences/);
+  assert.match(requestBody.contents[0].parts[0].text, /Cathay Technologies/);
+  assert.match(requestBody.contents[0].parts[0].text, /field-complete sample is under 5/);
+  assert.match(requestBody.contents[0].parts[0].text, /A 2\/2 result is not a preference/);
   assert.match(requestBody.contents[0].parts[0].text, /Markdown bold/);
-  assert.match(requestBody.contents[0].parts[0].text, /based only on current regional system-adoption patterns/);
-  assert.match(requestBody.contents[0].parts[0].text, /Do not use past conference counts or attendance records/);
+  assert.match(requestBody.contents[0].parts[0].text, /Do not discuss conferences/);
+  assert.match(requestBody.contents[0].parts[0].text, /Do not call these figures market share, adoption rates, demand, or installed base/);
   assert.equal(requestBody.generationConfig.responseMimeType, "application/json");
 });
 

@@ -119,15 +119,15 @@ export async function generateInsights(snapshot, {
   if (!apiKey) throw new Error("GEMINI_API_KEY is required to generate AI insights.");
   const input = buildInsightInput(snapshot);
   const prompt = [
-    "Act as a cautious airline technology market analyst. Use only the aggregate Airtable counts provided below.",
+    "Act as a cautious airline technology market analyst advising Cathay Technologies on target research for Cathay Flight Folder. Use only the aggregate Airtable counts provided below; do not add outside market claims.",
     "Return strict JSON with shape: {\"overall\":{\"headline\":string,\"observations\":string[],\"caveat\":string},\"regions\":[{\"name\":string,\"headline\":string,\"observations\":string[],\"caveat\":string}] }.",
-    "Create one overall and one regional read for every supplied region. Keep each headline concise and each observation under 35 words.",
-    "Do not merely list the most common vendors. Lead with carrier-type contrasts (LCC vs Flag Carrier) across fleet sizes. Mention a fleet-size intersection only when its pattern is notably clearer and at least 5 airlines have that field recorded. For each region, compare vendor rates with the overall rate and report only useful differences.",
-    "Compute selection rates as vendor count / airlines with that field recorded, and include both numerator and denominator. State absences precisely, e.g. '0 of 5 planning-recorded small LCCs list Lido'; never imply missing fields are non-adoption or that a segment necessarily prefers a system.",
+    "Create one overall and one regional read for every supplied region. Keep each headline concise and each observation under 35 words. The overall read should identify which recorded airline segments or regions are worth validating first for Cathay Flight Folder, and where coverage is too weak to prioritize.",
+    "Prioritize meaningful carrier-type and fleet-band differences (LCC vs Flag Carrier) over lists of common vendors. Treat this Airtable list as a prospect sample, not the whole market. Compare a segment with the overall recorded rate only when the comparison is useful and both denominators are shown.",
+    "Compute each system rate as recorded selections divided by airlines with that field recorded; state both numerator and denominator and say 'recorded selections'. If the field-complete sample is under 5, do not name a leading system or make a directional targeting recommendation; explicitly say evidence is insufficient. A 2/2 result is not a preference.",
     "Wrap vendor names and key counts/rates in Markdown bold (**...**) to make evidence scannable. Do not emit HTML or bold entire sentences.",
-    "Counts are recorded selections, not market share; multi-select fields may count an airline more than once. Missing fields are unknown, not non-adoption.",
-    "For conference advice, recommend regions for future event research based only on current regional system-adoption patterns and coverage strength. Do not use past conference counts or attendance records, claim ROI, name events, or recommend booking. Suggest checking event audience and agenda before any commitment.",
-    "Do not imply causation, invent market behavior, or name or infer individual airlines.",
+    "Do not say airlines prefer, favor, rely on, or are driven by a vendor based on these records. Do not call these figures market share, adoption rates, demand, or installed base. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption.",
+    "Every regional headline should identify a sufficiently supported difference useful for target research or state that the sample is insufficient. Do not produce a generic action recommendation just to fill a regional section.",
+    "Do not discuss conferences: this dataset has no event audience, opportunity, or ROI evidence. Do not infer named airline relationships, causal benefits, or product capabilities absent from the aggregate input.",
     "Aggregate-only input:",
     JSON.stringify(input),
   ].join("\n\n");

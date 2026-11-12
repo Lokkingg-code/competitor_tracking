@@ -1,8 +1,8 @@
 {
-  "captured_at": "2026-11-05T06:44:33.353Z",
+  "captured_at": "2026-11-08T06:34:04.611Z",
   "lookback_days": 14,
-  "cutoff": "2026-10-22",
-  "count": 6,
+  "cutoff": "2026-10-25",
+  "count": 7,
   "checks": [
     {
       "competitor": "Jeppesen",
@@ -10,10 +10,10 @@
       "requested_url": "https://www.linkedin.com/company/jeppesen/posts/",
       "final_url": "https://www.linkedin.com/company/jeppesen/posts/",
       "page_title": "Jeppesen: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
       "scrolls": 2,
-      "oldest_observed_date": "2026-02-08",
+      "oldest_observed_date": "2026-02-11",
       "login_required": false,
       "selector_matches": 2,
       "article_nodes": 2,
@@ -32,32 +32,23 @@
       "requested_url": "https://www.linkedin.com/company/foreflight/posts/",
       "final_url": "https://www.linkedin.com/company/foreflight/posts/",
       "page_title": "ForeFlight: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
-      "scrolls": 2,
-      "oldest_observed_date": "2026-09-06",
+      "scrolls": 3,
+      "oldest_observed_date": "2026-09-09",
       "login_required": false,
-      "selector_matches": 13,
-      "article_nodes": 13,
-      "posts_seen": 13,
+      "selector_matches": 12,
+      "article_nodes": 12,
+      "posts_seen": 14,
       "posts_captured": 0,
       "post_skips": {
-        "unparseable_date": 3,
-        "permalink_menu_error": 2,
+        "unparseable_date": 4,
+        "invalid_permalink": 1,
+        "duplicate_post_in_capture": 1,
         "outside_lookback": 8
       },
       "feed_sort": "recent",
-      "status": "post_capture_errors",
-      "post_errors": [
-        {
-          "title": "Thinking about taking the next step toward aircraft ownership? Join our live webinar on October 27, where ForeFlight’s Alex Montgomery, CFII and three-time aircraft owner, breaks d",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"c477912b-b0ee-4c70-a2e7-e103ab570831\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        },
-        {
-          "title": "100,000 Sentry’s shipped. 🎉",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"298c94bf-8f4d-494a-b0a5-b8dc1bb5bc02\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        }
-      ]
+      "status": "no_posts_captured"
     },
     {
       "competitor": "Lufthansa Systems",
@@ -65,37 +56,33 @@
       "requested_url": "https://www.linkedin.com/company/lufthansa-systems/posts/",
       "final_url": "https://www.linkedin.com/company/lufthansa-systems/posts/",
       "page_title": "Lufthansa Systems: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
-      "scrolls": 2,
-      "oldest_observed_date": "2026-10-15",
+      "scrolls": 4,
+      "oldest_observed_date": "2026-10-09",
       "login_required": false,
-      "selector_matches": 12,
-      "article_nodes": 12,
-      "posts_seen": 12,
-      "posts_captured": 2,
+      "selector_matches": 23,
+      "article_nodes": 23,
+      "posts_seen": 39,
+      "posts_captured": 3,
       "post_skips": {
-        "invalid_permalink": 3,
-        "permalink_post_text_mismatch": 3,
-        "unparseable_date": 3,
-        "outside_lookback": 1
+        "unparseable_date": 11,
+        "invalid_permalink": 4,
+        "duplicate_post_in_capture": 11,
+        "permalink_post_text_mismatch": 2,
+        "outside_lookback": 8
       },
       "feed_sort": "recent",
       "status": "partial_capture",
       "post_errors": [
         {
-          "title": "✈️ 𝗪𝗵𝗮𝘁 𝗺𝗮𝗸𝗲𝘀 𝗮 𝗴𝗼𝗼𝗱 𝗮𝘃𝗶𝗮𝘁𝗶𝗼𝗻 𝗺𝗮𝗽?",
-          "url": "https://lnkd.in/p/g7s5ug58",
+          "title": "✈️ Taking our collaboration with Collins Aerospace to the next level!",
+          "url": "https://lnkd.in/p/gMEb6Jwi",
           "error": "Copied permalink preview did not match visible post"
         },
         {
-          "title": "High-speed airline operations demand high-performance IT infrastructure.",
-          "url": "https://lnkd.in/p/gcubCsWy",
-          "error": "Copied permalink preview did not match visible post"
-        },
-        {
-          "title": "🏆 Another milestone for SIRAX/ONE Order!",
-          "url": "https://lnkd.in/p/guzxp-Hz",
+          "title": "✈️ 𝗪𝗲 𝗮𝗿𝗲 𝗵𝗲𝗮𝗱𝗶𝗻𝗴 𝘁𝗼 𝘁𝗵𝗲 𝗜𝗔𝗧𝗔 𝗪𝗙𝗦 & 𝗪𝗣𝗦 𝗶𝗻 𝗠𝗮𝗰𝗮𝗼, 𝟮𝟴–𝟮𝟵 𝗢𝗰𝘁𝗼𝗯𝗲𝗿!",
+          "url": "https://lnkd.in/p/gWMSTDEk",
           "error": "Copied permalink preview did not match visible post"
         }
       ]
@@ -106,20 +93,19 @@
       "requested_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
       "final_url": "https://www.linkedin.com/company/aviovision-nv/posts/",
       "page_title": "AvioBook: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
       "scrolls": 3,
-      "oldest_observed_date": "2026-10-15",
+      "oldest_observed_date": "2026-10-18",
       "login_required": false,
       "selector_matches": 13,
       "article_nodes": 13,
       "posts_seen": 16,
       "posts_captured": 1,
       "post_skips": {
-        "permalink_post_text_mismatch": 1,
-        "invalid_permalink": 1,
+        "invalid_permalink": 4,
+        "permalink_post_text_mismatch": 3,
         "duplicate_post_in_capture": 3,
-        "permalink_menu_error": 5,
         "outside_lookback": 5
       },
       "feed_sort": "recent",
@@ -127,28 +113,18 @@
       "post_errors": [
         {
           "title": "Missed the AvioBook 26.3 Release webinar, or want to watch it again? The recording is now available on demand! 🧑🏻‍💻",
-          "url": "https://lnkd.in/p/g--_R2Y4",
+          "url": "https://lnkd.in/p/gfDgJ9Kj",
           "error": "Copied permalink preview did not match visible post"
         },
         {
-          "title": "Your pre-flight briefing for 26.3 starts tomorrow ⏰",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"c1e47433-60a6-43cf-b048-e9cd7444ffa0\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        },
-        {
           "title": "Why do we do what we do? Because when airlines grow, their pilots should be able to rely on technology that grows with them ✈️",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n"
-        },
-        {
-          "title": "What a week at Aircraft IT Bangkok! Thanks to everyone who stopped by the AvioBook booth for a chat, a demo, or just to say hi. Great conversations, great energy, and a great remin",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"37274466-0d05-4264-94a3-1d9c3dca4a52\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
+          "url": "https://lnkd.in/p/gWqxe5Un",
+          "error": "Copied permalink preview did not match visible post"
         },
         {
           "title": "⏰ One more week!",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"4a551e4f-c3a0-4e87-abf5-5760a8588033\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        },
-        {
-          "title": "Day two at Aircraft IT Bangkok. We've loved seeing so many familiar faces again this week. Haven't made it to our booth yet? Today's the day! Find us at booth 16 & 17.",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"208a86b8-f1e6-47f3-8186-d2f41c3a8dcd\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
+          "url": "https://lnkd.in/p/gygQ9AVh",
+          "error": "Copied permalink preview did not match visible post"
         }
       ]
     },
@@ -158,82 +134,62 @@
       "requested_url": "https://www.linkedin.com/company/bytron/posts/",
       "final_url": "https://www.linkedin.com/company/bytron/posts/",
       "page_title": "Bytron Aviation Systems: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
-      "scrolls": 2,
-      "oldest_observed_date": "2026-10-06",
+      "scrolls": 3,
+      "oldest_observed_date": "2026-10-09",
       "login_required": false,
       "selector_matches": 13,
       "article_nodes": 13,
-      "posts_seen": 13,
+      "posts_seen": 16,
       "posts_captured": 3,
       "post_skips": {
-        "invalid_permalink": 1,
-        "permalink_post_text_mismatch": 1,
+        "invalid_permalink": 2,
+        "duplicate_post_in_capture": 3,
         "outside_lookback": 8
       },
       "feed_sort": "recent",
-      "status": "partial_capture",
-      "post_errors": [
-        {
-          "title": "We are at the National Business Aviation Association NBAA-BACE in Las Vegas.",
-          "url": "https://lnkd.in/p/gz3mvedN",
-          "error": "Copied permalink preview did not match visible post"
-        }
-      ]
+      "status": "ok"
     },
     {
       "competitor": "Navblue",
       "vanity_name": "airbus-skywise",
       "requested_url": "https://www.linkedin.com/company/airbus-skywise/posts/",
       "final_url": "https://www.linkedin.com/company/airbus-skywise/posts/",
-      "page_title": "Skywise: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "page_title": "Skywise, an Airbus digital services company: Posts | LinkedIn",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
       "scrolls": 4,
-      "oldest_observed_date": "2026-10-06",
+      "oldest_observed_date": "2026-10-09",
       "login_required": false,
-      "selector_matches": 22,
-      "article_nodes": 22,
-      "posts_seen": 46,
+      "selector_matches": 23,
+      "article_nodes": 23,
+      "posts_seen": 39,
       "posts_captured": 0,
       "post_skips": {
-        "permalink_menu_error": 7,
-        "unparseable_date": 13,
-        "invalid_permalink": 1,
-        "duplicate_post_in_capture": 16,
+        "unparseable_date": 12,
+        "invalid_permalink": 5,
+        "permalink_post_text_mismatch": 3,
+        "duplicate_post_in_capture": 10,
         "outside_lookback": 9
       },
       "feed_sort": "recent",
       "status": "post_capture_errors",
       "post_errors": [
         {
-          "title": "✍️From the Vietnam Aerospace Forum in Hanoi, Skywise has signed a Memorandum of Understanding with Vietnam Airlines and FPT Software to explore the potential application of Al to o",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n"
-        },
-        {
           "title": "🚀 New reveals, One great location!",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"9224a43c-a7d5-4c64-815f-e3099d2e3ad6\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
+          "url": "https://lnkd.in/p/g7-NiJvU",
+          "error": "Copied permalink preview did not match visible post"
         },
         {
-          "title": "Skywise is expanding its portfolio with enhanced digital flight training solutions, bringing the former Airbus MATe (Mobile Airbus Training experience) Suite and Virtual Procedure ",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"2fac3295-84c2-4199-997a-e75ae1491421\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        },
-        {
-          "title": "Thank you Atlanta for hosting this year's special event ! ✨",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"0cea3160-a7e4-4c5e-a050-d2dd465b091b\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
+          "title": "They say Halloween is all about costumes, but our biggest wardrobe change actually happened back in April when we officially launched Skywise, uniting Airbus’s digital services and",
+          "url": "https://lnkd.in/p/gQgT7esb",
+          "error": "Copied permalink preview did not match visible post"
         },
         {
           "title": "A look back at Day 1 at MRO Europe in Amsterdam! ✈️📸",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"528cab17-62fc-49d0-aa75-517ba7320ec7\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        },
-        {
-          "title": "IndiGo has selected Skywise Core X3 to power next-generation analytics ✍️",
-          "error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i }) to be visible\n"
-        },
-        {
-          "title": "Exciting news from the Asia-Pacific aviation sector! ✈️",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"16a09ebd-40f6-4baf-999e-330939606d14\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
+          "url": "https://lnkd.in/p/gsRZXWvr",
+          "error": "Copied permalink preview did not match visible post"
         }
       ]
     },
@@ -243,17 +199,17 @@
       "requested_url": "https://www.linkedin.com/company/navblue-an-airbus-company/posts/",
       "final_url": "https://www.linkedin.com/company/navblue-an-airbus-company/posts/",
       "page_title": "NAVBLUE, an Airbus Company: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
       "scrolls": 2,
-      "oldest_observed_date": "2026-02-08",
+      "oldest_observed_date": "2026-04-12",
       "login_required": false,
-      "selector_matches": 12,
-      "article_nodes": 12,
-      "posts_seen": 12,
+      "selector_matches": 3,
+      "article_nodes": 3,
+      "posts_seen": 3,
       "posts_captured": 0,
       "post_skips": {
-        "outside_lookback": 11,
+        "outside_lookback": 2,
         "unparseable_date": 1
       },
       "feed_sort": "recent",
@@ -265,21 +221,20 @@
       "requested_url": "https://www.linkedin.com/company/ifs-international-flight-support/posts/",
       "final_url": "https://www.linkedin.com/company/ifs-international-flight-support/posts/",
       "page_title": "IFS - International Flight Support: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
-      "scrolls": 1,
-      "oldest_observed_date": "2026-04-09",
+      "scrolls": 2,
+      "oldest_observed_date": "2026-10-09",
       "login_required": false,
-      "selector_matches": 12,
-      "article_nodes": 12,
-      "posts_seen": 12,
+      "selector_matches": 3,
+      "article_nodes": 3,
+      "posts_seen": 3,
       "posts_captured": 0,
       "post_skips": {
-        "outside_lookback": 12
+        "outside_lookback": 3
       },
-      "feed_sort": "recent_sort_unavailable",
-      "status": "sort_unavailable",
-      "sort_error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n  - waiting for getByRole('menuitem', { name: /^Recent$/i }) to be visible\n"
+      "feed_sort": "recent",
+      "status": "no_posts_captured"
     },
     {
       "competitor": "Others",
@@ -287,19 +242,18 @@
       "requested_url": "https://www.linkedin.com/company/talora-efb/posts/",
       "final_url": "https://www.linkedin.com/company/talora-efb/posts/",
       "page_title": "Talora: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
       "scrolls": 3,
-      "oldest_observed_date": "2026-10-06",
+      "oldest_observed_date": "2026-10-09",
       "login_required": false,
       "selector_matches": 13,
       "article_nodes": 13,
       "posts_seen": 16,
       "posts_captured": 0,
       "post_skips": {
-        "invalid_permalink": 2,
-        "permalink_post_text_mismatch": 1,
-        "permalink_menu_error": 5,
+        "invalid_permalink": 5,
+        "permalink_post_text_mismatch": 3,
         "duplicate_post_in_capture": 3,
         "outside_lookback": 5
       },
@@ -308,28 +262,18 @@
       "post_errors": [
         {
           "title": "Yesterday, Prakash Rajan had the pleasure of presenting our product vision at the 2nd South Korea Aero Summit 2026.",
-          "url": "https://lnkd.in/p/gPcWPEPf",
+          "url": "https://lnkd.in/p/gqUYTvRP",
           "error": "Copied permalink preview did not match visible post"
         },
         {
-          "title": "If you didn't have the chance to stop by at our booth T01 yesterday, make sure to do so today. Prakash Rajan and Phil Tanthatsawat are still there to answer all your questions.",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"17186bbe-4c05-4c77-b3e5-dfdc69f666e2\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        },
-        {
-          "title": "The 2nd South Korea Aero Summit 2026 has officially started.",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"9ed3c698-c2aa-4b0d-9673-4b465e800d9a\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        },
-        {
-          "title": "Next month from 17th - 19th November I will heading to the Canadian Aviation Conference & Tradeshow (Air Transport Association of Canada - Association du transport aérien du Canada",
-          "error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i }) to be visible\n"
+          "title": "Global charts. One database.",
+          "url": "https://lnkd.in/p/gE7F6SkJ",
+          "error": "Copied permalink preview did not match visible post"
         },
         {
           "title": "Next month our team including Prakash Rajan and Nico Müller-Lankow will be exhibiting at the Canadian Aviation Conference & Tradeshow (Air Transport Association of Canada - Associa",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"b329d159-0769-4925-819d-d0423d2ba5c1\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
-        },
-        {
-          "title": "Last week at the Aircraft Commerce Bangkok 2026 we had the opportunity to present our latest Navigation Charts developments and talk to the industry about the evolving needs of mod",
-          "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[role=\"menu\"]:visible').last().getByRole('menuitem', { name: /^Copy link to post$/i })\n    - locator resolved to <div tabindex=\"0\" role=\"menuitem\" componentkey=\"585812fa-deb6-4c03-8a1f-c5c6e33603a7\" class=\"fa4ia7 fa4h13 fa4me9 fa4me8 fa4k8o fa4k9k fa4lag fa4lbc fa4t0 fa4hn4 fa4ljh fa4ayy\">…</div>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
+          "url": "https://lnkd.in/p/gA59c3tq",
+          "error": "Copied permalink preview did not match visible post"
         }
       ]
     },
@@ -339,24 +283,37 @@
       "requested_url": "https://www.linkedin.com/company/flightman/posts/",
       "final_url": "https://www.linkedin.com/company/flightman/posts/",
       "page_title": "Flightman: Posts | LinkedIn",
-      "lookback_cutoff": "2026-10-22",
+      "lookback_cutoff": "2026-10-25",
       "lookback_complete": true,
-      "scrolls": 2,
-      "oldest_observed_date": "2026-03-10",
+      "scrolls": 1,
+      "oldest_observed_date": "2025-12-13",
       "login_required": false,
-      "selector_matches": 3,
-      "article_nodes": 3,
-      "posts_seen": 3,
+      "selector_matches": 9,
+      "article_nodes": 9,
+      "posts_seen": 9,
       "posts_captured": 0,
       "post_skips": {
         "unparseable_date": 1,
-        "outside_lookback": 2
+        "outside_lookback": 8
       },
-      "feed_sort": "recent",
-      "status": "no_posts_captured"
+      "feed_sort": "recent_sort_unavailable",
+      "status": "sort_unavailable",
+      "sort_error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n  - waiting for getByRole('menuitem', { name: /^Recent$/i }) to be visible\n"
     }
   ],
   "items": [
+    {
+      "id": "browser-133e2070a853",
+      "competitor": "Lufthansa Systems",
+      "source_name": "LinkedIn browser collector",
+      "captured_via": "linkedin_browser",
+      "source_channel": "linkedin",
+      "title": "From tickets to orders, in practice.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7524030532536651776/",
+      "summary": "From tickets to orders, in practice. Join us and TPConnects Technologies to explore how SIRAX/ONE Order enables real-time, order-based accounting and settlement. 📅 November 24 | 10:00 CET Register via the original post below. 👇 #SIRAX #OneOrder #LufthansaSystems … more TPConnects Technologies 2d Follow Learn how we orchestrated ONE Order across nine vendors as the most relevant demo at IATA’s 2026 Multi-Vendor Modularity Demo. One family. Dubai to London via Bahrain. Two carriers. A cancelled flight, rebooked on the same order with no ticket-based exchanges. Revenue settled across both carri",
+      "published_at": "2026-11-06",
+      "permalink_method": "card_link"
+    },
     {
       "id": "browser-7bfd455c4173",
       "competitor": "Lufthansa Systems",
@@ -365,8 +322,8 @@
       "source_channel": "linkedin",
       "title": "Cyber security is a team effort! 🔐",
       "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7519322558345678848/",
-      "summary": "Cyber security is a team effort! 🔐 As part of Cyber Security Month, we brought security awareness directly to our colleagues at Lufthansa Systems with a dedicated booth in Raunheim. A great opportunity to connect with our Information Security Team, ask questions, share experiences, and pick up useful tips for staying safe in the digital world. 💬 Thanks to everyone who stopped by and to the Lufthansa Group Security Awareness Team for their support! 🙌 David Kneller | Nils Fast | Ingo S. | Sharat Paroor #CyberSecurityMonth #ExploreLufthansaSystems #SecurityAwareness … more Lufthansa Group 1w \ud83c",
-      "published_at": "2026-10-29",
+      "summary": "Cyber security is a team effort! 🔐 As part of Cyber Security Month, we brought security awareness directly to our colleagues at Lufthansa Systems with a dedicated booth in Raunheim. A great opportunity to connect with our Information Security Team, ask questions, share experiences, and pick up useful tips for staying safe in the digital world. 💬 Thanks to everyone who stopped by and to the Lufthansa Group Security Awareness Team for their support! 🙌 David Kneller | Nils Fast | Ingo S. | Sharat Paroor #CyberSecurityMonth #ExploreLufthansaSystems #SecurityAwareness … more Lufthansa Group 2w \ud83c",
+      "published_at": "2026-11-01",
       "permalink_method": "card_link"
     },
     {
@@ -378,7 +335,7 @@
       "title": "A great moment for the transition towards Modern Airline Retailing! ✈️",
       "url": "https://www.linkedin.com/feed/update/urn:li:share:7517887050281271296/",
       "summary": "A great moment for the transition towards Modern Airline Retailing! ✈️ At IATA WFS WPS in Macao, Finnair and our colleague Sebastian Holfert will take the stage together to share how the Tickets-to-Orders transformation is becoming reality in practice.  We’re especially proud to present this journey together with Finnair and provide insights into how SIRAX/ONE Order supports the transition towards Offers and Orders. Looking forward to an insightful session in Macao! #IATA #WFSWPS #ONEOrder #ModernAirlineRetailing #AirlineRetailing #SIRAX … more Sebastian Holfert • 3rd+ Senior Product Owner Fin",
-      "published_at": "2026-10-22",
+      "published_at": "2026-10-25",
       "permalink_method": "card_link"
     },
     {
@@ -390,7 +347,7 @@
       "title": "MRO Europe is about to open its doors and the Thales Aviation Global Services and Aerospace Communications teams are ready and looking forward to two days of connecting with our cu",
       "url": "https://www.linkedin.com/feed/update/urn:li:share:7521123548342603776/",
       "summary": "MRO Europe is about to open its doors and the Thales Aviation Global Services and Aerospace Communications teams are ready and looking forward to two days of connecting with our customers, partners and suppliers from across the region. Come by booth #1156 to learn more about how Thales is providing the support and services the industry needs today and for tomorrow. #thales #thalesags #thalesaec … more 6 ​ ​ ​",
-      "published_at": "2026-10-29",
+      "published_at": "2026-11-01",
       "permalink_method": "card_link"
     },
     {
@@ -401,7 +358,7 @@
       "source_channel": "linkedin",
       "title": "Less NOTAM noise, more operational awareness. ✈️",
       "url": "https://www.linkedin.com/feed/update/urn:li:share:7523311508907532288/",
-      "summary": "Less NOTAM noise, more operational awareness. ✈️ Dan Cook • 2nd Enhancing airlines with skybook, an EFB solution & integrated dispatch for complete flight data capture! Visit my website 1d Follow Effective NOTAM management is about three things... 🔎 Filtering - removing unnecessary clutter and focusing on relevant information. ⚠️ Prioritising - making critical notices easier to identify. 📡 Monitoring - keeping flight operations informed when important NOTAMs change. Giving pilots and dispatchers the information they need, when they need it. Is NOTAM overload still a challenge in your operati",
+      "summary": "Less NOTAM noise, more operational awareness. ✈️ Dan Cook • 2nd Enhancing airlines with skybook, an EFB solution & integrated dispatch for complete flight data capture! Visit my website 4d Follow Effective NOTAM management is about three things... 🔎 Filtering - removing unnecessary clutter and focusing on relevant information. ⚠️ Prioritising - making critical notices easier to identify. 📡 Monitoring - keeping flight operations informed when important NOTAMs change. Giving pilots and dispatchers the information they need, when they need it. Is NOTAM overload still a challenge in your operati",
       "published_at": "2026-11-04",
       "permalink_method": "card_link"
     },
@@ -414,7 +371,7 @@
       "title": "With skybook, airlines can manage and distribute EFFs seamlessly.",
       "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7520813627763970049/",
       "summary": "With skybook, airlines can manage and distribute EFFs seamlessly. Dan Cook • 2nd Enhancing airlines with skybook, an EFB solution & integrated dispatch for complete flight data capture! Visit my website 1w Follow Our latest article explores EFF management & distribution, providing a standardised way to connect operational systems with your chosen EFB application... #aviation #EFB #ARINC633 #aviationindustry #avgeek … more Dan's EFB & Aviation Updates Subscribe EFF Management & Distribution: Connecting Flight Planning to the EFB Dan Cook 1 ​ ​ ​",
-      "published_at": "2026-10-29",
+      "published_at": "2026-11-01",
       "permalink_method": "card_link"
     },
     {
@@ -426,7 +383,7 @@
       "title": "One operation, one connected view... ✈️",
       "url": "https://www.linkedin.com/feed/update/urn:li:share:7518252630821896192/",
       "summary": "One operation, one connected view... ✈️ Dan Cook • 2nd Enhancing airlines with skybook, an EFB solution & integrated dispatch for complete flight data capture! Visit my website 2w Follow An integrated dispatch & EFF portal brings everything together. 🤝 When flight plans, weather, NOTAMs, aircraft, crew, fuel and communications are spread across different systems, maintaining one clear operational picture becomes harder. One connected view from dispatch to the flight crews EFB, helping teams stay informed, communicate quickly and respond when things change. Full article in the comments  ✈️ #fl",
-      "published_at": "2026-10-22",
+      "published_at": "2026-10-25",
       "permalink_method": "card_link"
     }
   ]
