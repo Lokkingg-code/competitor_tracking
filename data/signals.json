@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T13:04:11Z",
+  "generated_at": "2026-11-12T07:34:18Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -48,7 +48,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -65,6 +64,15 @@
         "original_type": "partnership",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T07:34:34+00:00",
+        "source_sha256": "b87b5b4cf11a1c7ac8d34f6dbefe8f1d2143711df5da8f07f1e73dec2f908728",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes messaging on airline operational uniqueness.",
+        "summary": "Lufthansa Systems shares promotional messaging regarding the unique systems, workflows, and partner connections of individual airlines. No concrete product development, customer win, or contract update is established."
       }
     },
     {
@@ -221,7 +229,22 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T07:34:59+00:00",
+        "source_sha256": "3c4f7b8e243f38e682b85b8de65c55a54177759afd0c340bb5c516016f87612a",
+        "suggested_type": "partnership",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-4205e8af77ff",

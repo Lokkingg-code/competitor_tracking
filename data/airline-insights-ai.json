@@ -1,97 +1,96 @@
 {
   "schema_version": 1,
-  "snapshot_generated_at": "2026-11-11T13:02:20+00:00",
-  "generated_at": "2026-11-11T13:06:20.230Z",
+  "snapshot_generated_at": "2026-11-12T07:34:17+00:00",
+  "generated_at": "2026-11-12T07:35:16.810Z",
   "model": "gemini-3.5-flash-lite",
   "overall": {
-    "headline": "Global EFB and Flight Planning Selections Show Diverse Vendor Adoption Across Carrier Types",
+    "headline": "Target East Asia & Pacific First, Defer Sub-Saharan Africa and South Asia",
     "observations": [
-      "Across **519** total airlines, **127** record EFB selections and **68** record flight planning selections in Airtable.",
-      "Flag carriers frequently cite **AvioBook** and **In-house built** solutions, while low-cost carriers often lean toward **Navblue Mission+** for EFB operations.",
-      "For flight planning, **Lido** leads with **24** of **68** recorded selections, followed by **NavBlue** at **16** selections."
+      "Out of **520** total records, **127** have electronic flight folder data and **68** have flight planning recorded, serving as our prospect sample.",
+      "East Asia & Pacific records **39** electronic flight folder entries with **9** in-house builds and **6** paper selections, making it worth validating first.",
+      "Sub-Saharan Africa records **8** electronic entries and South Asia records **4**, making coverage too weak to prioritize target research."
     ],
-    "caveat": "Counts reflect recorded Airtable selections rather than total market share, and missing data indicates unknown status rather than non-adoption."
+    "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
   },
   "regions": [
     {
       "name": "Europe & Central Asia",
-      "headline": "Regional Adoption Features Strong In-House and AvioBook Presence Alongside Lido Planning",
+      "headline": "Large Sample Highlights In-House and AvioBook Usage",
       "observations": [
-        "Among **151** airlines, **35** record EFB selections and **14** record planning selections.",
-        "**In-house built** leads EFB selections at **7** of **35** (**20.0%**), contrasting with the global rate.",
-        "**Lido** captures **5** of **14** planning selections (**35.7%**), closely aligning with global planning preferences."
+        "Within Europe & Central Asia, **35** airlines have electronic flight folder data recorded out of **151** total listed carriers.",
+        "Recorded selections include **7** for in-house built solutions and **6** for **AvioBook** out of the **35** recorded entries.",
+        "For flight planning, **Lido** is noted with **5** recorded selections and **FlightKeys** with **4** out of **14** planning records."
       ],
-      "caveat": "Figures represent recorded selections only; unrecorded carriers do not imply absence of technology."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
     },
     {
       "name": "East Asia & Pacific",
-      "headline": "High Engagement With Paper and In-House Systems Alongside NavBlue Planning",
+      "headline": "Substantial Sample Supports Immediate Target Validation",
       "observations": [
-        "Out of **130** airlines, **39** record EFB selections and **18** record planning selections.",
-        "**In-house built** EFB selections reach **9** of **39** (**23.1%**), while **Paper** accounts for **6** of **39** (**15.4%**).",
-        "**NavBlue** leads planning selections with **9** of **18** (**50.0%**), exceeding the global planning rate."
+        "This region records **39** electronic flight folder entries out of **130** listed airlines, providing a solid foundation for research.",
+        "Key electronic selections include **9** for in-house built systems and **6** for paper out of **39** recorded selections.",
+        "Flight planning shows **9** recorded selections for **NavBlue** and **7** for **Lido** out of **18** planning records."
       ],
-      "caveat": "Multi-select fields may count individual airlines multiple times; missing fields are unknown."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
     },
     {
       "name": "North America",
-      "headline": "Concentrated FlightKeys Adoption Outpaces Global Planning Averages",
+      "headline": "Moderate Sample Shows AvioBook and FlightKeys Activity",
       "observations": [
-        "From **59** airlines, **14** record EFB selections and **9** record planning selections.",
-        "**AvioBook** leads EFB choices with **5** of **14** selections (**35.7%**), surpassing the global rate.",
-        "**FlightKeys** dominates planning with **5** of **9** selections (**55.6%**), far above the global **12** of **68** baseline."
+        "North America contains **59** airlines, with **14** electronic flight folder records and **9** flight planning records available.",
+        "Recorded electronic selections include **5** for **AvioBook** and **3** for **Navblue Mission+** out of **14** recorded entries.",
+        "Flight planning records show **5** selections for **FlightKeys** out of **9** recorded planning entries."
       ],
-      "caveat": "Low recording denominators for specific sub-segments restrict broad regional generalizations."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
     },
     {
       "name": "Latin America & Caribbean",
-      "headline": "Balanced Vendor Spread With Moderate Lido Flight Planning Representation",
+      "headline": "Limited Sample Size Restricts Strong Targeting Conclusions",
       "observations": [
-        "Among **56** airlines, **12** record EFB selections and **9** record planning selections.",
-        "EFB selections show an even split with **AvioBook**, **Flightman**, and **Paper** each recording **2** of **12** selections (**16.7%** each).",
-        "**Lido** leads planning with **4** of **9** selections (**44.4%**), tracking slightly above the global planning rate."
+        "Out of **56** total airlines, **12** have electronic flight folder data recorded and **9** have flight planning recorded.",
+        "Recorded electronic selections feature **2** each for **AvioBook**, **Flightman**, and paper out of **12** recorded entries.",
+        "Flight planning selections include **4** for **Lido** out of **9** recorded planning entries."
       ],
-      "caveat": "Recorded counts are strictly observational metrics and do not measure total market penetration."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
     },
     {
       "name": "Middle East & North Africa",
-      "headline": "Equally Distributed EFB Choices Coexist with Lido and NavBlue Planning",
+      "headline": "Balanced Prospect Sample Highlights Diverse System Choices",
       "observations": [
-        "Of **51** airlines, **15** record EFB selections and **10** record planning selections.",
-        "**Bytron Skybook**, **Jeppesen Aviator**, and **Paper** each record **3** of **15** EFB selections (**20.0%** each).",
-        "**Lido** and **NavBlue** tie for planning leadership, each recording **3** of **10** selections (**30.0%** each)."
+        "This region records **15** electronic flight folder entries and **10** flight planning entries from a total of **52** listed airlines.",
+        "Electronic selections include **3** each for **Bytron Skybook**, **Jeppesen Aviator**, and paper out of **15** recorded entries.",
+        "Flight planning records show **3** selections each for **Lido** and **NavBlue** out of **10** recorded entries."
       ],
-      "caveat": "Unknown fields prevent assumptions regarding unlisted carriers."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
     },
     {
       "name": "Sub-Saharan Africa",
-      "headline": "Limited Dataset Highlights IFS EFBOne and Lido Planning Preferences",
+      "headline": "Insufficient Field-Complete Sample for Directional Recommendations",
       "observations": [
-        "Out of **47** airlines, **8** record EFB selections and **4** record planning selections.",
-        "**IFS EFBOne** leads EFB selections with **2** of **8** records (**25.0%**), exceeding global adoption rates.",
-        "**Lido** captures **2** of **4** planning selections (**50.0%**), outperforming its relative global share in this small sample."
+        "Evidence is insufficient because only **8** electronic flight folder entries are recorded out of **47** total listed airlines.",
+        "Among the few recorded electronic selections, **IFS EFBOne** appears **2** times while other vendors register **1** selection each.",
+        "Flight planning data is restricted to **4** recorded selections, preventing any reliable directional targeting conclusion."
       ],
-      "caveat": "Small sample sizes require cautious interpretation of percentage differences."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
     },
     {
       "name": "South Asia",
-      "headline": "Fragmented Selections with Equal Split Between Lido and Other Planning Tools",
+      "headline": "Insufficient Field-Complete Sample for Directional Recommendations",
       "observations": [
-        "From **13** airlines, **4** record EFB selections and **4** record planning selections.",
-        "EFB selections are divided across **AvioBook**, **In-house built**, **Navblue Mission+**, and **Paper** at **1** of **4** each (**25.0%**).",
-        "**Lido** secures **2** of **4** planning selections (**50.0%**), while **CAE** and **NavBlue** each hold **1**."
+        "Evidence is insufficient because only **4** electronic flight folder entries are recorded out of **13** total listed airlines.",
+        "Electronic selections consist of **1** selection each for **AvioBook**, **In-house built**, **Navblue Mission+**, and paper.",
+        "Flight planning records show **4** total entries, split between **Lido**, **CAE**, and **NavBlue**."
       ],
-      "caveat": "High rates of unrecorded fields mean these figures apply strictly to reporting entities."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
     },
     {
       "name": "Unmapped",
-      "headline": "Zero Recorded Technology Selections Across Unmapped Carrier Pool",
+      "headline": "No Recorded Data Available for Target Research",
       "observations": [
-        "Among **12** unmapped airlines, **0** record EFB selections and **0** record planning selections.",
-        "No vendor counts or carrier segment breakdowns are available for analysis.",
-        "This segment offers no current data points for evaluating regional system adoption patterns."
+        "This category lists **12** airlines with **0** electronic flight folder records and **0** flight planning records.",
+        "Evidence is insufficient to evaluate any vendor presence or carrier segment differences in this group."
       ],
-      "caveat": "Absence of data reflects unmapped records rather than confirmed lack of technology."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
     }
   ]
 }

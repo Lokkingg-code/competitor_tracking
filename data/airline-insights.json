@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "source": "Airtable Airline Customer Pipeline shared view",
-  "generated_at": "2026-11-11T13:02:20+00:00",
-  "source_record_count": 521,
-  "unique_airline_count": 519,
+  "generated_at": "2026-11-12T07:34:17+00:00",
+  "source_record_count": 522,
+  "unique_airline_count": 520,
   "duplicate_name_groups": 2,
   "duplicate_conflict_groups": 2,
   "airline_type_overrides_applied": 36,
@@ -37,11 +37,11 @@
     "Unclassified"
   ],
   "coverage": {
-    "hq_known": 507,
-    "hq_region_assigned": 507,
-    "hq_mapped": 479,
-    "fleet_values_recorded": 514,
-    "fleet_known": 513,
+    "hq_known": 508,
+    "hq_region_assigned": 508,
+    "hq_mapped": 480,
+    "fleet_values_recorded": 515,
+    "fleet_known": 514,
     "fleet_size_outliers": 1,
     "airline_type_known": 517,
     "eff_status_known": 127,
@@ -50,10 +50,10 @@
     "upcoming_conferences_recorded": 0,
     "unmapped_event_regions": 2,
     "quality_flags": {
-      "missing_eff_status": 392,
-      "missing_flight_planning": 451,
+      "missing_eff_status": 393,
+      "missing_flight_planning": 452,
       "hq_not_mapped": 28,
-      "missing_airline_type": 2,
+      "missing_airline_type": 3,
       "missing_hq": 12,
       "hq_region_unassigned": 12,
       "missing_fleet_size": 5,
@@ -62,8 +62,8 @@
   },
   "overall": {
     "name": "All",
-    "airlines": 519,
-    "fleet_known": 513,
+    "airlines": 520,
+    "fleet_known": 514,
     "fleet_outliers": 1,
     "eff_known": 127,
     "eff_no_vendor": 34,
@@ -219,13 +219,13 @@
       },
       {
         "name": "Unclassified",
-        "count": 2
+        "count": 3
       }
     ],
     "fleet_bands": [
       {
         "name": "Small · 1–50",
-        "count": 374
+        "count": 375
       },
       {
         "name": "Medium · 51–150",
@@ -737,8 +737,8 @@
     },
     {
       "name": "Middle East & North Africa",
-      "airlines": 51,
-      "fleet_known": 51,
+      "airlines": 52,
+      "fleet_known": 52,
       "fleet_outliers": 0,
       "eff_known": 15,
       "eff_no_vendor": 3,
@@ -831,12 +831,16 @@
         {
           "name": "Business",
           "count": 1
+        },
+        {
+          "name": "Unclassified",
+          "count": 1
         }
       ],
       "fleet_bands": [
         {
           "name": "Small · 1–50",
-          "count": 39
+          "count": 40
         },
         {
           "name": "Medium · 51–150",
@@ -1394,7 +1398,7 @@
       "airlines": 10,
       "fleet_values_recorded": 10,
       "fleet_known": 10,
-      "fleet_sum": 635,
+      "fleet_sum": 639,
       "fleet_outliers": 0,
       "eff_known": 3,
       "eff_no_vendor": 2,
@@ -1866,6 +1870,21 @@
       ]
     },
     {
+      "country": "Israel",
+      "map_name": "Israel",
+      "region": "Middle East & North Africa",
+      "airlines": 5,
+      "fleet_values_recorded": 5,
+      "fleet_known": 5,
+      "fleet_sum": 79,
+      "fleet_outliers": 0,
+      "eff_known": 0,
+      "eff_no_vendor": 0,
+      "eff_systems": [],
+      "planning_known": 0,
+      "planning_systems": []
+    },
+    {
       "country": "Nigeria",
       "map_name": "Nigeria",
       "region": "Sub-Saharan Africa",
@@ -2088,21 +2107,6 @@
           "count": 1
         }
       ],
-      "planning_known": 0,
-      "planning_systems": []
-    },
-    {
-      "country": "Israel",
-      "map_name": "Israel",
-      "region": "Middle East & North Africa",
-      "airlines": 4,
-      "fleet_values_recorded": 4,
-      "fleet_known": 4,
-      "fleet_sum": 73,
-      "fleet_outliers": 0,
-      "eff_known": 0,
-      "eff_no_vendor": 0,
-      "eff_systems": [],
       "planning_known": 0,
       "planning_systems": []
     },
@@ -6120,6 +6124,33 @@
       "conference_count": 0
     },
     {
+      "region": "Middle East & North Africa",
+      "airline_type": "Unclassified",
+      "fleet_band": "Small · 1–50",
+      "name": "Middle East & North Africa",
+      "airlines": 1,
+      "fleet_known": 1,
+      "fleet_outliers": 0,
+      "eff_known": 0,
+      "eff_no_vendor": 0,
+      "eff_systems": [],
+      "planning_known": 0,
+      "planning_systems": [],
+      "airline_types": [
+        {
+          "name": "Unclassified",
+          "count": 1
+        }
+      ],
+      "fleet_bands": [
+        {
+          "name": "Small · 1–50",
+          "count": 1
+        }
+      ],
+      "conference_count": 0
+    },
+    {
       "region": "North America",
       "airline_type": "Airline",
       "fleet_band": "Large · 151+",
@@ -9930,6 +9961,23 @@
       "planning_systems": []
     },
     {
+      "country": "Israel",
+      "map_name": "Israel",
+      "region": "Middle East & North Africa",
+      "airline_type": "Unclassified",
+      "fleet_band": "Small · 1–50",
+      "airlines": 1,
+      "fleet_values_recorded": 1,
+      "fleet_known": 1,
+      "fleet_sum": 6,
+      "fleet_outliers": 0,
+      "eff_known": 0,
+      "eff_no_vendor": 0,
+      "eff_systems": [],
+      "planning_known": 0,
+      "planning_systems": []
+    },
+    {
       "country": "Italy",
       "map_name": "Italy",
       "region": "Europe & Central Asia",
@@ -13095,7 +13143,7 @@
       "airlines": 4,
       "fleet_values_recorded": 4,
       "fleet_known": 4,
-      "fleet_sum": 33,
+      "fleet_sum": 37,
       "fleet_outliers": 0,
       "eff_known": 0,
       "eff_no_vendor": 0,
@@ -14658,6 +14706,16 @@
       "region": "East Asia & Pacific",
       "airline_type": "Airline",
       "fleet_size": 10,
+      "fleet_band": "Small · 1–50",
+      "eff_systems": [],
+      "planning_systems": []
+    },
+    {
+      "airline": "Air Haifa",
+      "country": "Israel",
+      "region": "Middle East & North Africa",
+      "airline_type": "Unclassified",
+      "fleet_size": 6,
       "fleet_band": "Small · 1–50",
       "eff_systems": [],
       "planning_systems": []
@@ -16575,7 +16633,7 @@
       "country": "Turkey",
       "region": "Europe & Central Asia",
       "airline_type": "Charter",
-      "fleet_size": 10,
+      "fleet_size": 14,
       "fleet_band": "Small · 1–50",
       "eff_systems": [],
       "planning_systems": []
