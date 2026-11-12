@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T07:34:18Z",
+  "generated_at": "2026-11-12T08:57:36Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -111,7 +111,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -127,6 +126,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T08:58:03+00:00",
+        "source_sha256": "058e1cbaed914837ec9f907262cdb303764b4acc5f8b0929a6f84827fa2e032f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes NetLine One and operational solutions at the 159th IATA Slot Conference.",
+        "summary": "Lufthansa Systems is promoting its NetLine One suite and slot management solutions at the 159th IATA Slot Conference in Budapest. No concrete product developments, releases, or customer contracts are established by this messaging."
       }
     },
     {
@@ -228,7 +236,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -244,6 +251,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T08:58:44+00:00",
+        "source_sha256": "3c4f7b8e243f38e682b85b8de65c55a54177759afd0c340bb5c516016f87612a",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue promotes integration of N-Flight Planning, N-Ops & Crew, Mission+ FLIGHT, and Navigation+ with Skywise digital solutions.",
+        "summary": "Navblue showcases the integration of N-Flight Planning, N-Ops & Crew, Mission+ FLIGHT, and Navigation+ with Airbus Skywise digital solutions. This promotional content highlights ecosystem synergy but establishes no new concrete product releases or specific customer contracts."
       }
     },
     {
@@ -11253,7 +11269,22 @@
         "title": "Jeppesen promotes new AI-powered ForeFlight features.",
         "summary": "Jeppesen is messaging about the addition of artificial intelligence to ForeFlight. The provided text does not specify the functional details or the nature of the changes."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T09:02:24+00:00",
+        "source_sha256": "2c4f49cd770987228ee9cc1ad7c80813fbcc8b7ffedaa2da8fadc080dc125869",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "Artificial Intelligence Powers New Jeppesen ForeFlight Features",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-9ab015534872",
@@ -11300,7 +11331,22 @@
         "title": "Lufthansa Systems promotes NetLine solutions for airline schedule planning.",
         "summary": "Lufthansa Systems promotes its NetLine solutions for airline schedule planning and mentions its existing support for the Lufthansa Group. No new developments or contract announcements are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T09:02:49+00:00",
+        "source_sha256": "00227f9be4b55de2849885066f2f5b205843808dd0ca8b7d0838356ac8181131",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-18e5fa49bac3",
@@ -11364,7 +11410,6 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       },
-      "ai_classification_status": "pending",
       "ai_brief": {
         "model": "gemma-4-26b-a4b-it",
         "brief_version": 1,
@@ -11373,6 +11418,22 @@
         "evidence_scope": "captured_preview_only",
         "title": "Lufthansa Systems recruits NetLine-specialized Product Consultant for Singapore-based team.",
         "summary": "Lufthansa Systems is recruiting a Scheduler for its Singapore-based Product Consultants' team. The role requires familiarity with NetLine tools. No new product development or customer deployment is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T09:03:03+00:00",
+        "source_sha256": "5642e9dfe7654838a347d0e9139156099c4109af6fd96ee896f2b896775916a6",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -11420,7 +11481,22 @@
         "title": "Jeppesen expands ForeFlight relationship with Avia Solutions Group to deliver integrated flight deck and data solutions.",
         "summary": "Jeppesen is expanding its relationship with Avia Solutions Group to provide integrated flight deck and data solutions. This expansion aims to serve the group's global airline portfolio."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T09:04:09+00:00",
+        "source_sha256": "7623b28e4fd1531436b46b4d87f27e06d6fff1dfa296e996df71826ad72350e8",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-3da496f57068",
@@ -11458,7 +11534,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_classification_status": "pending",
       "ai_brief": {
         "model": "gemma-4-26b-a4b-it",
         "brief_version": 1,
@@ -11467,6 +11542,22 @@
         "evidence_scope": "captured_preview_only",
         "title": "Lufthansa Systems announces SriLankan Airlines' use of Lido Flight 4D for flight planning.",
         "summary": "SriLankan Airlines has implemented Lido Flight 4D to strengthen its flight planning operations."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-12T09:04:52+00:00",
+        "source_sha256": "f034b41db7b4095187a729837712cd5fb086ddf7cf0e32a3df1811e966faf011",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -13773,8 +13864,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T08:59:12+00:00",
+        "source_sha256": "130b8b9272ed39d6bfcf8cd0f41943ac6d3b939de5434ba89edcec0e93b65c64",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue announces merger with Skywise.",
+        "summary": "Navblue announces a merger with Skywise. The company states the move combines flight operations expertise with advanced data analytics."
+      }
     },
     {
       "id": "cap-5e91b6c6b95e",
@@ -14274,8 +14373,16 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-12T09:01:53+00:00",
+        "source_sha256": "31d26a51e37081dc69209bb301bd33a37ba72c7eff827a786556844597807a64",
+        "evidence_scope": "captured_preview_only",
+        "title": "Palantir Technologies and Airbus extend strategic partnership for Skywise open data platform.",
+        "summary": "Palantir Technologies and Airbus have extended their strategic partnership for several more years. The extension continues their collaboration on the Skywise open data platform, which supports over 50,000 users."
+      }
     },
     {
       "id": "cap-d526316e878e",
