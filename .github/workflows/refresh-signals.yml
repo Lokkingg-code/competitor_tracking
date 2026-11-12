@@ -68,7 +68,7 @@ jobs:
           node-version: "22"
 
       - name: Test product classification
-        run: python3 -m unittest tests/test_product_focus.py tests/test_ai_enrichment.py tests/test_brightdata_linkedin_capture.py tests/test_sync_airline_insights.py
+        run: python3 -m unittest tests/test_product_focus.py tests/test_ai_enrichment.py tests/test_brightdata_linkedin_capture.py tests/test_sync_airline_insights.py tests/test_airline_insights.py
 
       - name: Capture public sources
         run: python3 scripts/capture/capture_sources.py --days 365

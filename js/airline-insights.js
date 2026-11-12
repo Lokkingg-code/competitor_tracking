@@ -1,8 +1,12 @@
+import { applyFleetFilter } from "./airline-fleet-filter.js";
+
 const dataUrl = "data/airline-insights.json";
 const mapUrl = "assets/ne_110m_admin_0_countries.geojson";
 const state = { region: "all", airlineType: "all", fleetBand: "all", mapMetric: "airlines", systemMode: "eff", profileDimension: "type" };
 const elements = {
   snapshotDate: document.getElementById("airlineSnapshotDate"),
+  fleetFilter: document.getElementById("airlineFleetFilter"),
+  fleetFilterNote: document.getElementById("airlineFleetFilterNote"),
   airlineCount: document.getElementById("airlineCount"),
   airlineCountNote: document.getElementById("airlineCountNote"),
   effCoverage: document.getElementById("effCoverage"),
@@ -37,6 +41,8 @@ const numberFormat = new Intl.NumberFormat("en-US");
 const SVG_NS = "http://www.w3.org/2000/svg";
 const MAP_COLORS = ["#dfe8e3", "#b3cbbf", "#7ca997", "#3e8178", "#006568"];
 let snapshot;
+let unfilteredSnapshot;
+let filteredSnapshot;
 let countryFeatures;
 let aiInsightSnapshot;
 
@@ -228,7 +234,10 @@ function hideMapTooltip() {
 
 function renderKpis(summary) {
   elements.airlineCount.textContent = numberFormat.format(summary.airlines);
-  elements.airlineCountNote.textContent = `${numberFormat.format(snapshot.source_record_count)} Airtable source rows`;
+  const fleetScope = snapshot.fleet_filter?.minimum === 10 && snapshot.fleet_filter?.unknown_included
+    ? `Fleet 10+ or unknown · ${numberFormat.format(snapshot.fleet_filter.excluded_airlines)} excluded`
+    : "All fleet sizes";
+  elements.airlineCountNote.textContent = `${numberFormat.format(snapshot.source_record_count)} Airtable source rows · ${fleetScope}`;
   const effCoverage = summary.airlines ? Math.round(summary.eff_known / summary.airlines * 100) : 0;
   const planningCoverage = summary.airlines ? Math.round(summary.planning_known / summary.airlines * 100) : 0;
   elements.effCoverage.textContent = `${effCoverage}%`;
@@ -246,7 +255,7 @@ function renderMarketRead() {
   const read = isOverall
     ? aiInsightSnapshot?.overall
     : aiInsightSnapshot?.regions?.find((item) => item.name === state.region);
-  const isFresh = aiInsightSnapshot?.snapshot_generated_at === snapshot.generated_at;
+  const isFresh = !snapshot.fleet_filter?.derived_from_saved_snapshot && aiInsightSnapshot?.snapshot_generated_at === snapshot.generated_at;
   elements.insightScope.textContent = isOverall ? "Overall" : state.region;
   elements.insightHeading.innerHTML = formatInsightText(read && isFresh ? read.headline : isOverall ? "Overall data read" : `${state.region} data read`);
   elements.insightBadge.textContent = read && isFresh ? `AI synthesis · ${aiInsightSnapshot.model}` : "Data summary";
@@ -417,7 +426,19 @@ async function boot() {
     fetch("data/airline-insights-ai.json", { cache: "no-store" }).catch(() => null),
   ]);
   if (!dataResponse.ok || !mapResponse.ok) throw new Error("Could not load the Airtable snapshot or map boundaries.");
-  snapshot = await dataResponse.json();
+  unfilteredSnapshot = await dataResponse.json();
+  const alreadyFiltered = unfilteredSnapshot.fleet_filter?.minimum === 10 && unfilteredSnapshot.fleet_filter?.unknown_included;
+  filteredSnapshot = applyFleetFilter(unfilteredSnapshot);
+  elements.fleetFilter.checked = alreadyFiltered || localStorage.getItem("ct-airline-fleet-filter") !== "off";
+  elements.fleetFilter.disabled = alreadyFiltered;
+  if (alreadyFiltered) elements.fleetFilterNote.textContent = "All fleet sizes will be available after the next Airtable refresh";
+  snapshot = elements.fleetFilter.checked ? filteredSnapshot : unfilteredSnapshot;
+  elements.fleetFilter.addEventListener("change", () => {
+    localStorage.setItem("ct-airline-fleet-filter", elements.fleetFilter.checked ? "on" : "off");
+    snapshot = elements.fleetFilter.checked ? filteredSnapshot : unfilteredSnapshot;
+    if (elements.quickLook.open) elements.quickLook.close();
+    render();
+  });
   countryFeatures = await mapResponse.json();
   if (insightResponse?.ok) aiInsightSnapshot = await insightResponse.json();
   elements.snapshotDate.textContent = `Snapshot ${new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(snapshot.generated_at))}`;

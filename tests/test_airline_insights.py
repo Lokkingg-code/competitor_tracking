@@ -14,6 +14,22 @@ WORLD = {
 
 
 class AirlineInsightsTests(unittest.TestCase):
+    def test_retains_small_and_unknown_fleets_for_page_filter(self):
+        rows = [
+            {"Airline": "Small Air", "Fleet size": "9", "HQ": "France", "EFF Status": "Paper"},
+            {"Airline": "Boundary Air", "Fleet size": "10", "HQ": "France", "EFF Status": "AvioBook"},
+            {"Airline": "Unknown Air", "Fleet size": "", "HQ": "India"},
+        ]
+        events = [{"Event Name": "Conference", "Nature": "Conference", "Airline": "Small Air, Boundary Air"}]
+        result = build(rows, events, WORLD)
+        self.assertEqual(result["source_record_count"], 3)
+        self.assertEqual(result["unique_airline_count"], 3)
+        self.assertEqual(result["overall"]["airlines"], 3)
+        self.assertEqual(result["overall"]["eff_known"], 2)
+        self.assertEqual(sum(cell["airlines"] for cell in result["country_segments"]), 3)
+        self.assertEqual({profile["airline"] for profile in result["airline_profiles"]}, {"Small Air", "Boundary Air", "Unknown Air"})
+        self.assertEqual(result["conferences"][0]["attending_airlines"], ["Boundary Air", "Small Air"])
+
     def test_country_alias_maps_airtable_hq_to_world_feature(self):
         by_name, by_alias = feature_indexes(WORLD)
         self.assertEqual(country_info("United States", by_name, by_alias), {

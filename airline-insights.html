@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=55" />
+  <link rel="stylesheet" href="css/styles.css?v=56" />
 </head>
 <body class="airline-insights-page">
   <div class="app">
@@ -36,6 +36,14 @@
     </header>
 
     <main class="airline-insights-main">
+      <section class="airline-page-filter" aria-label="Airline filters">
+        <span class="airline-page-filter-title">Airline filters</span>
+        <label class="airline-fleet-toggle" for="airlineFleetFilter">
+          <input id="airlineFleetFilter" type="checkbox" checked aria-describedby="airlineFleetFilterNote" />
+          <span>Exclude fleets under 10 aircraft</span>
+        </label>
+        <small id="airlineFleetFilterNote">Unknown fleet sizes are included</small>
+      </section>
       <section class="airline-kpis" aria-label="Airtable coverage summary">
         <div class="airline-kpi"><span>Connected airlines</span><strong id="airlineCount">—</strong><small id="airlineCountNote">—</small></div>
         <div class="airline-kpi"><span>EFF coverage</span><strong id="effCoverage">—</strong><small id="effCoverageNote">—</small><span class="airline-kpi-track"><i id="effCoverageBar"></i></span></div>
@@ -144,6 +152,6 @@
       </footer>
     </main>
   </div>
-  <script src="js/airline-insights.js?v=29" type="module"></script>
+  <script src="js/airline-insights.js?v=32" type="module"></script>
 </body>
 </html>

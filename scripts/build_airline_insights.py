@@ -187,7 +187,7 @@ def split_multiselect(value: str, *, field: str) -> list[str]:
 def fleet_band(value: str) -> str:
     try:
         size = int(float((value or "").replace(",", "").strip()))
-    except ValueError:
+    except (ValueError, OverflowError):
         return "Unspecified"
     if size <= 0:
         return "Unspecified"
@@ -300,7 +300,7 @@ def build(
             fleet_size = int(float((row.get("Fleet size") or "").replace(",", "").strip()))
             if fleet_size <= 0:
                 fleet_size = None
-        except ValueError:
+        except (ValueError, OverflowError):
             fleet_size = None
         airline_type = canonical_category(row.get("Airline Type", ""), field="Airline Type") or "Unclassified"
         eff_systems = split_multiselect(row.get("EFF Status", ""), field="EFF Status")
