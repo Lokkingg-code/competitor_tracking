@@ -252,6 +252,33 @@ class AIEnrichmentTests(unittest.TestCase):
             self.assertEqual(customer["ai_enrichment"], saved_analysis)
             self.assertNotIn("ai_brief_status", customer)
 
+    def test_failed_brief_stays_pending_and_next_signal_is_saved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            feed_path = Path(directory) / "signals.json"
+            archive_path = Path(directory) / "signals.archive.json"
+            feed_path.write_text(json.dumps({"signals": [
+                {"id": "failed", "headline": "Failed", "summary": "Evidence"},
+                {"id": "success", "headline": "Success", "summary": "Evidence"},
+            ]}))
+            brief = {"brief_version": 1, "title": "Saved title", "summary": "Saved summary"}
+            with (
+                patch.object(ENRICH, "SIGNALS_PATH", feed_path),
+                patch.object(ENRICH, "ARCHIVE_PATH", archive_path),
+                patch.object(ENRICH, "base_signal_ids", return_value=set()),
+                patch.object(ENRICH, "brief_signal", side_effect=[ENRICH.EnrichmentError("HTTP 500", http_status=500), brief]),
+                patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
+                patch.object(sys, "argv", ["enrich_signals.py", "--base-ref", "test"]),
+                contextlib.redirect_stdout(io.StringIO()),
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
+                self.assertEqual(ENRICH.main(), 0)
+            saved = json.loads(feed_path.read_text())["signals"]
+            self.assertEqual(saved[0]["ai_brief_status"], "pending")
+            self.assertNotIn("ai_brief", saved[0])
+            self.assertEqual(saved[1]["ai_brief"], brief)
+            self.assertNotIn("ai_brief_status", saved[1])
+            self.assertEqual(json.loads(archive_path.read_text())["signals"], saved)
+
     def test_brief_reads_source_text_and_prints_two_fields_without_saving(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "signals.json"
@@ -475,6 +502,44 @@ class AIEnrichmentTests(unittest.TestCase):
         self.assertEqual(raised.exception.http_status, 400)
         self.assertIn("API key not valid", str(raised.exception))
         error.close()
+
+    def test_gemini_retries_transient_server_errors_and_recovers(self):
+        error = ENRICH.urllib.error.HTTPError("https://example.test", 500, "Internal Server Error", None, io.BytesIO(b"{}"))
+        response = io.BytesIO(json.dumps({"candidates": []}).encode())
+        with (
+            patch.object(ENRICH.urllib.request, "urlopen", side_effect=[error, response]) as request,
+            patch.object(ENRICH.time, "sleep") as sleep,
+            contextlib.redirect_stderr(io.StringIO()),
+        ):
+            result = ENRICH.gemini_request("test-key", "model", {"contents": []})
+        self.assertEqual(result, {"candidates": []})
+        self.assertEqual(request.call_count, 2)
+        sleep.assert_called_once_with(5)
+
+    def test_gemini_server_error_retries_are_bounded(self):
+        errors = [ENRICH.urllib.error.HTTPError("https://example.test", 500, "Internal Server Error", None, io.BytesIO(b'{"error":{"message":"Internal error encountered."}}')) for _ in range(3)]
+        with (
+            patch.object(ENRICH.urllib.request, "urlopen", side_effect=errors) as request,
+            patch.object(ENRICH.time, "sleep") as sleep,
+            contextlib.redirect_stderr(io.StringIO()),
+        ):
+            with self.assertRaisesRegex(ENRICH.EnrichmentError, "Internal error encountered") as raised:
+                ENRICH.gemini_request("test-key", "model", {"contents": []})
+        self.assertEqual(raised.exception.http_status, 500)
+        self.assertEqual(request.call_count, 3)
+        self.assertEqual([call.args[0] for call in sleep.call_args_list], [5, 10])
+
+    def test_gemini_does_not_retry_rate_limits(self):
+        error = ENRICH.urllib.error.HTTPError("https://example.test", 429, "Too Many Requests", None, io.BytesIO(b"{}"))
+        with (
+            patch.object(ENRICH.urllib.request, "urlopen", side_effect=error) as request,
+            patch.object(ENRICH.time, "sleep") as sleep,
+        ):
+            with self.assertRaises(ENRICH.EnrichmentError) as raised:
+                ENRICH.gemini_request("test-key", "model", {"contents": []})
+        self.assertEqual(raised.exception.http_status, 429)
+        self.assertEqual(request.call_count, 1)
+        sleep.assert_not_called()
 
     def test_request_failures_distinguish_timeout_network_and_invalid_json(self):
         cases = [

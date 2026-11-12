@@ -103,7 +103,9 @@ and billing, separate from Gemini API usage.
 Requests use a 180-second socket timeout to allow for slower hosted model
 responses. Set the Actions repository variable `AI_ENRICH_REQUEST_TIMEOUT_SECONDS`
 to an integer from 1 to 300 to override it (or export the same variable locally).
-This is a socket timeout, not a guaranteed total-request deadline. For diagnosis,
+This is a socket timeout, not a guaranteed total-request deadline. Transient
+HTTP 500, 502, 503, and 504 responses are retried twice, after 5 and 10 seconds.
+Rate-limit and authentication errors are not retried. For diagnosis,
 run the manual workflow with `max_signals` set to `1` before attempting a batch.
 
 The `refresh-signals` GitHub Actions workflow runs after a change to

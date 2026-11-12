@@ -11,6 +11,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -371,14 +372,26 @@ def gemini_request(api_key: str, model: str, payload: dict) -> dict:
         method="POST",
     )
     try:
-        with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
-            result = json.loads(response.read().decode("utf-8"))
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
+                    result = json.loads(response.read().decode("utf-8"))
+                break
+            except urllib.error.HTTPError as error:
+                if error.code not in {500, 502, 503, 504} or attempt == 2:
+                    raise
+                delay = 5 * (2 ** attempt)
+                print(f"Gemini returned HTTP {error.code}; retrying in {delay} seconds.", file=sys.stderr, flush=True)
+                error.close()
+                time.sleep(delay)
     except urllib.error.HTTPError as error:
         detail = ""
         try:
             error_payload = json.loads(error.read().decode("utf-8"))
         except (UnicodeDecodeError, json.JSONDecodeError):
             error_payload = {}
+        finally:
+            error.close()
         error_info = error_payload.get("error") if isinstance(error_payload, dict) else None
         if isinstance(error_info, dict) and isinstance(error_info.get("message"), str):
             message = re.sub(r"\s+", " ", error_info["message"]).strip()[:300]
