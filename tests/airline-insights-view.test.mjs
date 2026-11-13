@@ -15,6 +15,7 @@ test("fleet toggle updates the whole airline view and preserves its selection", 
       page.on("pageerror", (error) => errors.push(error.message));
       await page.route("**/data/airline-insights-ai.json", (route) => route.fulfill({ json: {
         snapshot_generated_at: snapshot.generated_at,
+        region_scheme: "mainland-china-rest-asia-v2",
         model: "test-model",
         overall: { headline: "Unfiltered AI", observations: ["Unfiltered analysis."], caveat: "Sample." },
         regions: [],
@@ -41,6 +42,35 @@ test("fleet toggle updates the whole airline view and preserves its selection", 
       await toggle.check();
       assert.equal(await count.textContent(), filteredCount.toLocaleString("en-US"));
       assert.match(await page.locator("#airlineProfileRows").textContent(), /Small · 10–50/);
+      await page.locator('[data-airline-map-metric="eff"]').click();
+      assert.match(await page.locator("#airlineMapSummary").textContent(), /providers by region/);
+      const china = page.locator('[data-country="China"]');
+      assert.equal(await china.getAttribute("data-region"), "Mainland China");
+      const japan = page.locator('[data-country="Japan"]');
+      assert.equal(await japan.getAttribute("data-region"), "Rest of Asia & Pacific");
+      assert.equal(await page.locator('[data-country="India"]').getAttribute("data-region"), "Rest of Asia & Pacific");
+      assert.equal(await page.locator("#airlineWorldMap pattern").count(), 0);
+      assert.equal(await page.locator("#airlineMapComparison").count(), 0);
+      assert.ok(await page.locator("#airlineWorldMap linearGradient").count() > 0);
+      assert.match(await page.locator("#airlineMapLegend").textContent(), /top two providers/);
+      for (const gradient of await page.locator("#airlineWorldMap linearGradient").all()) {
+        assert.equal(await gradient.locator("stop").count(), 4);
+        const offsets = await gradient.locator("stop").evaluateAll((stops) => stops.map((stop) => parseFloat(stop.getAttribute("offset"))));
+        assert.equal(offsets[0], 0);
+        assert.equal(offsets[3], 100);
+        assert.ok(offsets[1] >= 46 && offsets[2] <= 100 && offsets[1] < offsets[2]);
+      }
+      await japan.focus();
+      assert.match(await page.locator("#airlineMapTooltip").textContent(), /: \d+%/);
+      assert.doesNotMatch(await page.locator("#airlineMapTooltip").textContent(), /fields recorded|Rest of Asia|Close race|Tied leaders|\d+\/\d+/);
+      await page.locator('[data-airline-map-metric="planning"]').click();
+      assert.match(await page.locator("#airlineMapSummary").textContent(), /Flight planning providers/);
+      await page.locator(".airline-map-section").screenshot({ path: `/tmp/airline-provider-map-${width}.png` });
+      await toggle.uncheck();
+      assert.equal(await count.textContent(), snapshot.unique_airline_count.toLocaleString("en-US"));
+      await page.locator('[data-airline-map-metric="airlines"]').click();
+      assert.equal(await page.locator("#airlineWorldMap linearGradient").count(), 0);
+      assert.equal(await page.locator("#airlineWorldMap pattern").count(), 0);
       assert.deepEqual(errors, []);
       await page.close();
     }

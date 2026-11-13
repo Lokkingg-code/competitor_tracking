@@ -1,4 +1,5 @@
 import { applyFleetFilter } from "./airline-fleet-filter.js";
+import { normalizeMapRegions, mapRegion, providerColors, regionalProviderRace, REGION_SCHEME } from "./airline-provider-map.js?v=3";
 
 const dataUrl = "data/airline-insights.json";
 const mapUrl = "assets/ne_110m_admin_0_countries.geojson";
@@ -45,6 +46,7 @@ let unfilteredSnapshot;
 let filteredSnapshot;
 let countryFeatures;
 let aiInsightSnapshot;
+let mapProviderColors;
 
 function escapeHtml(value) {
   return String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
@@ -166,6 +168,11 @@ function mapBin(value, thresholds) {
 }
 
 function drawMap(cells) {
+  hideMapTooltip();
+  if (state.mapMetric !== "airlines") {
+    drawProviderMap(cells);
+    return;
+  }
   const values = mapValues(cells);
   const maximum = Math.max(0, ...values.values());
   const thresholds = [...new Set([0.25, 0.5, 0.75].map((fraction) => Math.ceil(maximum * fraction)))]
@@ -213,6 +220,88 @@ function drawMap(cells) {
   const knownCount = snapshot.coverage.hq_known;
 }
 
+function drawProviderMap(cells) {
+  elements.map.replaceChildren();
+  const definitions = document.createElementNS(SVG_NS, "defs");
+  elements.map.append(definitions);
+  const regions = new Map(snapshot.region_names.map((region) => [region, regionalProviderRace(cells.filter((cell) => cell.region === region), state.mapMetric)]));
+  const fills = new Map();
+  const shownProviders = new Set();
+  for (const [region, race] of regions) {
+    let fill = "var(--map-empty)";
+    if (race.status !== "insufficient") {
+      const top = race.providers.slice(0, 2);
+      top.forEach((item) => shownProviders.add(item.name));
+      fill = mapProviderColors.get(top[0].name);
+      if (top.length === 2) {
+        const identifier = `provider-blend-${fills.size}`;
+        const gradient = document.createElementNS(SVG_NS, "linearGradient");
+        gradient.setAttribute("id", identifier);
+        gradient.setAttribute("x1", "0%");
+        gradient.setAttribute("x2", "100%");
+        gradient.setAttribute("y1", "0%");
+        gradient.setAttribute("y2", "0%");
+        const boundary = 100 * top[0].count / (top[0].count + top[1].count);
+        for (const [offset, color] of [[0, mapProviderColors.get(top[0].name)], [Math.max(0, boundary - 4), mapProviderColors.get(top[0].name)], [Math.min(100, boundary + 4), mapProviderColors.get(top[1].name)], [100, mapProviderColors.get(top[1].name)]]) {
+          const stop = document.createElementNS(SVG_NS, "stop");
+          stop.setAttribute("offset", `${offset}%`);
+          stop.setAttribute("stop-color", color);
+          gradient.append(stop);
+        }
+        definitions.append(gradient);
+        fill = `url(#${identifier})`;
+      }
+    }
+    fills.set(region, fill);
+  }
+  for (const feature of countryFeatures.features || []) {
+    const properties = feature.properties || {};
+    const name = properties.ADMIN || properties.NAME || "Country";
+    const region = mapRegion(name, properties.REGION_WB || "Unmapped");
+    const race = regions.get(region);
+    const visible = state.region === "all" || region === state.region;
+    const leaders = race?.providers.slice(0, 3).map((item) => `${item.name}: ${item.count}/${race.known} (${Math.round(item.share * 100)}%)`).join("; ");
+    const description = !visible ? `${name} · ${region} · outside selected region` : `${name} · ${region} · ${!race || race.status === "insufficient" ? "Insufficient provider evidence" : race.status === "tie" ? "Tied leaders" : race.status === "close" ? "Close race" : "Leading recorded provider"}. ${race?.known || 0} fields recorded. ${leaders || "No provider recorded"}`;
+    const path = document.createElementNS(SVG_NS, "path");
+    path.setAttribute("d", geometryPath(feature.geometry));
+    path.setAttribute("class", "airline-country-shape");
+    path.setAttribute("fill-rule", "evenodd");
+    path.setAttribute("fill", visible ? fills.get(region) || "var(--map-empty)" : "var(--map-empty)");
+    path.setAttribute("aria-label", description);
+    path.setAttribute("tabindex", "0");
+    path.dataset.country = name;
+    path.dataset.region = region;
+    path.dataset.race = race?.status || "insufficient";
+    if (state.region === region) path.classList.add("is-region-selected");
+    const show = (event) => {
+      const providers = visible ? race?.providers.slice(0, 3) || [] : [];
+      if (!providers.length) {
+        hideMapTooltip();
+        return;
+      }
+      elements.mapTooltip.textContent = providers.map((item) => `${item.name}: ${Math.round(item.share * 100)}%`).join("; ");
+      elements.mapTooltip.hidden = false;
+      positionMapTooltip(event);
+    };
+    path.addEventListener("pointerenter", show);
+    path.addEventListener("focus", show);
+    path.addEventListener("pointermove", positionMapTooltip);
+    path.addEventListener("pointerleave", hideMapTooltip);
+    path.addEventListener("blur", hideMapTooltip);
+    path.addEventListener("click", () => {
+      if (!regions.has(region)) return;
+      state.region = state.region === region ? "all" : region;
+      hideMapTooltip();
+      render();
+    });
+    elements.map.append(path);
+  }
+  elements.mapSummary.textContent = `${state.mapMetric === "eff" ? "EFF" : "Flight planning"} providers by region · Airtable sample, not market share`;
+  elements.mapTotal.textContent = "";
+  elements.mapLegend.innerHTML = [...shownProviders].sort().map((name) => `<span><i style="--legend-color:${mapProviderColors.get(name)}"></i>${escapeHtml(name)}</span>`).join("")
+    + '<span><i style="--legend-color:var(--map-empty)"></i>Insufficient evidence</span><span>Blend: top two providers only, weighted by recorded counts; not market share. Multi-way ties may include other providers.</span>';
+}
+
 function showMapTooltip(event, country, value) {
   const unit = state.mapMetric === "airlines" ? "airlines" : "records";
   elements.mapTooltip.textContent = `${country} · ${numberFormat.format(value)} ${unit}`;
@@ -224,8 +313,8 @@ function positionMapTooltip(event) {
   const bounds = elements.map.parentElement.getBoundingClientRect();
   const clientX = Number.isFinite(event.clientX) ? event.clientX : bounds.left + bounds.width / 2;
   const clientY = Number.isFinite(event.clientY) ? event.clientY : bounds.top + bounds.height / 2;
-  elements.mapTooltip.style.left = `${Math.max(8, Math.min(bounds.width - 210, clientX - bounds.left + 12))}px`;
-  elements.mapTooltip.style.top = `${Math.max(8, Math.min(bounds.height - 44, clientY - bounds.top + 12))}px`;
+  elements.mapTooltip.style.left = `${Math.max(8, Math.min(bounds.width - elements.mapTooltip.offsetWidth - 8, clientX - bounds.left + 12))}px`;
+  elements.mapTooltip.style.top = `${Math.max(8, Math.min(bounds.height - elements.mapTooltip.offsetHeight - 8, clientY - bounds.top + 12))}px`;
 }
 
 function hideMapTooltip() {
@@ -255,7 +344,7 @@ function renderMarketRead() {
   const read = isOverall
     ? aiInsightSnapshot?.overall
     : aiInsightSnapshot?.regions?.find((item) => item.name === state.region);
-  const isFresh = !snapshot.fleet_filter?.derived_from_saved_snapshot && aiInsightSnapshot?.snapshot_generated_at === snapshot.generated_at;
+  const isFresh = !snapshot.fleet_filter?.derived_from_saved_snapshot && aiInsightSnapshot?.region_scheme === REGION_SCHEME && aiInsightSnapshot?.snapshot_generated_at === snapshot.generated_at;
   elements.insightScope.textContent = isOverall ? "Overall" : state.region;
   elements.insightHeading.innerHTML = formatInsightText(read && isFresh ? read.headline : isOverall ? "Overall data read" : `${state.region} data read`);
   elements.insightBadge.textContent = read && isFresh ? `AI synthesis · ${aiInsightSnapshot.model}` : "Data summary";
@@ -426,7 +515,8 @@ async function boot() {
     fetch("data/airline-insights-ai.json", { cache: "no-store" }).catch(() => null),
   ]);
   if (!dataResponse.ok || !mapResponse.ok) throw new Error("Could not load the Airtable snapshot or map boundaries.");
-  unfilteredSnapshot = await dataResponse.json();
+  unfilteredSnapshot = normalizeMapRegions(await dataResponse.json());
+  mapProviderColors = providerColors(unfilteredSnapshot);
   const alreadyFiltered = unfilteredSnapshot.fleet_filter?.minimum === 10 && unfilteredSnapshot.fleet_filter?.unknown_included;
   filteredSnapshot = applyFleetFilter(unfilteredSnapshot);
   elements.fleetFilter.checked = alreadyFiltered || localStorage.getItem("ct-airline-fleet-filter") !== "off";

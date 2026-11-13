@@ -83,8 +83,8 @@ body:has(.quick-look[open]) { overflow: hidden; }
 .airline-country-shape.is-region-selected { stroke: var(--gold); stroke-width: 1.6; }
 .airline-map-tooltip { position: absolute; z-index: 2; max-width: 230px; padding: 7px 9px; border: 1px solid var(--border-strong); border-radius: var(--radius-control); color: var(--text); background: var(--bg-panel); font-size: 12px; pointer-events: none; box-shadow: var(--shadow); }
 .airline-map-legend { display: flex; flex-wrap: wrap; gap: 7px 15px; padding: 10px 0 0; color: var(--text-muted); font-size: 11px; }
-.airline-map-legend span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
-.airline-map-legend i { width: 13px; height: 10px; background: var(--legend-color); border: 1px solid var(--border-strong); }
+.airline-map-legend span { display: inline-flex; align-items: center; gap: 5px; max-width: 100%; }
+.airline-map-legend i { width: 13px; height: 10px; flex: 0 0 13px; background: var(--legend-color); border: 1px solid var(--border-strong); }
 .airline-data-caveat { margin: 7px 0 0; font-size: 11px; }
 .airline-table-scroll { width: 100%; overflow-x: auto; }
 .airline-data-table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }

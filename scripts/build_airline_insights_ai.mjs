@@ -2,6 +2,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { resolve } from "node:path";
+import { normalizeMapRegions, REGION_SCHEME } from "../js/airline-provider-map.js";
 
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta";
 const ROOT = resolve(import.meta.dirname, "..");
@@ -48,6 +49,7 @@ function segmentSummary(segment) {
 }
 
 export function buildInsightInput(snapshot) {
+  if (snapshot.country_segments) snapshot = normalizeMapRegions(snapshot);
   const regions = snapshot.regions.map((region) => ({
     name: region.name,
     airlines: region.airlines,
@@ -92,6 +94,7 @@ function normalizeSection(section, label) {
 }
 
 export function normalizeInsights(value, snapshot, model = DEFAULT_MODEL) {
+  if (snapshot.country_segments) snapshot = normalizeMapRegions(snapshot);
   const expectedRegions = new Set(snapshot.regions.map((region) => region.name));
   if (!value || !Array.isArray(value.regions)) throw new Error("AI response must include a regions array.");
   const regions = new Map();
@@ -102,6 +105,7 @@ export function normalizeInsights(value, snapshot, model = DEFAULT_MODEL) {
   if (regions.size !== expectedRegions.size) throw new Error("AI response must include one insight for every region in the snapshot.");
   return {
     schema_version: 1,
+    region_scheme: REGION_SCHEME,
     snapshot_generated_at: snapshot.generated_at,
     generated_at: new Date().toISOString(),
     model,
