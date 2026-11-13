@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T14:05:53Z",
+  "generated_at": "2026-11-13T13:31:46Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,69 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "browser-c07a9c915b40",
+      "competitor": "Aviobook",
+      "date": "2026-11-12",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "What does the future of AI in the cockpit actually look like?",
+      "summary": "Petra Lafond , Product Manager at AvioBook, takes the stage at the EFB Users Forum on Wednesday morning to share our vision on “Integrating AI into the EFB,” how we see AI shaping the future of flight operations. #AvioBook #FutureOfFlying #EFBUsersForum #AEEC #FlightOperations #FlightOps #AIinAviation #EFB #Aviation",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobook-futureofflying-efbusersforum-activity-7526656329201991681-haeW"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-13T13:32:12+00:00",
+        "source_sha256": "d0160d60de770e91f5aaaecf7164228c6f25d5b536ead502ba8600ebd1d1e535",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook promotes its vision for integrating AI into the AvioBook EFB at the EFB Users Forum.",
+        "summary": "Aviobook Product Manager Petra Lafond will present on integrating AI into the EFB at the EFB Users Forum. The post outlines a vision for how AI may shape the future of flight operations but establishes no concrete product change or release."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-13T13:33:13+00:00",
+        "source_sha256": "d0160d60de770e91f5aaaecf7164228c6f25d5b536ead502ba8600ebd1d1e535",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 0.95,
+        "ai_evidence": "Integrating AI into the EFB",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "browser-d84441c69849",
       "competitor": "Bytron Skybook",
@@ -128,6 +191,68 @@
         "type_confidence": 0.9,
         "suggested_product_focus": "efb",
         "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-722a8b8bad5a",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-11",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "EFB Customization options in app | Bytron Aviation Systems",
+      "summary": "Bytron Skybook reported a messaging shift update: EFB Customization options in app | Bytron Aviation Systems. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeUFZSDVGdUo2U0FRS2VKcmJOQmJGbzV5ZzJxMnlVOWFQcnFza2hRV1pyS1ZBbGwxcGNKWHgzeVJuUnp6QTBMYVg4MHNKYUdVeGpMWkJBSlh2dU56VEFmRDBJaEFaUno2RG0xVmFnTHo2aVBUUk1mOVlqa2M4TE5kSGJuMEUyWEU0S0IwcEdSZlBhYmxMdFp2ZXN4N3lqSjRCTGw3eXMxRkllSlZCcm5RWXZudGRMZ29m?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-13T13:32:42+00:00",
+        "source_sha256": "988efa55b916261773e2697f0974963c4c2e1a42e3ab1885ef44a1a2cf7d562f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes EFB customization options in-app.",
+        "summary": "Bytron Skybook is messaging about customization options available within its EFB application. The provided text does not establish a new release or concrete product update."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-13T13:33:48+00:00",
+        "source_sha256": "988efa55b916261773e2697f0974963c4c2e1a42e3ab1885ef44a1a2cf7d562f",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.5,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
         "focus_rule_override": null,
         "is_ai_related": false,
         "ai_confidence": 1.0,
@@ -11890,7 +12015,7 @@
       "competitor": "Jeppesen",
       "date": "2026-06-05",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "feature_change",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -11930,13 +12055,29 @@
         "title": "Jeppesen integrates SkyPath turbulence insights into ForeFlight FliteDeck Pro v5.3.",
         "summary": "SkyPath turbulence insights have been integrated into Jeppesen ForeFlight FliteDeck Pro v5.3. The update is intended to provide pilots with turbulence data within a single workflow."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-13T13:34:15+00:00",
+        "source_sha256": "024b110d8db7b8e7951fbb84d012ffd12db3497b1763760605974f7d3d8f4012",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
       }
     },
     {
@@ -11992,7 +12133,6 @@
         "title": "Navblue announces Corsair as the first airline in France to adopt Mission+ FLIGHT.",
         "summary": "Corsair has adopted Navblue's Mission+ FLIGHT, becoming the first airline in France to use the product."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
@@ -12004,7 +12144,23 @@
       "duplicate_signal_ids": [
         "nav-2026-06-04-corsair-mission",
         "cap-b53d181ce811"
-      ]
+      ],
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-13T13:34:41+00:00",
+        "source_sha256": "145edf1d1901ec896e97c18ced965b24c710d6e2707d1d83194780001d9e9e3f",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "jep-2026-06-01-panam-efb",
@@ -12052,13 +12208,28 @@
         "title": "Jeppesen's ForeFlight FliteDeck Pro selected by Pan Am for EFB operations.",
         "summary": "Pan American World Airways has selected Jeppesen ForeFlight FliteDeck Pro as its Electronic Flight Bag platform. The solution provides charting, operational flight plans, interactive navigation logging, and flight efficiency advisories."
       },
-      "ai_classification_status": "pending",
       "analyst_product_focus_review": {
         "from": "efb",
         "to": "eff",
         "rule": "eff_competitor_watchlist",
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-13T13:35:00+00:00",
+        "source_sha256": "68890d2e70dfc0053a54f7d0cfa80e92ce259466d326904ca91319f5488b2d01",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
