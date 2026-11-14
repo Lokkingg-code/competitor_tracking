@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T13:31:46Z",
+  "generated_at": "2026-11-14T12:37:28Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,68 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "browser-befa888e4b81",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-13",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Cut through NOTAM noise with smarter, route-specific filtering in skybook.",
+      "summary": "(default range of 100 NM) Filtering NOTAMs by Series, Airfield, FIR, Q-Code and QFIR. 🤔 #NOTAM #flightoperations #airline #flight #aviationindustry",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_cut-through-notam-noise-with-smarter-route-specific-activity-7526963485696614400-mCes"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-14T12:37:47+00:00",
+        "source_sha256": "a886d360de3941ca2e6f7ebab1bdea7eebd8d5616b6b029a5c2499e9af4377f5",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook introduces route-specific NOTAM filtering by Series, Airfield, FIR, Q-Code, and QFIR.",
+        "summary": "Bytron Skybook added route-specific NOTAM filtering functionality. Users can filter by Series, Airfield, FIR, Q-Code, and QFIR, with a default range of 100 NM."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-14T12:38:37+00:00",
+        "source_sha256": "a886d360de3941ca2e6f7ebab1bdea7eebd8d5616b6b029a5c2499e9af4377f5",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "browser-c07a9c915b40",
       "competitor": "Aviobook",
@@ -12268,7 +12330,7 @@
       "source_channel": "curated",
       "source_origin": "official_site",
       "product": null,
-      "product_focus": "adjacent",
+      "product_focus": "eff",
       "ai_enrichment": {
         "model": "nvidia/nemotron-3.5-lightning",
         "enriched_at": "2026-10-09T03:18:08+00:00",
@@ -12305,7 +12367,23 @@
         "title": "Jeppesen secures flight planning agreement for Korean Air’s integrated 230+ aircraft fleet using Jeppesen Dispatch.",
         "summary": "Following a 24-month evaluation, Korean Air selected Jeppesen Dispatch as the flight planning system for its integrated Korean Air–Asiana fleet. The agreement covers over 230 aircraft and includes the renewal of existing Jeppesen flight planning solutions."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-14T12:39:02+00:00",
+        "source_sha256": "fda85a1de808cf0bb4c7157b47a4f165900b63536e0b48922b9182509dff4429",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "adjacent",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-f7123f18f474",
@@ -12320,7 +12398,7 @@
       "summary": "DENVER, December 16, 2025 – Jeppesen ForeFlight, a leading aviation software company dedicated to advancing the future of flight through innovative technology, today announced the appointment of three senior executives to its leadership team. Joe Ayers joins as chief financial officer (CFO), Toya Del Valle has joined as chief customer officer (CCO), and Richa Gupta will assume the role of chief people officer as of…",
       "source_channel": "press_release",
       "source_origin": "official_site",
-      "product_focus": "other",
+      "product_focus": "eff",
       "product": "ForeFlight",
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -12378,7 +12456,23 @@
         "title": "Jeppesen ForeFlight appoints Joe Ayers as CFO, Toya Del Valle as CCO, and Richa Gupta as CPO.",
         "summary": "Jeppesen ForeFlight has appointed three new senior executives to its leadership team: Joe Ayers as CFO, Toya Del Valle as CCO, and Richa Gupta as CPO."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-14T12:39:21+00:00",
+        "source_sha256": "ae5f8ae6b4974b571a45847b415015389b55d85964931c7b9c00a0b320181e49",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-fdf3d275c02f",
@@ -12416,7 +12510,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_classification_status": "pending",
       "ai_brief": {
         "model": "gemma-4-26b-a4b-it",
         "brief_version": 1,
@@ -12425,6 +12518,22 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen's ForeFlight Dispatch Solution to be adopted by Korean Air.",
         "summary": "Jeppesen reports that Korean Air will adopt its ForeFlight dispatch solution. The provided text does not specify contract terms or deployment details."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-14T12:39:39+00:00",
+        "source_sha256": "e9d84cabb017598510295b8f4d22c7d8ceb13738ab0ec4ea441c6e3dea0bc100",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -12432,7 +12541,7 @@
       "competitor": "Navblue",
       "date": "2026-05-26",
       "date_is_estimated": false,
-      "type": "product_launch",
+      "type": "customer_win",
       "priority": "low",
       "severity": 2,
       "confidence": 0.6000000000000001,
@@ -12498,7 +12607,23 @@
         "title": "Pan Am selects Navblue's Skywise digital suite to power historic Entry into Service (EIS).",
         "summary": "Pan Am is utilizing the Skywise digital suite to support its historic Entry into Service (EIS)."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-14T12:40:26+00:00",
+        "source_sha256": "fc1bf255f50c7beeda794d212f0a95db2135644f8f4e55b2c4dc76cff6ecaef5",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.7,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-4f107cda915f",

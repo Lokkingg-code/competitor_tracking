@@ -1,97 +1,97 @@
 {
   "schema_version": 1,
-  "snapshot_generated_at": "2026-11-13T13:30:17+00:00",
-  "generated_at": "2026-11-13T13:35:33.809Z",
+  "snapshot_generated_at": "2026-11-14T12:36:06+00:00",
+  "generated_at": "2026-11-14T12:40:40.980Z",
   "model": "gemini-3.5-flash-lite",
   "overall": {
-    "headline": "Target East Asia and Europe First Based on Recorded Sample Volume",
+    "headline": "Prioritize East Asia & Pacific and Europe & Central Asia for initial validation while treating Sub-Saharan Africa and So",
     "observations": [
-      "Across **520** total airlines, **127** recorded EFB systems and **68** recorded flight planning systems in this prospect sample.",
-      "East Asia & Pacific and Europe & Central Asia show the highest recorded EFB counts at **39** and **35** respectively, making them top priorities for validation.",
-      "Sub-Saharan Africa and South Asia show very low recorded counts under **10**, meaning coverage is too weak to prioritize."
+      "Across **520** total airlines, **127** have electronic flight folder records and **68** have planning records.",
+      "**AvioBook** leads overall electronic folder recorded selections with **21** out of **127** records, followed by **19** **In-house built** solutions.",
+      "For flight planning, **Lido** has **24** recorded selections out of **68** records, followed by **NavBlue** with **16** selections."
     ],
-    "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+    "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
   },
   "regions": [
     {
       "name": "Europe & Central Asia",
-      "headline": "High Prospect Volume Led by In-House and AvioBook Selections",
+      "headline": "Europe & Central Asia presents a strong prospect sample with diverse electronic folder options and high planning record ",
       "observations": [
-        "Out of **151** airlines, **35** have recorded EFB selections, led by **In-house built** (**7**) and **AvioBook** (**6**).",
-        "Flight planning selections among **14** recorded entries feature **Lido** (**5**) and **FlightKeys** (**4**).",
-        "Flag Carrier segments across various fleet sizes represent a substantial share of the recorded EFB entries."
+        "Out of **151** airlines, **35** have electronic folder records and **14** have planning records.",
+        "**In-house built** solutions lead electronic folder recorded selections with **7** out of **35**, followed by **AvioBook** with **6** recorded selections.",
+        "**Lido** leads planning recorded selections with **5** out of **14** records."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
     },
     {
       "name": "East Asia & Pacific",
-      "headline": "Largest Regional Sample with Diverse EFB and Planning Systems",
+      "headline": "East Asia & Pacific offers the largest volume of electronic folder records for validation, including local deployments.",
       "observations": [
-        "Out of **130** airlines, **39** recorded EFB selections, featuring **In-house built** (**9**), **Paper** (**6**), and **AvioBook** (**5**).",
-        "Flight planning features **NavBlue** (**9**) and **Lido** (**7**) out of **18** recorded entries.",
-        "Medium fleet flag carriers and small fleet LCCs form the bulk of the recorded carrier segments."
+        "Out of **130** airlines, **39** have electronic folder records and **18** have planning records.",
+        "**In-house built** leads electronic folder recorded selections with **9** out of **39**, alongside **6** records of **Paper**.",
+        "**NavBlue** leads planning recorded selections with **9** out of **18** records."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
     },
     {
       "name": "North America",
-      "headline": "Moderate Sample with AvioBook and FlightKeys Leading Recorded Entries",
+      "headline": "North America shows concentrated electronic folder records led by AvioBook alongside heavy FlightKeys planning use.",
       "observations": [
-        "Out of **59** airlines, **14** recorded EFB selections, led by **AvioBook** (**5**) and **Navblue Mission+** (**3**).",
-        "Flight planning recorded **9** entries, with **FlightKeys** appearing **5** times.",
-        "Large fleet LCCs and small fleet carriers dominate the small recorded segment slice."
+        "Out of **59** airlines, **14** have electronic folder records and **9** have planning records.",
+        "**AvioBook** holds **5** out of **14** electronic folder recorded selections, followed by **Navblue Mission+** with **3** selections.",
+        "**FlightKeys** leads planning recorded selections with **5** out of **9** records."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
     },
     {
       "name": "Latin America & Caribbean",
-      "headline": "Limited Recorded Sample Showing Fragmented Vendor Distribution",
+      "headline": "Latin America & Caribbean displays fragmented electronic folder selections and moderate planning coverage.",
       "observations": [
-        "Out of **56** airlines, **12** recorded EFB selections distributed across multiple systems like **AvioBook** (**2**) and **Flightman** (**2**).",
-        "Flight planning recorded **9** selections, with **Lido** noted **4** times.",
-        "Flag carrier and LCC segments show sparse representation across fleet bands."
+        "Out of **56** airlines, **12** have electronic folder records and **9** have planning records.",
+        "Electronic folder records show **AvioBook**, **Flightman**, and **Paper** tied with **2** recorded selections each out of **12**.",
+        "**Lido** leads planning recorded selections with **4** out of **9** records."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
     },
     {
       "name": "Middle East & North Africa",
-      "headline": "Balanced Recorded Selections Across Traditional Regional Vendors",
+      "headline": "Middle East & North Africa exhibits balanced electronic folder distribution across multiple vendors.",
       "observations": [
-        "Out of **52** airlines, **15** recorded EFB selections, evenly split among **Bytron Skybook** (**3**), **Jeppesen Aviator** (**3**), and **Paper** (**3**).",
-        "Flight planning recorded **10** entries, led by **Lido** (**3**) and **NavBlue** (**3**).",
-        "Large fleet flag carriers and small LCC segments provide the primary recorded data points."
+        "Out of **52** airlines, **15** have electronic folder records and **10** have planning records.",
+        "**Bytron Skybook**, **Jeppesen Aviator**, and **Paper** lead electronic folder recorded selections with **3** each out of **15**.",
+        "**Lido** and **NavBlue** tie for planning recorded selections with **3** each out of **10** records."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
     },
     {
       "name": "Sub-Saharan Africa",
-      "headline": "Insufficient Field-Complete Sample for Directional Targeting",
+      "headline": "Evidence is insufficient in Sub-Saharan Africa due to low record completeness across the sample.",
       "observations": [
-        "Out of **47** airlines, only **8** have recorded EFB selections and **4** have recorded planning selections.",
-        "Because the field-complete sample is under **5** for specific detailed breakdowns, evidence is insufficient to name a leading system.",
-        "Targeting recommendations cannot be reliably formed from this sparse subset."
+        "Out of **47** airlines, only **8** have electronic folder records and **4** have planning records.",
+        "Electronic folder records are scattered, with **IFS EFBOne** recording **2** selections out of **8**.",
+        "Planning records show **Lido** with **2** selections out of **4** records."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
     },
     {
       "name": "South Asia",
-      "headline": "Insufficient Field-Complete Sample for Directional Targeting",
+      "headline": "Evidence is insufficient in South Asia due to a small field-complete sample size.",
       "observations": [
-        "Out of **13** airlines, only **4** recorded EFB selections and **4** recorded flight planning selections.",
-        "Because the field-complete sample is under **5**, evidence is insufficient to name a leading system or make directional targeting recommendations.",
-        "Recorded data points are too few to draw meaningful segment conclusions."
+        "Out of **13** airlines, only **4** have electronic folder records and **4** have planning records.",
+        "Electronic folder records show single selections across **AvioBook**, **In-house built**, **Navblue Mission+**, and **Paper** out of **4**.",
+        "**Lido** leads planning recorded selections with **2** out of **4** records."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
     },
     {
       "name": "Unmapped",
-      "headline": "Zero Recorded Selections Across Unmapped Airline Entries",
+      "headline": "Unmapped records lack regional context and cannot be prioritized for regional targeting.",
       "observations": [
-        "Out of **12** unmapped airlines, **0** have recorded EFB or planning selections.",
-        "No vendor data or carrier segment distributions are available for analysis in this category.",
-        "This category should be excluded from immediate targeting workflows due to complete data absence."
+        "Out of **12** airlines, **0** have electronic folder records and **0** have planning records.",
+        "No electronic folder selections are recorded.",
+        "No planning selections are recorded."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample rather than the whole market, where blanks indicate unknown data rather than non-adoption."
+      "caveat": "Treat this Airtable list as a prospect sample, not the whole market; multiple selections can be recorded and blanks mean unknown."
     }
   ]
 }
