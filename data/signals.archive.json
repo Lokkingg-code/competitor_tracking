@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T12:37:28Z",
+  "generated_at": "2026-11-15T13:02:50Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -1262,6 +1262,68 @@
         "evidence_scope": "captured_preview_only",
         "title": "Lufthansa Systems promotes EFB solution capabilities at the EFB Users Forum.",
         "summary": "Lufthansa Systems is promoting its EFB capabilities, such as traffic integration and ETOPS/EDTO decision support, at the EFB Users Forum. No concrete product releases or customer agreements are established."
+      }
+    },
+    {
+      "id": "cap-8bdd1330f390",
+      "competitor": "Jeppesen",
+      "date": "2026-11-04",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight Ends Paper Chart Services",
+      "summary": "Jeppesen reported a messaging shift update: Jeppesen ForeFlight Ends Paper Chart Services. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSHAxNU0xbkswN0M3RFFJWWpKQ0JSLWpjb2ZVZW5UeWpvRDNmQ1BDemhUZENXNzY4U3JPUFU3NEpVNTFXSFR1RnVlYjlseXBOYktNYVc3M0pSZkFfN082NXI0OTlYcDV5bmR3VzVfWUxOT29RbmFHekFkVjV2VlhfZnZmQUI?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-15T13:03:11+00:00",
+        "source_sha256": "c714eafad3193215bbec2116e4e255669ab6e17706dfc12aa58cea44816cc447",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ends paper chart services for ForeFlight.",
+        "summary": "Jeppesen has announced the discontinuation of paper chart services for its ForeFlight product."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-15T13:04:40+00:00",
+        "source_sha256": "c714eafad3193215bbec2116e4e255669ab6e17706dfc12aa58cea44816cc447",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
       }
     },
     {
@@ -12391,8 +12453,8 @@
       "date": "2026-06-01",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.8,
       "headline": "Jeppesen Foreflight Announces Three Executive Appointments To Drive Growth And Innovation",
       "summary": "DENVER, December 16, 2025 – Jeppesen ForeFlight, a leading aviation software company dedicated to advancing the future of flight through innovative technology, today announced the appointment of three senior executives to its leadership team. Joe Ayers joins as chief financial officer (CFO), Toya Del Valle has joined as chief customer officer (CCO), and Richa Gupta will assume the role of chief people officer as of…",
@@ -12638,7 +12700,7 @@
       "summary": "Pan American World Airways (Pan Am) adopts the Skywise Digital Suite to provide the technological backbone for its historic return to flight operations.",
       "source_channel": "press_release",
       "source_origin": "press_release",
-      "product_focus": "other",
+      "product_focus": "adjacent",
       "product": null,
       "why_it_matters": "Direct press release — higher confidence source for competitor product and customer moves.",
       "segment": "Unknown",
@@ -12696,7 +12758,23 @@
         "title": "Navblue announces Pan American World Airways selection of Skywise Digital Suite for return to service.",
         "summary": "Pan American World Airways has selected the Skywise Digital Suite to serve as the technological backbone for its return to flight operations."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-15T13:05:19+00:00",
+        "source_sha256": "d314668f8f2139a503ff89f4dce68d01216d7c369f1d93a663b6ce3778a4998b",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.8,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-5ee144b48db6",
@@ -12769,13 +12847,28 @@
         "title": "Bytron Aviation Systems releases skybook 1.50.0 featuring enhanced flight tracking and configurable dispatch visibility.",
         "summary": "The skybook 1.50.0 update introduces an enhanced flight tracking map, configurable dispatch visibility, and OTP filtering. It also adds FRV edit tracking, nav log reclearance routes, and new RVSM engine oil recording fields."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-15T13:05:35+00:00",
+        "source_sha256": "2fc6a80d07b9fbf4a6305fd3d73bb5412f749b838edf2538c43cfc06dd8204b7",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "avio-2026-05-21-connect-webinar",
       "competitor": "Aviobook",
       "date": "2026-05-21",
-      "type": "product_launch",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.78,
@@ -12843,7 +12936,23 @@
         "title": "Aviobook promotes AvioBook Connect flight-room communication features during Aircraft IT webinar.",
         "summary": "Aviobook showcased AvioBook Connect's secure per-flight chat and API-driven alerts for irregular operations (IROPs) during an Aircraft IT webinar. No concrete product development or new customer contracts were established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-15T13:06:02+00:00",
+        "source_sha256": "276efd4019589b24be46846ebd67dea6857db9711a977a1f46354739fea3bd2a",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-9e329b513740",
@@ -13960,6 +14069,53 @@
         "evidence_scope": "captured_preview_only",
         "title": "Airbus launches Skywise subsidiary integrating Navblue and digital services.",
         "summary": "Airbus is launching a new Skywise subsidiary that integrates Navblue and digital services."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-fa9184cd83d8",
+      "competitor": "Navblue",
+      "date": "2026-04-06",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Airbus unveils Skywise subsidiary, integrating Navblue and Skywise digital services solutions Airbus is accelerating…",
+      "summary": "Airbus unveils Skywise subsidiary, integrating Navblue and Skywise digital services solutions Airbus is accelerating its digital transformation with the launch of Skywise, a new wholly owned subsidiary merging Skywise digital solutions and Navblue solutions i <font color=\"#6f6f6f\"",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNRW9ybkdnS0dyVGZtTGotLU15TzZyTnBlc2toS2NFWUVMa3owd1NoOEJlaVNxRjhJRFBPaWJhSjVhcGNhTWpwczhqcFY4b0ZLV1pPeHFFNEdFeWl3cWZSSkZKWlBVb2VlLTZkS214aWVGUDJRd1R4MXdCTEZEVk9JZnZPYmY1b0xPbFFYb0lOSFNONW94WWVhU3dPOWZZdnYzTmVHQUxPODk3SFU?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-15T13:03:49+00:00",
+        "source_sha256": "8ed53ce8099a0019c52925fae22dae733a127ff0fca8824b7e35ed29e26ea36d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Airbus launches Skywise subsidiary integrating Navblue and Skywise digital services solutions.",
+        "summary": "Airbus has established a new wholly owned subsidiary, Skywise, to integrate Navblue and Skywise digital services solutions. This organizational change is intended to accelerate Airbus's digital transformation."
       },
       "ai_classification_status": "pending"
     },
