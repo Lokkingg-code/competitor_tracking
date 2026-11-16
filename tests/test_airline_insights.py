@@ -14,6 +14,22 @@ WORLD = {
 
 
 class AirlineInsightsTests(unittest.TestCase):
+    def test_excludes_named_non_airlines_without_dropping_other_unclassified(self):
+        rows = [
+            {"Airline": "Embraer", "Fleet size": "16", "HQ": "France"},
+            {"Airline": "Exchange Income Corporation", "Fleet size": "109", "HQ": "France"},
+            {"Airline": "Embraer Air", "Fleet size": "20", "HQ": "India"},
+        ]
+        events = [{"Event Name": "Conference", "Nature": "Conference", "Airline": "Embraer, Exchange Income Corporation, Embraer Air"}]
+        result = build(rows, events, WORLD)
+        self.assertEqual(result["source_record_count"], 3)
+        self.assertEqual(result["unique_airline_count"], 1)
+        self.assertEqual(result["excluded_entity_count"], 2)
+        self.assertEqual(result["entity_exclusion_version"], 1)
+        self.assertEqual(result["overall"]["airlines"], 1)
+        self.assertEqual([profile["airline"] for profile in result["airline_profiles"]], ["Embraer Air"])
+        self.assertEqual(result["conferences"][0]["attending_airlines"], ["Embraer Air"])
+
     def test_retains_small_and_unknown_fleets_for_page_filter(self):
         rows = [
             {"Airline": "Small Air", "Fleet size": "9", "HQ": "France", "EFF Status": "Paper"},

@@ -73,6 +73,8 @@ EVENT_CITY_REGIONS = {
     "chicago": "North America",
 }
 EFF_NO_VENDOR = {"paper", "in-house built", "in house built", "own solution"}
+EXCLUDED_ENTITIES = {"embraer", "exchange income corporation"}
+ENTITY_EXCLUSION_VERSION = 1
 
 
 def key(value: object) -> str:
@@ -273,6 +275,8 @@ def build(
 ) -> dict:
     by_name, by_alias = feature_indexes(world)
     records, duplicate_groups, duplicate_conflicts = canonical_rows(airline_rows)
+    excluded_entity_count = sum(key(record.get("Airline", "")) in EXCLUDED_ENTITIES for record in records)
+    records = [record for record in records if key(record.get("Airline", "")) not in EXCLUDED_ENTITIES]
     normalized_type_overrides = {key(name): value for name, value in (airline_type_overrides or {}).items()}
     normalized_hq_overrides = {key(name): value for name, value in (airline_hq_overrides or {}).items()}
     normalized_event_date_overrides = {key(name): value for name, value in (event_end_date_overrides or {}).items()}
@@ -461,6 +465,8 @@ def build(
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "source_record_count": len(airline_rows),
         "unique_airline_count": all_airlines,
+        "entity_exclusion_version": ENTITY_EXCLUSION_VERSION,
+        "excluded_entity_count": excluded_entity_count,
         "duplicate_name_groups": duplicate_groups,
         "duplicate_conflict_groups": duplicate_conflicts,
         "airline_type_overrides_applied": sum(key(record.get("Airline", "")) in normalized_type_overrides for record in records),

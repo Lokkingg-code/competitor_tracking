@@ -16,6 +16,7 @@ test("fleet toggle updates the whole airline view and preserves its selection", 
       await page.route("**/data/airline-insights-ai.json", (route) => route.fulfill({ json: {
         snapshot_generated_at: snapshot.generated_at,
         region_scheme: "mainland-china-rest-asia-v2",
+        entity_exclusion_version: 1,
         model: "test-model",
         overall: { headline: "Unfiltered AI", observations: ["Unfiltered analysis."], caveat: "Sample." },
         regions: [],
@@ -24,24 +25,31 @@ test("fleet toggle updates the whole airline view and preserves its selection", 
       const toggle = page.locator("#airlineFleetFilter");
       const count = page.locator("#airlineCount");
       await page.waitForFunction(() => document.querySelector("#airlineCount").textContent !== "—");
-      const filteredCount = snapshot.airline_profiles.filter((profile) => profile.fleet_size === null || profile.fleet_size >= 10).length;
+      const airlines = snapshot.airline_profiles.filter((profile) => !["Embraer", "Exchange Income Corporation"].includes(profile.airline));
+      const filteredCount = airlines.filter((profile) => profile.fleet_size === null || profile.fleet_size >= 10).length;
       assert.equal(await toggle.isChecked(), true);
       assert.equal(await count.textContent(), filteredCount.toLocaleString("en-US"));
       assert.equal(await page.locator(".airline-ai-badge").textContent(), "Data summary");
       const filteredMapTotal = await page.locator("#airlineMapTotal").textContent();
       await toggle.uncheck();
-      assert.equal(await count.textContent(), snapshot.unique_airline_count.toLocaleString("en-US"));
+      assert.equal(await count.textContent(), airlines.length.toLocaleString("en-US"));
       assert.match(await page.locator(".airline-ai-badge").textContent(), /AI synthesis/);
       assert.notEqual(await page.locator("#airlineMapTotal").textContent(), filteredMapTotal);
       await page.reload();
       await page.waitForFunction(() => document.querySelector("#airlineCount").textContent !== "—");
       assert.equal(await toggle.isChecked(), false);
-      assert.equal(await count.textContent(), snapshot.unique_airline_count.toLocaleString("en-US"));
+      assert.equal(await count.textContent(), airlines.length.toLocaleString("en-US"));
       await page.locator("[data-profile-dimension=fleet]").click();
+      assert.match(await page.locator("#airlineProfileNote").textContent(), /Valid fleet sizes/);
       assert.match(await page.locator("#airlineProfileRows").textContent(), /Small · 1–50/);
+      assert.doesNotMatch(await page.locator("#airlineProfileRows").textContent(), /Check value|Unspecified/);
+      assert.equal(await count.textContent(), airlines.length.toLocaleString("en-US"));
       await toggle.check();
       assert.equal(await count.textContent(), filteredCount.toLocaleString("en-US"));
       assert.match(await page.locator("#airlineProfileRows").textContent(), /Small · 10–50/);
+      assert.doesNotMatch(await page.locator("#airlineProfileRows").textContent(), /Check value|Unspecified/);
+      await page.locator('[data-airline-system="planning"]').click();
+      assert.doesNotMatch(await page.locator("#airlineProfileRows").textContent(), /Check value|Unspecified/);
       await page.locator('[data-airline-map-metric="eff"]').click();
       assert.match(await page.locator("#airlineMapSummary").textContent(), /providers by region/);
       const china = page.locator('[data-country="China"]');
@@ -52,7 +60,7 @@ test("fleet toggle updates the whole airline view and preserves its selection", 
       assert.equal(await page.locator("#airlineWorldMap pattern").count(), 0);
       assert.equal(await page.locator("#airlineMapComparison").count(), 0);
       assert.ok(await page.locator("#airlineWorldMap linearGradient").count() > 0);
-      assert.match(await page.locator("#airlineMapLegend").textContent(), /top two providers/);
+      assert.doesNotMatch(await page.locator("#airlineMapLegend").textContent(), /Blend:|Multi-way ties/);
       for (const gradient of await page.locator("#airlineWorldMap linearGradient").all()) {
         assert.equal(await gradient.locator("stop").count(), 4);
         const offsets = await gradient.locator("stop").evaluateAll((stops) => stops.map((stop) => parseFloat(stop.getAttribute("offset"))));
@@ -67,7 +75,7 @@ test("fleet toggle updates the whole airline view and preserves its selection", 
       assert.match(await page.locator("#airlineMapSummary").textContent(), /Flight planning providers/);
       await page.locator(".airline-map-section").screenshot({ path: `/tmp/airline-provider-map-${width}.png` });
       await toggle.uncheck();
-      assert.equal(await count.textContent(), snapshot.unique_airline_count.toLocaleString("en-US"));
+      assert.equal(await count.textContent(), airlines.length.toLocaleString("en-US"));
       await page.locator('[data-airline-map-metric="airlines"]').click();
       assert.equal(await page.locator("#airlineWorldMap linearGradient").count(), 0);
       assert.equal(await page.locator("#airlineWorldMap pattern").count(), 0);

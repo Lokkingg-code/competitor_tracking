@@ -3,6 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { resolve } from "node:path";
 import { normalizeMapRegions, REGION_SCHEME } from "../js/airline-provider-map.js";
+import { excludeNonAirlineEntities, ENTITY_EXCLUSION_VERSION } from "../js/airline-fleet-filter.js";
 
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta";
 const ROOT = resolve(import.meta.dirname, "..");
@@ -49,6 +50,7 @@ function segmentSummary(segment) {
 }
 
 export function buildInsightInput(snapshot) {
+  if (snapshot.country_segments && snapshot.airline_profiles) snapshot = excludeNonAirlineEntities(snapshot);
   if (snapshot.country_segments) snapshot = normalizeMapRegions(snapshot);
   const regions = snapshot.regions.map((region) => ({
     name: region.name,
@@ -94,6 +96,7 @@ function normalizeSection(section, label) {
 }
 
 export function normalizeInsights(value, snapshot, model = DEFAULT_MODEL) {
+  if (snapshot.country_segments && snapshot.airline_profiles) snapshot = excludeNonAirlineEntities(snapshot);
   if (snapshot.country_segments) snapshot = normalizeMapRegions(snapshot);
   const expectedRegions = new Set(snapshot.regions.map((region) => region.name));
   if (!value || !Array.isArray(value.regions)) throw new Error("AI response must include a regions array.");
@@ -106,6 +109,7 @@ export function normalizeInsights(value, snapshot, model = DEFAULT_MODEL) {
   return {
     schema_version: 1,
     region_scheme: REGION_SCHEME,
+    entity_exclusion_version: ENTITY_EXCLUSION_VERSION,
     snapshot_generated_at: snapshot.generated_at,
     generated_at: new Date().toISOString(),
     model,

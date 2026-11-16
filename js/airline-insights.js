@@ -1,4 +1,4 @@
-import { applyFleetFilter } from "./airline-fleet-filter.js";
+import { applyFleetFilter, excludeNonAirlineEntities, ENTITY_EXCLUSION_VERSION } from "./airline-fleet-filter.js?v=2";
 import { normalizeMapRegions, mapRegion, providerColors, regionalProviderRace, REGION_SCHEME } from "./airline-provider-map.js?v=3";
 
 const dataUrl = "data/airline-insights.json";
@@ -299,7 +299,7 @@ function drawProviderMap(cells) {
   elements.mapSummary.textContent = `${state.mapMetric === "eff" ? "EFF" : "Flight planning"} providers by region · Airtable sample, not market share`;
   elements.mapTotal.textContent = "";
   elements.mapLegend.innerHTML = [...shownProviders].sort().map((name) => `<span><i style="--legend-color:${mapProviderColors.get(name)}"></i>${escapeHtml(name)}</span>`).join("")
-    + '<span><i style="--legend-color:var(--map-empty)"></i>Insufficient evidence</span><span>Blend: top two providers only, weighted by recorded counts; not market share. Multi-way ties may include other providers.</span>';
+    + '<span><i style="--legend-color:var(--map-empty)"></i>Insufficient evidence</span>';
 }
 
 function showMapTooltip(event, country, value) {
@@ -344,7 +344,7 @@ function renderMarketRead() {
   const read = isOverall
     ? aiInsightSnapshot?.overall
     : aiInsightSnapshot?.regions?.find((item) => item.name === state.region);
-  const isFresh = !snapshot.fleet_filter?.derived_from_saved_snapshot && aiInsightSnapshot?.region_scheme === REGION_SCHEME && aiInsightSnapshot?.snapshot_generated_at === snapshot.generated_at;
+  const isFresh = !snapshot.fleet_filter?.derived_from_saved_snapshot && aiInsightSnapshot?.entity_exclusion_version === ENTITY_EXCLUSION_VERSION && aiInsightSnapshot?.region_scheme === REGION_SCHEME && aiInsightSnapshot?.snapshot_generated_at === snapshot.generated_at;
   elements.insightScope.textContent = isOverall ? "Overall" : state.region;
   elements.insightHeading.innerHTML = formatInsightText(read && isFresh ? read.headline : isOverall ? "Overall data read" : `${state.region} data read`);
   elements.insightBadge.textContent = read && isFresh ? `AI synthesis · ${aiInsightSnapshot.model}` : "Data summary";
@@ -395,6 +395,7 @@ function renderProfiles() {
   const profiles = new Map();
   const dimension = { type: "airline_type", fleet: "fleet_band", region: "region" }[state.profileDimension];
   for (const cell of profileCells()) {
+    if (state.profileDimension === "fleet" && ["Check value", "Unspecified"].includes(cell.fleet_band)) continue;
     const label = cell[dimension];
     const value = profiles.get(label) || { label, airlines: 0, effKnown: 0, planningKnown: 0, effSystems: new Map(), planningSystems: new Map() };
     value.airlines += cell.airlines;
@@ -424,7 +425,7 @@ function renderProfiles() {
   const table = elements.profileHead.closest("table");
   table.style.minWidth = `max(100%, ${150 + allSystems.length * 67}px)`;
   table.style.setProperty("--system-columns", allSystems.length);
-  elements.profileNote.textContent = `All recorded ${systemLabel} selections by ${dimensionLabel.toLowerCase()} · count and share of known records`;
+  elements.profileNote.textContent = `${state.profileDimension === "fleet" ? "Valid fleet sizes" : "All records"} · ${systemLabel} selections by ${dimensionLabel.toLowerCase()} · count and share of known records`;
   elements.profileHead.innerHTML = `<tr><th>${dimensionTitle} · coverage</th>${allSystems.map((name) => `<th>${escapeHtml(name)}</th>`).join("")}</tr>`;
   elements.profileRows.innerHTML = rows.map((row) => {
     const filters = {
@@ -515,7 +516,7 @@ async function boot() {
     fetch("data/airline-insights-ai.json", { cache: "no-store" }).catch(() => null),
   ]);
   if (!dataResponse.ok || !mapResponse.ok) throw new Error("Could not load the Airtable snapshot or map boundaries.");
-  unfilteredSnapshot = normalizeMapRegions(await dataResponse.json());
+  unfilteredSnapshot = normalizeMapRegions(excludeNonAirlineEntities(await dataResponse.json()));
   mapProviderColors = providerColors(unfilteredSnapshot);
   const alreadyFiltered = unfilteredSnapshot.fleet_filter?.minimum === 10 && unfilteredSnapshot.fleet_filter?.unknown_included;
   filteredSnapshot = applyFleetFilter(unfilteredSnapshot);
