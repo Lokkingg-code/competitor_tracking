@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T14:08:41Z",
+  "generated_at": "2026-11-17T15:02:00Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,177 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-77474efd5486",
+      "competitor": "Jeppesen",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Archer and Jeppesen ForeFlight Unveil AI Partnership",
+      "summary": "Jeppesen reported a partnership update: Archer and Jeppesen ForeFlight Unveil AI Partnership. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcUdFejVZeG56QnVjRWcyUVE0WXVKVlpoWGRZaEFUd2w0ckN4cW00RGJTd2lWaTFJTl95SmdtWTdkcnNtWUt1UGh5TlN2a09NVWxRaDZ0Y1NFa3drclVqejg1LU9nVncwN3BQV3hHT2VLMVdCR3AzNkhDVlJsZUJ5S3VOZWtRWmZXUFRxS0lB?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-17T15:03:35+00:00",
+        "source_sha256": "d9859c303981efd2caf39a586b80e6f3013d4b1904167c88ceec29c2434500fd",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "AI Partnership",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-fb0b5200ec10",
+      "competitor": "Aviobook",
+      "date": "2026-11-16",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "✈️ “Will I make my connection?” It’s the question lots of transfer passengers are silently panicking about.",
+      "summary": "AvioBook Cabin now helps crew answer that at a glance, with a visually enhanced passenger connections view built for faster, clearer identification: 🔢 Flight numbers on every connecting flight, so no mix-ups between flights to the same destination 🟢🟠 Green and amber times that show instantly whether a connection is on time or delayed 🔄 The same color coding on the FLIGHTS page, for one consistent picture The…",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobook-futureofflying-efb-activity-7528120774033924096-WCjK"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-17T15:02:38+00:00",
+        "source_sha256": "f0b0adf74d12e31126c18606c92ba01ada9c018db4ba1458362968f0ffe40f2e",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook introduces visually enhanced passenger connection view in AvioBook Cabin.",
+        "summary": "Aviobook updated AvioBook Cabin with a visually enhanced passenger connections view. The update adds flight numbers for all connecting flights and uses green and amber color coding to indicate whether connections are on time or delayed."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-17T15:03:56+00:00",
+        "source_sha256": "f0b0adf74d12e31126c18606c92ba01ada9c018db4ba1458362968f0ffe40f2e",
+        "suggested_type": "feature_change",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-ea23b81e9244",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-16",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Customisable checklists in skybook help pilots follow consistent workflows.",
+      "summary": "✈️ Reposted content: Give flight crew a checklist tailored to your operation ✅ Operators can configure bespoke checklists for pre-flight and post-flight phases, helping crews follow consistent processes and complete key tasks through the flight workflow. A more tailored EFB experience, built around the way your airline operates.",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_customisable-checklists-in-skybook-help-pilots-activity-7528048054050942976-MMbH"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-17T15:04:26+00:00",
+        "source_sha256": "255730add0ac8ef428cf22c85211e5cb1bddf7ba78211a24779db9cc9a758eb1",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-bcea53805ee0",
       "competitor": "Jeppesen",
@@ -196,6 +367,68 @@
         "ai_evidence": "Integrating AI into the EFB",
         "original_type": "partnership",
         "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-6caf71c2de80",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-12",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Fuel data from the skybook EFB helps operators to analyse fuel performance, identify inefficiencies…",
+      "summary": "Fuel data from the skybook EFB helps operators to analyse fuel performance, identify inefficiencies and uncover opportunities to optimise and reduce fuel costs. #aviationindustry #aviationfuel #aviationdaily #airlines #avgeek &nb",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQbmUzTEJZaElnMWZETHgtMjVXYVQ3OWlqWEs0VGwtZElhV1hIYVdjQVF2VEFnRGJPSTNUdmJSenZPVnJDbjVmTGVHU05CMFVkLW9PTXhDT0hhcDR5cUN6YVpMY0VJblpJQk1LUTRucWlfcFNGLUtmTDE5VFFTQmVhNzZRY2xoUWVsYlRKNzdvdEVRVGxycmcxQjgwa2UtTzc4Ymg5WE8xejBsTTVFZ2ZxZzcyUDlTZmpKeUdqcHVB?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-17T15:03:13+00:00",
+        "source_sha256": "89199683ed4863796963f17e59411bf93953040078d24c556ac0d5b346cc4cea",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes fuel performance analysis capabilities of its Skybook EFB.",
+        "summary": "Bytron Skybook is highlighting how its Skybook EFB provides fuel data to help operators analyze performance and reduce costs. No new product release or customer deployment is established in the text."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-17T15:04:44+00:00",
+        "source_sha256": "89199683ed4863796963f17e59411bf93953040078d24c556ac0d5b346cc4cea",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
         "focus_auto_applied": false
       }
     },

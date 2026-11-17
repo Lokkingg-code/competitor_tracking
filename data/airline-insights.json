@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "Airtable Airline Customer Pipeline shared view",
-  "generated_at": "2026-11-16T14:05:45+00:00",
+  "generated_at": "2026-11-17T14:59:42+00:00",
   "source_record_count": 522,
   "unique_airline_count": 518,
   "entity_exclusion_version": 1,
@@ -46,13 +46,13 @@
     "fleet_known": 512,
     "fleet_size_outliers": 1,
     "airline_type_known": 517,
-    "eff_status_known": 127,
+    "eff_status_known": 162,
     "flight_planning_known": 68,
     "conferences_recorded": 9,
     "upcoming_conferences_recorded": 0,
     "unmapped_event_regions": 2,
     "quality_flags": {
-      "missing_eff_status": 391,
+      "missing_eff_status": 356,
       "missing_flight_planning": 450,
       "hq_not_mapped": 28,
       "missing_hq": 12,
@@ -67,9 +67,13 @@
     "airlines": 518,
     "fleet_known": 512,
     "fleet_outliers": 1,
-    "eff_known": 127,
+    "eff_known": 162,
     "eff_no_vendor": 34,
     "eff_systems": [
+      {
+        "name": "NavChina",
+        "count": 38
+      },
       {
         "name": "AvioBook",
         "count": 21
@@ -112,10 +116,6 @@
       },
       {
         "name": "Cathay Flight Folder",
-        "count": 3
-      },
-      {
-        "name": "NavChina",
         "count": 3
       },
       {
@@ -189,7 +189,7 @@
     "airline_types": [
       {
         "name": "Airline",
-        "count": 164
+        "count": 163
       },
       {
         "name": "Flag Carrier",
@@ -201,7 +201,7 @@
       },
       {
         "name": "LCC",
-        "count": 69
+        "count": 70
       },
       {
         "name": "Charter",
@@ -344,7 +344,7 @@
       "airline_types": [
         {
           "name": "Airline",
-          "count": 43
+          "count": 42
         },
         {
           "name": "Charter",
@@ -360,7 +360,7 @@
         },
         {
           "name": "LCC",
-          "count": 19
+          "count": 20
         },
         {
           "name": "Regional Airline",
@@ -388,9 +388,13 @@
       "airlines": 130,
       "fleet_known": 128,
       "fleet_outliers": 0,
-      "eff_known": 39,
+      "eff_known": 74,
       "eff_no_vendor": 15,
       "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 38
+        },
         {
           "name": "In-house built",
           "count": 9
@@ -410,10 +414,6 @@
         {
           "name": "Navblue Mission+",
           "count": 4
-        },
-        {
-          "name": "NavChina",
-          "count": 3
         },
         {
           "name": "Cathay Flight Folder",
@@ -1123,16 +1123,16 @@
       "fleet_known": 41,
       "fleet_sum": 4094,
       "fleet_outliers": 0,
-      "eff_known": 6,
+      "eff_known": 41,
       "eff_no_vendor": 4,
       "eff_systems": [
         {
-          "name": "In-house built",
-          "count": 4
+          "name": "NavChina",
+          "count": 37
         },
         {
-          "name": "NavChina",
-          "count": 2
+          "name": "In-house built",
+          "count": 4
         }
       ],
       "planning_known": 0,
@@ -4022,15 +4022,15 @@
       "airlines": 6,
       "fleet_known": 6,
       "fleet_outliers": 0,
-      "eff_known": 4,
+      "eff_known": 6,
       "eff_no_vendor": 2,
       "eff_systems": [
         {
-          "name": "In-house built",
-          "count": 2
+          "name": "NavChina",
+          "count": 4
         },
         {
-          "name": "NavChina",
+          "name": "In-house built",
           "count": 2
         }
       ],
@@ -4058,9 +4058,13 @@
       "airlines": 15,
       "fleet_known": 15,
       "fleet_outliers": 0,
-      "eff_known": 2,
+      "eff_known": 11,
       "eff_no_vendor": 1,
       "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 9
+        },
         {
           "name": "AvioBook",
           "count": 1
@@ -4099,19 +4103,19 @@
       "airlines": 36,
       "fleet_known": 36,
       "fleet_outliers": 0,
-      "eff_known": 4,
+      "eff_known": 18,
       "eff_no_vendor": 2,
       "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 15
+        },
         {
           "name": "Paper",
           "count": 2
         },
         {
           "name": "AvioBook",
-          "count": 1
-        },
-        {
-          "name": "NavChina",
           "count": 1
         }
       ],
@@ -4180,9 +4184,14 @@
       "airlines": 1,
       "fleet_known": 1,
       "fleet_outliers": 0,
-      "eff_known": 0,
+      "eff_known": 1,
       "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 1
+        }
+      ],
       "planning_known": 0,
       "planning_systems": [],
       "airline_types": [
@@ -4207,9 +4216,13 @@
       "airlines": 16,
       "fleet_known": 16,
       "fleet_outliers": 0,
-      "eff_known": 3,
+      "eff_known": 8,
       "eff_no_vendor": 1,
       "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 5
+        },
         {
           "name": "CAE eFlightManager",
           "count": 1
@@ -4540,11 +4553,15 @@
       "airlines": 8,
       "fleet_known": 8,
       "fleet_outliers": 0,
-      "eff_known": 1,
+      "eff_known": 2,
       "eff_no_vendor": 0,
       "eff_systems": [
         {
           "name": "AvioBook",
+          "count": 1
+        },
+        {
+          "name": "NavChina",
           "count": 1
         }
       ],
@@ -4577,9 +4594,13 @@
       "airlines": 13,
       "fleet_known": 13,
       "fleet_outliers": 0,
-      "eff_known": 7,
+      "eff_known": 10,
       "eff_no_vendor": 1,
       "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 3
+        },
         {
           "name": "Navblue Mission+",
           "count": 3
@@ -4731,10 +4752,10 @@
       "airline_type": "Airline",
       "fleet_band": "Small · 1–50",
       "name": "Europe & Central Asia",
-      "airlines": 35,
-      "fleet_known": 35,
+      "airlines": 34,
+      "fleet_known": 34,
       "fleet_outliers": 0,
-      "eff_known": 7,
+      "eff_known": 6,
       "eff_no_vendor": 2,
       "eff_systems": [
         {
@@ -4743,7 +4764,7 @@
         },
         {
           "name": "IFS EFBOne",
-          "count": 2
+          "count": 1
         },
         {
           "name": "In-house built",
@@ -4764,13 +4785,13 @@
       "airline_types": [
         {
           "name": "Airline",
-          "count": 35
+          "count": 34
         }
       ],
       "fleet_bands": [
         {
           "name": "Small · 1–50",
-          "count": 35
+          "count": 34
         }
       ],
       "conference_count": 3
@@ -5178,18 +5199,18 @@
       "airline_type": "LCC",
       "fleet_band": "Small · 1–50",
       "name": "Europe & Central Asia",
-      "airlines": 12,
-      "fleet_known": 12,
+      "airlines": 13,
+      "fleet_known": 13,
       "fleet_outliers": 0,
-      "eff_known": 3,
+      "eff_known": 4,
       "eff_no_vendor": 1,
       "eff_systems": [
         {
-          "name": "AvioBook",
-          "count": 1
+          "name": "IFS EFBOne",
+          "count": 2
         },
         {
-          "name": "IFS EFBOne",
+          "name": "AvioBook",
           "count": 1
         },
         {
@@ -5207,13 +5228,13 @@
       "airline_types": [
         {
           "name": "LCC",
-          "count": 12
+          "count": 13
         }
       ],
       "fleet_bands": [
         {
           "name": "Small · 1–50",
-          "count": 12
+          "count": 13
         }
       ],
       "conference_count": 3
@@ -8282,15 +8303,15 @@
       "fleet_known": 6,
       "fleet_sum": 2104,
       "fleet_outliers": 0,
-      "eff_known": 4,
+      "eff_known": 6,
       "eff_no_vendor": 2,
       "eff_systems": [
         {
-          "name": "In-house built",
-          "count": 2
+          "name": "NavChina",
+          "count": 4
         },
         {
-          "name": "NavChina",
+          "name": "In-house built",
           "count": 2
         }
       ],
@@ -8308,9 +8329,14 @@
       "fleet_known": 9,
       "fleet_sum": 785,
       "fleet_outliers": 0,
-      "eff_known": 0,
+      "eff_known": 9,
       "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 9
+        }
+      ],
       "planning_known": 0,
       "planning_systems": []
     },
@@ -8325,9 +8351,14 @@
       "fleet_known": 14,
       "fleet_sum": 312,
       "fleet_outliers": 0,
-      "eff_known": 0,
+      "eff_known": 14,
       "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 14
+        }
+      ],
       "planning_known": 0,
       "planning_systems": []
     },
@@ -8342,9 +8373,14 @@
       "fleet_known": 1,
       "fleet_sum": 85,
       "fleet_outliers": 0,
-      "eff_known": 0,
+      "eff_known": 1,
       "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 1
+        }
+      ],
       "planning_known": 0,
       "planning_systems": []
     },
@@ -8359,9 +8395,13 @@
       "fleet_known": 6,
       "fleet_sum": 107,
       "fleet_outliers": 0,
-      "eff_known": 1,
+      "eff_known": 6,
       "eff_no_vendor": 1,
       "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 5
+        },
         {
           "name": "In-house built",
           "count": 1
@@ -8403,9 +8443,14 @@
       "fleet_known": 1,
       "fleet_sum": 127,
       "fleet_outliers": 0,
-      "eff_known": 0,
+      "eff_known": 1,
       "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 1
+        }
+      ],
       "planning_known": 0,
       "planning_systems": []
     },
@@ -8420,9 +8465,14 @@
       "fleet_known": 3,
       "fleet_sum": 83,
       "fleet_outliers": 0,
-      "eff_known": 0,
+      "eff_known": 3,
       "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_systems": [
+        {
+          "name": "NavChina",
+          "count": 3
+        }
+      ],
       "planning_known": 0,
       "planning_systems": []
     },
@@ -8537,28 +8587,6 @@
       "country": "Cyprus",
       "map_name": "Cyprus",
       "region": "Europe & Central Asia",
-      "airline_type": "Airline",
-      "fleet_band": "Small · 1–50",
-      "airlines": 1,
-      "fleet_values_recorded": 1,
-      "fleet_known": 1,
-      "fleet_sum": 3,
-      "fleet_outliers": 0,
-      "eff_known": 1,
-      "eff_no_vendor": 0,
-      "eff_systems": [
-        {
-          "name": "IFS EFBOne",
-          "count": 1
-        }
-      ],
-      "planning_known": 0,
-      "planning_systems": []
-    },
-    {
-      "country": "Cyprus",
-      "map_name": "Cyprus",
-      "region": "Europe & Central Asia",
       "airline_type": "Flag Carrier",
       "fleet_band": "Small · 1–50",
       "airlines": 1,
@@ -8571,6 +8599,28 @@
       "eff_systems": [
         {
           "name": "Navblue Mission+",
+          "count": 1
+        }
+      ],
+      "planning_known": 0,
+      "planning_systems": []
+    },
+    {
+      "country": "Cyprus",
+      "map_name": "Cyprus",
+      "region": "Europe & Central Asia",
+      "airline_type": "LCC",
+      "fleet_band": "Small · 1–50",
+      "airlines": 1,
+      "fleet_values_recorded": 1,
+      "fleet_known": 1,
+      "fleet_sum": 3,
+      "fleet_outliers": 0,
+      "eff_known": 1,
+      "eff_no_vendor": 0,
+      "eff_systems": [
+        {
+          "name": "IFS EFBOne",
           "count": 1
         }
       ],
@@ -14155,7 +14205,9 @@
       "airline_type": "LCC",
       "fleet_size": 26,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -14513,7 +14565,9 @@
       "airline_type": "Airline",
       "fleet_size": 11,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -14613,7 +14667,9 @@
       "airline_type": "Airline",
       "fleet_size": 10,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -15391,7 +15447,9 @@
       "airline_type": "Airline",
       "fleet_size": 80,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -15707,7 +15765,9 @@
       "airline_type": "Airline",
       "fleet_size": 81,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -15741,7 +15801,9 @@
       "airline_type": "Cargo",
       "fleet_size": 14,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -15763,7 +15825,9 @@
       "airline_type": "Airline",
       "fleet_size": 76,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -15773,7 +15837,9 @@
       "airline_type": "Cargo",
       "fleet_size": 37,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -15795,7 +15861,9 @@
       "airline_type": "Cargo",
       "fleet_size": 9,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -15805,7 +15873,9 @@
       "airline_type": "Airline",
       "fleet_size": 61,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -15967,7 +16037,9 @@
       "airline_type": "Airline",
       "fleet_size": 13,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -16051,7 +16123,9 @@
       "airline_type": "Airline",
       "fleet_size": 23,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -16553,7 +16627,9 @@
       "airline_type": "Airline",
       "fleet_size": 16,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -16679,7 +16755,9 @@
       "airline_type": "Airline",
       "fleet_size": 28,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -16699,7 +16777,9 @@
       "airline_type": "Airline",
       "fleet_size": 223,
       "fleet_band": "Large · 151+",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -16721,7 +16801,9 @@
       "airline_type": "Airline",
       "fleet_size": 27,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -17143,7 +17225,9 @@
       "airline_type": "Airline",
       "fleet_size": 4,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -17153,7 +17237,9 @@
       "airline_type": "Airline",
       "fleet_size": 96,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -17239,7 +17325,9 @@
       "airline_type": "Airline",
       "fleet_size": 32,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -17463,7 +17551,9 @@
       "airline_type": "Airline",
       "fleet_size": 75,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -17483,7 +17573,9 @@
       "airline_type": "Airline",
       "fleet_size": 36,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -17989,7 +18081,9 @@
       "airline_type": "Airline",
       "fleet_size": 21,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -18313,7 +18407,9 @@
       "airline_type": "Airline",
       "fleet_size": 33,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -18443,7 +18539,9 @@
       "airline_type": "Airline",
       "fleet_size": 26,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -18551,7 +18649,7 @@
       "planning_systems": []
     },
     {
-      "airline": "Saudi Arabian Airlines (Saudia)",
+      "airline": "Saudi Airlines (Saudia)",
       "country": "Saudi Arabia",
       "region": "Middle East & North Africa",
       "airline_type": "Flag Carrier",
@@ -18587,7 +18685,9 @@
       "airline_type": "Airline",
       "fleet_size": 138,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -18597,7 +18697,9 @@
       "airline_type": "Airline",
       "fleet_size": 90,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -18619,7 +18721,9 @@
       "airline_type": "Cargo",
       "fleet_size": 85,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -18859,7 +18963,9 @@
       "airline_type": "LCC",
       "fleet_size": 127,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -18963,7 +19069,9 @@
       "airline_type": "Cargo",
       "fleet_size": 16,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -19184,7 +19292,9 @@
       "airline_type": "Airline",
       "fleet_size": 88,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -19194,7 +19304,9 @@
       "airline_type": "Airline",
       "fleet_size": 32,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -19297,7 +19409,7 @@
       "airline": "TUS Airways",
       "country": "Cyprus",
       "region": "Europe & Central Asia",
-      "airline_type": "Airline",
+      "airline_type": "LCC",
       "fleet_size": 3,
       "fleet_band": "Small · 1–50",
       "eff_systems": [
@@ -19400,7 +19512,9 @@
       "airline_type": "LCC",
       "fleet_size": 16,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -19582,7 +19696,9 @@
       "airline_type": "LCC",
       "fleet_size": 41,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -19666,7 +19782,9 @@
       "airline_type": "Airline",
       "fleet_size": 172,
       "fleet_band": "Large · 151+",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     },
     {
@@ -19686,7 +19804,9 @@
       "airline_type": "Cargo",
       "fleet_size": 13,
       "fleet_band": "Small · 1–50",
-      "eff_systems": [],
+      "eff_systems": [
+        "NavChina"
+      ],
       "planning_systems": []
     }
   ],
