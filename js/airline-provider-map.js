@@ -1,6 +1,6 @@
 export const REGION_SCHEME = "mainland-china-rest-asia-v2";
 const PROVIDER_COLORS = ["#007f87", "#c44449", "#3565ad", "#b47a08", "#8055a3", "#328252", "#c45b26", "#a8407c", "#527b95", "#868328", "#564f9d", "#aa654f", "#296c56", "#93628e", "#4975c2", "#be8e46"];
-const NON_PROVIDERS = new Set(["paper", "own solution"]);
+const NON_PROVIDERS = new Set(["own solution"]);
 
 export function mapRegion(country, region) {
   if (["china", "mainland china", "people's republic of china"].includes(String(country).toLowerCase())) return "Mainland China";
@@ -42,7 +42,9 @@ export function normalizeMapRegions(snapshot) {
 
 export function providerColors(snapshot) {
   const names = [...new Set(snapshot.country_segments.flatMap((cell) => [...cell.eff_systems, ...cell.planning_systems].map((item) => item.name)))].sort();
-  return new Map(names.filter((name) => !NON_PROVIDERS.has(name.toLowerCase())).map((name, index) => [name, PROVIDER_COLORS[index] || `hsl(${Math.round(index * 137.508) % 360} 55% 43%)`]));
+  const colors = new Map(names.filter((name) => !NON_PROVIDERS.has(name.toLowerCase()) && name.toLowerCase() !== "paper").map((name, index) => [name, PROVIDER_COLORS[index] || `hsl(${Math.round(index * 137.508) % 360} 55% 43%)`]));
+  for (const name of names) if (name.toLowerCase() === "paper") colors.set(name, "#6d7178");
+  return colors;
 }
 
 export function regionalProviderRace(cells, metric) {
@@ -57,4 +59,26 @@ export function regionalProviderRace(cells, metric) {
   const leader = providers[0];
   const contenders = known >= 5 && leader ? providers.filter((item) => (leader.count - item.count) * 10 <= known) : [];
   return { known, providers, contenders, status: known < 5 || !leader ? "insufficient" : contenders.length > 1 ? leader.count === providers[1].count ? "tie" : "close" : "leader" };
+}
+
+export function gradientProviders(race) {
+  if (race.status === "insufficient") return [];
+  const cutoff = race.providers[Math.min(1, race.providers.length - 1)]?.count;
+  return race.providers.filter((provider) => provider.count >= cutoff);
+}
+
+export function providerGradientStops(providers) {
+  if (providers.length < 2) return [];
+  const total = providers.reduce((sum, provider) => sum + provider.count, 0);
+  const stops = [{ offset: 0, name: providers[0].name }];
+  let cumulative = 0;
+  for (let index = 0; index < providers.length - 1; index += 1) {
+    cumulative += providers[index].count;
+    const boundary = 100 * cumulative / total;
+    const transition = Math.min(4, 50 * providers[index].count / total, 50 * providers[index + 1].count / total);
+    stops.push({ offset: boundary - transition, name: providers[index].name });
+    stops.push({ offset: boundary + transition, name: providers[index + 1].name });
+  }
+  stops.push({ offset: 100, name: providers.at(-1).name });
+  return stops;
 }

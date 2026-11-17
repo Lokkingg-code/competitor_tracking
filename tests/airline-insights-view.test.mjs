@@ -2,6 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
+import { applyFleetFilter, excludeNonAirlineEntities } from "../js/airline-fleet-filter.js";
+import { normalizeMapRegions, regionalProviderRace, gradientProviders, providerColors } from "../js/airline-provider-map.js";
 
 const baseUrl = process.env.DASHBOARD_URL || "http://127.0.0.1:8766/airline-insights.html";
 const snapshot = JSON.parse(await readFile(new URL("../data/airline-insights.json", import.meta.url), "utf8"));
@@ -68,13 +70,32 @@ test("fleet toggle updates the whole airline view and preserves its selection", 
       assert.equal(await page.locator("#airlineWorldMap pattern").count(), 0);
       assert.equal(await page.locator("#airlineMapComparison").count(), 0);
       assert.ok(await page.locator("#airlineWorldMap linearGradient").count() > 0);
-      assert.doesNotMatch(await page.locator("#airlineMapLegend").textContent(), /Blend:|Multi-way ties/);
+      const filteredSnapshot = applyFleetFilter(normalizeMapRegions(excludeNonAirlineEntities(snapshot)));
+      const paperInGradient = filteredSnapshot.region_names.some((region) => {
+        const race = regionalProviderRace(filteredSnapshot.country_segments.filter((cell) => cell.region === region), "eff");
+        return region !== "Unmapped" && gradientProviders(race).some((provider) => provider.name === "Paper");
+      });
+      if (paperInGradient) {
+        assert.match(await page.locator("#airlineMapLegend").textContent(), /Paper/);
+        assert.ok(await page.locator('#airlineWorldMap linearGradient stop[stop-color="#6d7178"]').count() > 0);
+      }
+      assert.doesNotMatch(await page.locator("#airlineMapLegend").textContent(), /Blend:|Multi-way ties|Insufficient evidence/);
       for (const gradient of await page.locator("#airlineWorldMap linearGradient").all()) {
-        assert.equal(await gradient.locator("stop").count(), 4);
+        assert.ok(await gradient.locator("stop").count() >= 4);
         const offsets = await gradient.locator("stop").evaluateAll((stops) => stops.map((stop) => parseFloat(stop.getAttribute("offset"))));
         assert.equal(offsets[0], 0);
-        assert.equal(offsets[3], 100);
-        assert.ok(offsets[1] >= 46 && offsets[2] <= 100 && offsets[1] < offsets[2]);
+        assert.equal(offsets.at(-1), 100);
+        assert.ok(offsets.every((offset, index) => !index || offset >= offsets[index - 1]));
+      }
+      const northAfricaRace = regionalProviderRace(filteredSnapshot.country_segments.filter((cell) => cell.region === "Middle East & North Africa"), "eff");
+      const northAfricaProviders = gradientProviders(northAfricaRace);
+      if (northAfricaProviders.length >= 3 && northAfricaProviders.some((provider) => provider.name === "Paper")) {
+        const fill = await page.locator('[data-country="Egypt"] path').first().getAttribute("fill");
+        const gradientId = fill.match(/^url\(#(.+)\)$/)?.[1];
+        assert.ok(gradientId);
+        const stopColors = await page.locator(`#${gradientId} stop`).evaluateAll((stops) => stops.map((stop) => stop.getAttribute("stop-color")));
+        const colors = providerColors(filteredSnapshot);
+        for (const provider of northAfricaProviders) assert.ok(stopColors.includes(colors.get(provider.name)), `${provider.name} should appear in the North Africa gradient`);
       }
       await japan.focus();
       assert.match(await page.locator("#airlineMapTooltip").textContent(), /: \d+%/);

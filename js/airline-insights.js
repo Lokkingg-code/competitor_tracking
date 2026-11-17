@@ -1,5 +1,5 @@
 import { applyFleetFilter, excludeNonAirlineEntities, ENTITY_EXCLUSION_VERSION } from "./airline-fleet-filter.js?v=2";
-import { normalizeMapRegions, mapRegion, providerColors, regionalProviderRace, REGION_SCHEME } from "./airline-provider-map.js?v=3";
+import { normalizeMapRegions, mapRegion, providerColors, regionalProviderRace, gradientProviders, providerGradientStops, REGION_SCHEME } from "./airline-provider-map.js?v=5";
 
 const dataUrl = "data/airline-insights.json";
 const mapUrl = "assets/ne_110m_admin_0_countries.geojson";
@@ -230,10 +230,10 @@ function drawProviderMap(cells) {
   for (const [region, race] of regions) {
     let fill = "var(--map-empty)";
     if (race.status !== "insufficient") {
-      const top = race.providers.slice(0, 2);
+      const top = gradientProviders(race);
       top.forEach((item) => shownProviders.add(item.name));
       fill = mapProviderColors.get(top[0].name);
-      if (top.length === 2) {
+      if (top.length > 1) {
         const identifier = `provider-blend-${fills.size}`;
         const gradient = document.createElementNS(SVG_NS, "linearGradient");
         gradient.setAttribute("id", identifier);
@@ -241,11 +241,10 @@ function drawProviderMap(cells) {
         gradient.setAttribute("x2", "100%");
         gradient.setAttribute("y1", "0%");
         gradient.setAttribute("y2", "0%");
-        const boundary = 100 * top[0].count / (top[0].count + top[1].count);
-        for (const [offset, color] of [[0, mapProviderColors.get(top[0].name)], [Math.max(0, boundary - 4), mapProviderColors.get(top[0].name)], [Math.min(100, boundary + 4), mapProviderColors.get(top[1].name)], [100, mapProviderColors.get(top[1].name)]]) {
+        for (const { offset, name } of providerGradientStops(top)) {
           const stop = document.createElementNS(SVG_NS, "stop");
           stop.setAttribute("offset", `${offset}%`);
-          stop.setAttribute("stop-color", color);
+          stop.setAttribute("stop-color", mapProviderColors.get(name));
           gradient.append(stop);
         }
         definitions.append(gradient);
@@ -260,7 +259,7 @@ function drawProviderMap(cells) {
     const region = mapRegion(name, properties.REGION_WB || "Unmapped");
     const race = regions.get(region);
     const visible = state.region === "all" || region === state.region;
-    const leaders = race?.providers.slice(0, 3).map((item) => `${item.name}: ${item.count}/${race.known} (${Math.round(item.share * 100)}%)`).join("; ");
+    const leaders = race?.providers.slice(0, Math.max(3, gradientProviders(race).length)).map((item) => `${item.name}: ${item.count}/${race.known} (${Math.round(item.share * 100)}%)`).join("; ");
     const description = !visible ? `${name} · ${region} · outside selected region` : `${name} · ${region} · ${!race || race.status === "insufficient" ? "Insufficient provider evidence" : race.status === "tie" ? "Tied leaders" : race.status === "close" ? "Close race" : "Leading recorded provider"}. ${race?.known || 0} fields recorded. ${leaders || "No provider recorded"}`;
     const country = document.createElementNS(SVG_NS, "g");
     const polygons = feature.geometry?.type === "MultiPolygon" ? feature.geometry.coordinates : feature.geometry?.type === "Polygon" ? [feature.geometry.coordinates] : [];
@@ -279,7 +278,7 @@ function drawProviderMap(cells) {
     country.dataset.region = region;
     country.dataset.race = race?.status || "insufficient";
     const show = (event) => {
-      const providers = visible ? race?.providers.slice(0, 3) || [] : [];
+      const providers = visible && race ? race.providers.slice(0, Math.max(3, gradientProviders(race).length)) : [];
       if (!providers.length) {
         hideMapTooltip();
         return;
@@ -303,8 +302,7 @@ function drawProviderMap(cells) {
   }
   elements.mapSummary.textContent = `${state.mapMetric === "eff" ? "EFF" : "Flight planning"} providers by region · Airtable sample, not market share`;
   elements.mapTotal.textContent = "";
-  elements.mapLegend.innerHTML = [...shownProviders].sort().map((name) => `<span><i style="--legend-color:${mapProviderColors.get(name)}"></i>${escapeHtml(name)}</span>`).join("")
-    + '<span><i style="--legend-color:var(--map-empty)"></i>Insufficient evidence</span>';
+  elements.mapLegend.innerHTML = [...shownProviders].sort().map((name) => `<span><i style="--legend-color:${mapProviderColors.get(name)}"></i>${escapeHtml(name)}</span>`).join("");
 }
 
 function showMapTooltip(event, country, value) {
