@@ -262,17 +262,22 @@ function drawProviderMap(cells) {
     const visible = state.region === "all" || region === state.region;
     const leaders = race?.providers.slice(0, 3).map((item) => `${item.name}: ${item.count}/${race.known} (${Math.round(item.share * 100)}%)`).join("; ");
     const description = !visible ? `${name} · ${region} · outside selected region` : `${name} · ${region} · ${!race || race.status === "insufficient" ? "Insufficient provider evidence" : race.status === "tie" ? "Tied leaders" : race.status === "close" ? "Close race" : "Leading recorded provider"}. ${race?.known || 0} fields recorded. ${leaders || "No provider recorded"}`;
-    const path = document.createElementNS(SVG_NS, "path");
-    path.setAttribute("d", geometryPath(feature.geometry));
-    path.setAttribute("class", "airline-country-shape");
-    path.setAttribute("fill-rule", "evenodd");
-    path.setAttribute("fill", visible ? fills.get(region) || "var(--map-empty)" : "var(--map-empty)");
-    path.setAttribute("aria-label", description);
-    path.setAttribute("tabindex", "0");
-    path.dataset.country = name;
-    path.dataset.region = region;
-    path.dataset.race = race?.status || "insufficient";
-    if (state.region === region) path.classList.add("is-region-selected");
+    const country = document.createElementNS(SVG_NS, "g");
+    const polygons = feature.geometry?.type === "MultiPolygon" ? feature.geometry.coordinates : feature.geometry?.type === "Polygon" ? [feature.geometry.coordinates] : [];
+    for (const polygon of polygons) {
+      const path = document.createElementNS(SVG_NS, "path");
+      path.setAttribute("d", polygon.map(ringPath).join(""));
+      path.setAttribute("class", "airline-country-shape");
+      path.setAttribute("fill-rule", "evenodd");
+      path.setAttribute("fill", visible ? fills.get(region) || "var(--map-empty)" : "var(--map-empty)");
+      if (state.region === region) path.classList.add("is-region-selected");
+      country.append(path);
+    }
+    country.setAttribute("aria-label", description);
+    country.setAttribute("tabindex", "0");
+    country.dataset.country = name;
+    country.dataset.region = region;
+    country.dataset.race = race?.status || "insufficient";
     const show = (event) => {
       const providers = visible ? race?.providers.slice(0, 3) || [] : [];
       if (!providers.length) {
@@ -283,18 +288,18 @@ function drawProviderMap(cells) {
       elements.mapTooltip.hidden = false;
       positionMapTooltip(event);
     };
-    path.addEventListener("pointerenter", show);
-    path.addEventListener("focus", show);
-    path.addEventListener("pointermove", positionMapTooltip);
-    path.addEventListener("pointerleave", hideMapTooltip);
-    path.addEventListener("blur", hideMapTooltip);
-    path.addEventListener("click", () => {
+    country.addEventListener("pointerenter", show);
+    country.addEventListener("focus", show);
+    country.addEventListener("pointermove", positionMapTooltip);
+    country.addEventListener("pointerleave", hideMapTooltip);
+    country.addEventListener("blur", hideMapTooltip);
+    country.addEventListener("click", () => {
       if (!regions.has(region)) return;
       state.region = state.region === region ? "all" : region;
       hideMapTooltip();
       render();
     });
-    elements.map.append(path);
+    elements.map.append(country);
   }
   elements.mapSummary.textContent = `${state.mapMetric === "eff" ? "EFF" : "Flight planning"} providers by region · Airtable sample, not market share`;
   elements.mapTotal.textContent = "";

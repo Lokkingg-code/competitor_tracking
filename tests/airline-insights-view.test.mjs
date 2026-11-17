@@ -57,6 +57,14 @@ test("fleet toggle updates the whole airline view and preserves its selection", 
       const japan = page.locator('[data-country="Japan"]');
       assert.equal(await japan.getAttribute("data-region"), "Rest of Asia & Pacific");
       assert.equal(await page.locator('[data-country="India"]').getAttribute("data-region"), "Rest of Asia & Pacific");
+      for (const name of ["Russia", "Fiji", "United States of America"]) {
+        const parts = page.locator(`[data-country="${name}"] path`);
+        assert.ok(await parts.count() > 1, `${name} should have independently rendered landmasses`);
+        const bounds = await parts.evaluateAll((paths) => paths.map((path) => path.getBBox().width));
+        assert.ok(Math.max(...bounds) < 800, `${name} should not stretch a landmass gradient across the world map`);
+        const fills = await parts.evaluateAll((paths) => paths.map((path) => path.getAttribute("fill")));
+        assert.ok(fills.every((fill) => fill === fills[0]), `${name} landmasses should use the same regional colours`);
+      }
       assert.equal(await page.locator("#airlineWorldMap pattern").count(), 0);
       assert.equal(await page.locator("#airlineMapComparison").count(), 0);
       assert.ok(await page.locator("#airlineWorldMap linearGradient").count() > 0);
