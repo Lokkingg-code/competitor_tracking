@@ -76,6 +76,10 @@ Embraer and Exchange Income Corporation are excluded from Airline Insights becau
 
 Airline Insights has a page-wide toggle to exclude airlines with a recorded fleet size below 10; unknown fleet sizes remain included. The selection applies to counts, maps, matrices, linked conference attendees, and the analysis shown; the separate competitor signal feed and Market Matrix are unchanged. Airtable source row counts remain unfiltered. The filtered view displays a data summary instead of an AI analysis generated for the unfiltered snapshot. The toggle is on by default and its setting is remembered in the browser.
 
+When no region is selected, Regional System Mix shows only a Global row with all recorded EFF and flight-planning selections and each field's known-record count. Global includes airlines without a mapped region and follows the fleet filter. Select a region on the map to show regional rows with the selected region highlighted first. Select Global or select the same region again to return to the Global row.
+
+Conference History hides events with no recorded attendees in the current view by default; select Show all to include them. Region and fleet filters continue to apply.
+
 For the API refresh, create a Personal Access Token with only `data.records:read`, limited to this base, and add it as the GitHub Actions secret `AIRTABLE_API_TOKEN`. Airtable Free currently allows 1,000 API requests per workspace per month and 1,000 records per base; the base-wide record limit includes all tables, not just Airline and Events. The shared Airline and Contact views already show 708 records combined, so check the other tables and total API usage in Airtable before relying on Free limits. See [Airtable's API limits](https://support.airtable.com/docs/managing-api-call-limits-in-airtable) and [plan details](https://support.airtable.com/docs/airtable-plans).
 
 For a manual/local refresh, provide `AIRTABLE_API_TOKEN` through a secure environment-variable mechanism, then run:

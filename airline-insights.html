@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=59" />
+  <link rel="stylesheet" href="css/styles.css?v=63" />
 </head>
 <body class="airline-insights-page">
   <div class="app">
@@ -78,8 +78,9 @@
           </section>
         </div>
         <div class="airline-region-section" aria-labelledby="airlineRegionMixHeading">
-          <div class="airline-section-heading">
-            <div><h2 id="airlineRegionMixHeading">Regional system mix</h2><p class="muted">Top 3 by airline count · shade indicates rank</p></div>
+          <div class="airline-section-heading airline-region-heading">
+            <div><h2 id="airlineRegionMixHeading">Regional system mix</h2><p id="airlineRegionMixNote" class="muted">Recorded selections by airline count</p></div>
+            <button id="airlineRegionReset" class="airline-region-reset" type="button" hidden>Global</button>
           </div>
           <div class="airline-table-scroll">
             <table class="airline-data-table airline-region-mix-table">
@@ -136,9 +137,9 @@
       </dialog>
 
       <section class="airline-conference-section" aria-labelledby="conferenceHistoryHeading">
-        <div class="airline-section-heading">
+        <div class="airline-section-heading airline-conference-heading">
           <div><h2 id="conferenceHistoryHeading">Conference history</h2><p class="muted">Airtable event records linked to regional airline coverage</p></div>
-          <p id="conferenceHistoryNote" class="muted"></p>
+          <label class="airline-fleet-toggle" for="conferenceShowAll"><input id="conferenceShowAll" type="checkbox" /> <span>Show all</span></label>
         </div>
         <div class="airline-table-scroll">
           <table class="airline-data-table">
@@ -152,6 +153,6 @@
       </footer>
     </main>
   </div>
-  <script src="js/airline-insights.js?v=43" type="module"></script>
+  <script src="js/airline-insights.js?v=47" type="module"></script>
 </body>
 </html>

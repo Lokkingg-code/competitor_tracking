@@ -3,7 +3,7 @@ import { normalizeMapRegions, mapRegion, providerColors, regionalProviderRace, g
 
 const dataUrl = "data/airline-insights.json";
 const mapUrl = "assets/ne_110m_admin_0_countries.geojson";
-const state = { region: "all", airlineType: "all", fleetBand: "all", mapMetric: "airlines", systemMode: "eff", profileDimension: "type" };
+const state = { region: "all", airlineType: "all", fleetBand: "all", mapMetric: "airlines", systemMode: "eff", profileDimension: "type", showAllConferences: false };
 const elements = {
   snapshotDate: document.getElementById("airlineSnapshotDate"),
   fleetFilter: document.getElementById("airlineFleetFilter"),
@@ -22,6 +22,8 @@ const elements = {
   mapTotal: document.getElementById("airlineMapTotal"),
   mapLegend: document.getElementById("airlineMapLegend"),
   regionRows: document.getElementById("airlineRegionRows"),
+  regionReset: document.getElementById("airlineRegionReset"),
+  regionNote: document.getElementById("airlineRegionMixNote"),
   profileRows: document.getElementById("airlineProfileRows"),
   profileHead: document.getElementById("airlineProfileHead"),
   profileNote: document.getElementById("airlineProfileNote"),
@@ -35,7 +37,7 @@ const elements = {
   quickLookContent: document.getElementById("airlineQuickLookContent"),
   quickLookRows: document.getElementById("airlineQuickLookRows"),
   conferences: document.getElementById("conferenceRows"),
-  conferenceNote: document.getElementById("conferenceHistoryNote"),
+  showAllConferences: document.getElementById("conferenceShowAll"),
   themeToggle: document.getElementById("themeToggle"),
 };
 const numberFormat = new Intl.NumberFormat("en-US");
@@ -362,7 +364,8 @@ function systemDistribution(items, mode, filters, limit = 3) {
   const slots = Array.from({ length: limit }, (_, index) => {
     const item = items[index];
     if (!item) return `<span class="airline-mix-empty-slot">${items.length ? "—" : index === 0 ? "Not recorded" : "—"}</span>`;
-    return `<button class="airline-mix-link" type="button" data-strength="${index + 1}" title="${escapeHtml(item.name)} · ${numberFormat.format(item.count)} airlines" data-system-name="${escapeHtml(item.name)}" data-system-mode="${mode}" data-system-region="${escapeHtml(filters.region)}" data-system-type="${escapeHtml(filters.airlineType)}" data-system-fleet="${escapeHtml(filters.fleetBand)}"><span class="airline-mix-rank">${index + 1}</span><span class="airline-mix-name">${escapeHtml(item.name)}</span><strong class="airline-mix-count">${numberFormat.format(item.count)}</strong></button>`;
+    const tint = index === 0 ? 42 : index === 1 ? 28 : 15 * (0.85 ** (index - 2));
+    return `<button class="airline-mix-link" type="button" data-strength="${index + 1}" style="--rank-tint:${tint.toFixed(2)}%" title="${escapeHtml(item.name)} · ${numberFormat.format(item.count)} airlines" data-system-name="${escapeHtml(item.name)}" data-system-mode="${mode}" data-system-region="${escapeHtml(filters.region)}" data-system-type="${escapeHtml(filters.airlineType)}" data-system-fleet="${escapeHtml(filters.fleetBand)}"><span class="airline-mix-rank">${index + 1}</span><span class="airline-mix-name">${escapeHtml(item.name)}</span><strong class="airline-mix-count">${numberFormat.format(item.count)}</strong></button>`;
   });
   return `<div class="airline-mix-list">${slots.join("")}</div>`;
 }
@@ -385,13 +388,20 @@ function renderRegions() {
   }
   const conferences = new Map();
   for (const event of snapshot.conferences) conferences.set(event.region, (conferences.get(event.region) || 0) + 1);
-  const rows = [...regions].sort((a, b) => b[1].airlines - a[1].airlines || a[0].localeCompare(b[0]));
-  elements.regionRows.innerHTML = rows.map(([region, summary]) => {
+  const rows = [...regions].sort((a, b) => Number(b[0] === state.region) - Number(a[0] === state.region) || b[1].airlines - a[1].airlines || a[0].localeCompare(b[0]));
+  const global = state.region === "all" ? rollup(currentCells()) : null;
+  const globalFilters = { region: "all", airlineType: state.airlineType, fleetBand: state.fleetBand };
+  const globalEff = global ? systemsFor(global, "eff") : [];
+  const globalPlanning = global ? systemsFor(global, "planning") : [];
+  const globalRow = global ? `<tr class="airline-global-row" data-global-system-mix><th scope="row"><span class="airline-region-name">Global</span><small class="airline-region-meta">${numberFormat.format(global.airlines)} airlines</small></th><td><small class="airline-global-coverage">${numberFormat.format(global.eff_known)} known</small>${systemDistribution(globalEff, "eff", globalFilters, Math.max(1, globalEff.length))}</td><td><small class="airline-global-coverage">${numberFormat.format(global.planning_known)} known</small>${systemDistribution(globalPlanning, "planning", globalFilters, Math.max(1, globalPlanning.length))}</td></tr>` : "";
+  elements.regionReset.hidden = Boolean(global);
+  elements.regionNote.textContent = global ? "Recorded selections by airline count" : "Top 3 by airline count · shade indicates rank";
+  elements.regionRows.innerHTML = globalRow + (global ? "" : rows.map(([region, summary]) => {
     const filters = { region, airlineType: state.airlineType, fleetBand: state.fleetBand };
     const eff = systemsFor({ eff_systems: summary.effSystems, planning_systems: summary.planningSystems }, "eff");
     const planning = systemsFor({ eff_systems: summary.effSystems, planning_systems: summary.planningSystems }, "planning");
     return `<tr class="${state.region === region ? "is-selected" : ""}"><th scope="row"><button class="airline-region-link" type="button" data-region-select="${escapeHtml(region)}" aria-pressed="${state.region === region}" title="${escapeHtml(region)}"><span class="airline-region-name">${escapeHtml(region)}</span><small class="airline-region-meta">${numberFormat.format(summary.airlines)} airlines · ${numberFormat.format(conferences.get(region) || 0)} events</small></button></th><td>${systemDistribution(eff, "eff", filters)}</td><td>${systemDistribution(planning, "planning", filters)}</td></tr>`;
-  }).join("");
+  }).join(""));
 }
 
 function renderProfiles() {
@@ -484,11 +494,9 @@ function showConferenceAttendees(event) {
 }
 
 function renderConferences() {
-  const events = snapshot.conferences.filter(event => state.region === "all" || event.region === state.region)
+  const events = snapshot.conferences.filter(event => (state.region === "all" || event.region === state.region)
+      && (state.showAllConferences || (event.attending_airlines || []).length > 0))
     .sort((a, b) => String(b.start_date || "").localeCompare(String(a.start_date || "")));
-  elements.conferenceNote.textContent = snapshot.coverage.upcoming_conferences_recorded
-    ? `${snapshot.coverage.upcoming_conferences_recorded} future event records in the snapshot.`
-    : "All recorded conferences are historical; this is coverage context, not event ROI.";
   elements.conferences.innerHTML = events.map(event => {
     const date = event.start_date ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${event.start_date}T00:00:00Z`)) : "Date missing";
     const attendingCount = (event.attending_airlines || []).length;
@@ -497,7 +505,7 @@ function renderConferences() {
       : "0";
     return `<tr><th scope="row">${escapeHtml(event.name)}</th><td>${date}${event.date_conflict ? ' <span class="muted">Date conflict</span>' : ""}</td><td>${escapeHtml(event.location)}</td><td>${escapeHtml(event.region)}</td><td>${attendance}</td></tr>`;
   }).join("");
-  if (!events.length) elements.conferences.innerHTML = '<tr><td colspan="5" class="muted">No conference records for this region.</td></tr>';
+  if (!events.length) elements.conferences.innerHTML = `<tr><td colspan="5" class="muted">${state.showAllConferences ? "No conference records for this region." : "No conferences with recorded attendees for this region."}</td></tr>`;
 }
 
 function render() {
@@ -520,6 +528,14 @@ async function boot() {
   ]);
   if (!dataResponse.ok || !mapResponse.ok) throw new Error("Could not load the Airtable snapshot or map boundaries.");
   unfilteredSnapshot = normalizeMapRegions(excludeNonAirlineEntities(await dataResponse.json()));
+  elements.regionReset.addEventListener("click", () => {
+    state.region = "all";
+    render();
+  });
+  elements.showAllConferences.addEventListener("change", () => {
+    state.showAllConferences = elements.showAllConferences.checked;
+    renderConferences();
+  });
   mapProviderColors = providerColors(unfilteredSnapshot);
   const alreadyFiltered = unfilteredSnapshot.fleet_filter?.minimum === 10 && unfilteredSnapshot.fleet_filter?.unknown_included;
   filteredSnapshot = applyFleetFilter(unfilteredSnapshot);
