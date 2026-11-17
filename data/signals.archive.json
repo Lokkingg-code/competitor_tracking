@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T13:02:50Z",
+  "generated_at": "2026-11-16T14:08:41Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,68 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-bcea53805ee0",
+      "competitor": "Jeppesen",
+      "date": "2026-11-14",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Dispatch drills 142 Advanced Dispatch Drill 142 — ForeFlight Dispatch Next: Drill 143 — ATS Routing / IFPS-style Validation.",
+      "summary": "Dispatch drills 142 Advanced Dispatch Drill 142 — ForeFlight Dispatch Next: Drill 143 — ATS Routing / IFPS-style Validation. Scenario — the revised plan and filed flight plan disagree Falcon 7X, LFPB Paris–Le Bourget → LROP Bucharest, alte",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNZTdQWVBvZXVLMWlwWUk4R3Z1ejhNY1hHSHpCczNSalNyaDdmSV9kbV96NS03T0FVTEZwQWduTlBvZTVTTnEzYWdBZ012RGhDMXpwb1daM29HMDVHZm9BUUhJWHI4U3hjekdjdUtrZTRRV3Blc2NkMGFIQVZVTVh3SmIySVRROUd2TGFhUm5TWmczaXRZaGFuR3BFcWlMeHRQeExvTU9GVFFzY2p0dnhZbGRNSDNYaS1QVWROVXNWU0YyT05DeHQ4cDNxRW9OM2FvQWd6LXhn?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-16T14:09:12+00:00",
+        "source_sha256": "7928669c0afdf02b05f8ace43d348cdef6e0223061e7c0431ff4b66efdee66e3",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen shares ForeFlight Dispatch training drills regarding ATS routing and IFPS-style validation.",
+        "summary": "Jeppesen promotes ForeFlight Dispatch training scenarios, specifically Drill 142 and upcoming Drill 143 involving ATS routing and IFPS-style validation. No new product features or customer wins are established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-16T14:10:31+00:00",
+        "source_sha256": "7928669c0afdf02b05f8ace43d348cdef6e0223061e7c0431ff4b66efdee66e3",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "browser-befa888e4b81",
       "competitor": "Bytron Skybook",
@@ -13025,7 +13087,22 @@
         "title": "Jeppesen collaborates with GE Aerospace to integrate ForeFlight Cost Index Optimization with GE's flight data analytics platform.",
         "summary": "Jeppesen ForeFlight and GE Aerospace announced a collaboration to combine GE’s flight data analytics platform with ForeFlight’s Cost Index Optimization solution. The integration provides a fuel efficiency workflow covering pre-flight planning, in-flight optimization, and post-flight analysis."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-16T14:11:37+00:00",
+        "source_sha256": "39c36073d4af4ec1a4a8766a30f18a8e49f8ac8b18036f365bfad3ccbab63b29",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-55a116ce4cd2",
@@ -13125,7 +13202,7 @@
       "id": "jep-2026-04-29-dispatch-2026-2",
       "competitor": "Jeppesen",
       "date": "2026-04-29",
-      "type": "product_launch",
+      "type": "customer_win",
       "priority": "high",
       "severity": 4,
       "confidence": 0.9,
@@ -13192,6 +13269,69 @@
         "evidence_scope": "captured_preview_only",
         "title": "Jeppesen launches Dispatch v2026-2 with Corendon Airlines as launch customer.",
         "summary": "Jeppesen released Dispatch v2026-2, which expands automation for complex planning workflows. Corendon Airlines is the launch customer, integrating the update with EFFCore and Jeppesen EFB to achieve fuel and planning-time gains."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-16T14:12:57+00:00",
+        "source_sha256": "071d86c1026962d98b99b86c2bff401cf93772e12eb5a3197ab00160e7410d1a",
+        "suggested_type": "customer_win",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "product_launch",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-a83afe41b236",
+      "competitor": "Navblue",
+      "date": "2026-04-29",
+      "date_is_estimated": false,
+      "type": "ma_pe",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "A huge merger with the potential to shape the future of Digital TechOps in airline engineering and Maintenance.",
+      "summary": "A huge merger with the potential to shape the future of Digital TechOps in airline engineering and Maintenance. Airbus has merged their popular Navblue organisation with Skywise, creating the platform what could potentially be a game changer.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZXNMRzFfZjE2d1dsUWlfLVpFUzRwa1pxaGI5STA0NXVJWXpEWXk2dmprWF9wYUxyMEhiRFRzbjE2Zkx0NzYxZm1wTjdGbmwyN2l5MGN1ajVKVlBDZE1OS2dxWm1CZkd6Vkd5anV4ZnhoQzhDaTRyNFVjVDY1NkhyZUpLZHdpb05na3JFQUpvLXRpMGRucjgwTHd1U1ZZc3FzTlhjV29YWlg5WWcxelg4THl1VUV1cGRieFJB?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-16T14:09:39+00:00",
+        "source_sha256": "5096aedbe4d7bae82e865e3ac90f4428d4d6ab1c25d817d6d727b166804b1d27",
+        "evidence_scope": "captured_preview_only",
+        "title": "Airbus merges Navblue organization with Skywise.",
+        "summary": "Airbus has merged its Navblue organization with Skywise. The text claims this creates a platform for digital technology operations in airline engineering and maintenance."
       },
       "ai_classification_status": "pending"
     },

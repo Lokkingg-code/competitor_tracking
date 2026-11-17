@@ -1,9 +1,11 @@
 {
   "schema_version": 1,
   "source": "Airtable Airline Customer Pipeline shared view",
-  "generated_at": "2026-11-15T13:01:30+00:00",
+  "generated_at": "2026-11-16T14:05:45+00:00",
   "source_record_count": 522,
-  "unique_airline_count": 520,
+  "unique_airline_count": 518,
+  "entity_exclusion_version": 1,
+  "excluded_entity_count": 2,
   "duplicate_name_groups": 2,
   "duplicate_conflict_groups": 2,
   "airline_type_overrides_applied": 36,
@@ -37,11 +39,11 @@
     "Unclassified"
   ],
   "coverage": {
-    "hq_known": 508,
-    "hq_region_assigned": 508,
-    "hq_mapped": 480,
-    "fleet_values_recorded": 515,
-    "fleet_known": 514,
+    "hq_known": 506,
+    "hq_region_assigned": 506,
+    "hq_mapped": 478,
+    "fleet_values_recorded": 513,
+    "fleet_known": 512,
     "fleet_size_outliers": 1,
     "airline_type_known": 517,
     "eff_status_known": 127,
@@ -50,20 +52,20 @@
     "upcoming_conferences_recorded": 0,
     "unmapped_event_regions": 2,
     "quality_flags": {
-      "missing_eff_status": 393,
-      "missing_flight_planning": 452,
+      "missing_eff_status": 391,
+      "missing_flight_planning": 450,
       "hq_not_mapped": 28,
-      "missing_airline_type": 3,
       "missing_hq": 12,
       "hq_region_unassigned": 12,
       "missing_fleet_size": 5,
-      "fleet_size_outliers": 1
+      "fleet_size_outliers": 1,
+      "missing_airline_type": 1
     }
   },
   "overall": {
     "name": "All",
-    "airlines": 520,
-    "fleet_known": 514,
+    "airlines": 518,
+    "fleet_known": 512,
     "fleet_outliers": 1,
     "eff_known": 127,
     "eff_no_vendor": 34,
@@ -219,17 +221,17 @@
       },
       {
         "name": "Unclassified",
-        "count": 3
+        "count": 1
       }
     ],
     "fleet_bands": [
       {
         "name": "Small · 1–50",
-        "count": 375
+        "count": 374
       },
       {
         "name": "Medium · 51–150",
-        "count": 91
+        "count": 90
       },
       {
         "name": "Large · 151+",
@@ -509,8 +511,8 @@
     },
     {
       "name": "North America",
-      "airlines": 59,
-      "fleet_known": 59,
+      "airlines": 58,
+      "fleet_known": 58,
       "fleet_outliers": 0,
       "eff_known": 14,
       "eff_no_vendor": 3,
@@ -595,10 +597,6 @@
         {
           "name": "Flag Carrier",
           "count": 1
-        },
-        {
-          "name": "Unclassified",
-          "count": 1
         }
       ],
       "fleet_bands": [
@@ -612,15 +610,15 @@
         },
         {
           "name": "Medium · 51–150",
-          "count": 12
+          "count": 11
         }
       ],
       "conference_count": 1
     },
     {
       "name": "Latin America & Caribbean",
-      "airlines": 56,
-      "fleet_known": 56,
+      "airlines": 55,
+      "fleet_known": 55,
       "fleet_outliers": 0,
       "eff_known": 12,
       "eff_no_vendor": 3,
@@ -713,16 +711,12 @@
         {
           "name": "Regional Airline",
           "count": 2
-        },
-        {
-          "name": "Unclassified",
-          "count": 1
         }
       ],
       "fleet_bands": [
         {
           "name": "Small · 1–50",
-          "count": 41
+          "count": 40
         },
         {
           "name": "Medium · 51–150",
@@ -1182,43 +1176,6 @@
       ]
     },
     {
-      "country": "Canada",
-      "map_name": "Canada",
-      "region": "North America",
-      "airlines": 13,
-      "fleet_values_recorded": 13,
-      "fleet_known": 13,
-      "fleet_sum": 806,
-      "fleet_outliers": 0,
-      "eff_known": 5,
-      "eff_no_vendor": 0,
-      "eff_systems": [
-        {
-          "name": "Navblue Mission+",
-          "count": 2
-        },
-        {
-          "name": "AvioBook",
-          "count": 1
-        },
-        {
-          "name": "Flightman",
-          "count": 1
-        },
-        {
-          "name": "S4A Smart Brief",
-          "count": 1
-        }
-      ],
-      "planning_known": 1,
-      "planning_systems": [
-        {
-          "name": "Lido",
-          "count": 1
-        }
-      ]
-    },
-    {
       "country": "United Kingdom",
       "map_name": "Falkland Islands",
       "region": "Latin America & Caribbean",
@@ -1263,6 +1220,43 @@
         },
         {
           "name": "FlightKeys",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "country": "Canada",
+      "map_name": "Canada",
+      "region": "North America",
+      "airlines": 12,
+      "fleet_values_recorded": 12,
+      "fleet_known": 12,
+      "fleet_sum": 697,
+      "fleet_outliers": 0,
+      "eff_known": 5,
+      "eff_no_vendor": 0,
+      "eff_systems": [
+        {
+          "name": "Navblue Mission+",
+          "count": 2
+        },
+        {
+          "name": "AvioBook",
+          "count": 1
+        },
+        {
+          "name": "Flightman",
+          "count": 1
+        },
+        {
+          "name": "S4A Smart Brief",
+          "count": 1
+        }
+      ],
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "Lido",
           "count": 1
         }
       ]
@@ -1617,30 +1611,6 @@
       "planning_systems": []
     },
     {
-      "country": "Brazil",
-      "map_name": "Brazil",
-      "region": "Latin America & Caribbean",
-      "airlines": 7,
-      "fleet_values_recorded": 7,
-      "fleet_known": 7,
-      "fleet_sum": 499,
-      "fleet_outliers": 0,
-      "eff_known": 2,
-      "eff_no_vendor": 1,
-      "eff_systems": [
-        {
-          "name": "In-house built",
-          "count": 1
-        },
-        {
-          "name": "SITA Flight Folder",
-          "count": 1
-        }
-      ],
-      "planning_known": 0,
-      "planning_systems": []
-    },
-    {
       "country": "Malta",
       "map_name": null,
       "region": "Europe & Central Asia",
@@ -1715,6 +1685,30 @@
           "count": 1
         }
       ]
+    },
+    {
+      "country": "Brazil",
+      "map_name": "Brazil",
+      "region": "Latin America & Caribbean",
+      "airlines": 6,
+      "fleet_values_recorded": 6,
+      "fleet_known": 6,
+      "fleet_sum": 483,
+      "fleet_outliers": 0,
+      "eff_known": 2,
+      "eff_no_vendor": 1,
+      "eff_systems": [
+        {
+          "name": "In-house built",
+          "count": 1
+        },
+        {
+          "name": "SITA Flight Folder",
+          "count": 1
+        }
+      ],
+      "planning_known": 0,
+      "planning_systems": []
     },
     {
       "country": "Egypt",
@@ -5697,33 +5691,6 @@
       "conference_count": 0
     },
     {
-      "region": "Latin America & Caribbean",
-      "airline_type": "Unclassified",
-      "fleet_band": "Small · 1–50",
-      "name": "Latin America & Caribbean",
-      "airlines": 1,
-      "fleet_known": 1,
-      "fleet_outliers": 0,
-      "eff_known": 0,
-      "eff_no_vendor": 0,
-      "eff_systems": [],
-      "planning_known": 0,
-      "planning_systems": [],
-      "airline_types": [
-        {
-          "name": "Unclassified",
-          "count": 1
-        }
-      ],
-      "fleet_bands": [
-        {
-          "name": "Small · 1–50",
-          "count": 1
-        }
-      ],
-      "conference_count": 0
-    },
-    {
       "region": "Middle East & North Africa",
       "airline_type": "Airline",
       "fleet_band": "Small · 1–50",
@@ -6682,33 +6649,6 @@
         {
           "name": "Small · 1–50",
           "count": 2
-        }
-      ],
-      "conference_count": 1
-    },
-    {
-      "region": "North America",
-      "airline_type": "Unclassified",
-      "fleet_band": "Medium · 51–150",
-      "name": "North America",
-      "airlines": 1,
-      "fleet_known": 1,
-      "fleet_outliers": 0,
-      "eff_known": 0,
-      "eff_no_vendor": 0,
-      "eff_systems": [],
-      "planning_known": 0,
-      "planning_systems": [],
-      "airline_types": [
-        {
-          "name": "Unclassified",
-          "count": 1
-        }
-      ],
-      "fleet_bands": [
-        {
-          "name": "Medium · 51–150",
-          "count": 1
         }
       ],
       "conference_count": 1
@@ -7957,23 +7897,6 @@
       "planning_systems": []
     },
     {
-      "country": "Brazil",
-      "map_name": "Brazil",
-      "region": "Latin America & Caribbean",
-      "airline_type": "Unclassified",
-      "fleet_band": "Small · 1–50",
-      "airlines": 1,
-      "fleet_values_recorded": 1,
-      "fleet_known": 1,
-      "fleet_sum": 16,
-      "fleet_outliers": 0,
-      "eff_known": 0,
-      "eff_no_vendor": 0,
-      "eff_systems": [],
-      "planning_known": 0,
-      "planning_systems": []
-    },
-    {
       "country": "Brunei",
       "map_name": "Brunei",
       "region": "East Asia & Pacific",
@@ -8263,23 +8186,6 @@
       "fleet_values_recorded": 1,
       "fleet_known": 1,
       "fleet_sum": 13,
-      "fleet_outliers": 0,
-      "eff_known": 0,
-      "eff_no_vendor": 0,
-      "eff_systems": [],
-      "planning_known": 0,
-      "planning_systems": []
-    },
-    {
-      "country": "Canada",
-      "map_name": "Canada",
-      "region": "North America",
-      "airline_type": "Unclassified",
-      "fleet_band": "Medium · 51–150",
-      "airlines": 1,
-      "fleet_values_recorded": 1,
-      "fleet_known": 1,
-      "fleet_sum": 109,
       "fleet_outliers": 0,
       "eff_known": 0,
       "eff_no_vendor": 0,
@@ -16221,16 +16127,6 @@
       "planning_systems": []
     },
     {
-      "airline": "Embraer",
-      "country": "Brazil",
-      "region": "Latin America & Caribbean",
-      "airline_type": "Unclassified",
-      "fleet_size": 16,
-      "fleet_band": "Small · 1–50",
-      "eff_systems": [],
-      "planning_systems": []
-    },
-    {
       "airline": "Emerald Airlines",
       "country": "Ireland",
       "region": "Europe & Central Asia",
@@ -16399,16 +16295,6 @@
       "planning_systems": [
         "Lido"
       ]
-    },
-    {
-      "airline": "Exchange Income Corporation",
-      "country": "Canada",
-      "region": "North America",
-      "airline_type": "Unclassified",
-      "fleet_size": 109,
-      "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
-      "planning_systems": []
     },
     {
       "airline": "Eznis Airways",
