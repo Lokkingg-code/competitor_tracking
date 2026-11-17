@@ -1,9 +1,10 @@
 import { applyFleetFilter, excludeNonAirlineEntities, ENTITY_EXCLUSION_VERSION } from "./airline-fleet-filter.js?v=2";
 import { normalizeMapRegions, mapRegion, providerColors, regionalProviderRace, gradientProviders, providerGradientStops, REGION_SCHEME } from "./airline-provider-map.js?v=5";
+import { providerFootprint } from "./airline-provider-footprint.js?v=1";
 
 const dataUrl = "data/airline-insights.json";
 const mapUrl = "assets/ne_110m_admin_0_countries.geojson";
-const state = { region: "all", airlineType: "all", fleetBand: "all", mapMetric: "airlines", systemMode: "eff", profileDimension: "type", showAllConferences: false };
+const state = { region: "all", airlineType: "all", fleetBand: "all", mapMetric: "airlines", systemMode: "eff", profileDimension: "type", showAllConferences: false, providerMode: "eff", providerName: "" };
 const elements = {
   snapshotDate: document.getElementById("airlineSnapshotDate"),
   fleetFilter: document.getElementById("airlineFleetFilter"),
@@ -27,6 +28,15 @@ const elements = {
   profileRows: document.getElementById("airlineProfileRows"),
   profileHead: document.getElementById("airlineProfileHead"),
   profileNote: document.getElementById("airlineProfileNote"),
+  providerSelect: document.getElementById("airlineProviderSelect"),
+  providerScope: document.getElementById("airlineProviderScope"),
+  providerInsight: document.getElementById("airlineProviderInsight"),
+  providerRegions: document.getElementById("airlineProviderRegions"),
+  providerTypes: document.getElementById("airlineProviderTypes"),
+  providerFleets: document.getElementById("airlineProviderFleets"),
+  providerFleetNote: document.getElementById("airlineProviderFleetNote"),
+  providerPairedNote: document.getElementById("airlineProviderPairedNote"),
+  providerPairedSystems: document.getElementById("airlineProviderPairedSystems"),
   insightScope: document.getElementById("airlineInsightScope"),
   insightBadge: document.querySelector(".airline-ai-badge"),
   insightHeading: document.getElementById("airlineInsightHeading"),
@@ -469,12 +479,60 @@ function selectedProfiles(filters) {
   );
 }
 
+function renderProviderFootprint() {
+  const filters = { region: state.region, airlineType: state.airlineType, fleetBand: state.fleetBand };
+  const profiles = selectedProfiles(filters);
+  const field = state.providerMode === "eff" ? "eff_systems" : "planning_systems";
+  const counts = new Map();
+  const available = new Set(snapshot.airline_profiles.flatMap((profile) => profile[field] || []));
+  for (const profile of profiles) for (const name of profile[field] || []) counts.set(name, (counts.get(name) || 0) + 1);
+  const providers = [...available].map((name) => [name, counts.get(name) || 0]).sort((first, second) => second[1] - first[1] || first[0].localeCompare(second[0]));
+  if (!available.has(state.providerName)) state.providerName = providers[0]?.[0] || "";
+  elements.providerSelect.replaceChildren(...(providers.length ? providers.map(([name, count]) => new Option(`${name} (${count})`, name)) : [new Option("No recorded selections", "")]));
+  elements.providerSelect.value = state.providerName;
+  elements.providerSelect.disabled = !providers.length;
+  document.querySelectorAll("[data-provider-mode]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.providerMode === state.providerMode)));
+  const result = providerFootprint(profiles, state.providerMode, state.providerName);
+  const scope = state.region === "all" ? "Global" : state.region;
+  const selectionLabel = result.matches === 1 ? "selection" : "selections";
+  elements.providerScope.textContent = `${scope} · ${numberFormat.format(result.matches)} ${selectionLabel} · ${numberFormat.format(result.known)} known fields`;
+  const leading = result.regions.filter((item) => item.count > 0 && item.count === result.regions[0].count);
+  elements.providerInsight.textContent = leading.length
+    ? `Most recorded selections: ${leading.map((item) => item.name).join(", ")} · ${leading[0].count}${leading.length > 1 ? " each" : ""} of ${result.matches} ${selectionLabel}`
+    : "No recorded selections in this view.";
+
+  function renderGroups(target, groups, dimension) {
+    target.innerHTML = groups.map((group) => {
+      const selected = { ...filters, [dimension]: group.name };
+      const share = group.known ? Math.round(group.count / group.known * 100) : 0;
+      const label = group.known ? `${group.name}: ${group.count} of ${group.known} known fields (${share}%)` : `${group.name}: no recorded fields`;
+      const smallSample = group.known > 0 && group.known < 5;
+      return `<button type="button" class="airline-footprint-row" data-footprint-dimension="${dimension}" data-footprint-name="${escapeHtml(group.name)}" data-system-name="${escapeHtml(state.providerName)}" data-system-mode="${state.providerMode}" data-system-region="${escapeHtml(selected.region)}" data-system-type="${escapeHtml(selected.airlineType)}" data-system-fleet="${escapeHtml(selected.fleetBand)}" aria-label="${escapeHtml(label)}${smallSample ? ", small sample" : ""}" title="${escapeHtml(label)}" ${group.count ? "" : "disabled"}><span class="airline-footprint-name">${escapeHtml(group.name)}${smallSample ? ' <small class="airline-footprint-small">n&lt;5</small>' : ""}</span><span class="airline-footprint-track"><i style="width:${share}%"></i></span><span class="airline-footprint-count">${group.known ? `${group.count}/${group.known} · ${share}%` : "No data"}</span></button>`;
+    }).join("") || '<p class="airline-footprint-empty muted">No recorded fields</p>';
+  }
+
+  renderGroups(elements.providerRegions, result.regions, "region");
+  renderGroups(elements.providerTypes, result.carrierTypes, "airlineType");
+  renderGroups(elements.providerFleets, result.fleetBands, "fleetBand");
+  elements.providerFleetNote.textContent = result.matchesWithoutValidFleet ? `${result.matchesWithoutValidFleet} ${result.matchesWithoutValidFleet === 1 ? "selection" : "selections"} without a valid fleet size` : "";
+  elements.providerPairedNote.textContent = `${result.counterpartKnown} of ${result.matches} matched airlines have ${result.counterpartLabel} recorded; ${result.counterpartUnknown} unknown.`;
+  elements.providerPairedSystems.innerHTML = result.counterpartSystems.map((item) => {
+    const share = Math.round(item.share * 100);
+    const label = `${item.name}: ${item.count} of ${item.known} matched airlines with ${result.counterpartLabel} recorded (${share}%)`;
+    return `<button type="button" class="airline-footprint-row" data-paired-system="${escapeHtml(item.name)}" data-paired-mode="${state.providerMode === "planning" ? "eff" : "planning"}" data-system-name="${escapeHtml(state.providerName)}" data-system-mode="${state.providerMode}" data-system-region="${escapeHtml(state.region)}" data-system-type="${escapeHtml(state.airlineType)}" data-system-fleet="${escapeHtml(state.fleetBand)}" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"><span class="airline-footprint-name">${escapeHtml(item.name)}</span><span class="airline-footprint-track"><i style="width:${share}%"></i></span><span class="airline-footprint-count">${item.count}/${item.known} · ${share}%</span></button>`;
+  }).join("") || '<p class="airline-footprint-empty muted">No counterpart systems recorded</p>';
+}
+
 function showSystemDetail(mode, name, filters) {
   const systemField = mode === "eff" ? "eff_systems" : "planning_systems";
   const modeLabel = mode === "eff" ? "EFF" : "Flight planning";
-  const matches = selectedProfiles(filters).filter((profile) => profile[systemField].includes(name));
+  const matches = selectedProfiles(filters).filter((profile) => profile[systemField].includes(name)
+    && (!filters.effSystem || profile.eff_systems.includes(filters.effSystem))
+    && (!filters.planningSystem || profile.planning_systems.includes(filters.planningSystem)));
   elements.quickLookTitle.textContent = `${modeLabel}: ${name}`;
-  elements.quickLookNote.textContent = `${numberFormat.format(matches.length)} airlines with this recorded selection · ${filters.region === "all" ? "all regions" : filters.region}`;
+  elements.quickLookNote.textContent = filters.effSystem || filters.planningSystem
+    ? `${numberFormat.format(matches.length)} airlines with these recorded selections · ${filters.region === "all" ? "all regions" : filters.region}`
+    : `${numberFormat.format(matches.length)} airlines with this recorded selection · ${filters.region === "all" ? "all regions" : filters.region}`;
   elements.quickLookContent.replaceChildren();
   elements.quickLookRows.innerHTML = matches.map((profile) => `<tr><th scope="row">${escapeHtml(profile.airline)}</th><td>${escapeHtml(profile.country)}</td><td>${escapeHtml(profile.region)}</td><td>${escapeHtml(profile.airline_type)}</td><td>${profile.fleet_size === null ? "Not recorded" : numberFormat.format(profile.fleet_size)}</td><td>${escapeHtml(profile.eff_systems.join(", ") || "Not recorded")}</td><td>${escapeHtml(profile.planning_systems.join(", ") || "Not recorded")}</td></tr>`).join("");
   if (!matches.length) elements.quickLookRows.innerHTML = '<tr><td colspan="7" class="muted">No matching airlines for the selected filters.</td></tr>';
@@ -517,6 +575,7 @@ function render() {
   drawMap(cells);
   renderRegions();
   renderProfiles();
+  renderProviderFootprint();
   renderConferences();
 }
 
@@ -566,6 +625,14 @@ async function boot() {
     state.profileDimension = button.dataset.profileDimension;
     render();
   }));
+  document.querySelectorAll("[data-provider-mode]").forEach((button) => button.addEventListener("click", () => {
+    state.providerMode = button.dataset.providerMode;
+    renderProviderFootprint();
+  }));
+  elements.providerSelect.addEventListener("change", () => {
+    state.providerName = elements.providerSelect.value;
+    renderProviderFootprint();
+  });
   document.getElementById("airlineQuickLookClose").addEventListener("click", () => elements.quickLook.close());
   document.addEventListener("click", (event) => {
     const conferenceButton = event.target.closest("[data-conference-name]");
@@ -581,6 +648,9 @@ async function boot() {
         airlineType: systemButton.dataset.systemType || "all",
         fleetBand: systemButton.dataset.systemFleet || "all",
       };
+      if (systemButton.hasAttribute("data-paired-system")) {
+        filters[systemButton.dataset.pairedMode === "eff" ? "effSystem" : "planningSystem"] = systemButton.dataset.pairedSystem;
+      }
       showSystemDetail(systemButton.dataset.systemMode, systemButton.dataset.systemName, filters);
       return;
     } else if (regionButton) {

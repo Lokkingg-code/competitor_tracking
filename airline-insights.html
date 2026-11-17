@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=63" />
+  <link rel="stylesheet" href="css/styles.css?v=68" />
 </head>
 <body class="airline-insights-page">
   <div class="app">
@@ -121,6 +121,23 @@
         <p class="airline-data-caveat muted">ULCC records are grouped with LCC for comparison. Cells show count and share of known fields; one airline can select multiple systems. Click a cell to inspect carriers.</p>
       </section>
 
+      <section class="airline-provider-section" aria-labelledby="airlineProviderHeading">
+        <div class="airline-section-heading airline-provider-heading">
+          <div><h2 id="airlineProviderHeading">Provider footprint</h2><p id="airlineProviderScope" class="muted"></p></div>
+          <div class="airline-provider-controls">
+            <div class="airline-profile-control"><span>System</span><div class="segmented-control" role="group" aria-label="Provider system category"><button type="button" data-provider-mode="eff" aria-pressed="true">EFF status</button><button type="button" data-provider-mode="planning" aria-pressed="false">Flight planning</button></div></div>
+            <label class="control airline-provider-select"><span>Provider</span><select id="airlineProviderSelect"></select></label>
+          </div>
+        </div>
+        <p id="airlineProviderInsight" class="airline-provider-insight"></p>
+        <div class="airline-provider-grid">
+          <div class="airline-provider-group"><h3>Region</h3><div id="airlineProviderRegions"></div></div>
+          <div class="airline-provider-group"><h3>Carrier type</h3><div id="airlineProviderTypes"></div></div>
+          <div class="airline-provider-group"><h3>Fleet size</h3><div id="airlineProviderFleets"></div><p id="airlineProviderFleetNote" class="airline-data-caveat muted"></p></div>
+        </div>
+        <div class="airline-provider-paired"><h3>Also recorded with this provider</h3><p id="airlineProviderPairedNote" class="muted"></p><div id="airlineProviderPairedSystems"></div></div>
+      </section>
+
       <dialog id="airlineQuickLook" class="quick-look airline-quick-look" aria-labelledby="airlineQuickLookTitle">
         <div class="quick-look-head">
           <h2 id="airlineQuickLookTitle">System detail</h2>
@@ -153,6 +170,6 @@
       </footer>
     </main>
   </div>
-  <script src="js/airline-insights.js?v=47" type="module"></script>
+  <script src="js/airline-insights.js?v=50" type="module"></script>
 </body>
 </html>

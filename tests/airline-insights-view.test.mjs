@@ -242,3 +242,80 @@ test("conference history hides zero-attendee rows unless Show all is enabled", a
     await browser.close();
   }
 });
+
+test("provider footprint respects region and fleet filters and opens matching airlines", async () => {
+  const fixture = structuredClone(snapshot);
+  const additions = [
+    { airline: "Fixture North One", country: "Canada", region: "North America", airline_type: "Fixture carrier", fleet_band: "Medium · 51–150", fleet_size: 60, eff_systems: ["FixtureCo", "Other"], planning_systems: ["FixturePlanner"] },
+    { airline: "Fixture North Two", country: "Canada", region: "North America", airline_type: "Fixture carrier", fleet_band: "Medium · 51–150", fleet_size: 65, eff_systems: ["FixtureCo"], planning_systems: [] },
+    { airline: "Fixture Europe", country: "France", region: "Europe & Central Asia", airline_type: "Fixture carrier", fleet_band: "Small · 1–50", fleet_size: 20, eff_systems: ["FixtureCo"], planning_systems: [] },
+    { airline: "Fixture Small", country: "Canada", region: "North America", airline_type: "Fixture carrier", fleet_band: "Small · 1–50", fleet_size: 9, eff_systems: ["FixtureCo"], planning_systems: [] },
+    { airline: "Fixture Unknown", country: "Japan", region: "East Asia & Pacific", airline_type: "No-data carrier", fleet_band: "Small · 1–50", fleet_size: 20, eff_systems: [], planning_systems: [] },
+  ];
+  for (const profile of additions) {
+    fixture.airline_profiles.push(profile);
+    fixture.country_segments.push({ country: profile.country, map_name: profile.country, region: profile.region, airline_type: profile.airline_type, fleet_band: profile.fleet_band, airlines: 1, fleet_values_recorded: 1, fleet_known: 1, fleet_sum: profile.fleet_size, fleet_outliers: 0, eff_known: Number(profile.eff_systems.length > 0), eff_no_vendor: 0, eff_systems: profile.eff_systems.map((name) => ({ name, count: 1 })), planning_known: profile.planning_systems.length, planning_systems: profile.planning_systems.map((name) => ({ name, count: 1 })) });
+  }
+  fixture.unique_airline_count += additions.length;
+  const browser = await chromium.launch({ headless: true, executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH });
+  try {
+    for (const width of [1440, 800, 390]) {
+      const page = await browser.newPage({ viewport: { width, height: 900 } });
+      await page.route("**/data/airline-insights.json", (route) => route.fulfill({ json: fixture }));
+      await page.goto(baseUrl);
+      await page.waitForFunction(() => document.querySelector("#airlineCount").textContent !== "—");
+      assert.equal(await page.locator(".airline-provider-section").evaluate((element) => element.nextElementSibling.nextElementSibling.classList.contains("airline-conference-section")), true);
+      await page.locator("#airlineProviderSelect").selectOption("FixtureCo");
+      const systemBounds = await page.locator("[data-provider-mode]").first().evaluate((element) => element.closest(".airline-profile-control").getBoundingClientRect().toJSON());
+      const providerBounds = await page.locator("#airlineProviderSelect").evaluate((element) => element.closest("label").getBoundingClientRect().toJSON());
+      assert.ok(providerBounds.top >= systemBounds.bottom, "Provider selector should sit below the System control");
+      assert.ok(Math.abs(providerBounds.left - systemBounds.left) < 2, "Provider selector should align with the System control");
+      assert.match(await page.locator("#airlineProviderScope").textContent(), /Global · 3 selections/);
+      assert.match(await page.locator("#airlineProviderPairedNote").textContent(), /1 of 3 matched airlines have flight-planning recorded; 2 unknown/);
+      assert.deepEqual(await page.locator("#airlineProviderPairedSystems [data-paired-system]").evaluateAll((buttons) => buttons.map((button) => [button.dataset.pairedSystem, button.querySelector(".airline-footprint-count").textContent])), [["FixturePlanner", "1/1 · 100%"]]);
+      await page.locator('#airlineProviderPairedSystems [data-paired-system="FixturePlanner"]').click();
+      assert.equal(await page.locator("#airlineQuickLookRows tr").count(), 1);
+      assert.ok((await page.locator("#airlineQuickLookRows").textContent()).includes("Fixture North One"));
+      assert.match(await page.locator("#airlineQuickLookNote").textContent(), /these recorded selections/);
+      await page.locator("#airlineQuickLookClose").click();
+      assert.equal(await page.locator(".airline-provider-section").evaluate((element) => element.scrollWidth > element.clientWidth), false);
+      assert.equal(await page.locator(".airline-footprint-row").evaluateAll((rows) => rows.some((row) => {
+        const name = row.querySelector(".airline-footprint-name").getBoundingClientRect();
+        const track = row.querySelector(".airline-footprint-track").getBoundingClientRect();
+        const count = row.querySelector(".airline-footprint-count").getBoundingClientRect();
+        return name.right > track.left + 1 || track.right > count.left + 1;
+      })), false);
+      const noData = page.locator('#airlineProviderTypes [data-footprint-name="No-data carrier"]');
+      assert.match(await noData.textContent(), /No data/);
+      assert.equal(await noData.isDisabled(), true);
+      assert.match(await noData.getAttribute("aria-label"), /no recorded fields/);
+      const northAmerica = page.locator('#airlineProviderRegions [data-footprint-name="North America"]');
+      const filtered = applyFleetFilter(normalizeMapRegions(excludeNonAirlineEntities(fixture)));
+      const known = filtered.airline_profiles.filter((profile) => profile.region === "North America" && profile.eff_systems.length).length;
+      assert.equal(await northAmerica.locator(".airline-footprint-count").textContent(), `2/${known} · ${Math.round(2 / known * 100)}%`);
+      const carrier = page.locator('#airlineProviderTypes [data-footprint-name="Fixture carrier"]');
+      assert.match(await carrier.textContent(), /n<5/);
+      assert.match(await carrier.getAttribute("aria-label"), /small sample/);
+      await northAmerica.click();
+      assert.equal(await page.locator("#airlineQuickLookRows tr").count(), 2);
+      assert.match(await page.locator("#airlineQuickLookRows").textContent(), /Fixture North One/);
+      assert.doesNotMatch(await page.locator("#airlineQuickLookRows").textContent(), /Fixture Europe|Fixture Small/);
+      await page.locator("#airlineQuickLookClose").click();
+      await page.locator('[data-country="Canada"]').dispatchEvent("click");
+      assert.equal(await page.locator("#airlineProviderSelect").inputValue(), "FixtureCo");
+      assert.match(await page.locator("#airlineProviderScope").textContent(), /North America · 2 selections/);
+      await page.locator("#airlineFleetFilter").uncheck();
+      assert.match(await page.locator("#airlineProviderScope").textContent(), /North America · 3 selections/);
+      await page.locator('[data-provider-mode="planning"]').click();
+      await page.locator("#airlineProviderSelect").selectOption("FixturePlanner");
+      assert.match(await page.locator("#airlineProviderScope").textContent(), /North America · 1 selection ·/);
+      await page.locator('[data-country="Japan"]').dispatchEvent("click");
+      assert.equal(await page.locator("#airlineProviderSelect").inputValue(), "FixturePlanner");
+      assert.match(await page.locator("#airlineProviderScope").textContent(), /Rest of Asia & Pacific · 0 selections/);
+      assert.match(await page.locator("#airlineProviderInsight").textContent(), /No recorded selections/);
+      await page.close();
+    }
+  } finally {
+    await browser.close();
+  }
+});

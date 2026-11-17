@@ -95,7 +95,28 @@ body:has(.quick-look[open]) { overflow: hidden; }
 .airline-region-heading { align-items: end; flex-wrap: wrap; }
 .airline-region-reset { padding: 6px 10px; border: 1px solid var(--border-strong); border-radius: var(--radius-control); background: var(--bg-elevated); color: var(--text); font: inherit; font-size: 11px; cursor: pointer; }
 .airline-region-reset:hover { border-color: var(--teal-bright); }
-.airline-profile-section, .airline-conference-section { padding: 16px 0 20px; border-bottom: 1px solid var(--border-strong); }
+.airline-profile-section, .airline-provider-section, .airline-conference-section { padding: 16px 0 20px; border-bottom: 1px solid var(--border-strong); }
+.airline-provider-heading { align-items: end; flex-wrap: wrap; }
+.airline-provider-controls { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 10px; }
+.airline-provider-select { width: min(220px, 100%); max-width: 100%; }
+.airline-provider-select select { width: 100%; min-width: 0; }
+.airline-provider-insight { margin: 14px 0; font-size: 13px; font-weight: 600; }
+.airline-provider-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.airline-provider-paired { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--border); }
+.airline-provider-paired h3 { margin: 0 0 5px; color: var(--text-muted); font-size: 11px; font-weight: 600; text-transform: uppercase; }
+.airline-provider-paired > p { margin: 0 0 7px; font-size: 11px; }
+.airline-provider-paired > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; }
+.airline-provider-group { min-width: 0; }
+.airline-provider-group h3 { margin: 0 0 8px; color: var(--text-muted); font-size: 11px; font-weight: 600; text-transform: uppercase; }
+.airline-footprint-row { display: grid; width: 100%; min-width: 0; grid-template-columns: minmax(0, 1.2fr) minmax(30px, 1fr) 86px; align-items: center; gap: 8px; min-height: 31px; padding: 5px 0; border: 0; border-top: 1px solid var(--border); background: transparent; color: var(--text); font: inherit; font-size: 11px; text-align: left; cursor: pointer; }
+.airline-footprint-row:disabled { cursor: default; }
+.airline-footprint-row:not(:disabled):hover .airline-footprint-name { text-decoration: underline; }
+.airline-footprint-name { min-width: 0; overflow-wrap: anywhere; }
+.airline-footprint-small { color: var(--text-muted); font-size: 9px; white-space: nowrap; }
+.airline-footprint-track { height: 6px; background: var(--bg-elevated); }
+.airline-footprint-track i { display: block; height: 100%; background: var(--teal-bright); }
+.airline-footprint-count { color: var(--text-muted); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.airline-footprint-empty { margin: 0; font-size: 11px; }
 .airline-detail-section { padding: 16px 0 20px; border-bottom: 1px solid var(--border-strong); }
 .airline-region-mix-table { width: 100%; min-width: 0; table-layout: fixed; }
 .airline-region-mix-table th { white-space: normal; overflow-wrap: anywhere; }
@@ -160,12 +181,14 @@ body:has(.quick-look[open]) { overflow: hidden; }
 .airline-insights-footer p { margin: 0; }
 
 @media (max-width: 900px) {
+  .airline-provider-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .airline-insights-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .airline-map-layout { grid-template-columns: minmax(0, 1fr); }
   .airline-map-section { width: min(100%, 900px); margin-inline: auto; }
 }
 
 @media (max-width: 600px) {
+  .airline-provider-grid { grid-template-columns: minmax(0, 1fr); }
   .airline-insights-controls { grid-template-columns: minmax(0, 1fr); }
   .airline-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .airline-kpi { padding: 8px 8px 14px; }
