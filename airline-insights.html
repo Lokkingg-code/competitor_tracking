@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=68" />
+  <link rel="stylesheet" href="css/styles.css?v=71" />
 </head>
 <body class="airline-insights-page">
   <div class="app">
@@ -39,10 +39,13 @@
       <section class="airline-page-filter" aria-label="Airline filters">
         <span class="airline-page-filter-title">Airline filters</span>
         <label class="airline-fleet-toggle" for="airlineFleetFilter">
-          <input id="airlineFleetFilter" type="checkbox" checked aria-describedby="airlineFleetFilterNote" />
+          <input id="airlineFleetFilter" type="checkbox" checked />
           <span>Exclude fleets under 10 aircraft</span>
         </label>
-        <small id="airlineFleetFilterNote">Unknown fleet sizes are included</small>
+        <label class="airline-fleet-toggle" for="airlineChinaFilter">
+          <input id="airlineChinaFilter" type="checkbox" />
+          <span>Exclude Mainland China</span>
+        </label>
       </section>
       <section class="airline-kpis" aria-label="Airtable coverage summary">
         <div class="airline-kpi"><span>Connected airlines</span><strong id="airlineCount">—</strong><small id="airlineCountNote">—</small></div>
@@ -135,7 +138,7 @@
           <div class="airline-provider-group"><h3>Carrier type</h3><div id="airlineProviderTypes"></div></div>
           <div class="airline-provider-group"><h3>Fleet size</h3><div id="airlineProviderFleets"></div><p id="airlineProviderFleetNote" class="airline-data-caveat muted"></p></div>
         </div>
-        <div class="airline-provider-paired"><h3>Also recorded with this provider</h3><p id="airlineProviderPairedNote" class="muted"></p><div id="airlineProviderPairedSystems"></div></div>
+        <div class="airline-provider-paired"><h3 id="airlineProviderPairedHeading">Also recorded with this provider</h3><p id="airlineProviderPairedNote" class="muted"></p><div id="airlineProviderPairedSystems"></div></div>
       </section>
 
       <dialog id="airlineQuickLook" class="quick-look airline-quick-look" aria-labelledby="airlineQuickLookTitle">
@@ -170,6 +173,6 @@
       </footer>
     </main>
   </div>
-  <script src="js/airline-insights.js?v=50" type="module"></script>
+  <script src="js/airline-insights.js?v=53" type="module"></script>
 </body>
 </html>

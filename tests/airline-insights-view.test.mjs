@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
-import { applyFleetFilter, excludeNonAirlineEntities } from "../js/airline-fleet-filter.js";
+import { applyFleetFilter, excludeMainlandChina, excludeNonAirlineEntities } from "../js/airline-fleet-filter.js";
 import { normalizeMapRegions, regionalProviderRace, gradientProviders, providerColors } from "../js/airline-provider-map.js";
 
 const baseUrl = process.env.DASHBOARD_URL || "http://127.0.0.1:8766/airline-insights.html";
@@ -193,6 +193,51 @@ test("global mix includes an unmapped airline with a recorded system", async () 
   }
 });
 
+test("Mainland China global filter composes with the fleet filter and persists", async () => {
+  const browser = await chromium.launch({ headless: true, executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH });
+  try {
+    for (const width of [1440, 390]) {
+      const page = await browser.newPage({ viewport: { width, height: 900 } });
+      await page.route("**/data/airline-insights-ai.json", (route) => route.fulfill({ json: {
+        snapshot_generated_at: snapshot.generated_at,
+        region_scheme: "mainland-china-rest-asia-v2",
+        entity_exclusion_version: 1,
+        model: "test-model",
+        overall: { headline: "Previous population", observations: ["Previous analysis."], caveat: "Sample." },
+        regions: [],
+      } }));
+      await page.goto(baseUrl);
+      await page.waitForFunction(() => document.querySelector("#airlineCount").textContent !== "—");
+      const chinaToggle = page.locator("#airlineChinaFilter");
+      const fleetToggle = page.locator("#airlineFleetFilter");
+      const count = page.locator("#airlineCount");
+      const normalized = normalizeMapRegions(excludeNonAirlineEntities(snapshot));
+      const eligible = normalized.airline_profiles.filter((profile) => profile.fleet_size === null || profile.fleet_size >= 10);
+      const eligibleChinaCount = eligible.filter((profile) => profile.region === "Mainland China").length;
+      const allChinaCount = normalized.airline_profiles.filter((profile) => profile.region === "Mainland China").length;
+      assert.equal(await chinaToggle.isChecked(), false);
+      assert.equal(await count.textContent(), String(eligible.length));
+      assert.doesNotMatch(await page.locator("#airlineCountNote").textContent(), /Unknown fleet sizes are included/);
+      await chinaToggle.check();
+      assert.equal(await count.textContent(), String(eligible.length - eligibleChinaCount));
+      assert.match(await page.locator("#airlineCountNote").textContent(), /Mainland China excluded/);
+      assert.equal(await page.locator('#airlineProviderRegions [data-footprint-name="Mainland China"]').count(), 0);
+      assert.equal(await page.locator(".airline-ai-badge").textContent(), "Data summary");
+      await page.reload();
+      await page.waitForFunction(() => document.querySelector("#airlineCount").textContent !== "—");
+      assert.equal(await chinaToggle.isChecked(), true);
+      assert.equal(await count.textContent(), String(eligible.length - eligibleChinaCount));
+      await fleetToggle.uncheck();
+      assert.equal(await count.textContent(), String(normalized.airline_profiles.length - allChinaCount));
+      await chinaToggle.uncheck();
+      assert.equal(await count.textContent(), String(normalized.airline_profiles.length));
+      await page.close();
+    }
+  } finally {
+    await browser.close();
+  }
+});
+
 test("conference history hides zero-attendee rows unless Show all is enabled", async () => {
   const fixture = structuredClone(snapshot);
   const eligible = fixture.airline_profiles.find((item) => item.fleet_size >= 10 && !["Embraer", "Exchange Income Corporation"].includes(item.airline));
@@ -271,6 +316,7 @@ test("provider footprint respects region and fleet filters and opens matching ai
       assert.ok(providerBounds.top >= systemBounds.bottom, "Provider selector should sit below the System control");
       assert.ok(Math.abs(providerBounds.left - systemBounds.left) < 2, "Provider selector should align with the System control");
       assert.match(await page.locator("#airlineProviderScope").textContent(), /Global · 3 selections/);
+      assert.equal(await page.locator("#airlineProviderPairedHeading").textContent(), "Corresponding flight-planning systems");
       assert.match(await page.locator("#airlineProviderPairedNote").textContent(), /1 of 3 matched airlines have flight-planning recorded; 2 unknown/);
       assert.deepEqual(await page.locator("#airlineProviderPairedSystems [data-paired-system]").evaluateAll((buttons) => buttons.map((button) => [button.dataset.pairedSystem, button.querySelector(".airline-footprint-count").textContent])), [["FixturePlanner", "1/1 · 100%"]]);
       await page.locator('#airlineProviderPairedSystems [data-paired-system="FixturePlanner"]').click();
@@ -307,6 +353,7 @@ test("provider footprint respects region and fleet filters and opens matching ai
       await page.locator("#airlineFleetFilter").uncheck();
       assert.match(await page.locator("#airlineProviderScope").textContent(), /North America · 3 selections/);
       await page.locator('[data-provider-mode="planning"]').click();
+      assert.equal(await page.locator("#airlineProviderPairedHeading").textContent(), "Corresponding EFF systems");
       await page.locator("#airlineProviderSelect").selectOption("FixturePlanner");
       assert.match(await page.locator("#airlineProviderScope").textContent(), /North America · 1 selection ·/);
       await page.locator('[data-country="Japan"]').dispatchEvent("click");

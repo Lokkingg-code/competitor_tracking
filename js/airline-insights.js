@@ -1,4 +1,4 @@
-import { applyFleetFilter, excludeNonAirlineEntities, ENTITY_EXCLUSION_VERSION } from "./airline-fleet-filter.js?v=2";
+import { applyFleetFilter, excludeMainlandChina, excludeNonAirlineEntities, ENTITY_EXCLUSION_VERSION, MAINLAND_CHINA_FILTER_VERSION } from "./airline-fleet-filter.js?v=3";
 import { normalizeMapRegions, mapRegion, providerColors, regionalProviderRace, gradientProviders, providerGradientStops, REGION_SCHEME } from "./airline-provider-map.js?v=5";
 import { providerFootprint } from "./airline-provider-footprint.js?v=1";
 
@@ -8,7 +8,7 @@ const state = { region: "all", airlineType: "all", fleetBand: "all", mapMetric: 
 const elements = {
   snapshotDate: document.getElementById("airlineSnapshotDate"),
   fleetFilter: document.getElementById("airlineFleetFilter"),
-  fleetFilterNote: document.getElementById("airlineFleetFilterNote"),
+  chinaFilter: document.getElementById("airlineChinaFilter"),
   airlineCount: document.getElementById("airlineCount"),
   airlineCountNote: document.getElementById("airlineCountNote"),
   effCoverage: document.getElementById("effCoverage"),
@@ -35,6 +35,7 @@ const elements = {
   providerTypes: document.getElementById("airlineProviderTypes"),
   providerFleets: document.getElementById("airlineProviderFleets"),
   providerFleetNote: document.getElementById("airlineProviderFleetNote"),
+  providerPairedHeading: document.getElementById("airlineProviderPairedHeading"),
   providerPairedNote: document.getElementById("airlineProviderPairedNote"),
   providerPairedSystems: document.getElementById("airlineProviderPairedSystems"),
   insightScope: document.getElementById("airlineInsightScope"),
@@ -55,7 +56,6 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 const MAP_COLORS = ["#dfe8e3", "#b3cbbf", "#7ca997", "#3e8178", "#006568"];
 let snapshot;
 let unfilteredSnapshot;
-let filteredSnapshot;
 let countryFeatures;
 let aiInsightSnapshot;
 let mapProviderColors;
@@ -338,10 +338,11 @@ function hideMapTooltip() {
 
 function renderKpis(summary) {
   elements.airlineCount.textContent = numberFormat.format(summary.airlines);
-  const fleetScope = snapshot.fleet_filter?.minimum === 10 && snapshot.fleet_filter?.unknown_included
-    ? `Fleet 10+ or unknown · ${numberFormat.format(snapshot.fleet_filter.excluded_airlines)} excluded`
-    : "All fleet sizes";
-  elements.airlineCountNote.textContent = `${numberFormat.format(snapshot.source_record_count)} Airtable source rows · ${fleetScope}`;
+  const filters = [
+    snapshot.fleet_filter?.minimum === 10 ? "Fleet 10+" : "All fleets",
+    snapshot.mainland_china_filter?.version === MAINLAND_CHINA_FILTER_VERSION ? "Mainland China excluded" : "Mainland China included",
+  ];
+  elements.airlineCountNote.textContent = `${numberFormat.format(snapshot.source_record_count)} Airtable source rows · ${filters.join(" · ")}`;
   const effCoverage = summary.airlines ? Math.round(summary.eff_known / summary.airlines * 100) : 0;
   const planningCoverage = summary.airlines ? Math.round(summary.planning_known / summary.airlines * 100) : 0;
   elements.effCoverage.textContent = `${effCoverage}%`;
@@ -359,7 +360,7 @@ function renderMarketRead() {
   const read = isOverall
     ? aiInsightSnapshot?.overall
     : aiInsightSnapshot?.regions?.find((item) => item.name === state.region);
-  const isFresh = !snapshot.fleet_filter?.derived_from_saved_snapshot && aiInsightSnapshot?.entity_exclusion_version === ENTITY_EXCLUSION_VERSION && aiInsightSnapshot?.region_scheme === REGION_SCHEME && aiInsightSnapshot?.snapshot_generated_at === snapshot.generated_at;
+  const isFresh = !snapshot.fleet_filter?.derived_from_saved_snapshot && !snapshot.mainland_china_filter?.derived_from_saved_snapshot && aiInsightSnapshot?.entity_exclusion_version === ENTITY_EXCLUSION_VERSION && aiInsightSnapshot?.region_scheme === REGION_SCHEME && aiInsightSnapshot?.snapshot_generated_at === snapshot.generated_at;
   elements.insightScope.textContent = isOverall ? "Overall" : state.region;
   elements.insightHeading.innerHTML = formatInsightText(read && isFresh ? read.headline : isOverall ? "Overall data read" : `${state.region} data read`);
   elements.insightBadge.textContent = read && isFresh ? `AI synthesis · ${aiInsightSnapshot.model}` : "Data summary";
@@ -493,6 +494,7 @@ function renderProviderFootprint() {
   elements.providerSelect.disabled = !providers.length;
   document.querySelectorAll("[data-provider-mode]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.providerMode === state.providerMode)));
   const result = providerFootprint(profiles, state.providerMode, state.providerName);
+  elements.providerPairedHeading.textContent = state.providerMode === "planning" ? "Corresponding EFF systems" : "Corresponding flight-planning systems";
   const scope = state.region === "all" ? "Global" : state.region;
   const selectionLabel = result.matches === 1 ? "selection" : "selections";
   elements.providerScope.textContent = `${scope} · ${numberFormat.format(result.matches)} ${selectionLabel} · ${numberFormat.format(result.known)} known fields`;
@@ -597,17 +599,26 @@ async function boot() {
   });
   mapProviderColors = providerColors(unfilteredSnapshot);
   const alreadyFiltered = unfilteredSnapshot.fleet_filter?.minimum === 10 && unfilteredSnapshot.fleet_filter?.unknown_included;
-  filteredSnapshot = applyFleetFilter(unfilteredSnapshot);
   elements.fleetFilter.checked = alreadyFiltered || localStorage.getItem("ct-airline-fleet-filter") !== "off";
+  const alreadyExcludesChina = unfilteredSnapshot.mainland_china_filter?.version === MAINLAND_CHINA_FILTER_VERSION;
+  elements.chinaFilter.checked = alreadyExcludesChina || localStorage.getItem("ct-airline-exclude-mainland-china") === "on";
   elements.fleetFilter.disabled = alreadyFiltered;
-  if (alreadyFiltered) elements.fleetFilterNote.textContent = "All fleet sizes will be available after the next Airtable refresh";
-  snapshot = elements.fleetFilter.checked ? filteredSnapshot : unfilteredSnapshot;
-  elements.fleetFilter.addEventListener("change", () => {
+  elements.chinaFilter.disabled = alreadyExcludesChina;
+  const updateSnapshotFilters = () => {
     localStorage.setItem("ct-airline-fleet-filter", elements.fleetFilter.checked ? "on" : "off");
-    snapshot = elements.fleetFilter.checked ? filteredSnapshot : unfilteredSnapshot;
+    localStorage.setItem("ct-airline-exclude-mainland-china", elements.chinaFilter.checked ? "on" : "off");
+    snapshot = unfilteredSnapshot;
+    if (elements.chinaFilter.checked) snapshot = excludeMainlandChina(snapshot);
+    if (elements.fleetFilter.checked) snapshot = applyFleetFilter(snapshot);
+    if (state.region !== "all" && !snapshot.region_names.includes(state.region)) state.region = "all";
     if (elements.quickLook.open) elements.quickLook.close();
     render();
-  });
+  };
+  snapshot = unfilteredSnapshot;
+  if (elements.chinaFilter.checked) snapshot = excludeMainlandChina(snapshot);
+  if (elements.fleetFilter.checked) snapshot = applyFleetFilter(snapshot);
+  elements.fleetFilter.addEventListener("change", updateSnapshotFilters);
+  elements.chinaFilter.addEventListener("change", updateSnapshotFilters);
   countryFeatures = await mapResponse.json();
   if (insightResponse?.ok) aiInsightSnapshot = await insightResponse.json();
   elements.snapshotDate.textContent = `Snapshot ${new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(snapshot.generated_at))}`;

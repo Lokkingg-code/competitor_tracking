@@ -1,7 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { applyFleetFilter, excludeNonAirlineEntities } from "../js/airline-fleet-filter.js";
+import { applyFleetFilter, excludeMainlandChina, excludeNonAirlineEntities } from "../js/airline-fleet-filter.js";
+import { normalizeMapRegions } from "../js/airline-provider-map.js";
 import { buildInsightInput } from "../scripts/build_airline_insights_ai.mjs";
 
 test("excludes only the two named non-airline entities from saved aggregates", async () => {
@@ -63,6 +64,28 @@ test("filters saved snapshot aggregates, profiles and attendees without mutating
   const names = new Set(expected.map((profile) => profile.airline));
   for (const event of result.conferences) assert.ok(event.attending_airlines.every((name) => names.has(name)));
   assert.equal(snapshot.airline_profiles.length, snapshot.unique_airline_count);
+});
+
+test("Mainland China exclusion updates all aggregates and composes with the fleet filter", async () => {
+  const raw = JSON.parse(await readFile(new URL("../data/airline-insights.json", import.meta.url), "utf8"));
+  const snapshot = normalizeMapRegions(excludeNonAirlineEntities(raw));
+  const chinaCount = snapshot.airline_profiles.filter((profile) => profile.region === "Mainland China").length;
+  const expectedRemaining = snapshot.airline_profiles.filter((profile) => profile.region !== "Mainland China");
+  const result = excludeMainlandChina(snapshot);
+  assert.equal(result.unique_airline_count, snapshot.unique_airline_count - chinaCount);
+  assert.equal(result.airline_profiles.length, expectedRemaining.length);
+  assert.ok(result.airline_profiles.every((profile) => profile.region !== "Mainland China"));
+  assert.equal(result.overall.eff_known, expectedRemaining.filter((profile) => profile.eff_systems.length).length);
+  assert.equal(result.overall.planning_known, expectedRemaining.filter((profile) => profile.planning_systems.length).length);
+  assert.equal(result.source_record_count, snapshot.source_record_count);
+  assert.equal(excludeMainlandChina(result), result);
+
+  const fleetFirst = applyFleetFilter(snapshot);
+  const chinaAfterFleet = excludeMainlandChina(fleetFirst);
+  const chinaFirst = excludeMainlandChina(snapshot);
+  const fleetAfterChina = applyFleetFilter(chinaFirst);
+  assert.equal(chinaAfterFleet.unique_airline_count, fleetAfterChina.unique_airline_count);
+  assert.equal(chinaAfterFleet.country_segments.reduce((sum, cell) => sum + cell.airlines, 0), fleetAfterChina.country_segments.reduce((sum, cell) => sum + cell.airlines, 0));
 });
 
 test("does not filter an already-filtered snapshot twice", () => {

@@ -95,6 +95,19 @@ export function excludeNonAirlineEntities(snapshot) {
   return filtered;
 }
 
+export const MAINLAND_CHINA_FILTER_VERSION = 1;
+
+export function excludeMainlandChina(snapshot) {
+  if (snapshot.mainland_china_filter?.version === MAINLAND_CHINA_FILTER_VERSION) return snapshot;
+  const { filtered, excluded } = removeProfiles(snapshot, (profile) => profile.region === "Mainland China");
+  filtered.mainland_china_filter = {
+    version: MAINLAND_CHINA_FILTER_VERSION,
+    excluded_airlines: excluded.length,
+    derived_from_saved_snapshot: true,
+  };
+  return filtered;
+}
+
 export function applyFleetFilter(snapshot) {
   if (snapshot.fleet_filter?.minimum === 10 && snapshot.fleet_filter?.unknown_included) return snapshot;
 
