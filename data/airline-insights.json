@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "Airtable Airline Customer Pipeline shared view",
-  "generated_at": "2026-11-17T14:59:42+00:00",
+  "generated_at": "2026-11-18T14:40:17+00:00",
   "source_record_count": 522,
   "unique_airline_count": 518,
   "entity_exclusion_version": 1,
@@ -46,13 +46,13 @@
     "fleet_known": 512,
     "fleet_size_outliers": 1,
     "airline_type_known": 517,
-    "eff_status_known": 162,
+    "eff_status_known": 163,
     "flight_planning_known": 68,
     "conferences_recorded": 9,
     "upcoming_conferences_recorded": 0,
     "unmapped_event_regions": 2,
     "quality_flags": {
-      "missing_eff_status": 356,
+      "missing_eff_status": 355,
       "missing_flight_planning": 450,
       "hq_not_mapped": 28,
       "missing_hq": 12,
@@ -67,7 +67,7 @@
     "airlines": 518,
     "fleet_known": 512,
     "fleet_outliers": 1,
-    "eff_known": 162,
+    "eff_known": 163,
     "eff_no_vendor": 34,
     "eff_systems": [
       {
@@ -121,6 +121,10 @@
       {
         "name": "SITA Flight Folder",
         "count": 3
+      },
+      {
+        "name": "Flightview",
+        "count": 1
       },
       {
         "name": "Fluix",
@@ -514,7 +518,7 @@
       "airlines": 58,
       "fleet_known": 58,
       "fleet_outliers": 0,
-      "eff_known": 14,
+      "eff_known": 15,
       "eff_no_vendor": 3,
       "eff_systems": [
         {
@@ -531,6 +535,10 @@
         },
         {
           "name": "Flightman",
+          "count": 1
+        },
+        {
+          "name": "Flightview",
           "count": 1
         },
         {
@@ -1070,7 +1078,7 @@
       "fleet_known": 45,
       "fleet_sum": 8377,
       "fleet_outliers": 0,
-      "eff_known": 9,
+      "eff_known": 10,
       "eff_no_vendor": 3,
       "eff_systems": [
         {
@@ -1080,6 +1088,10 @@
         {
           "name": "Paper",
           "count": 2
+        },
+        {
+          "name": "Flightview",
+          "count": 1
         },
         {
           "name": "IFS EFBOne",
@@ -2599,7 +2611,7 @@
       "airlines": 2,
       "fleet_values_recorded": 2,
       "fleet_known": 2,
-      "fleet_sum": 46,
+      "fleet_sum": 48,
       "fleet_outliers": 0,
       "eff_known": 0,
       "eff_no_vendor": 0,
@@ -6596,9 +6608,14 @@
       "airlines": 5,
       "fleet_known": 5,
       "fleet_outliers": 0,
-      "eff_known": 0,
+      "eff_known": 1,
       "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_systems": [
+        {
+          "name": "Flightview",
+          "count": 1
+        }
+      ],
       "planning_known": 1,
       "planning_systems": [
         {
@@ -10344,7 +10361,7 @@
       "airlines": 2,
       "fleet_values_recorded": 2,
       "fleet_known": 2,
-      "fleet_sum": 46,
+      "fleet_sum": 48,
       "fleet_outliers": 0,
       "eff_known": 0,
       "eff_no_vendor": 0,
@@ -13807,9 +13824,14 @@
       "fleet_known": 5,
       "fleet_sum": 1718,
       "fleet_outliers": 0,
-      "eff_known": 0,
+      "eff_known": 1,
       "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_systems": [
+        {
+          "name": "Flightview",
+          "count": 1
+        }
+      ],
       "planning_known": 1,
       "planning_systems": [
         {
@@ -17789,11 +17811,11 @@
       "planning_systems": []
     },
     {
-      "airline": "Middle East Airlines",
+      "airline": "Middle East Airlines - Air Liban",
       "country": "Lebanon",
       "region": "Middle East & North Africa",
       "airline_type": "Flag Carrier",
-      "fleet_size": 22,
+      "fleet_size": 24,
       "fleet_band": "Small · 1–50",
       "eff_systems": [],
       "planning_systems": []
@@ -18823,7 +18845,9 @@
       "airline_type": "Regional Airline",
       "fleet_size": 502,
       "fleet_band": "Large · 151+",
-      "eff_systems": [],
+      "eff_systems": [
+        "Flightview"
+      ],
       "planning_systems": []
     },
     {

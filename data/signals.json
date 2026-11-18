@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T15:02:00Z",
+  "generated_at": "2026-11-18T14:42:19Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,45 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-fe6452b32924",
+      "competitor": "Jeppesen",
+      "date": "2026-11-18",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Jeppesen ForeFlight, Archer Team Up on ATC Transcription Tool",
+      "summary": "Jeppesen reported a messaging shift update: Jeppesen ForeFlight, Archer Team Up on ATC Transcription Tool. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxORXRCUDdFcFAxOTBteThGUmZJZEtvUHVWQmMwdEpiWUJubDZ4LUVRT04wZkpuRmQyeVNsNFdwOVV6SHpFcEc4czRNSWprMXF2VzNwTjdBdWR0T2JFLWJBRnZTLVVYYVdDZlo2V29zcGVEdWNHR25QUWc4WWR1WnhiSU1MbHg3MTBf?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
     {
       "id": "cap-77474efd5486",
       "competitor": "Jeppesen",
@@ -48,7 +87,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -62,6 +100,217 @@
         "is_ai_related": true,
         "ai_confidence": 1.0,
         "ai_evidence": "AI Partnership",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-18T14:42:55+00:00",
+        "source_sha256": "d9859c303981efd2caf39a586b80e6f3013d4b1904167c88ceec29c2434500fd",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight announces AI partnership with Archer.",
+        "summary": "Jeppesen announces an AI partnership between ForeFlight and Archer. The provided text does not specify technical implementations or operational details regarding the collaboration."
+      }
+    },
+    {
+      "id": "cap-80ae6f306085",
+      "competitor": "Jeppesen",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "AI Transcriptions Are Coming to ForeFlight Mobile",
+      "summary": "Jeppesen reported a messaging shift update: AI Transcriptions Are Coming to ForeFlight Mobile. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPYjM4bXlJNkhfNV9YTDh4TUVIR21IdkVjYW1taXdBTGZ5bXRlYTVaVXZpczBqaE96V1JNaGN1dURGc0pRZ1hNc1BDc1Z2NHFQdVZaeDV3VE55ZTVIN0FYdEt6cFpUSFNNWjE1LS03czRsWFp6OEdpYmpWTHZJR2ZBZw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-cfb3172af737",
+      "competitor": "Jeppesen",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Today we announced the first phase of bringing ZEE, Archer's aviation foundation model, into…",
+      "summary": "Today we announced the first phase of bringing ZEE, Archer's aviation foundation model, into Jeppesen ForeFlight's ForeFlight Mobile EFB: real-time Air Traffic Control transcription, running entirely on-device on iPad. Global air traffic control s",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPc0dweFRjTmNIYy1Camg3QXdwWE42akI3UFRuSjNHd2lHeTY0d1c1d3ZNV0ZyNmpXVmFjdFdYQkk5OGdlbHNwdnUzSjlyYUp4cFE0MTVVQXhNbDR1eHRzU0t0bmdCTkw5Zm5mMVdscG9aSUpJQlIzS2tIbzhNSEcxYWdxZllvZ0diV0NVWkFveVU1bXRJZnBKQ1puMnNGUHlMNVhiQS0yMkFyNEFGRDdSOWJBMjZVdzM0bVhoeVIxMldweldvNTBYYi1RWU5NTW9L?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-18T14:43:36+00:00",
+        "source_sha256": "2bc6fa27e21479151e8de2850c26d4bddb0c6363fc515d8d0d3044d9e9038ab1",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen integrates Archer's ZEE aviation foundation model into ForeFlight Mobile EFB for on-device ATC transcription.",
+        "summary": "Jeppesen announced the first phase of integrating Archer's ZEE aviation foundation model into the ForeFlight Mobile EFB. The integration enables real-time Air Traffic Control transcription to run entirely on-device on iPad."
+      },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-8a9f1bad5b87",
+      "competitor": "Jeppesen",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Today, Archer and Jeppesen ForeFlight announced an AI partnership focused on integrating ZEE, our…",
+      "summary": "Today, Archer and Jeppesen ForeFlight announced an AI partnership focused on integrating ZEE, our aviation foundation model, into ForeFlight Mobile, the leading electronic flight bag for GA pilots. The result: real-time ATC transcription, running on-device on &n",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWjBlMkNRS3VwMFR1dUplcHFVMEZTd3c3eGs0cnlySno1STJ5X1otZG5IMXJXOVdvdUZZSUVlYkprZUt1RzhZNmlZYW93aDVvM3B5NHBmTTliWWlCRUg0bk90aG1NVWVmOV9iR0tsbU9BanNEa3FST1JEd1U3RGc0YUZwVXd5TVZRZEVYY0YycnBkXzN6SlBVU0tuVjA1LVhRZUkxWVFIS0RvdG5ESVNwczIxVGc1d0NpbGRlcXVR?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-18T14:43:54+00:00",
+        "source_sha256": "0c6ed94640eb4b521baf6d55b66704e16999705506f28d77d0cb722fc41af9af",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen partners with Archer to integrate ZEE aviation foundation model into ForeFlight Mobile for real-time ATC transcription.",
+        "summary": "Jeppesen and Archer announced a partnership to integrate the ZEE aviation foundation model into ForeFlight Mobile. This integration enables real-time, on-device ATC transcription for general aviation pilots."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-18T14:45:13+00:00",
+        "source_sha256": "0c6ed94640eb4b521baf6d55b66704e16999705506f28d77d0cb722fc41af9af",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "integrating ZEE, our aviation foundation model, into ForeFlight Mobile",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-a6537629b2e5",
+      "competitor": "Navblue",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "🤠✈️ Thrilled to have our experts Prem Ramesh Chandran, Gino Carino and Arnaud THURAT on the ground today for the EFB User Forum.",
+      "summary": "The Skywise team officially touched down in Dallas! 🤠✈️ Thrilled to have our experts Prem Ramesh Chandran, Gino Carino and Arnaud THURAT on the ground today for the EFB User Forum.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Mission+",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPNm44WklZSzJoODBmWUJ0OFA1dG44UG4xY2JQTmJoWnRuZ1VOLW5BZ1lwcW9BdzRyTlBRQXY0WGZOSkJsNGU5VVdyb1dISDNHZnFodHhINmRyS0EzRFM3TTdzbU1ERGZBYkhUMF9MOTJQcks0R2xwbHdVNWpnbG5YTzEtU1lrSndyWnBmckpzSkxQVTl6d05XeFdfSUV5bk9WcmlhRjNEeS14aEFmS0p1dzVhcWNBRmZ2d2UtUA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-18T14:45:34+00:00",
+        "source_sha256": "0c1090433758badcf37e6225b26eac197f1486adffa60d2149ec7b47c604d896",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
       }
