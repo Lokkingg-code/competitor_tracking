@@ -2,98 +2,98 @@
   "schema_version": 1,
   "region_scheme": "mainland-china-rest-asia-v2",
   "entity_exclusion_version": 1,
-  "snapshot_generated_at": "2026-11-17T14:59:42+00:00",
-  "generated_at": "2026-11-17T15:08:04.795Z",
+  "snapshot_generated_at": "2026-11-19T14:46:27+00:00",
+  "generated_at": "2026-11-19T15:01:22.281Z",
   "model": "gemini-3.5-flash-lite",
   "overall": {
-    "headline": "Target Mainland China and Rest of Asia & Pacific First, While Deferring Unmapped and Sub-Saharan Africa",
+    "headline": "Targeting Priorities Across Recorded Airline Segments and Weak Coverage Areas",
     "observations": [
-      "Out of **518** total recorded airlines, **162** have EFB recorded selections and **68** have planning selections.",
-      "Mainland China shows complete recording with **41** out of **41** airlines recorded, heavily featuring **NavChina** at **37** recorded selections.",
-      "Rest of Asia & Pacific records **37** EFB selections out of **102** airlines, with **NavBlue** leading planning at **10** out of **22** recorded selections."
+      "Out of **518** total airlines, **163** have recorded EFB selections and **68** have recorded planning selections, representing a prospect sample rather than the full market.",
+      "In the overall recorded EFB sample, **NavChina** leads with **38** recorded selections out of **163** recorded airlines, followed by **AvioBook** with **21** out of **163**.",
+      "For flight planning, **Lido** records **24** selections out of **68** recorded airlines, and **NavBlue** records **16** out of **68**."
     ],
-    "caveat": "This Airtable list represents a prospect sample rather than the whole market, and blank fields indicate unknown data rather than non-adoption."
+    "caveat": "Blanks represent unknown data rather than non-adoption, multiple selections can occur per airline, and this dataset is a prospect sample."
   },
   "regions": [
     {
       "name": "Europe & Central Asia",
-      "headline": "Diverse Vendor Landscape Led by In-House Solutions and AvioBook Across 151 Airlines",
+      "headline": "Diverse EFB and Planning Vendor Distribution Across Flag Carriers and LCCs",
       "observations": [
-        "Out of **151** airlines, **35** have EFB recorded selections and **14** have planning selections.",
-        "**In-house built** systems lead EFB with **7** recorded selections, while **AvioBook** follows closely with **6** recorded selections.",
-        "Planning selections show **Lido** leading with **5** out of **14** recorded selections."
+        "In Europe & Central Asia, out of **151** airlines, **35** have recorded EFB selections and **14** have recorded flight planning selections.",
+        "EFB selections include **In-house built** at **7** out of **35** and **AvioBook** at **6** out of **35**.",
+        "Flight planning selections feature **Lido** at **5** out of **14** and **FlightKeys** at **4** out of **14**."
       ],
-      "caveat": "Multiple selections can be recorded per airline, and blanks denote unknown status."
+      "caveat": "Blanks mean unknown, multiple selections are permitted, and this is a prospect sample."
     },
     {
       "name": "Rest of Asia & Pacific",
-      "headline": "Strong Regional Sample With Balanced Paper and Digital EFB Entries",
+      "headline": "Significant Paper and AvioBook Usage with Strong NavBlue Planning Presence",
       "observations": [
-        "Out of **102** airlines, **37** have EFB recorded selections and **22** have planning selections.",
-        "**Paper** records **7** selections and **AvioBook** and **In-house built** each record **6** selections out of **37** recorded selections.",
-        "**NavBlue** leads planning selections with **10** out of **22** recorded selections."
+        "Across **102** airlines, **37** have recorded EFB selections and **22** have recorded flight planning selections.",
+        "EFB selections show **Paper** at **7** out of **37**, **AvioBook** at **6** out of **37**, and **In-house built** at **6** out of **37**.",
+        "Planning selections show **NavBlue** at **10** out of **22** and **Lido** at **9** out of **22**."
       ],
-      "caveat": "This dataset is a prospect sample, and multiple selections may apply to single airlines."
+      "caveat": "Blanks mean unknown, multiple selections are permitted, and this is a prospect sample."
     },
     {
       "name": "North America",
-      "headline": "AvioBook and FlightKeys Dominate a Sample of 58 Airlines",
+      "headline": "AvioBook and FlightKeys Lead Moderate Recorded Prospect Counts",
       "observations": [
-        "Out of **58** airlines, **14** have EFB recorded selections and **9** have planning selections.",
-        "**AvioBook** leads EFB with **5** out of **14** recorded selections.",
-        "**FlightKeys** leads planning with **5** out of **9** recorded selections."
+        "Out of **58** airlines, **15** have recorded EFB selections and **9** have recorded flight planning selections.",
+        "EFB selections feature **AvioBook** at **5** out of **15** and **Navblue Mission+** at **3** out of **15**.",
+        "Flight planning selections are led by **FlightKeys** at **5** out of **9**."
       ],
-      "caveat": "Blanks represent unknown data, and figures do not reflect total market share."
+      "caveat": "Blanks mean unknown, multiple selections are permitted, and this is a prospect sample."
     },
     {
       "name": "Latin America & Caribbean",
-      "headline": "Fragmented EFB Selections Across 55 Sampled Airlines",
+      "headline": "Fragmented EFB Selections with Lido Leading Recorded Planning",
       "observations": [
-        "Out of **55** airlines, **12** have EFB recorded selections and **9** have planning selections.",
-        "**AvioBook**, **Flightman**, and **Paper** tie for leading EFB with **2** recorded selections each out of **12**.",
-        "**Lido** leads planning selections with **4** out of **9** recorded selections."
+        "Out of **55** airlines, **12** have recorded EFB selections and **9** have recorded flight planning selections.",
+        "EFB selections are split evenly among **AvioBook**, **Flightman**, and **Paper**, each with **2** out of **12** recorded selections.",
+        "Flight planning selections are led by **Lido** with **4** out of **9** recorded selections."
       ],
-      "caveat": "Evidence is drawn from a limited prospect sample where multiple vendor selections are permitted."
+      "caveat": "Blanks mean unknown, multiple selections are permitted, and this is a prospect sample."
     },
     {
       "name": "Middle East & North Africa",
-      "headline": "Evenly Distributed EFB Choices Among 52 Sampled Airlines",
+      "headline": "Balanced Distribution Across Multiple EFB and Planning Vendors",
       "observations": [
-        "Out of **52** airlines, **15** have EFB recorded selections and **10** have planning selections.",
-        "**Bytron Skybook**, **Jeppesen Aviator**, and **Paper** lead EFB with **3** recorded selections each out of **15**.",
-        "**Lido** and **NavBlue** tie for leading planning selections with **3** each out of **10**."
+        "Out of **52** airlines, **15** have recorded EFB selections and **10** have recorded flight planning selections.",
+        "EFB selections feature **Bytron Skybook**, **Jeppesen Aviator**, and **Paper** each at **3** out of **15**.",
+        "Flight planning selections show **Lido** at **3** out of **10** and **NavBlue** at **3** out of **10**."
       ],
-      "caveat": "These counts reflect recorded prospect samples only and should not be interpreted as full market adoption."
+      "caveat": "Blanks mean unknown, multiple selections are permitted, and this is a prospect sample."
     },
     {
       "name": "Sub-Saharan Africa",
-      "headline": "Evidence Is Insufficient Due to Low Field-Complete Sample Size",
+      "headline": "Evidence Is Insufficient Due to Low Sample Sizes",
       "observations": [
-        "Out of **47** airlines, only **8** have EFB recorded selections and **4** have planning selections.",
-        "Because the field-complete sample is under **5** for specific segments, evidence is insufficient to name a leading system.",
-        "**IFS EFBOne** records **2** EFB selections out of **8**, while **Lido** records **2** planning selections out of **4**."
+        "Out of **47** airlines, **8** have recorded EFB selections and **4** have recorded flight planning selections.",
+        "Because the field-complete sample is under **5** for planning selections, evidence is insufficient to name a leading system or make a directional targeting recommendation.",
+        "EFB selections include **IFS EFBOne** at **2** out of **8**."
       ],
-      "caveat": "Small sample sizes prevent directional targeting recommendations."
+      "caveat": "Blanks mean unknown, multiple selections are permitted, and this is a prospect sample."
     },
     {
       "name": "Mainland China",
-      "headline": "High Concentration on NavChina Across Fully Recorded Sample",
+      "headline": "NavChina Dominates Recorded EFB Selections with Zero Planning Records",
       "observations": [
-        "Out of **41** airlines, **41** have EFB recorded selections and **0** have planning selections recorded.",
-        "**NavChina** dominates EFB selections with **37** out of **41** recorded selections.",
-        "**In-house built** systems account for the remaining **4** out of **41** recorded selections."
+        "Out of **41** airlines, **41** have recorded EFB selections and **0** have recorded flight planning selections.",
+        "EFB selections are heavily concentrated in **NavChina** at **37** out of **41**, alongside **In-house built** at **4** out of **41**.",
+        "There are no recorded flight planning selections available for comparison in this region."
       ],
-      "caveat": "Data reflects an aggregate prospect list rather than total market share."
+      "caveat": "Blanks mean unknown, multiple selections are permitted, and this is a prospect sample."
     },
     {
       "name": "Unmapped",
-      "headline": "Evidence Is Insufficient Due to Zero Recorded Selections",
+      "headline": "Insufficient Evidence Due to Complete Lack of Recorded Selections",
       "observations": [
-        "Out of **12** airlines, **0** have EFB recorded selections and **0** have planning selections.",
-        "Because the field-complete sample is under **5**, evidence is insufficient to make a directional targeting recommendation.",
-        "No vendor selections are available for analysis in this category."
+        "Out of **12** airlines, **0** have recorded EFB selections and **0** have recorded flight planning selections.",
+        "Because the field-complete sample is under **5**, evidence is insufficient to name a leading system or make a directional targeting recommendation.",
+        "No vendor selections are recorded for this regional grouping."
       ],
-      "caveat": "Zero counts reflect missing records in the sample rather than confirmed non-adoption."
+      "caveat": "Blanks mean unknown, multiple selections are permitted, and this is a prospect sample."
     }
   ]
 }

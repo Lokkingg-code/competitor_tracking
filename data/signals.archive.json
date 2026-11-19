@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T14:42:19Z",
+  "generated_at": "2026-11-19T14:48:38Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -13,11 +13,65 @@
   ],
   "signals": [
     {
+      "id": "cap-4b7e0106a322",
+      "competitor": "Jeppesen",
+      "date": "2026-11-19",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Archer and Jeppesen ForeFlight Announce AI Aviation Partnership at Apple Ascend",
+      "summary": "Jeppesen reported a partnership update: Archer and Jeppesen ForeFlight Announce AI Aviation Partnership at Apple Ascend. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNVBlY1duUWtmTVBVMWtualMyd21jazJiRkpVeXB0LTdsQ1pnaWZpdnZGcFRrRDZpc2V3dHQzZ2dZRlh3OW42cGNqRXVHSUVwUHZ4eU5UX0x4aXplU0ZtZUtqUDVTRGU5aWE4ZFFjUEtpRDZYQk9iQW5DQnp3Q1V1c3Frb2owSVpTTEc4enVxZ040RGpXMjY0eTlDVmt4bGVzeU5hZjh6c0tGNFlQcWdmODRRcw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-19T14:55:40+00:00",
+        "source_sha256": "03b07d62119b35a1c0577c59ce09028e826cab1bf110b336b6890b61735732b2",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "Announce AI Aviation Partnership",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
       "id": "cap-fe6452b32924",
       "competitor": "Jeppesen",
       "date": "2026-11-18",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "partnership",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.6000000000000001,
@@ -49,7 +103,125 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-19T14:56:12+00:00",
+        "source_sha256": "e1955f2ea2b2352acaa3ed5abda443214eed71a50071f16e5904d469ffd83617",
+        "suggested_type": "partnership",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-399011967d7e",
+      "competitor": "Jeppesen",
+      "date": "2026-11-18",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Archer, Jeppesen ForeFlight To Bring ATC Transcription to Mobile Devices",
+      "summary": "Jeppesen reported a messaging shift update: Archer, Jeppesen ForeFlight To Bring ATC Transcription to Mobile Devices. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNlJ2ZkxKQUVPVzFiMjNpZjlNOEd4S0RoaF9qRGNoazJHOHd0bGJzdWY1RnpnN0J3Umt6RHBMaEptTjN1dHlNLVlkODRmZTllaTAzREtTZHVfU1lSc2Z1VHgwbjkxN3psbzZpOUdkdmFMX0czSUYyaVJwSzRhQkJ4YXNDb3E1bVdueHJXc0ltMlFBVm56SjVmcDlsekw4OHY5RHNScjgxMGxlNVFGVUI1ZlJobHBBUQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
+    },
+    {
+      "id": "browser-fb24f5b4d3f8",
+      "competitor": "Others",
+      "date": "2026-11-18",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "The Canadian Aviation Conference & Tradeshow 2026 Air Transport Association of Canada",
+      "summary": "The Canadian Aviation Conference & Tradeshow 2026 Air Transport Association of Canada - Association du transport aérien du Canada (ATAC) just kicked off. #EFB #NavigationCharts #ATAC2026 #Talora",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/talora-efb_efb-navigationcharts-atac2026-activity-7528838980621221888-rxgj"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-19T14:53:15+00:00",
+        "source_sha256": "8ca790093770975f64d5b4475ac1174c4b39b09e3945c485641a359df3e6f572",
+        "evidence_scope": "captured_preview_only",
+        "title": "Air Transport Association of Canada announces kickoff of 2026 Canadian Aviation Conference & Tradeshow.",
+        "summary": "The Air Transport Association of Canada (ATAC) has commenced the 2026 Canadian Aviation Conference & Tradeshow. The post provides event notification and establishes no concrete product or contract updates."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-19T14:59:32+00:00",
+        "source_sha256": "8ca790093770975f64d5b4475ac1174c4b39b09e3945c485641a359df3e6f572",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "other",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "efb",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-77474efd5486",
@@ -314,6 +486,123 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       }
+    },
+    {
+      "id": "cap-685a629189c7",
+      "competitor": "Jeppesen",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "Archer Aviation, Jeppesen ForeFlight announce first phase of AI partnership",
+      "summary": "Jeppesen reported a partnership update: Archer Aviation, Jeppesen ForeFlight announce first phase of AI partnership. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdnljdlRvai1xeWZhUkI0QnJ5VmQ5ZEV6NG5SUmFKR2cyUWktRU1MenI3c3IyZTBuekZqV3ZSWkFRdEtmYzBFajQybmMwTWVYaWdyb2hKSzZPR0hwUm9zMzhGaWxzMVhfa0lXekRwYlVKVlozOEVaRnEyUmxzbWI3WUlaRURINWZiOFhwMk4xMEtEdGczWXlQV1dJdklZeWRsUndzY28yLWFfblNLSWJyUVpybldXNy11UVRXWkdGSHU5UQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-b14b3bd7553b",
+      "competitor": "Jeppesen",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Thrilled to be in Austin, where Mario Srouji and I are announcing Archer’s AI…",
+      "summary": "Thrilled to be in Austin, where Mario Srouji and I are announcing Archer’s AI partnership with Jeppesen ForeFlight today: the first phase of bringing ZEE, our aviation foundation model, into ForeFlight Mobile, starting with real-time ATC transcription running on- <f",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQeEZuNk9tcVQ3N2hHODZUS3hmd29jZ3g1emlweWY5Y0lxUFNEMHE4ZHlNQXlKd3pKNEgwbGdNemljQ1VFWi1lU0xuUXI0dzU1UmJfSjl4MWZLVVNZbmNHSC1XVkRKdFVRdU9ZdnRVVDEwUFhNdjFBOXBHODVudmpZOTBNOUNTeUk0V09kb3kyeDhGNUt2Sy1lYmNLdENjSWxYenpoS0JGT2UxNHFWbEZDN3p2Smxkdw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-cdf56f1c969f",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "We’re here! 👋✈️ Our Lido experts are onsite at the EFB Users Forum for…",
+      "summary": "👋✈️ Our Lido experts are onsite at the EFB Users Forum for the next two days, ready to talk all things EFB, from smarter workflows to better situational awareness in the cockpit. 📍 Come and meet us at Table #2.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZEpTanRMWWxSRnBKUWYzUVZwb1dybll3dXFQTXc5TUM5azJlWEowYUcwTWFHLUhkbnNNc0xWZXh6Zl9pTVhZSnF5RFJqSlZxLU1aSC1BWl8zUFg4Y0FmWGQzZHRVSXdKNUU4WWhsT19YOGYwWWdhaXJ4LURoYUlndkJQYkxUa3lYckRvN252QzRMOEZOT21GYTJXMlhOSlhGQ3NTWDhzX0N0V1FrRkR0a2VRR3gtd1E?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "browser-fb0b5200ec10",
@@ -1243,6 +1532,45 @@
       }
     },
     {
+      "id": "cap-0f6fe72a5dc9",
+      "competitor": "Navblue",
+      "date": "2026-11-07",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.6000000000000001,
+      "headline": "FPT, Skywise and Vietnam Airlines partner on ‘AI-powered’ operations",
+      "summary": "Navblue reported a partnership update: FPT, Skywise and Vietnam Airlines partner on ‘AI-powered’ operations. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPUjBLc3d5N2xEbkEzNHJVTVZvTTYzVE9MTVBybHZnMXNZNUVIcGJ4Wjc3QW1IbmZQX3FPckllbEhma293emJWa1BxTTVxdjhybVdrbFJFV3RoRTVSUmxNbVBtZ2lNaXhlOEhOai1mWWxYdVVvVUVkTklRa2pKQm51TEsxWUxSTm93SGJ4Rk1oQXRlTWZvOUhJNTA2MnhFQQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
       "id": "cap-664871ab7be2",
       "competitor": "Navblue",
       "date": "2026-11-05",
@@ -1492,6 +1820,45 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       }
+    },
+    {
+      "id": "cap-163ff70a8664",
+      "competitor": "Navblue",
+      "date": "2026-11-05",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "IndiGo Becomes First Airline Globally to Adopt Skywise A320 Virtual Procedure Trainer for Emergency Training",
+      "summary": "Navblue reported a customer win update: IndiGo Becomes First Airline Globally to Adopt Skywise A320 Virtual Procedure Trainer for Emergency Training. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPaDZHMU1vQ2M1bmlLSU16TGg4RnhacVRPdFpWRGQ5NDlrS19tZmRycFNib1I1RUhFQmEyUDN2T09Oc0MtOGUxR1RqX0MtWUxPS0RMUFRvaWNlOF9oM3VFSzY5Wm12YUltZTVVRklwZm1RY1dhT180OXo2RUM3TkFoX0VWb1lPVWVkVWsyRG4tb19NQ0JpSGxNcHZadHNFZHNIZk5EQzJ5WE5QMkN0c2NNRVMtMGM0bDlhZnU3S3Vvd0FDNkpiMzRpUHc3T3BhLTQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "cap-aaa393159597",
@@ -1994,6 +2361,45 @@
         "title": "Jeppesen announces ForeFlight is transitioning away from paper charts.",
         "summary": "Jeppesen's messaging indicates that ForeFlight is moving away from the use of paper charts. The provided text does not specify a transition timeline or technical details."
       }
+    },
+    {
+      "id": "cap-0cc617d0c6f4",
+      "competitor": "Navblue",
+      "date": "2026-11-03",
+      "date_is_estimated": false,
+      "type": "customer_win",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.6000000000000001,
+      "headline": "IndiGo adopts Skywise’s A320 Virtual Procedure Trainer",
+      "summary": "Navblue reported a customer win update: IndiGo adopts Skywise’s A320 Virtual Procedure Trainer. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1STFFxYVBIem1lcUN1WjRHazBodzl2ME9vOERGaER3RWRsclRaY1pDa2xVTGY1Nkx6Y1hjdGJKQTZtOGV2NW5WbWxsTzFHdGtmNEdhR1NVZWNocmFnM3NDaVRRQVBqQzVvWFpj?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "cap-01e4ed7689a6",
