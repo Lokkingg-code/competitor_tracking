@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T14:48:38Z",
+  "generated_at": "2026-11-20T14:31:00Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -65,6 +65,262 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       }
+    },
+    {
+      "id": "browser-c9e9990ba9c3",
+      "competitor": "Aviobook",
+      "date": "2026-11-19",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "That’s a wrap on the EFB Users Forum in Dallas!",
+      "summary": "We especially loved seeing our own Petra Lafond take the stage to share how AvioBook sees the future of AI in EFBs. #EFBUsersForum #AvioBook #FutureOfFlying #EFB #AI #AviationInnovation #FlightOps #Dallas",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_efbusersforum-aviobook-futureofflying-activity-7529210150683975682-pPHA"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-20T14:31:39+00:00",
+        "source_sha256": "57be888452854613f63b656c22b08ed0b48fe9d1c5ea8156acc9d2aaa06efde5",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook promotes AI vision for AvioBook at EFB Users Forum.",
+        "summary": "Aviobook presented its perspective on the future of AI in Electronic Flight Bags (EFBs) during the EFB Users Forum in Dallas. No new product releases or concrete developments were established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-20T14:33:09+00:00",
+        "source_sha256": "57be888452854613f63b656c22b08ed0b48fe9d1c5ea8156acc9d2aaa06efde5",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-f3868cfe689f",
+      "competitor": "Others",
+      "date": "2026-11-19",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Day 1 is coming to an end at the Canadian Aviation Conference & Tradeshow…",
+      "summary": "Day 1 is coming to an end at the Canadian Aviation Conference & Tradeshow Air Transport Association of Canada - Association du transport aérien du Canada (ATAC) . #Talora #ATAC2026 #EFB #Aviation",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/talora-efb_talora-atac2026-efb-activity-7528973106833498112-AIfY"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-20T14:34:15+00:00",
+        "source_sha256": "b9bfdbeae361e33723a4249755fca7a31f1ffef23dc2601624bbb34c8bd6fce4",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.3,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-1ae8dcac1518",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-19",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "See how skybook connects EFF management and EFB operations...",
+      "summary": "See how skybook connects EFF management and EFB operations... what's the difference between an EFF and EFB?",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_see-how-skybook-connects-eff-management-and-activity-7529121685770391552-jsmh"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-20T14:32:15+00:00",
+        "source_sha256": "fe1a203e6daa77f5cdf2f1dc5d09d4527e2f9be2148aaefd6c62013051db2dc2",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes EFF management and EFB operations integration.",
+        "summary": "Bytron Skybook shares promotional content regarding the connection between Electronic Flight Folder (EFF) management and Electronic Flight Bag (EFB) operations. No new product release, feature update, or customer deployment is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-20T14:35:03+00:00",
+        "source_sha256": "fe1a203e6daa77f5cdf2f1dc5d09d4527e2f9be2148aaefd6c62013051db2dc2",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-de8f3be9930a",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-11-19",
+      "date_is_estimated": false,
+      "type": "feature_change",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "From pushback to parking, every phase of flight requires the right information at the right time.",
+      "summary": "✈️ Our latest Lido mPilot feature video takes you through the flight journey, showcasing how pilots can access essential operational information – from airport moving maps and weather updates to Company Layers and arrival and approach charts. #takeoffwithlido #LufthansaSystems #LidomPilot #Aviation #FlightOperations #EFB",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "efb",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/lufthansa-systems_takeoffwithlido-lufthansasystems-lidompilot-activity-7529184946628767744-4YUE"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "browser-3e6a31e016d9",
+      "competitor": "IFS",
+      "date": "2026-11-19",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Last week, we wrapped up an intensive 4-day EFBOne Advanced Admin Training with a fantastic group of participants.",
+      "summary": "Last week, we wrapped up an intensive 4-day EFBOne Advanced Admin Training with a fantastic group of participants. MY FREIGHTER / Centrum Air - Avazjon Djuraev & Abubakir Sunnatov B2C AIRWAYS - Nicolas Braathens - Albin Wessleus & Jonatan Trense SKYLINE EXPRESS AIRLINES - Oleksii Kushnir & Ruslan Voloshynov La Compagnie - Raouf Traikia Sahara African Aviation - Lisa-Linn Constable Borna Matanović , Veronika…",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "IFS EFBOne",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/ifs-international-flight-support_last-week-we-wrapped-up-an-intensive-4-day-activity-7529093203623464963-HS1a"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "cap-fe6452b32924",
@@ -9378,6 +9634,45 @@
         "reason": "User-defined EFF competitor/product watchlist; explicit Connect, unrelated ForeFlight, hiring, and adjacent-system exceptions are preserved.",
         "reviewed_at": "2026-10-16T03:19:34+00:00"
       }
+    },
+    {
+      "id": "cap-ebb6a4467ec6",
+      "competitor": "IFS",
+      "date": "2026-09-09",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Pleased to partner with MY FREIGHTER to help streamline their cockpit workflows and flight deck reporting with EFBOne 👏",
+      "summary": "IFS reported a partnership update: Pleased to partner with MY FREIGHTER to help streamline their cockpit workflows and flight deck reporting with EFBOne 👏. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "IFS EFBOne",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQdnIxdUk2UjZpTkVFcGV6S1JJYkQzSVVaRWVLcFlmTlpCblFvd0ctemJnOE1RR3J0bjlJdWFheVlSemhMSVR2bV9OdEtnckM0X0VxSjh6LUVTOVlHcVRaMnZEYWc3aHp5YzJXMnF3ck53US00RUxXR0VrQ0RPbDBvNC1aMHlIRm9XWnN3ZUtBWklzN05KdnA1Z2JVYlY4X1QxSWl4UkZGazIxTmt6cUxwb0kwYUNwWjM5MEMtVkplN3l1VkVmalhXM0g5T0xnUQ?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "browser-631773759920",

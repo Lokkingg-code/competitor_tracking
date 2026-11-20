@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "Airtable Airline Customer Pipeline shared view",
-  "generated_at": "2026-11-19T14:46:27+00:00",
+  "generated_at": "2026-11-20T14:28:18+00:00",
   "source_record_count": 522,
   "unique_airline_count": 518,
   "entity_exclusion_version": 1,
@@ -47,13 +47,13 @@
     "fleet_size_outliers": 1,
     "airline_type_known": 517,
     "eff_status_known": 163,
-    "flight_planning_known": 68,
-    "conferences_recorded": 9,
-    "upcoming_conferences_recorded": 0,
+    "flight_planning_known": 71,
+    "conferences_recorded": 10,
+    "upcoming_conferences_recorded": 1,
     "unmapped_event_regions": 2,
     "quality_flags": {
       "missing_eff_status": 355,
-      "missing_flight_planning": 450,
+      "missing_flight_planning": 447,
       "hq_not_mapped": 28,
       "missing_hq": 12,
       "hq_region_unassigned": 12,
@@ -147,7 +147,7 @@
         "count": 1
       }
     ],
-    "planning_known": 68,
+    "planning_known": 71,
     "planning_systems": [
       {
         "name": "Lido",
@@ -159,7 +159,7 @@
       },
       {
         "name": "FlightKeys",
-        "count": 12
+        "count": 15
       },
       {
         "name": "CAE",
@@ -318,15 +318,15 @@
           "count": 1
         }
       ],
-      "planning_known": 14,
+      "planning_known": 15,
       "planning_systems": [
         {
-          "name": "Lido",
+          "name": "FlightKeys",
           "count": 5
         },
         {
-          "name": "FlightKeys",
-          "count": 4
+          "name": "Lido",
+          "count": 5
         },
         {
           "name": "NavBlue",
@@ -385,7 +385,7 @@
           "count": 9
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "name": "East Asia & Pacific",
@@ -554,11 +554,11 @@
           "count": 1
         }
       ],
-      "planning_known": 9,
+      "planning_known": 10,
       "planning_systems": [
         {
           "name": "FlightKeys",
-          "count": 5
+          "count": 6
         },
         {
           "name": "In-house built",
@@ -668,18 +668,18 @@
           "count": 1
         }
       ],
-      "planning_known": 9,
+      "planning_known": 10,
       "planning_systems": [
         {
           "name": "Lido",
           "count": 4
         },
         {
-          "name": "CAE",
-          "count": 1
+          "name": "FlightKeys",
+          "count": 2
         },
         {
-          "name": "FlightKeys",
+          "name": "CAE",
           "count": 1
         },
         {
@@ -1106,11 +1106,11 @@
           "count": 1
         }
       ],
-      "planning_known": 8,
+      "planning_known": 9,
       "planning_systems": [
         {
           "name": "FlightKeys",
-          "count": 5
+          "count": 6
         },
         {
           "name": "In-house built",
@@ -1451,8 +1451,13 @@
           "count": 1
         }
       ],
-      "planning_known": 0,
-      "planning_systems": []
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "FlightKeys",
+          "count": 1
+        }
+      ]
     },
     {
       "country": "United Arab Emirates",
@@ -1654,8 +1659,13 @@
       "eff_known": 0,
       "eff_no_vendor": 0,
       "eff_systems": [],
-      "planning_known": 0,
-      "planning_systems": []
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "FlightKeys",
+          "count": 1
+        }
+      ]
     },
     {
       "country": "Taiwan",
@@ -4757,7 +4767,7 @@
           "count": 8
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -4806,7 +4816,7 @@
           "count": 34
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -4838,7 +4848,7 @@
           "count": 1
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -4895,7 +4905,7 @@
           "count": 20
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -4922,7 +4932,7 @@
           "count": 1
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -4935,8 +4945,13 @@
       "eff_known": 0,
       "eff_no_vendor": 0,
       "eff_systems": [],
-      "planning_known": 0,
-      "planning_systems": [],
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "FlightKeys",
+          "count": 1
+        }
+      ],
       "airline_types": [
         {
           "name": "Charter",
@@ -4949,7 +4964,7 @@
           "count": 1
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -4981,7 +4996,7 @@
           "count": 32
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -5038,7 +5053,7 @@
           "count": 6
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -5087,7 +5102,7 @@
           "count": 8
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -5136,7 +5151,7 @@
           "count": 17
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -5168,7 +5183,7 @@
           "count": 1
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -5204,7 +5219,7 @@
           "count": 6
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -5249,7 +5264,7 @@
           "count": 13
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Europe & Central Asia",
@@ -5276,7 +5291,7 @@
           "count": 3
         }
       ],
-      "conference_count": 3
+      "conference_count": 4
     },
     {
       "region": "Latin America & Caribbean",
@@ -5648,8 +5663,13 @@
           "count": 1
         }
       ],
-      "planning_known": 0,
-      "planning_systems": [],
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "FlightKeys",
+          "count": 1
+        }
+      ],
       "airline_types": [
         {
           "name": "LCC",
@@ -6356,8 +6376,13 @@
           "count": 1
         }
       ],
-      "planning_known": 0,
-      "planning_systems": [],
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "FlightKeys",
+          "count": 1
+        }
+      ],
       "airline_types": [
         {
           "name": "Cargo",
@@ -10868,8 +10893,13 @@
       "eff_known": 0,
       "eff_no_vendor": 0,
       "eff_systems": [],
-      "planning_known": 0,
-      "planning_systems": []
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "FlightKeys",
+          "count": 1
+        }
+      ]
     },
     {
       "country": "Moldova",
@@ -11577,8 +11607,13 @@
       "eff_known": 0,
       "eff_no_vendor": 0,
       "eff_systems": [],
-      "planning_known": 0,
-      "planning_systems": []
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "FlightKeys",
+          "count": 1
+        }
+      ]
     },
     {
       "country": "Portugal",
@@ -13693,8 +13728,13 @@
           "count": 1
         }
       ],
-      "planning_known": 0,
-      "planning_systems": []
+      "planning_known": 1,
+      "planning_systems": [
+        {
+          "name": "FlightKeys",
+          "count": 1
+        }
+      ]
     },
     {
       "country": "United States",
@@ -15268,7 +15308,9 @@
       "eff_systems": [
         "AvioBook"
       ],
-      "planning_systems": []
+      "planning_systems": [
+        "FlightKeys"
+      ]
     },
     {
       "airline": "Austrian Airlines",
@@ -17934,7 +17976,9 @@
       "fleet_size": 100,
       "fleet_band": "Medium · 51–150",
       "eff_systems": [],
-      "planning_systems": []
+      "planning_systems": [
+        "FlightKeys"
+      ]
     },
     {
       "airline": "New Pacific Airlines",
@@ -19669,7 +19713,9 @@
       "fleet_size": 144,
       "fleet_band": "Medium · 51–150",
       "eff_systems": [],
-      "planning_systems": []
+      "planning_systems": [
+        "FlightKeys"
+      ]
     },
     {
       "airline": "Volga-Dnepr Airlines",
@@ -19926,6 +19972,17 @@
         "YTO Cargo Airlines"
       ],
       "linked_airline_count": 44,
+      "nature": "Conference"
+    },
+    {
+      "name": "Aircraft Commerce Flight Operations Conference London 2026",
+      "start_date": "2026-12-02",
+      "end_date": "2026-12-03",
+      "date_conflict": false,
+      "location": "London",
+      "region": "Europe & Central Asia",
+      "attending_airlines": [],
+      "linked_airline_count": 0,
       "nature": "Conference"
     },
     {
