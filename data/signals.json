@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T14:31:00Z",
+  "generated_at": "2026-11-21T13:49:37Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,131 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "cap-8e05577e53b2",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-20",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Seamlessly connecting flight operations...",
+      "summary": "Seamlessly connecting flight operations... #avgeek #aviation #flightoperations #aviationindustry #aviationdaily LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPa0xlX0NRU3dON2thVHJ5VXBoaTNjTFZvWklLOHprMy1FVmdFWnBMalRERk96QlBqb092OGQ4Q3FLWU1VdkVZYllIbTVLSWp4aGVBSGJ0aTlfLThPdm9RSkVHbFQ0QjdTNkIxaXAwbUo2dDlZbWRKN0s0REJVWUNYOFM4MUs3c2VZNi1kX0h6N0ZfQVluQ3lqQnFGSnZxYW5nSkZqTTdFcWZRSVdtcG1Z?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-21T13:50:09+00:00",
+        "source_sha256": "dd02cf0b0f59d0e0364021c1e32056cb2b703f81160eb4ed7ea4e0ab536e95c9",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes flight operations connectivity.",
+        "summary": "Bytron Skybook shares marketing messaging focused on seamless connectivity within flight operations. No concrete product updates, deployments, or customer agreements are established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-21T13:52:23+00:00",
+        "source_sha256": "dd02cf0b0f59d0e0364021c1e32056cb2b703f81160eb4ed7ea4e0ab536e95c9",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-cb8d8c4cc8a8",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-20",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Single point of truth for efficient flight operations.",
+      "summary": "Single point of truth for efficient flight operations. Reposted content: Seamlessly connecting flight operations...",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_single-point-of-truth-for-efficient-flight-activity-7529495726280724481-hzBP"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-21T13:50:28+00:00",
+        "source_sha256": "00a3086c9ce38949e229801955eb3fe9a159a7cd8ae9549dd45fddf5cdb0d78c",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes 'single point of truth' messaging for flight operations.",
+        "summary": "Bytron Skybook promotes messaging centered on providing a single point of truth to connect flight operations. No new product releases, customer wins, or concrete operational changes are established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-21T13:53:02+00:00",
+        "source_sha256": "00a3086c9ce38949e229801955eb3fe9a159a7cd8ae9549dd45fddf5cdb0d78c",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.6,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-4b7e0106a322",
       "competitor": "Jeppesen",
@@ -48,7 +173,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -64,6 +188,15 @@
         "ai_evidence": "Announce AI Aviation Partnership",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-21T13:50:48+00:00",
+        "source_sha256": "03b07d62119b35a1c0577c59ce09028e826cab1bf110b336b6890b61735732b2",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight and Archer announce an AI aviation partnership at Apple Ascend.",
+        "summary": "Jeppesen announced an AI aviation partnership with Archer at the Apple Ascend event. The announcement does not provide specific operational details or technical scope regarding the collaboration."
       }
     },
     {
@@ -164,7 +297,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -180,6 +312,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-21T13:51:40+00:00",
+        "source_sha256": "b9bfdbeae361e33723a4249755fca7a31f1ffef23dc2601624bbb34c8bd6fce4",
+        "evidence_scope": "captured_preview_only",
+        "title": "Talora promotes participation in the Canadian Aviation Conference & Tradeshow.",
+        "summary": "Talora is messaging regarding its attendance at the Canadian Aviation Conference & Tradeshow. The post establishes no new product releases, customer wins, or technical developments."
       }
     },
     {
@@ -249,7 +390,7 @@
       "competitor": "Lufthansa Systems",
       "date": "2026-11-19",
       "date_is_estimated": false,
-      "type": "feature_change",
+      "type": "messaging_shift",
       "priority": "low",
       "severity": 2,
       "confidence": 0.65,
@@ -280,8 +421,32 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-21T13:52:00+00:00",
+        "source_sha256": "3aa5d06e95e2c7ed0a5818797ecb79c0c447485b840415963a63f0d8d57926b6",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes Lido mPilot features through a new demonstration video.",
+        "summary": "Lufthansa Systems released a promotional video showcasing existing Lido mPilot capabilities, such as airport moving maps, weather updates, and arrival/approach charts. No new functional updates or product releases are established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-21T13:53:38+00:00",
+        "source_sha256": "3aa5d06e95e2c7ed0a5818797ecb79c0c447485b840415963a63f0d8d57926b6",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "feature_change",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-3e6a31e016d9",
@@ -316,6 +481,99 @@
       "tags": [
         "auto-capture",
         "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-21T13:54:03+00:00",
+        "source_sha256": "2917900f7a0024cf0db2d99ce65fafcc6dd2168f34ce2b0c8e83b44213b2cb22",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.85,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-0ed75589097f",
+      "competitor": "Jeppesen",
+      "date": "2026-11-19",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "This is Jeppesen Dispatch Analytics, the optimization layer that works alongside any flight planning system.",
+      "summary": "This is Jeppesen Dispatch Analytics, the optimization layer that works alongside any flight planning system. Dispatch Analytics continuously re-examines your filed plans, and computes a better alternative whenever one appears.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQVkpva3l2TDlnUU8wZXlDSVI3UE1zTy1HZjBITWdPcXJZWF81MmNLNG43TWp0Nl9RMkdzRFpxejM0UHNYa1YzQ0RPSDhiZFJRdVpHN2JFNWQ2dDNRR1hUOGhTc0JvZV9vZWVrUHllbHhhWnFEYnlHbm8zZXZmTVBKaC1ZSzlHQkxvd3VqUmZ6dGVnVzVwYVpGb1k5Z0VxZ2tmMUdTdEtnVEZxNVljTWh4UmZ1c1ItOW5fYlJNN09maXpRM3c?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-d56abf30029f",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-19",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Recently I shared that my role as Product Analyst at Bytron Aviation was at risk of redundancy.",
+      "summary": "Recently I shared that my role as Product Analyst at Bytron Aviation was at risk of redundancy. I can now confirm that my redundancy has become official and my time with Bytron Aviation has come to an end.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPMGQ4V1hYTzVDSDhtVWhpMUYyblZ5OWhBQWRKMHlBbTM1ZUZpSnFpZXVlMWVlTjNRRHh0YW5RTlZpSGY0RnFaeDN6X3Bzd09tcjQzWkJWWWxGSFpZUjNtd0ZFVGlLaGpSNEpDdTRTYzVRTjgzUDhDTVoyVUZtUTVfM2QzdXplOTBPel9kbmtVX1ZTeWU1VmQ2ZnRjN3NwY0VWNGN2SEV3Y3JzS0ZzSHU4UHhJd0QyX25vcjNEbWFxQmNxZGZZVzM3cGdialBtZ0dnQ3JqalY2Qm94d29IQ1ROUkwxbU9ub0k?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
@@ -8288,6 +8546,45 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       }
+    },
+    {
+      "id": "cap-6ec601e3ced4",
+      "competitor": "Jeppesen",
+      "date": "2026-09-24",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "In this AMA, Daniel Garrison, Customer Education Specialist, shares his path from financial services…",
+      "summary": "In this AMA, Daniel Garrison, Customer Education Specialist, shares his path from financial services and STEM education to creating and delivering training content that helps pilots get the most out of Jeppesen ForeFlight products. He shares how t",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQUWNPUExUZjcxcnFSbi1tazJRYU5WMVg4NmdNdDh4OGUxMzRkV2FqODRDc1BOZHJia2FFcmtpYzdtX0JGWWJhNzhjeXd3Q2pYeUZRTXdqU2RVWFFNdWhuTThxNU1sTlc2VGo1cVZScFlfeHJzWS1zcUlLNWtFdW9kTm0yU1AxZHlKZENNeFBLTk92Y3RvTzMwYVRFTlNDdm1ONFp3bkxzVTBNU1VtUWFFUXVpOGJwclpmcFg4eHJaSHRFYVNlaXZvRTJRa2hqRUVy?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "cap-2287d9fdac39",
