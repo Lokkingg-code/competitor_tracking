@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T13:49:37Z",
+  "generated_at": "2026-11-22T13:43:06Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -515,7 +515,7 @@
       "summary": "This is Jeppesen Dispatch Analytics, the optimization layer that works alongside any flight planning system. Dispatch Analytics continuously re-examines your filed plans, and computes a better alternative whenever one appears.",
       "source_channel": "linkedin",
       "source_origin": "google_news",
-      "product_focus": "adjacent",
+      "product_focus": "eff",
       "product": null,
       "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
       "segment": "Unknown",
@@ -539,7 +539,23 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-22T13:50:27+00:00",
+        "source_sha256": "017e9837919e6cb9d0719920e958423481482588fdea7c5af6eab1dad04a5317",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "adjacent",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-d56abf30029f",
@@ -578,7 +594,22 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-22T13:50:59+00:00",
+        "source_sha256": "1c1f943a64cfb871abb0aab929c63cee427acfcf8e5008f021367782ec9d5912",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-fe6452b32924",
@@ -616,7 +647,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -633,6 +663,15 @@
         "original_type": "messaging_shift",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-22T13:49:16+00:00",
+        "source_sha256": "f35e40fa3974a84a0bb349744370f714c25ea1bae62c1d2f2b61cdaae9aa07e2",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight partners with Archer on an ATC transcription tool.",
+        "summary": "Jeppesen announced a collaboration with Archer regarding an ATC transcription tool for ForeFlight. The provided text does not establish specific release dates or deployment details."
       }
     },
     {
@@ -843,7 +882,7 @@
       "competitor": "Jeppesen",
       "date": "2026-11-17",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "feature_change",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -883,7 +922,23 @@
         "title": "Jeppesen integrates Archer's ZEE aviation foundation model into ForeFlight Mobile EFB for on-device ATC transcription.",
         "summary": "Jeppesen announced the first phase of integrating Archer's ZEE aviation foundation model into the ForeFlight Mobile EFB. The integration enables real-time Air Traffic Control transcription to run entirely on-device on iPad."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-22T13:54:25+00:00",
+        "source_sha256": "2bc6fa27e21479151e8de2850c26d4bddb0c6363fc515d8d0d3044d9e9038ab1",
+        "suggested_type": "feature_change",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "Archer's aviation foundation model",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-8a9f1bad5b87",
@@ -2079,6 +2134,45 @@
         "auto-capture",
         "google_news",
         "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-f8be0fb053f6",
+      "competitor": "Jeppesen",
+      "date": "2026-11-06",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "A new chapter has begun ✈️ This Monday, I joined Jeppesen ForeFlight as the…",
+      "summary": "A new chapter has begun ✈️ This Monday, I joined Jeppesen ForeFlight as the HR Business Partner in Denmark, and I’m super proud to be part of the team 🚀 My first week has been fantastic, and I’ve been welcomed so warmly by everyone. I’m really looking LinkedIn</font",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPakVkTWk3MVkzT2VfbFkxalRPQVJRZC1mSGxaZDRLdVVyRVk2YmRmaGRPS2F3T3E3T2ZjZV9FakliSHZTd01FNi1Sd1JNdXJvZElUcmYxb19pWG5ENFREUm4zcFRZdGI1czZNSGNQODRLc05YM2gzMlV0RV9uSzE4TTB5V1lVc3ZxeVVCaDF5N2tpYkVLd01uN0hLNEszMDdNdThmeU5n?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
@@ -5008,6 +5102,45 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       }
+    },
+    {
+      "id": "cap-ac0014e3eb60",
+      "competitor": "Jeppesen",
+      "date": "2026-10-16",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.6000000000000001,
+      "headline": "ForeFlight",
+      "summary": "Jeppesen reported a messaging shift update: ForeFlight - Connected Flight Planning Software. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "rss",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTE5Xcnl0bTJtd3BrT3VGZFFtWjB4OW5icEFMZ3FHN3ZRQVF4MlRHYXFwc0R3N2ZET1RrekdHQjlLQjJheWFG?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "google_news",
+        "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "cap-bc53e9d2f7e1",
@@ -14907,6 +15040,45 @@
         "title": "Jeppesen hosts ForeFlight Crew & Ops Development Partners Forum.",
         "summary": "Jeppesen describes hosting a three-day forum in Gothenburg for airline professionals to collaborate on ForeFlight Crew & Ops development. No concrete product updates or new customer agreements are established."
       },
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-fb08c0cd1529",
+      "competitor": "Jeppesen",
+      "date": "2026-04-27",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "We got to sit down with the Leon Software team at AERO Friedrichshafen to…",
+      "summary": "We got to sit down with the Leon Software team at AERO Friedrichshafen to talk about how ForeFlight Dispatch has changed the way they operate. The Leon × ForeFlight Dispatch integration automatically syncs flight data, including flight numbers, aircraft regis <",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNRnpieEhsZzFOa3ZqYWZucjgtMEs3X05xc0J0MFVYdjI0WGNwbXBKcE9VeTVUY2d5R0JOWEx1SEFIV1l1ekFJdmhvOWNaX3RMUzNtbmxKSDNGLW9ZMnFEUEFPazIya083U2FaQS1SNk9NblFMeUo4M2lSMzJqOE5zWGRzSjBoeGxEMTB6RmxPNVNUakNqMHlyODR6SHd0d2tpZHZEMVpvQ1prZmRRMmk2VVM4N0h0MVdxVWc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
       "ai_classification_status": "pending"
     },
     {
