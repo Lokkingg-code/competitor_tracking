@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T13:43:06Z",
+  "generated_at": "2026-11-23T16:39:26Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -484,7 +484,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -500,6 +499,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-23T16:40:13+00:00",
+        "source_sha256": "2917900f7a0024cf0db2d99ce65fafcc6dd2168f34ce2b0c8e83b44213b2cb22",
+        "evidence_scope": "captured_preview_only",
+        "title": "IFS conducts four-day IFS EFBOne advanced administrator training.",
+        "summary": "IFS completed a four-day intensive advanced administrator training session for IFS EFBOne. Participants included representatives from MY FREIGHTER / Centrum Air, B2C AIRWAYS, SKYLINE EXPRESS AIRLINES, La Compagnie, and Sahara African Aviation."
       }
     },
     {
@@ -508,8 +516,8 @@
       "date": "2026-11-19",
       "date_is_estimated": false,
       "type": "messaging_shift",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.65,
       "headline": "This is Jeppesen Dispatch Analytics, the optimization layer that works alongside any flight planning system.",
       "summary": "This is Jeppesen Dispatch Analytics, the optimization layer that works alongside any flight planning system. Dispatch Analytics continuously re-examines your filed plans, and computes a better alternative whenever one appears.",
@@ -538,7 +546,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -555,6 +562,15 @@
         "type_auto_applied": false,
         "original_product_focus": "adjacent",
         "focus_auto_applied": true
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-23T16:41:28+00:00",
+        "source_sha256": "4787b2881fd731fbf8eb81dd13a22ea61611114c92de29b16f0142d8ff883086",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen describes Dispatch Analytics optimization capabilities.",
+        "summary": "Jeppesen promotes Dispatch Analytics as an optimization layer that works alongside existing flight planning systems to compute alternative filed plans. No concrete change or new release is established."
       }
     },
     {
@@ -679,7 +695,7 @@
       "competitor": "Jeppesen",
       "date": "2026-11-18",
       "date_is_estimated": false,
-      "type": "messaging_shift",
+      "type": "partnership",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.6000000000000001,
@@ -710,8 +726,32 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-23T16:44:51+00:00",
+        "source_sha256": "7fdfd1940d9de2f9914ba7dc9308505460f1dd61d252fb7815a48e0bab5f69ac",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight and Archer to bring ATC transcription to mobile devices.",
+        "summary": "Jeppesen and Archer are adding ATC transcription capabilities to ForeFlight mobile devices. The text does not provide a release date or specific deployment details."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-23T16:46:24+00:00",
+        "source_sha256": "7fdfd1940d9de2f9914ba7dc9308505460f1dd61d252fb7815a48e0bab5f69ac",
+        "suggested_type": "partnership",
+        "type_confidence": 0.8,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "messaging_shift",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-fb24f5b4d3f8",
@@ -874,8 +914,31 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-23T16:45:10+00:00",
+        "source_sha256": "a328200cb6f710cbac850faddd26756bfee2274c111d203a314bc14546a1f16b",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen announces upcoming AI transcription feature for ForeFlight Mobile.",
+        "summary": "Jeppesen announces the upcoming addition of AI transcriptions to the ForeFlight mobile application. The provided text does not include a specific release date or further operational details."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-23T16:46:51+00:00",
+        "source_sha256": "a328200cb6f710cbac850faddd26756bfee2274c111d203a314bc14546a1f16b",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "AI Transcriptions",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-cfb3172af737",
@@ -1093,7 +1156,22 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-23T16:47:23+00:00",
+        "source_sha256": "dda91ec896197db452eaa1ff38f2e3ce3eda19920492add560bf26f393b34617",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "first phase of AI partnership",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-b14b3bd7553b",
@@ -8780,6 +8858,45 @@
         "type_auto_applied": false,
         "focus_auto_applied": false
       }
+    },
+    {
+      "id": "cap-da1c7b6319a1",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-09-23",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "Stephan W. & Rene Vierke are at the Lufthansa Systems Airline Forum in Frankfurt…",
+      "summary": "& Rene Vierke are at the Lufthansa Systems Airline Forum in Frankfurt, showcasing the latest developments in our flight planning solution 𝗟𝗶𝗱𝗼 𝗙𝗹𝗶𝗴𝗵𝘁 𝟰𝗗. It's great to connect with so many airline experts and industry partners from around the <font color=\"#6",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQQ1dsRmppN2pCZ19KZFVIbnpxQ3ZmdklGRk5LbXNILVhPXzF3bU9Dek40TjlSdkNpNk12WDZDYXN6NDg3N3RQZUVLLS0wYjNsTzJjbUFEcktERUdmdjZHRU84al9BSDhwaUhJakJFTUNXaUk2NFNvQVpXS3FrdThjWFFBWHBRLWtfYllNaW9TZEdVUEFHbFB3S3NlMElzRDdwemJZV1JYUzFNNkwtekhjaEZfY0c?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
     },
     {
       "id": "browser-c2a986e9925f",
