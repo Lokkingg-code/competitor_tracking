@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "Airtable Airline Customer Pipeline shared view",
-  "generated_at": "2026-11-23T16:37:21+00:00",
+  "generated_at": "2026-11-24T16:34:20+00:00",
   "source_record_count": 522,
   "unique_airline_count": 518,
   "entity_exclusion_version": 1,
@@ -46,13 +46,13 @@
     "fleet_known": 512,
     "fleet_size_outliers": 1,
     "airline_type_known": 517,
-    "eff_status_known": 163,
+    "eff_status_known": 165,
     "flight_planning_known": 71,
     "conferences_recorded": 10,
     "upcoming_conferences_recorded": 1,
     "unmapped_event_regions": 2,
     "quality_flags": {
-      "missing_eff_status": 355,
+      "missing_eff_status": 353,
       "missing_flight_planning": 447,
       "hq_not_mapped": 28,
       "missing_hq": 12,
@@ -67,8 +67,8 @@
     "airlines": 518,
     "fleet_known": 512,
     "fleet_outliers": 1,
-    "eff_known": 163,
-    "eff_no_vendor": 34,
+    "eff_known": 165,
+    "eff_no_vendor": 36,
     "eff_systems": [
       {
         "name": "NavChina",
@@ -80,7 +80,7 @@
       },
       {
         "name": "In-house built",
-        "count": 19
+        "count": 21
       },
       {
         "name": "Navblue Mission+",
@@ -518,8 +518,8 @@
       "airlines": 58,
       "fleet_known": 58,
       "fleet_outliers": 0,
-      "eff_known": 15,
-      "eff_no_vendor": 3,
+      "eff_known": 16,
+      "eff_no_vendor": 4,
       "eff_systems": [
         {
           "name": "AvioBook",
@@ -528,6 +528,10 @@
         {
           "name": "Navblue Mission+",
           "count": 3
+        },
+        {
+          "name": "In-house built",
+          "count": 2
         },
         {
           "name": "Paper",
@@ -543,10 +547,6 @@
         },
         {
           "name": "IFS EFBOne",
-          "count": 1
-        },
-        {
-          "name": "In-house built",
           "count": 1
         },
         {
@@ -628,8 +628,8 @@
       "airlines": 55,
       "fleet_known": 55,
       "fleet_outliers": 0,
-      "eff_known": 12,
-      "eff_no_vendor": 3,
+      "eff_known": 13,
+      "eff_no_vendor": 4,
       "eff_systems": [
         {
           "name": "AvioBook",
@@ -637,6 +637,10 @@
         },
         {
           "name": "Flightman",
+          "count": 2
+        },
+        {
+          "name": "In-house built",
           "count": 2
         },
         {
@@ -649,10 +653,6 @@
         },
         {
           "name": "CAE eFlightManager",
-          "count": 1
-        },
-        {
-          "name": "In-house built",
           "count": 1
         },
         {
@@ -1078,12 +1078,16 @@
       "fleet_known": 45,
       "fleet_sum": 8377,
       "fleet_outliers": 0,
-      "eff_known": 10,
-      "eff_no_vendor": 3,
+      "eff_known": 11,
+      "eff_no_vendor": 4,
       "eff_systems": [
         {
           "name": "AvioBook",
           "count": 4
+        },
+        {
+          "name": "In-house built",
+          "count": 2
         },
         {
           "name": "Paper",
@@ -1095,10 +1099,6 @@
         },
         {
           "name": "IFS EFBOne",
-          "count": 1
-        },
-        {
-          "name": "In-house built",
           "count": 1
         },
         {
@@ -1196,8 +1196,8 @@
       "fleet_known": 13,
       "fleet_sum": 987,
       "fleet_outliers": 0,
-      "eff_known": 6,
-      "eff_no_vendor": 2,
+      "eff_known": 7,
+      "eff_no_vendor": 3,
       "eff_systems": [
         {
           "name": "Paper",
@@ -1209,6 +1209,10 @@
         },
         {
           "name": "Flightman",
+          "count": 1
+        },
+        {
+          "name": "In-house built",
           "count": 1
         },
         {
@@ -5301,12 +5305,12 @@
       "airlines": 3,
       "fleet_known": 3,
       "fleet_outliers": 0,
-      "eff_known": 1,
-      "eff_no_vendor": 1,
+      "eff_known": 2,
+      "eff_no_vendor": 2,
       "eff_systems": [
         {
           "name": "In-house built",
-          "count": 1
+          "count": 2
         }
       ],
       "planning_known": 2,
@@ -6368,11 +6372,15 @@
       "airlines": 2,
       "fleet_known": 2,
       "fleet_outliers": 0,
-      "eff_known": 1,
-      "eff_no_vendor": 0,
+      "eff_known": 2,
+      "eff_no_vendor": 1,
       "eff_systems": [
         {
           "name": "AvioBook",
+          "count": 1
+        },
+        {
+          "name": "In-house built",
           "count": 1
         }
       ],
@@ -13400,9 +13408,14 @@
       "fleet_known": 1,
       "fleet_sum": 154,
       "fleet_outliers": 0,
-      "eff_known": 0,
-      "eff_no_vendor": 0,
-      "eff_systems": [],
+      "eff_known": 1,
+      "eff_no_vendor": 1,
+      "eff_systems": [
+        {
+          "name": "In-house built",
+          "count": 1
+        }
+      ],
       "planning_known": 1,
       "planning_systems": [
         {
@@ -13720,11 +13733,15 @@
       "fleet_known": 2,
       "fleet_sum": 181,
       "fleet_outliers": 0,
-      "eff_known": 1,
-      "eff_no_vendor": 0,
+      "eff_known": 2,
+      "eff_no_vendor": 1,
       "eff_systems": [
         {
           "name": "AvioBook",
+          "count": 1
+        },
+        {
+          "name": "In-house built",
           "count": 1
         }
       ],
@@ -15167,7 +15184,9 @@
       "airline_type": "Cargo",
       "fleet_size": 98,
       "fleet_band": "Medium · 51–150",
-      "eff_systems": [],
+      "eff_systems": [
+        "In-house built"
+      ],
       "planning_systems": []
     },
     {
@@ -19434,7 +19453,9 @@
       "airline_type": "Airline",
       "fleet_size": 154,
       "fleet_band": "Large · 151+",
-      "eff_systems": [],
+      "eff_systems": [
+        "In-house built"
+      ],
       "planning_systems": [
         "FlightKeys"
       ]

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T16:39:26Z",
+  "generated_at": "2026-11-24T16:36:19Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,69 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "browser-00ce3a21e81d",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-23",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "high",
+      "severity": 4,
+      "confidence": 0.65,
+      "headline": "Portable vs installed describes the hardware.",
+      "summary": "Reposted content: Type A, Type B and Type C EFB is important when choosing the right solution for your airline. 👇 #aviation #EFB #flightoperations #aviationindustry #avgeek",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_portable-vs-installed-describes-the-hardware-activity-7530585109574598656-B16Z"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-24T16:36:42+00:00",
+        "source_sha256": "43828546e373e685fb1e5d6378ab4635ad17f8b3bdd6f4977317cd0dbf9eb90f",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes EFB hardware classifications in social media content.",
+        "summary": "Bytron Skybook shares content discussing the importance of selecting between Type A, B, and C Electronic Flight Bag (EFB) solutions based on hardware. No concrete product development or customer changes are established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-24T16:41:41+00:00",
+        "source_sha256": "43828546e373e685fb1e5d6378ab4635ad17f8b3bdd6f4977317cd0dbf9eb90f",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "customer_win",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
     {
       "id": "cap-8e05577e53b2",
       "competitor": "Bytron Skybook",
@@ -609,7 +672,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -625,6 +687,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-24T16:37:38+00:00",
+        "source_sha256": "1c1f943a64cfb871abb0aab929c63cee427acfcf8e5008f021367782ec9d5912",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook employee announces redundancy.",
+        "summary": "A former Product Analyst announces their redundancy from Bytron Aviation. No concrete changes to product capabilities or business development are established."
       }
     },
     {
@@ -1101,7 +1172,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -1117,6 +1187,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-24T16:38:39+00:00",
+        "source_sha256": "0c1090433758badcf37e6225b26eac197f1486adffa60d2149ec7b47c604d896",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue experts attend EFB User Forum in Dallas.",
+        "summary": "Navblue promotes the attendance of its experts at the EFB User Forum in Dallas. No new product releases or customer developments are established by this messaging."
       }
     },
     {
@@ -1155,7 +1234,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -1171,6 +1249,15 @@
         "ai_evidence": "first phase of AI partnership",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-24T16:39:44+00:00",
+        "source_sha256": "dda91ec896197db452eaa1ff38f2e3ce3eda19920492add560bf26f393b34617",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight announces first phase of AI partnership with Archer Aviation.",
+        "summary": "Jeppesen ForeFlight and Archer Aviation have announced the first phase of an AI partnership. The announcement does not specify the technical scope or particular operational applications of the collaboration."
       }
     },
     {
@@ -1209,8 +1296,31 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-24T16:40:40+00:00",
+        "source_sha256": "6086669120777b7329812f8b762bfa84889c6ceb4b6d0d4853fc1672742a5cfe",
+        "evidence_scope": "captured_preview_only",
+        "title": "Archer announces partnership with Jeppesen to integrate ZEE aviation foundation model into ForeFlight Mobile.",
+        "summary": "Archer is partnering with Jeppesen to integrate its ZEE aviation foundation model into ForeFlight Mobile. The initial phase of this integration involves implementing real-time ATC transcription."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-24T16:42:41+00:00",
+        "source_sha256": "6086669120777b7329812f8b762bfa84889c6ceb4b6d0d4853fc1672742a5cfe",
+        "suggested_type": "partnership",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "bringing ZEE, our aviation foundation model, into ForeFlight Mobile",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-cdf56f1c969f",
@@ -1249,7 +1359,22 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-24T16:44:44+00:00",
+        "source_sha256": "f73c7b8a03a29c1cd7c5a065b6b6781e83fe39380c12c57e9d8704c0124aaeaa",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "efb",
+        "focus_confidence": 0.85,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-fb0b5200ec10",
@@ -2191,7 +2316,7 @@
       "summary": "Navblue reported a partnership update: FPT, Skywise and Vietnam Airlines partner on ‘AI-powered’ operations. Open the linked source to verify details and assess impact for Cathay Technologies.",
       "source_channel": "rss",
       "source_origin": "google_news",
-      "product_focus": "other",
+      "product_focus": "eff",
       "product": null,
       "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
       "segment": "Unknown",
@@ -2215,14 +2340,30 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-24T16:45:35+00:00",
+        "source_sha256": "de944be89ab074187f03e0986d626b2cb7395fa5bb1b57b88ebd633a966de644",
+        "suggested_type": "partnership",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 0.85,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "‘AI-powered’ operations",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-f8be0fb053f6",
       "competitor": "Jeppesen",
       "date": "2026-11-06",
       "date_is_estimated": false,
-      "type": "partnership",
+      "type": "messaging_shift",
       "priority": "medium",
       "severity": 3,
       "confidence": 0.65,
@@ -2254,7 +2395,24 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-24T16:46:51+00:00",
+        "source_sha256": "c657364b1d64024261bb52cfc357c3e78094f373388ca8601885ac03d468799a",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": "eff_competitor_watchlist",
+        "model_suggested_product_focus": "other",
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-664871ab7be2",
@@ -5215,6 +5373,45 @@
         "auto-capture",
         "google_news",
         "rss"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-cfe862acf2ef",
+      "competitor": "Jeppesen",
+      "date": "2026-10-16",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "What an incredible few days at Jeppesen ForeFlight's CONNECT Flight Operations Users Conference 2026 in Paris!",
+      "summary": "What an incredible few days at Jeppesen ForeFlight's CONNECT Flight Operations Users Conference 2026 in Paris! Bringing together nearly 400 attendees from around the world, CONNECT represented the incredible diversity of aviation, from cargo operator",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNb2ZWR3B6TTBManBlQXhPcjlULXpJOVZzeF9GYnRDWU1IWmhIZDNCdmJYa2hqMzdrV195Z0tmY19aUUpsYVJJZk5zaU9VM180QnpiR3VYdWEwazVOQzRGWmdWLXA0cUhIZmpMNmhqWTVBLU1IYV9ZU0lvdjh1ODFEbUUyNlo4SHAwMGVoU3NyeTRfTE4xTXFaalZFMHRET0w4RXhBSWY3QjM2R3RtSGl3OU4yX3BrV2ltY0FjRXNVbTl6OE91QWc?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
@@ -8887,6 +9084,45 @@
         {
           "title": "Google News · LinkedIn",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQQ1dsRmppN2pCZ19KZFVIbnpxQ3ZmdklGRk5LbXNILVhPXzF3bU9Dek40TjlSdkNpNk12WDZDYXN6NDg3N3RQZUVLLS0wYjNsTzJjbUFEcktERUdmdjZHRU84al9BSDhwaUhJakJFTUNXaUk2NFNvQVpXS3FrdThjWFFBWHBRLWtfYllNaW9TZEdVUEFHbFB3S3NlMElzRDdwemJZV1JYUzFNNkwtekhjaEZfY0c?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
+    {
+      "id": "cap-707472d00c61",
+      "competitor": "Navblue",
+      "date": "2026-09-23",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "We're welcoming a new group of Canadian early-stage companies to Cohort 3 of the…",
+      "summary": "We're welcoming a new group of Canadian early-stage companies to Cohort 3 of the Aerospace Accelerator Program — an AeroWR initiative delivered in partnership with the Accelerator Centre and supported by Skywise. The Aerospace Accelerator helps fou LinkedIn",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "other",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPYVhiV1dxZ2VzZ0Y1THJlamQwUVpZS1F2WkVmRUpzTUVsalQ0UHFYeHp0VmFUWkVrNjBWWEtGV1ZzVWdpUEViemdnUlk1WEI3alNKYUhpaHo1MGd6YUxzQlE3eUNaMERnc09kWEM3dDVqanlVcGs0VVBEOUNQX3I3YVVHcTF2X3VlUHN4S0xrSHljVHNmUDJFVVV5RDlTV3c?oc=5"
         }
       ],
       "tags": [
