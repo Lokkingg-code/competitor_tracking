@@ -1,0 +1,245 @@
+.airline-insights-page {
+  --atlas-ink: #e8f4ef;
+  --atlas-ocean: #111d1d;
+  --atlas-line: #45605b;
+  --atlas-signal: #abf2dc;
+  --atlas-gold: #ffd594;
+  --atlas-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --atlas-ease: cubic-bezier(.2, .75, .2, 1);
+  --atlas-control-active: #f3fcf8;
+  --atlas-control-ink: #142622;
+  --atlas-control-glow: #5da58a59;
+}
+
+[data-theme="dark"] .airline-insights-page {
+  --atlas-control-glow: #c4ffeb85;
+}
+
+.airline-insights-page .topbar h1 { font-family: var(--atlas-mono); font-size: 40px; font-weight: 500; }
+.airline-insights-page .airline-insights-main { gap: 26px; }
+.airline-insights-page .airline-kpi { padding: 14px 18px 19px; }
+.airline-insights-page .airline-kpi:first-child { padding-left: 0; }
+.airline-insights-page .airline-kpi strong { font-size: 44px; }
+.airline-insights-page .airline-kpi-track { height: 2px; margin-top: 6px; }
+.airline-atlas-heading { align-items: end; flex-wrap: wrap; margin-bottom: 14px; }
+.airline-atlas-index { display: block; margin-bottom: 5px; font: 500 11px var(--atlas-mono); color: var(--text-muted); }
+.airline-insights-page :is(.airline-section-heading, .airline-insight-section) h2 {
+  font-family: var(--atlas-mono);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.airline-insights-page :is(.airline-profile-section, .airline-provider-section, .airline-conference-section) {
+  border-top: 1px solid var(--border-strong);
+}
+.airline-insights-page :is(.airline-profile-heading, .airline-provider-heading, .airline-conference-heading) { flex-wrap: wrap; padding: 4px 10px 0; }
+.airline-insights-page .airline-region-heading { min-height: 56px; }
+.airline-insights-page .airline-profile-table th:not(:first-child) { min-width: 0; }
+.airline-matrix-mobile-label { display: none; }
+
+@media (max-width: 760px) {
+  .airline-profile-table, .airline-profile-table tbody { display: block; }
+  .airline-profile-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .airline-profile-table tbody tr { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(88px, 100%), 1fr)); gap: 6px; padding-block: 8px; border-top: 1px solid var(--border); }
+  .airline-insights-page .airline-profile-table .airline-profile-row-header { position: static; grid-column: 1 / -1; width: auto; min-width: 0; max-width: none; padding: 6px; border: 0; }
+  .airline-profile-table tbody td { display: grid; grid-template-rows: 1fr auto; min-width: 0; padding: 2px; border: 0; }
+  .airline-matrix-mobile-label { display: block; padding: 3px 0; color: var(--text-muted); font-size: 10px; white-space: normal; overflow-wrap: anywhere; }
+  .airline-profile-table .airline-matrix-empty { display: grid; min-height: 44px; place-content: center; }
+}
+
+.airline-insights-page .airline-map-heading-tools { gap: 6px; }
+
+.airline-insights-page :is(.airline-map-heading-tools, .airline-profile-control) .segmented-control {
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 5px;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+.airline-insights-page :is(.segmented-control button, .airline-fleet-toggle, .airline-region-reset) {
+  --atlas-corner: var(--teal-bright);
+  position: relative;
+  min-height: 36px;
+  max-width: 100%;
+  padding: 6px 9px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: var(--bg-elevated);
+  color: var(--text);
+  font: 500 11px/1.35 var(--atlas-mono);
+  text-transform: uppercase;
+  white-space: normal;
+}
+.airline-insights-page .airline-fleet-toggle { cursor: pointer; }
+.airline-insights-page .airline-map-heading-tools .segmented-control { flex-wrap: nowrap; gap: 4px; }
+.airline-insights-page .airline-map-heading-tools .segmented-control button { flex: 0 0 auto; padding-inline: 6px; font-size: 10px; white-space: nowrap; }
+.airline-insights-page .airline-fleet-toggle input { flex: 0 0 16px; }
+.airline-insights-page :is(.segmented-control button, .airline-fleet-toggle, .airline-region-reset)::before {
+  position: absolute;
+  inset: -2px;
+  background:
+    linear-gradient(var(--atlas-corner), var(--atlas-corner)) top left / 6px 1px,
+    linear-gradient(var(--atlas-corner), var(--atlas-corner)) top left / 1px 6px,
+    linear-gradient(var(--atlas-corner), var(--atlas-corner)) top right / 6px 1px,
+    linear-gradient(var(--atlas-corner), var(--atlas-corner)) top right / 1px 6px,
+    linear-gradient(var(--atlas-corner), var(--atlas-corner)) bottom left / 6px 1px,
+    linear-gradient(var(--atlas-corner), var(--atlas-corner)) bottom left / 1px 6px,
+    linear-gradient(var(--atlas-corner), var(--atlas-corner)) bottom right / 6px 1px,
+    linear-gradient(var(--atlas-corner), var(--atlas-corner)) bottom right / 1px 6px;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  content: "";
+}
+.airline-insights-page :is(.segmented-control button, .airline-fleet-toggle, .airline-region-reset):is(:hover, :focus-visible, :has(input:focus-visible))::before {
+  inset: 0;
+  opacity: 1;
+}
+.airline-insights-page :is(.segmented-control button[aria-pressed="true"], .airline-fleet-toggle:has(input:checked)) {
+  --atlas-corner: #387563;
+  border-color: #7cbba7;
+  background: var(--atlas-control-active);
+  color: var(--atlas-control-ink);
+  box-shadow: 0 0 12px var(--atlas-control-glow);
+}
+.airline-insights-page .airline-fleet-toggle:has(input:disabled) { cursor: default; box-shadow: none; }
+.airline-insights-page .airline-map-wrap {
+  isolation: isolate;
+  border-color: var(--atlas-line);
+  background-color: var(--atlas-ocean);
+  background-image: linear-gradient(160deg, #1c3532, transparent 60%), radial-gradient(circle, #789d9366 .7px, transparent .9px);
+  background-size: auto, 12px 12px;
+}
+.airline-insights-page .airline-map-section { --map-empty: #30413e; }
+.airline-map-wrap::before, .airline-map-wrap::after {
+  position: absolute;
+  z-index: 1;
+  width: 17px;
+  height: 17px;
+  border: solid var(--atlas-signal);
+  pointer-events: none;
+  content: "";
+}
+.airline-map-wrap::before { inset: 10px auto auto 10px; border-width: 1px 0 0 1px; }
+.airline-map-wrap::after { inset: auto 10px 10px auto; border-width: 0 1px 1px 0; }
+.airline-atlas-status {
+  position: absolute;
+  inset: auto 23px 15px 23px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--atlas-ink);
+  font: 500 10px var(--atlas-mono);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.airline-atlas-status span { padding: 3px 6px; background: var(--atlas-ocean); }
+.airline-atlas-scan {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 20%;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, #9df9dc36 97%, #d7fff1ad);
+  pointer-events: none;
+}
+.airline-map-ripple {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  background: radial-gradient(circle, #ffdb9c 1px, transparent 2px) center / 8px 8px;
+  mask: radial-gradient(circle closest-side, transparent 47%, #000 65%, transparent 98%) center / 24px 24px no-repeat;
+  pointer-events: none;
+}
+.airline-map-reticle {
+  position: absolute;
+  z-index: 1;
+  left: var(--reticle-x);
+  top: var(--reticle-y);
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  color: var(--atlas-signal);
+  background: linear-gradient(currentColor, currentColor) center / 100% 1px, linear-gradient(currentColor, currentColor) center / 1px 100%;
+  background-repeat: no-repeat;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.airline-insights-page .airline-map-tooltip {
+  max-width: min(230px, calc(100% - 16px));
+  border-color: #e9fff6;
+  border-radius: 0;
+  color: #152623;
+  background: #e9fff6;
+  box-shadow: 0 0 20px #c5ffeb59;
+  font: 500 11px/1.5 var(--atlas-mono);
+}
+.airline-insights-page .airline-country-shape { stroke: #162927; }
+.airline-insights-page .airline-country-shape:is(:hover, :focus-visible),
+.airline-insights-page #airlineWorldMap g:is(:hover, :focus-visible) .airline-country-shape { stroke: var(--atlas-ink); stroke-width: 1.7; }
+.airline-insights-page .airline-country-shape.is-region-selected { stroke: var(--atlas-gold); }
+.airline-region-mix-table .airline-mix-link { --bracket: 0px; }
+.airline-region-mix-table .airline-mix-link::before,
+.airline-region-mix-table .airline-mix-link::after {
+  inset: var(--bracket);
+  width: auto;
+  height: auto;
+  border: 0;
+  color: #387563;
+  background:
+    linear-gradient(currentColor, currentColor) top left / 5px 1px,
+    linear-gradient(currentColor, currentColor) top left / 1px 5px,
+    linear-gradient(currentColor, currentColor) bottom right / 5px 1px,
+    linear-gradient(currentColor, currentColor) bottom right / 1px 5px;
+  background-repeat: no-repeat;
+}
+.airline-region-mix-table .airline-mix-link::after { transform: scaleX(-1); }
+.airline-insights-page .airline-insight-section { border-top: 1px solid var(--border-strong); margin-top: 16px; padding-top: 16px; }
+.airline-insights-page .airline-insight-label { font-family: var(--atlas-mono); }
+.airline-insights-page .airline-mix-link:is(:hover, :focus-visible) {
+  --bracket: 3px;
+  background-color: #e8f4ef;
+  border-color: #7cbba7;
+  color: #142622;
+  box-shadow: 0 0 10px #9bddc459;
+  filter: none;
+}
+.airline-insights-page .airline-mix-link:is(:hover, :focus-visible) :is(.airline-mix-name, .airline-mix-rank, .airline-mix-count) { color: inherit; }
+.airline-insights-page .airline-mix-link:is(:hover, :focus-visible) .airline-mix-count { background: #cce4da; }
+.airline-insights-page .airline-footprint-row:not(:disabled):is(:hover, :focus-visible) {
+  background: #e8f4ef;
+  color: #142622;
+  box-shadow: inset 0 0 0 1px #7cbba7;
+}
+.airline-insights-page .airline-footprint-row:not(:disabled):is(:hover, :focus-visible) :is(.airline-footprint-count, .airline-footprint-small) { color: #24554a; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .airline-insights-page :is(.segmented-control button, .airline-fleet-toggle, .airline-region-reset) { transition: box-shadow 230ms var(--atlas-ease); }
+  .airline-insights-page :is(.segmented-control button, .airline-fleet-toggle, .airline-region-reset)::before { transition: inset 240ms var(--atlas-ease), opacity 150ms ease; }
+  .airline-region-mix-table .airline-mix-link { transition: box-shadow 300ms var(--atlas-ease), border-color 200ms ease; }
+  .airline-region-mix-table .airline-mix-link::before,
+  .airline-region-mix-table .airline-mix-link::after { transition: inset 320ms var(--atlas-ease), opacity 180ms ease; }
+  .airline-map-reticle:not([hidden]), .airline-map-tooltip:not([hidden]) { animation: atlas-acquire 220ms var(--atlas-ease) both; }
+  .airline-insights-page .airline-quick-look[open] { animation: atlas-acquire 260ms var(--atlas-ease) both; }
+  @keyframes atlas-acquire { from { opacity: 0; scale: .94; } to { opacity: 1; scale: 1; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .airline-insights-page .airline-country-shape { transition: none; }
+  .airline-atlas-scan { display: none; }
+  .airline-map-ripple { display: none; }
+}
+
+@media (max-width: 600px) {
+  .airline-insights-page .topbar h1 { font-size: 28px; }
+  .airline-insights-page .airline-kpi { padding: 8px 8px 14px; }
+  .airline-insights-page .airline-kpi strong { font-size: 25px; }
+  .airline-insights-page :is(.airline-section-heading, .airline-insight-section) h2 { font-size: 19px; }
+  .airline-insights-page .airline-map-wrap { aspect-ratio: 1.55 / 1; }
+}

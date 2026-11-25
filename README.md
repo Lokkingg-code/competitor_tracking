@@ -12,6 +12,8 @@ bash start.sh
 
 Open <http://127.0.0.1:8765/> and leave the server running. Stop it with `Ctrl+C`. Serve the folder over HTTP rather than opening an HTML file directly.
 
+The theme switch uses a short reveal when supported. Airline coverage figures animate visually when they change while retaining their final accessible values. Motion is disabled when reduced motion is enabled.
+
 No frontend build step is required. Install Node dependencies only when using the local LinkedIn browser collector or Node-based AI checks:
 
 ```sh

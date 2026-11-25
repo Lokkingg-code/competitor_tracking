@@ -1,6 +1,7 @@
 import { applyFleetFilter, excludeMainlandChina, excludeNonAirlineEntities, ENTITY_EXCLUSION_VERSION, MAINLAND_CHINA_FILTER_VERSION } from "./airline-fleet-filter.js?v=3";
-import { normalizeMapRegions, mapRegion, providerColors, regionalProviderRace, gradientProviders, providerGradientStops, REGION_SCHEME } from "./airline-provider-map.js?v=5";
+import { normalizeMapRegions, mapRegion, regionalProviderRace, gradientProviders, REGION_SCHEME } from "./airline-provider-map.js?v=5";
 import { providerFootprint } from "./airline-provider-footprint.js?v=1";
+import { setRollingNumber, switchThemeWithMotion } from "./theme-motion.js?v=2";
 
 const dataUrl = "data/airline-insights.json";
 const mapUrl = "assets/ne_110m_admin_0_countries.geojson";
@@ -19,17 +20,12 @@ const elements = {
   planningCoverageBar: document.getElementById("planningCoverageBar"),
   map: document.getElementById("airlineWorldMap"),
   mapTooltip: document.getElementById("airlineMapTooltip"),
-  mapSummary: document.getElementById("airlineMapSummary"),
-  mapTotal: document.getElementById("airlineMapTotal"),
   mapLegend: document.getElementById("airlineMapLegend"),
   regionRows: document.getElementById("airlineRegionRows"),
   regionReset: document.getElementById("airlineRegionReset"),
-  regionNote: document.getElementById("airlineRegionMixNote"),
   profileRows: document.getElementById("airlineProfileRows"),
   profileHead: document.getElementById("airlineProfileHead"),
-  profileNote: document.getElementById("airlineProfileNote"),
   providerSelect: document.getElementById("airlineProviderSelect"),
-  providerScope: document.getElementById("airlineProviderScope"),
   providerInsight: document.getElementById("airlineProviderInsight"),
   providerRegions: document.getElementById("airlineProviderRegions"),
   providerTypes: document.getElementById("airlineProviderTypes"),
@@ -53,12 +49,17 @@ const elements = {
 };
 const numberFormat = new Intl.NumberFormat("en-US");
 const SVG_NS = "http://www.w3.org/2000/svg";
-const MAP_COLORS = ["#dfe8e3", "#b3cbbf", "#7ca997", "#3e8178", "#006568"];
+const MAP_COLORS = ["var(--map-empty)", "#415854", "#5c7972", "#83a79c", "#bce3d6"];
+const MAP_RACES = {
+  leader: ["#a1c9ba", "Clear lead"],
+  close: ["#618780", "Close result"],
+  tie: ["#a39b82", "Tied leaders"],
+  insufficient: ["var(--map-empty)", "Insufficient data"],
+};
 let snapshot;
 let unfilteredSnapshot;
 let countryFeatures;
 let aiInsightSnapshot;
-let mapProviderColors;
 
 function escapeHtml(value) {
   return String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
@@ -179,8 +180,74 @@ function mapBin(value, thresholds) {
   return bin < 0 ? thresholds.length + 1 : bin + 1;
 }
 
+function pulseMapGrid(event) {
+  if (!matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+  const stage = elements.map.parentElement;
+  const ripple = stage.querySelector(".airline-map-ripple");
+  const bounds = stage.getBoundingClientRect();
+  const country = event.currentTarget.getBoundingClientRect();
+  const x = event.clientX ?? country.left + country.width / 2;
+  const y = event.clientY ?? country.top + country.height / 2;
+  ripple.style.left = `${x - bounds.left}px`;
+  ripple.style.top = `${y - bounds.top}px`;
+  ripple.getAnimations().forEach((animation) => animation.cancel());
+  ripple.animate([
+    { maskSize: "24px 24px", opacity: 0 },
+    { opacity: .9, offset: .18 },
+    { maskSize: "160px 160px", opacity: 0 },
+  ], { duration: 620, easing: "cubic-bezier(.2,.65,.3,1)" });
+}
+
+function bindMapCountry(target, region, show) {
+  const selectable = region && region !== "Unmapped";
+  target.setAttribute("role", selectable ? "button" : "img");
+  if (selectable) target.setAttribute("aria-pressed", String(region === state.region));
+  const select = () => {
+    if (!selectable) return;
+    const restoreFocus = document.activeElement === target;
+    state.region = state.region === region ? "all" : region;
+    render();
+    if (restoreFocus) {
+      elements.map.querySelector(`[data-country="${CSS.escape(target.dataset.country)}"]`)?.focus({ preventScroll: true });
+    }
+  };
+  target.addEventListener("pointerenter", (event) => {
+    show(event);
+    if (event.pointerType !== "touch") pulseMapGrid(event);
+  });
+  target.addEventListener("focus", (event) => {
+    show(event);
+    if (target.matches(":focus-visible")) pulseMapGrid(event);
+  });
+  target.addEventListener("pointermove", positionMapTooltip);
+  target.addEventListener("pointerleave", hideMapTooltip);
+  target.addEventListener("blur", hideMapTooltip);
+  target.addEventListener("click", (event) => {
+    if (selectable && event.pointerType === "touch") pulseMapGrid(event);
+    select();
+  });
+  target.addEventListener("keydown", (event) => {
+    if (selectable && !event.repeat && ["Enter", " "].includes(event.key)) {
+      event.preventDefault();
+      select();
+    }
+  });
+}
+
 function drawMap(cells) {
   hideMapTooltip();
+  document.getElementById("airlineAtlasScope").textContent = state.region === "all" ? "Global" : state.region;
+  document.getElementById("airlineAtlasMetric").textContent = { airlines: "Airlines", eff: "EFF", planning: "Flight planning" }[state.mapMetric];
+  if (elements.map.dataset.metric !== state.mapMetric && matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    const scan = elements.map.parentElement.querySelector(".airline-atlas-scan");
+    scan.getAnimations().forEach((animation) => animation.cancel());
+    scan.animate([
+      { transform: "translateX(-110%)", opacity: 0 },
+      { opacity: .8, offset: .25 },
+      { transform: "translateX(560%)", opacity: 0 },
+    ], { duration: 850, easing: "cubic-bezier(.2,.65,.3,1)" });
+  }
+  elements.map.dataset.metric = state.mapMetric;
   if (state.mapMetric !== "airlines") {
     drawProviderMap(cells);
     return;
@@ -205,66 +272,20 @@ function drawMap(cells) {
     const country = snapshot.countries.find((item) => item.map_name === name);
     if (state.region !== "all" && country?.region === state.region) path.classList.add("is-region-selected");
     path.dataset.country = name;
-    path.addEventListener("pointerenter", (event) => showMapTooltip(event, name, value));
-    path.addEventListener("pointermove", positionMapTooltip);
-    path.addEventListener("pointerleave", hideMapTooltip);
-    path.addEventListener("focus", (event) => showMapTooltip(event, name, value));
-    path.addEventListener("blur", hideMapTooltip);
-    path.addEventListener("click", () => {
-      const country = snapshot.countries.find((item) => item.map_name === name);
-      if (country && country.region !== "Unmapped") {
-        state.region = state.region === country.region ? "all" : country.region;
-        render();
-      }
-    });
+    bindMapCountry(path, country?.region, (event) => showMapTooltip(event, name, value));
     elements.map.append(path);
   }
-  const metricLabel = state.mapMetric === "eff" ? "EFF status records" : state.mapMetric === "planning" ? "flight-planning records" : "airline records";
-  elements.mapSummary.textContent = `${metricLabel} by headquarters country`;
-  elements.mapTotal.textContent = `${numberFormat.format([...values.values()].reduce((sum, value) => sum + value, 0))} mapped`;
   const legendBins = thresholds.map((high, index) => ({ lower: index ? thresholds[index - 1] + 1 : 1, high }));
   if (maximum > (thresholds.at(-1) || 0)) legendBins.push({ lower: (thresholds.at(-1) || 0) + 1, high: null });
   elements.mapLegend.innerHTML = `<span><i style="--legend-color:var(--map-empty)"></i>None recorded</span>${legendBins.map((bin, index) => {
     const label = bin.high === null ? `${bin.lower}+` : bin.high > bin.lower ? `${bin.lower}–${bin.high}` : String(bin.lower);
     return `<span><i style="--legend-color:${MAP_COLORS[index + 1]}"></i>${label}</span>`;
   }).join("")}`;
-  const mappedCount = snapshot.coverage.hq_mapped;
-  const knownCount = snapshot.coverage.hq_known;
 }
 
 function drawProviderMap(cells) {
   elements.map.replaceChildren();
-  const definitions = document.createElementNS(SVG_NS, "defs");
-  elements.map.append(definitions);
   const regions = new Map(snapshot.region_names.map((region) => [region, regionalProviderRace(cells.filter((cell) => cell.region === region), state.mapMetric)]));
-  const fills = new Map();
-  const shownProviders = new Set();
-  for (const [region, race] of regions) {
-    let fill = "var(--map-empty)";
-    if (race.status !== "insufficient") {
-      const top = gradientProviders(race);
-      top.forEach((item) => shownProviders.add(item.name));
-      fill = mapProviderColors.get(top[0].name);
-      if (top.length > 1) {
-        const identifier = `provider-blend-${fills.size}`;
-        const gradient = document.createElementNS(SVG_NS, "linearGradient");
-        gradient.setAttribute("id", identifier);
-        gradient.setAttribute("x1", "0%");
-        gradient.setAttribute("x2", "100%");
-        gradient.setAttribute("y1", "0%");
-        gradient.setAttribute("y2", "0%");
-        for (const { offset, name } of providerGradientStops(top)) {
-          const stop = document.createElementNS(SVG_NS, "stop");
-          stop.setAttribute("offset", `${offset}%`);
-          stop.setAttribute("stop-color", mapProviderColors.get(name));
-          gradient.append(stop);
-        }
-        definitions.append(gradient);
-        fill = `url(#${identifier})`;
-      }
-    }
-    fills.set(region, fill);
-  }
   for (const feature of countryFeatures.features || []) {
     const properties = feature.properties || {};
     const name = properties.ADMIN || properties.NAME || "Country";
@@ -280,7 +301,7 @@ function drawProviderMap(cells) {
       path.setAttribute("d", polygon.map(ringPath).join(""));
       path.setAttribute("class", "airline-country-shape");
       path.setAttribute("fill-rule", "evenodd");
-      path.setAttribute("fill", visible ? fills.get(region) || "var(--map-empty)" : "var(--map-empty)");
+      path.setAttribute("fill", visible ? MAP_RACES[race?.status]?.[0] || "var(--map-empty)" : "var(--map-empty)");
       if (state.region === region) path.classList.add("is-region-selected");
       country.append(path);
     }
@@ -299,22 +320,10 @@ function drawProviderMap(cells) {
       elements.mapTooltip.hidden = false;
       positionMapTooltip(event);
     };
-    country.addEventListener("pointerenter", show);
-    country.addEventListener("focus", show);
-    country.addEventListener("pointermove", positionMapTooltip);
-    country.addEventListener("pointerleave", hideMapTooltip);
-    country.addEventListener("blur", hideMapTooltip);
-    country.addEventListener("click", () => {
-      if (!regions.has(region)) return;
-      state.region = state.region === region ? "all" : region;
-      hideMapTooltip();
-      render();
-    });
+    bindMapCountry(country, regions.has(region) ? region : null, show);
     elements.map.append(country);
   }
-  elements.mapSummary.textContent = `${state.mapMetric === "eff" ? "EFF" : "Flight planning"} providers by region · Airtable sample, not market share`;
-  elements.mapTotal.textContent = "";
-  elements.mapLegend.innerHTML = [...shownProviders].sort().map((name) => `<span><i style="--legend-color:${mapProviderColors.get(name)}"></i>${escapeHtml(name)}</span>`).join("");
+  elements.mapLegend.innerHTML = Object.values(MAP_RACES).map(([color, label]) => `<span><i style="--legend-color:${color}"></i>${label}</span>`).join("");
 }
 
 function showMapTooltip(event, country, value) {
@@ -325,19 +334,26 @@ function showMapTooltip(event, country, value) {
 }
 
 function positionMapTooltip(event) {
-  const bounds = elements.map.parentElement.getBoundingClientRect();
-  const clientX = Number.isFinite(event.clientX) ? event.clientX : bounds.left + bounds.width / 2;
-  const clientY = Number.isFinite(event.clientY) ? event.clientY : bounds.top + bounds.height / 2;
+  if (elements.mapTooltip.hidden) return;
+  const stage = elements.map.parentElement;
+  const bounds = stage.getBoundingClientRect();
+  const target = event.currentTarget.getBoundingClientRect();
+  const clientX = Number.isFinite(event.clientX) ? event.clientX : target.left + target.width / 2;
+  const clientY = Number.isFinite(event.clientY) ? event.clientY : target.top + target.height / 2;
+  stage.style.setProperty("--reticle-x", `${Math.max(14, Math.min(bounds.width - 14, clientX - bounds.left))}px`);
+  stage.style.setProperty("--reticle-y", `${Math.max(14, Math.min(bounds.height - 14, clientY - bounds.top))}px`);
+  stage.querySelector(".airline-map-reticle").hidden = false;
   elements.mapTooltip.style.left = `${Math.max(8, Math.min(bounds.width - elements.mapTooltip.offsetWidth - 8, clientX - bounds.left + 12))}px`;
   elements.mapTooltip.style.top = `${Math.max(8, Math.min(bounds.height - elements.mapTooltip.offsetHeight - 8, clientY - bounds.top + 12))}px`;
 }
 
 function hideMapTooltip() {
   elements.mapTooltip.hidden = true;
+  elements.map.parentElement.querySelector(".airline-map-reticle").hidden = true;
 }
 
 function renderKpis(summary) {
-  elements.airlineCount.textContent = numberFormat.format(summary.airlines);
+  setRollingNumber(elements.airlineCount, summary.airlines, { format: (value) => numberFormat.format(value) });
   const filters = [
     snapshot.fleet_filter?.minimum === 10 ? "Fleet 10+" : "All fleets",
     snapshot.mainland_china_filter?.version === MAINLAND_CHINA_FILTER_VERSION ? "Mainland China excluded" : "Mainland China included",
@@ -345,10 +361,10 @@ function renderKpis(summary) {
   elements.airlineCountNote.textContent = `${numberFormat.format(snapshot.source_record_count)} Airtable source rows · ${filters.join(" · ")}`;
   const effCoverage = summary.airlines ? Math.round(summary.eff_known / summary.airlines * 100) : 0;
   const planningCoverage = summary.airlines ? Math.round(summary.planning_known / summary.airlines * 100) : 0;
-  elements.effCoverage.textContent = `${effCoverage}%`;
+  setRollingNumber(elements.effCoverage, effCoverage, { suffix: "%" });
   elements.effCoverageNote.textContent = `${numberFormat.format(summary.eff_known)} of ${numberFormat.format(summary.airlines)} connected airlines`;
   elements.effCoverageBar.style.width = `${effCoverage}%`;
-  elements.planningCoverage.textContent = `${planningCoverage}%`;
+  setRollingNumber(elements.planningCoverage, planningCoverage, { suffix: "%" });
   elements.planningCoverageNote.textContent = `${numberFormat.format(summary.planning_known)} of ${numberFormat.format(summary.airlines)} connected airlines`;
   elements.planningCoverageBar.style.width = `${planningCoverage}%`;
 }
@@ -406,7 +422,6 @@ function renderRegions() {
   const globalPlanning = global ? systemsFor(global, "planning") : [];
   const globalRow = global ? `<tr class="airline-global-row" data-global-system-mix><th scope="row"><span class="airline-region-name">Global</span><small class="airline-region-meta">${numberFormat.format(global.airlines)} airlines</small></th><td><small class="airline-global-coverage">${numberFormat.format(global.eff_known)} known</small>${systemDistribution(globalEff, "eff", globalFilters, Math.max(1, globalEff.length))}</td><td><small class="airline-global-coverage">${numberFormat.format(global.planning_known)} known</small>${systemDistribution(globalPlanning, "planning", globalFilters, Math.max(1, globalPlanning.length))}</td></tr>` : "";
   elements.regionReset.hidden = Boolean(global);
-  elements.regionNote.textContent = global ? "Recorded selections by airline count" : "Top 3 by airline count · shade indicates rank";
   elements.regionRows.innerHTML = globalRow + (global ? "" : rows.map(([region, summary]) => {
     const filters = { region, airlineType: state.airlineType, fleetBand: state.fleetBand };
     const eff = systemsFor({ eff_systems: summary.effSystems, planning_systems: summary.planningSystems }, "eff");
@@ -440,16 +455,11 @@ function renderProfiles() {
   const knownField = state.systemMode === "eff" ? "effKnown" : "planningKnown";
   const systemLabel = state.systemMode === "eff" ? "EFF" : "Flight planning";
   const dimensionTitle = { type: "Carrier type", fleet: "Fleet size", region: "Region" }[state.profileDimension];
-  const dimensionLabel = dimensionTitle.toLowerCase();
   const totalSystems = new Map();
   for (const row of rows) {
     for (const [name, count] of row[systemField]) totalSystems.set(name, (totalSystems.get(name) || 0) + count);
   }
   const allSystems = [...totalSystems].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name]) => name);
-  const table = elements.profileHead.closest("table");
-  table.style.minWidth = `max(100%, ${150 + allSystems.length * 67}px)`;
-  table.style.setProperty("--system-columns", allSystems.length);
-  elements.profileNote.textContent = `${state.profileDimension === "fleet" ? "Valid fleet sizes" : "All records"} · ${systemLabel} selections by ${dimensionLabel.toLowerCase()} · count and share of known records`;
   elements.profileHead.innerHTML = `<tr><th>${dimensionTitle} · coverage</th>${allSystems.map((name) => `<th>${escapeHtml(name)}</th>`).join("")}</tr>`;
   elements.profileRows.innerHTML = rows.map((row) => {
     const filters = {
@@ -462,10 +472,11 @@ function renderProfiles() {
     const coverage = row.airlines ? Math.round(known / row.airlines * 100) : 0;
     const cells = allSystems.map((name) => {
       const count = selections.get(name) || 0;
-      if (!count || !known) return '<td><span class="airline-matrix-empty">—</span></td>';
+      const mobileLabel = `<span class="airline-matrix-mobile-label" aria-hidden="true">${escapeHtml(name)}</span>`;
+      if (!count || !known) return `<td>${mobileLabel}<span class="airline-matrix-empty">—</span></td>`;
       const share = Math.round(count / known * 100);
       const intensity = Math.min(82, 24 + Math.round(share * 1.65));
-      return `<td><button class="airline-matrix-cell" type="button" style="--matrix-intensity:${intensity}%" data-system-name="${escapeHtml(name)}" data-system-mode="${state.systemMode}" data-system-region="${escapeHtml(filters.region)}" data-system-type="${escapeHtml(filters.airlineType)}" data-system-fleet="${escapeHtml(filters.fleetBand)}" aria-label="${numberFormat.format(count)} ${name} selections, ${share}% of ${known} known ${systemLabel} records for ${row.label}"><strong>${numberFormat.format(count)}</strong><small>${share}%</small></button></td>`;
+      return `<td>${mobileLabel}<button class="airline-matrix-cell" type="button" style="--matrix-intensity:${intensity}%" data-system-name="${escapeHtml(name)}" data-system-mode="${state.systemMode}" data-system-region="${escapeHtml(filters.region)}" data-system-type="${escapeHtml(filters.airlineType)}" data-system-fleet="${escapeHtml(filters.fleetBand)}" aria-label="${numberFormat.format(count)} ${name} selections, ${share}% of ${known} known ${systemLabel} records for ${row.label}"><strong>${numberFormat.format(count)}</strong><small>${share}%</small></button></td>`;
     });
     const rowHeader = `<span class="airline-profile-row-label">${escapeHtml(row.label)}</span><span class="airline-profile-row-meta">${numberFormat.format(row.airlines)} airlines · ${coverage}% ${systemLabel} known</span><span class="airline-profile-coverage"><i style="width:${coverage}%"></i></span>`;
     return `<tr><th scope="row" class="airline-profile-row-header">${rowHeader}</th>${cells.join("")}</tr>`;
@@ -495,9 +506,7 @@ function renderProviderFootprint() {
   document.querySelectorAll("[data-provider-mode]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.providerMode === state.providerMode)));
   const result = providerFootprint(profiles, state.providerMode, state.providerName);
   elements.providerPairedHeading.textContent = state.providerMode === "planning" ? "Corresponding EFF systems" : "Corresponding flight-planning systems";
-  const scope = state.region === "all" ? "Global" : state.region;
   const selectionLabel = result.matches === 1 ? "selection" : "selections";
-  elements.providerScope.textContent = `${scope} · ${numberFormat.format(result.matches)} ${selectionLabel} · ${numberFormat.format(result.known)} known fields`;
   const leading = result.regions.filter((item) => item.count > 0 && item.count === result.regions[0].count);
   elements.providerInsight.textContent = leading.length
     ? `Most recorded selections: ${leading.map((item) => item.name).join(", ")} · ${leading[0].count}${leading.length > 1 ? " each" : ""} of ${result.matches} ${selectionLabel}`
@@ -597,7 +606,6 @@ async function boot() {
     state.showAllConferences = elements.showAllConferences.checked;
     renderConferences();
   });
-  mapProviderColors = providerColors(unfilteredSnapshot);
   const alreadyFiltered = unfilteredSnapshot.fleet_filter?.minimum === 10 && unfilteredSnapshot.fleet_filter?.unknown_included;
   elements.fleetFilter.checked = alreadyFiltered || localStorage.getItem("ct-airline-fleet-filter") !== "off";
   const alreadyExcludesChina = unfilteredSnapshot.mainland_china_filter?.version === MAINLAND_CHINA_FILTER_VERSION;
@@ -665,7 +673,8 @@ async function boot() {
       showSystemDetail(systemButton.dataset.systemMode, systemButton.dataset.systemName, filters);
       return;
     } else if (regionButton) {
-      state.region = state.region === regionButton.dataset.regionSelect ? "all" : regionButton.dataset.regionSelect;
+      const region = regionButton.dataset.regionSelect;
+      state.region = state.region === region ? "all" : region;
     } else {
       return;
     }
@@ -681,7 +690,7 @@ async function boot() {
     localStorage.setItem("ct-theme", theme);
   };
   setTheme(localStorage.getItem("ct-theme") === "dark" ? "dark" : "light");
-  elements.themeToggle.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light"));
+  elements.themeToggle.addEventListener("click", () => switchThemeWithMotion(setTheme, elements.themeToggle));
   render();
 }
 

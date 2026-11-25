@@ -1,3 +1,5 @@
+import { switchThemeWithMotion } from "./theme-motion.js?v=2";
+
 const els = {
   feed: document.getElementById("matrixFeed"),
   search: document.getElementById("matrixSearch"),
@@ -156,5 +158,5 @@ async function boot() {
 els.search.addEventListener("input", render);
 els.competitor.addEventListener("change", render);
 setTheme(localStorage.getItem("ct-theme") === "light" ? "light" : "dark");
-els.themeToggle.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light"));
+els.themeToggle.addEventListener("click", () => switchThemeWithMotion(setTheme, els.themeToggle));
 boot().catch((error) => { els.feed.innerHTML = `<p class="empty-state">${escapeHtml(error.message)}</p>`; });

@@ -1,3 +1,5 @@
+import { switchThemeWithMotion } from "./theme-motion.js?v=2";
+
 const COMPETITORS = [
   "Jeppesen",
   "Lufthansa Systems",
@@ -1097,7 +1099,7 @@ els.clearSearch?.addEventListener("click", () => {
 const savedTheme = localStorage.getItem("ct-theme");
 setTheme(savedTheme === "light" ? "light" : "dark");
 els.themeToggle?.addEventListener("click", () => {
-  setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
+  switchThemeWithMotion(setTheme, els.themeToggle);
 });
 
 boot().catch((err) => {

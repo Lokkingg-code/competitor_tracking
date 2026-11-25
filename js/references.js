@@ -1,3 +1,5 @@
+import { switchThemeWithMotion } from "./theme-motion.js?v=2";
+
 const els = {
   groups: document.getElementById("referenceGroups"),
   metrics: document.getElementById("referenceMetrics"),
@@ -111,7 +113,7 @@ async function boot() {
 }
 
 setTheme(localStorage.getItem("ct-theme") === "light" ? "light" : "dark");
-els.themeToggle.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light"));
+els.themeToggle.addEventListener("click", () => switchThemeWithMotion(setTheme, els.themeToggle));
 boot().catch((error) => {
   els.groups.innerHTML = `<p class="reference-empty">${escapeHtml(error.message)} Serve this folder over HTTP rather than opening the HTML file directly.</p>`;
 });

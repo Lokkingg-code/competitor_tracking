@@ -9,8 +9,9 @@
   <title>Airline Insights · Cathay Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=71" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=73" />
+  <link rel="stylesheet" href="css/airline-atlas.css?v=8" />
 </head>
 <body class="airline-insights-page">
   <div class="app">
@@ -55,22 +56,25 @@
 
       <section class="airline-map-layout" aria-label="Regional airline distribution">
         <div class="airline-map-section">
-          <div class="airline-section-heading">
-            <div><h2>Headquarters footprint</h2><p id="airlineMapSummary" class="muted">Airtable country coverage</p></div>
+          <div class="airline-section-heading airline-atlas-heading">
+            <div><span class="airline-atlas-index">01 / GLOBAL ATLAS</span><h2>Headquarters footprint</h2></div>
             <div class="airline-map-heading-tools">
               <div class="airline-metric-control" role="group" aria-label="Map metric">
                 <span>Map metric</span>
                 <div class="segmented-control">
                   <button type="button" data-airline-map-metric="airlines" aria-pressed="true">Airlines</button>
-                  <button type="button" data-airline-map-metric="eff">EFF</button>
-                  <button type="button" data-airline-map-metric="planning">Flight planning</button>
+                  <button type="button" data-airline-map-metric="eff" aria-pressed="false">EFF</button>
+                  <button type="button" data-airline-map-metric="planning" aria-pressed="false">Flight planning</button>
                 </div>
               </div>
-              <span id="airlineMapTotal" class="muted">—</span>
             </div>
           </div>
           <div class="airline-map-wrap">
-            <svg id="airlineWorldMap" viewBox="0 0 1000 500" role="img" aria-label="Airline headquarters by country"></svg>
+            <svg id="airlineWorldMap" viewBox="0 0 1000 500" role="group" aria-label="Airline headquarters by country"></svg>
+            <div class="airline-atlas-scan" aria-hidden="true"></div>
+            <div class="airline-atlas-status" aria-hidden="true"><span id="airlineAtlasScope">Global</span><span id="airlineAtlasMetric">Airlines</span></div>
+            <div class="airline-map-ripple" aria-hidden="true"></div>
+            <div class="airline-map-reticle" aria-hidden="true" hidden></div>
             <div id="airlineMapTooltip" class="airline-map-tooltip" role="status" hidden></div>
           </div>
           <div id="airlineMapLegend" class="airline-map-legend" aria-label="Map scale"></div>
@@ -82,7 +86,7 @@
         </div>
         <div class="airline-region-section" aria-labelledby="airlineRegionMixHeading">
           <div class="airline-section-heading airline-region-heading">
-            <div><h2 id="airlineRegionMixHeading">Regional system mix</h2><p id="airlineRegionMixNote" class="muted">Recorded selections by airline count</p></div>
+            <div><span class="airline-atlas-index">02 / REGIONAL COVERAGE</span><h2 id="airlineRegionMixHeading">Regional system mix</h2></div>
             <button id="airlineRegionReset" class="airline-region-reset" type="button" hidden>Global</button>
           </div>
           <div class="airline-table-scroll">
@@ -96,7 +100,7 @@
 
       <section class="airline-profile-section" aria-labelledby="airlineProfileHeading">
         <div class="airline-section-heading airline-profile-heading">
-          <div><h2 id="airlineProfileHeading">System Mix Matrix</h2><p id="airlineProfileNote" class="muted">Choose a system category and row grouping</p></div>
+          <div><span class="airline-atlas-index">03 / FLEET &amp; CARRIER MIX</span><h2 id="airlineProfileHeading">System Mix Matrix</h2></div>
           <div class="airline-profile-controls">
             <div class="airline-profile-control">
               <span>System</span>
@@ -116,7 +120,7 @@
           </div>
         </div>
         <div class="airline-table-scroll">
-          <table class="airline-data-table airline-profile-table">
+          <table class="airline-data-table airline-profile-table" role="table">
             <thead id="airlineProfileHead"><tr><th>Carrier type</th><th>Airlines</th><th>Field known</th><th>Top selections</th></tr></thead>
             <tbody id="airlineProfileRows"></tbody>
           </table>
@@ -126,7 +130,7 @@
 
       <section class="airline-provider-section" aria-labelledby="airlineProviderHeading">
         <div class="airline-section-heading airline-provider-heading">
-          <div><h2 id="airlineProviderHeading">Provider footprint</h2><p id="airlineProviderScope" class="muted"></p></div>
+          <div><span class="airline-atlas-index">04 / PROVIDER COVERAGE</span><h2 id="airlineProviderHeading">Provider footprint</h2></div>
           <div class="airline-provider-controls">
             <div class="airline-profile-control"><span>System</span><div class="segmented-control" role="group" aria-label="Provider system category"><button type="button" data-provider-mode="eff" aria-pressed="true">EFF status</button><button type="button" data-provider-mode="planning" aria-pressed="false">Flight planning</button></div></div>
             <label class="control airline-provider-select"><span>Provider</span><select id="airlineProviderSelect"></select></label>
@@ -158,7 +162,7 @@
 
       <section class="airline-conference-section" aria-labelledby="conferenceHistoryHeading">
         <div class="airline-section-heading airline-conference-heading">
-          <div><h2 id="conferenceHistoryHeading">Conference history</h2><p class="muted">Airtable event records linked to regional airline coverage</p></div>
+          <div><span class="airline-atlas-index">05 / EVENT RECORDS</span><h2 id="conferenceHistoryHeading">Conference history</h2></div>
           <label class="airline-fleet-toggle" for="conferenceShowAll"><input id="conferenceShowAll" type="checkbox" /> <span>Show all</span></label>
         </div>
         <div class="airline-table-scroll">
@@ -173,6 +177,6 @@
       </footer>
     </main>
   </div>
-  <script src="js/airline-insights.js?v=53" type="module"></script>
+  <script src="js/airline-insights.js?v=61" type="module"></script>
 </body>
 </html>
