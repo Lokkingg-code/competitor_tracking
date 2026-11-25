@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T16:36:19Z",
+  "generated_at": "2026-11-25T16:18:44Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,45 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "browser-3aaf9630e054",
+      "competitor": "Aviobook",
+      "date": "2026-11-24",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "A full briefing package can run to dozens of pages.",
+      "summary": "It checks schedule, fuel & weights, weather, NOTAMs and tech status, flags what needs attention and takes you straight to the source, even offline ✈️ Swipe to see it work its magic on a real Lisbon → Madrid flight 👉 Want to see Smart Briefing on your own routes? https://lnkd.in/e69VWyPF #Aviobook #SmartBriefing #EFB #FlightOps #Pilots #AviationTech #AI",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aviobook-smart-briefing-activity-7531003981041455104-U-Cw"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief_status": "pending",
+      "ai_classification_status": "pending"
+    },
     {
       "id": "browser-00ce3a21e81d",
       "competitor": "Bytron Skybook",
@@ -1475,7 +1514,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -1491,6 +1529,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-25T16:19:55+00:00",
+        "source_sha256": "255730add0ac8ef428cf22c85211e5cb1bddf7ba78211a24779db9cc9a758eb1",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes customizable pre-flight and post-flight checklist workflows.",
+        "summary": "Bytron Skybook is promoting its capability for operators to configure bespoke checklists for pre-flight and post-flight phases within its EFB. The text describes existing features but establishes no new product release or customer deployment."
       }
     },
     {
@@ -2309,8 +2356,8 @@
       "date": "2026-11-07",
       "date_is_estimated": false,
       "type": "partnership",
-      "priority": "low",
-      "severity": 2,
+      "priority": "medium",
+      "severity": 3,
       "confidence": 0.6000000000000001,
       "headline": "FPT, Skywise and Vietnam Airlines partner on ‘AI-powered’ operations",
       "summary": "Navblue reported a partnership update: FPT, Skywise and Vietnam Airlines partner on ‘AI-powered’ operations. Open the linked source to verify details and assess impact for Cathay Technologies.",
@@ -2339,7 +2386,6 @@
         "rss"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -2356,6 +2402,15 @@
         "type_auto_applied": false,
         "original_product_focus": "other",
         "focus_auto_applied": true
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-25T16:20:44+00:00",
+        "source_sha256": "e943d8bbd276914056b092c8b0b5a09a5fc9bf8095b239819ddf0646d06a5ca5",
+        "evidence_scope": "captured_preview_only",
+        "title": "Navblue reports FPT, Skywise, and Vietnam Airlines partnership on AI-powered operations.",
+        "summary": "Navblue reports on a partnership between FPT, Skywise, and Vietnam Airlines regarding AI-powered operations. The text establishes no concrete new development or specific deployment for Navblue."
       }
     },
     {
@@ -5376,7 +5431,22 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-25T16:22:11+00:00",
+        "source_sha256": "c0bf2d0768fd0ec8fe188e6b933eec3bc7a1320bdd7a20301b056ff408b844a1",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-cfe862acf2ef",
@@ -5415,7 +5485,22 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-25T16:22:34+00:00",
+        "source_sha256": "0a2eca75ac45d1dfac28705e540dee9ea975a8cf40faa7749aa59268b2bd3d05",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "cap-bc53e9d2f7e1",
