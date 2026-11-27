@@ -2,90 +2,90 @@
   "schema_version": 1,
   "region_scheme": "mainland-china-rest-asia-v2",
   "entity_exclusion_version": 1,
-  "snapshot_generated_at": "2026-11-22T13:41:02+00:00",
-  "generated_at": "2026-11-22T13:54:57.525Z",
+  "snapshot_generated_at": "2026-11-27T15:42:16+00:00",
+  "generated_at": "2026-11-27T15:51:10.680Z",
   "model": "gemini-3.5-flash-lite",
   "overall": {
-    "headline": "Prioritize Mainland China and Rest of Asia & Pacific First",
+    "headline": "Target Rest of Asia & Pacific and Europe LCCs First; Avoid Unmapped and Sub-Saharan Segments",
     "observations": [
-      "Across the entire prospect sample, **NavChina** leads electronic flight folder selections with **38** recorded selections out of **163** records.",
-      "Mainland China and Rest of Asia & Pacific show high field completion and distinct local tooling, making them strong initial segments to validate.",
-      "Sub-Saharan Africa and Unmapped regions show very low or zero recording rates, making coverage too weak to prioritize."
+      "Across **518** total recorded airlines with **165** electronic flight folder (EFF) records, **NavChina** leads with **38** recorded selections, followed by **AvioBook** at **21** and **In-house built** at **21**.",
+      "For flight planning, across **71** recorded airlines, **Lido** leads with **24** selections, **NavBlue** has **16**, and **FlightKeys** has **15**.",
+      "The Rest of Asia & Pacific and Europe & Central Asia regions hold the highest sample density and should be validated first for **Cathay Flight Folder**."
     ],
-    "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+    "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
   },
   "regions": [
     {
       "name": "Europe & Central Asia",
-      "headline": "Diverse Ecosystem Led by FlightKeys and In-House Tools",
+      "headline": "Strong LCC and Flag Carrier Sample Supporting Multi-Vendor Validation",
       "observations": [
-        "In this regional sample, **FlightKeys** leads planning selections with **5** recorded selections out of **15** records.",
-        "Electronic flight folder records show **In-house built** systems leading with **7** recorded selections out of **35** records."
+        "Out of **151** airlines, **35** have EFF records featuring **In-house built** (**7**) and **AvioBook** (**6**) as leading recorded selections.",
+        "Flight planning records show **15** entries, led evenly by **FlightKeys** (**5**) and **Lido** (**5**)."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+      "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
     },
     {
       "name": "Rest of Asia & Pacific",
-      "headline": "Strong Regional Activity with NavBlue and Lido Leading Planning",
+      "headline": "High Regional Density Highlights NavChina and Paper Usage",
       "observations": [
-        "Planning records show **NavBlue** leading with **10** recorded selections out of **22** records, followed closely by **Lido** at **9** recorded selections.",
-        "Electronic flight folder selections feature **Paper** at **7** and **AvioBook** at **6** out of **37** records."
+        "Out of **102** airlines, **37** have EFF records where **Paper** (**7**), **AvioBook** (**6**), and **In-house built** (**6**) lead recorded selections.",
+        "Flight planning records cover **22** airlines, with **NavBlue** at **10** and **Lido** at **9** recorded selections."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+      "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
     },
     {
       "name": "North America",
-      "headline": "FlightKeys Dominates Planning While AvioBook Leads Electronic Folders",
+      "headline": "Moderate Sample Led by AvioBook and FlightKeys",
       "observations": [
-        "Planning records show **FlightKeys** with **6** recorded selections out of **10** records.",
-        "Electronic flight folder records show **AvioBook** with **5** recorded selections out of **15** records."
+        "Out of **58** airlines, **16** have EFF records led by **AvioBook** (**5**) and **Navblue Mission+** (**3**).",
+        "Flight planning includes **10** recorded airlines, with **FlightKeys** holding **6** recorded selections."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+      "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
     },
     {
       "name": "Latin America & Caribbean",
-      "headline": "Lido Leads Planning in a Fragmented Sample",
+      "headline": "Fragmented Sample with Insufficient Evidence for Leading Systems",
       "observations": [
-        "Planning records show **Lido** leading with **4** recorded selections out of **10** records.",
-        "Electronic flight folder selections are highly fragmented, with **AvioBook**, **Flightman**, and **Paper** each recording **2** selections out of **12** records."
+        "Out of **55** airlines, **13** have EFF records showing scattered counts of **2** for **AvioBook**, **Flightman**, **In-house built**, and **Paper**.",
+        "Flight planning records list **10** airlines, led by **Lido** with **4** recorded selections."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+      "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
     },
     {
       "name": "Middle East & North Africa",
-      "headline": "Balanced Selections Across Multiple Vendors",
+      "headline": "Balanced Carrier Sample Citing Bytron and Jeppesen",
       "observations": [
-        "Electronic flight folder records show **Bytron Skybook**, **Jeppesen Aviator**, and **Paper** tied with **3** recorded selections each out of **15** records.",
-        "Planning records show **Lido** and **NavBlue** tied with **3** recorded selections each out of **10** records."
+        "Out of **52** airlines, **15** have EFF records led by **Bytron Skybook** (**3**), **Jeppesen Aviator** (**3**), and **Paper** (**3**).",
+        "Flight planning records cover **10** airlines, with **Lido** (**3**) and **NavBlue** (**3**) leading selections."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+      "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
     },
     {
       "name": "Sub-Saharan Africa",
-      "headline": "Evidence is Insufficient for Targeting Recommendations",
+      "headline": "Evidence Insufficient Due to Low Sample Size",
       "observations": [
-        "The field-complete sample is under 5 for planning records, with only **4** recorded selections total.",
-        "Electronic flight folder records are limited to **8** total selections, providing insufficient evidence to name a leading system."
+        "Out of **47** airlines, only **8** have EFF records and **4** have flight planning records.",
+        "Due to field-complete samples under **5** for individual vendor categories, evidence is insufficient to name a leading system or make a targeting recommendation."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+      "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
     },
     {
       "name": "Mainland China",
-      "headline": "NavChina Dominates Electronic Flight Folder Selections",
+      "headline": "Complete Regional Coverage Driven Entirely by NavChina",
       "observations": [
-        "Electronic flight folder records show **NavChina** leading with **37** recorded selections out of **41** records.",
-        "Planning records show **0** recorded selections, indicating complete reliance on other methods for flight planning in this sample."
+        "Out of **41** airlines, all **41** have EFF records, with **NavChina** accounting for **37** recorded selections and **In-house built** holding **4**.",
+        "Flight planning records are entirely blank with **0** entries across all **41** airlines."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+      "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
     },
     {
       "name": "Unmapped",
-      "headline": "Sample is Insufficient",
+      "headline": "Zero Recorded Data Prevents Market Assessment",
       "observations": [
-        "This region contains **0** recorded selections for electronic flight folders and **0** recorded selections for planning.",
-        "Evidence is insufficient to name a leading system or make a directional targeting recommendation."
+        "Out of **12** airlines, **0** have EFF records and **0** have flight planning records.",
+        "Evidence is insufficient to evaluate vendor presence or provide target research recommendations."
       ],
-      "caveat": "Treat this Airtable list as a prospect sample, not the whole market. Multiple selections can be recorded for one airline; blanks mean unknown, not non-adoption."
+      "caveat": "This Airtable list represents a prospect sample, not the whole market. Blanks mean unknown, not non-adoption."
     }
   ]
 }

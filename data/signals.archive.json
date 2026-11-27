@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T16:18:44Z",
+  "generated_at": "2026-11-27T15:45:00Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -12,6 +12,178 @@
     "Others"
   ],
   "signals": [
+    {
+      "id": "browser-a059d75c51c7",
+      "competitor": "Bytron Skybook",
+      "date": "2026-11-26",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Discover how Air Algérie is progressing its digital transformation with skybook.",
+      "summary": "✈️ Reposted content: From paper briefings to a fully integrated EFB. Read the full case study in the comments 👇 #EFB #FlightOperations #AviationIndustry #DigitalTransformation #Aviation #AvGeek",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "Bytron Skybook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/bytron_discover-how-air-alg%C3%A9rie-is-progressing-its-activity-7531668824668946432-SITT"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-27T15:45:40+00:00",
+        "source_sha256": "0996ba6af56d4656cec1a29ad07af131690d5910b8c585b390890fe35d155d0d",
+        "evidence_scope": "captured_preview_only",
+        "title": "Bytron Skybook promotes case study of Air Algérie's transition to integrated EFB.",
+        "summary": "Bytron Skybook is promoting a case study regarding Air Algérie's transition from paper briefings to an integrated Electronic Flight Bag (EFB) using Skybook. This post provides promotional messaging regarding digital transformation and does not announce a new deployment or contract."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-27T15:48:38+00:00",
+        "source_sha256": "0996ba6af56d4656cec1a29ad07af131690d5910b8c585b390890fe35d155d0d",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-74dd90b6d146",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-11-26",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "The best decision for one part of an airline isn’t always the best decision for the airline as a whole.",
+      "summary": "That’s why we're launching NetLine One, our new integrated offering that connects planning and operations around shared business objectives. Find out more: https://lnkd.in/eB3Y8HA9 #NetLineOne #AirlineOperations #Aviation #LufthansaSystems",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/lufthansa-systems_netlineone-airlineoperations-aviation-activity-7531677775687249920-WIaI"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-27T15:46:03+00:00",
+        "source_sha256": "20af854bea3a39933ef1687c751b56179e05bf5c497eb6ca0ed7b904438692c3",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems launches NetLine One, an integrated offering connecting airline planning and operations.",
+        "summary": "Lufthansa Systems is launching NetLine One, an integrated offering designed to connect airline planning and operations. The product aims to align these functions around shared business objectives."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-27T15:49:26+00:00",
+        "source_sha256": "20af854bea3a39933ef1687c751b56179e05bf5c497eb6ca0ed7b904438692c3",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.7,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "browser-5f0dd05ce2df",
+      "competitor": "Aviobook",
+      "date": "2026-11-26",
+      "date_is_estimated": false,
+      "type": "messaging_shift",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Heading to London: meet the Aviobook team next week at Aircraft IT Flight Ops Conference!",
+      "summary": "Whether you want to talk about the future of flight operations, see what's new in our EFB solutions, or just catch up over a coffee, come say hi to: 👤 Jonas Lejeune , Chief Product Officer 👤 Sien Bode , Product Marketing Manager 👤 Koen Boon , Business Development Manager 👤 Sophie Jamain , Head of Sales and Account Management Do not hesitate to send any of us a message to book a meeting in advance. 🇬🇧 #AircraftIT…",
+      "source_channel": "linkedin",
+      "source_origin": "linkedin",
+      "product_focus": "eff",
+      "product": "AvioBook",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "LinkedIn Bright Data collector",
+          "url": "https://www.linkedin.com/posts/aviovision-nv_aircraftit-aviobook-efb-activity-7531696629356363776-uFG-"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "brightdata_linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-27T15:46:42+00:00",
+        "source_sha256": "4965df579e400240dfa07902c36b97e04414de3b8f86d97811fec054fc7f68bd",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook promotes attendance at the Aircraft IT Flight Ops Conference in London.",
+        "summary": "Aviobook is promoting its presence at the Aircraft IT Flight Ops Conference to discuss its EFB solutions. No concrete product developments or customer agreements are established."
+      },
+      "ai_classification_status": "pending"
+    },
     {
       "id": "browser-3aaf9630e054",
       "competitor": "Aviobook",
@@ -48,8 +220,31 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-27T15:47:05+00:00",
+        "source_sha256": "5a3b6406fb28d96a0d2c94d9085f3b83656a50f1a53a60cafab597900fbda130",
+        "evidence_scope": "captured_preview_only",
+        "title": "Aviobook promotes Smart Briefing features for flight operations.",
+        "summary": "Aviobook promotes Smart Briefing capabilities, highlighting its ability to check schedules, fuel, weights, weather, NOTAMs, and technical status. The post demonstrates the tool's workflow using a Lisbon to Madrid flight, but no new product release or customer win is established."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-27T15:50:28+00:00",
+        "source_sha256": "5a3b6406fb28d96a0d2c94d9085f3b83656a50f1a53a60cafab597900fbda130",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.9,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 0.9,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-00ce3a21e81d",
@@ -1397,7 +1592,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -1413,6 +1607,15 @@
         "ai_evidence": "",
         "type_auto_applied": false,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-27T15:48:07+00:00",
+        "source_sha256": "f73c7b8a03a29c1cd7c5a065b6b6781e83fe39380c12c57e9d8704c0124aaeaa",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems promotes presence at the EFB Users Forum.",
+        "summary": "Lufthansa Systems is promoting its attendance at the EFB Users Forum to discuss Lido EFB workflows and cockpit situational awareness. No concrete product or contract changes are established."
       }
     },
     {
@@ -2733,7 +2936,7 @@
       "summary": "Navblue reported a customer win update: IndiGo Becomes First Airline Globally to Adopt Skywise A320 Virtual Procedure Trainer for Emergency Training. Open the linked source to verify details and assess impact for Cathay Technologies.",
       "source_channel": "rss",
       "source_origin": "google_news",
-      "product_focus": "other",
+      "product_focus": "adjacent",
       "product": null,
       "why_it_matters": "Auto-captured signal — verify source and enrich into a battlecard before executive distribution.",
       "segment": "Unknown",
@@ -2757,7 +2960,23 @@
       ],
       "ai_enrichment_status": "pending",
       "ai_brief_status": "pending",
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-27T15:50:56+00:00",
+        "source_sha256": "795157a331fdab831746d66b6ed8f4898bc5191a6ea5007e578e63f96cb1c705",
+        "suggested_type": "customer_win",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 0.9,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "original_product_focus": "other",
+        "focus_auto_applied": true
+      }
     },
     {
       "id": "cap-aaa393159597",
