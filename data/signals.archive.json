@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T15:45:00Z",
+  "generated_at": "2026-11-28T14:40:49Z",
   "lookback_days": 365,
   "source_mode": "seed_plus_capture",
   "competitors": [
@@ -182,7 +182,147 @@
         "title": "Aviobook promotes attendance at the Aircraft IT Flight Ops Conference in London.",
         "summary": "Aviobook is promoting its presence at the Aircraft IT Flight Ops Conference to discuss its EFB solutions. No concrete product developments or customer agreements are established."
       },
-      "ai_classification_status": "pending"
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-28T14:43:07+00:00",
+        "source_sha256": "4965df579e400240dfa07902c36b97e04414de3b8f86d97811fec054fc7f68bd",
+        "suggested_type": "messaging_shift",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-00feb5d8a8bb",
+      "competitor": "Lufthansa Systems",
+      "date": "2026-11-26",
+      "date_is_estimated": false,
+      "type": "product_launch",
+      "priority": "low",
+      "severity": 2,
+      "confidence": 0.65,
+      "headline": "That’s why we're launching NetLine One, our new integrated offering that connects planning and operations around shared business objectives.",
+      "summary": "The best decision for one part of an airline isn’t always the best decision for the airline as a whole. That’s why we're launching NetLine One, our new integrated offering that connects planning and operations around shared business objectives.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "adjacent",
+      "product": null,
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOak9YTkhhRUdZRWFWQ09oRFVkTmdoTGJUUjY1TkxPdy1Ba2s4ZWl3MlE4SHVjZlRVUklsZUpKRGtpZXprVVZXTl9HMHgza0kxSW80d3NYUmhZRGFRbGxPV2JrajBycDNXdFYwSlMtNlluSUNncHpKSFN1T3FZdW1MYlkwbHFscHV6YWNaZ0s1OTZQdXNuTDhuUVhVc2JjdUoyRTdtVVpIM2d4TEJXMFJwc2prQ1ZEbjBQRjFaVA?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-28T14:41:08+00:00",
+        "source_sha256": "925c79d24d7840bf13d9d12ea1735acc910859139f3faeef5cf9ebf033645a55",
+        "evidence_scope": "captured_preview_only",
+        "title": "Lufthansa Systems launches NetLine One integrated planning and operations offering.",
+        "summary": "Lufthansa Systems is launching NetLine One, an integrated offering designed to connect airline planning and operations around shared business objectives."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-28T14:43:27+00:00",
+        "source_sha256": "925c79d24d7840bf13d9d12ea1735acc910859139f3faeef5cf9ebf033645a55",
+        "suggested_type": "product_launch",
+        "type_confidence": 0.95,
+        "suggested_product_focus": "adjacent",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "original_type": "partnership",
+        "type_auto_applied": true,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-2aa67367bc06",
+      "competitor": "Jeppesen",
+      "date": "2026-11-25",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "What if pilots could revisit air traffic control instructions as easily as reading a…",
+      "summary": "What if pilots could revisit air traffic control instructions as easily as reading a message? Archer and Jeppesen ForeFlight have announced an AI partnership aimed at improving aviation safety through real-time air traffic control (ATC)",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNaUVJU0I3alI1UVVSN0F0cjRrVDdDT1VwY1piX1B0aFlWRjRaNzFaSVBsbm9FOTVyWTNWYXlOOTBUdkJZQXdkaS12Rnd5WHNDdzlHbGxrTzdvMDExRnNraXlSQnRwV3Q4ZFlKOVZLVk9hcVNsRkNJYnp3OXJGamN1WXJjTkZ4T3N6Q0hqWTJnVmpoOGY1TVVkRjNGUGRsdXhEelJBYS1zOTFLQ0Q1V3N1bXpOY3MtN1FZZjd1cVprNUZHN1dMb1lCaE5ST0dBbl9nNXktLXcwR3A?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-28T14:41:30+00:00",
+        "source_sha256": "512323ce8ad80fce3bc6ede608b831ab483acebd210b7efa3220d34fb4a5d4c1",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen announces AI partnership with Archer to enable real-time air traffic control instruction review via ForeFlight.",
+        "summary": "Jeppesen and Archer have announced an AI partnership focused on improving aviation safety. The collaboration aims to allow pilots to revisit real-time air traffic control (ATC) instructions through ForeFlight."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-28T14:43:44+00:00",
+        "source_sha256": "512323ce8ad80fce3bc6ede608b831ab483acebd210b7efa3220d34fb4a5d4c1",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "announced an AI partnership",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
     },
     {
       "id": "browser-3aaf9630e054",
@@ -1619,6 +1759,130 @@
       }
     },
     {
+      "id": "cap-7fc1a3ab4fba",
+      "competitor": "Jeppesen",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Today we announced a new partnership with Archer to integrate ZEE into ForeFlight Mobile.",
+      "summary": "Today we announced a new partnership with Archer to integrate ZEE into ForeFlight Mobile. Phase one starts with real-time ATC transcription that runs on-device on iPad.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNVG0tcXMzTW5ILVczNDN1ZlIzdkdERG14OHdTZ3VvZm82dDNyZHhvdjNFU2YyaXNPQl9PSFJLaG93Q016R2NDdmZzdHNxa1p2X0gxMC1YbnRuRnBlZFZvYTFGeWNMdHJ0MlQzeV9hMEl3a3V0Qm1kVmhhWlFKOVhMdmFWWjRDeTlPcXo3U3N5MU1wbGRmLVRpYmhjTG1HNzBJc0h3c2Uwc0hvek9vMEp2cWhYY3hlS1FEQ0xNNkFWTVNOUkRM?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-28T14:41:47+00:00",
+        "source_sha256": "6458a3b97e21a5c80b52ba8d2b8c9858703a588dbb1d93f6a0d46c93cda18608",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen integrates Archer's ZEE into ForeFlight Mobile.",
+        "summary": "Jeppesen is partnering with Archer to integrate ZEE into ForeFlight Mobile. The initial phase features real-time, on-device ATC transcription for iPad."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-28T14:44:12+00:00",
+        "source_sha256": "6458a3b97e21a5c80b52ba8d2b8c9858703a588dbb1d93f6a0d46c93cda18608",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": false,
+        "ai_confidence": 1.0,
+        "ai_evidence": "",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
+      "id": "cap-009a473f1e29",
+      "competitor": "Jeppesen",
+      "date": "2026-11-17",
+      "date_is_estimated": false,
+      "type": "partnership",
+      "priority": "medium",
+      "severity": 3,
+      "confidence": 0.65,
+      "headline": "Archer and Jeppesen ForeFlight Launch AI Partnership",
+      "summary": "Jeppesen reported a partnership update: Archer and Jeppesen ForeFlight Launch AI Partnership. Open the linked source to verify details and assess impact for Cathay Technologies.",
+      "source_channel": "linkedin",
+      "source_origin": "google_news",
+      "product_focus": "eff",
+      "product": "ForeFlight",
+      "why_it_matters": "LinkedIn company post — useful for product launches and customer stories; verify before executive distribution.",
+      "segment": "Unknown",
+      "implications": [
+        "Needs analyst confirmation before executive distribution."
+      ],
+      "next_actions": [
+        "Open source link, validate claim, upgrade confidence.",
+        "If confirmed, add implications for Cathay Technologies."
+      ],
+      "sources": [
+        {
+          "title": "Google News · LinkedIn",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVk1TWFkzTVZFZkpqX2NWb3JudFJ5elctNGw4MVRMU0p2YllMenpkTTlpbUxaamZTN1JvcHZOa3VIZGVWZGVOX3M3WWxGMnVlSENiZ1k4WENlM25MdTJudXRxNjJMdUZoVjUweEU5Y1hmMzAzYnNfYnpwa25hTXlQUWJjdmFYTFBTSGVMVWNtdFJxRzhmOHRNdl9nOHdES2MtWjR3TW8zX0xBRG1xR1JQLWd4bw?oc=5"
+        }
+      ],
+      "tags": [
+        "auto-capture",
+        "linkedin",
+        "linkedin"
+      ],
+      "ai_enrichment_status": "pending",
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-28T14:42:04+00:00",
+        "source_sha256": "a745d4053843e4f02474ac2ff17fa82a71a49693c6e717109720fb239332fa6a",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen ForeFlight and Archer announce AI partnership.",
+        "summary": "Jeppesen ForeFlight has announced a partnership with Archer focused on AI. The text does not provide specific technical details or the scope of the collaboration."
+      },
+      "ai_classification": {
+        "classification_version": 1,
+        "model": "gemma-4-26b-a4b-it",
+        "enriched_at": "2026-11-28T14:44:34+00:00",
+        "source_sha256": "a745d4053843e4f02474ac2ff17fa82a71a49693c6e717109720fb239332fa6a",
+        "suggested_type": "partnership",
+        "type_confidence": 1.0,
+        "suggested_product_focus": "eff",
+        "focus_confidence": 1.0,
+        "focus_rule_override": null,
+        "is_ai_related": true,
+        "ai_confidence": 1.0,
+        "ai_evidence": "Launch AI Partnership",
+        "type_auto_applied": false,
+        "focus_auto_applied": false
+      }
+    },
+    {
       "id": "browser-fb0b5200ec10",
       "competitor": "Aviobook",
       "date": "2026-11-16",
@@ -2652,7 +2916,6 @@
         "linkedin"
       ],
       "ai_enrichment_status": "pending",
-      "ai_brief_status": "pending",
       "ai_classification": {
         "classification_version": 1,
         "model": "gemma-4-26b-a4b-it",
@@ -2670,6 +2933,15 @@
         "original_type": "partnership",
         "type_auto_applied": true,
         "focus_auto_applied": false
+      },
+      "ai_brief": {
+        "model": "gemma-4-26b-a4b-it",
+        "brief_version": 1,
+        "enriched_at": "2026-11-28T14:42:49+00:00",
+        "source_sha256": "b2ab9200fa2f4a2e2bff493b52a3e28e0902da1a7c8452685e994d4338a8dfcb",
+        "evidence_scope": "captured_preview_only",
+        "title": "Jeppesen announces new HR Business Partner for ForeFlight in Denmark.",
+        "summary": "The post shares a personal career update regarding an individual joining Jeppesen ForeFlight as an HR Business Partner in Denmark. No concrete change to product or business operations is established."
       }
     },
     {
